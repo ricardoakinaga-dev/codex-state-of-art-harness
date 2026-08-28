@@ -12,12 +12,15 @@ e permanece fora do runtime.
 
 - Arquitetura do sistema: `PROPOSED`.
 - Phase 1: `IMPLEMENTED/VERIFIED` dentro desta fronteira.
-- Phase 2: `CURRENT IMPLEMENTATION TARGET`, com kernel local em construção.
+- Phase 2: `IMPLEMENTED/CONDITIONAL PASS` dentro do kernel local bounded; a
+  revisão independente final e o gate `PHASE2-VERIFIED` continuam pendentes.
 - Runtime completo do Codex: `NOT PROVEN`.
 
 A Phase 2 permite somente providers fixtures determinísticos e execução
 project-local. Não há Skill/subagent/MCP/host adapter, shell, rede, deploy ou
-mutação de configuração global.
+mutação de configuração global. A verificação atual registra 187 testes,
+84% de cobertura total, Ruff/mypy/CLI/benchmark/security PASS e
+`check_state.py` 10/10; isso não é uma alegação de runtime completo do Codex.
 
 ## Verificação local
 
