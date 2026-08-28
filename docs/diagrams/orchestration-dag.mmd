@@ -1,0 +1,13 @@
+flowchart LR
+  Goal[Authorized goal] --> N1[Lane A: inspect]
+  Goal --> N2[Lane B: research]
+  Goal --> N3[Lane C: risk review]
+  N1 --> Merge[Integrator]
+  N2 --> Merge
+  N3 --> Merge
+  Merge --> V[Verification]
+  V --> Q[Quality and assurance]
+  N1 -. failure .-> Partial[Preserve partial + limitation]
+  N2 -. failure .-> Partial
+  N3 -. failure .-> Partial
+  Partial --> Merge

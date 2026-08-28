@@ -1,0 +1,10 @@
+flowchart LR
+  U[User request] --> C[Codex host boundary]
+  C --> A[AGENTS and project context]
+  C --> S[Skills metadata and workflow]
+  C --> T[Native tools and MCP]
+  C --> H[Proposed capability harness]
+  H --> R[Artifacts and evidence]
+  R --> U
+  E[External authority: system developer safety] --> C
+  P[Provider or service] <--> T

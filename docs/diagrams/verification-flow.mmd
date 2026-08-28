@@ -1,0 +1,11 @@
+flowchart TD
+  Candidate[Candidate artifact] --> Claims[Enumerate claims]
+  Claims --> Procedures[Select required procedures]
+  Procedures --> Run[Execute tests / inspections]
+  Run --> Evidence[Evidence records]
+  Evidence --> Fresh{Fresh and sufficient?}
+  Fresh -- no --> Unknown[NOT_RUN / UNKNOWN / BLOCKED]
+  Fresh -- yes --> Report[VerificationReport]
+  Unknown --> Report
+  Report --> Review[Independent or separated critique]
+  Review --> Assurance[Assurance decision]

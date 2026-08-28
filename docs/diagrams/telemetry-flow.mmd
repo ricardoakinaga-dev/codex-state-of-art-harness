@@ -1,0 +1,14 @@
+flowchart LR
+  Task[TASK_RECEIVED] --> Class[TASK_CLASSIFIED]
+  Class --> Route[ROUTE_SELECTED]
+  Route --> Selected[CAPABILITY_SELECTED]
+  Selected --> Loaded[CAPABILITY_LOADED when observed]
+  Loaded --> Call[TOOL_CALLED]
+  Call --> Result[TOOL_RESULT]
+  Result --> Validation[VALIDATION_RUN]
+  Validation --> Critique[CRITIQUE_RUN]
+  Critique --> Gauntlet[GAUNTLET_PASS or FAIL]
+  Gauntlet --> Delivery[DELIVERY]
+  Retry[RETRY] -. correlated .-> Call
+  Store[Append-only privacy-aware event store] -. correlates .-> Task
+  Store -. correlates .-> Delivery

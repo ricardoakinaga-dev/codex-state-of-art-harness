@@ -1,0 +1,14 @@
+flowchart TB
+  Policy[Policy and external authority]
+  Control[Router / Director / Orchestrator]
+  Work[Planner / Specialist / Integrator]
+  Action[Tool / Provider / Native host]
+  Proof[Verification / Reviewer / Assurance]
+  Records[State / Artifact / Evidence / Telemetry]
+  Policy --> Control
+  Control --> Work
+  Work --> Action
+  Action --> Proof
+  Proof --> Records
+  Records -. feedback .-> Control
+  Policy -. constraints .-> Proof

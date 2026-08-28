@@ -1,0 +1,12 @@
+flowchart TD
+  Current[Inspect current package] --> Upstream[Inspect upstream and provenance]
+  Upstream --> Boundary[Mark Codex-native boundary]
+  Boundary --> Contract[Add manifest and composition contracts]
+  Contract --> Workflow[Define workflow, gates, stops]
+  Workflow --> Checks[Deterministic checks and known-bad evals]
+  Checks --> Benchmark[Benchmark against baseline]
+  Benchmark --> Decision{Promotion criteria met?}
+  Decision -- yes --> Promote[Promote with evidence]
+  Decision -- no --> Reject[Keep candidate / reject / revise]
+  Promote --> Monitor[Monitor drift and regressions]
+  Reject --> Current

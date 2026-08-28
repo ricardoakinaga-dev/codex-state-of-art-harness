@@ -1,0 +1,3 @@
+[submodule "skill-audit"]
+	path = skill-audit
+	url = https://github.com/ricardoakinaga-dev/skill-audit.git

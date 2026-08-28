@@ -1,0 +1,12 @@
+flowchart LR
+  Bar[Frozen quality bar] --> Blind[Blind review packet]
+  Artifact[Artifacts] --> Blind
+  Verification[Verification report] --> Blind
+  Blind --> Critique[CritiqueReport]
+  Critique --> Findings[Severity, confidence, residual risk]
+  Findings --> Stop{Critical open finding?}
+  Stop -- yes --> Halt[STOP or ESCALATE]
+  Stop -- no --> Gates[Required gates]
+  Gates --> Decision[QualityReport and delivery decision]
+  Decision --> Iteration[Bounded repair iteration]
+  Iteration --> Blind

@@ -1,0 +1,13 @@
+flowchart LR
+  System[System authority] --> Developer[Developer authority]
+  Developer --> User[User intent and constraints]
+  Safety[Safety and platform boundary] --> Decision[Authorized decision]
+  System --> Decision
+  Developer --> Decision
+  User --> Decision
+  Decision --> Internal[Internal responsibility model]
+  Internal --> Route[Route selection]
+  Internal --> Stop[Block / stop]
+  Internal --> Delivery[Delivery recommendation]
+  Conflict[Conflict] --> Precedence[External precedence and escalation]
+  Precedence --> Decision

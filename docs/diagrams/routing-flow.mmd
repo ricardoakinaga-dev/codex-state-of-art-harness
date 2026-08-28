@@ -1,0 +1,17 @@
+flowchart TD
+  Start[Task received] --> Profile[Build TaskProfile]
+  Profile --> Safety{Safety or authority block?}
+  Safety -- yes --> Block[BLOCKED and explain]
+  Safety -- no --> Native{Native direct route sufficient?}
+  Native -- yes --> Direct[Direct route]
+  Native -- no --> Match[Match manifest and scope]
+  Match --> Need{Director or orchestration needed?}
+  Need -- no --> Specialist[Select specialist or tool]
+  Need -- yes --> Director[Select one domain Director]
+  Director --> Graph[Create ExecutionGraph]
+  Specialist --> Decision[Record RouteDecision]
+  Graph --> Decision
+  Decision --> Execute[Execute with budgets and gates]
+  Execute --> Reevaluate{New evidence changes profile?}
+  Reevaluate -- yes --> Profile
+  Reevaluate -- no --> Verify[Verification]

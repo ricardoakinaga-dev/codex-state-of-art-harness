@@ -1,0 +1,20 @@
+flowchart TB
+  Input[Task intake] --> Classifier[Classifier]
+  Classifier --> Router[Router]
+  Router --> Registry[Capability registry]
+  Router --> Director[Domain Director]
+  Director --> Planner[Planner]
+  Planner --> Orchestrator[Orchestrator]
+  Orchestrator --> Specialist[Specialist lanes]
+  Specialist --> Integrator[Integrator]
+  Specialist --> Tools[Tools and providers]
+  Integrator --> Verification[Verification]
+  Verification --> Reviewer[Reviewer]
+  Reviewer --> Assurance[Assurance]
+  Assurance --> Delivery[Delivery decision]
+  State[State store] -.-> Router
+  State -.-> Orchestrator
+  Evidence[Evidence store] -.-> Verification
+  Telemetry[Telemetry] -.-> Router
+  Telemetry -.-> Orchestrator
+  Telemetry -.-> Assurance

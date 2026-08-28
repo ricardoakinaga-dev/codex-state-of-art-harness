@@ -1,0 +1,11 @@
+flowchart LR
+  Plan[PLAN] --> Graph[TASK_GRAPH]
+  Graph --> Patch[SOURCE_PATCH or domain artifact]
+  Patch --> Build[BUILD / render / result]
+  Build --> Test[TEST_REPORT]
+  Test --> Verify[VERIFICATION_REPORT]
+  Verify --> Critique[CRITIQUE_REPORT]
+  Critique --> Quality[QUALITY_SCORE]
+  Quality --> Delivery[FINAL_DELIVERY]
+  Any[Every artifact] -. digest + provenance + limitations .-> Record[ArtifactRecord]
+  Record -. supersedes without overwrite .-> Any
