@@ -1,0 +1,45 @@
+{
+  "schema_version": "TP-1",
+  "task_id": "TASK-0001",
+  "run_id": "RUN-0001",
+  "record": {
+    "status": "CURRENT",
+    "provenance": {
+      "source_type": "USER_PROVIDED",
+      "source_refs": ["user-request"],
+      "created_at": "2026-08-28T10:00:00-03:00"
+    },
+    "evidence_refs": ["EVID-REQ-0001"]
+  },
+  "objective": "Validate a local capability manifest without executing it.",
+  "requested_outcome": "A deterministic validation report.",
+  "domain": "ENGINEERING",
+  "complexity": "SMALL",
+  "risk": "MEDIUM",
+  "visual_importance": "NONE",
+  "security_impact": "LOW",
+  "data_impact": "LOCAL",
+  "user_impact": "INTERNAL",
+  "blast_radius": "LOCAL",
+  "research_need": "NONE",
+  "parallelism_potential": "LOW",
+  "reversibility": "EASY",
+  "confidence": "HIGH",
+  "constraints": ["Project-local data only", "No execution"],
+  "non_goals": ["Provider dispatch", "Skill installation"],
+  "repository_context": {
+    "root": ".",
+    "classification": "GREENFIELD",
+    "trust_state": "TRUSTED"
+  },
+  "evidence": {
+    "refs": ["EVID-REQ-0001"],
+    "confidence": "HIGH"
+  },
+  "classification_trace": {
+    "rule_ids": ["CLS-DOMAIN-ENGINEERING", "CLS-SCOPE-LOCAL"],
+    "assumptions": [],
+    "unresolved": []
+  },
+  "created_at": "2026-08-28T10:00:00-03:00"
+}

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "items": [
+    {
+      "id": "DOC-001",
+      "title": "Create Codex Capability Harness reference documentation",
+      "stage": "SPEC",
+      "priority": "P0",
+      "status": "DONE",
+      "origin": "User-provided documentation-first architecture program",
+      "dependencies": [],
+      "owner": "lead",
+      "acceptance_summary": "All requested docs, ADRs, diagrams, contracts, examples, audits, and master spec exist and pass the frozen documentation quality bar.",
+      "evidence_refs": [
+        ".gauntlet/state.md",
+        ".agent/plans/DOC-001-capability-harness-documentation.md",
+        ".agent/verification.jsonl#VER-DOC-LOCAL-0001"
+      ],
+      "next_action": "Hand off the approved documentation set; begin implementation only at the Phase 1 gates."
+    },
+    {
+      "id": "PHASE1-001",
+      "title": "Implement the contract-first Phase 1 Harness Kernel",
+      "stage": "BUILD",
+      "priority": "P0",
+      "status": "DONE",
+      "origin": "User-supplied Phase 1 implementation specification",
+      "dependencies": ["DOC-001"],
+      "owner": "lead",
+      "acceptance_summary": "Implement and verify the bounded kernel contracts, registry, classification, route model, authority, evidence, artifacts, state, stop engine, telemetry, local CLI, isolation layout and evidence package without runtime execution or global mutation.",
+      "evidence_refs": [
+        ".agent/plans/PHASE-1-kernel-implementation.md",
+        ".agent/gates/PHASE1-IMPLEMENTATION-READY-0002.json",
+        ".agent/gates/PHASE1-VERIFIED-0002.json",
+        ".agent/verification.jsonl#VER-PHASE1-FINAL-0002",
+        "docs/implementation/phase-1-quality-bar.md",
+        "evidence/phase-1/README.md"
+      ],
+      "next_action": "Do not expand runtime scope until a separate Phase 2 specification, authority and execution gate is approved."
+    }
+  ]
+}

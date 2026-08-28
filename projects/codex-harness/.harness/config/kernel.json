@@ -1,0 +1,27 @@
+{
+  "schema_version": "HK-1",
+  "project_id": "codex-state-of-art-harness",
+  "strict_validation": true,
+  "registry": {
+    "manifest_dir": ".harness/registry/manifests",
+    "capability_dir": ".harness/capabilities"
+  },
+  "paths": {
+    "state_dir": ".harness/state",
+    "evidence_dir": ".harness/evidence",
+    "telemetry_dir": ".harness/telemetry",
+    "eval_dir": ".harness/evals",
+    "cache_dir": ".harness/cache"
+  },
+  "budgets": {
+    "max_iterations": 20,
+    "max_failures": 3,
+    "max_parallelism": 4,
+    "max_context_tokens": 12000
+  },
+  "telemetry": {
+    "redaction_enabled": true,
+    "append_only": true,
+    "allow_unobserved_capability_loaded": false
+  }
+}

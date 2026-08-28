@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-08-28T15:09:06.754307+00:00",
+  "iterations": 1000,
+  "limitations": "Local microbenchmark baseline only; it does not measure provider latency, quality, causal impact, or production SLOs.",
+  "manifest": "harness-kernel",
+  "operations": {
+    "manifest_validation": {
+      "duration_ns_per_op": 39829,
+      "duration_ns_total": 39829095,
+      "iterations": 1000,
+      "max_ns": 151425,
+      "median_ns": 37112,
+      "min_ns": 35726
+    },
+    "registry_loading": {
+      "duration_ns_per_op": 144110,
+      "duration_ns_total": 144110574,
+      "iterations": 1000,
+      "max_ns": 726964,
+      "median_ns": 146200,
+      "min_ns": 124073
+    },
+    "route_validation": {
+      "duration_ns_per_op": 29438,
+      "duration_ns_total": 29438600,
+      "iterations": 1000,
+      "max_ns": 53264,
+      "median_ns": 28043,
+      "min_ns": 25015
+    },
+    "state_transition": {
+      "duration_ns_per_op": 825,
+      "duration_ns_total": 825606,
+      "iterations": 1000,
+      "max_ns": 8986,
+      "median_ns": 489,
+      "min_ns": 467
+    },
+    "telemetry_append": {
+      "duration_ns_per_op": 137894,
+      "duration_ns_total": 137894252,
+      "iterations": 1000,
+      "max_ns": 2683798,
+      "median_ns": 128072,
+      "min_ns": 118047
+    }
+  },
+  "platform": "Linux-7.0.0-30-generic-x86_64-with-glibc2.39",
+  "python_version": "3.12.3",
+  "schema_version": "P1-BENCH-1"
+}

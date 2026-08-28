@@ -1,0 +1,82 @@
+{
+  "record_id": "GATE-PHASE1-VERIFIED-0001",
+  "timestamp": "2026-08-28T12:00:00-03:00",
+  "gate_id": "VERIFIED",
+  "scope": "Phase 1 Harness Kernel",
+  "scope_ref": "PHASE1-001",
+  "version": 1,
+  "criteria": [
+    {
+      "id": "V-001-ACCEPTANCE-EVIDENCE",
+      "description": "The bounded Phase 1 kernel acceptance matrix has current executable evidence.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-1/test-report.md",
+        "evidence/phase-1/schema-validation.md",
+        ".agent/verification.jsonl#VER-PHASE1-FINAL-0001"
+      ],
+      "confidence": "HIGH",
+      "limitations": "The evidence covers the local contract-first kernel and not deferred runtime integrations."
+    },
+    {
+      "id": "V-002-REGRESSION-RISK",
+      "description": "Regression, isolation, security and provenance risks have current checks and no open Critical or High findings.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-1/path-validation.md",
+        "evidence/phase-1/security-summary.md",
+        "evidence/phase-1/independent-review.md",
+        ".agent/verification.jsonl#VER-PHASE1-FINAL-0001"
+      ],
+      "confidence": "HIGH",
+      "limitations": "Historical raw skill-audit fixture links remain outside the runtime scope and are intentionally untouched."
+    },
+    {
+      "id": "V-003-LIMITATIONS-AUTHORITY",
+      "description": "Deferred scope, authority boundary and residual risks are explicit and prevent an overbroad completion claim.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "docs/implementation/phase-1-deferred.md",
+        "docs/implementation/phase-1-kernel-report.md",
+        ".agent/verification.jsonl#VER-PHASE1-FINAL-0001"
+      ],
+      "confidence": "HIGH",
+      "limitations": "A separate human-authorized Phase 2 gate is required before adding execution or external integrations."
+    }
+  ],
+  "evidence": [
+    "evidence/phase-1/README.md",
+    "evidence/phase-1/test-report.md",
+    "evidence/phase-1/coverage-report.md",
+    "evidence/phase-1/benchmark-summary.json",
+    "evidence/phase-1/path-validation.md",
+    "evidence/phase-1/security-summary.md",
+    "evidence/phase-1/independent-review.md",
+    ".agent/verification.jsonl#VER-PHASE1-FINAL-0001"
+  ],
+  "confidence": "HIGH",
+  "gaps": [],
+  "conditions": [],
+  "authority": {
+    "required": false,
+    "state": "NOT_REQUIRED",
+    "actor": "lead",
+    "scope": "Phase 1 Harness Kernel",
+    "decision": "No external approval is required for this local, reversible, bounded implementation.",
+    "evidence_ref": ".agent/plans/PHASE-1-kernel-implementation.md",
+    "expires_or_revalidates": "Revalidate on any execution, provider, host, deployment, credential or material scope change."
+  },
+  "residual_risk": "MEDIUM",
+  "decision": "PASS",
+  "next_action": "Do not expand runtime scope until a separate Phase 2 specification, authority and execution gate is approved.",
+  "revalidation_triggers": [
+    "Adding an executor, provider dispatch, host integration or persistence",
+    "Changing capability provenance or project-isolation policy",
+    "Changing the Phase 1 contract or security boundary",
+    "Moving from local verification to release or production operation"
+  ],
+  "supersedes": null
+}

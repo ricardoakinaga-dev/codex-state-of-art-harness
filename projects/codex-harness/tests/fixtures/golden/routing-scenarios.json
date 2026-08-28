@@ -1,0 +1,58 @@
+[
+  {
+    "id": "S1",
+    "objective": "Change button label.",
+    "expected": {
+      "complexity": "TRIVIAL",
+      "risk": "LOW",
+      "blast_radius": "LOCAL",
+      "route_status": "NO_SPECIAL_ROUTE",
+      "route_kind": "DIRECT",
+      "forbidden_unresolved": ["RISK_UNKNOWN", "BLAST_RADIUS_UNKNOWN"]
+    }
+  },
+  {
+    "id": "S2",
+    "objective": "Add authenticated API endpoint with rate limiting.",
+    "expected": {
+      "domain": "API",
+      "complexity": "MEDIUM",
+      "security_impact": "MEDIUM",
+      "route_status": "FALLBACK",
+      "required_gates": ["verification"]
+    }
+  },
+  {
+    "id": "S3",
+    "objective": "Build premium landing page with custom hero imagery.",
+    "expected": {
+      "domain": "DESIGN",
+      "visual_importance": "PRIMARY",
+      "route_status": "CONDITIONAL",
+      "required_gates": ["verification"]
+    }
+  },
+  {
+    "id": "S4",
+    "objective": "Fix one CSS margin.",
+    "expected": {
+      "complexity": "TRIVIAL",
+      "risk": "LOW",
+      "blast_radius": "LOCAL",
+      "route_status": "NO_SPECIAL_ROUTE",
+      "route_kind": "DIRECT",
+      "forbidden_unresolved": ["CLASSIFICATION_UNCERTAIN"]
+    }
+  },
+  {
+    "id": "S5",
+    "objective": "Refactor multi-service auth architecture.",
+    "expected": {
+      "complexity": "LARGE",
+      "risk": "HIGH",
+      "security_impact": "HIGH",
+      "route_status": "FALLBACK",
+      "required_gates": ["verification"]
+    }
+  }
+]

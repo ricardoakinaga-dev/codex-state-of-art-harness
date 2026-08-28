@@ -1,0 +1,42 @@
+[project]
+name = "codex-state-of-art-harness"
+version = "0.1.0"
+description = "Phase 1 contract-first kernel for a project-isolated Codex capability harness"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+harness-kernel = "harness_kernel.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "coverage>=7.6,<8",
+    "mypy>=1.13,<2",
+    "pytest>=8.3,<9",
+    "ruff>=0.8,<1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.mypy]
+python_version = "3.12"
+mypy_path = "src"
+strict = true
+warn_unreachable = true
+warn_unused_ignores = true
+exclude = "(^|/)(\\.venv|\\.mypy_cache|\\.pytest_cache|\\.ruff_cache)(/|$)"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

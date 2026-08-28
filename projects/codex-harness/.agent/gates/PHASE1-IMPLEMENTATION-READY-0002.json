@@ -1,0 +1,77 @@
+{
+  "record_id": "GATE-PHASE1-IR-0002",
+  "timestamp": "2026-08-28T11:20:00-03:00",
+  "gate_id": "IMPLEMENTATION_READY",
+  "scope": "Phase 1 Harness Kernel",
+  "scope_ref": "PHASE1-001",
+  "version": 1,
+  "criteria": [
+    {
+      "id": "IR-001",
+      "description": "Scope, architecture, interfaces and explicit deferrals are documented and bounded.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        ".agent/plans/PHASE-1-kernel-implementation.md",
+        "docs/implementation/phase-1-deferred.md",
+        "docs/implementation/phase-1-quality-bar.md"
+      ],
+      "confidence": "HIGH",
+      "limitations": "Codex host internals and provider behavior remain outside the scope of this local kernel."
+    },
+    {
+      "id": "IR-002",
+      "description": "Acceptance, deterministic validation strategy, security controls and risk-shaped tests are executable.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        ".agent/plans/PHASE-1-kernel-implementation.md",
+        "docs/implementation/phase-1-quality-bar.md",
+        "README.md"
+      ],
+      "confidence": "HIGH",
+      "limitations": "Performance thresholds are intentionally deferred; this phase records baselines only."
+    },
+    {
+      "id": "IR-003",
+      "description": "Dependencies, ownership, recovery path and project-isolation constraints are explicit.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        ".agent/plans/PHASE-1-kernel-implementation.md",
+        ".harness/README.md",
+        ".harness/capabilities/README.md"
+      ],
+      "confidence": "HIGH",
+      "limitations": "No external authority or production deployment is requested or required for this local build."
+    }
+  ],
+  "evidence": [
+    ".agent/plans/PHASE-1-kernel-implementation.md",
+    "docs/implementation/phase-1-quality-bar.md",
+    "docs/implementation/phase-1-deferred.md",
+    ".harness/README.md",
+    ".harness/capabilities/README.md"
+  ],
+  "confidence": "HIGH",
+  "gaps": [],
+  "conditions": [],
+  "authority": {
+    "required": false,
+    "state": "NOT_REQUIRED",
+    "actor": "lead",
+    "scope": "Phase 1 Harness Kernel",
+    "decision": "No external approval required for local reversible implementation",
+    "evidence_ref": ".agent/plans/PHASE-1-kernel-implementation.md",
+    "expires_or_revalidates": "Revalidate on scope, risk, contract or authorization change."
+  },
+  "residual_risk": "MEDIUM",
+  "decision": "PASS",
+  "next_action": "Enter BUILD/IMPLEMENT and complete the bounded Phase 1 kernel workstreams.",
+  "revalidation_triggers": [
+    "Scope or contract change",
+    "Security or trust-boundary change",
+    "New external integration, provider, deployment or irreversible action"
+  ],
+  "supersedes": null
+}

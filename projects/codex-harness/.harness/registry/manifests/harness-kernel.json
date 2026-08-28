@@ -1,0 +1,78 @@
+{
+  "schema_version": "CM-1",
+  "capability_id": "harness-kernel",
+  "display_name": "Harness Kernel",
+  "version": "0.1.0",
+  "record": {
+    "status": "CURRENT",
+    "provenance": {
+      "source_type": "LOCAL",
+      "source_refs": [".harness/capabilities/harness-kernel/manifest.json"],
+      "created_at": "2026-08-28T10:00:00-03:00"
+    },
+    "evidence_refs": ["EVID-MANIFEST-0001"]
+  },
+  "primary_type": "VALIDATOR",
+  "status": "CANDIDATE",
+  "owner": "lead",
+  "scope": {
+    "domains": ["ENGINEERING", "GENERAL"],
+    "activates_when": ["Phase 1 local contract validation is requested"],
+    "do_not_activate_when": ["Execution or provider dispatch is requested"],
+    "minimum_task_class": "SMALL"
+  },
+  "contracts": {
+    "inputs": ["TaskProfile", "CapabilityManifest"],
+    "outputs": ["ValidationResult"],
+    "gates": ["P1-CONTRACT"],
+    "stop_conditions": ["INVALID_INPUT", "BLOCKED_DEPENDENCY"]
+  },
+  "composition": {
+    "can_call": [],
+    "can_be_called_by": ["lead"],
+    "must_run_before": [],
+    "must_run_after": [],
+    "conflicts_with": []
+  },
+  "dependencies": {
+    "capabilities": [],
+    "tools": [],
+    "providers": [],
+    "references": ["architecture/docs/contracts/CapabilityManifest.json.md"]
+  },
+  "provenance": {
+    "source_type": "LOCAL",
+    "source_refs": [".harness/capabilities/harness-kernel/README.md"],
+    "inspected_at": "2026-08-28T10:00:00-03:00",
+    "source_repository": "local://codex-state-of-art-harness",
+    "source_hash": "sha256:ee7aa6e03c34e7df2d1959e4583a89b66ed60deaca88b928d73393f98a08d2a2",
+    "origin": "PROJECT",
+    "precedence": 200,
+    "installation_scope": "PROJECT",
+    "project_scope": "codex-state-of-art-harness",
+    "forked_from": null
+  },
+  "compatibility": {
+    "host_features": [],
+    "platform_limits": ["Python >= 3.12"]
+  },
+  "quality": {
+    "profile": "P1-CONTRACT",
+    "eval_refs": ["tests/fixtures/golden/capability-manifest.json"],
+    "benchmark_refs": [],
+    "last_result": "NOT_RUN"
+  },
+  "security": {
+    "permissions": ["read_project_local_data"],
+    "data_classes": ["PROJECT_LOCAL"],
+    "secret_policy": "Never read, store or emit secrets."
+  },
+  "context_cost": {
+    "metadata_tokens_estimate": 220,
+    "body_tokens_estimate": null
+  },
+  "deprecation": {
+    "successor": null,
+    "reason": null
+  }
+}
