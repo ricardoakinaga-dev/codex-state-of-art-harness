@@ -11,8 +11,9 @@ from collections.abc import Iterable, Mapping, Sequence
 from pathlib import Path
 from typing import Any, TextIO
 
+from .authority import AuthorityAction, AuthorityScope
 from .boundary import ProjectBoundary
-from .classification import classify_task
+from .classification import DEFAULT_TIMESTAMP, classify_task
 from .errors import ContractError, ContractValidationError, DeserializationError
 from .execution import ExecutionKernel, ExecutionLimits
 from .models import (
@@ -487,6 +488,21 @@ def _execution_limits(root: Path) -> tuple[ExecutionLimits, str]:
     if execution.get("allow_network", False) or execution.get("allow_shell", False):
         raise CliError("SANDBOX_POLICY", "network and shell execution are disabled")
     return limits, provider
+
+
+def _cli_authority(task_id: str, provider_id: str) -> AuthorityScope:
+    """Build the CLI's explicit, project-local execution grant."""
+
+    return AuthorityScope(
+        owner="project-cli-policy",
+        actor="harness-cli",
+        scopes=(f"task:{task_id}", f"capability:{provider_id}"),
+        decisions=(AuthorityAction.TRANSITION,),
+        subject_owner="project-cli-policy",
+        operations=("execute",),
+        issued_at=DEFAULT_TIMESTAMP,
+        expires_at="2099-12-31T23:59:59Z",
+    )
 
 
 def _contract_from_value(
@@ -1050,6 +1066,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                     task_id=args.task_id,
                     run_id=args.run_id,
                     provider_id=selected_provider,
+                    authority=_cli_authority(args.task_id, selected_provider),
                     limits=limits,
                     dry_run=args.dry_run or args.explain,
                     stop_before_run=args.stop_before_run,

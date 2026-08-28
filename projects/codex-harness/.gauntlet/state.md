@@ -168,3 +168,24 @@ cd "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-ha
 After those checks, resume the Phase 2 ExecPlan at CLI verification and bounded
 DAG integration, then produce the required adversarial evidence and independent
 final review.
+
+## Active continuation — Phase 2 final local verification
+
+The reset checkpoint above is historical and remains unchanged. The bounded
+Phase 2 implementation is now integrated: direct and sequential-DAG execution,
+explicit caller-supplied authority, local fixture providers, artifacts/evidence,
+verification/critique/assurance, bounded repair, persistence, telemetry and CLI
+are covered by the current source and tests. The mandatory negative-routing
+matrix is also green.
+
+The final local round recorded 187 passing tests, 84% total coverage, passing
+Ruff and mypy, seven passing CLI integration tests, a fresh `P2-BENCH-1`
+benchmark and security scans. The control-ledger checkpoint error was corrected
+with an append-only `CORRECTION` event; no historical event was rewritten.
+
+The final independent reviewer was attempted but unavailable/no usable report
+returned. Therefore the current state is `PHASE2-001 VERIFY` with verification
+state `PARTIAL` and verdict `CONDITIONAL PASS`; no `PHASE2-VERIFIED` gate is
+claimed. The remaining next action is to obtain a fresh independent read-only
+review, resolve/retest any Critical/High findings, and issue the final gate
+only if its acceptance criteria are actually met.

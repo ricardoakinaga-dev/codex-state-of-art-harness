@@ -13,11 +13,11 @@ completo do Codex.
 
 - [x] (2026-08-28 13:05 BRT) Recuperar instruções, anexo, arquitetura, Phase 1, estado, testes e baseline de qualidade.
 - [x] (2026-08-28 13:20 BRT) Congelar P2-QB-1, threat model, ADRs e entry gates técnicos.
-- [ ] (2026-08-28 13:25 BRT) Hardening TDD de registry, autoridade, serialização, state e telemetry.
-- [ ] (2026-08-28 13:25 BRT) Implementar walking skeleton direct/provider/invocation e persistence local.
-- [ ] (2026-08-28 13:25 BRT) Implementar graph bounded, limits, cancellation, timeout, artifacts e evidence.
-- [ ] (2026-08-28 13:25 BRT) Implementar verification, critique, assurance, repair, RunSummary e CLI.
-- [ ] (2026-08-28 13:25 BRT) Executar gauntlet adversarial, corrigir Critical/High e regenerar evidências frescas.
+- [x] (2026-08-28 18:30 BRT) Hardening TDD de registry, autoridade, serialização, state e telemetry.
+- [x] (2026-08-28 18:30 BRT) Implementar walking skeleton direct/provider/invocation e persistence local.
+- [x] (2026-08-28 18:30 BRT) Implementar graph bounded, limits, cancellation, timeout, artifacts e evidence.
+- [x] (2026-08-28 18:30 BRT) Implementar verification, critique, assurance, repair, RunSummary e CLI.
+- [ ] (2026-08-28 18:30 BRT) Fechar revisão independente e emitir gate VERIFIED; a implementação local, os testes e as evidências técnicas foram regenerados, mas o critic externo não retornou um relatório utilizável.
 
 ## Surprises & Discoveries
 
@@ -46,10 +46,21 @@ completo do Codex.
 
 ## Outcomes & Retrospective
 
-Preencher após a verificação integrada com comandos, contagem de testes,
-cobertura, benchmarks, findings do reviewer, readiness e limitações residuais.
-Não declarar sucesso neste plano antes do gate VERIFIED e da revisão
-independente.
+Resultado da verificação integrada: 187 testes passaram, cobertura total 84%
+(7.771 statements; 1.268 missed), Ruff format/check e mypy passaram, os 7
+testes de integração CLI passaram, o benchmark `P2-BENCH-1` foi regenerado e
+os scans de segurança não encontraram os padrões de execução proibidos. A
+matriz de routing negativa obrigatória também passou, e o kernel não
+self-authorize sem grant explícito.
+
+O critic independente foi tentado com os workers disponíveis, mas nenhum
+retornou uma revisão utilizável. Isso é registrado em
+`evidence/phase-2/independent-review.md`; não é convertido em aprovação pelo
+lead. O status final do plano é `VERIFY` / `CONDITIONAL PASS`, com o gate
+`PHASE2-VERIFIED` pendente dessa revisão. Limitações residuais: providers
+reais, host Codex, Skills, subagents, MCP, shell, rede, credenciais,
+concorrência avançada, locking multi-processo e produção permanecem fora do
+escopo.
 
 ## Context and Orientation
 
@@ -170,7 +181,9 @@ pelo Lead com diff e comandos atuais.
 10. Rodar format/lint/mypy/pytest/coverage, benchmarks e scans; gerar o pacote
     `evidence/phase-2/` e `readiness.json` com SHA/dirty state atual.
 11. Obter revisão adversarial independente, corrigir Critical/High, rerodar
-    testes e fechar somente com gate VERIFIED e final report honesto.
+    testes e fechar somente com gate VERIFIED e final report honesto. Nesta
+    rodada o passo ficou bloqueado por indisponibilidade do reviewer e foi
+    mantido como limitação explícita.
 
 ## Validation and Acceptance
 
@@ -192,6 +205,10 @@ graph success/failure, timeout/cancel, verification fail, partial, stop before
 run, repair success/exhaustion e stale evidence. Security tests devem cobrir
 manifest tampering/divergence, boundary/symlink escape, provider mismatch,
 serialization limits, forged artifacts, oversized telemetry e replay state.
+
+Resultado local registrado em `evidence/phase-2/readiness.json`; o status
+`CONDITIONAL_PASS` não deve ser promovido sem a revisão independente exigida
+por `P2-QB-1`.
 
 ## Risks and Human Decisions
 
@@ -231,6 +248,8 @@ retoma do milestone, sem reset destrutivo ou reescrita de histórico.
 
 ## Current status
 
-`TECHNICALLY_SPECIFIED` / entry-gate preparation. Phase 1 remains a historical
-verified baseline; no Phase 2 source execution is claimed until the entry gates
-and RED tests are recorded.
+`VERIFY` / `CONDITIONAL PASS`. Os entry gates continuam válidos, o código da
+Phase 2 foi implementado e verificado localmente no escopo bounded, e o
+checkpoint histórico permanece preservado. Não há claim de `PHASE2-VERIFIED`,
+produção, runtime completo do Codex ou `AAA_VERIFIED` enquanto a revisão
+independente não estiver disponível.

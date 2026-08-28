@@ -13,7 +13,12 @@ Comandos verificados:
   `CAPABILITY_UNAVAILABLE`/`PROVIDER_UNAVAILABLE`;
 - paths, IDs, JSON depth/size, duplicate keys e config sandbox são validados.
 
-A CLI só instancia `ProviderRegistry.local_defaults`, grava sob `.harness/` e
+A CLI cria uma autoridade explícita e limitada para a execução local, só
+instancia `ProviderRegistry.local_defaults`, grava sob `.harness/` e
 nunca importa ou executa módulos fornecidos na entrada. Flags não ampliam
 timeout acima da configuração, não habilitam shell/rede e não removem
 verification/authority/boundary.
+
+Rodada atual: `tests/integration/test_phase2_cli.py` — 7 testes passando;
+doctor, quality, dry-run, explain, success, unknown provider, root boundary e
+manifest admission permanecem cobertos.

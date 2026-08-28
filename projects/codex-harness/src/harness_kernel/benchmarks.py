@@ -17,6 +17,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+from .authority import AuthorityAction, AuthorityScope
 from .boundary import ProjectBoundary
 from .classification import classify_task
 from .execution import ExecutionKernel
@@ -239,6 +240,19 @@ def run_phase2_benchmarks(manifest_path: Path, *, iterations: int = 10) -> dict[
         runtime = kernel.run(
             profile,
             provider_id="local.success",
+            authority=AuthorityScope(
+                owner="benchmark-policy",
+                actor="benchmark-runner",
+                scopes=(
+                    f"task:{profile.task_id}",
+                    "capability:local.success",
+                ),
+                decisions=(AuthorityAction.TRANSITION,),
+                subject_owner="benchmark-policy",
+                operations=("execute",),
+                issued_at="1970-01-01T00:00:00Z",
+                expires_at="2099-12-31T23:59:59Z",
+            ),
             persist=False,
         )
         provider = DeterministicSuccessProvider()

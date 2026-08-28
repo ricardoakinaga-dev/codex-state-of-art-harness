@@ -4,6 +4,7 @@ from dataclasses import replace
 from pathlib import Path
 
 import pytest
+from phase2_support import authorized_kernel
 from test_contracts import all_records
 
 from harness_kernel.assurance import AssuranceDecision, assure_quality
@@ -177,8 +178,8 @@ def test_kernel_propagates_and_enforces_delegation_reference(tmp_path: Path) -> 
         issued_at="2026-08-28T12:00:00Z",
         expires_at="2026-08-28T14:00:00Z",
     )
-    kernel = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    kernel = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(DeterministicSuccessProvider()),
         timestamp="2026-08-28T13:30:00Z",
     )
@@ -229,8 +230,8 @@ def test_graph_validation_rejects_cycles_and_accepts_deterministic_topology() ->
 def test_direct_kernel_produces_artifact_evidence_verification_assurance_and_summary(
     tmp_path: Path,
 ) -> None:
-    kernel = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    kernel = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(DeterministicSuccessProvider()),
     )
 
@@ -251,11 +252,39 @@ def test_direct_kernel_produces_artifact_evidence_verification_assurance_and_sum
     assert result.invocations[0].invocation_status is InvocationStatus.SUCCEEDED
 
 
-def test_dry_run_and_stop_before_run_never_call_a_provider(tmp_path: Path) -> None:
+def test_kernel_does_not_self_authorize_when_no_grant_is_supplied(tmp_path: Path) -> None:
     provider = DeterministicSuccessProvider()
     kernel = ExecutionKernel(
-        ProjectBoundary(tmp_path), providers=ProviderRegistry().register(provider)
+        ProjectBoundary(tmp_path),
+        providers=ProviderRegistry().register(provider),
     )
+
+    result = kernel.run(
+        "Execute without an authority grant",
+        task_id="TASK-NO-AUTHORITY",
+        run_id="RUN-NO-AUTHORITY",
+        provider_id="local.success",
+    )
+
+    assert result.status is ExecutionStatus.FAILED
+    assert result.provider_results == ()
+    assert result.invocations[0].invocation_status is InvocationStatus.BLOCKED
+    assert result.failures[0].code == "AUTHORITY_REQUIRED"
+
+    dry_run = kernel.run(
+        "Plan without an authority grant",
+        task_id="TASK-NO-AUTHORITY",
+        run_id="RUN-NO-AUTHORITY-DRY",
+        provider_id="local.success",
+        dry_run=True,
+    )
+    assert dry_run.status is ExecutionStatus.FAILED
+    assert dry_run.failures[0].code == "AUTHORITY_REQUIRED"
+
+
+def test_dry_run_and_stop_before_run_never_call_a_provider(tmp_path: Path) -> None:
+    provider = DeterministicSuccessProvider()
+    kernel = authorized_kernel(tmp_path, providers=ProviderRegistry().register(provider))
 
     dry = kernel.run("Change one local label", run_id="RUN-P2-DRY", dry_run=True)
     stopped = kernel.run(
@@ -271,8 +300,8 @@ def test_dry_run_and_stop_before_run_never_call_a_provider(tmp_path: Path) -> No
 
 
 def test_failure_provider_is_typed_and_does_not_become_success(tmp_path: Path) -> None:
-    kernel = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    kernel = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(DeterministicFailureProvider()),
     )
 
@@ -289,8 +318,8 @@ def test_failure_provider_is_typed_and_does_not_become_success(tmp_path: Path) -
 
 
 def test_timeout_cancel_and_budget_are_first_class_failures(tmp_path: Path) -> None:
-    kernel = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    kernel = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(DeterministicSuccessProvider()),
     )
 

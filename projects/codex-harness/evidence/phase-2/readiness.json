@@ -1,20 +1,36 @@
 {
   "schema_version": "P2-READINESS-1",
-  "status": "PENDING_FINAL_ROUND",
+  "status": "CONDITIONAL_PASS",
   "quality_bar": "P2-QB-1",
   "scope": "PHASE2-001 bounded project-local deterministic execution kernel",
-  "base_sha": "b658b08",
-  "worktree": "DIRTY_EXPECTED",
-  "tests": null,
-  "coverage_percent": null,
-  "ruff": null,
-  "mypy": null,
-  "cli": null,
+  "base_sha": "8c26074502a0e5c0902dfbffd17686d50370ddb4",
+  "worktree": "DIRTY_EXPECTED_AT_VERIFICATION_BEFORE_RELEASE_COMMIT",
+  "tests": {
+    "command": "PYTHONPATH=src .venv/bin/coverage run -m pytest -q",
+    "passed": 187,
+    "failed": 0
+  },
+  "coverage_percent": 84,
+  "coverage_total_statements": 7771,
+  "coverage_missed_statements": 1268,
+  "ruff": {
+    "format_check": "PASS",
+    "check": "PASS"
+  },
+  "mypy": {
+    "status": "PASS",
+    "source_files": 24
+  },
+  "cli": {
+    "integration_tests": 7,
+    "status": "PASS"
+  },
   "benchmark": "P2-BENCH-1",
-  "independent_review": "PENDING",
+  "independent_review": "NOT_RUN_BLOCKED",
   "limitations": [
     "no real Codex provider, Skills, subagents, MCP, shell, network or host adapter",
     "no advanced concurrency or multi-process locking",
-    "local baseline is not a production SLO or causal quality measure"
+    "local baseline is not a production SLO or causal quality measure",
+    "independent read-only final review was attempted but no usable report returned; no PHASE2-VERIFIED gate is claimed"
   ]
 }

@@ -43,7 +43,7 @@
       "title": "Implement the bounded Phase 2 Execution Kernel",
       "stage": "BUILD",
       "priority": "P0",
-      "status": "IN_PROGRESS",
+      "status": "VERIFY",
       "origin": "User-supplied Phase 2 Execution Kernel specification",
       "dependencies": ["PHASE1-001"],
       "owner": "lead",
@@ -53,9 +53,14 @@
         ".agent/gates/PHASE2-TECHNICALLY-SPECIFIED-0001.json",
         ".agent/gates/PHASE2-IMPLEMENTATION-READY-0001.json",
         "docs/implementation/phase-2-quality-bar.md",
-        "docs/phase-2-threat-model.md"
+        "docs/phase-2-threat-model.md",
+        "docs/implementation/phase-2-gap-map.md",
+        "evidence/phase-2/readiness.json",
+        "evidence/phase-2/independent-review.md",
+        ".agent/verification.jsonl#VER-PHASE2-FINAL-LOCAL-0001",
+        ".agent/execution-log.jsonl#EVT-PHASE2-CHECKPOINT-CORRECTION-0001"
       ],
-      "next_action": "Resume with formatting, full verification and CLI checks; then integrate bounded DAG execution, adversarial coverage and final Phase 2 evidence."
+      "next_action": "Obtain a fresh independent read-only review; resolve and retest any Critical/High findings before requesting the PHASE2-VERIFIED gate. Retain CONDITIONAL PASS until then."
     }
   ]
 }

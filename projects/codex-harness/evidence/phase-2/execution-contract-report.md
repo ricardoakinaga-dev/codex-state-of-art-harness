@@ -5,6 +5,10 @@ O walking skeleton da Fase 2 está implementado em
 
 `classify → route → validate invocation/graph → authority → exact provider resolve → execute → artifact → verification → critique → assurance → summary/persistence`.
 
+Authority é fornecida pelo caller ou pelo adapter explícito; o executor não
+cria uma autorização implícita. A ausência de grant é um deny tipado e ocorre
+antes de provider resolution, inclusive em dry-run e graph execution.
+
 `CapabilityInvocation` carrega task/run/invocation identity, capability,
 provider, operation, origin, scope, dependencies, permissions, budgets,
 acceptance refs, trace context, authority snapshot e repair provenance.
@@ -18,7 +22,9 @@ nenhum provider alternativo é escolhido implicitamente.
 Limites aplicados: nodes, invocations, retries, duração, timeout, evidence,
 telemetry e repairs. Stop-before, cancellation antes/durante provider,
 timeout reportado pelo fixture ou pela duração observada e budget exhaustion
-não são convertidos em sucesso. `RunSummary` preserva `passed`, `failed`,
+não são convertidos em sucesso. Duração observada usa o tempo reportado pelo
+provider quando disponível e, caso contrário, o relógio monotônico local;
+eventos sem medição não recebem duração fabricada. `RunSummary` preserva `passed`, `failed`,
 `not_run`, `unknown`, blocked gates, delivery e limitations.
 
 Artefatos têm digest SHA-256, locator project-relative e conteúdo gravado sob

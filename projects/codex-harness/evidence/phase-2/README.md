@@ -46,6 +46,14 @@ Os cenários são exercitados pelos testes `test_phase2_execution_paths.py`,
 `test_phase2_kernel.py` e `test_phase2_adversarial.py`; os testes existentes da
 Fase 1 permanecem parte da suíte completa.
 
+## Resultado atual
+
+A rodada local final passou em 187 testes, com 84% de cobertura total, Ruff,
+mypy, sete testes de integração CLI, benchmark `P2-BENCH-1` e scans de
+segurança. O status honesto é `CONDITIONAL PASS`: a revisão independente final
+foi tentada, mas não retornou um relatório utilizável; por isso nenhum gate
+`PHASE2-VERIFIED` é alegado.
+
 ## Limitações assumidas
 
 Não há adapter real do Codex, execução de código de terceiros, subprocesso,

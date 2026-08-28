@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import replace
 
+import pytest
 from test_contracts import all_records, profile
 
 from harness_kernel.classification import classify_task
@@ -190,3 +191,39 @@ def test_rejected_and_deprecated_explicit_capabilities_are_not_recoverable() -> 
 
     assert rejected_route.route_status is RouteStatus.REJECTED
     assert deprecated_route.route_status is RouteStatus.REJECTED
+
+
+@pytest.mark.parametrize(
+    ("objective", "capability_id", "trigger"),
+    (
+        ("Change the text Security Settings", "security-review", "security"),
+        ("Fix login page typo", "design-director", "login"),
+        ("Update README", "engineering-director", "README"),
+        ("Research button color", "deep-research", "research"),
+        ("Fix CSS margin", "orchestrator", "CSS"),
+        ("Create a secure-looking blue card", "security-review", "secure"),
+        ("Fix API button label", "api-design", "API"),
+    ),
+)
+def test_incidental_tokens_do_not_activate_forbidden_specialists(
+    objective: str, capability_id: str, trigger: str
+) -> None:
+    task = classify_task(
+        objective,
+        task_id="TASK-ROUTE-NEGATIVE",
+        run_id="RUN-ROUTE-NEGATIVE",
+        evidence_refs=("EVID-ROUTE-NEGATIVE",),
+        created_at="2026-08-28T12:00:00Z",
+    )
+    registry = CapabilityRegistry().register(
+        capability(
+            capability_id,
+            CapabilityPrimaryType.SPECIALIST,
+            domains=("GENERAL",),
+            triggers=(trigger,),
+        )
+    )
+
+    decision = minimum_route(task, registry, decision_id="ROUTE-NEGATIVE")
+
+    assert capability_id not in {item.capability_id for item in decision.selected}

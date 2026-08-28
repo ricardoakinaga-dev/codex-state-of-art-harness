@@ -1,14 +1,19 @@
-# Final readiness
+# Final readiness — conditional handoff
 
 Este arquivo é o checklist de handoff da Fase 2. Ele deve ser lido junto de
-`readiness.json` e `final-report.md`.
+`readiness.json`, `independent-review.md` e `final-report.md`.
 
-- [ ] fonte, testes e evidências apontam para o mesmo estado do worktree;
-- [ ] testes, coverage, ruff, mypy e CLI foram executados após a última edição;
-- [ ] benchmark `P2-BENCH-1` está fresco;
-- [ ] independent review não deixou Critical/High aberto;
-- [ ] limitações e non-goals continuam explícitos;
-- [ ] nenhum commit/push ou mutação global é necessário para esta entrega.
+- [x] fonte, testes e evidências apontam para o mesmo estado verificado do
+  worktree;
+- [x] testes, coverage, ruff, mypy e CLI foram executados na rodada final;
+- [x] benchmark `P2-BENCH-1` foi regenerado na rodada final;
+- [ ] independent review não deixou Critical/High aberto — a revisão foi
+  tentada, mas não retornou um relatório utilizável;
+- [x] limitações e non-goals continuam explícitos;
+- [x] o commit/push solicitado é tratado como handoff externo posterior à
+  verificação e não altera o significado dos resultados.
 
-O lead só marca o checklist como completo após a rodada final e registra o
-SHA base, fingerprint do diff e contagens em `readiness.json`.
+O resultado é `CONDITIONAL PASS`: os critérios técnicos locais estão verdes,
+mas o checklist não pode ser promovido a `PASS_WITH_LIMITATIONS` nem a
+`PHASE2-VERIFIED` sem revisão independente. `readiness.json` registra o SHA
+base, o estado do worktree no momento da medição e as contagens observadas.

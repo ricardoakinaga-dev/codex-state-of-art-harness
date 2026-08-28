@@ -5,6 +5,7 @@ from dataclasses import dataclass, replace
 from pathlib import Path
 
 import pytest
+from phase2_support import authorized_kernel
 from test_contracts import all_records
 
 from harness_kernel.boundary import ProjectBoundary
@@ -111,7 +112,7 @@ class _SleepingProvider:
 
 
 def test_kernel_executes_a_graph_in_order_and_preserves_node_ownership(tmp_path: Path) -> None:
-    kernel = ExecutionKernel(ProjectBoundary(tmp_path), providers=_providers())
+    kernel = authorized_kernel(tmp_path, providers=_providers())
 
     result = kernel.run(
         "Run the local graph",
@@ -130,8 +131,24 @@ def test_kernel_executes_a_graph_in_order_and_preserves_node_ownership(tmp_path:
     assert result.summary.graph_ref == "GRAPH-1"
 
 
+def test_kernel_requires_explicit_authority_before_graph_execution(tmp_path: Path) -> None:
+    result = ExecutionKernel(ProjectBoundary(tmp_path)).run(
+        "Run the local graph without authority",
+        task_id="TASK-GRAPH",
+        run_id="RUN-GRAPH-NO-AUTHORITY",
+        graph=replace(_graph(), run_id="RUN-GRAPH-NO-AUTHORITY"),
+    )
+
+    assert result.status is ExecutionStatus.FAILED
+    assert result.provider_results == ()
+    assert result.graph is not None
+    assert result.graph.graph_status is GraphStatus.BLOCKED
+    assert all(item.invocation_status is InvocationStatus.BLOCKED for item in result.invocations)
+    assert result.failures[0].code == "AUTHORITY_REQUIRED"
+
+
 def test_kernel_blocks_graph_descendants_after_a_failed_dependency(tmp_path: Path) -> None:
-    kernel = ExecutionKernel(ProjectBoundary(tmp_path), providers=_providers())
+    kernel = authorized_kernel(tmp_path, providers=_providers())
 
     result = kernel.run(
         "Run the local graph",
@@ -180,8 +197,8 @@ def test_graph_merge_policy_blocks_unresolved_conflicts_before_the_merge_node() 
 
 def test_invalid_graph_is_rejected_before_any_provider_call(tmp_path: Path) -> None:
     provider = DeterministicSuccessProvider()
-    kernel = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    kernel = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(provider),
     )
 
@@ -199,8 +216,8 @@ def test_invalid_graph_is_rejected_before_any_provider_call(tmp_path: Path) -> N
 
 def test_retry_is_bounded_and_each_attempt_is_observable(tmp_path: Path) -> None:
     provider = DeterministicRetryProvider(failures_before_success=1)
-    kernel = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    kernel = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(provider),
     )
 
@@ -219,8 +236,8 @@ def test_retry_is_bounded_and_each_attempt_is_observable(tmp_path: Path) -> None
 
 
 def test_real_provider_timeout_returns_before_a_slow_fixture_finishes(tmp_path: Path) -> None:
-    kernel = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    kernel = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(_SleepingProvider()),
     )
 
@@ -242,8 +259,8 @@ def test_real_provider_timeout_returns_before_a_slow_fixture_finishes(tmp_path: 
 
 
 def test_direct_max_duration_is_a_real_provider_deadline(tmp_path: Path) -> None:
-    kernel = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    kernel = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(_SleepingProvider()),
     )
 
@@ -268,8 +285,8 @@ def test_cancellation_during_a_slow_provider_is_terminal(tmp_path: Path) -> None
         calls += 1
         return calls >= 2
 
-    result = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    result = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(_SleepingProvider()),
     ).run(
         "Cancel a slow local fixture",
@@ -291,7 +308,7 @@ def test_repair_is_explicit_bounded_and_keeps_trigger_provenance(tmp_path: Path)
         .register(DeterministicFailureProvider())
         .register(DeterministicSuccessProvider(provider_id="local.repair"))
     )
-    kernel = ExecutionKernel(ProjectBoundary(tmp_path), providers=providers)
+    kernel = authorized_kernel(tmp_path, providers=providers)
 
     result = kernel.run(
         "Repair the local fixture",
@@ -312,8 +329,8 @@ def test_repair_is_explicit_bounded_and_keeps_trigger_provenance(tmp_path: Path)
 
 
 def test_repair_exhaustion_is_terminal_and_bounded(tmp_path: Path) -> None:
-    kernel = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    kernel = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(DeterministicFailureProvider()),
     )
 
@@ -333,8 +350,8 @@ def test_repair_exhaustion_is_terminal_and_bounded(tmp_path: Path) -> None:
 
 
 def test_partial_provider_result_remains_partial_and_is_not_delivered(tmp_path: Path) -> None:
-    kernel = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    kernel = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(DeterministicPartialProvider()),
     )
 
@@ -353,7 +370,7 @@ def test_partial_provider_result_remains_partial_and_is_not_delivered(tmp_path: 
 def test_persistence_writes_owned_artifact_body_and_lifecycle_idempotently(
     tmp_path: Path,
 ) -> None:
-    kernel = ExecutionKernel(ProjectBoundary(tmp_path))
+    kernel = authorized_kernel(tmp_path)
 
     first = kernel.run("Persist a local result", run_id="RUN-PERSISTENCE", persist=True)
     replay = kernel.run("Persist a local result", run_id="RUN-PERSISTENCE", persist=True)
@@ -372,7 +389,7 @@ def test_corrupt_telemetry_does_not_discard_the_computed_run(tmp_path: Path) -> 
         ".harness/telemetry/runs/RUN-TELEMETRY-CORRUPT.jsonl", b"not-json\n"
     )
 
-    result = ExecutionKernel(boundary).run(
+    result = authorized_kernel(boundary).run(
         "Keep the run result when telemetry storage is corrupt",
         run_id="RUN-TELEMETRY-CORRUPT",
         persist=True,
@@ -386,8 +403,8 @@ def test_corrupt_telemetry_does_not_discard_the_computed_run(tmp_path: Path) -> 
 
 
 def test_evidence_and_telemetry_limits_are_observable(tmp_path: Path) -> None:
-    kernel = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    kernel = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(DeterministicSuccessProvider()),
     )
 

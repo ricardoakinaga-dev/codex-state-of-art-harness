@@ -160,6 +160,78 @@ def _phrase(text: str, *values: str) -> bool:
     return any(value.casefold() in folded for value in values)
 
 
+def _is_local_presentation_edit(text: str) -> bool:
+    """Recognize focused copy/UI edits before scoring incidental nouns."""
+
+    tokens = _tokens(text)
+    edit_verbs = {
+        "change",
+        "correct",
+        "edit",
+        "fix",
+        "modify",
+        "replace",
+        "rename",
+        "set",
+        "update",
+        "alter",
+        "mudar",
+        "corrigir",
+        "editar",
+        "atualizar",
+    }
+    direct_markers = {
+        "css",
+        "margin",
+        "readme",
+        "typo",
+        "spelling",
+        "whitespace",
+        "ortografia",
+    }
+    label_markers = {"caption", "copy", "label", "text", "title", "wording"}
+    return bool(
+        tokens.intersection(direct_markers)
+        or (tokens.intersection(edit_verbs) and tokens.intersection(label_markers))
+    )
+
+
+def _is_visual_probe(text: str) -> bool:
+    """Separate a small visual question from research synthesis work."""
+
+    tokens = _tokens(text)
+    query_markers = {"research", "investigate", "question", "pesquisa", "investigar"}
+    visual_markers = {
+        "appearance",
+        "button",
+        "card",
+        "color",
+        "colour",
+        "layout",
+        "visual",
+    }
+    broad_research = {
+        "alternatives",
+        "benchmark",
+        "comparison",
+        "compare",
+        "current",
+        "deep",
+        "latest",
+        "literature",
+        "market",
+        "options",
+        "sources",
+        "survey",
+        "systematic",
+    }
+    return bool(
+        tokens.intersection(query_markers)
+        and tokens.intersection(visual_markers)
+        and not tokens.intersection(broad_research)
+    )
+
+
 def _choose(
     dimension: str,
     value: object,
@@ -202,6 +274,25 @@ def _domain_assessment(
             confidence=Confidence.HIGH,
         )
     tokens = _tokens(text)
+    if _is_local_presentation_edit(text):
+        value = TaskDomain.DOCUMENTATION if _has(tokens, "readme") else TaskDomain.FRONTEND
+        return _choose(
+            "domain",
+            value,
+            "focused presentation edit takes precedence over incidental surface nouns",
+            (f"CLS-DOMAIN-{_value(value)}-FOCUSED-EDIT",),
+            evidence_refs=evidence,
+            confidence=confidence,
+        )
+    if _is_visual_probe(text):
+        return _choose(
+            "domain",
+            TaskDomain.DESIGN,
+            "a small visual question is not research synthesis",
+            ("CLS-DOMAIN-DESIGN-VISUAL-PROBE",),
+            evidence_refs=evidence,
+            confidence=confidence,
+        )
     groups: tuple[tuple[TaskDomain, tuple[str, ...]], ...] = (
         (
             TaskDomain.SECURITY,
@@ -298,6 +389,10 @@ def _domain_assessment(
                 "brand",
                 "sprite",
                 "layout",
+                "card",
+                "color",
+                "colour",
+                "blue",
                 "imagem",
                 "visual",
             ),
@@ -486,7 +581,7 @@ def _complexity_assessment(
         "component",
         "several",
         "vários",
-    )
+    ) and not _is_local_presentation_edit(text)
     trivial = _has(
         tokens,
         "typo",
@@ -497,7 +592,8 @@ def _complexity_assessment(
         "css",
         "margin",
         "ortografia",
-    ) and not (large or critical)
+    ) or _is_local_presentation_edit(text)
+    trivial = trivial and not (large or critical)
     if critical or risk is Risk.CRITICAL or reversibility is Reversibility.IRREVERSIBLE:
         value, rule = Complexity.CRITICAL, "CLS-COMPLEXITY-CRITICAL"
         reason = "risk or irreversibility sets the critical complexity floor"
@@ -545,7 +641,9 @@ def _risk_assessment(
             confidence=Confidence.HIGH,
         )
     tokens = _tokens(text)
-    if _has(
+    if _is_local_presentation_edit(text) or _is_visual_probe(text):
+        value, reason = Risk.LOW, "the request is a focused local presentation change"
+    elif _has(
         tokens,
         "irreversible",
         "destroy",
@@ -651,7 +749,12 @@ def _security_assessment(
             confidence=Confidence.HIGH,
         )
     tokens = _tokens(text)
-    if _has(
+    if _is_local_presentation_edit(text) or _is_visual_probe(text):
+        value, reason = (
+            SecurityImpact.NONE,
+            "surface wording or visual intent is not a security boundary",
+        )
+    elif _has(
         tokens,
         "secret",
         "credential",
@@ -806,7 +909,13 @@ def _visual_assessment(
             confidence=Confidence.HIGH,
         )
     tokens = _tokens(text)
-    if _has(
+    if _is_local_presentation_edit(text):
+        value, reason = (
+            VisualImportance.SUPPORTING,
+            "the request changes presentation without making visual fidelity "
+            "the primary deliverable",
+        )
+    elif _is_visual_probe(text) or _has(
         tokens,
         "high-fidelity",
         "pixel",
@@ -817,6 +926,11 @@ def _visual_assessment(
         "illustration",
         "banner",
         "brand",
+        "card",
+        "color",
+        "colour",
+        "blue",
+        "secure-looking",
         "visual",
         "sprite",
         "imagem",
@@ -877,7 +991,9 @@ def _research_assessment(
             confidence=Confidence.HIGH,
         )
     tokens = _tokens(text)
-    if _has(tokens, "deep", "market", "sizing", "literature", "systematic", "profunda"):
+    if _is_visual_probe(text):
+        value, reason = ResearchNeed.NONE, "a visual question does not require research synthesis"
+    elif _has(tokens, "deep", "market", "sizing", "literature", "systematic", "profunda"):
         value, reason = ResearchNeed.DEEP, "the request asks for broad or deep synthesis"
     elif _has(tokens, "compare", "comparison", "alternatives", "options", "benchmark", "comparar"):
         value, reason = ResearchNeed.COMPARATIVE, "multiple options or a benchmark must be compared"
@@ -1025,7 +1141,9 @@ def _blast_assessment(
             confidence=Confidence.HIGH,
         )
     tokens = _tokens(text)
-    if _has(
+    if _is_local_presentation_edit(text) or _is_visual_probe(text):
+        value, reason = BlastRadius.LOCAL, "the request is a bounded local presentation change"
+    elif _has(
         tokens,
         "cross-system",
         "cross",

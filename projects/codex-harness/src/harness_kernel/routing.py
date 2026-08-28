@@ -137,9 +137,16 @@ def _matching_manifest(manifest: CapabilityManifest, profile: TaskProfile, text:
         return False
     if any(_condition_hit(condition, text) for condition in manifest.scope.do_not_activate_when):
         return False
-    return not manifest.scope.activates_when or any(
-        _condition_hit(condition, text) for condition in manifest.scope.activates_when
-    )
+    for condition in manifest.scope.activates_when:
+        if not _condition_hit(condition, text):
+            continue
+        # A GENERAL-scope specialist cannot claim a task from one incidental
+        # noun. Its activation contract needs a meaningful phrase; domain-
+        # scoped manifests still have to pass the profile-domain check above.
+        if "GENERAL" in domains and len(_tokens(condition)) < 2:
+            continue
+        return True
+    return not manifest.scope.activates_when
 
 
 def _candidates(

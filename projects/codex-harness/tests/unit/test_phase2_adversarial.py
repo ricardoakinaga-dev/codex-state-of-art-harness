@@ -5,10 +5,12 @@ from dataclasses import dataclass, replace
 from pathlib import Path
 
 import pytest
+from phase2_support import authorized_kernel
 from test_contracts import all_records
 
 from harness_kernel.artifacts import artifact_descendants
 from harness_kernel.assurance import AssuranceDecision, assure_quality, create_critique
+from harness_kernel.authority import AuthorityScope
 from harness_kernel.boundary import BoundaryError, ProjectBoundary
 from harness_kernel.errors import DeserializationError
 from harness_kernel.evidence import (
@@ -17,7 +19,6 @@ from harness_kernel.evidence import (
     validate_evidence_links,
 )
 from harness_kernel.execution import (
-    ExecutionKernel,
     ExecutionLimits,
     ExecutionStatus,
     RunResult,
@@ -162,8 +163,8 @@ class _StaticProvider:
 
 
 def _successful_verification(tmp_path: Path) -> tuple[RunResult, VerificationOutcome]:
-    runtime = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    runtime = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(DeterministicSuccessProvider()),
     ).run(
         "Produce a deterministic local result",
@@ -268,7 +269,7 @@ def test_unavailable_selected_provider_does_not_fallback_to_another_provider(
         .with_availability("selected.provider", ProviderAvailability.UNAVAILABLE)
     )
 
-    result = ExecutionKernel(ProjectBoundary(tmp_path), providers=providers).run(
+    result = authorized_kernel(tmp_path, providers=providers).run(
         "Use the selected provider exactly",
         run_id="RUN-NO-FALLBACK",
         provider_id="selected.provider",
@@ -286,8 +287,8 @@ def test_non_provider_manifest_cannot_admit_a_provider_execution(tmp_path: Path)
     manifest_registry = CapabilityRegistry().register(all_records()[3])
     provider = _StaticProvider("validator", ("validator",))
 
-    result = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    result = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(provider),
         registry=manifest_registry,
     ).run(
@@ -309,7 +310,7 @@ def test_mismatched_provider_result_is_failed_without_hidden_fallback(tmp_path: 
     )
     providers = ProviderRegistry().register(mismatch).register(DeterministicSuccessProvider())
 
-    result = ExecutionKernel(ProjectBoundary(tmp_path), providers=providers).run(
+    result = authorized_kernel(tmp_path, providers=providers).run(
         "Reject a result with the wrong provider identity",
         run_id="RUN-PROVIDER-MISMATCH",
         provider_id="mismatch.provider",
@@ -444,8 +445,8 @@ def test_cancelled_graph_never_calls_a_node() -> None:
 
 def test_provider_reported_timeout_is_terminal_and_has_no_artifact(tmp_path: Path) -> None:
     slow = _StaticProvider("slow.provider", ("slow.provider",), duration_ms=50)
-    result = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    result = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(slow),
     ).run(
         "Enforce provider duration",
@@ -460,11 +461,53 @@ def test_provider_reported_timeout_is_terminal_and_has_no_artifact(tmp_path: Pat
     assert result.provider_results[-1].failure is not None
     assert _category(result.provider_results[-1].failure.category) == "TIMEOUT"
     assert result.provider_results[-1].failure.code == "PROVIDER_TIMEOUT"
+    assert result.summary.execution.duration_ms == 50
+    completed = next(
+        event for event in result.telemetry.events if event.event_type.value == "RUN_COMPLETED"
+    )
+    assert completed.payload.duration_ms == 50
+
+
+def test_summary_and_telemetry_preserve_observed_provider_duration(tmp_path: Path) -> None:
+    provider = _StaticProvider("timed.provider", ("timed.provider",), duration_ms=7)
+    authority = AuthorityScope(
+        owner="test-policy",
+        actor="test-runner",
+        scopes=("task:TASK-DURATION", "capability:timed.provider"),
+        decisions=("TRANSITION",),
+        subject_owner="test-policy",
+        operations=("execute",),
+        issued_at=NOW,
+        expires_at="2026-08-28T14:00:00Z",
+    )
+
+    result = authorized_kernel(
+        tmp_path,
+        providers=ProviderRegistry().register(provider),
+        timestamp=NOW,
+    ).run(
+        "Preserve the fixture duration",
+        task_id="TASK-DURATION",
+        run_id="RUN-DURATION",
+        provider_id="timed.provider",
+        authority=authority,
+    )
+
+    assert result.status is ExecutionStatus.SUCCEEDED
+    assert result.summary.execution.duration_ms == 7
+    tool_result = next(
+        event for event in result.telemetry.events if event.event_type.value == "TOOL_RESULT"
+    )
+    completed = next(
+        event for event in result.telemetry.events if event.event_type.value == "RUN_COMPLETED"
+    )
+    assert tool_result.payload.duration_ms == 7
+    assert completed.payload.duration_ms == 7
 
 
 def test_cancellation_is_observed_before_provider_execution(tmp_path: Path) -> None:
-    result = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    result = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(DeterministicSuccessProvider()),
     ).run(
         "Cancel before local execution",
@@ -482,8 +525,8 @@ def test_cancellation_is_observed_before_provider_execution(tmp_path: Path) -> N
 
 
 def test_retry_is_bounded_and_records_each_attempt(tmp_path: Path) -> None:
-    result = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    result = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry().register(
             DeterministicRetryProvider(failures_before_success=2)
         ),
@@ -502,8 +545,8 @@ def test_retry_is_bounded_and_records_each_attempt(tmp_path: Path) -> None:
 
 
 def test_retry_exhaustion_does_not_fallback_or_emit_a_delivery(tmp_path: Path) -> None:
-    result = ExecutionKernel(
-        ProjectBoundary(tmp_path),
+    result = authorized_kernel(
+        tmp_path,
         providers=ProviderRegistry()
         .register(DeterministicRetryProvider(failures_before_success=4))
         .register(DeterministicSuccessProvider()),

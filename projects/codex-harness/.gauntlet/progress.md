@@ -77,3 +77,21 @@ the validated DAG path, expand adversarial tests, generate the Phase 2 evidence
 pack and obtain an independent final critic. No Phase 2 completion, production
 readiness, real provider, shell, network, Skills, subagent, MCP or global-config
 claim is authorized by this checkpoint.
+
+## Phase 2 continuation — final local round
+
+- [x] (2026-08-28) Reconstructed the checkpoint, read the supplied requirements and architecture, and created the capability gap map.
+- [x] (2026-08-28) Added the required seven-case negative-routing regression and fixed incidental-token over-routing.
+- [x] (2026-08-28) Hardened caller-owned authority: missing grants block direct, graph and dry-run execution before provider resolution; duration telemetry preserves measured provider time.
+- [x] (2026-08-28) Re-ran the full suite, CLI integration, coverage, Ruff, mypy, benchmark and security checks; local result is 187 tests, 84% total coverage, 7 CLI tests, and `P2-BENCH-1`.
+- [x] (2026-08-28) Regenerated Phase 2 evidence and repaired the historical invalid checkpoint transition through an append-only correction event.
+- [ ] Independent final review and `PHASE2-VERIFIED` gate: attempted, but no usable read-only reviewer report returned in this environment.
+
+## Current result
+
+The bounded local implementation is `CONDITIONAL PASS` and remains at
+`VERIFY`/`PARTIAL` in the control ledger. The implementation and technical
+verification criteria are green within scope; the independent-review criterion
+is explicitly unresolved. No host, production, `AAA_VERIFIED`, Skills,
+subagent, MCP, shell, network, credential, advanced-concurrency or
+multi-process-locking claim is made.
