@@ -1,9 +1,10 @@
-"""Project-local Phase 1 contract-first harness kernel.
+"""Bounded project-local contract and deterministic execution kernel.
 
-The package exposes data and validation primitives only. It deliberately has no
-capability executor, provider router, subprocess runner, or Skill mutator.
+Phase 2 adds only the explicit local provider seam and sequential executor.
+There is still no shell, network, host adapter, Skill, MCP or subagent runtime.
 """
 
+from .execution import ExecutionKernel, ExecutionLimits, ExecutionStatus, RepairRecord, RunResult
 from .models import (
     CapabilityInvocation,
     CapabilityManifest,
@@ -20,11 +21,16 @@ from .validation import ValidationResult, validate
 __all__ = [
     "CapabilityInvocation",
     "CapabilityManifest",
+    "ExecutionKernel",
     "ExecutionGraph",
+    "ExecutionLimits",
+    "ExecutionStatus",
     "InstallationScope",
     "RegistryOrigin",
     "RouteDecision",
     "RunSummary",
+    "RunResult",
+    "RepairRecord",
     "TaskProfile",
     "ValidationResult",
     "from_dict",

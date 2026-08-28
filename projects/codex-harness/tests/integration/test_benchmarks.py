@@ -5,7 +5,12 @@ from pathlib import Path
 
 import pytest
 
-from harness_kernel.benchmarks import run_microbenchmarks, write_benchmark_report
+from harness_kernel.benchmarks import (
+    run_microbenchmarks,
+    run_phase2_benchmarks,
+    write_benchmark_report,
+    write_phase2_benchmark_report,
+)
 
 FIXTURE = Path(__file__).parents[1] / "fixtures" / "golden" / "capability-manifest.json"
 
@@ -51,3 +56,38 @@ def test_benchmark_report_destination_cannot_escape_project_root(tmp_path: Path)
 
     with pytest.raises(ValueError, match="project_root"):
         write_benchmark_report(FIXTURE, outside, project_root=tmp_path, iterations=1)
+
+
+def test_phase2_benchmarks_cover_execution_kernel_paths() -> None:
+    report = run_phase2_benchmarks(FIXTURE, iterations=1)
+
+    assert report["schema_version"] == "P2-BENCH-1"
+    assert set(report["operations"]) == {
+        "classification",
+        "registry_admission",
+        "route_selection",
+        "graph_validation_10",
+        "graph_validation_100",
+        "provider_fixture_execution",
+        "serialization",
+        "evidence_write",
+        "telemetry_append",
+    }
+    assert report["scope"] == "project-local deterministic fixtures only"
+    for operation in report["operations"].values():
+        assert operation["iterations"] == 1
+        assert operation["duration_ns_total"] > 0
+
+
+def test_phase2_benchmark_writer_is_confined_to_project_root(tmp_path: Path) -> None:
+    destination = tmp_path / "evidence" / "benchmark-summary.json"
+
+    report = write_phase2_benchmark_report(
+        FIXTURE, destination, project_root=tmp_path, iterations=1
+    )
+
+    assert json.loads(destination.read_text(encoding="utf-8")) == report
+    with pytest.raises(ValueError, match="project_root"):
+        write_phase2_benchmark_report(
+            FIXTURE, tmp_path.parent / "benchmark-outside-p2.json", project_root=tmp_path
+        )

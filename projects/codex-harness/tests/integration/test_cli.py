@@ -51,14 +51,15 @@ def report(result: subprocess.CompletedProcess[str]) -> dict[str, object]:
     return json.loads(result.stdout)
 
 
-def test_help_exposes_only_the_local_read_only_surface() -> None:
+def test_help_exposes_the_bounded_local_execution_surface() -> None:
     result = invoke("--help")
 
     assert result.returncode == 0
     assert "validate" in result.stdout
     assert "doctor" in result.stdout
     assert "health" in result.stdout
-    assert "run" not in result.stdout
+    assert "run" in result.stdout
+    assert "quality" in result.stdout
 
 
 def test_validate_accepts_a_contract_fixture_without_execution() -> None:

@@ -1,0 +1,20 @@
+{
+  "schema_version": "P2-READINESS-1",
+  "status": "PENDING_FINAL_ROUND",
+  "quality_bar": "P2-QB-1",
+  "scope": "PHASE2-001 bounded project-local deterministic execution kernel",
+  "base_sha": "b658b08",
+  "worktree": "DIRTY_EXPECTED",
+  "tests": null,
+  "coverage_percent": null,
+  "ruff": null,
+  "mypy": null,
+  "cli": null,
+  "benchmark": "P2-BENCH-1",
+  "independent_review": "PENDING",
+  "limitations": [
+    "no real Codex provider, Skills, subagents, MCP, shell, network or host adapter",
+    "no advanced concurrency or multi-process locking",
+    "local baseline is not a production SLO or causal quality measure"
+  ]
+}

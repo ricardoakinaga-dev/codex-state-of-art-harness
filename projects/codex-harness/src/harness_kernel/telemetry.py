@@ -49,14 +49,25 @@ _SENSITIVE_KEYS = frozenset(
         "private_key",
         "credential",
         "credentials",
+        "authorization",
+        "cookie",
+        "cookies",
+        "session",
+        "session_id",
+        "bearer",
+        "csrf",
+        "csrf_token",
+        "set_cookie",
+        "x_api_key",
     }
 )
 _NON_SECRET_TOKEN_KEYS = frozenset(
     {"token_estimate", "token_count", "input_tokens", "output_tokens", "tokens"}
 )
 _SECRET_TEXT = re.compile(
-    r"(?i)(\b(?:api[_-]?key|private[_-]?key|password|secret|credential|token)\b\s*[:=]\s*)([^\s,;]+)"
+    r"(?i)(\b(?:api[_-]?key|private[_-]?key|password|secret|credential|token|authorization|cookie|set[_-]?cookie|session(?:[_-]?id)?|csrf(?:[_-]?token)?)\b\s*[:=]\s*)(?:bearer\s+)?[^\s,;]+"
 )
+_BEARER_TEXT = re.compile(r"(?i)(\bbearer\s+)[A-Za-z0-9._~+/=-]+")
 
 
 def _normalized_key(key: object) -> str:
@@ -71,10 +82,35 @@ def _is_sensitive_key(key: object) -> bool:
         return True
     return any(
         normalized.endswith(f"_{suffix}")
-        for suffix in ("secret", "token", "password", "api_key", "private_key", "credential")
+        for suffix in (
+            "secret",
+            "token",
+            "password",
+            "api_key",
+            "private_key",
+            "credential",
+            "authorization",
+            "cookie",
+            "session",
+            "session_id",
+            "bearer",
+            "csrf",
+        )
     ) or any(
         normalized.startswith(f"{prefix}_")
-        for prefix in ("secret", "token", "password", "api_key", "private_key", "credential")
+        for prefix in (
+            "secret",
+            "token",
+            "password",
+            "api_key",
+            "private_key",
+            "credential",
+            "authorization",
+            "cookie",
+            "session",
+            "bearer",
+            "csrf",
+        )
     )
 
 
@@ -92,6 +128,9 @@ def redact_payload(value: object) -> object:
         return tuple(redact_payload(item) for item in value)
     if isinstance(value, set | frozenset):
         return tuple(sorted((redact_payload(item) for item in value), key=repr))
+    if isinstance(value, str):
+        redacted, _ = redact_text(value)
+        return redacted
     return value
 
 
@@ -101,6 +140,7 @@ def redact_text(value: str | None) -> tuple[str | None, bool]:
     if value is None:
         return None, False
     redacted = _SECRET_TEXT.sub(rf"\1{REDACTION_MARKER}", value)
+    redacted = _BEARER_TEXT.sub(rf"\1{REDACTION_MARKER}", redacted)
     return redacted, redacted != value
 
 
@@ -121,13 +161,12 @@ def _payload(
     if value is None:
         return TelemetryPayload(None, None, None, None, None, None), False
     if isinstance(value, TelemetryPayload):
-        return value, False
+        tool, changed = redact_text(value.tool)
+        return replace(value, tool=tool), changed
     if not isinstance(value, Mapping):
         raise TypeError("telemetry payload must be a TelemetryPayload or mapping")
     redacted = redact_payload(value)
     assert isinstance(redacted, Mapping)
-    allowed = {"input_size", "output_size", "token_estimate", "duration_ms", "tool", "result"}
-    unknown = set(redacted) - allowed
     sensitive_was_present = any(_is_sensitive_key(key) for key in value)
 
     def integer(name: str) -> int | None:
@@ -157,7 +196,7 @@ def _payload(
             tool,
             result,
         ),
-        sensitive_was_present or bool(unknown and any(_is_sensitive_key(key) for key in unknown)),
+        sensitive_was_present or redacted != value,
     )
 
 

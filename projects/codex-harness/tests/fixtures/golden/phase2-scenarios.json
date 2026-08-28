@@ -1,0 +1,90 @@
+{
+  "schema_version": "P2-GOLDEN-1",
+  "scope": "PHASE2-001 bounded project-local deterministic execution kernel",
+  "scenarios": [
+    {
+      "id": "A",
+      "name": "direct-success",
+      "expected_status": "SUCCEEDED",
+      "provider_calls": 1,
+      "proof_tests": ["tests/unit/test_phase2_kernel.py::test_direct_kernel_produces_artifact_evidence_verification_assurance_and_summary"]
+    },
+    {
+      "id": "B",
+      "name": "authority-deny",
+      "expected_status": "FAILED",
+      "provider_calls": 0,
+      "proof_tests": ["tests/unit/test_phase2_kernel.py::test_authority_checks_expiry_operation_and_scope_before_execution"]
+    },
+    {
+      "id": "C",
+      "name": "graph-success",
+      "expected_status": "SUCCEEDED",
+      "provider_calls": 2,
+      "proof_tests": ["tests/unit/test_phase2_execution_paths.py::test_kernel_executes_a_graph_in_order_and_preserves_node_ownership"]
+    },
+    {
+      "id": "D",
+      "name": "dependency-failure",
+      "expected_status": "BLOCKED",
+      "provider_calls": 1,
+      "proof_tests": ["tests/unit/test_phase2_execution_paths.py::test_kernel_blocks_graph_descendants_after_a_failed_dependency"]
+    },
+    {
+      "id": "E",
+      "name": "timeout",
+      "expected_status": "TIMED_OUT",
+      "provider_calls": 1,
+      "proof_tests": ["tests/unit/test_phase2_execution_paths.py::test_real_provider_timeout_returns_before_a_slow_fixture_finishes"]
+    },
+    {
+      "id": "F",
+      "name": "cancellation",
+      "expected_status": "CANCELLED",
+      "provider_calls": 0,
+      "proof_tests": ["tests/unit/test_phase2_execution_paths.py::test_cancellation_during_a_slow_provider_is_terminal"]
+    },
+    {
+      "id": "G",
+      "name": "verification-failure",
+      "expected_status": "FAILED",
+      "provider_calls": 1,
+      "proof_tests": ["tests/unit/test_phase2_adversarial.py::test_forged_artifact_digest_fails_deterministic_verification"]
+    },
+    {
+      "id": "H",
+      "name": "partial",
+      "expected_status": "PARTIAL",
+      "provider_calls": 1,
+      "proof_tests": ["tests/unit/test_phase2_execution_paths.py::test_partial_provider_result_remains_partial_and_is_not_delivered"]
+    },
+    {
+      "id": "I",
+      "name": "stop-before",
+      "expected_status": "STOPPED",
+      "provider_calls": 0,
+      "proof_tests": ["tests/unit/test_phase2_kernel.py::test_dry_run_and_stop_before_run_never_call_a_provider"]
+    },
+    {
+      "id": "J",
+      "name": "repair-success",
+      "expected_status": "SUCCEEDED",
+      "provider_calls": 2,
+      "proof_tests": ["tests/unit/test_phase2_execution_paths.py::test_repair_is_explicit_bounded_and_keeps_trigger_provenance"]
+    },
+    {
+      "id": "K",
+      "name": "repair-exhausted",
+      "expected_status": "FAILED",
+      "provider_calls": 3,
+      "proof_tests": ["tests/unit/test_phase2_execution_paths.py::test_repair_exhaustion_is_terminal_and_bounded"]
+    },
+    {
+      "id": "L",
+      "name": "stale-evidence",
+      "expected_status": "FAILED",
+      "provider_calls": 1,
+      "proof_tests": ["tests/unit/test_phase2_adversarial.py::test_stale_verification_cannot_be_promoted_to_quality_acceptance"]
+    }
+  ]
+}

@@ -2,8 +2,11 @@
 
 from __future__ import annotations
 
+import hashlib
+import json
 from collections.abc import Iterable
 from dataclasses import dataclass
+from datetime import datetime
 from enum import StrEnum
 
 from .models import LifecycleState
@@ -35,10 +38,20 @@ class AuthorityScope:
     decisions: tuple[AuthorityAction | str, ...] = ()
     subject_owner: str | None = None
     human: bool = False
+    operations: tuple[str, ...] = ()
+    conditions: tuple[str, ...] = ()
+    delegation_chain: tuple[str, ...] = ()
+    subject_type: str = "INVOCATION"
+    subject_id: str | None = None
+    issued_at: str | None = None
+    expires_at: str | None = None
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "scopes", _strings(self.scopes))
         object.__setattr__(self, "decisions", tuple(_action(item) for item in self.decisions))
+        object.__setattr__(self, "operations", _strings(self.operations))
+        object.__setattr__(self, "conditions", _strings(self.conditions))
+        object.__setattr__(self, "delegation_chain", _strings(self.delegation_chain))
 
 
 ActorScope = AuthorityScope
@@ -86,6 +99,25 @@ class AuthorityCheck:
         return self.allowed
 
 
+@dataclass(frozen=True, slots=True)
+class AuthoritySnapshot:
+    """The exact effective authority used for one invocation."""
+
+    authority_id: str
+    subject_type: str
+    subject_id: str
+    owner: str
+    actor: str
+    operation: str
+    scopes: tuple[str, ...]
+    conditions: tuple[str, ...]
+    delegation_chain: tuple[str, ...]
+    issued_at: str | None
+    expires_at: str | None
+    digest: str
+    required_scope: tuple[str, ...] = ()
+
+
 def _strings(values: Iterable[str]) -> tuple[str, ...]:
     result: list[str] = []
     for value in values:
@@ -117,6 +149,17 @@ def _state(value: LifecycleState | str) -> LifecycleState:
         except ValueError as exc:
             raise ValueError(f"unknown lifecycle state: {value!r}") from exc
     raise TypeError("lifecycle state must be a LifecycleState or string")
+
+
+def _timestamp(value: str | None) -> datetime | None:
+    if value is None:
+        return None
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError("authority timestamps must be zoned ISO-8601 strings")
+    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    if parsed.tzinfo is None:
+        raise ValueError("authority timestamps must include a timezone")
+    return parsed
 
 
 def _covers(granted: tuple[str, ...], requested: tuple[str, ...]) -> tuple[str, ...]:
@@ -235,6 +278,193 @@ def check_decision(
         authority.actor,
         authority.owner,
         required,
+    )
+
+
+def check_invocation_authority(
+    authority: AuthorityScope,
+    *,
+    task_id: str,
+    invocation_id: str,
+    capability_id: str,
+    operation: str,
+    required_scope: Iterable[str],
+    at: str,
+    required_conditions: Iterable[str] = (),
+    delegation_ref: str | None = None,
+) -> AuthorityCheck:
+    """Check operation/subject/expiry authority before a provider is called."""
+
+    if not isinstance(authority, AuthorityScope):
+        raise TypeError("authority must be an AuthorityScope")
+    requested_scope = _strings(required_scope)
+    if not task_id.strip() or not invocation_id.strip() or not capability_id.strip():
+        return AuthorityCheck(
+            False,
+            "INVALID_SUBJECT",
+            "invocation subject is incomplete",
+            AuthorityAction.TRANSITION,
+            authority.actor,
+            authority.owner,
+            requested_scope,
+        )
+    if not operation.strip():
+        return AuthorityCheck(
+            False,
+            "MISSING_OPERATION",
+            "invocation operation is required",
+            AuthorityAction.TRANSITION,
+            authority.actor,
+            authority.owner,
+            requested_scope,
+        )
+    try:
+        observed_at = _timestamp(at)
+        issued_at = _timestamp(authority.issued_at)
+        expires_at = _timestamp(authority.expires_at)
+    except (TypeError, ValueError):
+        return AuthorityCheck(
+            False,
+            "INVALID_AUTHORITY_TIME",
+            "authority timestamp is invalid",
+            AuthorityAction.TRANSITION,
+            authority.actor,
+            authority.owner,
+            requested_scope,
+        )
+    assert observed_at is not None
+    if issued_at is not None and observed_at < issued_at:
+        return AuthorityCheck(
+            False,
+            "AUTHORITY_NOT_YET_VALID",
+            "authority is not effective at invocation time",
+            AuthorityAction.TRANSITION,
+            authority.actor,
+            authority.owner,
+            requested_scope,
+        )
+    if expires_at is not None and observed_at >= expires_at:
+        return AuthorityCheck(
+            False,
+            "AUTHORITY_EXPIRED",
+            "authority expired before invocation",
+            AuthorityAction.TRANSITION,
+            authority.actor,
+            authority.owner,
+            requested_scope,
+        )
+    if authority.subject_id is not None and authority.subject_id != invocation_id:
+        return AuthorityCheck(
+            False,
+            "AUTHORITY_SUBJECT_MISMATCH",
+            "authority subject does not match invocation",
+            AuthorityAction.TRANSITION,
+            authority.actor,
+            authority.owner,
+            requested_scope,
+        )
+    if authority.operations and operation not in authority.operations:
+        return AuthorityCheck(
+            False,
+            "UNAUTHORIZED_OPERATION",
+            "operation is outside the authority grant",
+            AuthorityAction.TRANSITION,
+            authority.actor,
+            authority.owner,
+            requested_scope,
+        )
+    if not authority.operations:
+        return AuthorityCheck(
+            False,
+            "MISSING_OPERATION_GRANT",
+            "authority has no operation grant",
+            AuthorityAction.TRANSITION,
+            authority.actor,
+            authority.owner,
+            requested_scope,
+        )
+    base = check_decision(
+        authority,
+        AuthorityAction.TRANSITION,
+        required_scope=requested_scope,
+    )
+    if not base.allowed:
+        return base
+    missing_conditions = _covers(authority.conditions, _strings(required_conditions))
+    if missing_conditions:
+        return AuthorityCheck(
+            False,
+            "AUTHORITY_CONDITION_UNMET",
+            "authority conditions are not satisfied",
+            AuthorityAction.TRANSITION,
+            authority.actor,
+            authority.owner,
+            requested_scope,
+            missing_conditions,
+        )
+    if delegation_ref is not None and delegation_ref not in authority.delegation_chain:
+        return AuthorityCheck(
+            False,
+            "DELEGATION_MISSING",
+            "required delegation is not in the authority chain",
+            AuthorityAction.TRANSITION,
+            authority.actor,
+            authority.owner,
+            requested_scope,
+        )
+    return AuthorityCheck(
+        True,
+        "AUTHORIZED",
+        "operation, subject, scope and expiry are authorized",
+        AuthorityAction.TRANSITION,
+        authority.actor,
+        authority.owner,
+        requested_scope,
+    )
+
+
+def authority_snapshot(
+    authority: AuthorityScope,
+    *,
+    subject_id: str,
+    operation: str,
+    authority_id: str = "AUTH-SNAPSHOT",
+    required_scope: Iterable[str] = (),
+) -> AuthoritySnapshot:
+    """Capture a canonical, hashable authority snapshot for evidence."""
+
+    if not subject_id.strip() or not operation.strip():
+        raise ValueError("authority snapshot subject and operation are required")
+    requested_scope = _strings(required_scope)
+    values = {
+        "authority_id": authority_id,
+        "subject_type": authority.subject_type,
+        "subject_id": subject_id,
+        "owner": authority.owner,
+        "actor": authority.actor,
+        "operation": operation,
+        "scopes": list(authority.scopes),
+        "conditions": list(authority.conditions),
+        "delegation_chain": list(authority.delegation_chain),
+        "issued_at": authority.issued_at,
+        "expires_at": authority.expires_at,
+        "required_scope": list(requested_scope),
+    }
+    encoded = json.dumps(values, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
+    return AuthoritySnapshot(
+        authority_id=authority_id,
+        subject_type=authority.subject_type,
+        subject_id=subject_id,
+        owner=authority.owner,
+        actor=authority.actor,
+        operation=operation,
+        scopes=authority.scopes,
+        conditions=authority.conditions,
+        delegation_chain=authority.delegation_chain,
+        issued_at=authority.issued_at,
+        expires_at=authority.expires_at,
+        digest=f"sha256:{hashlib.sha256(encoded).hexdigest()}",
+        required_scope=requested_scope,
     )
 
 
@@ -368,13 +598,17 @@ def authorize_decision(
 
     if not isinstance(decision, AuthorityDecision):
         raise TypeError("decision must be an AuthorityDecision")
-    grant = authority or AuthorityScope(
-        owner=decision.owner,
-        actor=decision.actor,
-        scopes=decision.scope,
-        decisions=(decision.action,),
-        subject_owner=decision.subject_owner,
-    )
+    if authority is None:
+        return AuthorityCheck(
+            False,
+            "AUTHORITY_REQUIRED",
+            "an explicit authority grant is required",
+            _action(decision.action),
+            decision.actor,
+            decision.owner,
+            _strings(decision.scope),
+        )
+    grant = authority
     return check_decision(
         grant,
         decision.action,

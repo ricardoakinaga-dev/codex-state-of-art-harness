@@ -90,6 +90,26 @@ def test_redaction_recurses_and_never_keeps_sensitive_values() -> None:
     assert "fixture-key" not in repr(redacted)
 
 
+def test_redaction_covers_auth_cookies_sessions_and_inline_bearer_values() -> None:
+    payload = {
+        "authorization": "Bearer auth-secret",
+        "session_id": "session-secret",
+        "cookie": "sid=cookie-secret",
+        "note": "Authorization: Bearer inline-secret",
+        "safe": "no credentials here",
+    }
+
+    redacted = redact_payload(payload)
+
+    assert redacted["authorization"] == "[REDACTED]"  # type: ignore[index]
+    assert redacted["session_id"] == "[REDACTED]"  # type: ignore[index]
+    assert redacted["cookie"] == "[REDACTED]"  # type: ignore[index]
+    assert "auth-secret" not in repr(redacted)
+    assert "session-secret" not in repr(redacted)
+    assert "cookie-secret" not in repr(redacted)
+    assert "inline-secret" not in repr(redacted)
+
+
 def test_capability_loaded_requires_observed_fresh_runtime_evidence() -> None:
     evidence = replace(
         all_records()[6],

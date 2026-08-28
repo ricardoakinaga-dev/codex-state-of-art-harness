@@ -19,6 +19,19 @@
     "max_parallelism": 4,
     "max_context_tokens": 12000
   },
+  "execution": {
+    "max_nodes": 128,
+    "max_invocations": 16,
+    "max_retries": 2,
+    "max_duration_ms": 30000,
+    "max_evidence": 256,
+    "max_telemetry": 1024,
+    "timeout_ms": 5000,
+    "max_repairs": 0,
+    "default_provider": "local.success",
+    "allow_network": false,
+    "allow_shell": false
+  },
   "telemetry": {
     "redaction_enabled": true,
     "append_only": true,

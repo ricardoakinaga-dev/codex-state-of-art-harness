@@ -134,3 +134,37 @@ environment, tests and evidence are owned by `projects/codex-harness/`.
 Architectural documentation is owned by `../../architecture/`, and the audit
 dependency is owned by `../../references/skill-audit/`. No new Phase 1
 functionality may be added during this migration.
+
+## Active continuation — Phase 2 reset checkpoint
+
+Checkpoint: `PHASE2-2026-08-28-154007-LOCAL-0001`
+Recorded: `2026-08-28T15:40:07-03:00`
+Task: `PHASE2-001` — bounded local Phase 2 Execution Kernel
+
+The Phase 2 specification was read in full. The technical-specification and
+implementation-ready gates passed, and the TDD RED slice was created. The
+direct kernel, project boundary, deterministic provider registry, authority,
+graph validation, persistence, verification and assurance modules now exist in
+the working tree. The focused unit slice currently passes (`12 passed`).
+
+This is an implementation checkpoint, not a completion or release gate. The
+CLI integration and full test/type/lint verification still need to run. Bounded
+DAG execution is not yet wired into the kernel, and adversarial coverage,
+evidence packaging, independent final criticism and the Phase 2 readiness
+verdict remain pending. The working tree is intentionally uncommitted; no push,
+reset or destructive action was performed, and the `skill-audit` submodule was
+preserved.
+
+## Resume after reset
+
+```text
+cd "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness"
+./.venv/bin/ruff format src tests
+./.venv/bin/ruff check src tests
+./.venv/bin/mypy src
+./.venv/bin/pytest -q
+```
+
+After those checks, resume the Phase 2 ExecPlan at CLI verification and bounded
+DAG integration, then produce the required adversarial evidence and independent
+final review.

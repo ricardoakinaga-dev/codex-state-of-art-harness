@@ -64,3 +64,16 @@ were complete. No new runtime functionality was authorized in that interval.
 
 Maintain the bounded Phase 1 boundary. Any executor, provider, host or Skill
 integration requires a separately authorized Phase 2 gate.
+
+## Checkpoint — Phase 2 implementation before host reset
+
+At `2026-08-28T15:40:07-03:00`, Phase 2 implementation is paused at a
+resumable checkpoint after the entry gates and the focused direct-kernel TDD
+slice. The current slice is `12 passed`; full lint, typing, CLI and repository
+verification have not yet been rerun after the latest CLI changes.
+
+Remaining work is deliberately bounded: finish verification, wire the kernel to
+the validated DAG path, expand adversarial tests, generate the Phase 2 evidence
+pack and obtain an independent final critic. No Phase 2 completion, production
+readiness, real provider, shell, network, Skills, subagent, MCP or global-config
+claim is authorized by this checkpoint.

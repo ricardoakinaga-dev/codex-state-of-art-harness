@@ -46,6 +46,7 @@ from .models import (
     RecordStatus,
     RegistryOrigin,
     ResearchNeed,
+    ResidualRisk,
     Reversibility,
     Risk,
     RouteDecision,
@@ -58,6 +59,7 @@ from .models import (
     TaskProfile,
     TelemetryEvent,
     TelemetryEventType,
+    UnresolvedPolicy,
     UserImpact,
     VerificationReport,
     VisualImportance,
@@ -172,6 +174,10 @@ def _nonempty(
         _add(
             findings, ValidationCode.INVALID_ID, path, "identifier contains unsupported characters"
         )
+
+
+def _enum_value(value: object) -> str:
+    return str(getattr(value, "value", value))
 
 
 def _enum(
@@ -375,6 +381,20 @@ def _specific(value: Any, findings: list[ValidationFinding]) -> None:
                     "$.merge_points[].node_id",
                     "unknown merge node",
                 )
+            _enum(
+                merge.unresolved_policy,
+                UnresolvedPolicy,
+                "$.merge_points[].unresolved_policy",
+                findings,
+            )
+        _nonempty(value.graph_owner, "$.graph_owner", findings)
+        _enum(value.merge_policy, UnresolvedPolicy, "$.merge_policy", findings)
+        if value.acceptance_refs:
+            _refs(value.acceptance_refs, "$.acceptance_refs", findings)
+        _refs(value.conflict_refs, "$.conflict_refs", findings)
+        if value.graph_budget is not None:
+            _nonnegative(value.graph_budget.tokens, "$.graph_budget.tokens", findings)
+            _nonnegative(value.graph_budget.duration_ms, "$.graph_budget.duration_ms", findings)
     elif isinstance(value, CapabilityManifest):
         _nonempty(value.capability_id, "$.capability_id", findings, identifier=True)
         _nonempty(value.version, "$.version", findings)
@@ -449,7 +469,36 @@ def _specific(value: Any, findings: list[ValidationFinding]) -> None:
     elif isinstance(value, CapabilityInvocation):
         _nonempty(value.objective, "$.objective", findings)
         _nonempty(value.inputs.payload_digest, "$.inputs.payload_digest", findings)
-        if value.invocation_status == InvocationStatus.AUTHORIZED:
+        _enum(
+            value.invocation_status, InvocationStatus, "$.invocation_status", findings, status=True
+        )
+        invocation_status = _enum_value(value.invocation_status)
+        if invocation_status != InvocationStatus.REQUESTED.value and (
+            value.operation or value.provider_id is not None or value.capability_origin is not None
+        ):
+            _nonempty(value.operation, "$.operation", findings)
+        # Scope labels predate the Phase 2 namespaced identifiers; preserve
+        # valid Phase 1 free-form labels while still requiring immutable text.
+        _text_refs(value.scope, "$.scope", findings)
+        _refs(value.dependencies, "$.dependencies", findings)
+        if value.provider_id is not None:
+            _nonempty(value.provider_id, "$.provider_id", findings, identifier=True)
+        if value.capability_origin is not None:
+            _enum(value.capability_origin, RegistryOrigin, "$.capability_origin", findings)
+        if value.repair_of is not None:
+            _nonempty(value.repair_of, "$.repair_of", findings, identifier=True)
+        _refs(value.repair_trigger_refs, "$.repair_trigger_refs", findings)
+        if len({key for key, _ in value.trace_context}) != len(value.trace_context):
+            _add(
+                findings,
+                ValidationCode.INVARIANT_VIOLATION,
+                "$.trace_context",
+                "trace context keys must be unique",
+            )
+        for key, trace_value in value.trace_context:
+            _nonempty(key, "$.trace_context[].key", findings)
+            _nonempty(trace_value, "$.trace_context[].value", findings)
+        if invocation_status == InvocationStatus.AUTHORIZED.value:
             if not value.scope or not value.permissions:
                 _add(
                     findings,
@@ -471,7 +520,7 @@ def _specific(value: Any, findings: list[ValidationFinding]) -> None:
                     "$.limits",
                     "authorized invocation needs a budget",
                 )
-        if value.invocation_status == InvocationStatus.SUCCEEDED and (
+        if invocation_status == InvocationStatus.SUCCEEDED.value and (
             not value.handoff.required_output_contracts or not value.expected_evidence
         ):
             _add(
@@ -487,6 +536,7 @@ def _specific(value: Any, findings: list[ValidationFinding]) -> None:
     elif isinstance(value, EvidenceRecord):
         _enum(value.result, EvidenceResult, "$.result", findings, status=True)
         _enum(value.freshness.status, FreshnessStatus, "$.freshness.status", findings, status=True)
+        _nonempty(value.owner, "$.owner", findings, identifier=True)
         _nonempty(value.observation, "$.observation", findings)
         _nonempty(
             value.procedure.procedure_id, "$.procedure.procedure_id", findings, identifier=True
@@ -605,6 +655,7 @@ def _specific(value: Any, findings: list[ValidationFinding]) -> None:
             )
     elif isinstance(value, RunSummary):
         _nonempty(value.route_ref, "$.route_ref", findings, identifier=True)
+        _enum(value.residual_risk, ResidualRisk, "$.residual_risk", findings)
         if value.lifecycle_state == LifecycleState.DELIVERED:
             if (
                 value.delivery.status

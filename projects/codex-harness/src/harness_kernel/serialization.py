@@ -14,6 +14,72 @@ from typing import Any, Union, cast, get_args, get_origin, get_type_hints
 from .errors import ContractValidationError, DeserializationError, SerializationError
 
 MAX_JSON_BYTES = 4 * 1024 * 1024
+MAX_JSON_DEPTH = 64
+MAX_JSON_NODES = 100_000
+
+
+def _check_json_shape(raw: bytes) -> None:
+    """Reject pathological nesting and container counts before JSON decoding."""
+
+    depth = 0
+    nodes = 0
+    in_string = False
+    escaped = False
+    for byte in raw:
+        if in_string:
+            if escaped:
+                escaped = False
+            elif byte == ord("\\"):
+                escaped = True
+            elif byte == ord('"'):
+                in_string = False
+            continue
+        if byte == ord('"'):
+            in_string = True
+            continue
+        if byte in (ord("{"), ord("[")):
+            depth += 1
+            nodes += 1
+            if depth > MAX_JSON_DEPTH:
+                raise DeserializationError(
+                    "JSON nesting exceeds the supported limit", code="DEPTH_LIMIT_EXCEEDED"
+                )
+        elif byte in (ord("}"), ord("]")):
+            depth -= 1
+            if depth < 0:
+                raise DeserializationError("invalid JSON", code="INVALID_JSON")
+        elif byte in (ord(","), ord(":")):
+            nodes += 1
+        if nodes > MAX_JSON_NODES:
+            raise DeserializationError(
+                "JSON container count exceeds the supported limit", code="SIZE_LIMIT_EXCEEDED"
+            )
+
+
+def _check_data_shape(value: object) -> None:
+    """Apply the same bounds to mappings passed directly to ``from_dict``."""
+
+    stack: list[tuple[object, int]] = [(value, 0)]
+    seen: set[int] = set()
+    nodes = 0
+    while stack:
+        current, depth = stack.pop()
+        if isinstance(current, (Mapping, list, tuple)):
+            identity = id(current)
+            if identity in seen:
+                continue
+            seen.add(identity)
+            nodes += 1
+            if depth > MAX_JSON_DEPTH:
+                raise DeserializationError(
+                    "JSON nesting exceeds the supported limit", code="DEPTH_LIMIT_EXCEEDED"
+                )
+            if nodes > MAX_JSON_NODES:
+                raise DeserializationError(
+                    "JSON container count exceeds the supported limit", code="SIZE_LIMIT_EXCEEDED"
+                )
+            children = current.values() if isinstance(current, Mapping) else current
+            stack.extend((child, depth + 1) for child in children)
 
 
 def _json_key(model_field: Any) -> str:
@@ -74,7 +140,7 @@ def to_json(value: Any, *, sort_keys: bool = True) -> str:
         )
     except SerializationError:
         raise
-    except (TypeError, ValueError) as exc:
+    except (RecursionError, TypeError, ValueError) as exc:
         raise SerializationError("value cannot be represented as contract JSON") from exc
 
 
@@ -201,17 +267,23 @@ def from_dict[T](data: Mapping[str, Any] | type[T], model_type: type[T] | Mappin
         data, model_type = model_type, data
     if not isinstance(data, Mapping) or not isinstance(model_type, type):
         raise DeserializationError("expected a mapping and a model type")
+    _check_data_shape(data)
     if model_type is dict:
         return dict(data)  # type: ignore[return-value]
     if not is_dataclass(model_type):
         raise DeserializationError("model type must be a dataclass contract")
-    value = _construct_dataclass(data, model_type, path="$")
-    from .validation import validate
+    try:
+        value = _construct_dataclass(data, model_type, path="$")
+        from .validation import validate
 
-    result = validate(value)
-    if not result.is_valid:
-        result.raise_for_error()
-    return value
+        result = validate(value)
+        if not result.is_valid:
+            result.raise_for_error()
+        return value
+    except RecursionError as exc:
+        raise DeserializationError(
+            "contract nesting exceeds the supported limit", code="DEPTH_LIMIT_EXCEEDED"
+        ) from exc
 
 
 def from_json[T](
@@ -231,6 +303,7 @@ def from_json[T](
         raise DeserializationError("JSON payload must be text or bytes")
     if len(raw) > MAX_JSON_BYTES:
         raise DeserializationError("JSON payload exceeds size limit", code="SIZE_LIMIT_EXCEEDED")
+    _check_json_shape(raw)
     try:
         data = json.loads(
             raw,
@@ -239,6 +312,10 @@ def from_json[T](
         )
     except DeserializationError:
         raise
+    except RecursionError as exc:
+        raise DeserializationError(
+            "JSON nesting exceeds the supported limit", code="DEPTH_LIMIT_EXCEEDED"
+        ) from exc
     except (UnicodeDecodeError, json.JSONDecodeError) as exc:
         raise DeserializationError("invalid JSON", code="INVALID_JSON") from exc
     if not isinstance(data, Mapping):

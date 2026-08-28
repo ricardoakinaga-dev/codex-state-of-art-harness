@@ -337,14 +337,18 @@ class GraphStatus(_StringEnum):
 
 
 class InvocationStatus(_StringEnum):
+    CREATED = "CREATED"
+    VALIDATED = "VALIDATED"
     REQUESTED = "REQUESTED"
     AUTHORIZED = "AUTHORIZED"
+    READY = "READY"
     RUNNING = "RUNNING"
     SUCCEEDED = "SUCCEEDED"
     PARTIAL = "PARTIAL"
     FAILED = "FAILED"
     BLOCKED = "BLOCKED"
     CANCELLED = "CANCELLED"
+    TIMED_OUT = "TIMED_OUT"
 
 
 class ArtifactType(_StringEnum):
@@ -531,20 +535,30 @@ class QualityDecision(_StringEnum):
 
 
 class TelemetryEventType(_StringEnum):
+    RUN_CREATED = "RUN_CREATED"
     TASK_RECEIVED = "TASK_RECEIVED"
     TASK_CLASSIFIED = "TASK_CLASSIFIED"
     ROUTE_SELECTED = "ROUTE_SELECTED"
+    GRAPH_CREATED = "GRAPH_CREATED"
     CAPABILITY_SELECTED = "CAPABILITY_SELECTED"
     CAPABILITY_LOADED = "CAPABILITY_LOADED"
+    INVOCATION_STARTED = "INVOCATION_STARTED"
     TOOL_CALLED = "TOOL_CALLED"
     TOOL_RESULT = "TOOL_RESULT"
+    INVOCATION_FINISHED = "INVOCATION_FINISHED"
     RETRY = "RETRY"
     VALIDATION_RUN = "VALIDATION_RUN"
     VALIDATION_FAIL = "VALIDATION_FAIL"
+    VERIFICATION_STARTED = "VERIFICATION_STARTED"
+    VERIFICATION_FINISHED = "VERIFICATION_FINISHED"
     CRITIQUE_RUN = "CRITIQUE_RUN"
+    CRITIQUE_RECORDED = "CRITIQUE_RECORDED"
+    ASSURANCE_DECIDED = "ASSURANCE_DECIDED"
+    STOP_TRIGGERED = "STOP_TRIGGERED"
     GAUNTLET_PASS = "GAUNTLET_PASS"
     GAUNTLET_FAIL = "GAUNTLET_FAIL"
     DELIVERY = "DELIVERY"
+    RUN_COMPLETED = "RUN_COMPLETED"
 
 
 class Ordering(_StringEnum):
@@ -734,6 +748,11 @@ class ExecutionNode(_ValueModel):
     required: bool
     budget: NodeBudget
     acceptance_refs: tuple[str, ...]
+    provider_id: str | None = None
+    invocation_ref: str | None = None
+    artifact_refs: tuple[str, ...] = ()
+    node_status: InvocationStatus | str = InvocationStatus.REQUESTED
+    allow_failed_dependencies: bool = False
 
 
 @dataclass(frozen=True, slots=True)
@@ -764,6 +783,11 @@ class ExecutionGraph(_ValueModel):
     graph_status: GraphStatus
     stop_policy_ref: str
     created_at: str
+    graph_owner: str = "orchestrator"
+    graph_budget: NodeBudget | None = None
+    acceptance_refs: tuple[str, ...] = ()
+    merge_policy: UnresolvedPolicy | str = UnresolvedPolicy.PRESERVE_AND_ESCALATE
+    conflict_refs: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True, slots=True)
@@ -934,6 +958,15 @@ class CapabilityInvocation(_ValueModel):
     failure_refs: tuple[str, ...]
     started_at: str | None
     completed_at: str | None
+    operation: str = ""
+    capability_origin: RegistryOrigin | str | None = None
+    dependencies: tuple[str, ...] = ()
+    trace_context: tuple[tuple[str, str], ...] = ()
+    provider_id: str | None = None
+    authority_snapshot_ref: str | None = None
+    delegation_ref: str | None = None
+    repair_of: str | None = None
+    repair_trigger_refs: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True, slots=True)
@@ -1036,6 +1069,7 @@ class EvidenceRecord(_ValueModel):
     limitations: tuple[str, ...]
     confidence: Confidence
     privacy_class: PrivacyClass
+    owner: str = "local.verifier"
 
 
 @dataclass(frozen=True, slots=True)
@@ -1270,6 +1304,7 @@ class RunSummary(_ValueModel):
     open_questions: tuple[str, ...]
     confidence: Confidence
     created_at: str
+    residual_risk: ResidualRisk | str = ResidualRisk.UNKNOWN
 
 
 # Small compatibility aliases keep the public vocabulary discoverable without

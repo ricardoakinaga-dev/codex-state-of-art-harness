@@ -9,8 +9,8 @@ genérico de runtime.
 - [`architecture/`](./architecture/) — `HARNESS-SPEC.md`, documentação, ADRs,
   contratos e diagramas arquiteturais.
 - [`projects/codex-harness/`](./projects/codex-harness/) — projeto isolado da
-  implementação de kernel da Fase 1, com código, testes, configuração, estado e
-  evidências próprios.
+  implementação verificada da Fase 1 e do alvo atual da Fase 2, com código,
+  testes, configuração, estado e evidências próprios.
 - [`capabilities/`](./capabilities/) — reservado para futuros pacotes de
   capability, cada um em seu próprio diretório.
 - [`references/skill-audit/`](./references/skill-audit/) — submódulo de auditoria
@@ -23,7 +23,12 @@ futura recebe seu próprio diretório em `capabilities/` ou dentro do limite
 explicitamente definido pelo projeto. Não misture `src`, testes, estado,
 configuração ou dependências de unidades diferentes.
 
+Status explícito: a arquitetura do sistema em `architecture/` continua
+`PROPOSED`; a Fase 1 está `IMPLEMENTED/VERIFIED`; a Fase 2 é o
+`CURRENT IMPLEMENTATION TARGET` local; o runtime completo do Codex permanece
+`NOT PROVEN`.
+
 Para trabalhar no kernel, entre em [`projects/codex-harness/`](./projects/codex-harness/)
-e use o `pyproject.toml` local. A implementação bounded da Fase 1 vive somente
-nessa fronteira; o runtime de execução, a modernização de Skills e a integração
-com Codex permanecem adiados.
+e use o `pyproject.toml` local. A Fase 2 adiciona somente providers fixtures
+determinísticos e execução confinada ao projeto; Skills, subagents, MCP, shell,
+rede, host adapter e produção permanecem adiados.

@@ -22,6 +22,50 @@ class ErrorCode(StrEnum):
     SIZE_LIMIT_EXCEEDED = "SIZE_LIMIT_EXCEEDED"
 
 
+class FailureCategory(StrEnum):
+    """Stable execution failure classes; values never contain raw input."""
+
+    VALIDATION = "VALIDATION"
+    AUTHORITY_DENIED = "AUTHORITY_DENIED"
+    CAPABILITY_UNAVAILABLE = "CAPABILITY_UNAVAILABLE"
+    DEPENDENCY_FAILED = "DEPENDENCY_FAILED"
+    CONFLICT = "CONFLICT"
+    PROVIDER = "PROVIDER"
+    TIMEOUT = "TIMEOUT"
+    CANCELLED = "CANCELLED"
+    VERIFICATION = "VERIFICATION"
+    BUDGET = "BUDGET"
+    INTERNAL = "INTERNAL"
+
+
+@dataclass(frozen=True, slots=True)
+class FailureDetail:
+    """A bounded, safe-to-persist execution failure description."""
+
+    category: FailureCategory | str
+    code: str
+    message: str
+    retryable: bool = False
+    refs: tuple[str, ...] = ()
+    attempt: int = 1
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.code, str) or not self.code.strip():
+            raise ValueError("failure code is required")
+        if not isinstance(self.message, str) or not self.message.strip():
+            raise ValueError("failure message is required")
+        if not isinstance(self.attempt, int) or isinstance(self.attempt, bool) or self.attempt < 1:
+            raise ValueError("failure attempt must be a positive integer")
+        object.__setattr__(
+            self,
+            "category",
+            self.category
+            if isinstance(self.category, FailureCategory)
+            else FailureCategory(str(self.category)),
+        )
+        object.__setattr__(self, "refs", tuple(self.refs))
+
+
 @dataclass(frozen=True, slots=True)
 class ErrorDetail:
     code: str
@@ -48,6 +92,24 @@ class ContractError(Exception):
 
     def _format_message(self) -> str:
         return f"{self.code} at {self.path}: {self.message}"
+
+
+class ExecutionError(ContractError):
+    """Safe exception carrying a typed execution failure."""
+
+    def __init__(self, failure: FailureDetail) -> None:
+        self.failure = failure
+        super().__init__(
+            failure.message,
+            code=str(getattr(failure.category, "value", failure.category)),
+            details=(
+                ErrorDetail(
+                    code=failure.code,
+                    message=failure.message,
+                    path="$",
+                ),
+            ),
+        )
 
 
 class ContractValidationError(ContractError):

@@ -37,6 +37,25 @@
         "evidence/phase-1/README.md"
       ],
       "next_action": "Do not expand runtime scope until a separate Phase 2 specification, authority and execution gate is approved."
+    },
+    {
+      "id": "PHASE2-001",
+      "title": "Implement the bounded Phase 2 Execution Kernel",
+      "stage": "BUILD",
+      "priority": "P0",
+      "status": "IN_PROGRESS",
+      "origin": "User-supplied Phase 2 Execution Kernel specification",
+      "dependencies": ["PHASE1-001"],
+      "owner": "lead",
+      "acceptance_summary": "Implement and verify local deterministic direct and graph execution with typed invocation, providers, authority, limits, artifacts, evidence, verification, assurance, repair, summary, telemetry, persistence and CLI while preserving all explicit non-goals.",
+      "evidence_refs": [
+        ".agent/plans/PHASE-2-execution-kernel.md",
+        ".agent/gates/PHASE2-TECHNICALLY-SPECIFIED-0001.json",
+        ".agent/gates/PHASE2-IMPLEMENTATION-READY-0001.json",
+        "docs/implementation/phase-2-quality-bar.md",
+        "docs/phase-2-threat-model.md"
+      ],
+      "next_action": "Resume with formatting, full verification and CLI checks; then integrate bounded DAG execution, adversarial coverage and final Phase 2 evidence."
     }
   ]
 }

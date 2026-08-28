@@ -1,0 +1,82 @@
+{
+  "record_id": "GATE-PHASE2-IR-0001",
+  "timestamp": "2026-08-28T13:21:00-03:00",
+  "gate_id": "IMPLEMENTATION_READY",
+  "scope": "Phase 2 Execution Kernel",
+  "scope_ref": "PHASE2-001",
+  "version": 1,
+  "criteria": [
+    {
+      "id": "IR-001",
+      "description": "Phase 2 scope, architecture, interfaces and explicit deferrals are documented and bounded.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        ".agent/plans/PHASE-2-execution-kernel.md",
+        "docs/implementation/phase-2-quality-bar.md",
+        "docs/phase-2-threat-model.md"
+      ],
+      "confidence": "HIGH",
+      "limitations": "Only deterministic local fixture providers are admitted in this phase."
+    },
+    {
+      "id": "IR-002",
+      "description": "Acceptance, TDD/test strategy, security controls and risk-shaped scenarios are executable as planned.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "docs/implementation/phase-2-quality-bar.md",
+        "docs/phase-2-threat-model.md",
+        "docs/adr/phase-2-verification-boundary.md"
+      ],
+      "confidence": "HIGH",
+      "limitations": "Production SLOs, hostile sandboxing and causal quality measurements are deferred."
+    },
+    {
+      "id": "IR-003",
+      "description": "Dependencies, ownership, recovery, project isolation and no-global-mutation constraints are explicit.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        ".agent/plans/PHASE-2-execution-kernel.md",
+        "docs/adr/phase-2-persistence.md",
+        "docs/phase-2-threat-model.md"
+      ],
+      "confidence": "HIGH",
+      "limitations": "The skill-audit submodule remains a read-only reference and is not a runtime dependency."
+    }
+  ],
+  "evidence": [
+    ".agent/plans/PHASE-2-execution-kernel.md",
+    "docs/implementation/phase-2-quality-bar.md",
+    "docs/phase-2-threat-model.md",
+    "docs/adr/phase-2-provider-contract.md",
+    "docs/adr/phase-2-graph-policy.md",
+    "docs/adr/phase-2-persistence.md",
+    "docs/adr/phase-2-verification-boundary.md",
+    ".harness/README.md",
+    ".harness/capabilities/README.md"
+  ],
+  "confidence": "HIGH",
+  "gaps": [],
+  "conditions": [],
+  "authority": {
+    "required": false,
+    "state": "NOT_REQUIRED",
+    "actor": "lead",
+    "scope": "Phase 2 Execution Kernel",
+    "decision": "No external approval is required for this local, reversible, explicitly scoped implementation.",
+    "evidence_ref": ".agent/plans/PHASE-2-execution-kernel.md",
+    "expires_or_revalidates": "Revalidate on any host, provider, network, shell, credential, deployment or material scope change."
+  },
+  "residual_risk": "MEDIUM",
+  "decision": "PASS",
+  "next_action": "Enter BUILD/IMPLEMENT, write RED tests and implement the bounded local execution kernel.",
+  "revalidation_triggers": [
+    "Adding an external provider or host adapter",
+    "Changing the authority or project-boundary policy",
+    "Changing the failure, persistence, graph or assurance contracts",
+    "Moving from local verification to release or production operation"
+  ],
+  "supersedes": null
+}

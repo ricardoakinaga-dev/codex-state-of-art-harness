@@ -11,8 +11,10 @@ from collections.abc import Iterable, Mapping, Sequence
 from pathlib import Path
 from typing import Any, TextIO
 
+from .boundary import ProjectBoundary
 from .classification import classify_task
 from .errors import ContractError, ContractValidationError, DeserializationError
+from .execution import ExecutionKernel, ExecutionLimits
 from .models import (
     ArtifactRecord,
     CapabilityInvocation,
@@ -29,6 +31,7 @@ from .models import (
     TelemetryEvent,
     VerificationReport,
 )
+from .providers import ProviderRegistry
 from .registry import CapabilityRegistry, RegistryDiagnostic
 from .routing import minimum_route
 from .serialization import MAX_JSON_BYTES, from_dict, to_dict
@@ -52,6 +55,7 @@ _CONFIG_KEYS = frozenset(
         "registry",
         "paths",
         "budgets",
+        "execution",
         "telemetry",
     }
 )
@@ -62,6 +66,21 @@ _BUDGET_KEYS = frozenset(
 )
 _TELEMETRY_KEYS = frozenset(
     {"redaction_enabled", "append_only", "allow_unobserved_capability_loaded"}
+)
+_EXECUTION_KEYS = frozenset(
+    {
+        "max_nodes",
+        "max_invocations",
+        "max_retries",
+        "max_duration_ms",
+        "max_evidence",
+        "max_telemetry",
+        "timeout_ms",
+        "max_repairs",
+        "default_provider",
+        "allow_network",
+        "allow_shell",
+    }
 )
 
 _SCHEMA_MODELS: dict[str, type[Any]] = {
@@ -121,7 +140,7 @@ def _check_json_depth(raw: bytes) -> None:
             depth = max(0, depth - 1)
 
 
-def _root(value: str | None) -> Path:
+def _root(value: str | None, *, restrict_to_cwd: bool = False) -> Path:
     if value is not None:
         _validate_path_text(value)
     candidate = Path(value) if value else Path.cwd()
@@ -131,6 +150,15 @@ def _root(value: str | None) -> Path:
         raise CliError("PATH_INVALID", "project root is unavailable") from exc
     if not resolved.is_dir():
         raise CliError("PATH_INVALID", "project root is not a directory")
+    if restrict_to_cwd:
+        trusted = Path.cwd().resolve(strict=True)
+        try:
+            resolved.relative_to(trusted)
+        except ValueError as exc:
+            raise CliError(
+                "PATH_INVALID",
+                "persistent execution root must remain under the current project scope",
+            ) from exc
     return resolved
 
 
@@ -333,13 +361,16 @@ def _config_result(value: Mapping[str, Any]) -> ValidationResult:
         )
     _config_unknown_fields(value, _CONFIG_KEYS, "$", findings)
     sections = (
-        ("registry", _REGISTRY_KEYS),
-        ("paths", _PATH_KEYS),
-        ("budgets", _BUDGET_KEYS),
-        ("telemetry", _TELEMETRY_KEYS),
+        ("registry", _REGISTRY_KEYS, True),
+        ("paths", _PATH_KEYS, True),
+        ("budgets", _BUDGET_KEYS, True),
+        ("execution", _EXECUTION_KEYS, False),
+        ("telemetry", _TELEMETRY_KEYS, True),
     )
-    for section, allowed in sections:
+    for section, allowed, required_section in sections:
         section_value = value.get(section)
+        if section_value is None and not required_section:
+            continue
         if not isinstance(section_value, Mapping):
             findings.append(
                 ValidationFinding(
@@ -350,7 +381,8 @@ def _config_result(value: Mapping[str, Any]) -> ValidationResult:
             )
             continue
         _config_unknown_fields(section_value, allowed, f"$.{section}", findings)
-        for key in sorted(allowed - set(section_value)):
+        required_keys = allowed if required_section else frozenset()
+        for key in sorted(required_keys - set(section_value)):
             findings.append(
                 ValidationFinding(
                     ValidationCode.REQUIRED_FIELD,
@@ -368,13 +400,40 @@ def _config_result(value: Mapping[str, Any]) -> ValidationResult:
                             f"$.{section}.{key}",
                         )
                     )
-        elif section == "budgets":
+        elif section in {"budgets", "execution"}:
             for key, item in section_value.items():
-                if key in allowed and (
-                    not isinstance(item, int)
-                    or isinstance(item, bool)
-                    or item < 0
-                    or item > MAX_CONFIG_INTEGER
+                is_integer = key in _BUDGET_KEYS or key not in {
+                    "default_provider",
+                    "allow_network",
+                    "allow_shell",
+                }
+                if section == "execution" and key in {"allow_network", "allow_shell"}:
+                    if not isinstance(item, bool):
+                        findings.append(
+                            ValidationFinding(
+                                ValidationCode.INVALID_TYPE,
+                                "execution sandbox setting must be boolean",
+                                f"$.{section}.{key}",
+                            )
+                        )
+                elif section == "execution" and key == "default_provider":
+                    if not isinstance(item, str) or _IDENTIFIER.fullmatch(item) is None:
+                        findings.append(
+                            ValidationFinding(
+                                ValidationCode.INVALID_ID,
+                                "default_provider must be a valid identifier",
+                                f"$.{section}.{key}",
+                            )
+                        )
+                elif (
+                    is_integer
+                    and key in allowed
+                    and (
+                        not isinstance(item, int)
+                        or isinstance(item, bool)
+                        or item < 0
+                        or item > MAX_CONFIG_INTEGER
+                    )
                 ):
                     findings.append(
                         ValidationFinding(
@@ -396,6 +455,38 @@ def _config_result(value: Mapping[str, Any]) -> ValidationResult:
     return ValidationResult(
         valid=not findings, findings=tuple(findings), record_type="KernelConfig"
     )
+
+
+def _execution_limits(root: Path) -> tuple[ExecutionLimits, str]:
+    config_path = root / ".harness" / "config" / "kernel.json"
+    try:
+        config = _read_json(str(config_path), root, sys.stdin)
+    except CliError as exc:
+        raise CliError("CONFIG_INVALID", "project configuration is unavailable") from exc
+    if not isinstance(config, Mapping) or not _config_result(config).is_valid:
+        raise CliError("CONFIG_INVALID", "project configuration is invalid")
+    raw = config.get("execution")
+    execution = raw if isinstance(raw, Mapping) else {}
+    defaults = ExecutionLimits()
+    try:
+        limits = ExecutionLimits(
+            max_nodes=int(execution.get("max_nodes", defaults.max_nodes)),
+            max_invocations=int(execution.get("max_invocations", defaults.max_invocations)),
+            max_retries=int(execution.get("max_retries", defaults.max_retries)),
+            max_duration_ms=int(execution.get("max_duration_ms", defaults.max_duration_ms)),
+            max_evidence=int(execution.get("max_evidence", defaults.max_evidence)),
+            max_telemetry=int(execution.get("max_telemetry", defaults.max_telemetry)),
+            timeout_ms=int(execution.get("timeout_ms", defaults.timeout_ms)),
+            max_repairs=int(execution.get("max_repairs", defaults.max_repairs)),
+        )
+    except (TypeError, ValueError, OverflowError) as exc:
+        raise CliError("CONFIG_INVALID", "execution limits are invalid") from exc
+    provider = execution.get("default_provider", "local.success")
+    if not isinstance(provider, str) or _IDENTIFIER.fullmatch(provider) is None:
+        raise CliError("CONFIG_INVALID", "default provider is invalid")
+    if execution.get("allow_network", False) or execution.get("allow_shell", False):
+        raise CliError("SANDBOX_POLICY", "network and shell execution are disabled")
+    return limits, provider
 
 
 def _contract_from_value(
@@ -719,7 +810,11 @@ def _doctor(root: Path) -> dict[str, object]:
         {"id": "CAPABILITY_BOUNDARY", "status": "PASS" if capability_root.is_dir() else "FAIL"}
     )
     checks.append(
-        {"id": "CAPABILITY_EXECUTION", "status": "NOT_RUN", "reason": "Phase 1 has no executor"}
+        {
+            "id": "CAPABILITY_EXECUTION",
+            "status": "NOT_RUN",
+            "reason": "doctor is metadata-only and never executes a provider",
+        }
     )
     status = "PASS" if all(item["status"] != "FAIL" for item in checks) else "FAIL"
     return {
@@ -782,7 +877,10 @@ def _telemetry_report(source: str, root: Path, stdin: TextIO) -> dict[str, objec
 def _parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="harness-kernel",
-        description="Phase 1 project-local contract inspection; no capability execution.",
+        description=(
+            "Phase 2 bounded project-local execution and contract inspection; "
+            "no host, shell or network execution."
+        ),
     )
     commands = parser.add_subparsers(dest="command")
 
@@ -798,9 +896,11 @@ def _parser() -> argparse.ArgumentParser:
     )
     doctor_parser.add_argument("--root", default=None)
     doctor_parser.add_argument("--format", choices=("json", "text"), default="json")
+    doctor_parser.add_argument("--json", action="store_true")
     health_parser = commands.add_parser("health", help="alias for doctor")
     health_parser.add_argument("--root", default=None)
     health_parser.add_argument("--format", choices=("json", "text"), default="json")
+    health_parser.add_argument("--json", action="store_true")
 
     registry_parser = commands.add_parser("registry", help="inspect declarative local manifests")
     registry_parser.add_argument("--root", default=None)
@@ -840,6 +940,33 @@ def _parser() -> argparse.ArgumentParser:
     )
     telemetry_validate.add_argument("source")
     telemetry_validate.add_argument("--format", choices=("json", "text"), default=None)
+
+    run_parser = commands.add_parser(
+        "run", help="execute one bounded project-local deterministic provider"
+    )
+    run_parser.add_argument("objective")
+    run_parser.add_argument("--task-id", default="TASK-CLI")
+    run_parser.add_argument("--run-id", default=None)
+    run_parser.add_argument("--provider", default=None)
+    run_parser.add_argument("--root", default=None)
+    run_parser.add_argument("--dry-run", action="store_true")
+    run_parser.add_argument(
+        "--explain",
+        action="store_true",
+        help="show the bounded classification, route and budget plan without execution",
+    )
+    run_parser.add_argument("--stop-before-run", action="store_true")
+    run_parser.add_argument("--cancelled", action="store_true")
+    run_parser.add_argument("--timeout-ms", type=int, default=None)
+    run_parser.add_argument("--format", choices=("json", "text"), default="json")
+    run_parser.add_argument("--json", action="store_true")
+
+    quality_parser = commands.add_parser(
+        "quality", help="inspect quality prerequisites without executing a provider"
+    )
+    quality_parser.add_argument("--root", default=None)
+    quality_parser.add_argument("--format", choices=("json", "text"), default="json")
+    quality_parser.add_argument("--json", action="store_true")
     return parser
 
 
@@ -853,7 +980,7 @@ def _render(payload: Mapping[str, object], output_format: str, command: str) -> 
 
 
 def main(argv: Sequence[str] | None = None) -> int:
-    """Run the read-only Phase 1 CLI and return a process exit code."""
+    """Run the bounded project-local CLI and return a process exit code."""
 
     parser = _parser()
     args = parser.parse_args(argv)
@@ -873,8 +1000,136 @@ def main(argv: Sequence[str] | None = None) -> int:
         if args.command in {"doctor", "health"}:
             payload = _doctor(_root(args.root))
             payload = {**payload, "command": args.command}
-            _render(payload, args.format, args.command)
+            _render(payload, "json" if args.json else args.format, args.command)
             return 0 if payload["status"] == "PASS" else 1
+        if args.command == "quality":
+            project_root = _root(args.root)
+            doctor = _doctor(project_root)
+            payload = {
+                "status": doctor["status"],
+                "command": "quality",
+                "quality_bar": "P2-QB-1",
+                "executed": False,
+                "capabilities_executed": False,
+                "provider_execution": "NOT_RUN",
+                "checks": doctor["checks"],
+            }
+            _render(payload, "json" if args.json else args.format, "quality")
+            return 0 if payload["status"] == "PASS" else 1
+        if args.command == "run":
+            if len(args.objective) > MAX_TEXT_CHARS or not args.objective.strip():
+                raise CliError("INVALID_INPUT", "objective is invalid")
+            if _IDENTIFIER.fullmatch(args.task_id) is None:
+                raise CliError("INVALID_INPUT", "task id is invalid")
+            if args.run_id is not None and _IDENTIFIER.fullmatch(args.run_id) is None:
+                raise CliError("INVALID_INPUT", "run id is invalid")
+            if args.provider is not None and _IDENTIFIER.fullmatch(args.provider) is None:
+                raise CliError("INVALID_INPUT", "provider id is invalid")
+            project_root = _root(args.root, restrict_to_cwd=True)
+            limits, configured_provider = _execution_limits(project_root)
+            selected_provider = args.provider or configured_provider
+            if args.timeout_ms is not None and args.timeout_ms > limits.timeout_ms:
+                raise CliError(
+                    "TIMEOUT_LIMIT",
+                    "requested timeout exceeds the project execution limit",
+                )
+            try:
+                execution_registry, registry_failures = _load_registry(project_root)
+                if registry_failures:
+                    raise CliError(
+                        "REGISTRY_INVALID",
+                        "project capability registry failed admission",
+                    )
+                kernel = ExecutionKernel(
+                    ProjectBoundary(project_root),
+                    providers=ProviderRegistry.local_defaults(),
+                    registry=execution_registry,
+                )
+                result = kernel.run(
+                    args.objective,
+                    task_id=args.task_id,
+                    run_id=args.run_id,
+                    provider_id=selected_provider,
+                    limits=limits,
+                    dry_run=args.dry_run or args.explain,
+                    stop_before_run=args.stop_before_run,
+                    cancelled=args.cancelled,
+                    timeout_ms=args.timeout_ms,
+                    persist=True,
+                )
+            except (ContractError, TypeError, ValueError) as exc:
+                raise CliError(
+                    "EXECUTION_INVALID", "project-local execution could not start"
+                ) from exc
+            first_failure = result.failures[0] if result.failures else None
+            payload = {
+                "status": str(getattr(result.status, "value", result.status)),
+                "command": "run",
+                "run_id": result.summary.run_id,
+                "task_id": result.summary.task_id,
+                "executed": result.executed,
+                "provider": result.provider,
+                "route": to_dict(result.route),
+                "summary": to_dict(result.summary),
+                "verification": to_dict(result.verification),
+                "assurance": {
+                    "decision": str(
+                        getattr(result.assurance.decision, "value", result.assurance.decision)
+                    ),
+                    "quality_band": str(
+                        getattr(
+                            result.assurance.quality_band, "value", result.assurance.quality_band
+                        )
+                    ),
+                    "reason": result.assurance.reason,
+                },
+                "failure_category": (
+                    str(getattr(first_failure.category, "value", first_failure.category))
+                    if first_failure is not None
+                    else None
+                ),
+                "failure_code": first_failure.code if first_failure is not None else None,
+                "artifact_refs": [item.artifact_id for item in result.artifacts],
+                "evidence_refs": [
+                    str(item.evidence_id)
+                    for item in result.evidence
+                    if isinstance(item, EvidenceRecord)
+                ],
+                "telemetry_events": len(result.telemetry.events),
+            }
+            if args.explain:
+                provider_inspection = ProviderRegistry.local_defaults().inspect(selected_provider)
+                descriptor = (
+                    provider_inspection.registration.descriptor
+                    if provider_inspection.registration
+                    else None
+                )
+                payload["explain"] = {
+                    "classification": to_dict(result.profile),
+                    "route": to_dict(result.route),
+                    "provider": {
+                        "requested": selected_provider,
+                        "registered": provider_inspection.registered,
+                        "available": provider_inspection.usable,
+                        "execution_mode": descriptor.execution_mode if descriptor else None,
+                        "local_only": descriptor.local_only if descriptor else None,
+                        "operations": list(descriptor.operations) if descriptor else [],
+                    },
+                    "authority": {
+                        "checked_before_provider": True,
+                        "snapshot": to_dict(result.authority_snapshot)
+                        if result.authority_snapshot is not None
+                        else None,
+                    },
+                    "budgets": to_dict(limits),
+                    "execution": {
+                        "will_execute": False,
+                        "reason": "explain mode is a dry-run",
+                    },
+                }
+            output_format = "json" if args.json else args.format
+            _render(payload, output_format, "run")
+            return 0 if result.status in {"SUCCEEDED", "DRY_RUN"} else 1
         if args.command == "registry":
             project_root = _root(args.root)
             registry, failures = _load_registry(project_root)
@@ -940,16 +1195,16 @@ def main(argv: Sequence[str] | None = None) -> int:
             profile = profile_value
             registry, failures = _load_registry(project_root)
             route = minimum_route(profile, registry)
-            result = validate(route)
+            route_validation = validate(route)
             payload = {
-                **_validation_payload(result, document_schema="RD-1"),
+                **_validation_payload(route_validation, document_schema="RD-1"),
                 "command": "route",
                 "executed": False,
                 "route": to_dict(route),
                 "registry_findings": list(failures),
             }
             _render(payload, args.format, "route")
-            return 0 if result.is_valid and not failures else 1
+            return 0 if route_validation.is_valid and not failures else 1
         if args.command == "state":
             payload = _state_report(_root(args.root))
             _render(payload, args.format, "state")
