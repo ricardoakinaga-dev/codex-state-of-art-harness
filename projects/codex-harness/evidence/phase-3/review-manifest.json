@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-08-29T04:37:37+00:00",
+  "created_at": "2026-08-29T06:18:00+00:00",
   "excluded_from_immutable_payload": [
     "evidence/phase-3/review-manifest.json",
     "evidence/phase-3/review-attestation.json",
@@ -51,11 +51,11 @@
         },
         {
           "path": "pyproject.toml",
-          "sha256": "0f06746386a89b03dcca9009662b405b86856d44dc101fe041885f29c4297485",
-          "size_bytes": 990
+          "sha256": "0b02d36f43e5277259e6fd4cf08a9c3b9042231ec530b36420896c8babab6881",
+          "size_bytes": 1033
         }
       ],
-      "sha256": "5633223cd80fc71963d9f17f3b92d90e2c9af03d0ab95ac3486725d1872a96e6"
+      "sha256": "ecbcdb3e6a3be32e087becb45499ccaa1b13a1fb258c8d6d5b40c0e36f92737b"
     },
     "contracts_and_boundaries": {
       "count": 5,
@@ -66,9 +66,14 @@
           "size_bytes": 3877
         },
         {
+          "path": "docs/implementation/phase-3-host-capability-integration-report.md",
+          "sha256": "7d59625e12ce2a36808c4e1590e23b22f81aaf9b4510eb62197dfebad42b4c39",
+          "size_bytes": 8437
+        },
+        {
           "path": "docs/implementation/phase-3-quality-bar.md",
-          "sha256": "2ae9ede2cbe5ec403390a99a7e02ce7ae104aa74a8f0e972da890198aa397c98",
-          "size_bytes": 5481
+          "sha256": "10ba68e1c1165bee63ea3bdf5c0f08ac65a2af26949f37c3c55c42073ab29eca",
+          "size_bytes": 5525
         },
         {
           "path": "evidence/phase-2/PHASE2-FROZEN.md",
@@ -77,38 +82,38 @@
         },
         {
           "path": "evidence/phase-3/phase2-supersession.md",
-          "sha256": "54e54c3f00e3cf7f013b50fc1cb5cd73793be8895c0af22ce8c71f2ba68c2d6c",
-          "size_bytes": 980
-        },
-        {
-          "path": "docs/implementation/phase-3-host-capability-integration-report.md",
-          "sha256": "06185fc74a87806b9d0cbfb44914342a21a80f8e003f41adac45ef2013ebbdfe",
-          "size_bytes": 2722
+          "sha256": "02437adf4806ce91ed80481852287c0b294d5723d78479a6a12591c65c8fb631",
+          "size_bytes": 1843
         }
       ],
-      "sha256": "7ad2a3e3907390088db285c7fd1e66bb569c85073b99a1412c1a6ab2e96c5001"
+      "sha256": "770edc3dae320fa1c4e27f8125379e99d28a5efbbfa801cc0922df06b0ee22ef"
     },
     "payload_closure": {
-      "count": 102,
-      "sha256": "631ffb8e3392a3a1cdcb612c936a7a0de77ce9546a582eeeba424cbdb8c93ee4"
+      "count": 119,
+      "sha256": "97d37253ce3512ef358929fbd3df67f6f08d1fb7197699b85288443373867641"
     },
     "phase3_evidence_pre_review": {
-      "count": 23,
+      "count": 36,
       "files": [
         {
           "path": "evidence/phase-3/README.md",
-          "sha256": "9144e34f8dcb04699b4db9c6f5f8bed62a5f756c7eac7f6604753097d245cbd1",
-          "size_bytes": 1783
+          "sha256": "5e2bbe7a20a9005d0d9c98f7d4898d26bdcfbdf4958527be359c54508ee8b8c0",
+          "size_bytes": 2130
         },
         {
           "path": "evidence/phase-3/benchmark-summary.json",
-          "sha256": "87079bb7a4a9557608cbad151626b908ffaf621e3a06e9f5674f00ec46ea8d7f",
-          "size_bytes": 2072
+          "sha256": "185eb9565cf50583bba64e2963eba902bcf66b84566592b769caf39cb14481f6",
+          "size_bytes": 2676
         },
         {
           "path": "evidence/phase-3/benchmark.md",
-          "sha256": "f0ab7b8c869f3b1c5207e19a086dc7b560722734e3431b84b59693178946ee94",
-          "size_bytes": 893
+          "sha256": "45c4653f1e13b9c643dc2d80a69cbfee73d6844bccefc20552c600c1b5060079",
+          "size_bytes": 607
+        },
+        {
+          "path": "evidence/phase-3/capability-discovery-report.md",
+          "sha256": "e71f75a1a5fd7d7974100e48bb5e2f357e4c04bb555175c7fe3997e76c378396",
+          "size_bytes": 915
         },
         {
           "path": "evidence/phase-3/capability-discovery.md",
@@ -117,18 +122,28 @@
         },
         {
           "path": "evidence/phase-3/cli-smoke.json",
-          "sha256": "c532d49deffded6f685f787ebbfde13a2b47ef4fee7e738585d2d718a646e5d3",
-          "size_bytes": 987
+          "sha256": "19a41523f9377679c4b788416780d96d50a5a849501e154545f64c25f8342b5e",
+          "size_bytes": 1799
         },
         {
           "path": "evidence/phase-3/compatibility-report.json",
-          "sha256": "24d9e52e8e528264e658c3c3c8a0d0dd2d84897f29086166cc48b8524ecb8a26",
-          "size_bytes": 18444
+          "sha256": "564904168e2a5e25f60ce1c8904e3865d692da0f656656f7ba4cd9c5b6180c7c",
+          "size_bytes": 21088
+        },
+        {
+          "path": "evidence/phase-3/compatibility-report.md",
+          "sha256": "dff88ba3398d29bb75a427be796516fa3ead381b9e4059985a00bfcf5fdf5bd4",
+          "size_bytes": 641
         },
         {
           "path": "evidence/phase-3/compatibility.md",
-          "sha256": "d678549b38fe05ccc51a239db52df63dfeaffa07921757ae7897fade39913086",
-          "size_bytes": 714
+          "sha256": "577581cca4be38f65b049439d09c269afb9ca4c46150f9eb31f0e40d038fea10",
+          "size_bytes": 786
+        },
+        {
+          "path": "evidence/phase-3/coverage-report.md",
+          "sha256": "94c2bff063542665f9688392d7180fbfafe36b8e8f182324158ed75fc26a5e75",
+          "size_bytes": 758
         },
         {
           "path": "evidence/phase-3/coverage.md",
@@ -137,7 +152,7 @@
         },
         {
           "path": "evidence/phase-3/duplicate-report.json",
-          "sha256": "605c50850c37f7fb435317baff402b11bf04f12dcc3076f58a2e1dbb7ddab23d",
+          "sha256": "e0bdc07a17fdeeba85e82e809a62d35e73a6691343866d5b5daf0522cc5f84f8",
           "size_bytes": 633
         },
         {
@@ -146,24 +161,54 @@
           "size_bytes": 807
         },
         {
+          "path": "evidence/phase-3/duplicate-resolution-report.md",
+          "sha256": "03f52cebe261bd2fd8ffb59a996e2e999b240bc26ef3917df9b1f66478e267b2",
+          "size_bytes": 631
+        },
+        {
+          "path": "evidence/phase-3/final-readiness.md",
+          "sha256": "12e256accfed6f2e3e9fc9477d211016031d5ad66152bf2cc1977cd0f16e6a93",
+          "size_bytes": 1567
+        },
+        {
+          "path": "evidence/phase-3/final-report.md",
+          "sha256": "d8f121031907b550857da5e41e3983ad9fc08f3d70327500698167da8ef03a59",
+          "size_bytes": 1337
+        },
+        {
+          "path": "evidence/phase-3/host-inspection-report.md",
+          "sha256": "b1df030d30a7fd66cd3b2324658ce58430be95d6d1b332c8d9b43785837293ea",
+          "size_bytes": 1243
+        },
+        {
           "path": "evidence/phase-3/host-inspection.json",
-          "sha256": "7b2490e91cf140a59b532d1b73687d040082617af950e5172b28705ab4cf253e",
-          "size_bytes": 3594
+          "sha256": "5231712d492e485cce7bbd04e31fc6cc29e73e0e10127e0282140df877811d85",
+          "size_bytes": 4153
         },
         {
           "path": "evidence/phase-3/host-inspection.md",
-          "sha256": "01daf9d860b082084a5bfd909f7520c3155bb0ee95ed6f0648dc20389ddb2cc9",
-          "size_bytes": 1022
+          "sha256": "414ec00e802fcdeae0e4b84b2b79facf8c24c8d5682928bc139894f88dc07628",
+          "size_bytes": 1305
         },
         {
           "path": "evidence/phase-3/phase2-supersession.md",
-          "sha256": "54e54c3f00e3cf7f013b50fc1cb5cd73793be8895c0af22ce8c71f2ba68c2d6c",
-          "size_bytes": 980
+          "sha256": "02437adf4806ce91ed80481852287c0b294d5723d78479a6a12591c65c8fb631",
+          "size_bytes": 1843
+        },
+        {
+          "path": "evidence/phase-3/real-capability-inventory.json",
+          "sha256": "b35a46676c8e734bdd9d168e601a6a5c2d1740e9e44cfb2d7b1f8631349210f3",
+          "size_bytes": 384855
         },
         {
           "path": "evidence/phase-3/real-inventory.json",
-          "sha256": "791758ac9b369180e495c6907cb8e62c0ff5930e9a4ad28b07cb75825017e4e3",
-          "size_bytes": 27546
+          "sha256": "b35a46676c8e734bdd9d168e601a6a5c2d1740e9e44cfb2d7b1f8631349210f3",
+          "size_bytes": 384855
+        },
+        {
+          "path": "evidence/phase-3/routing-integration-report.md",
+          "sha256": "f19dd16a303c55c3d40681c20247deecdcba43e34a3ce44cebb5ec6627bcf5d4",
+          "size_bytes": 819
         },
         {
           "path": "evidence/phase-3/routing-integration.json",
@@ -176,6 +221,11 @@
           "size_bytes": 682
         },
         {
+          "path": "evidence/phase-3/safe-loader-report.md",
+          "sha256": "348c5e8d480999bee59a885c644dad651d16ffa903e4ed868469edbdea4ddfb9",
+          "size_bytes": 850
+        },
+        {
           "path": "evidence/phase-3/safe-loader.json",
           "sha256": "407393ceecabb5725a8b59a0712e4c3edabe902221e341db015fbb297aca4fe8",
           "size_bytes": 2152
@@ -186,46 +236,77 @@
           "size_bytes": 788
         },
         {
+          "path": "evidence/phase-3/security-summary.md",
+          "sha256": "ac118e3fdd59c2035d26e3564c7308c53a9ab9c99e6be158fc9faef253fe5126",
+          "size_bytes": 986
+        },
+        {
           "path": "evidence/phase-3/security.md",
-          "sha256": "ef65372e7f56cd923b8d2293c58f4b470c0b2fa2a926eb77dca6f96b6cc46513",
-          "size_bytes": 738
+          "sha256": "624481992b6c947302ed0a22b2cf92434594f1d8cd4692184849790807e7c0ea",
+          "size_bytes": 897
+        },
+        {
+          "path": "evidence/phase-3/telemetry-report.md",
+          "sha256": "46db4142a8bbf3e14038066050621f4e95aff185e9b4623d5b6c72609505b6e9",
+          "size_bytes": 854
         },
         {
           "path": "evidence/phase-3/telemetry.json",
-          "sha256": "cfe48463310a0d8dce52349910d134d3b0209754be2fd7054c72a41f8f8ef660",
-          "size_bytes": 1379
+          "sha256": "ee0238ead24365b08da201b16d90915c07ff6f5bf80a5b9a67b7d9cfac2108ed",
+          "size_bytes": 2299
         },
         {
           "path": "evidence/phase-3/telemetry.md",
-          "sha256": "33384395cc02c576f7d10b1eac5816e966a641612bceff2c515d1b0ece34bb09",
-          "size_bytes": 634
+          "sha256": "57a65b4aa9826dc3cfa2bd301fca950ca7d305b146e60dd5ed0b897cdad92084",
+          "size_bytes": 685
         },
         {
           "path": "evidence/phase-3/trust-report.json",
-          "sha256": "551d82740093e25df99f0f2822256e507f57360585ff8de8149587a6f58fd7fe",
-          "size_bytes": 11337
+          "sha256": "7614eff3186c1e29d99cbce6125c3d0b877c6351fa3df9bf7a2719c99b041d47",
+          "size_bytes": 16344
+        },
+        {
+          "path": "evidence/phase-3/trust-report.md",
+          "sha256": "4f9c29263f8d6ac550599ef147302f30c113ae3e2ab9e3603676c4bb37f284c2",
+          "size_bytes": 679
         },
         {
           "path": "evidence/phase-3/trust.md",
-          "sha256": "db6322bbdf289568c1c00a7a2de2197bf182ffb1331b4c21a7384d48c1a6e0ce",
-          "size_bytes": 605
+          "sha256": "867f598af735b819a37ac5ff0a13c6d19a508006401ae28f88d95edac563df9e",
+          "size_bytes": 748
         }
       ],
-      "sha256": "83fd73a3fc79cb8c986b02bb47c1ffe0d6b853e1b3b3ae5645204530e01c3f75"
+      "sha256": "bd548a0a862d7d6594ce0c929b75a0444922a6474904e3544e563435891f96b4"
+    },
+    "phase3_fixtures": {
+      "count": 2,
+      "files": [
+        {
+          "path": "tests/fixtures/phase3/README.md",
+          "sha256": "b7e8e15cbd3de43362da4190174efb36020045ccc5b3cf3bb7443ef5580c6953",
+          "size_bytes": 686
+        },
+        {
+          "path": "tests/fixtures/phase3/scenarios.json",
+          "sha256": "2ddca82f38466bc76e6e761c2130aad421bc61a62de10118e69f150f17d96dbb",
+          "size_bytes": 1610
+        }
+      ],
+      "sha256": "92c41445df35f3a235df37a0f74369d2825a7afdabcde0c8f0aaf0047b981762"
     },
     "project_readme": {
       "count": 1,
       "files": [
         {
           "path": "README.md",
-          "sha256": "6c880ff5707bbbce75d95a9ef09afae52f1f202582bc45fa63403f76f4ae9585",
-          "size_bytes": 2492
+          "sha256": "6dfcaf8f98a0519f04a50caa9c2791a531bcbd7a99701961067651936f5531a0",
+          "size_bytes": 2809
         }
       ],
-      "sha256": "d0ef7e9fb0698b79f9622b3ff5c45e4c3d5fe97a7e14ba3ab13176bf08cfe649"
+      "sha256": "1da78e6ab6b4bbb050f6d3616cc7261e6c7593a6ce9148c4687d4389dc31dabc"
     },
     "source": {
-      "count": 35,
+      "count": 36,
       "files": [
         {
           "path": "src/harness_kernel/__init__.py",
@@ -303,54 +384,59 @@
           "size_bytes": 24252
         },
         {
+          "path": "src/harness_kernel/phase3_benchmarks.py",
+          "sha256": "625b0c88a6a07b00741b7da3d743fdc3fd9f081b91d095d33168c315d5f907a2",
+          "size_bytes": 6314
+        },
+        {
           "path": "src/harness_kernel/phase3_cli.py",
-          "sha256": "fb97fa9ab9d23be87e6c49b1d81ad774b6db9738973f2163e6d3ae8ff028d91b",
-          "size_bytes": 9395
+          "sha256": "f936658d6c098e7a86b462cf670989bc78e313b1f190a6ba3fcc82db1d4dd3f2",
+          "size_bytes": 13390
         },
         {
           "path": "src/harness_kernel/phase3_discovery.py",
-          "sha256": "470275036adac64f8ee1d0560ac487dc93c9dd2c87ad2aed5b7150193ff11898",
-          "size_bytes": 27901
+          "sha256": "eddf566c1f0a9e3524cd1a4133fe95b08de16ac0e08a935469cd65cabf86b530",
+          "size_bytes": 29383
         },
         {
           "path": "src/harness_kernel/phase3_host.py",
-          "sha256": "5303455663c3ba31432c84fabc9048a08b5c9088d23665c584ec65fccd793e2f",
-          "size_bytes": 12914
+          "sha256": "6b211f7151f31934de5cabf45ac78aa1f8a43b83591c96e36af219f947d6fa49",
+          "size_bytes": 13809
         },
         {
           "path": "src/harness_kernel/phase3_integration.py",
-          "sha256": "9d4ac98f34d7c9d4e530b52adf7807b3780914203cdbd53b67d460ac9d71a9c4",
-          "size_bytes": 6018
+          "sha256": "d3db5aa53dbe39e04af69d703a9434f87e0f96a1d5e2c16e5759483d05cde8cf",
+          "size_bytes": 6628
         },
         {
           "path": "src/harness_kernel/phase3_loader.py",
-          "sha256": "0728ac7a404e5ab42cccb4f12a933634bf84f72cf27a85c0ad83ffe8203071b3",
-          "size_bytes": 13328
+          "sha256": "2af1a8cab151f1cbf5dfac5cb3e469fd3f1601931e2ff6e263fcecac0ae9f24d",
+          "size_bytes": 14813
         },
         {
           "path": "src/harness_kernel/phase3_models.py",
-          "sha256": "0762482ef364d52dfeb2a68a7ff3d0ae4e448b4811f824f668259d1b27c1f59d",
-          "size_bytes": 22541
+          "sha256": "5929ed2ccb434527ae712d331dc385702bcc491b4a8a6f902ddc3315d546feca",
+          "size_bytes": 24022
         },
         {
           "path": "src/harness_kernel/phase3_parser.py",
-          "sha256": "af40021cd4fe4df22d834333050105e81c6a15dc584293215ce822308d414dc8",
-          "size_bytes": 14860
+          "sha256": "bdd7c47c5cb0ea3b054e20d25e60b2ba3dbe3794f66e73a4f9a8e5d44d899776",
+          "size_bytes": 16934
         },
         {
           "path": "src/harness_kernel/phase3_paths.py",
-          "sha256": "953b3c979106c20dd905444335c5eae1c654fbd245e4c00a1ed4fd678891b7a0",
-          "size_bytes": 17043
+          "sha256": "7b7d321064eacca04c4c6aa7b0942630f6dd2d54803a5ddd7643fdf63ff2a40c",
+          "size_bytes": 17931
         },
         {
           "path": "src/harness_kernel/phase3_resolution.py",
-          "sha256": "7ef94e4e35fca712a2ad40f2060671288be08bfb94dfd6b156aab0ca93fd9c8d",
-          "size_bytes": 16002
+          "sha256": "119bf7819c6930d647867a812d1de8727855de53bdff7d546f8e0c701f4827ec",
+          "size_bytes": 20263
         },
         {
           "path": "src/harness_kernel/phase3_telemetry.py",
-          "sha256": "69e73e6f32ece7b5770da2d1aa2475b816a0ff8fa60f30010c07d60cf7946b7c",
-          "size_bytes": 4701
+          "sha256": "aa593250bc7c968bd4aafde732d48ca2a0487a8fa98618b43bf51666ffe13d82",
+          "size_bytes": 7621
         },
         {
           "path": "src/harness_kernel/phase3_trust.py",
@@ -403,10 +489,10 @@
           "size_bytes": 21369
         }
       ],
-      "sha256": "0e46fdb98c82aca5eccc7c7193962bafebe9d5bd3fb09d849e74838cddb95c90"
+      "sha256": "c3c9757c05e92d609de75436e119e890b74413d099c0dc6d885af9fb5453febd"
     },
     "tests": {
-      "count": 33,
+      "count": 34,
       "files": [
         {
           "path": "tests/evals/phase3/test_known_bad_phase3.py",
@@ -415,8 +501,8 @@
         },
         {
           "path": "tests/evals/phase3/test_phase3_matrix.py",
-          "sha256": "0da262401c135da52ba65b0d8f4aeda4cc21df6a2915fb10f00ba84e9fd2f022",
-          "size_bytes": 1226
+          "sha256": "ae7eb43e412e29753a13cb8d36836b27c5aca856934d217c6ebbb522e5bf9282",
+          "size_bytes": 3032
         },
         {
           "path": "tests/integration/test_benchmarks.py",
@@ -444,14 +530,19 @@
           "size_bytes": 8604
         },
         {
+          "path": "tests/integration/test_phase3_benchmarks.py",
+          "sha256": "c7a330a431cd1f7db90d4b19c21bd14170ccd63b53619761140a1680f607fdfe",
+          "size_bytes": 892
+        },
+        {
           "path": "tests/integration/test_phase3_cli.py",
-          "sha256": "36a4eb72e54839d2a1472f07cce4b330127f19b4bbd50efe4269f471ea89b7e1",
-          "size_bytes": 2502
+          "sha256": "4575cc4b25625ff5c97c5234f833e4e53ad86deef3a00a48b76f1955dfd60d13",
+          "size_bytes": 3672
         },
         {
           "path": "tests/integration/test_phase3_real_host.py",
-          "sha256": "511eee1c308be629197f69d73d2006d88e8e5ce13ff102c01283ca45c27bd678",
-          "size_bytes": 1151
+          "sha256": "384ef6462f79ea545ad71e2a15f2f374eb0ab3a1f21adc6b276d250fab931a95",
+          "size_bytes": 3861
         },
         {
           "path": "tests/unit/phase2_support.py",
@@ -505,38 +596,38 @@
         },
         {
           "path": "tests/unit/test_phase3_discovery.py",
-          "sha256": "d2db486c45ef2162de8ce4674437ae4ac9f3a09c4ae87fbe637c8c9d55550bd9",
-          "size_bytes": 7951
+          "sha256": "38545d0a88a85efcf8d5f433aab0e9650072fcbdfb565a9ed6403913bf8b193f",
+          "size_bytes": 9830
         },
         {
           "path": "tests/unit/test_phase3_host_telemetry.py",
-          "sha256": "eb2e2740d4a784c5d45485d69c7adca0a87879360417bc88f3ca056f17b949db",
-          "size_bytes": 2955
+          "sha256": "d10e646ce85e27e76f2ed55f083c2f1f557ed0e14b75caacabbad43178a50ba8",
+          "size_bytes": 4503
         },
         {
           "path": "tests/unit/test_phase3_integration.py",
-          "sha256": "a76f5f911710aa55d943c2d16e2d6bc2837683511c1702974461c47f63cfdf88",
-          "size_bytes": 1369
+          "sha256": "8f9f1cc22f7aaa8dbf6b53af6d6b1c81909bf2ea957a386ba3775757262a9c6a",
+          "size_bytes": 2260
         },
         {
           "path": "tests/unit/test_phase3_loader.py",
-          "sha256": "0a3e7ddb79ffccb14134cda76d47e3d161baa29aaba678dc0e36a9717832d2c3",
-          "size_bytes": 6757
+          "sha256": "e534bf290e98d97d6c4d888bfc597e3548ab70540fbd6db03bcf8657df6c5021",
+          "size_bytes": 8339
         },
         {
           "path": "tests/unit/test_phase3_parser.py",
-          "sha256": "c7c2567997604940523e04c5c4e1c38f3599e9ff4e183f722663195cd7a94e73",
-          "size_bytes": 4358
+          "sha256": "762997d81b4c421da0baabebb7ea6eb278357453e8ffbec448b810e04815240b",
+          "size_bytes": 4872
         },
         {
           "path": "tests/unit/test_phase3_paths.py",
-          "sha256": "ee9b4aa7a788607299af406b666f439a93b90a3cac41b0986dc5c39413e4c44e",
-          "size_bytes": 4268
+          "sha256": "8d529a0b23554783a8a8b02946f3d08daefd9c6366c95fd8cce55ebd69d78585",
+          "size_bytes": 4810
         },
         {
           "path": "tests/unit/test_phase3_resolution.py",
-          "sha256": "c793eda54fdf6d2735e60c4597b327e2ebb2bd04732c9d3983eac968f11629e6",
-          "size_bytes": 5479
+          "sha256": "bcaae3d1f7e5fb8616b0a5bfef9db2a8573d3f414e7a70645b25519831ab9241",
+          "size_bytes": 9999
         },
         {
           "path": "tests/unit/test_phase3_trust.py",
@@ -574,9 +665,10 @@
           "size_bytes": 8532
         }
       ],
-      "sha256": "be29312ba1155e59290ac2fa783664536133568c0af7b595782537513556dab6"
+      "sha256": "f3a853cc47901e15139335b62974af9074df2002ae38343dda470d23c7833d34"
     }
   },
+  "phase2_base_sha": "d95568aa5e4821a3e1d38c718dac6eb473676cdd",
   "quality_bar": "P3-QB-1",
   "review_safety": {
     "mode": "READ_ONLY",
@@ -586,7 +678,7 @@
     "no_source_tests_config_edits": true
   },
   "review_status": "PENDING_EXACT_PACKET_REVIEW",
-  "reviewed_head_sha": "e16cf053695e03c43847bb732ed123e138ef56bc",
+  "reviewed_head_sha": "4c2689e3c28207d41d7ecef9ec6933c0ca154e32",
   "reviewer_required_declarations": [
     "reviewed_source_sha256",
     "reviewed_tests_sha256",
@@ -605,8 +697,7 @@
       "Phase 3 source/tests/docs/evidence/control records",
       "no Phase 2 frozen packet rewrites"
     ],
-    "source_tests_config_clean": false,
-    "status": "DIRTY_SCOPED_PHASE3"
-  },
-  "phase2_base_sha": "d95568aa5e4821a3e1d38c718dac6eb473676cdd"
+    "source_tests_config_clean": true,
+    "status": "CLEAN_PAYLOAD_COMMIT_CONTROL_FILES_PENDING"
+  }
 }
