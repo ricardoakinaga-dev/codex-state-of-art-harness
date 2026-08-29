@@ -24,6 +24,17 @@ def _finding(path: str, message: str) -> ValidationFinding:
     return ValidationFinding(ValidationCode.INVARIANT_VIOLATION, message, path)
 
 
+def _cancel_requested(cancelled: bool | Callable[[], bool]) -> bool:
+    """Treat a failing cancellation predicate as a safe cancellation signal."""
+
+    if not callable(cancelled):
+        return bool(cancelled)
+    try:
+        return bool(cancelled())
+    except Exception:  # noqa: BLE001 - cancellation must fail closed
+        return True
+
+
 def _normalized_failure(node_id: str, status: InvocationStatus) -> FailureDetail | None:
     """Give externally returned terminal node states a safe typed cause."""
 
@@ -60,6 +71,7 @@ def validate_execution_graph(
     max_nodes: int | None = 128,
     authority: AuthorityScope | None = None,
     required_conditions: Iterable[str] = (),
+    at: str | None = None,
 ) -> ValidationResult:
     """Validate graph structure, budgets, ownership and optional authority."""
 
@@ -109,6 +121,26 @@ def validate_execution_graph(
     graph_status = getattr(graph.graph_status, "value", graph.graph_status)
     if graph_status not in {item.value for item in GraphStatus}:
         findings.append(_finding("$.graph_status", "graph status is invalid"))
+    elif graph_status in {
+        GraphStatus.RUNNING.value,
+        GraphStatus.PARTIAL.value,
+        GraphStatus.BLOCKED.value,
+        GraphStatus.COMPLETED.value,
+        GraphStatus.CANCELLED.value,
+    }:
+        findings.append(_finding("$.graph_status", "terminal graph cannot be replayed"))
+    for node in graph.nodes:
+        node_status = getattr(node.node_status, "value", node.node_status)
+        if node_status not in {
+            InvocationStatus.REQUESTED.value,
+            InvocationStatus.CREATED.value,
+        }:
+            findings.append(
+                _finding(
+                    f"$.nodes[{node.node_id}].node_status",
+                    "terminal or active graph nodes cannot be replayed",
+                )
+            )
     if graph_status in {"READY", "RUNNING"} and not graph.acceptance_refs:
         findings.append(_finding("$.acceptance_refs", "ready graph needs acceptance refs"))
     if graph.graph_budget is not None:
@@ -154,11 +186,11 @@ def validate_execution_graph(
             check = check_invocation_authority(
                 authority,
                 task_id=graph.task_id,
-                invocation_id=node.node_id,
+                invocation_id=f"INV-{graph.run_id}-{node.node_id}",
                 capability_id=node.capability_id,
                 operation="execute",
                 required_scope=(f"task:{graph.task_id}", f"capability:{node.capability_id}"),
-                at=graph.created_at,
+                at=at or graph.created_at,
                 required_conditions=required_conditions,
             )
             if not check.allowed:
@@ -315,7 +347,7 @@ def execute_graph(
                 ),
             )
             continue
-        is_cancelled = cancelled() if callable(cancelled) else cancelled
+        is_cancelled = _cancel_requested(cancelled)
         if is_cancelled:
             outcomes[node_id] = GraphNodeResult(
                 node_id,
@@ -352,6 +384,7 @@ def execute_graph(
                 ),
             )
             continue
+        invocation_count += 1
         try:
             value = invoke(node)
         except Exception:
@@ -366,7 +399,6 @@ def execute_graph(
                 ),
             )
         else:
-            invocation_count += 1
             if isinstance(value, GraphNodeResult):
                 if value.node_id != node_id:
                     outcomes[node_id] = GraphNodeResult(

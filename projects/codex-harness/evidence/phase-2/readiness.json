@@ -3,18 +3,33 @@
   "status": "CONDITIONAL_PASS",
   "quality_bar": "P2-QB-1",
   "scope": "PHASE2-001 bounded project-local deterministic execution kernel",
-  "base_sha": "8c26074502a0e5c0902dfbffd17686d50370ddb4",
-  "worktree": "DIRTY_EXPECTED_AT_VERIFICATION_BEFORE_RELEASE_COMMIT",
+  "measured_at": "2026-08-28T22:24:00-03:00",
+  "base_sha": "9ef85e93c58fa5d8de92e604b9ecf057b3a50593",
+  "head_sha": "9ef85e93c58fa5d8de92e604b9ecf057b3a50593",
+  "worktree": "DIRTY_EXPECTED_AFTER_CLOSEOUT_HARDENING",
+  "fingerprints": {
+    "src": {"files": 29, "sha256": "6d6cd917acf2db16649e66140fa300e2704aea9a900c7f21e10ee0658654ce47"},
+    "tests": {"files": 26, "sha256": "99bec226f4c5c060f9cf2c07e49d72ee3dfd4b631a90258dcb8efea46368a1fd"},
+    "config": {"files": 1, "sha256": "1f4c1595be5e55619a5f2e26b220a67be097ca5dffc97c539900c794a12b99a6"},
+    ".harness/config": {"files": 1, "sha256": "24bcb96d5a5830514d7c9e6df7b027e2a8d300b93ef0377d8d9e8be547ebe6c7"},
+    ".agent": {"files": 19, "sha256": "9e1a45cb9aec023eed535a73149f46f9c1bb7881ce6dd1d85c2dea14230b1a64"},
+    ".gauntlet": {"files": 2, "sha256": "a0a6996bcf1793dea15ae52771ebe9921caba6a834ffb6a3537aece7a1a26f22"},
+    "evidence/phase-2": {"files": 17, "sha256": "06093490a3a946012469c52dca083565f73253503c5be7a601a12885a01a087c", "excludes": ["readiness.json"], "reason": "readiness.json is self-referential"},
+    "pyproject.toml": {"files": 1, "sha256": "a3e2379e101903cafce82cda1058a9d6f0c8cf66f143dc75443394fe0e97eb20", "content_sha256": "0f06746386a89b03dcca9009662b405b86856d44dc101fe041885f29c4297485"}
+  },
   "tests": {
     "command": "PYTHONPATH=src .venv/bin/coverage run -m pytest -q",
-    "passed": 187,
-    "failed": 0
+    "passed": 232,
+    "failed": 0,
+    "duration_seconds": 45.11,
+    "wall_clock_seconds": 46.06
   },
-  "coverage_percent": 84,
-  "coverage_total_statements": 7771,
-  "coverage_missed_statements": 1268,
+  "coverage_percent": 85,
+  "coverage_total_statements": 6591,
+  "coverage_missed_statements": 969,
   "ruff": {
     "format_check": "PASS",
+    "formatted_files": 45,
     "check": "PASS"
   },
   "mypy": {
@@ -22,15 +37,34 @@
     "source_files": 24
   },
   "cli": {
-    "integration_tests": 7,
+    "integration_tests": 34,
+    "phase2_cli_tests": 7,
+    "in_process_cli_tests": 11,
     "status": "PASS"
   },
-  "benchmark": "P2-BENCH-1",
-  "independent_review": "NOT_RUN_BLOCKED",
+  "benchmark": {
+    "schema_version": "P2-BENCH-1",
+    "iterations": 10,
+    "generated_at": "2026-08-29T01:12:12.727234+00:00",
+    "status": "PASS"
+  },
+  "state_checker": {
+    "status": "PASS",
+    "checks": 10,
+    "warnings": 0,
+    "failures": 0
+  },
+  "security": {
+    "static_runtime_scan": "PASS",
+    "pip_audit": "UNAVAILABLE"
+  },
+  "independent_review": "NOETHER_CONDITIONAL_PASS / FINAL_PACKET_RECONCILIATION_COMPLETE",
   "limitations": [
     "no real Codex provider, Skills, subagents, MCP, shell, network or host adapter",
     "no advanced concurrency or multi-process locking",
-    "local baseline is not a production SLO or causal quality measure",
-    "independent read-only final review was attempted but no usable report returned; no PHASE2-VERIFIED gate is claimed"
+    "local benchmark is not a production SLO or causal quality measure",
+    "a timed-out daemon thread cannot be forcibly stopped; hostile provider sandboxing is outside P2",
+    "Carver and Noether returned CONDITIONAL_PASS; their read-only reviews found no actionable Critical/High/Medium implementation defect after fixes, but neither approved the exact evidence bytes after the final fingerprint reconciliation",
+    "no PHASE2-VERIFIED or AAA_VERIFIED gate is claimed"
   ]
 }

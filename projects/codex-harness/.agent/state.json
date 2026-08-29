@@ -14,14 +14,14 @@
   "active_execplan": ".agent/plans/PHASE-2-execution-kernel.md",
   "active_task": "PHASE2-001",
   "verification_state": "PARTIAL",
-  "repository_state": "GIT main; Phase 1 remains verified; Phase 2 source, tests and evidence pass the bounded local technical checks (187 tests, 84% coverage, Ruff/mypy/CLI/benchmark/security PASS); working tree is clean and origin/main is synchronized; independent review unavailable; skill-audit preserved",
+  "repository_state": "GIT main; HEAD 9ef85e93c58fa5d8de92e604b9ecf057b3a50593; Phase 1 remains verified; Phase 2 bounded local technical checks pass (232 tests, 85% coverage, Ruff/mypy/CLI/benchmark/security PASS); append-only control-state reconciliation passes 10/10 with zero warnings or failures; worktree is intentionally dirty after review-driven closeout hardening; exact final-packet independent approval remains unclaimed; skill-audit preserved",
   "instruction_scope_refs": ["README.md", ".agent/plans/PHASE-2-execution-kernel.md", "docs/implementation/phase-2-quality-bar.md", "docs/phase-2-threat-model.md", ".harness/README.md", ".harness/capabilities/README.md"],
   "last_gate_record": ".agent/gates/PHASE2-IMPLEMENTATION-READY-0001.json",
-  "last_event_id": "EVT-PHASE2-PUBLISH-RECONCILE-0001",
-  "state_revision": 18,
+  "last_event_id": "EVT-PHASE2-FINAL-RECONCILE-0001",
+  "state_revision": 21,
   "next_gate": "VERIFIED",
-  "next_action": "Obtain a fresh independent read-only review, resolve/retest any Critical/High findings, and request PHASE2-VERIFIED only if its gate criteria are met; retain CONDITIONAL PASS otherwise.",
+  "next_action": "Retain CONDITIONAL PASS; obtain approval against the exact final evidence bytes before requesting PHASE2-VERIFIED, and preserve all Phase 2 limitations.",
   "blocked_by": [],
   "human_approval_required": [],
-  "updated_at": "2026-08-28T18:51:00-03:00"
+  "updated_at": "2026-08-28T22:24:00-03:00"
 }

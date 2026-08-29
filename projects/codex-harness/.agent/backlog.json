@@ -58,9 +58,11 @@
         "evidence/phase-2/readiness.json",
         "evidence/phase-2/independent-review.md",
         ".agent/verification.jsonl#VER-PHASE2-FINAL-LOCAL-0001",
-        ".agent/execution-log.jsonl#EVT-PHASE2-CHECKPOINT-CORRECTION-0001"
+        ".agent/execution-log.jsonl#EVT-PHASE2-CHECKPOINT-CORRECTION-0001",
+        ".agent/verification.jsonl#VER-PHASE2-FINAL-CLOSEOUT-0001",
+        ".agent/execution-log.jsonl#EVT-PHASE2-FINAL-VERIFY-0001"
       ],
-      "next_action": "Obtain a fresh independent read-only review; resolve and retest any Critical/High findings before requesting the PHASE2-VERIFIED gate. Retain CONDITIONAL PASS until then."
+      "next_action": "Obtain independent confirmation against the current source, test and evidence fingerprints; retain CONDITIONAL PASS and do not request PHASE2-VERIFIED until that gate is satisfied."
     }
   ]
 }

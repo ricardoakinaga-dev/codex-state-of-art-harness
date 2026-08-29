@@ -1,9 +1,14 @@
 # Phase 2 gap map
 
 Status: final audit — `CONDITIONAL PASS` for the bounded local kernel; opened
-2026-08-28 and reconciled after the final local verification round. The
-independent review criterion remains unavailable and therefore no
-`PHASE2-VERIFIED` gate is claimed.
+2026-08-28 and reconciled after the post-hardening local verification round.
+The pre-final independent review findings and the three post-hardening spot
+review findings are remediated; independent confirmation against the current
+packet remains pending, so no `PHASE2-VERIFIED` gate is claimed.
+Noether's subsequent read-only confirmation found no actionable implementation
+defect; its fingerprint follow-up was reconciled, but that reconciliation
+changed the packet bytes and therefore did not become approval of the exact
+final packet.
 
 This is the implementation map for the bounded, project-local deterministic execution kernel. It is deliberately separate from the older readiness reports: those reports are evidence inputs, not a substitute for this capability-by-capability reconciliation. `COMPLETE` means that the current code, tests, and executable evidence agree within the declared Phase 2 boundary; `PARTIAL` means that a meaningful slice exists but a required invariant, adversarial proof, host integration, or independent challenge is outside or still missing.
 
@@ -65,17 +70,20 @@ Evidence references use project-relative paths. `P2-*` tests are the executable 
 ## Final local gate
 
 The historical checkpoint reported 12 direct-kernel tests passing and remains
-unchanged as an append-only record. The final local round expanded the proof to
-187 tests, 84% total coverage, passing Ruff and mypy, seven CLI integration
+unchanged as an append-only record. The current local round expanded the proof
+to 232 tests, 85% total coverage, passing Ruff and mypy, 34 CLI integration
 tests, a fresh `P2-BENCH-1` report, security scans, and a reconciled control
-ledger. The independent critic was attempted but did not return a usable
-report, so this map is `CONDITIONAL` and Phase 2 is not `VERIFIED`.
+ledger. Three independent read-only peers and one post-hardening spot review
+returned actionable findings; their remediations are recorded in
+`evidence/phase-2/independent-review.md`. Independent confirmation against
+the final packet remains pending, so this map is still `CONDITIONAL` and Phase
+2 is not `VERIFIED`.
 
 ## Closure rule
 
 Rows may move to `COMPLETE` only when source, tests, and fresh evidence agree. A documentation-only claim cannot close an implementation gap. A passing test that does not exercise the public or integrated path cannot close an integration gap. Out-of-scope future work remains explicitly limited and is not silently counted as complete.
 
 The remaining conditional item is governance evidence, not an inferred runtime
-capability: obtain a fresh independent read-only review, then either resolve
-its Critical/High findings and request the final gate or keep the bounded
-`CONDITIONAL PASS` with the same limitations.
+capability: obtain the final independent read-only review against the current
+fingerprint, then either resolve any Critical/High findings and request the
+final gate or keep the bounded `CONDITIONAL PASS` with the same limitations.

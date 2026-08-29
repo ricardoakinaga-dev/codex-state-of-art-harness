@@ -41,7 +41,7 @@
       "id": "F",
       "name": "cancellation",
       "expected_status": "CANCELLED",
-      "provider_calls": 0,
+      "provider_calls": 1,
       "proof_tests": ["tests/unit/test_phase2_execution_paths.py::test_cancellation_during_a_slow_provider_is_terminal"]
     },
     {
@@ -76,7 +76,7 @@
       "id": "K",
       "name": "repair-exhausted",
       "expected_status": "FAILED",
-      "provider_calls": 3,
+      "provider_calls": 2,
       "proof_tests": ["tests/unit/test_phase2_execution_paths.py::test_repair_exhaustion_is_terminal_and_bounded"]
     },
     {

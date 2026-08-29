@@ -7,7 +7,7 @@ import pytest
 from phase2_support import authorized_kernel
 from test_contracts import all_records
 
-from harness_kernel.assurance import AssuranceDecision, assure_quality
+from harness_kernel.assurance import AssuranceDecision, assure_quality, create_critique
 from harness_kernel.authority import (
     AuthorityAction,
     AuthorityScope,
@@ -376,11 +376,20 @@ def test_run_store_recovers_completed_phase2_execution_states(
 
 def test_assurance_requires_verification_and_critique_evidence() -> None:
     records = all_records()
-    accepted = assure_quality(records[7], records[8], quality_bar_ref="P2-QB-1")
+    critique = create_critique(records[7], evidence=(records[6],), artifacts=(records[5],))
+    accepted = assure_quality(
+        records[7],
+        critique,
+        quality_bar_ref="P2-QB-1",
+        evidence=(records[6],),
+        artifacts=(records[5],),
+    )
     blocked = assure_quality(
         replace(records[7], recommendation="FAIL"),
-        records[8],
+        critique,
         quality_bar_ref="P2-QB-1",
+        evidence=(records[6],),
+        artifacts=(records[5],),
     )
 
     assert accepted.decision is AssuranceDecision.QUALITY_ACCEPTED

@@ -66,6 +66,8 @@ from .models import (
     InvocationLimits,
     InvocationStatus,
     LifecycleState,
+    OmittedCapability,
+    OmittedReasonCode,
     PrivacyClass,
     Provenance,
     QualityReport,
@@ -102,7 +104,14 @@ from .providers import (
 from .registry import CapabilityRegistry
 from .routing import minimum_route
 from .serialization import to_dict, to_json
-from .stops import BudgetUsage, StopBudget, StopDecision, evaluate_stop
+from .stops import (
+    BudgetUsage,
+    FailureObservation,
+    ProgressSnapshot,
+    StopBudget,
+    StopDecision,
+    evaluate_stop,
+)
 from .telemetry import TelemetryLog, create_event
 from .validation import ValidationCode, ValidationFinding
 from .verification import (
@@ -177,6 +186,17 @@ def _dedupe(values: Iterable[str]) -> tuple[str, ...]:
         if isinstance(value, str) and value.strip() and value not in result:
             result.append(value)
     return tuple(result)
+
+
+def _cancel_requested(cancelled: bool | Callable[[], bool]) -> bool:
+    """Treat a failing cancellation predicate as a safe cancellation signal."""
+
+    if not callable(cancelled):
+        return bool(cancelled)
+    try:
+        return bool(cancelled())
+    except Exception:  # noqa: BLE001 - cancellation must fail closed
+        return True
 
 
 def _id(value: str, label: str) -> str:
@@ -372,33 +392,99 @@ def _failure(
     return FailureDetail(category, code, message, retryable, _dedupe(refs), attempt)
 
 
+_MATERIAL_ROUTE_UNRESOLVED = frozenset(
+    {
+        "RISK_UNKNOWN",
+        "BLAST_RADIUS_UNKNOWN",
+        "SECURITY_UNKNOWN",
+        "DATA_UNKNOWN",
+        "COMPLEXITY_UNKNOWN",
+        "PROVIDER_SCOPE_MISMATCH",
+        "CAPABILITY_SCOPE_MISMATCH",
+        "NO_SAFE_FALLBACK",
+    }
+)
+
+
 def _route_with_provider(
-    route: RouteDecision, provider_id: str, *, provider_admitted: bool
+    route: RouteDecision,
+    provider_id: str,
+    *,
+    provider_admitted: bool,
+    provider_ids: Iterable[str] = (),
+    admitted_provider_ids: Iterable[str] = (),
 ) -> RouteDecision:
-    selected = SelectedCapability(
-        capability_id=provider_id,
-        role=CapabilityPrimaryType.PROVIDER,
-        reason="explicit local provider selected by the execution kernel",
-        required=True,
+    requested_ids = _dedupe((provider_id, *provider_ids))
+    admitted_ids = frozenset(admitted_provider_ids)
+    selected = tuple(
+        SelectedCapability(
+            capability_id=item,
+            role=CapabilityPrimaryType.PROVIDER,
+            reason="explicit local fixture provider considered by the execution kernel",
+            required=True,
+        )
+        for item in requested_ids
+        if item in admitted_ids or (len(requested_ids) == 1 and not provider_admitted)
     )
+    if route.route_status in {RouteStatus.REJECTED, RouteStatus.BLOCKED}:
+        return route
     decision = replace(
         route.decision,
         activation_reasons=_dedupe(
-            (*route.decision.activation_reasons, "explicit local provider selected")
+            (*route.decision.activation_reasons, "explicit local fixture provider considered")
         ),
     )
+    unavailable_ids = tuple(item for item in requested_ids if item not in admitted_ids)
+    if not provider_admitted or unavailable_ids:
+        existing_omitted = {item.capability_id for item in route.omitted}
+        unavailable = tuple(item for item in unavailable_ids if item not in existing_omitted)
+        omitted = tuple(
+            (
+                *route.omitted,
+                *(
+                    OmittedCapability(
+                        capability_id=item,
+                        reason_code=OmittedReasonCode.UNAVAILABLE,
+                        explanation="explicit provider is not registered and available",
+                    )
+                    for item in unavailable
+                ),
+            )
+        )
+        return replace(
+            route,
+            route_status=RouteStatus.BLOCKED,
+            route_kind=RouteKind.DEGRADED,
+            decision=decision,
+            selected=tuple(item for item in selected if item.capability_id in admitted_ids),
+            omitted=omitted,
+            quality_gates=_dedupe((*route.quality_gates, "provider-availability")),
+            fallback=None,
+            unresolved=_dedupe((*route.unresolved, "PROVIDER_UNAVAILABLE")),
+        )
+    material_unresolved = bool(_MATERIAL_ROUTE_UNRESOLVED.intersection(route.unresolved))
+    if material_unresolved:
+        return replace(
+            route,
+            route_status=RouteStatus.CONDITIONAL,
+            route_kind=RouteKind.DEGRADED,
+            decision=decision,
+            selected=selected or route.selected,
+            quality_gates=_dedupe((*route.quality_gates, "provider-availability", "verification")),
+            fallback="inspect-and-clarify-before-material-action",
+        )
     return replace(
         route,
         route_status=RouteStatus.SELECTED,
         route_kind=RouteKind.PROVIDER,
         decision=decision,
-        selected=(selected,),
+        selected=selected,
         quality_gates=_dedupe((*route.quality_gates, "provider-availability", "verification")),
         fallback=None,
         omitted=tuple(
             item
             for item in route.omitted
-            if not provider_admitted or item.capability_id != provider_id
+            if not admitted_ids or item.capability_id not in admitted_ids
         ),
         unresolved=tuple(
             item
@@ -535,7 +621,7 @@ def _synthetic_provider_result(
         output_digest=None,
         failure=failure,
         duration_ms=0,
-        attempt=1,
+        attempt=failure.attempt,
     )
 
 
@@ -568,12 +654,18 @@ def _terminal_without_execution(
     )
 
 
-def _provider_failure(provider_id: str, invocation_id: str) -> FailureDetail:
+def _provider_failure(
+    provider_id: str,
+    invocation_id: str,
+    *,
+    attempt: int = 1,
+) -> FailureDetail:
     return _failure(
         FailureCategory.PROVIDER,
         "PROVIDER_EXCEPTION",
         "local provider failed without exposing internal details",
         refs=(provider_id, invocation_id),
+        attempt=attempt,
     )
 
 
@@ -597,6 +689,72 @@ def _authority_denied_outcome(
         failure_refs=(failure.code,),
     )
     return _InvocationOutcome(blocked, (), None, failure, 0)
+
+
+def _authorize_invocation(
+    invocation: CapabilityInvocation,
+    *,
+    authority: AuthorityScope | None,
+    required_conditions: tuple[str, ...],
+    timestamp: str,
+) -> tuple[CapabilityInvocation, AuthoritySnapshot | None, FailureDetail | None]:
+    """Validate and snapshot authority before resolving any provider."""
+
+    if authority is None:
+        failure = _authority_required_failure(invocation)
+        return (
+            transition_invocation(
+                invocation,
+                InvocationStatus.BLOCKED,
+                timestamp=timestamp,
+                failure_refs=(failure.code,),
+            ),
+            None,
+            failure,
+        )
+    current = transition_invocation(invocation, InvocationStatus.VALIDATED, timestamp=timestamp)
+    check = check_invocation_authority(
+        authority,
+        task_id=current.task_id,
+        invocation_id=current.invocation_id,
+        capability_id=current.callee.capability_id,
+        operation=current.operation,
+        required_scope=current.scope,
+        at=timestamp,
+        required_conditions=required_conditions,
+        delegation_ref=current.delegation_ref,
+    )
+    if not check.allowed:
+        failure = _failure(
+            FailureCategory.AUTHORITY_DENIED,
+            check.code,
+            "invocation authority denied before provider resolution",
+            refs=(current.invocation_id,),
+        )
+        return (
+            transition_invocation(
+                current,
+                InvocationStatus.BLOCKED,
+                timestamp=timestamp,
+                failure_refs=(failure.code,),
+            ),
+            None,
+            failure,
+        )
+    snapshot = authority_snapshot(
+        authority,
+        subject_id=current.invocation_id,
+        operation=current.operation,
+        authority_id=f"AUTH-{current.invocation_id}",
+        required_scope=current.scope,
+    )
+    current = replace(current, authority_snapshot_ref=snapshot.digest)
+    current = transition_invocation(current, InvocationStatus.AUTHORIZED, timestamp=timestamp)
+    return (
+        transition_invocation(current, InvocationStatus.READY, timestamp=timestamp),
+        snapshot,
+        None,
+    )
 
 
 def _call_provider_with_deadline(
@@ -628,26 +786,17 @@ def _call_provider_with_deadline(
     worker.start()
     deadline = started + timeout_ms / 1000
     while worker.is_alive():
-        if callable(cancelled):
-            try:
-                if cancelled():
-                    elapsed = max(0, int((time.monotonic() - started) * 1000))
-                    return None, elapsed, True, False, False
-            except Exception:
-                elapsed = max(0, int((time.monotonic() - started) * 1000))
-                return None, elapsed, True, False, False
+        if _cancel_requested(cancelled):
+            elapsed = max(0, int((time.monotonic() - started) * 1000))
+            return None, elapsed, True, False, False
         remaining = deadline - time.monotonic()
         if remaining <= 0:
             elapsed = max(0, int((time.monotonic() - started) * 1000))
             return None, elapsed, False, True, False
         worker.join(min(0.01, remaining))
     elapsed = max(0, int((time.monotonic() - started) * 1000))
-    if callable(cancelled):
-        try:
-            if cancelled():
-                return None, elapsed, True, False, False
-        except Exception:
-            return None, elapsed, True, False, False
+    if _cancel_requested(cancelled):
+        return None, elapsed, True, False, False
     if errors:
         return None, elapsed, False, False, True
     return (values[0] if values else None), elapsed, False, False, False
@@ -689,6 +838,12 @@ class ExecutionKernel:
             raise TypeError("execution kernel requires a ProjectBoundary")
         if authority is not None and not isinstance(authority, AuthorityScope):
             raise TypeError("execution kernel authority must be an AuthorityScope")
+        if providers is not None and type(providers) is not ProviderRegistry:
+            raise TypeError("execution kernel providers must be the built-in ProviderRegistry")
+        if registry is not None and type(registry) is not CapabilityRegistry:
+            raise TypeError("execution kernel registry must be the built-in CapabilityRegistry")
+        if store is not None and type(store) is not RunStore:
+            raise TypeError("execution kernel store must be the built-in RunStore")
         self.boundary = boundary
         self.providers = providers or ProviderRegistry.local_defaults()
         self.registry = registry or CapabilityRegistry()
@@ -740,51 +895,18 @@ class ExecutionKernel:
         required_conditions: tuple[str, ...],
         cancelled: bool | Callable[[], bool],
         timeout_ms: int | None,
+        deadline: float | None = None,
     ) -> _InvocationOutcome:
-        if authority is None:
-            return _authority_denied_outcome(invocation, timestamp=self.timestamp)
-        current = transition_invocation(
-            invocation, InvocationStatus.VALIDATED, timestamp=self.timestamp
-        )
-        check = check_invocation_authority(
-            authority,
-            task_id=current.task_id,
-            invocation_id=current.invocation_id,
-            capability_id=current.callee.capability_id,
-            operation=current.operation,
-            required_scope=current.scope,
-            at=self.timestamp,
+        current, _snapshot, authorization_failure = _authorize_invocation(
+            invocation,
+            authority=authority,
             required_conditions=required_conditions,
-            delegation_ref=current.delegation_ref,
+            timestamp=self.timestamp,
         )
-        if not check.allowed:
-            failure = _failure(
-                FailureCategory.AUTHORITY_DENIED,
-                check.code,
-                "invocation authority denied before provider resolution",
-                refs=(current.invocation_id,),
-            )
-            blocked = transition_invocation(
-                current,
-                InvocationStatus.BLOCKED,
-                timestamp=self.timestamp,
-                failure_refs=(failure.code,),
-            )
-            return _InvocationOutcome(blocked, (), None, failure, 0)
-        snapshot = authority_snapshot(
-            authority,
-            subject_id=current.invocation_id,
-            operation=current.operation,
-            authority_id=f"AUTH-{current.invocation_id}",
-            required_scope=current.scope,
-        )
-        current = replace(current, authority_snapshot_ref=snapshot.digest)
-        current = transition_invocation(
-            current, InvocationStatus.AUTHORIZED, timestamp=self.timestamp
-        )
-        current = transition_invocation(current, InvocationStatus.READY, timestamp=self.timestamp)
+        if authorization_failure is not None:
+            return _InvocationOutcome(current, (), None, authorization_failure, 0)
 
-        is_cancelled = cancelled() if callable(cancelled) else cancelled
+        is_cancelled = _cancel_requested(cancelled)
         if is_cancelled:
             failure = _failure(
                 FailureCategory.CANCELLED,
@@ -799,12 +921,18 @@ class ExecutionKernel:
                 failure_refs=(failure.code,),
             )
             return _InvocationOutcome(cancelled_invocation, (), None, failure, 0)
-        effective_timeout = min(limits.timeout_ms, limits.max_duration_ms)
+        base_timeout = min(limits.timeout_ms, limits.max_duration_ms)
         if timeout_ms is not None:
-            effective_timeout = min(timeout_ms, effective_timeout)
-        if effective_timeout < 0:
+            base_timeout = min(timeout_ms, base_timeout)
+        if base_timeout < 0:
             raise ValueError("timeout must be non-negative")
-        if effective_timeout == 0:
+        remaining_timeout = base_timeout
+        if deadline is not None:
+            remaining_timeout = min(
+                remaining_timeout,
+                max(0, int((deadline - time.monotonic()) * 1000)),
+            )
+        if remaining_timeout == 0:
             failure = _failure(
                 FailureCategory.TIMEOUT,
                 "TIMEOUT_BEFORE_PROVIDER",
@@ -899,13 +1027,39 @@ class ExecutionKernel:
         elapsed_total_ms = 0
         provider_reported_duration_ms = 0
         attempt_invocation = running
+        terminal_failure: FailureDetail | None = None
         while True:
+            attempt_number = len(results)
+            if invocation_count + attempt_number >= limits.max_invocations:
+                terminal_failure = _failure(
+                    FailureCategory.BUDGET,
+                    "INVOCATION_BUDGET_EXHAUSTED",
+                    "maximum invocation budget was reached before this attempt",
+                    refs=(attempt_invocation.invocation_id,),
+                    attempt=attempt_number + 1,
+                )
+                break
+            attempt_timeout = base_timeout
+            if deadline is not None:
+                attempt_timeout = min(
+                    attempt_timeout,
+                    max(0, int((deadline - time.monotonic()) * 1000)),
+                )
+            if attempt_timeout == 0:
+                terminal_failure = _failure(
+                    FailureCategory.TIMEOUT,
+                    "TIMEOUT_BEFORE_PROVIDER",
+                    "run timeout elapsed before this provider attempt",
+                    refs=(attempt_invocation.invocation_id,),
+                    attempt=attempt_number + 1,
+                )
+                break
             raw_result, elapsed_ms, cancelled_during, provider_timed_out, provider_raised = (
                 _call_provider_with_deadline(
                     provider,
                     attempt_invocation,
                     manifest=manifest,
-                    timeout_ms=effective_timeout,
+                    timeout_ms=attempt_timeout,
                     cancelled=cancelled,
                 )
             )
@@ -918,6 +1072,7 @@ class ExecutionKernel:
                         "CANCELLED_DURING_PROVIDER",
                         "run cancellation was observed during provider execution",
                         refs=(attempt_invocation.invocation_id,),
+                        attempt=attempt_number + 1,
                     ),
                 )
             elif provider_timed_out:
@@ -928,6 +1083,7 @@ class ExecutionKernel:
                         "PROVIDER_TIMEOUT",
                         "provider did not finish before the invocation timeout",
                         refs=(attempt_invocation.invocation_id,),
+                        attempt=attempt_number + 1,
                     ),
                 )
             elif provider_raised:
@@ -936,6 +1092,7 @@ class ExecutionKernel:
                     _provider_failure(
                         attempt_invocation.provider_id or "provider",
                         attempt_invocation.invocation_id,
+                        attempt=attempt_number + 1,
                     ),
                 )
             elif not isinstance(raw_result, ProviderExecutionResult):
@@ -946,12 +1103,13 @@ class ExecutionKernel:
                         "INVALID_PROVIDER_RESULT",
                         "provider returned an invalid structured result",
                         refs=(attempt_invocation.invocation_id,),
+                        attempt=attempt_number + 1,
                     ),
                 )
             else:
                 result = raw_result
             provider_reported_duration_ms += result.duration_ms
-            if not cancelled_during and callable(cancelled) and cancelled():
+            if not cancelled_during and _cancel_requested(cancelled):
                 result = _synthetic_provider_result(
                     attempt_invocation,
                     _failure(
@@ -961,12 +1119,6 @@ class ExecutionKernel:
                         refs=(attempt_invocation.invocation_id,),
                         attempt=result.attempt,
                     ),
-                )
-            if result.started_at is None or result.ended_at is None:
-                result = replace(
-                    result,
-                    started_at=result.started_at or self.timestamp,
-                    ended_at=result.ended_at or self.timestamp,
                 )
             if (
                 result.provider_id != attempt_invocation.provider_id
@@ -979,6 +1131,7 @@ class ExecutionKernel:
                         "PROVIDER_RESULT_CORRELATION",
                         "provider result correlation did not match the invocation",
                         refs=(attempt_invocation.invocation_id,),
+                        attempt=attempt_number + 1,
                     ),
                 )
             if (
@@ -989,7 +1142,11 @@ class ExecutionKernel:
                     ProviderResultStatus.SUCCEEDED,
                     ProviderResultStatus.PARTIAL,
                 )
-                and (result.duration_ms > effective_timeout or elapsed_ms > effective_timeout)
+                and (
+                    result.duration_ms > attempt_timeout
+                    or elapsed_ms > attempt_timeout
+                    or (deadline is not None and time.monotonic() >= deadline)
+                )
             ):
                 result = _synthetic_provider_result(
                     attempt_invocation,
@@ -1013,9 +1170,42 @@ class ExecutionKernel:
                 continue
             break
 
-        final = results[-1]
-        observed_duration_ms = provider_reported_duration_ms or elapsed_total_ms
+        final = (
+            _synthetic_provider_result(attempt_invocation, terminal_failure)
+            if terminal_failure is not None
+            else results[-1]
+        )
+        observed_duration_ms = (
+            provider_reported_duration_ms
+            if final.status is ProviderResultStatus.SUCCEEDED
+            else max(provider_reported_duration_ms, elapsed_total_ms)
+        )
         if final.status is ProviderResultStatus.SUCCEEDED and final.output is not None:
+            if not all(
+                isinstance(value, str) and value.strip()
+                for value in (final.started_at, final.ended_at)
+            ):
+                failure = _failure(
+                    FailureCategory.VERIFICATION,
+                    "PROVIDER_OBSERVATION_MISSING",
+                    "provider success did not include observed start and end timestamps",
+                    refs=(attempt_invocation.invocation_id,),
+                    attempt=final.attempt,
+                )
+                failed = transition_invocation(
+                    attempt_invocation,
+                    InvocationStatus.FAILED,
+                    timestamp=self.timestamp,
+                    failure_refs=(failure.code,),
+                )
+                return _InvocationOutcome(
+                    failed,
+                    tuple(results),
+                    None,
+                    failure,
+                    retries,
+                    duration_ms=observed_duration_ms,
+                )
             succeeded = transition_invocation(
                 attempt_invocation,
                 InvocationStatus.SUCCEEDED,
@@ -1076,12 +1266,16 @@ class ExecutionKernel:
                 final.output,
                 observed_duration_ms,
             )
-        failure = final.failure or _failure(
-            FailureCategory.PROVIDER,
-            "PROVIDER_FAILED",
-            "provider returned a failed result",
-            refs=(attempt_invocation.invocation_id,),
-            attempt=final.attempt,
+        failure = (
+            terminal_failure
+            or final.failure
+            or _failure(
+                FailureCategory.PROVIDER,
+                "PROVIDER_FAILED",
+                "provider returned a failed result",
+                refs=(attempt_invocation.invocation_id,),
+                attempt=final.attempt,
+            )
         )
         target = (
             InvocationStatus.CANCELLED
@@ -1240,7 +1434,7 @@ class ExecutionKernel:
                 )
             add(
                 TelemetryEventType.TOOL_RESULT,
-                "structured provider result recorded",
+                "deterministic fixture result recorded; not a real provider/tool success",
                 actor=current_actor,
                 event_evidence=evidence_refs,
                 event_artifacts=tuple(provider_result.artifact_refs),
@@ -1487,6 +1681,7 @@ class ExecutionKernel:
             verification.claims,
             verification.procedures,
             tuple(item for item in evidence if isinstance(item, EvidenceRecord)),
+            artifacts=artifact_values,
         )
         if not lineage_valid or not lineage_validation.is_valid:
             lineage_failure = _failure(
@@ -1522,8 +1717,15 @@ class ExecutionKernel:
             reviewer_id="local.critic",
             independence=Independence.SEPARATED_SELF,
             timestamp=self.timestamp,
+            evidence=tuple(item for item in evidence if isinstance(item, EvidenceRecord)),
+            artifacts=artifact_values,
         )
-        assurance = assure_quality(verification, critique)
+        assurance = assure_quality(
+            verification,
+            critique,
+            evidence=tuple(item for item in evidence if isinstance(item, EvidenceRecord)),
+            artifacts=artifact_values,
+        )
         quality = build_quality_report(
             verification,
             critique,
@@ -1619,7 +1821,7 @@ class ExecutionKernel:
             stop_decision=stop_decision,
         )
         if persist:
-            self._persist(result)
+            result = self._persist(result)
         return result
 
     def _assemble(
@@ -1747,8 +1949,9 @@ class ExecutionKernel:
             gate_summary=GateSummary(
                 passed=tuple(verification.passed) if accepted else (),
                 failed=tuple(dict.fromkeys((*failed, *verification.failed))),
-                not_run=tuple(dict.fromkeys((*verification.not_run, *verification.unknown))),
+                not_run=tuple(verification.not_run),
                 blocked=tuple(dict.fromkeys((*blocked, *verification.blockers))),
+                unknown=tuple(verification.unknown),
             ),
             execution=ExecutionSummary(
                 started_at=self.timestamp,
@@ -1779,7 +1982,7 @@ class ExecutionKernel:
             ),
         )
 
-    def _persist(self, result: RunResult) -> None:
+    def _persist(self, result: RunResult) -> RunResult:
         output_by_invocation = {
             item.invocation_id: item.output
             for item in result.provider_results
@@ -1804,13 +2007,20 @@ class ExecutionKernel:
             except ValueError:
                 telemetry_failed = True
                 break
+        persistence_limitations: list[str] = []
         if telemetry_failed:
+            persistence_limitations.append(
+                "telemetry persistence failed; run evidence is incomplete"
+            )
             with suppress(ValueError):
                 self.store.write_diagnostic(
                     result.summary.run_id,
                     "telemetry",
                     "TELEMETRY_PERSISTENCE_FAILED",
                 )
+        if not result.telemetry.events:
+            with suppress(ValueError):
+                self.store.ensure_telemetry_log(result.summary.run_id)
         lifecycle_failed = False
         for invocation in result.invocations:
             try:
@@ -1833,13 +2043,40 @@ class ExecutionKernel:
                 lifecycle_failed = True
                 break
         if lifecycle_failed:
+            persistence_limitations.append(
+                "lifecycle persistence failed; run state history is incomplete"
+            )
             with suppress(ValueError):
                 self.store.write_diagnostic(
                     result.summary.run_id,
                     "lifecycle",
                     "LIFECYCLE_PERSISTENCE_FAILED",
                 )
+        if not result.invocations:
+            with suppress(ValueError):
+                self.store.ensure_lifecycle_log(result.summary.run_id)
+        if persistence_limitations:
+            limitations = tuple(dict.fromkeys((*result.limitations, *persistence_limitations)))
+            summary = replace(
+                result.summary,
+                limitations=limitations,
+                delivery=(
+                    replace(
+                        result.summary.delivery,
+                        status=DeliveryStatus.DELIVERED_WITH_LIMITATIONS,
+                    )
+                    if result.summary.delivery.status is DeliveryStatus.DELIVERED
+                    else result.summary.delivery
+                ),
+                residual_risk=(
+                    ResidualRisk.HIGH
+                    if result.summary.residual_risk is ResidualRisk.HIGH
+                    else ResidualRisk.MEDIUM
+                ),
+            )
+            result = replace(result, limitations=limitations, summary=summary)
         self.store.write_summary(result.summary)
+        return result
 
     def _snapshot_for(
         self,
@@ -1875,9 +2112,17 @@ class ExecutionKernel:
         dry_run: bool,
         stop_before_run: bool,
         persist: bool,
+        deadline: float | None = None,
     ) -> RunResult:
         """Validate, schedule, and aggregate a deterministic sequential DAG."""
 
+        graph_started = time.monotonic()
+        graph_duration_ms = limits.max_duration_ms
+        if graph.graph_budget is not None and graph.graph_budget.duration_ms is not None:
+            graph_duration_ms = min(graph_duration_ms, graph.graph_budget.duration_ms)
+        graph_deadline = graph_started + graph_duration_ms / 1000
+        if deadline is not None:
+            graph_deadline = min(graph_deadline, deadline)
         indexed = {node.node_id: node for node in graph.nodes}
         invocation_by_node = {
             node.node_id: _build_invocation(
@@ -1948,6 +2193,7 @@ class ExecutionKernel:
             max_nodes=limits.max_nodes,
             authority=authority,
             required_conditions=conditions,
+            at=self.timestamp,
         )
         if graph.task_id != profile.task_id or graph.run_id != profile.run_id:
             validation = replace(
@@ -2022,20 +2268,165 @@ class ExecutionKernel:
                 persist=persist,
                 extra_limitations=("graph rejected before provider execution",),
             )
+        if route.route_status in {
+            RouteStatus.CONDITIONAL,
+            RouteStatus.BLOCKED,
+            RouteStatus.REJECTED,
+        }:
+            provider_unavailable = "PROVIDER_UNAVAILABLE" in route.unresolved
+            provider_type_mismatch = "PROVIDER_TYPE_MISMATCH" in route.unresolved
+            failure = _failure(
+                FailureCategory.CAPABILITY_UNAVAILABLE
+                if provider_unavailable or provider_type_mismatch
+                else FailureCategory.VALIDATION,
+                "PROVIDER_UNAVAILABLE"
+                if provider_unavailable
+                else "CAPABILITY_MANIFEST_TYPE_MISMATCH"
+                if provider_type_mismatch
+                else "ROUTE_NOT_EXECUTABLE",
+                "graph route provider is unavailable"
+                if provider_unavailable
+                else "selected provider manifest is not a provider manifest"
+                if provider_type_mismatch
+                else "graph route remains conditional or rejected and cannot execute",
+                refs=(route.decision_id, *route.unresolved),
+            )
+            fallback_invocation = next(iter(invocation_by_node.values()), None)
+            if fallback_invocation is None:
+                selected_capability = (
+                    route.selected[0].capability_id if route.selected else "orchestrator"
+                )
+                fallback_invocation = _build_invocation(
+                    profile,
+                    invocation_id=f"INV-{profile.run_id}-GRAPH",
+                    capability_id=selected_capability,
+                    provider_id=selected_capability,
+                    graph_node_id=None,
+                    acceptance_refs=graph.acceptance_refs,
+                    output_contract="GraphValidationResult",
+                    limits=limits,
+                    timestamp=self.timestamp,
+                )
+            blocked_outcomes = tuple(
+                _InvocationOutcome(
+                    _terminal_without_execution(
+                        invocation,
+                        InvocationStatus.BLOCKED,
+                        failure,
+                        timestamp=self.timestamp,
+                    ),
+                    (),
+                    None,
+                    failure,
+                    0,
+                )
+                for invocation in invocation_by_node.values()
+            )
+            return self._assemble_many(
+                profile,
+                route,
+                outcomes=blocked_outcomes
+                or (
+                    _InvocationOutcome(
+                        _terminal_without_execution(
+                            fallback_invocation,
+                            InvocationStatus.BLOCKED,
+                            failure,
+                            timestamp=self.timestamp,
+                        ),
+                        (),
+                        None,
+                        failure,
+                        0,
+                    ),
+                ),
+                verification_outcomes=None,
+                graph=replace(graph, graph_status=GraphStatus.BLOCKED),
+                status=ExecutionStatus.FAILED,
+                reported_failures=(failure,),
+                authority_snapshot_value=None,
+                limits=limits,
+                persist=persist,
+                extra_limitations=("route requires clarification before graph execution",),
+            )
+        provider_failures: list[FailureDetail] = []
+        for invocation in invocation_by_node.values():
+            provider = self.providers.resolve(
+                invocation.provider_id or "",
+                operation=invocation.operation,
+                capability_id=invocation.callee.capability_id,
+            )
+            if provider is None:
+                provider_failures.append(
+                    _failure(
+                        FailureCategory.CAPABILITY_UNAVAILABLE,
+                        "PROVIDER_PREFLIGHT_FAILED",
+                        "every graph provider must be registered and available before execution",
+                        refs=(invocation.provider_id or "", invocation.invocation_id),
+                    )
+                )
+        if provider_failures:
+            failure = provider_failures[0]
+            blocked_outcomes = tuple(
+                _InvocationOutcome(
+                    _terminal_without_execution(
+                        invocation,
+                        InvocationStatus.BLOCKED,
+                        failure,
+                        timestamp=self.timestamp,
+                    ),
+                    (),
+                    None,
+                    failure,
+                    0,
+                )
+                for invocation in invocation_by_node.values()
+            )
+            return self._assemble_many(
+                profile,
+                route,
+                outcomes=blocked_outcomes,
+                verification_outcomes=None,
+                graph=replace(graph, graph_status=GraphStatus.BLOCKED),
+                status=ExecutionStatus.FAILED,
+                reported_failures=tuple(provider_failures),
+                authority_snapshot_value=None,
+                limits=limits,
+                persist=persist,
+                extra_limitations=("graph provider preflight failed",),
+            )
         if dry_run or stop_before_run:
             dry = dry_run
             dry_outcomes: list[_InvocationOutcome] = []
             for invocation in invocation_by_node.values():
                 if dry:
-                    prepared = transition_invocation(
-                        invocation, InvocationStatus.VALIDATED, timestamp=self.timestamp
+                    prepared, _snapshot, authorization_failure = _authorize_invocation(
+                        invocation,
+                        authority=authority,
+                        required_conditions=conditions,
+                        timestamp=self.timestamp,
                     )
-                    prepared = transition_invocation(
-                        prepared, InvocationStatus.AUTHORIZED, timestamp=self.timestamp
-                    )
-                    prepared = transition_invocation(
-                        prepared, InvocationStatus.READY, timestamp=self.timestamp
-                    )
+                    if authorization_failure is not None:
+                        return self._assemble_many(
+                            profile,
+                            route,
+                            outcomes=(
+                                _InvocationOutcome(
+                                    prepared,
+                                    (),
+                                    None,
+                                    authorization_failure,
+                                    0,
+                                ),
+                            ),
+                            verification_outcomes=None,
+                            graph=replace(graph, graph_status=GraphStatus.BLOCKED),
+                            status=ExecutionStatus.FAILED,
+                            reported_failures=(authorization_failure,),
+                            authority_snapshot_value=None,
+                            limits=limits,
+                            persist=persist,
+                        )
                     failure = _failure(
                         FailureCategory.VALIDATION,
                         "DRY_RUN_NOT_EXECUTED",
@@ -2094,10 +2485,11 @@ class ExecutionKernel:
                 invocation_by_node[graph_node.node_id],
                 authority=authority,
                 limits=limits,
-                invocation_count=len(captured),
+                invocation_count=sum(len(item.provider_results) for item in captured.values()),
                 required_conditions=conditions,
                 cancelled=cancelled,
                 timeout_ms=node_timeout,
+                deadline=graph_deadline,
             )
             captured[graph_node.node_id] = outcome
             return GraphNodeResult(
@@ -2113,7 +2505,7 @@ class ExecutionKernel:
                 invoke,
                 max_nodes=limits.max_nodes,
                 max_invocations=limits.max_invocations,
-                max_duration_ms=limits.max_duration_ms,
+                max_duration_ms=graph_duration_ms,
                 cancelled=cancelled,
             )
         except GraphValidationError:
@@ -2225,11 +2617,11 @@ class ExecutionKernel:
         )
         graph_value = replace(graph, nodes=graph_nodes, graph_status=graph_status)
         stop = evaluate_stop(
-            budget=StopBudget(max_duration_ms=limits.max_duration_ms),
+            budget=StopBudget(max_duration_ms=graph_duration_ms),
             usage=BudgetUsage(
                 iterations=1,
-                duration_ms=0,
-                tool_calls=len(captured),
+                duration_ms=sum(item.duration_ms for item in scheduled_outcomes),
+                tool_calls=sum(len(item.provider_results) for item in scheduled_outcomes),
             ),
             blocked_dependencies=tuple(
                 item.invocation.graph_node_id or ""
@@ -2268,6 +2660,7 @@ class ExecutionKernel:
         delegation_ref: str | None,
         repair_provider_id: str | None,
         persist: bool,
+        deadline: float | None = None,
     ) -> RunResult:
         invocation = _build_invocation(
             profile,
@@ -2297,6 +2690,54 @@ class ExecutionKernel:
                 limits=limits,
                 persist=persist,
             )
+        if route.route_status in {
+            RouteStatus.CONDITIONAL,
+            RouteStatus.BLOCKED,
+            RouteStatus.REJECTED,
+        }:
+            provider_unavailable = "PROVIDER_UNAVAILABLE" in route.unresolved
+            provider_type_mismatch = "PROVIDER_TYPE_MISMATCH" in route.unresolved
+            failure = _failure(
+                FailureCategory.CAPABILITY_UNAVAILABLE
+                if provider_unavailable or provider_type_mismatch
+                else FailureCategory.VALIDATION,
+                "PROVIDER_UNAVAILABLE"
+                if provider_unavailable
+                else "CAPABILITY_MANIFEST_TYPE_MISMATCH"
+                if provider_type_mismatch
+                else "ROUTE_NOT_EXECUTABLE",
+                "route provider is unavailable"
+                if provider_unavailable
+                else "selected provider manifest is not a provider manifest"
+                if provider_type_mismatch
+                else "route remains conditional or rejected and cannot execute",
+                refs=(route.decision_id, *route.unresolved),
+            )
+            blocked = _InvocationOutcome(
+                _terminal_without_execution(
+                    invocation,
+                    InvocationStatus.BLOCKED,
+                    failure,
+                    timestamp=self.timestamp,
+                ),
+                (),
+                None,
+                failure,
+                0,
+            )
+            return self._assemble_many(
+                profile,
+                route,
+                outcomes=(blocked,),
+                verification_outcomes=None,
+                graph=None,
+                status=ExecutionStatus.FAILED,
+                reported_failures=(failure,),
+                authority_snapshot_value=None,
+                limits=limits,
+                persist=persist,
+                extra_limitations=("route requires clarification before execution",),
+            )
         stop = evaluate_stop(
             budget=StopBudget(
                 max_duration_ms=limits.max_duration_ms,
@@ -2306,15 +2747,33 @@ class ExecutionKernel:
             human_override=stop_before_run,
         )
         if dry_run:
-            prepared = transition_invocation(
-                invocation, InvocationStatus.VALIDATED, timestamp=self.timestamp
+            prepared, snapshot, authorization_failure = _authorize_invocation(
+                invocation,
+                authority=authority,
+                required_conditions=conditions,
+                timestamp=self.timestamp,
             )
-            prepared = transition_invocation(
-                prepared, InvocationStatus.AUTHORIZED, timestamp=self.timestamp
-            )
-            prepared = transition_invocation(
-                prepared, InvocationStatus.READY, timestamp=self.timestamp
-            )
+            if authorization_failure is not None:
+                return self._assemble_many(
+                    profile,
+                    route,
+                    outcomes=(
+                        _InvocationOutcome(
+                            prepared,
+                            (),
+                            None,
+                            authorization_failure,
+                            0,
+                        ),
+                    ),
+                    verification_outcomes=None,
+                    graph=None,
+                    status=ExecutionStatus.FAILED,
+                    reported_failures=(authorization_failure,),
+                    authority_snapshot_value=None,
+                    limits=limits,
+                    persist=persist,
+                )
             failure = _failure(
                 FailureCategory.VALIDATION,
                 "DRY_RUN_NOT_EXECUTED",
@@ -2330,7 +2789,7 @@ class ExecutionKernel:
                 graph=None,
                 status=ExecutionStatus.DRY_RUN,
                 reported_failures=(),
-                authority_snapshot_value=None,
+                authority_snapshot_value=snapshot,
                 limits=limits,
                 persist=persist,
                 stop_decision=None,
@@ -2370,11 +2829,25 @@ class ExecutionKernel:
             required_conditions=conditions,
             cancelled=cancelled,
             timeout_ms=timeout_ms,
+            deadline=deadline,
         )
         outcome_values: list[_InvocationOutcome] = [outcome]
         verification_outcomes: tuple[_InvocationOutcome, ...] | None = None
         repair_records: list[RepairRecord] = []
         limitations: list[str] = []
+        failure_history: list[FailureObservation] = []
+        progress_history: list[ProgressSnapshot] = []
+        if outcome.failure is not None:
+            failure_history.append(FailureObservation(outcome.failure.code, provider_id))
+            progress_history.append(
+                ProgressSnapshot(
+                    0,
+                    criteria=(outcome.failure.code, provider_id),
+                    artifact_refs=(
+                        (outcome.artifact.artifact_id,) if outcome.artifact is not None else ()
+                    ),
+                )
+            )
         final_status = _status_for_outcome(outcome)
         if outcome.failure is not None and repair_provider_id is not None:
             if limits.max_repairs < 1:
@@ -2419,13 +2892,32 @@ class ExecutionKernel:
                             repair_invocation,
                             authority=authority,
                             limits=limits,
-                            invocation_count=len(outcome_values),
+                            invocation_count=sum(
+                                len(item.provider_results) for item in outcome_values
+                            ),
                             required_conditions=conditions,
                             cancelled=cancelled,
                             timeout_ms=timeout_ms,
+                            deadline=deadline,
                         )
                         outcome_values.append(repaired)
                         final_status = _status_for_outcome(repaired)
+                        progress_history.append(
+                            ProgressSnapshot(
+                                attempt,
+                                criteria=(
+                                    repaired.failure.code
+                                    if repaired.failure is not None
+                                    else "SUCCEEDED",
+                                    repair_provider_id,
+                                ),
+                                artifact_refs=(
+                                    (repaired.artifact.artifact_id,)
+                                    if repaired.artifact is not None
+                                    else ()
+                                ),
+                            )
+                        )
                         repair_records.append(
                             RepairRecord(
                                 repair_id=f"REPAIR-{profile.run_id}-{attempt}",
@@ -2441,6 +2933,41 @@ class ExecutionKernel:
                             limitations.append(
                                 "initial provider failure was resolved by explicit repair"
                             )
+                            break
+                        failure_history.append(
+                            FailureObservation(repaired.failure.code, repair_provider_id)
+                        )
+                        repair_stop = evaluate_stop(failure_history=tuple(failure_history))
+                        if not repair_stop.should_stop:
+                            repair_stop = evaluate_stop(
+                                budget=StopBudget(
+                                    max_iterations=limits.max_repairs,
+                                    max_duration_ms=limits.max_duration_ms,
+                                    max_tool_calls=limits.max_invocations,
+                                ),
+                                usage=BudgetUsage(
+                                    iterations=attempt,
+                                    duration_ms=sum(item.duration_ms for item in outcome_values),
+                                    tool_calls=sum(
+                                        len(item.provider_results) for item in outcome_values
+                                    ),
+                                ),
+                                progress_history=tuple(progress_history),
+                            )
+                        if repair_stop.should_stop:
+                            stop = repair_stop
+                            condition = _enum_value(repair_stop.condition)
+                            limitation = {
+                                "REPEATED_FAILURE": (
+                                    "explicit repair stopped after repeated failure"
+                                ),
+                                "NO_PROGRESS": "explicit repair stopped after no progress",
+                                "OSCILLATION": "explicit repair stopped after oscillation",
+                            }.get(
+                                condition,
+                                f"explicit repair stopped at {condition.casefold()}",
+                            )
+                            limitations.append(limitation)
                             break
                         if repaired.failure.category in {
                             FailureCategory.AUTHORITY_DENIED,
@@ -2560,14 +3087,45 @@ class ExecutionKernel:
         )
         selected_provider = provider_id or graph_provider or "local.success"
         _id(selected_provider, "provider id")
-        provider_admitted = (
-            self.providers.resolve(
-                selected_provider,
-                operation="execute",
-                capability_id=selected_provider,
+        authority_value = authority if authority is not None else self.authority
+
+        def admitted(provider_name: str, capability_id: str | None = None) -> bool:
+            inspection = self.providers.inspect(provider_name)
+            registration = inspection.registration
+            return bool(
+                registration is not None
+                and registration.usable
+                and "execute" in registration.descriptor.operations
+                and (
+                    capability_id is None or capability_id in registration.descriptor.capability_ids
+                )
             )
-            is not None
+
+        graph_provider_ids = (
+            _dedupe(
+                node.provider_id or selected_provider
+                for node in graph.nodes
+                if node.provider_id is not None or selected_provider
+            )
+            if graph is not None
+            else (selected_provider,)
         )
+        admitted_provider_ids = tuple(
+            provider_name
+            for provider_name in graph_provider_ids
+            if admitted(
+                provider_name,
+                next(
+                    (
+                        node.capability_id
+                        for node in (graph.nodes if graph is not None else ())
+                        if (node.provider_id or selected_provider) == provider_name
+                    ),
+                    selected_provider,
+                ),
+            )
+        )
+        provider_admitted = selected_provider in admitted_provider_ids
         route = _route_with_provider(
             minimum_route(
                 profile,
@@ -2577,9 +3135,11 @@ class ExecutionKernel:
             ),
             selected_provider,
             provider_admitted=provider_admitted,
+            provider_ids=graph_provider_ids,
+            admitted_provider_ids=admitted_provider_ids,
         )
         conditions = _dedupe(required_conditions)
-        authority_value = authority if authority is not None else self.authority
+        deadline = time.monotonic() + selected_limits.max_duration_ms / 1000
         if graph is not None:
             return self._run_graph(
                 profile,
@@ -2594,6 +3154,7 @@ class ExecutionKernel:
                 dry_run=dry_run,
                 stop_before_run=stop_before_run,
                 persist=persist,
+                deadline=deadline,
             )
         return self._run_direct(
             profile,
@@ -2609,6 +3170,7 @@ class ExecutionKernel:
             delegation_ref=delegation_ref,
             repair_provider_id=repair_provider_id,
             persist=persist,
+            deadline=deadline,
         )
 
 

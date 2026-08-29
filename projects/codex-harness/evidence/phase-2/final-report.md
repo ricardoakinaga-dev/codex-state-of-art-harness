@@ -8,8 +8,11 @@ Implementar e verificar apenas o kernel bounded local/determinístico da
 ## Quality bar
 
 `P2-QB-1`, com todos os critérios técnicos locais, cobertura total ≥80% e
-evidência fresca. A revisão independente exigida pelo bar não ficou disponível,
-portanto ela é registrada como limitação bloqueante e `AAA_VERIFIED` não é
+evidência fresca. As revisões adversariais read-only encontraram bloqueios,
+incluindo três achados pós-hardening; todos foram corrigidos e retestados. A
+confirmação read-only adicional não encontrou novo defeito de implementação,
+mas a reconciliação posterior alterou os bytes do pacote; aprovação independente
+do pacote exato ainda é a última condição de fechamento. `AAA_VERIFIED` não é
 alegado.
 
 ## Delivered
@@ -21,11 +24,12 @@ telemetry, atomic persistence, recovery e CLI `run/--dry-run/--explain/quality/d
 
 ## Verification
 
-Os números e o SHA base são os de `readiness.json`. O pacote inclui testes
-unitários, integração, adversarial e golden, benchmark P2 e scans estáticos.
-`independent-review.md` registra que a revisão read-only independente foi
-tentada, mas não produziu resultado; as verificações do lead não são
-apresentadas como substituto.
+Os números, o `HEAD`, o estado dirty e os fingerprints estão em
+`readiness.json`. O pacote inclui testes unitários, integração, adversarial e
+golden, benchmark P2, scans estáticos e revisões read-only independentes.
+`independent-review.md` separa os findings observados, fixes, regressões e a
+confirmação adicional, mantendo explícita a ausência de aprovação dos bytes
+exatos após a reconciliação final.
 
 ## Limitations
 
@@ -36,6 +40,7 @@ SLO de produção ou qualidade causal.
 ## Verdict
 
 `CONDITIONAL PASS`: a implementação bounded local e sua verificação técnica
-estão verdes, mas a falta de revisão independente impede o gate final. O
-veredito pode subir para `PASS_WITH_LIMITATIONS` somente após essa revisão e
-eventual correção/reteste de findings Critical/High.
+estão verdes, os findings materialmente observados foram corrigidos, mas a
+confirmação independente dos bytes exatos do pacote pós-reconciliação ainda
+está pendente. A limitação permanece explícita e nenhum `PHASE2-VERIFIED` é
+emitido.

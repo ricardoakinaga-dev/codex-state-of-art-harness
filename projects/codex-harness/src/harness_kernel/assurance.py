@@ -2,14 +2,18 @@
 
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import dataclass
 from enum import StrEnum
 
+from .evidence import validate_evidence_links
 from .models import (
+    ArtifactRecord,
     ClaimStatus,
     Confidence,
     CritiqueFinding,
     CritiqueReport,
+    EvidenceRecord,
     FindingCategory,
     FindingConfidence,
     FindingDisposition,
@@ -70,6 +74,8 @@ def create_critique(
     reviewer_id: str = "local.critic",
     independence: Independence = Independence.SEPARATED_SELF,
     timestamp: str | None = None,
+    evidence: Iterable[EvidenceRecord] = (),
+    artifacts: Iterable[ArtifactRecord] = (),
 ) -> CritiqueReport:
     """Create a deterministic critique packet from verification claims."""
 
@@ -89,10 +95,16 @@ def create_critique(
                 owner="assurance",
             )
         )
+    evidence_values = tuple(evidence)
+    artifact_values = tuple(artifacts)
     reviewer = Verifier(
         reviewer_id,
         independence,
-        verification_packet_digest(verification),
+        verification_packet_digest(
+            verification,
+            evidence=evidence_values,
+            artifacts=artifact_values,
+        ),
     )
     return CritiqueReport(
         schema_version=SchemaVersion.CRITIQUE_REPORT,
@@ -120,14 +132,132 @@ def create_critique(
 
 
 def assure_quality(
-    verification: VerificationReport,
-    critique: CritiqueReport,
+    verification: object,
+    critique: object,
     *,
     quality_bar_ref: str = "P2-QB-1",
     require_independent: bool = False,
+    evidence: Iterable[EvidenceRecord] | None = None,
+    artifacts: Iterable[ArtifactRecord] | None = None,
 ) -> AssuranceResult:
     """Decide quality from verification and critique, never execution status alone."""
 
+    if not isinstance(verification, VerificationReport) or not isinstance(critique, CritiqueReport):
+        return AssuranceResult(
+            AssuranceDecision.FAILED,
+            QualityBand.FAILED,
+            "assurance requires typed verification and critique reports",
+        )
+    if _value(verification.record.status) != RecordStatus.CURRENT.value:
+        return AssuranceResult(
+            AssuranceDecision.FAILED,
+            QualityBand.FAILED,
+            "verification report is stale or otherwise non-current",
+        )
+    if _value(critique.record.status) != RecordStatus.CURRENT.value:
+        return AssuranceResult(
+            AssuranceDecision.FAILED,
+            QualityBand.FAILED,
+            "critique report is stale or otherwise non-current",
+        )
+    if (critique.task_id, critique.run_id) != (verification.task_id, verification.run_id):
+        return AssuranceResult(
+            AssuranceDecision.FAILED,
+            QualityBand.FAILED,
+            "critique correlation does not match the verification packet",
+        )
+    if verification.report_id not in critique.reviewed_reports:
+        return AssuranceResult(
+            AssuranceDecision.FAILED,
+            QualityBand.FAILED,
+            "critique did not review the current verification report",
+        )
+    if set(critique.reviewed_artifacts) != set(verification.artifact_refs):
+        return AssuranceResult(
+            AssuranceDecision.FAILED,
+            QualityBand.FAILED,
+            "critique artifact scope does not match the verification packet",
+        )
+    if critique.reviewer.independence != critique.independence:
+        return AssuranceResult(
+            AssuranceDecision.FAILED,
+            QualityBand.FAILED,
+            "critique reviewer metadata is inconsistent",
+        )
+    if evidence is None or artifacts is None:
+        return AssuranceResult(
+            AssuranceDecision.BLOCKED,
+            QualityBand.BLOCKED,
+            "assurance requires the current evidence and artifact packet",
+        )
+    packet_bound = True
+    if packet_bound:
+        evidence_values = tuple(evidence or ())
+        artifact_values = tuple(artifacts or ())
+        if any(not isinstance(item, EvidenceRecord) for item in evidence_values) or any(
+            not isinstance(item, ArtifactRecord) for item in artifact_values
+        ):
+            return AssuranceResult(
+                AssuranceDecision.FAILED,
+                QualityBand.FAILED,
+                "assurance packet contains an untyped evidence or artifact record",
+            )
+        expected_packet_digest = verification_packet_digest(
+            verification,
+            evidence=evidence_values,
+            artifacts=artifact_values,
+        )
+        if not critique.reviewer.blind_packet_digest:
+            return AssuranceResult(
+                AssuranceDecision.FAILED,
+                QualityBand.FAILED,
+                "packet-bound assurance requires a blind verification digest",
+            )
+        if critique.reviewer.blind_packet_digest != expected_packet_digest:
+            return AssuranceResult(
+                AssuranceDecision.FAILED,
+                QualityBand.FAILED,
+                "critique blind packet digest does not match the current packet",
+            )
+        if critique.quality_bar_ref != quality_bar_ref:
+            return AssuranceResult(
+                AssuranceDecision.BLOCKED,
+                QualityBand.BLOCKED,
+                "critique quality bar does not match the required assurance bar",
+            )
+        if not evidence_values or (verification.artifact_refs and not artifact_values):
+            return AssuranceResult(
+                AssuranceDecision.BLOCKED,
+                QualityBand.BLOCKED,
+                "assurance requires the current evidence and artifact packet",
+            )
+        if set(item.artifact_id for item in artifact_values) != set(verification.artifact_refs):
+            return AssuranceResult(
+                AssuranceDecision.FAILED,
+                QualityBand.FAILED,
+                "artifact packet does not match verification artifact references",
+            )
+        links = validate_evidence_links(
+            verification.claims,
+            verification.procedures,
+            evidence_values,
+            artifacts=artifact_values,
+        )
+        if not links.is_valid:
+            return AssuranceResult(
+                AssuranceDecision.FAILED,
+                QualityBand.FAILED,
+                "evidence packet failed the assurance link gate",
+            )
+    if require_independent and (
+        _value(critique.independence) != Independence.INDEPENDENT.value
+        or _value(critique.record.provenance.source_type) != SourceType.HUMAN.value
+    ):
+        return AssuranceResult(
+            AssuranceDecision.BLOCKED,
+            QualityBand.BLOCKED,
+            "independent human critique evidence is required for this assurance decision",
+        )
     if _value(verification.recommendation) == Recommendation.FAIL.value or any(
         claim.required and _value(claim.status) != ClaimStatus.PASS.value
         for claim in verification.claims

@@ -1252,6 +1252,7 @@ class GateSummary(_ValueModel):
     failed: tuple[str, ...]
     not_run: tuple[str, ...]
     blocked: tuple[str, ...]
+    unknown: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True, slots=True)

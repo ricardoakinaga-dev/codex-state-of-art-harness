@@ -34,7 +34,7 @@ credenciais, host internals ou configuração global.
 | C — graph success | DAG acíclico em ordem topológica determinística |
 | D — dependency failure | falha preservada, descendente bloqueado, independente preservado |
 | E — timeout | `TIMED_OUT` sem artifact de saída |
-| F — cancellation | cancelamento antes do provider sem execução |
+| F — cancellation | cancelamento durante fixture lento, uma chamada iniciada e sem artifact |
 | G — verification failure | output/artifact forged não promove quality |
 | H — partial | partial permanece partial e não é delivery |
 | I — stop-before | stop policy bloqueia antes da chamada |
@@ -48,10 +48,14 @@ Fase 1 permanecem parte da suíte completa.
 
 ## Resultado atual
 
-A rodada local final passou em 187 testes, com 84% de cobertura total, Ruff,
-mypy, sete testes de integração CLI, benchmark `P2-BENCH-1` e scans de
-segurança. O status honesto é `CONDITIONAL PASS`: a revisão independente final
-foi tentada, mas não retornou um relatório utilizável; por isso nenhum gate
+A rodada local final passou em 232 testes, com 85% de cobertura total, Ruff,
+mypy, 34 testes de integração CLI, benchmark `P2-BENCH-1` e scans de
+segurança. Três reviewers read-only encontraram bloqueios antes do hardening;
+uma crítica read-only pós-hardening encontrou três achados adicionais, todos
+corrigidos e retestados. A confirmação independente final contra o pacote atual
+teve uma tentativa read-only adicional (`CONDITIONAL_PASS`), sem novo defeito
+de implementação; como a reconciliação posterior alterou os bytes do pacote,
+a aprovação do pacote exato ainda está pendente. O status permanece `CONDITIONAL PASS` e nenhum gate
 `PHASE2-VERIFIED` é alegado.
 
 ## Limitações assumidas

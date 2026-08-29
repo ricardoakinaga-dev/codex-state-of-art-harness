@@ -1,8 +1,10 @@
 # Verification report
 
 Provider execution não é evidence. O kernel cria `ArtifactRecord` com digest e
-lineage, então `verify_provider_result` recalcula o digest do conteúdo e liga
-claim, procedure e `EvidenceRecord` fresca. Output ausente, digest forjado,
+lineage, então `verify_provider_result` recalcula o digest do conteúdo, exige
+que a provenance do artifact corresponda ao provider e liga claim, procedure e
+`EvidenceRecord` fresca. Timestamps de início/fim observados e a correlação da
+invocation são necessários para `FRESH`; output ausente, digest forjado,
 artifact forjado, procedure não executada e evidence stale não podem virar
 `PASS`.
 

@@ -3,17 +3,22 @@
 Este arquivo é o checklist de handoff da Fase 2. Ele deve ser lido junto de
 `readiness.json`, `independent-review.md` e `final-report.md`.
 
-- [x] fonte, testes e evidências apontam para o mesmo estado verificado do
+- [x] fonte, testes e evidências apontam para o mesmo `HEAD` e fingerprints do
   worktree;
 - [x] testes, coverage, ruff, mypy e CLI foram executados na rodada final;
 - [x] benchmark `P2-BENCH-1` foi regenerado na rodada final;
-- [ ] independent review não deixou Critical/High aberto — a revisão foi
-  tentada, mas não retornou um relatório utilizável;
+- [x] reviewers read-only independentes executaram a revisão adversarial e os
+  findings Critical/High observados foram corrigidos e retestados;
+- [x] houve tentativa de confirmação read-only pós-correções, sem novo defeito
+  de implementação acionável;
+- [ ] aprovação independente do pacote exato após a reconciliação final ainda
+  não foi encerrada;
 - [x] limitações e non-goals continuam explícitos;
 - [x] o commit/push solicitado é tratado como handoff externo posterior à
   verificação e não altera o significado dos resultados.
 
-O resultado é `CONDITIONAL PASS`: os critérios técnicos locais estão verdes,
-mas o checklist não pode ser promovido a `PASS_WITH_LIMITATIONS` nem a
-`PHASE2-VERIFIED` sem revisão independente. `readiness.json` registra o SHA
-base, o estado do worktree no momento da medição e as contagens observadas.
+O resultado é `CONDITIONAL PASS`: os critérios técnicos locais estão verdes e
+uma confirmação independente encontrou apenas a necessidade de reconciliar
+fingerprints; como essa reconciliação mudou o pacote, o checklist ainda não
+alega aprovação independente dos bytes exatos. `readiness.json` registra o
+`HEAD`, o estado dirty do worktree, fingerprints e contagens observadas.

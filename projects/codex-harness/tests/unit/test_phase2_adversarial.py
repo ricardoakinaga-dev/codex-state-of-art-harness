@@ -53,15 +53,17 @@ from harness_kernel.providers import (
     ProviderAvailability,
     ProviderDescriptor,
     ProviderExecutionResult,
+    ProviderRegistration,
     ProviderRegistry,
     ProviderResultStatus,
     digest_output,
 )
 from harness_kernel.registry import CapabilityRegistry
-from harness_kernel.serialization import from_json, to_dict
+from harness_kernel.serialization import from_dict, from_json, to_dict
 from harness_kernel.telemetry import create_event
 from harness_kernel.verification import (
     VerificationOutcome,
+    aggregate_verification,
     artifact_content_matches,
     stale_verification,
     verify_provider_result,
@@ -134,6 +136,7 @@ class _StaticProvider:
     capability_ids: tuple[str, ...]
     duration_ms: int = 1
     result_provider_id: str | None = None
+    output_contract: str = "LocalExecutionResult"
 
     @property
     def descriptor(self) -> ProviderDescriptor:
@@ -156,7 +159,7 @@ class _StaticProvider:
             invocation_id=invocation.invocation_id,
             status=ProviderResultStatus.SUCCEEDED,
             output=output,
-            output_contract="LocalExecutionResult",
+            output_contract=self.output_contract,
             output_digest=digest_output(output),
             duration_ms=self.duration_ms,
         )
@@ -167,7 +170,7 @@ def _successful_verification(tmp_path: Path) -> tuple[RunResult, VerificationOut
         tmp_path,
         providers=ProviderRegistry().register(DeterministicSuccessProvider()),
     ).run(
-        "Produce a deterministic local result",
+        "Change one local label",
         task_id="TASK-EVIDENCE-ADVERSARIAL",
         run_id="RUN-EVIDENCE-ADVERSARIAL",
         provider_id="local.success",
@@ -257,11 +260,8 @@ def test_boundary_refuses_an_in_project_symlinked_parent_for_atomic_writes(
 def test_unavailable_selected_provider_does_not_fallback_to_another_provider(
     tmp_path: Path,
 ) -> None:
-    selected = _StaticProvider("selected.provider", ("selected.provider",))
-    fallback = _StaticProvider(
-        "fallback.provider",
-        ("selected.provider", "fallback.provider"),
-    )
+    selected = DeterministicSuccessProvider(provider_id="selected.provider")
+    fallback = DeterministicSuccessProvider(provider_id="fallback.provider")
     providers = (
         ProviderRegistry()
         .register(selected)
@@ -276,7 +276,9 @@ def test_unavailable_selected_provider_does_not_fallback_to_another_provider(
     )
 
     assert result.status is ExecutionStatus.FAILED
-    assert result.route.selected[0].capability_id == "selected.provider"
+    assert result.route.selected == ()
+    assert any(item.capability_id == "selected.provider" for item in result.route.omitted)
+    assert all(item.capability_id != "selected.provider" for item in result.route.selected)
     assert result.provider_results == ()
     assert result.summary.loaded_capabilities == ()
     assert _category(result.failures[0].category) == "CAPABILITY_UNAVAILABLE"
@@ -285,7 +287,7 @@ def test_unavailable_selected_provider_does_not_fallback_to_another_provider(
 
 def test_non_provider_manifest_cannot_admit_a_provider_execution(tmp_path: Path) -> None:
     manifest_registry = CapabilityRegistry().register(all_records()[3])
-    provider = _StaticProvider("validator", ("validator",))
+    provider = DeterministicSuccessProvider(provider_id="validator")
 
     result = authorized_kernel(
         tmp_path,
@@ -303,9 +305,8 @@ def test_non_provider_manifest_cannot_admit_a_provider_execution(tmp_path: Path)
 
 
 def test_mismatched_provider_result_is_failed_without_hidden_fallback(tmp_path: Path) -> None:
-    mismatch = _StaticProvider(
-        "mismatch.provider",
-        ("mismatch.provider",),
+    mismatch = DeterministicSuccessProvider(
+        provider_id="mismatch.provider",
         result_provider_id="local.success",
     )
     providers = ProviderRegistry().register(mismatch).register(DeterministicSuccessProvider())
@@ -443,8 +444,21 @@ def test_cancelled_graph_never_calls_a_node() -> None:
     assert by_id["NODE-2"].blocked_by == ("NODE-1",)
 
 
+def test_raising_graph_cancellation_callback_is_normalized() -> None:
+    candidate = _graph(_node("NODE-1"))
+
+    def cancelled() -> bool:
+        raise RuntimeError("cancellation signal unavailable")
+
+    outcomes = execute_graph(candidate, lambda node: node.node_id, cancelled=cancelled)
+
+    assert outcomes[0].status is InvocationStatus.CANCELLED
+    assert outcomes[0].failure is not None
+    assert outcomes[0].failure.code == "CANCELLED"
+
+
 def test_provider_reported_timeout_is_terminal_and_has_no_artifact(tmp_path: Path) -> None:
-    slow = _StaticProvider("slow.provider", ("slow.provider",), duration_ms=50)
+    slow = DeterministicSuccessProvider(provider_id="slow.provider", duration_ms=50)
     result = authorized_kernel(
         tmp_path,
         providers=ProviderRegistry().register(slow),
@@ -469,7 +483,7 @@ def test_provider_reported_timeout_is_terminal_and_has_no_artifact(tmp_path: Pat
 
 
 def test_summary_and_telemetry_preserve_observed_provider_duration(tmp_path: Path) -> None:
-    provider = _StaticProvider("timed.provider", ("timed.provider",), duration_ms=7)
+    provider = DeterministicSuccessProvider(provider_id="timed.provider", duration_ms=7)
     authority = AuthorityScope(
         owner="test-policy",
         actor="test-runner",
@@ -486,7 +500,7 @@ def test_summary_and_telemetry_preserve_observed_provider_duration(tmp_path: Pat
         providers=ProviderRegistry().register(provider),
         timestamp=NOW,
     ).run(
-        "Preserve the fixture duration",
+        "Change one local label and preserve the fixture duration",
         task_id="TASK-DURATION",
         run_id="RUN-DURATION",
         provider_id="timed.provider",
@@ -524,6 +538,21 @@ def test_cancellation_is_observed_before_provider_execution(tmp_path: Path) -> N
     assert result.failures[0].code == "CANCELLED_BEFORE_PROVIDER"
 
 
+def test_raising_cancellation_callback_is_normalized_to_terminal_cancel(tmp_path: Path) -> None:
+    def cancelled() -> bool:
+        raise RuntimeError("cancellation signal unavailable")
+
+    result = authorized_kernel(tmp_path).run(
+        "Change one local label",
+        run_id="RUN-RAISING-CANCEL",
+        cancelled=cancelled,
+    )
+
+    assert result.status is ExecutionStatus.CANCELLED
+    assert result.provider_results == ()
+    assert result.failures[0].code == "CANCELLED_BEFORE_PROVIDER"
+
+
 def test_retry_is_bounded_and_records_each_attempt(tmp_path: Path) -> None:
     result = authorized_kernel(
         tmp_path,
@@ -551,7 +580,7 @@ def test_retry_exhaustion_does_not_fallback_or_emit_a_delivery(tmp_path: Path) -
         .register(DeterministicRetryProvider(failures_before_success=4))
         .register(DeterministicSuccessProvider()),
     ).run(
-        "Exhaust bounded retries",
+        "Change one local label after bounded retries",
         run_id="RUN-RETRY-EXHAUSTED",
         provider_id="local.retry",
         limits=ExecutionLimits(max_retries=2),
@@ -683,6 +712,65 @@ def test_forged_artifact_digest_fails_deterministic_verification(tmp_path: Path)
     assert outcome.failure.code == "VERIFICATION_FAILED"
 
 
+def test_artifact_provider_lineage_must_match_the_provider_result(tmp_path: Path) -> None:
+    runtime, _ = _successful_verification(tmp_path)
+    artifact = runtime.artifacts[0]
+    forged_artifact = replace(
+        artifact,
+        provenance=replace(artifact.provenance, tool_or_process="local.other-provider"),
+    )
+
+    outcome = verify_provider_result(
+        runtime.invocations[0],
+        runtime.provider_results[-1],
+        forged_artifact,
+    )
+
+    assert not outcome.passed
+    assert outcome.report.recommendation.value == "FAIL"
+
+
+def test_verification_rejects_stale_or_missing_observed_timestamps(tmp_path: Path) -> None:
+    runtime, _ = _successful_verification(tmp_path)
+    result = runtime.provider_results[-1]
+    stale = verify_provider_result(
+        runtime.invocations[0],
+        result,
+        runtime.artifacts[0],
+        timestamp="2026-08-28T13:30:00Z",
+    )
+    missing = verify_provider_result(
+        runtime.invocations[0],
+        replace(result, started_at=None, ended_at=None),
+        runtime.artifacts[0],
+    )
+
+    assert not stale.passed
+    assert stale.report.record.status is RecordStatus.STALE
+    assert stale.evidence[0].freshness.status.value == "STALE"
+    assert not missing.passed
+    assert missing.report.record.status is RecordStatus.STALE
+
+
+def test_execution_does_not_promote_success_without_observed_timestamps(tmp_path: Path) -> None:
+    providers = ProviderRegistry().register(
+        DeterministicSuccessProvider(emit_observed_timestamps=False)
+    )
+    result = authorized_kernel(tmp_path, providers=providers).run(
+        "Change one local label",
+        task_id="TASK-MISSING-OBSERVATION",
+        run_id="RUN-MISSING-OBSERVATION",
+        provider_id="local.success",
+    )
+
+    assert result.status is ExecutionStatus.FAILED
+    assert result.artifacts == ()
+    assert result.provider_results[-1].started_at is None
+    assert result.provider_results[-1].ended_at is None
+    assert result.verification.record.status is RecordStatus.STALE
+    assert "provider-result-freshness" in result.verification.blockers
+
+
 def test_forged_provider_digest_is_rejected_before_verification(tmp_path: Path) -> None:
     runtime, _ = _successful_verification(tmp_path)
 
@@ -742,3 +830,458 @@ def test_artifact_lineage_does_not_allow_forged_parent_references(tmp_path: Path
 
     with pytest.raises(ValueError, match="lineage is invalid"):
         artifact_descendants((forged,), forged.artifact_id)
+
+
+def test_untrusted_provider_implementation_is_rejected() -> None:
+    provider = _StaticProvider("untrusted.provider", ("untrusted.provider",))
+
+    with pytest.raises(ValueError, match="built-in deterministic fixture providers"):
+        ProviderRegistry().register(provider)
+
+    with pytest.raises(ValueError, match="built-in deterministic fixture providers"):
+        ProviderRegistry(
+            (
+                ProviderRegistration(
+                    provider.descriptor,
+                    provider,
+                    ProviderAvailability.AVAILABLE,
+                ),
+            )
+        )
+
+
+def test_materially_conditional_route_cannot_execute(tmp_path: Path) -> None:
+    result = authorized_kernel(
+        tmp_path,
+        providers=ProviderRegistry().register(DeterministicSuccessProvider()),
+    ).run(
+        "What should we do about this unknown high-impact situation?",
+        run_id="RUN-CONDITIONAL-ROUTE",
+        provider_id="local.success",
+    )
+
+    assert result.route.route_status.value == "CONDITIONAL"
+    assert result.provider_results == ()
+    assert result.status is not ExecutionStatus.SUCCEEDED
+
+
+def test_dry_run_checks_expired_authority_before_fabricating_readiness(tmp_path: Path) -> None:
+    authority = AuthorityScope(
+        owner="test-policy",
+        actor="test-runner",
+        scopes=("task:TASK-EXPIRED", "capability:local.success"),
+        decisions=("TRANSITION",),
+        subject_owner="test-policy",
+        operations=("execute",),
+        issued_at="2026-08-28T12:00:00Z",
+        expires_at="2026-08-28T13:00:00Z",
+    )
+
+    result = authorized_kernel(
+        tmp_path,
+        providers=ProviderRegistry().register(DeterministicSuccessProvider()),
+        timestamp=NOW,
+    ).run(
+        "Change one local label",
+        task_id="TASK-EXPIRED",
+        run_id="RUN-EXPIRED-DRY",
+        provider_id="local.success",
+        authority=authority,
+        dry_run=True,
+    )
+
+    assert result.status is ExecutionStatus.FAILED
+    assert result.provider_results == ()
+    assert result.invocations[0].invocation_status is InvocationStatus.BLOCKED
+    assert result.invocations[0].authority_snapshot_ref is None
+    assert result.failures[0].code == "AUTHORITY_EXPIRED"
+
+
+def test_wrong_output_contract_cannot_promote_quality(tmp_path: Path) -> None:
+    runtime, _ = _successful_verification(tmp_path)
+    forged = replace(runtime.provider_results[-1], output_contract="WrongContract")
+
+    outcome = verify_provider_result(runtime.invocations[0], forged, runtime.artifacts[0])
+
+    assert not outcome.passed
+    assert outcome.report.recommendation.value == "FAIL"
+
+
+def test_graph_provider_preflight_rejects_missing_provider_before_any_call(tmp_path: Path) -> None:
+    first = replace(_node("NODE-1"), capability_id="local.direct", provider_id="local.success")
+    second = replace(
+        _node("NODE-2", depends_on=("NODE-1",)),
+        capability_id="local.direct",
+        provider_id="local.missing",
+    )
+    candidate = _graph(first, second)
+
+    result = authorized_kernel(
+        tmp_path,
+        providers=ProviderRegistry().register(DeterministicSuccessProvider()),
+    ).run(
+        "Run the local graph",
+        graph=candidate,
+    )
+
+    assert result.status is not ExecutionStatus.SUCCEEDED
+    assert result.provider_results == ()
+    assert all(item.invocation_status is InvocationStatus.BLOCKED for item in result.invocations)
+
+
+def test_terminal_graph_replay_is_rejected_before_provider_execution(tmp_path: Path) -> None:
+    first = replace(
+        _node("NODE-1"),
+        capability_id="local.direct",
+        provider_id="local.success",
+        node_status=InvocationStatus.SUCCEEDED,
+    )
+    candidate = replace(_graph(first), graph_status=GraphStatus.COMPLETED)
+
+    result = authorized_kernel(
+        tmp_path,
+        providers=ProviderRegistry().register(DeterministicSuccessProvider()),
+    ).run("Run the local graph", graph=candidate)
+
+    assert result.status is not ExecutionStatus.SUCCEEDED
+    assert result.provider_results == ()
+
+
+def test_active_graph_replay_is_rejected_before_provider_execution(tmp_path: Path) -> None:
+    candidate = replace(_graph(_node("NODE-1")), graph_status=GraphStatus.RUNNING)
+
+    assert not validate_execution_graph(candidate).is_valid
+
+    result = authorized_kernel(
+        tmp_path,
+        providers=ProviderRegistry().register(DeterministicSuccessProvider()),
+    ).run("Run the local graph", graph=candidate)
+
+    assert result.status is not ExecutionStatus.SUCCEEDED
+    assert result.provider_results == ()
+
+
+def test_retry_attempts_consume_invocation_budget(tmp_path: Path) -> None:
+    result = authorized_kernel(
+        tmp_path,
+        providers=ProviderRegistry().register(
+            DeterministicRetryProvider(failures_before_success=2)
+        ),
+    ).run(
+        "Change one local label",
+        run_id="RUN-RETRY-BUDGET",
+        provider_id="local.retry",
+        limits=ExecutionLimits(max_invocations=1, max_retries=2),
+    )
+
+    assert result.status is not ExecutionStatus.SUCCEEDED
+    assert len(result.provider_results) == 1
+    assert result.provider_results[0].attempt == 1
+    assert result.provider_results[0].failure is not None
+    assert result.provider_results[0].failure.code == "FIXTURE_RETRYABLE_FAILURE"
+    assert result.summary.delivery.status.value == "BLOCKED"
+
+
+def test_persisted_artifact_tampering_makes_recovery_corrupt(tmp_path: Path) -> None:
+    runtime = authorized_kernel(
+        tmp_path,
+        providers=ProviderRegistry().register(DeterministicSuccessProvider()),
+    ).run(
+        "Change one local label and persist one local artifact",
+        task_id="TASK-PERSIST-INTEGRITY",
+        run_id="RUN-PERSIST-INTEGRITY",
+        provider_id="local.success",
+        persist=True,
+    )
+    locator = runtime.artifacts[0].content.locator
+    assert locator is not None
+    ProjectBoundary(tmp_path).atomic_write_bytes(locator, b'{"tampered":true}')
+
+    recovery = RunStore(ProjectBoundary(tmp_path)).recover(runtime.summary.run_id)
+
+    assert recovery.status is RecoveryStatus.CORRUPT
+
+
+def test_persisted_evidence_tampering_makes_recovery_corrupt(tmp_path: Path) -> None:
+    runtime = authorized_kernel(
+        tmp_path,
+        providers=ProviderRegistry().register(DeterministicSuccessProvider()),
+    ).run(
+        "Change one local label and persist evidence",
+        task_id="TASK-PERSIST-EVIDENCE",
+        run_id="RUN-PERSIST-EVIDENCE",
+        provider_id="local.success",
+        persist=True,
+    )
+    boundary = ProjectBoundary(tmp_path)
+    relative = ".harness/evidence/runs/RUN-PERSIST-EVIDENCE.json"
+    payload = boundary.read_json(relative)
+    assert isinstance(payload, dict)
+    records = payload.get("records")
+    assert isinstance(records, list) and records
+    first = records[0]
+    assert isinstance(first, dict)
+    provenance = first.get("provenance")
+    assert isinstance(provenance, dict)
+    forged = {
+        **payload,
+        "records": [{**first, "provenance": {**provenance, "source_ref": "forged.provider"}}],
+    }
+    boundary.atomic_write_json(relative, forged)
+
+    recovery = RunStore(boundary).recover(runtime.summary.run_id)
+
+    assert recovery.status is RecoveryStatus.CORRUPT
+
+
+def test_persisted_typed_summary_without_its_bundle_is_corrupt(tmp_path: Path) -> None:
+    runtime = authorized_kernel(
+        tmp_path,
+        providers=ProviderRegistry().register(DeterministicSuccessProvider()),
+    ).run(
+        "Change one local label and persist the complete bundle",
+        task_id="TASK-PERSIST-MISSING",
+        run_id="RUN-PERSIST-MISSING",
+        provider_id="local.success",
+        persist=True,
+    )
+    for relative in (
+        ".harness/evidence/runs/RUN-PERSIST-MISSING.json",
+        ".harness/evidence/runs/RUN-PERSIST-MISSING-artifacts.json",
+        ".harness/telemetry/runs/RUN-PERSIST-MISSING.jsonl",
+        ".harness/state/lifecycle/RUN-PERSIST-MISSING.jsonl",
+    ):
+        (tmp_path / relative).unlink()
+
+    recovery = RunStore(ProjectBoundary(tmp_path)).recover(runtime.summary.run_id)
+
+    assert recovery.status is RecoveryStatus.CORRUPT
+
+
+def test_telemetry_redacts_limitations() -> None:
+    event = create_event(
+        event_id="EVT-REDACT-LIMITATIONS",
+        event_sequence=1,
+        timestamp=NOW,
+        task_id="TASK-REDACT",
+        run_id="RUN-REDACT",
+        event_type="TASK_RECEIVED",
+        limitations=("api_key=TOPSECRET", "password is hunter2"),
+    )
+
+    serialized = to_dict(event)
+    assert "TOPSECRET" not in repr(serialized)
+    assert "hunter2" not in repr(serialized)
+    assert "[REDACTED]" in repr(serialized)
+
+
+def test_telemetry_redacts_sensitive_provenance_source_refs() -> None:
+    record = RecordEnvelope(
+        status=RecordStatus.CURRENT,
+        provenance=Provenance(SourceType.GENERATED, ("password=hunter2",), NOW),
+    )
+
+    event = create_event(
+        event_id="EVT-REDACT-RECORD",
+        event_sequence=1,
+        timestamp=NOW,
+        task_id="TASK-REDACT",
+        run_id="RUN-REDACT",
+        event_type="TASK_RECEIVED",
+        record=record,
+    )
+
+    serialized = to_dict(event)
+    assert "hunter2" not in repr(serialized)
+    assert event.redaction.value == "APPLIED"
+
+
+def test_persistence_rejects_artifact_locator_outside_owned_runs(tmp_path: Path) -> None:
+    runtime, _ = _successful_verification(tmp_path)
+    artifact = replace(
+        runtime.artifacts[0],
+        content=replace(runtime.artifacts[0].content, locator="src/generated.json"),
+    )
+
+    with pytest.raises(BoundaryError, match="owned run"):
+        RunStore(ProjectBoundary(tmp_path)).write_artifact(
+            artifact, runtime.provider_results[-1].output
+        )
+
+
+@pytest.mark.parametrize(
+    "payload",
+    (
+        {"value": "x" * (4 * 1024 * 1024 + 1)},
+        {"value": float("nan")},
+    ),
+)
+def test_direct_mapping_deserialization_enforces_json_bounds(payload: dict[str, object]) -> None:
+    with pytest.raises(DeserializationError):
+        from_dict(payload, dict)
+
+
+def test_date_only_telemetry_timestamp_is_rejected() -> None:
+    with pytest.raises(ValueError, match="timestamp"):
+        create_event(
+            event_id="EVT-DATE-ONLY",
+            event_sequence=1,
+            timestamp="2026-08-28",
+            task_id="TASK-TIME",
+            run_id="RUN-TIME",
+            event_type="TASK_RECEIVED",
+        )
+
+
+def test_subject_type_mismatch_is_denied_before_provider_execution(tmp_path: Path) -> None:
+    authority = replace(
+        AuthorityScope(
+            owner="test-policy",
+            actor="test-runner",
+            scopes=("task:TASK-SUBJECT", "capability:local.success"),
+            decisions=("TRANSITION",),
+            subject_owner="test-policy",
+            operations=("execute",),
+        ),
+        subject_type="RUN",
+    )
+
+    result = authorized_kernel(
+        tmp_path,
+        providers=ProviderRegistry().register(DeterministicSuccessProvider()),
+    ).run(
+        "Change one local label",
+        task_id="TASK-SUBJECT",
+        run_id="RUN-SUBJECT",
+        provider_id="local.success",
+        authority=authority,
+    )
+
+    assert result.status is ExecutionStatus.FAILED
+    assert result.provider_results == ()
+    assert result.failures[0].code == "INVALID_SUBJECT_TYPE"
+
+
+def test_unrelated_or_stale_critique_cannot_assure_quality(tmp_path: Path) -> None:
+    runtime, fresh = _successful_verification(tmp_path)
+    critique = create_critique(fresh.report)
+    unrelated = replace(critique, task_id="TASK-OTHER", run_id="RUN-OTHER")
+    stale_critique = replace(
+        critique,
+        record=replace(critique.record, status=RecordStatus.STALE),
+    )
+    stale_report = replace(
+        fresh.report,
+        record=replace(fresh.report.record, status=RecordStatus.STALE),
+    )
+
+    assert (
+        assure_quality(fresh.report, unrelated).decision is not AssuranceDecision.QUALITY_ACCEPTED
+    )
+    assert assure_quality(stale_report, critique).decision is not AssuranceDecision.QUALITY_ACCEPTED
+    assert (
+        assure_quality(fresh.report, stale_critique).decision
+        is not AssuranceDecision.QUALITY_ACCEPTED
+    )
+    assert runtime.summary.run_id == fresh.report.run_id
+
+
+def test_packet_bound_assurance_requires_a_blind_digest(tmp_path: Path) -> None:
+    runtime, fresh = _successful_verification(tmp_path)
+    critique = create_critique(fresh.report)
+    without_digest = replace(
+        critique,
+        reviewer=replace(critique.reviewer, blind_packet_digest=None),
+    )
+
+    assurance = assure_quality(
+        fresh.report,
+        without_digest,
+        evidence=fresh.evidence,
+        artifacts=runtime.artifacts,
+    )
+
+    assert assurance.decision is AssuranceDecision.FAILED
+    assert "blind verification digest" in assurance.reason
+
+
+def test_assurance_requires_the_current_packet_even_for_typed_reports(tmp_path: Path) -> None:
+    _, fresh = _successful_verification(tmp_path)
+    critique = create_critique(fresh.report)
+
+    assurance = assure_quality(fresh.report, critique)
+
+    assert assurance.decision is AssuranceDecision.BLOCKED
+    assert "current evidence and artifact packet" in assurance.reason
+
+
+def test_packet_bound_assurance_rejects_forged_evidence_payload(tmp_path: Path) -> None:
+    runtime, fresh = _successful_verification(tmp_path)
+    critique = create_critique(
+        fresh.report,
+        evidence=fresh.evidence,
+        artifacts=runtime.artifacts,
+    )
+    forged = replace(fresh.evidence[0], observation="forged observation")
+
+    assurance = assure_quality(
+        fresh.report,
+        critique,
+        evidence=(forged,),
+        artifacts=runtime.artifacts,
+    )
+
+    assert assurance.decision is AssuranceDecision.FAILED
+    assert "blind packet digest" in assurance.reason
+
+
+def test_evidence_content_digest_must_match_artifact(tmp_path: Path) -> None:
+    runtime, fresh = _successful_verification(tmp_path)
+    forged = replace(
+        fresh.evidence[0],
+        provenance=replace(
+            fresh.evidence[0].provenance,
+            content_digest=f"sha256:{'0' * 64}",
+        ),
+    )
+
+    links = validate_evidence_links(
+        fresh.report.claims,
+        (fresh.procedure,),
+        (forged,),
+        artifacts=runtime.artifacts,
+    )
+
+    assert not links.is_valid
+    assert any("digest" in finding.message for finding in links.findings)
+
+
+def test_evidence_source_must_match_artifact_producer(tmp_path: Path) -> None:
+    runtime, fresh = _successful_verification(tmp_path)
+    forged = replace(
+        fresh.evidence[0],
+        provenance=replace(fresh.evidence[0].provenance, source_ref="different.provider"),
+    )
+
+    links = validate_evidence_links(
+        fresh.report.claims,
+        (fresh.procedure,),
+        (forged,),
+        artifacts=runtime.artifacts,
+    )
+
+    assert not links.is_valid
+    assert any("source" in finding.message for finding in links.findings)
+
+
+def test_aggregate_verification_rejects_mismatched_outcome_identity(tmp_path: Path) -> None:
+    runtime, fresh = _successful_verification(tmp_path)
+    forged_report = replace(fresh.report, task_id="TASK-OTHER")
+    forged = VerificationOutcome(forged_report, fresh.evidence, fresh.procedure)
+
+    with pytest.raises(ValueError, match="correlation"):
+        aggregate_verification(
+            (forged,),
+            task_id=runtime.summary.task_id,
+            run_id=runtime.summary.run_id,
+        )

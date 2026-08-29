@@ -1,1 +1,1 @@
-{"authority_snapshot_ref":null,"completed_at":null,"event_id":"LIFECYCLE-INV-RUN-CLI-P2","graph_node_id":null,"invocation_id":"INV-RUN-CLI-P2","repair_of":null,"run_id":"RUN-CLI-P2","started_at":null,"status":"READY","task_id":"TASK-CLI"}
+{"authority_snapshot_ref":"sha256:e3fe258bfa9672dee489c52591e15d95eb3bf7bd4e0d01539c27703437df0f8f","completed_at":null,"event_id":"LIFECYCLE-INV-RUN-CLI-P2","graph_node_id":null,"invocation_id":"INV-RUN-CLI-P2","repair_of":null,"run_id":"RUN-CLI-P2","started_at":null,"status":"READY","task_id":"TASK-CLI"}

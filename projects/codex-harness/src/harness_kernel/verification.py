@@ -3,13 +3,14 @@
 from __future__ import annotations
 
 import hashlib
-from collections.abc import Iterable, Sequence
+from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass, replace
 from enum import Enum
 
 from .errors import FailureCategory, FailureDetail
 from .models import (
     ArtifactRecord,
+    ArtifactStatus,
     Claim,
     ClaimStatus,
     Confidence,
@@ -36,6 +37,7 @@ from .models import (
     Verifier,
 )
 from .providers import ProviderExecutionResult, ProviderResultStatus, digest_output
+from .serialization import to_json
 
 DEFAULT_TIMESTAMP = "2026-08-28T13:30:00Z"
 
@@ -63,6 +65,86 @@ def artifact_content_matches(artifact: ArtifactRecord, content: object) -> bool:
         return False
 
 
+def _output_contract_matches(invocation: object, result: ProviderExecutionResult) -> bool:
+    handoff = getattr(invocation, "handoff", None)
+    expected = tuple(getattr(handoff, "required_output_contracts", ()))
+    if not expected or result.output_contract not in expected:
+        return False
+    if result.output_contract != "LocalExecutionResult" or not isinstance(result.output, Mapping):
+        return False
+    required = {"kind", "objective_digest", "operation", "provider"}
+    if set(result.output) != required:
+        return False
+    objective = getattr(invocation, "objective", None)
+    operation = getattr(invocation, "operation", "") or "execute"
+    provider_id = getattr(invocation, "provider_id", None)
+    return (
+        result.output["objective_digest"] == digest_output(objective)
+        and result.output["operation"] == operation
+        and result.output["provider"] == provider_id
+        and isinstance(result.output["kind"], str)
+        and result.output["kind"].startswith("deterministic-local-")
+    )
+
+
+def _artifact_contract_matches(
+    invocation: object, provider_result: ProviderExecutionResult, artifact: ArtifactRecord | None
+) -> bool:
+    if artifact is None:
+        return False
+    invocation_id = getattr(invocation, "invocation_id", None)
+    task_id = getattr(invocation, "task_id", None)
+    run_id = getattr(invocation, "run_id", None)
+    capability_id = getattr(getattr(invocation, "callee", None), "capability_id", None)
+    return (
+        artifact.task_id == task_id
+        and artifact.run_id == run_id
+        and artifact.producer.invocation_id == invocation_id
+        and artifact.producer.capability_id == capability_id
+        and artifact.provenance.tool_or_process == provider_result.provider_id
+        and artifact.artifact_status is ArtifactStatus.ACCEPTED
+        and invocation_id in artifact.source_refs
+        and provider_result.output is not None
+        and artifact_content_matches(artifact, provider_result.output)
+    )
+
+
+def _verification_timestamp(
+    invocation: object,
+    provider_result: ProviderExecutionResult,
+    requested_timestamp: str | None,
+) -> tuple[str, bool, tuple[str, ...]]:
+    """Bind freshness to observed provider and invocation timestamps."""
+
+    started_at = provider_result.started_at
+    ended_at = provider_result.ended_at
+    invocation_started_at = getattr(invocation, "started_at", None)
+    effective_timestamp = requested_timestamp or ended_at or started_at or invocation_started_at
+    if not isinstance(effective_timestamp, str) or not effective_timestamp.strip():
+        effective_timestamp = DEFAULT_TIMESTAMP
+    reasons: list[str] = []
+    if not isinstance(started_at, str) or not started_at.strip():
+        reasons.append("provider result has no observed start timestamp")
+    if not isinstance(ended_at, str) or not ended_at.strip():
+        reasons.append("provider result has no observed end timestamp")
+    if (
+        isinstance(invocation_started_at, str)
+        and invocation_started_at.strip()
+        and isinstance(started_at, str)
+        and started_at.strip()
+        and invocation_started_at != started_at
+    ):
+        reasons.append("provider start timestamp does not match the invocation")
+    if (
+        requested_timestamp is not None
+        and isinstance(ended_at, str)
+        and ended_at.strip()
+        and requested_timestamp != ended_at
+    ):
+        reasons.append("verification timestamp does not match the observed provider end")
+    return effective_timestamp, not reasons, tuple(reasons)
+
+
 @dataclass(frozen=True, slots=True)
 class VerificationOutcome:
     report: VerificationReport
@@ -88,6 +170,19 @@ def aggregate_verification(
 
     if not outcomes:
         raise ValueError("at least one verification outcome is required")
+    report_ids: set[str] = set()
+    for outcome in outcomes:
+        report = outcome.report
+        if (report.task_id, report.run_id) != (task_id, run_id):
+            raise ValueError("verification outcome correlation does not match aggregation")
+        if report.report_id in report_ids:
+            raise ValueError("verification outcome report identifiers must be unique")
+        report_ids.add(report.report_id)
+        procedure_ids = {item.procedure_id for item in report.procedures}
+        if outcome.procedure.procedure_id not in procedure_ids:
+            raise ValueError("verification outcome procedure is not in its report")
+        if any(item.task_id != task_id or item.run_id != run_id for item in outcome.evidence):
+            raise ValueError("verification outcome evidence correlation does not match aggregation")
     claims = tuple(claim for outcome in outcomes for claim in outcome.report.claims)
     procedures = tuple(procedure for outcome in outcomes for procedure in outcome.report.procedures)
     evidence = tuple(item for outcome in outcomes for item in outcome.evidence)
@@ -131,13 +226,24 @@ def aggregate_verification(
         recommendation = Recommendation.BLOCK
     else:
         recommendation = Recommendation.FAIL
+    aggregate_record_status = (
+        RecordStatus.INVALID
+        if any(item.record.status is RecordStatus.INVALID for item in evidence)
+        else RecordStatus.STALE
+        if any(
+            item.record.status is not RecordStatus.CURRENT
+            or item.freshness.status is not FreshnessStatus.FRESH
+            for item in evidence
+        )
+        else RecordStatus.CURRENT
+    )
     report = VerificationReport(
         schema_version=SchemaVersion.VERIFICATION_REPORT,
         report_id=report_id or f"VER-{run_id}",
         task_id=task_id,
         run_id=run_id,
         record=_envelope(
-            RecordStatus.CURRENT,
+            aggregate_record_status,
             timestamp,
             tuple(item.evidence_id for item in evidence),
         ),
@@ -160,6 +266,14 @@ def aggregate_verification(
         recommendation=recommendation,
         verifier=Verifier("local.verifier", Independence.SEPARATED_SELF),
         created_at=timestamp,
+    )
+    report = replace(
+        report,
+        verifier=Verifier(
+            "local.verifier",
+            Independence.SEPARATED_SELF,
+            verification_packet_digest(report),
+        ),
     )
     failure = None
     if recommendation is not Recommendation.PASS:
@@ -195,7 +309,7 @@ def verify_provider_result(
     artifact: ArtifactRecord | None,
     *,
     acceptance_refs: tuple[str, ...] = ("P2-EXECUTION",),
-    timestamp: str = DEFAULT_TIMESTAMP,
+    timestamp: str | None = None,
     claim_id: str | None = None,
     verifier_id: str = "local.verifier",
 ) -> VerificationOutcome:
@@ -208,6 +322,11 @@ def verify_provider_result(
     procedure_key = f"PROC-{invocation_id}"
     evidence_key = f"EVID-{invocation_id}"
     failure_code = provider_result.failure.code if provider_result.failure is not None else None
+    evidence_timestamp, freshness_valid, freshness_reasons = _verification_timestamp(
+        invocation,
+        provider_result,
+        timestamp,
+    )
     not_executed = failure_code in {
         "NOT_EXECUTED",
         "DRY_RUN_NOT_EXECUTED",
@@ -221,9 +340,11 @@ def verify_provider_result(
     }
     passed = (
         provider_result.status is ProviderResultStatus.SUCCEEDED
-        and artifact is not None
-        and provider_result.output is not None
-        and artifact_content_matches(artifact, provider_result.output)
+        and provider_result.provider_id == getattr(invocation, "provider_id", None)
+        and provider_result.invocation_id == invocation_id
+        and _output_contract_matches(invocation, provider_result)
+        and _artifact_contract_matches(invocation, provider_result, artifact)
+        and freshness_valid
     )
     result = (
         EvidenceResult.PASS
@@ -240,18 +361,22 @@ def verify_provider_result(
         evidence_refs=(evidence_key,),
     )
     observation = (
-        "provider output contract and artifact digest matched"
+        "fixture output contract and artifact digest matched"
         if passed
         else "provider execution did not run, so the output contract could not be verified"
         if not_executed
-        else "provider output did not satisfy the artifact or execution contract"
+        else "provider observation was not fresh or did not satisfy the execution contract"
     )
     evidence = EvidenceRecord(
         schema_version=SchemaVersion.EVIDENCE_RECORD,
         evidence_id=evidence_key,
         task_id=task_id,
         run_id=run_id,
-        record=_envelope(RecordStatus.CURRENT, timestamp, (evidence_key,)),
+        record=_envelope(
+            RecordStatus.CURRENT if freshness_valid else RecordStatus.STALE,
+            evidence_timestamp,
+            (evidence_key,),
+        ),
         claim_ref=claim_key,
         evidence_kind=EvidenceKind.OBSERVATION,
         procedure=EvidenceProcedure(
@@ -266,8 +391,11 @@ def verify_provider_result(
         environment=EvidenceEnvironment(
             host="project-local", version="phase-2", fixture="provider", tool=verifier_id
         ),
-        observed_at=timestamp,
-        freshness=EvidenceFreshness(FreshnessStatus.FRESH, ()),
+        observed_at=evidence_timestamp,
+        freshness=EvidenceFreshness(
+            FreshnessStatus.FRESH if freshness_valid else FreshnessStatus.STALE,
+            freshness_reasons,
+        ),
         provenance=EvidenceProvenance(
             source_type=SourceType.PROVIDER,
             source_ref=provider_result.provider_id,
@@ -295,6 +423,8 @@ def verify_provider_result(
             if passed
             else ("provider execution was not run",)
             if not_executed
+            else ("provider observation freshness is not established",)
+            if not freshness_valid
             else ("provider result failed contract verification",)
         ),
     )
@@ -303,7 +433,11 @@ def verify_provider_result(
         report_id=f"VER-{invocation_id}",
         task_id=task_id,
         run_id=run_id,
-        record=_envelope(RecordStatus.CURRENT, timestamp, (evidence_key,)),
+        record=_envelope(
+            RecordStatus.CURRENT if freshness_valid else RecordStatus.STALE,
+            evidence_timestamp,
+            (evidence_key,),
+        ),
         artifact_refs=(artifact.artifact_id,) if artifact is not None else (),
         acceptance_refs=tuple(acceptance_refs),
         claims=(claim,),
@@ -317,6 +451,8 @@ def verify_provider_result(
             if passed
             else ("provider execution was not run",)
             if not_executed
+            else ("provider observation freshness is not established",)
+            if not freshness_valid
             else ("provider output was not accepted as verified",)
         ),
         coverage=Coverage(1, 1 if passed else 0, 100.0 if passed else 0.0),
@@ -326,6 +462,8 @@ def verify_provider_result(
             if passed
             else ("provider-result-not-run",)
             if not_executed
+            else ("provider-result-freshness",)
+            if not freshness_valid
             else ("provider-result-contract",)
         ),
         recommendation=(
@@ -336,7 +474,15 @@ def verify_provider_result(
             else Recommendation.FAIL
         ),
         verifier=Verifier(verifier_id, Independence.SEPARATED_SELF),
-        created_at=timestamp,
+        created_at=evidence_timestamp,
+    )
+    report = replace(
+        report,
+        verifier=Verifier(
+            verifier_id,
+            Independence.SEPARATED_SELF,
+            verification_packet_digest(report),
+        ),
     )
     failure = None
     if not passed:
@@ -353,22 +499,45 @@ def verify_provider_result(
     return VerificationOutcome(report, (evidence,), procedure, failure)
 
 
-def verification_packet_digest(report: VerificationReport) -> str:
-    """Produce a stable blind-packet digest from report identity and claims."""
+def verification_packet_digest(
+    report: VerificationReport,
+    *,
+    evidence: Iterable[EvidenceRecord] = (),
+    artifacts: Iterable[ArtifactRecord] = (),
+) -> str:
+    """Produce a stable blind-packet digest from a report and its evidence."""
 
-    material = "|".join(
-        (
-            report.report_id,
-            report.task_id,
-            report.run_id,
-            *report.acceptance_refs,
-            *report.passed,
-            *report.failed,
-            *report.not_run,
-            *report.unknown,
-        )
-    ).encode("utf-8")
-    return f"sha256:{hashlib.sha256(material).hexdigest()}"
+    material = {
+        "report": {
+            "schema_version": report.schema_version,
+            "report_id": report.report_id,
+            "task_id": report.task_id,
+            "run_id": report.run_id,
+            "record": report.record,
+            "artifact_refs": report.artifact_refs,
+            "acceptance_refs": report.acceptance_refs,
+            "claims": report.claims,
+            "procedures": report.procedures,
+            "passed": report.passed,
+            "failed": report.failed,
+            "not_run": report.not_run,
+            "unknown": report.unknown,
+            "limitations": report.limitations,
+            "coverage": report.coverage,
+            "confidence": report.confidence,
+            "blockers": report.blockers,
+            "recommendation": report.recommendation,
+            "verifier": {
+                "capability_id": report.verifier.capability_id,
+                "independence": report.verifier.independence,
+            },
+            "created_at": report.created_at,
+        },
+        "evidence": tuple(evidence),
+        "artifacts": tuple(artifacts),
+    }
+    canonical = to_json(material, sort_keys=True).encode("utf-8")
+    return f"sha256:{hashlib.sha256(canonical).hexdigest()}"
 
 
 def stale_verification(outcome: VerificationOutcome) -> VerificationOutcome:

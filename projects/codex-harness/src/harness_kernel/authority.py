@@ -47,11 +47,22 @@ class AuthorityScope:
     expires_at: str | None = None
 
     def __post_init__(self) -> None:
+        if not isinstance(self.owner, str) or not self.owner.strip():
+            raise ValueError("authority owner is required")
+        if not isinstance(self.actor, str) or not self.actor.strip():
+            raise ValueError("authority actor is required")
+        if not isinstance(self.subject_type, str) or not self.subject_type.strip():
+            raise ValueError("authority subject type is required")
         object.__setattr__(self, "scopes", _strings(self.scopes))
         object.__setattr__(self, "decisions", tuple(_action(item) for item in self.decisions))
         object.__setattr__(self, "operations", _strings(self.operations))
         object.__setattr__(self, "conditions", _strings(self.conditions))
         object.__setattr__(self, "delegation_chain", _strings(self.delegation_chain))
+        object.__setattr__(self, "subject_type", self.subject_type.strip().upper())
+        if self.subject_id is not None:
+            if not isinstance(self.subject_id, str) or not self.subject_id.strip():
+                raise ValueError("authority subject id must be a non-empty string")
+            object.__setattr__(self, "subject_id", self.subject_id.strip())
 
 
 ActorScope = AuthorityScope
@@ -298,7 +309,10 @@ def check_invocation_authority(
     if not isinstance(authority, AuthorityScope):
         raise TypeError("authority must be an AuthorityScope")
     requested_scope = _strings(required_scope)
-    if not task_id.strip() or not invocation_id.strip() or not capability_id.strip():
+    if any(
+        not isinstance(value, str) or not value.strip()
+        for value in (task_id, invocation_id, capability_id)
+    ):
         return AuthorityCheck(
             False,
             "INVALID_SUBJECT",
@@ -308,11 +322,21 @@ def check_invocation_authority(
             authority.owner,
             requested_scope,
         )
-    if not operation.strip():
+    if not isinstance(operation, str) or not operation.strip():
         return AuthorityCheck(
             False,
             "MISSING_OPERATION",
             "invocation operation is required",
+            AuthorityAction.TRANSITION,
+            authority.actor,
+            authority.owner,
+            requested_scope,
+        )
+    if authority.subject_type != "INVOCATION":
+        return AuthorityCheck(
+            False,
+            "INVALID_SUBJECT_TYPE",
+            "invocation authority must target an invocation subject",
             AuthorityAction.TRANSITION,
             authority.actor,
             authority.owner,
@@ -433,7 +457,14 @@ def authority_snapshot(
 ) -> AuthoritySnapshot:
     """Capture a canonical, hashable authority snapshot for evidence."""
 
-    if not subject_id.strip() or not operation.strip():
+    if authority.subject_type != "INVOCATION":
+        raise ValueError("invocation authority snapshot has an invalid subject type")
+    if (
+        not isinstance(subject_id, str)
+        or not subject_id.strip()
+        or not isinstance(operation, str)
+        or not operation.strip()
+    ):
         raise ValueError("authority snapshot subject and operation are required")
     requested_scope = _strings(required_scope)
     values = {

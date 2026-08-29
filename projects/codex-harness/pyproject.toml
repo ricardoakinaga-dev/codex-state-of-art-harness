@@ -17,9 +17,15 @@ dev = [
 ]
 
 [tool.pytest.ini_options]
-pythonpath = ["src"]
+pythonpath = ["src", "tests/unit"]
 testpaths = ["tests"]
 addopts = "-ra"
+
+[tool.coverage.run]
+source = ["src/harness_kernel"]
+
+[tool.coverage.report]
+fail_under = 80
 
 [tool.mypy]
 python_version = "3.12"

@@ -6,6 +6,7 @@ import hashlib
 import re
 from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, replace
+from datetime import datetime
 from enum import Enum
 
 from .models import (
@@ -65,7 +66,7 @@ _NON_SECRET_TOKEN_KEYS = frozenset(
     {"token_estimate", "token_count", "input_tokens", "output_tokens", "tokens"}
 )
 _SECRET_TEXT = re.compile(
-    r"(?i)(\b(?:api[_-]?key|private[_-]?key|password|secret|credential|token|authorization|cookie|set[_-]?cookie|session(?:[_-]?id)?|csrf(?:[_-]?token)?)\b\s*[:=]\s*)(?:bearer\s+)?[^\s,;]+"
+    r"(?i)(\b(?:api[_-]?key|private[_-]?key|password|secret|credential|token|authorization|cookie|set[_-]?cookie|session(?:[_-]?id)?|csrf(?:[_-]?token)?)\b\s*(?::|=|is\b|are\b)\s*)(?:bearer\s+)?[^\s,;]+"
 )
 _BEARER_TEXT = re.compile(r"(?i)(\bbearer\s+)[A-Za-z0-9._~+/=-]+")
 
@@ -155,6 +156,19 @@ def _event_type(value: TelemetryEventType | str) -> TelemetryEventType:
         raise ValueError("unknown telemetry event type") from exc
 
 
+def _validate_timestamp(value: str) -> None:
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError("telemetry timestamp is required")
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise ValueError("telemetry timestamp must be ISO-8601") from exc
+    if parsed.tzinfo is None or parsed.tzinfo.utcoffset(parsed) is None:
+        raise ValueError("telemetry timestamp must include an explicit timezone")
+    if "T" not in value.upper():
+        raise ValueError("telemetry timestamp must include a time component")
+
+
 def _payload(
     value: TelemetryPayload | Mapping[str, object] | None,
 ) -> tuple[TelemetryPayload, bool]:
@@ -214,6 +228,26 @@ def _default_record(
     )
 
 
+def _redact_record(record: object) -> tuple[RecordEnvelope, bool]:
+    if not isinstance(record, RecordEnvelope):
+        raise TypeError("telemetry record must be a RecordEnvelope")
+    source_refs: list[str] = []
+    changed = False
+    for source_ref in record.provenance.source_refs:
+        if not isinstance(source_ref, str):
+            raise ValueError("telemetry provenance source references must be strings")
+        redacted, item_changed = redact_text(source_ref)
+        assert redacted is not None
+        source_refs.append(redacted)
+        changed = changed or item_changed
+    if not changed:
+        return record, False
+    return replace(
+        record,
+        provenance=replace(record.provenance, source_refs=tuple(source_refs)),
+    ), True
+
+
 def _runtime_evidence_is_valid(evidence: EvidenceRecord) -> bool:
     kind = _enum_value(evidence.evidence_kind)
     result = _enum_value(evidence.result)
@@ -263,6 +297,7 @@ def create_event(
 ) -> TelemetryEvent:
     """Create a redacted, versioned event; no host load is inferred."""
 
+    _validate_timestamp(timestamp)
     if (
         not isinstance(event_sequence, int)
         or isinstance(event_sequence, bool)
@@ -272,7 +307,19 @@ def create_event(
     event_kind = _event_type(event_type)
     refs = tuple(evidence_refs)
     artifacts = tuple(artifact_refs)
-    limitation_values = tuple(limitations)
+    raw_limitations = tuple(limitations)
+    if len(raw_limitations) > 256:
+        raise ValueError("telemetry limitation count exceeds the supported limit")
+    limitation_values_list: list[str] = []
+    limitation_changed = False
+    for limitation in raw_limitations:
+        if not isinstance(limitation, str) or len(limitation) > 4_096:
+            raise ValueError("telemetry limitations must be bounded strings")
+        redacted_limitation, changed = redact_text(limitation)
+        assert redacted_limitation is not None
+        limitation_values_list.append(redacted_limitation)
+        limitation_changed = limitation_changed or changed
+    limitation_values = tuple(limitation_values_list)
     redacted_reason, reason_changed = redact_text(reason)
     event_payload, payload_changed = _payload(payload)
     runtime_items = tuple(runtime_evidence)
@@ -282,8 +329,16 @@ def create_event(
         }
         if not refs or not runtime_ids.intersection(refs):
             raise ValueError("CAPABILITY_LOADED requires runtime observation evidence")
-    event_record = record or _default_record(event_id, timestamp, refs)
-    event_redaction = Redaction.APPLIED if reason_changed or payload_changed else redaction
+    if record is None:
+        event_record = _default_record(event_id, timestamp, refs)
+        record_changed = False
+    else:
+        event_record, record_changed = _redact_record(record)
+    event_redaction = (
+        Redaction.APPLIED
+        if reason_changed or payload_changed or limitation_changed or record_changed
+        else redaction
+    )
     event = TelemetryEvent(
         schema_version=schema_version,
         event_id=event_id,

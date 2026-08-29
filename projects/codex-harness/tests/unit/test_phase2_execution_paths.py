@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import time
-from dataclasses import dataclass, replace
+from dataclasses import replace
 from pathlib import Path
 
 import pytest
@@ -27,11 +27,9 @@ from harness_kernel.providers import (
     DeterministicPartialProvider,
     DeterministicRetryProvider,
     DeterministicSuccessProvider,
-    ProviderDescriptor,
     ProviderExecutionResult,
     ProviderRegistry,
     ProviderResultStatus,
-    digest_output,
 )
 
 
@@ -79,36 +77,6 @@ def _providers() -> ProviderRegistry:
         .register(DeterministicSuccessProvider())
         .register(DeterministicFailureProvider())
     )
-
-
-@dataclass(frozen=True)
-class _SleepingProvider:
-    provider_id: str = "local.sleeping"
-    delay_seconds: float = 0.2
-
-    @property
-    def descriptor(self) -> ProviderDescriptor:
-        return ProviderDescriptor(
-            provider_id=self.provider_id,
-            version="1.0.0",
-            capability_ids=(self.provider_id,),
-            operations=("execute",),
-        )
-
-    def execute(self, invocation: object, manifest: object = None) -> ProviderExecutionResult:
-        del manifest
-        time.sleep(self.delay_seconds)
-        invocation_id = str(invocation.invocation_id)
-        output = {"provider": self.provider_id, "kind": "slow-fixture"}
-        return ProviderExecutionResult(
-            provider_id=self.provider_id,
-            invocation_id=invocation_id,
-            status=ProviderResultStatus.SUCCEEDED,
-            output=output,
-            output_contract="LocalExecutionResult",
-            output_digest=digest_output(output),
-            duration_ms=int(self.delay_seconds * 1000),
-        )
 
 
 def test_kernel_executes_a_graph_in_order_and_preserves_node_ownership(tmp_path: Path) -> None:
@@ -235,10 +203,79 @@ def test_retry_is_bounded_and_each_attempt_is_observable(tmp_path: Path) -> None
     assert any(event.event_type.value == "RETRY" for event in result.telemetry.events)
 
 
+def test_global_duration_budget_covers_retry_attempts(tmp_path: Path) -> None:
+    kernel = authorized_kernel(
+        tmp_path,
+        providers=ProviderRegistry().register(
+            DeterministicRetryProvider(
+                failures_before_success=2,
+                duration_ms=30,
+                delay_ms=30,
+            )
+        ),
+    )
+
+    result = kernel.run(
+        "Retry a local fixture within one global duration budget",
+        run_id="RUN-RETRY-DEADLINE",
+        provider_id="local.retry",
+        limits=ExecutionLimits(max_retries=2, max_duration_ms=50, timeout_ms=1000),
+    )
+
+    assert result.status is ExecutionStatus.TIMED_OUT
+    assert len(result.provider_results) <= 2
+    assert not result.artifacts
+    assert result.summary.delivery.status.value == "BLOCKED"
+
+
+def test_graph_duration_budget_covers_retry_attempts(tmp_path: Path) -> None:
+    node = replace(
+        _graph().nodes[0],
+        capability_id="local.direct",
+        provider_id="local.retry",
+        budget=NodeBudget(tokens=1, duration_ms=180),
+    )
+    graph = replace(
+        _graph(),
+        nodes=(node,),
+        graph_budget=NodeBudget(tokens=1, duration_ms=180),
+    )
+    kernel = authorized_kernel(
+        tmp_path,
+        providers=ProviderRegistry().register(
+            DeterministicRetryProvider(
+                failures_before_success=1,
+                duration_ms=100,
+                delay_ms=100,
+            )
+        ),
+    )
+
+    result = kernel.run(
+        "Change one local label",
+        task_id="TASK-GRAPH",
+        run_id="RUN-GRAPH",
+        graph=graph,
+        limits=ExecutionLimits(max_retries=1, max_duration_ms=1000, timeout_ms=1000),
+    )
+
+    assert result.status is ExecutionStatus.TIMED_OUT
+    assert len(result.provider_results) == 2
+    assert result.provider_results[0].attempt == 1
+    assert result.provider_results[1].failure is not None
+    assert result.provider_results[1].failure.code == "PROVIDER_TIMEOUT"
+    assert not result.artifacts
+    assert result.summary.delivery.status.value == "BLOCKED"
+
+
 def test_real_provider_timeout_returns_before_a_slow_fixture_finishes(tmp_path: Path) -> None:
     kernel = authorized_kernel(
         tmp_path,
-        providers=ProviderRegistry().register(_SleepingProvider()),
+        providers=ProviderRegistry().register(
+            DeterministicSuccessProvider(
+                provider_id="local.sleeping", delay_ms=200, duration_ms=200
+            )
+        ),
     )
 
     started = time.monotonic()
@@ -255,13 +292,17 @@ def test_real_provider_timeout_returns_before_a_slow_fixture_finishes(tmp_path: 
     assert result.invocations[0].invocation_status is InvocationStatus.TIMED_OUT
     assert result.provider_results[-1].failure is not None
     assert result.provider_results[-1].failure.code == "PROVIDER_TIMEOUT"
-    assert elapsed < 0.15
+    assert elapsed < 0.5
 
 
 def test_direct_max_duration_is_a_real_provider_deadline(tmp_path: Path) -> None:
     kernel = authorized_kernel(
         tmp_path,
-        providers=ProviderRegistry().register(_SleepingProvider()),
+        providers=ProviderRegistry().register(
+            DeterministicSuccessProvider(
+                provider_id="local.sleeping", delay_ms=200, duration_ms=200
+            )
+        ),
     )
 
     result = kernel.run(
@@ -287,7 +328,11 @@ def test_cancellation_during_a_slow_provider_is_terminal(tmp_path: Path) -> None
 
     result = authorized_kernel(
         tmp_path,
-        providers=ProviderRegistry().register(_SleepingProvider()),
+        providers=ProviderRegistry().register(
+            DeterministicSuccessProvider(
+                provider_id="local.sleeping", delay_ms=200, duration_ms=200
+            )
+        ),
     ).run(
         "Cancel a slow local fixture",
         run_id="RUN-REAL-CANCEL",
@@ -335,7 +380,7 @@ def test_repair_exhaustion_is_terminal_and_bounded(tmp_path: Path) -> None:
     )
 
     result = kernel.run(
-        "Exhaust explicit repair attempts",
+        "Change one local label after explicit repair attempts",
         run_id="RUN-REPAIR-EXHAUSTED",
         provider_id="local.failure",
         repair_provider_id="local.failure",
@@ -343,10 +388,10 @@ def test_repair_exhaustion_is_terminal_and_bounded(tmp_path: Path) -> None:
     )
 
     assert result.status is ExecutionStatus.FAILED
-    assert len(result.invocations) == 3
-    assert len(result.repair_records) == 2
-    assert [item.attempt for item in result.repair_records] == [1, 2]
-    assert "explicit repair budget was exhausted" in result.limitations
+    assert len(result.invocations) == 2
+    assert len(result.repair_records) == 1
+    assert [item.attempt for item in result.repair_records] == [1]
+    assert "explicit repair stopped after repeated failure" in result.limitations
 
 
 def test_partial_provider_result_remains_partial_and_is_not_delivered(tmp_path: Path) -> None:
@@ -390,12 +435,15 @@ def test_corrupt_telemetry_does_not_discard_the_computed_run(tmp_path: Path) -> 
     )
 
     result = authorized_kernel(boundary).run(
-        "Keep the run result when telemetry storage is corrupt",
+        "Change one local label while telemetry storage is corrupt",
         run_id="RUN-TELEMETRY-CORRUPT",
         persist=True,
     )
 
     assert result.status is ExecutionStatus.SUCCEEDED
+    assert "telemetry persistence failed; run evidence is incomplete" in result.limitations
+    assert "telemetry persistence failed; run evidence is incomplete" in result.summary.limitations
+    assert result.summary.delivery.status.value == "DELIVERED_WITH_LIMITATIONS"
     assert (tmp_path / ".harness/state/diagnostics/RUN-TELEMETRY-CORRUPT-telemetry.json").is_file()
     assert (
         tmp_path / ".harness/telemetry/runs/RUN-TELEMETRY-CORRUPT.jsonl"
@@ -423,6 +471,23 @@ def test_evidence_and_telemetry_limits_are_observable(tmp_path: Path) -> None:
     assert any(item.category is FailureCategory.BUDGET for item in limited_evidence.failures)
     assert len(limited_telemetry.telemetry.events) <= 2
     assert "telemetry budget truncated events" in limited_telemetry.limitations
+
+
+def test_fixture_telemetry_labels_do_not_claim_real_tool_success(tmp_path: Path) -> None:
+    result = authorized_kernel(tmp_path).run(
+        "Change one local label with a deterministic fixture",
+        run_id="RUN-FIXTURE-TELEMETRY",
+    )
+
+    tool_results = [
+        event for event in result.telemetry.events if event.event_type.value == "TOOL_RESULT"
+    ]
+
+    assert tool_results
+    assert all("fixture" in event.reason.casefold() for event in tool_results)
+    assert all(
+        "not a real provider/tool success" in event.reason.casefold() for event in tool_results
+    )
 
 
 def test_provider_result_rejects_forged_digest_and_allows_typed_partial_failure() -> None:

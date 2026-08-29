@@ -212,9 +212,24 @@ def _timestamp(value: Any, path: str, findings: list[ValidationFinding]) -> None
         _add(findings, ValidationCode.INVALID_TIMESTAMP, path, "timestamp is required")
         return
     try:
-        datetime.fromisoformat(value.replace("Z", "+00:00"))
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
     except ValueError:
         _add(findings, ValidationCode.INVALID_TIMESTAMP, path, "timestamp must be ISO-8601")
+        return
+    if parsed.tzinfo is None or parsed.tzinfo.utcoffset(parsed) is None:
+        _add(
+            findings,
+            ValidationCode.INVALID_TIMESTAMP,
+            path,
+            "timestamp must include an explicit timezone",
+        )
+    if "T" not in value.upper():
+        _add(
+            findings,
+            ValidationCode.INVALID_TIMESTAMP,
+            path,
+            "timestamp must include a time component",
+        )
 
 
 def _refs(values: Any, path: str, findings: list[ValidationFinding]) -> None:

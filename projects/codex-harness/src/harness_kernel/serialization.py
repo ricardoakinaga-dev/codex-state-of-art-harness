@@ -80,6 +80,19 @@ def _check_data_shape(value: object) -> None:
                 )
             children = current.values() if isinstance(current, Mapping) else current
             stack.extend((child, depth + 1) for child in children)
+    try:
+        encoded = json.dumps(
+            value,
+            ensure_ascii=False,
+            allow_nan=False,
+            separators=(",", ":"),
+        ).encode("utf-8")
+    except (RecursionError, TypeError, ValueError) as exc:
+        raise DeserializationError(
+            "direct mapping is not valid contract JSON", code="INVALID_JSON"
+        ) from exc
+    if len(encoded) > MAX_JSON_BYTES:
+        raise DeserializationError("JSON payload exceeds size limit", code="SIZE_LIMIT_EXCEEDED")
 
 
 def _json_key(model_field: Any) -> str:

@@ -9,9 +9,12 @@ Controles verificados:
 - parser rejeita `eval`/pickle/import dinâmico, duplicate keys, non-finite JSON,
   profundidade/tamanho excessivos e unknown contract fields;
 - authority é obrigatória antes de resolução/chamada;
-- output digest, artifact lineage, freshness e evidence links são rechecados;
+- output digest, artifact/provider lineage, freshness e evidence links são
+  rechecados;
 - telemetry redacts secrets e limita payload/event count;
 - erros externos são normalizados sem expor conteúdo de provider;
+- callbacks de cancelamento que falham são tratados como cancelamento seguro,
+  sem escapar exceções não tipadas;
 - scan estático da fonte não encontrou subprocess, socket, requests, Popen,
   `shell=True`, `os.system`, eval ou exec no runtime.
 

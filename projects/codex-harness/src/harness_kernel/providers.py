@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 import hashlib
+import time
 from dataclasses import dataclass
 from enum import StrEnum
 from typing import Protocol
 
+from .classification import DEFAULT_TIMESTAMP
 from .errors import FailureCategory, FailureDetail
 from .models import CapabilityInvocation, CapabilityManifest, RegistryOrigin
 from .serialization import to_json
@@ -236,12 +238,51 @@ def _attempt(invocation: CapabilityInvocation) -> int:
     return 1
 
 
+def _fixture_observation_timestamps(invocation: CapabilityInvocation) -> tuple[str, str]:
+    """Return the deterministic observation envelope supplied by a fixture."""
+
+    observed_at = invocation.started_at or DEFAULT_TIMESTAMP
+    return observed_at, observed_at
+
+
 @dataclass(frozen=True, slots=True)
 class DeterministicSuccessProvider:
     """A side-effect-free provider that returns a reproducible local fixture."""
 
     provider_id: str = "local.success"
     version: str = "1.0.0"
+    duration_ms: int = 1
+    delay_ms: int = 0
+    result_provider_id: str | None = None
+    output_contract: str = "LocalExecutionResult"
+    emit_observed_timestamps: bool = True
+
+    def __post_init__(self) -> None:
+        if (
+            not isinstance(self.duration_ms, int)
+            or isinstance(self.duration_ms, bool)
+            or self.duration_ms < 0
+            or self.duration_ms > 60_000
+        ):
+            raise ValueError("fixture duration must be a bounded non-negative integer")
+        if (
+            not isinstance(self.delay_ms, int)
+            or isinstance(self.delay_ms, bool)
+            or self.delay_ms < 0
+            or self.delay_ms > 60_000
+        ):
+            raise ValueError("fixture delay must be a bounded non-negative integer")
+        if (
+            not isinstance(self.output_contract, str)
+            or self.output_contract != "LocalExecutionResult"
+        ):
+            raise ValueError("deterministic success fixtures use LocalExecutionResult")
+        if self.result_provider_id is not None and (
+            not isinstance(self.result_provider_id, str) or not self.result_provider_id.strip()
+        ):
+            raise ValueError("fixture result provider identity must be non-empty")
+        if not isinstance(self.emit_observed_timestamps, bool):
+            raise ValueError("fixture observed timestamp setting must be boolean")
 
     @property
     def descriptor(self) -> ProviderDescriptor:
@@ -258,21 +299,27 @@ class DeterministicSuccessProvider:
         invocation: CapabilityInvocation,
         manifest: CapabilityManifest | None = None,
     ) -> ProviderExecutionResult:
+        del manifest
+        if self.delay_ms:
+            time.sleep(self.delay_ms / 1000)
         output = {
             "kind": "deterministic-local-result",
             "objective_digest": digest_output(invocation.objective),
             "operation": invocation.operation or "execute",
-            "provider": self.provider_id,
+            "provider": self.result_provider_id or self.provider_id,
         }
+        started_at, ended_at = _fixture_observation_timestamps(invocation)
         return ProviderExecutionResult(
-            provider_id=self.provider_id,
+            provider_id=self.result_provider_id or self.provider_id,
             invocation_id=invocation.invocation_id,
             status=ProviderResultStatus.SUCCEEDED,
             output=output,
-            output_contract="LocalExecutionResult",
+            output_contract=self.output_contract,
             output_digest=digest_output(output),
-            duration_ms=1,
+            duration_ms=self.duration_ms,
             attempt=_attempt(invocation),
+            started_at=started_at if self.emit_observed_timestamps else None,
+            ended_at=ended_at if self.emit_observed_timestamps else None,
         )
 
 
@@ -298,6 +345,7 @@ class DeterministicFailureProvider:
         invocation: CapabilityInvocation,
         manifest: CapabilityManifest | None = None,
     ) -> ProviderExecutionResult:
+        started_at, ended_at = _fixture_observation_timestamps(invocation)
         return ProviderExecutionResult(
             provider_id=self.provider_id,
             invocation_id=invocation.invocation_id,
@@ -315,6 +363,8 @@ class DeterministicFailureProvider:
             ),
             duration_ms=1,
             attempt=_attempt(invocation),
+            started_at=started_at,
+            ended_at=ended_at,
         )
 
 
@@ -325,6 +375,8 @@ class DeterministicRetryProvider:
     failures_before_success: int = 1
     provider_id: str = "local.retry"
     version: str = "1.0.0"
+    duration_ms: int = 1
+    delay_ms: int = 0
 
     def __post_init__(self) -> None:
         if (
@@ -333,6 +385,9 @@ class DeterministicRetryProvider:
             or self.failures_before_success < 0
         ):
             raise ValueError("failures_before_success must be non-negative")
+        for name, value in (("duration_ms", self.duration_ms), ("delay_ms", self.delay_ms)):
+            if not isinstance(value, int) or isinstance(value, bool) or value < 0 or value > 60_000:
+                raise ValueError(f"fixture {name} must be a bounded non-negative integer")
 
     @property
     def descriptor(self) -> ProviderDescriptor:
@@ -351,6 +406,9 @@ class DeterministicRetryProvider:
     ) -> ProviderExecutionResult:
         attempt = _attempt(invocation)
         if attempt <= self.failures_before_success:
+            if self.delay_ms:
+                time.sleep(self.delay_ms / 1000)
+            started_at, ended_at = _fixture_observation_timestamps(invocation)
             return ProviderExecutionResult(
                 provider_id=self.provider_id,
                 invocation_id=invocation.invocation_id,
@@ -366,12 +424,17 @@ class DeterministicRetryProvider:
                     refs=(invocation.invocation_id,),
                     attempt=attempt,
                 ),
-                duration_ms=1,
+                duration_ms=self.duration_ms,
                 attempt=attempt,
+                started_at=started_at,
+                ended_at=ended_at,
             )
-        return DeterministicSuccessProvider(self.provider_id, self.version).execute(
-            invocation, manifest
-        )
+        return DeterministicSuccessProvider(
+            self.provider_id,
+            self.version,
+            duration_ms=self.duration_ms,
+            delay_ms=self.delay_ms,
+        ).execute(invocation, manifest)
 
 
 @dataclass(frozen=True, slots=True)
@@ -401,6 +464,7 @@ class DeterministicPartialProvider:
             "objective_digest": digest_output(invocation.objective),
             "provider": self.provider_id,
         }
+        started_at, ended_at = _fixture_observation_timestamps(invocation)
         return ProviderExecutionResult(
             provider_id=self.provider_id,
             invocation_id=invocation.invocation_id,
@@ -418,6 +482,8 @@ class DeterministicPartialProvider:
             ),
             duration_ms=1,
             attempt=_attempt(invocation),
+            started_at=started_at,
+            ended_at=ended_at,
         )
 
 
@@ -428,6 +494,17 @@ class DeterministicRepairProvider(DeterministicSuccessProvider):
     provider_id: str = "local.repair"
 
 
+_BUILTIN_PROVIDER_TYPES = frozenset(
+    {
+        DeterministicSuccessProvider,
+        DeterministicFailureProvider,
+        DeterministicRetryProvider,
+        DeterministicPartialProvider,
+        DeterministicRepairProvider,
+    }
+)
+
+
 @dataclass(frozen=True, slots=True)
 class ProviderRegistry:
     """Immutable provider registrations with exact, explicit resolution only."""
@@ -436,6 +513,16 @@ class ProviderRegistry:
 
     def __post_init__(self) -> None:
         normalized = tuple(self.registrations)
+        if any(not isinstance(item, ProviderRegistration) for item in normalized):
+            raise TypeError("provider registrations must use the typed registration contract")
+        if any(type(item.provider) not in _BUILTIN_PROVIDER_TYPES for item in normalized):
+            raise ValueError("only built-in deterministic fixture providers are admitted")
+        if any(
+            item.descriptor != item.provider.descriptor
+            or not isinstance(item.availability, ProviderAvailability)
+            for item in normalized
+        ):
+            raise ValueError("provider registration metadata must match its built-in provider")
         ids = [item.descriptor.provider_id for item in normalized]
         if len(ids) != len(set(ids)):
             raise ValueError("provider IDs must be unique")
@@ -460,6 +547,8 @@ class ProviderRegistry:
         *,
         availability: ProviderAvailability = ProviderAvailability.AVAILABLE,
     ) -> ProviderRegistry:
+        if type(provider) not in _BUILTIN_PROVIDER_TYPES:
+            raise ValueError("only built-in deterministic fixture providers are admitted")
         descriptor = provider.descriptor
         if any(
             item.descriptor.provider_id == descriptor.provider_id for item in self.registrations

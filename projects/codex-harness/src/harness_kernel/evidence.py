@@ -8,6 +8,7 @@ from enum import Enum
 from typing import Any
 
 from .models import (
+    ArtifactRecord,
     Claim,
     ClaimStatus,
     EvidenceRecord,
@@ -100,16 +101,20 @@ def validate_evidence_links(
     claims: Iterable[Claim] | Mapping[str, Claim],
     procedures: Iterable[VerificationProcedure] | Mapping[str, VerificationProcedure],
     evidence: Iterable[EvidenceRecord] | Mapping[str, EvidenceRecord],
+    *,
+    artifacts: Iterable[ArtifactRecord] | Mapping[str, ArtifactRecord] | None = None,
 ) -> ValidationResult:
-    """Validate claim, procedure, and evidence references without mutation."""
+    """Validate claim/procedure/evidence links and optional artifact digests."""
 
     findings: list[ValidationFinding] = []
     claim_items = _items(claims)
     procedure_items = _items(procedures)
     evidence_items = _items(evidence)
+    artifact_items = _items(artifacts) if artifacts is not None else ()
     claim_index = _index(claim_items, "claim_id", "$.claims", findings)
     procedure_index = _index(procedure_items, "procedure_id", "$.procedures", findings)
     evidence_index = _index(evidence_items, "evidence_id", "$.evidence", findings)
+    artifact_index = _index(artifact_items, "artifact_id", "$.artifacts", findings)
 
     for evidence_id, item in sorted(evidence_index.items()):
         base = validate(item)
@@ -180,6 +185,43 @@ def validate_evidence_links(
                     "procedure does not link the evidence record",
                 )
             )
+        if artifacts is not None:
+            for artifact_id in item.artifact_refs:
+                artifact = artifact_index.get(artifact_id)
+                if artifact is None:
+                    findings.append(
+                        _finding(
+                            ValidationCode.INVALID_REFERENCE,
+                            f"$.evidence[{evidence_id}].artifact_refs",
+                            "evidence points to an unknown artifact",
+                        )
+                    )
+                    continue
+                content_digest = item.provenance.content_digest
+                if content_digest is None:
+                    findings.append(
+                        _finding(
+                            ValidationCode.INVARIANT_VIOLATION,
+                            f"$.evidence[{evidence_id}].provenance.content_digest",
+                            "artifact-linked evidence needs a content digest",
+                        )
+                    )
+                elif content_digest != artifact.content.digest:
+                    findings.append(
+                        _finding(
+                            ValidationCode.INVARIANT_VIOLATION,
+                            f"$.evidence[{evidence_id}].provenance.content_digest",
+                            "evidence content digest does not match the artifact digest",
+                        )
+                    )
+                if item.provenance.source_ref != artifact.provenance.tool_or_process:
+                    findings.append(
+                        _finding(
+                            ValidationCode.INVARIANT_VIOLATION,
+                            f"$.evidence[{evidence_id}].provenance.source_ref",
+                            "evidence source does not match the artifact producer",
+                        )
+                    )
 
     linked_evidence: set[str] = set()
     for claim_id, claim in sorted(claim_index.items()):

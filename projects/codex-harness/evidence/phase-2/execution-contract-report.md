@@ -33,5 +33,6 @@ gravados em áreas project-local com writes atômicos. Replay idêntico é
 idempotente; colisão ou corrupção não sobrescreve dados.
 
 Verificação independente da execução: `ProviderExecutionResult` nunca contém
-decisão de assurance. Somente evidence fresca, artifact digest e critique
-podem produzir `QUALITY_ACCEPTED`.
+decisão de assurance. Somente o pacote atual completo de evidence e artifacts,
+seus digests/lineage e uma critique correlacionada podem produzir
+`QUALITY_ACCEPTED`; sem esse pacote `assure_quality` bloqueia.
