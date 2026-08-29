@@ -1,21 +1,22 @@
 # Phase 3 final readiness
 
-Decision: **PASS_WITH_LIMITATIONS** for the bounded read-only Phase 3 host
-capability integration. The exact packet was independently approved by Boyle
-with zero Critical, High, Medium or Low findings.
+Decision pending: the current technical payload is ready for a fresh exact
+packet review. The previous Phase 3 attestation is superseded because source,
+tests, host evidence, provenance labels, CLI, telemetry, benchmark and
+canonical evidence were hardened after that review.
 
-| Check | Result |
+| Check | Current result |
 | --- | --- |
-| Phase 2 frozen packet preserved | PASS; base `d95568aa5e4821a3e1d38c718dac6eb473676cdd` |
+| Phase 2 frozen packet preserved | PASS; historical base remains `d95568aa5e4821a3e1d38c718dac6eb473676cdd` |
 | Current host observation | PASS; 5 roots, 43 records, 38 inspected, 5 rejected |
-| Safety and bounded parsing | PASS; deep structures, SemVer, roots, references and files fail closed |
-| Progressive loader | PASS; L0 identity-only, L1 planning, L2–L4 declarative context, no host load |
-| Resolution and integration | PASS; duplicate divergence blocks, router bridge remains pure |
-| Verification | PASS; 290 tests, 82% combined statement/branch coverage, Ruff/mypy |
-| Security/privacy | PASS; static and privacy scans pass; `pip-audit` unavailable |
-| Exact packet review | PASS; manifest SHA `4bc05523b76ecf570589ef4f5d9c18b297c049da0b9d967efbddc9225ce6d849` |
+| Safety and bounded parsing | PASS; nested structures, SemVer, paths, roots, references and file surfaces fail closed |
+| Progressive loader | PASS; L0/L1 selection/planning, L2-L4 bounded declarative context, host load unavailable |
+| Resolution and integration | PASS; divergent and unverifiable duplicate bytes block, router bridge is pure and bounded |
+| Verification | PASS; 308 tests, 82% combined coverage, Ruff and mypy |
+| Security/privacy | PASS_WITH_LIMITATIONS; static/privacy scans pass and `pip-audit` is unavailable |
+| Exact packet review | PENDING; generated only after this payload commit |
 | Final claim boundary | PASS; no production, execution, host-loaded or `AAA_VERIFIED` claim |
 
-The packet is ready for a conventional commit and push. Any change to the
-Phase 3 source, tests, configuration, contract, evidence or scope requires a
-new manifest and independent review. Global host state remains untouched.
+The exact review manifest must cover the committed payload SHA and all
+canonical §93 artifacts. A reviewer may issue only `PASS_WITH_LIMITATIONS`,
+`CONDITIONAL_PASS` or `FAIL`. Global host state remains untouched.
