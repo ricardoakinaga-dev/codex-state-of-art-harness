@@ -1,20 +1,20 @@
 {
   "schema_version": "P2-READINESS-1",
-  "status": "CONDITIONAL_PASS",
+  "status": "PASS_WITH_LIMITATIONS",
   "quality_bar": "P2-QB-1",
   "scope": "PHASE2-001 bounded project-local deterministic execution kernel",
-  "measured_at": "2026-08-28T22:24:00-03:00",
-  "base_sha": "9ef85e93c58fa5d8de92e604b9ecf057b3a50593",
-  "head_sha": "9ef85e93c58fa5d8de92e604b9ecf057b3a50593",
-  "worktree": "DIRTY_EXPECTED_AFTER_CLOSEOUT_HARDENING",
+  "measured_at": "2026-08-28T23:28:24-03:00",
+  "base_sha": "d95568aa5e4821a3e1d38c718dac6eb473676cdd",
+  "head_sha": "d95568aa5e4821a3e1d38c718dac6eb473676cdd",
+  "worktree": "DIRTY_EVIDENCE_AND_CONTROL_CLOSEOUT",
   "fingerprints": {
     "src": {"files": 29, "sha256": "6d6cd917acf2db16649e66140fa300e2704aea9a900c7f21e10ee0658654ce47"},
     "tests": {"files": 26, "sha256": "99bec226f4c5c060f9cf2c07e49d72ee3dfd4b631a90258dcb8efea46368a1fd"},
     "config": {"files": 1, "sha256": "1f4c1595be5e55619a5f2e26b220a67be097ca5dffc97c539900c794a12b99a6"},
     ".harness/config": {"files": 1, "sha256": "24bcb96d5a5830514d7c9e6df7b027e2a8d300b93ef0377d8d9e8be547ebe6c7"},
-    ".agent": {"files": 19, "sha256": "9e1a45cb9aec023eed535a73149f46f9c1bb7881ce6dd1d85c2dea14230b1a64"},
-    ".gauntlet": {"files": 2, "sha256": "a0a6996bcf1793dea15ae52771ebe9921caba6a834ffb6a3537aece7a1a26f22"},
-    "evidence/phase-2": {"files": 17, "sha256": "06093490a3a946012469c52dca083565f73253503c5be7a601a12885a01a087c", "excludes": ["readiness.json"], "reason": "readiness.json is self-referential"},
+    ".agent": {"files": 20, "sha256": "a55bf786ca5db3f58c0a98e77b152f3a4123b2be242bf32bc87b8c9364a81781"},
+    ".gauntlet": {"files": 2, "sha256": "ebe766c5faf17d4c0073d323765c5290ba1b52ccc61697e0f5a50916c48b4acd"},
+    "evidence/phase-2": {"files": 21, "sha256": "cecbe9a6571adb0dd375b948fb9cd1ea4a5c5cf581b2d653eab75930dad7133b", "excludes": ["readiness.json"], "reason": "readiness.json is self-referential"},
     "pyproject.toml": {"files": 1, "sha256": "a3e2379e101903cafce82cda1058a9d6f0c8cf66f143dc75443394fe0e97eb20", "content_sha256": "0f06746386a89b03dcca9009662b405b86856d44dc101fe041885f29c4297485"}
   },
   "tests": {
@@ -45,7 +45,7 @@
   "benchmark": {
     "schema_version": "P2-BENCH-1",
     "iterations": 10,
-    "generated_at": "2026-08-29T01:12:12.727234+00:00",
+    "generated_at": "2026-08-29T01:45:48.695688+00:00",
     "status": "PASS"
   },
   "state_checker": {
@@ -58,13 +58,17 @@
     "static_runtime_scan": "PASS",
     "pip_audit": "UNAVAILABLE"
   },
-  "independent_review": "NOETHER_CONDITIONAL_PASS / FINAL_PACKET_RECONCILIATION_COMPLETE",
+  "independent_review": "LAGRANGE_APPROVE / EXACT_PACKET / PASS_WITH_LIMITATIONS",
+  "review_manifest_sha256": "d6fca5b19448e255e7cce4c06907d453564ca74179ba23c6a2edd8e5cd6af700",
+  "review_attestation": "evidence/phase-2/review-attestation.json",
+  "final_gate": ".agent/gates/PHASE2-VERIFIED-0001.json",
   "limitations": [
     "no real Codex provider, Skills, subagents, MCP, shell, network or host adapter",
     "no advanced concurrency or multi-process locking",
     "local benchmark is not a production SLO or causal quality measure",
     "a timed-out daemon thread cannot be forcibly stopped; hostile provider sandboxing is outside P2",
     "Carver and Noether returned CONDITIONAL_PASS; their read-only reviews found no actionable Critical/High/Medium implementation defect after fixes, but neither approved the exact evidence bytes after the final fingerprint reconciliation",
+    "Aristotle's fresh exact-packet review verified all immutable hashes and found no implementation defect, but blocked approval because this readiness record still pointed to the obsolete HEAD and evidence timestamp; readiness was then reconciled before Lagrange's approving exact-packet review",
     "no PHASE2-VERIFIED or AAA_VERIFIED gate is claimed"
   ]
 }

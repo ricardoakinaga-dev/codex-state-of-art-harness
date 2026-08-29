@@ -18,7 +18,9 @@ Controles verificados:
 - scan estático da fonte não encontrou subprocess, socket, requests, Popen,
   `shell=True`, `os.system`, eval ou exec no runtime.
 
-O projeto não tem dependências runtime externas. Scanners opcionais como
-`pip-audit`, Bandit e Semgrep não fazem parte do ambiente local desta rodada;
-por isso não há alegação de cobertura deles. A sandbox hostil de código de
-terceiros e locking multi-processo permanecem fora do escopo P2.
+O projeto não tem dependências runtime externas. A regressão pré-review executou
+um scan AST sobre todo `src/` para imports/chamadas proibidos, `shell=True` e
+literais de credenciais; o resultado foi `PASS`. `pip-audit` foi verificado e
+está `UNAVAILABLE` neste ambiente; Bandit e Semgrep também não fazem parte da
+rodada, portanto não há alegação de cobertura desses scanners. A sandbox hostil
+de código de terceiros e locking multi-processo permanecem fora do escopo P2.

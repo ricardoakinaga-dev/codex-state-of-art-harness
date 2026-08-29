@@ -1,0 +1,86 @@
+{
+  "record_id": "GATE-PHASE2-VERIFIED-0001",
+  "timestamp": "2026-08-28T23:22:31-03:00",
+  "gate_id": "VERIFIED",
+  "scope": "Phase 2 bounded project-local deterministic Execution Kernel closeout",
+  "scope_ref": "PHASE2-001",
+  "version": 1,
+  "criteria": [
+    {
+      "id": "V-001-ACCEPTANCE-EVIDENCE",
+      "description": "The bounded Phase 2 kernel acceptance matrix has current executable evidence and an independent exact-packet approval.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-2/execution-contract-report.md",
+        "evidence/phase-2/graph-validation-report.md",
+        "evidence/phase-2/verification-report.md",
+        ".agent/verification.jsonl#VER-PHASE2-FINAL-EXACT-0001"
+      ],
+      "confidence": "HIGH",
+      "limitations": "The evidence covers only the bounded local deterministic kernel and does not claim real Codex runtime integration."
+    },
+    {
+      "id": "V-002-REGRESSION-RISK",
+      "description": "Regression, isolation, security, provenance and exact-packet risks have current checks with no open Critical, High or Medium findings.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-2/authority-enforcement-report.md",
+        "evidence/phase-2/security-summary.md",
+        "evidence/phase-2/review-attestation.json",
+        "evidence/phase-2/independent-review.md",
+        ".agent/verification.jsonl#VER-PHASE2-FINAL-EXACT-0001"
+      ],
+      "confidence": "HIGH",
+      "limitations": "pip-audit is unavailable locally; the static runtime scan and bounded adversarial checks pass, and no unavailable scanner is represented as a pass."
+    },
+    {
+      "id": "V-003-LIMITATIONS-AUTHORITY",
+      "description": "Deferred scope, authority boundary, residual risks and freeze rules are explicit and prevent an overbroad completion claim.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-2/readiness.json",
+        "evidence/phase-2/final-readiness.md",
+        "evidence/phase-2/final-report.md",
+        "evidence/phase-2/PHASE2-FROZEN.md",
+        ".agent/verification.jsonl#VER-PHASE2-FINAL-EXACT-0001"
+      ],
+      "confidence": "HIGH",
+      "limitations": "A new evidence, manifest and independent review cycle is required before any source, test, runtime configuration or scope expansion."
+    }
+  ],
+  "evidence": [
+    "evidence/phase-2/review-manifest.json",
+    "evidence/phase-2/review-attestation.json",
+    "evidence/phase-2/readiness.json",
+    "evidence/phase-2/independent-review.md",
+    "evidence/phase-2/final-readiness.md",
+    "evidence/phase-2/final-report.md",
+    "evidence/phase-2/PHASE2-FROZEN.md",
+    ".agent/verification.jsonl#VER-PHASE2-FINAL-EXACT-0001"
+  ],
+  "confidence": "HIGH",
+  "gaps": [],
+  "conditions": [],
+  "authority": {
+    "required": false,
+    "state": "NOT_REQUIRED",
+    "actor": "lead",
+    "scope": "Phase 2 bounded project-local deterministic Execution Kernel closeout",
+    "decision": "No external approval is required for this local, reversible, explicitly bounded verification; independent exact-packet review is recorded in the attestation.",
+    "evidence_ref": "evidence/phase-2/review-attestation.json",
+    "expires_or_revalidates": "Revalidate on any source, test, runtime configuration, provider, host, network, credential, deployment, production or material scope change."
+  },
+  "residual_risk": "MEDIUM",
+  "decision": "PASS",
+  "next_action": "Keep the bounded Phase 2 packet frozen; any payload change requires a new evidence capture, manifest and independent review, and no production or AAA claim is permitted.",
+  "revalidation_triggers": [
+    "Changing source, tests, pyproject, runtime configuration, architecture inputs or benchmark inputs",
+    "Adding a real Codex host, provider, Skill, subagent, MCP, shell, network, credential or deployment integration",
+    "Changing authority, persistence, execution, graph, evidence, verification, assurance or security boundaries",
+    "Moving from local verification to release or production operation"
+  ],
+  "supersedes": null
+}

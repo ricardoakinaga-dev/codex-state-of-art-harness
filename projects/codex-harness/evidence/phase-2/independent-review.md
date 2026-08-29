@@ -2,14 +2,14 @@
 
 ## Review status
 
-`FINAL_REVIEW_PENDING`. A pre-final independent review was executed by three
+`FINAL_REVIEW_APPROVED_WITH_LIMITATIONS`. A pre-final independent review was executed by three
 read-only peer agents. Each returned `REJECT` against the then-current
 candidate and produced findings; the lead implemented and regression-tested
 the remediations below. A post-hardening spot review then found three further
 findings, which were also fixed and regression-tested. The final critic found
 two Medium follow-ups; those are now fixed and the full regression is green.
-Independent confirmation against the final packet is still required before any
-`PASS_WITH_LIMITATIONS` or `PHASE2-VERIFIED` gate.
+Lagrange then approved the exact immutable packet; the bounded result is now
+`PASS_WITH_LIMITATIONS` and the `PHASE2-VERIFIED` control gate is recorded below.
 
 ## Reviewer mode and independence
 
@@ -23,11 +23,13 @@ Independent confirmation against the final packet is still required before any
   `fork_context=false`, returned `CONDITIONAL_PASS` before the last two fixes;
 - final confirmation attempt: `Noether`, read-only, model `gpt-5.6-luna`,
   `fork_context=false`, returned `CONDITIONAL_PASS` after the Carver fixes;
+- final exact-packet reviewer: `Lagrange`, read-only, model `gpt-5.6-luna`,
+  `fork_context=false`, returned `APPROVE` after the manifest path and
+  readiness reconciliations;
 - current candidate source fingerprint after the last fixes:
   `sha256:6d6cd917acf2db16649e66140fa300e2704aea9a900c7f21e10ee0658654ce47`;
   source/test and file-content fingerprints are recorded in `readiness.json`.
-  No reviewer approved the exact final evidence bytes after the ledger and
-  readiness reconciliation below.
+  Lagrange's attestation approves the exact immutable evidence payload.
 
 ## Scope and methodology
 
@@ -110,6 +112,45 @@ those fingerprints and reran the packet/control checks. Because that
 reconciliation changed the final evidence bytes, Noether's result is recorded
 as independent confirmation of the reviewed implementation, not approval of
 the exact post-reconciliation packet.
+
+## Exact-packet review — Aristotle (blocked)
+
+Aristotle performed a fresh read-only review of the corrected manifest and the
+current bounded implementation. The reviewer recomputed the source, tests,
+configuration, pyproject, architecture, benchmark-input and pre-review
+evidence digests successfully; the corrected `../../architecture/...` paths
+resolved from the project root and the manifest digest was
+`d6fca5b19448e255e7cce4c06907d453564ca74179ba23c6a2edd8e5cd6af700` at
+`HEAD d95568aa5e4821a3e1d38c718dac6eb473676cdd`. Ruff, mypy and the full
+`232 passed` pytest regression also passed, and no implementation Critical or
+High finding was reported.
+
+The reviewer correctly blocked exact-packet approval under P2-17 because
+`readiness.json` still pointed at the obsolete `9ef85e...` HEAD and older
+evidence/benchmark metadata. The lead reconciled readiness to the current
+`d95568...` HEAD, current benchmark timestamp and current self-excluding
+evidence fingerprint. This control/evidence correction does not alter the
+immutable manifest payload. A new exact-packet review is required; no approval
+or `PHASE2-VERIFIED` gate is claimed from Aristotle's blocked result.
+
+## Final exact-packet approval — Lagrange
+
+Lagrange performed the fresh independent read-only review after the manifest
+path correction and readiness reconciliation. The reviewer verified `HEAD
+d95568aa5e4821a3e1d38c718dac6eb473676cdd`, manifest
+`d6fca5b19448e255e7cce4c06907d453564ca74179ba23c6a2edd8e5cd6af700`, all
+declared immutable scope hashes, the current readiness fingerprints and the
+full bounded quality bar. Ruff, mypy, full pytest (`232 passed`) and the
+recorded 85% coverage evidence were green. P2-01 through P2-17 passed, with no
+actionable Critical, High or Medium implementation/evidence finding.
+
+The verdict is `APPROVE` for `PASS_WITH_LIMITATIONS` on the bounded local
+Phase 2 packet only. Residual limitations remain explicit: `pip-audit` is
+unavailable, timed-out daemon fixtures cannot be forcibly terminated, and real
+Codex host/provider integrations, Skills, subagents, MCP, shell, network,
+credentials, advanced concurrency, multi-process locking, production SLOs and
+AAA causal quality remain outside P2. This approval does not claim production
+readiness, `RELEASE_READY` or `AAA_VERIFIED`.
 
 ## Bounded route rationale
 

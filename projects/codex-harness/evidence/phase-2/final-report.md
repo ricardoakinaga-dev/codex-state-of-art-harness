@@ -10,10 +10,9 @@ Implementar e verificar apenas o kernel bounded local/determinístico da
 `P2-QB-1`, com todos os critérios técnicos locais, cobertura total ≥80% e
 evidência fresca. As revisões adversariais read-only encontraram bloqueios,
 incluindo três achados pós-hardening; todos foram corrigidos e retestados. A
-confirmação read-only adicional não encontrou novo defeito de implementação,
-mas a reconciliação posterior alterou os bytes do pacote; aprovação independente
-do pacote exato ainda é a última condição de fechamento. `AAA_VERIFIED` não é
-alegado.
+readiness stale encontrada por Aristotle foi reconciliada, e Lagrange aprovou
+o pacote exato contra o manifest e os fingerprints atuais. `AAA_VERIFIED` não
+é alegado.
 
 ## Delivered
 
@@ -24,12 +23,12 @@ telemetry, atomic persistence, recovery e CLI `run/--dry-run/--explain/quality/d
 
 ## Verification
 
-Os números, o `HEAD`, o estado dirty e os fingerprints estão em
+Os números, o `HEAD`, o estado dirty e os fingerprints atuais estão em
 `readiness.json`. O pacote inclui testes unitários, integração, adversarial e
 golden, benchmark P2, scans estáticos e revisões read-only independentes.
 `independent-review.md` separa os findings observados, fixes, regressões e a
-confirmação adicional, mantendo explícita a ausência de aprovação dos bytes
-exatos após a reconciliação final.
+aprovação exata de Lagrange. `review-attestation.json` liga o veredito ao
+manifest imutável.
 
 ## Limitations
 
@@ -39,8 +38,8 @@ SLO de produção ou qualidade causal.
 
 ## Verdict
 
-`CONDITIONAL PASS`: a implementação bounded local e sua verificação técnica
-estão verdes, os findings materialmente observados foram corrigidos, mas a
-confirmação independente dos bytes exatos do pacote pós-reconciliação ainda
-está pendente. A limitação permanece explícita e nenhum `PHASE2-VERIFIED` é
-emitido.
+`PASS_WITH_LIMITATIONS`: a implementação bounded local e sua verificação
+técnica estão verdes, os findings materialmente observados foram corrigidos,
+a readiness foi reconciliada e a revisão independente exata foi aprovada. O
+gate `PHASE2-VERIFIED` registra o fechamento bounded; não há alegação de
+produção, `RELEASE_READY` ou `AAA_VERIFIED`.

@@ -19,8 +19,10 @@ nunca importa ou executa módulos fornecidos na entrada. Flags não ampliam
 timeout acima da configuração, não habilitam shell/rede e não removem
 verification/authority/boundary.
 
-Rodada atual: `tests/integration/test_phase2_cli.py` (7 testes) e
-`tests/integration/test_cli.py` (27 testes) — `34 passed` em `17,39s`;
-`tests/unit/test_cli_in_process.py` adiciona 11 testes de dispatch/erro. Doctor,
-quality, dry-run, explain, success, unknown provider, root boundary e manifest
-admission permanecem cobertos.
+Regressão pré-review: `tests/integration/test_phase2_cli.py`,
+`tests/integration/test_cli.py` e `tests/unit/test_cli_in_process.py` —
+`45 passed` em `24,29s`. A execução manual de `doctor --json`, `quality --json`,
+`run --dry-run --json` e `run --explain --json` também foi observada; dry-run e
+explain produziram `executed=false` e não chamaram provider. Doctor, quality,
+success, unknown provider, root boundary e manifest admission permanecem
+cobertos.

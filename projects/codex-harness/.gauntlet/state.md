@@ -189,3 +189,20 @@ state `PARTIAL` and verdict `CONDITIONAL PASS`; no `PHASE2-VERIFIED` gate is
 claimed. The remaining next action is to obtain a fresh independent read-only
 review, resolve/retest any Critical/High findings, and issue the final gate
 only if its acceptance criteria are actually met.
+
+## Current final state — Phase 2 closeout
+
+The stale continuation above is historical. The bounded Phase 2 closeout is
+now `PASS_WITH_LIMITATIONS`: Lagrange independently approved the exact
+immutable review packet at `HEAD
+d95568aa5e4821a3e1d38c718dac6eb473676cdd`, with manifest
+`d6fca5b19448e255e7cce4c06907d453564ca74179ba23c6a2edd8e5cd6af700`. The
+`PHASE2-VERIFIED` gate, exact review attestation and `PHASE2-FROZEN.md` marker
+are recorded in the project-local closeout evidence.
+
+The freeze covers only the bounded local deterministic kernel and its reviewed
+source, tests, runtime configuration, architecture/contract inputs, benchmark
+inputs and pre-review evidence closure. No production, real Codex host/provider,
+Skills, subagent, MCP, shell, network, credential, advanced concurrency,
+multi-process locking or `AAA_VERIFIED` claim is made. Any future payload or
+scope change requires a new evidence, manifest and independent-review cycle.

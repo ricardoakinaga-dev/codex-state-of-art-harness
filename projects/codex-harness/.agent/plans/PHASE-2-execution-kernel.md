@@ -17,7 +17,7 @@ completo do Codex.
 - [x] (2026-08-28 18:30 BRT) Implementar walking skeleton direct/provider/invocation e persistence local.
 - [x] (2026-08-28 18:30 BRT) Implementar graph bounded, limits, cancellation, timeout, artifacts e evidence.
 - [x] (2026-08-28 18:30 BRT) Implementar verification, critique, assurance, repair, RunSummary e CLI.
-- [ ] (2026-08-28 18:30 BRT) Fechar revisão independente e emitir gate VERIFIED; a implementação local, os testes e as evidências técnicas foram regenerados, mas o critic externo não retornou um relatório utilizável.
+- [x] (2026-08-28 23:22 BRT) Fechar revisão independente e emitir gate VERIFIED; Lagrange aprovou o pacote exato após a correção do manifest de arquitetura e a reconciliação da readiness.
 
 ## Surprises & Discoveries
 
@@ -46,21 +46,22 @@ completo do Codex.
 
 ## Outcomes & Retrospective
 
-Resultado da verificação integrada: 187 testes passaram, cobertura total 84%
+Resultado histórico da verificação integrada: 187 testes passaram, cobertura total 84%
 (7.771 statements; 1.268 missed), Ruff format/check e mypy passaram, os 7
 testes de integração CLI passaram, o benchmark `P2-BENCH-1` foi regenerado e
 os scans de segurança não encontraram os padrões de execução proibidos. A
 matriz de routing negativa obrigatória também passou, e o kernel não
 self-authorize sem grant explícito.
 
-O critic independente foi tentado com os workers disponíveis, mas nenhum
-retornou uma revisão utilizável. Isso é registrado em
-`evidence/phase-2/independent-review.md`; não é convertido em aprovação pelo
-lead. O status final do plano é `VERIFY` / `CONDITIONAL PASS`, com o gate
-`PHASE2-VERIFIED` pendente dessa revisão. Limitações residuais: providers
-reais, host Codex, Skills, subagents, MCP, shell, rede, credenciais,
-concorrência avançada, locking multi-processo e produção permanecem fora do
-escopo.
+As tentativas históricas de revisão sem relatório utilizável permanecem
+registradas em `evidence/phase-2/independent-review.md` e não foram convertidas
+em aprovação pelo lead. O fechamento final regenerou 232 testes, cobertura
+total de 85%, benchmark e evidência de qualidade; a readiness foi reconciliada
+ao `HEAD d95568...`, Lagrange aprovou o pacote exato e o gate
+`PHASE2-VERIFIED-0001` foi emitido. O status final do plano é
+`PASS_WITH_LIMITATIONS`; providers reais, host Codex, Skills, subagents, MCP,
+shell, rede, credenciais, concorrência avançada, locking multi-processo e
+produção permanecem fora do escopo.
 
 ## Context and Orientation
 
@@ -181,9 +182,9 @@ pelo Lead com diff e comandos atuais.
 10. Rodar format/lint/mypy/pytest/coverage, benchmarks e scans; gerar o pacote
     `evidence/phase-2/` e `readiness.json` com SHA/dirty state atual.
 11. Obter revisão adversarial independente, corrigir Critical/High, rerodar
-    testes e fechar somente com gate VERIFIED e final report honesto. Nesta
-    rodada o passo ficou bloqueado por indisponibilidade do reviewer e foi
-    mantido como limitação explícita.
+    testes e fechar somente com gate VERIFIED e final report honesto. Lagrange
+    aprovou o manifest exato após a reconciliação de paths/readiness; o gate e
+    a attestation finais estão em `.agent/gates/` e `evidence/phase-2/`.
 
 ## Validation and Acceptance
 
@@ -206,9 +207,9 @@ run, repair success/exhaustion e stale evidence. Security tests devem cobrir
 manifest tampering/divergence, boundary/symlink escape, provider mismatch,
 serialization limits, forged artifacts, oversized telemetry e replay state.
 
-Resultado local registrado em `evidence/phase-2/readiness.json`; o status
-`CONDITIONAL_PASS` não deve ser promovido sem a revisão independente exigida
-por `P2-QB-1`.
+Resultado final registrado em `evidence/phase-2/readiness.json`; o status é
+`PASS_WITH_LIMITATIONS` dentro do escopo autorizado por `P2-QB-1`. Nenhuma
+alegação de produção, `RELEASE_READY` ou `AAA_VERIFIED` é permitida.
 
 ## Risks and Human Decisions
 
@@ -248,8 +249,8 @@ retoma do milestone, sem reset destrutivo ou reescrita de histórico.
 
 ## Current status
 
-`VERIFY` / `CONDITIONAL PASS`. Os entry gates continuam válidos, o código da
-Phase 2 foi implementado e verificado localmente no escopo bounded, e o
-checkpoint histórico permanece preservado. Não há claim de `PHASE2-VERIFIED`,
-produção, runtime completo do Codex ou `AAA_VERIFIED` enquanto a revisão
-independente não estiver disponível.
+`DONE` / `PASS_WITH_LIMITATIONS`. Os entry gates continuam válidos, o código da
+Phase 2 foi implementado e verificado localmente no escopo bounded, o pacote
+exato foi aprovado por Lagrange e o gate `.agent/gates/PHASE2-VERIFIED-0001.json`
+está registrado. O checkpoint histórico permanece preservado. Não há claim de
+produção, runtime completo do Codex, `RELEASE_READY` ou `AAA_VERIFIED`.

@@ -1,0 +1,73 @@
+{
+  "schema_version": "P2-CLOSEOUT-BASELINE-1",
+  "captured_at": "2026-08-28T22:42:28-03:00",
+  "head_sha": "d95568aa5e4821a3e1d38c718dac6eb473676cdd",
+  "branch": "main",
+  "worktree_state": {
+    "status": "CLEAN",
+    "porcelain_v2": "",
+    "diff_stat": "",
+    "diff_name_status": "",
+    "diff_binary_bytes": 0,
+    "untracked_files": []
+  },
+  "submodule_status": [
+    "-527255bd221761ce35cb63001838b0cff6fc7a3f ../../references/skill-audit"
+  ],
+  "fingerprint_method": {
+    "algorithm": "SHA-256",
+    "description": "Sort regular files by project-relative path, hash each file with sha256sum, concatenate the records, and hash the resulting manifest. The declared src scope includes the existing tracked egg-info files for continuity with the prior Phase 2 fingerprint.",
+    "excluded": [
+      "__pycache__ directories",
+      "*.pyc files",
+      ".pytest_cache directories",
+      ".mypy_cache directories",
+      ".ruff_cache directories",
+      ".venv directories",
+      ".coverage files"
+    ],
+    "evidence_review_note": "The pre-closeout evidence fingerprint includes the existing readiness.json; the later review manifest uses an explicit self-excluding immutable payload closure."
+  },
+  "fingerprints": {
+    "src": {
+      "files": 29,
+      "sha256": "6d6cd917acf2db16649e66140fa300e2704aea9a900c7f21e10ee0658654ce47"
+    },
+    "tests": {
+      "files": 26,
+      "sha256": "99bec226f4c5c060f9cf2c07e49d72ee3dfd4b631a90258dcb8efea46368a1fd"
+    },
+    "config": {
+      "files": 1,
+      "sha256": "1f4c1595be5e55619a5f2e26b220a67be097ca5dffc97c539900c794a12b99a6"
+    },
+    ".harness/config": {
+      "files": 1,
+      "sha256": "24bcb96d5a5830514d7c9e6df7b027e2a8d300b93ef0377d8d9e8be547ebe6c7"
+    },
+    ".agent": {
+      "files": 19,
+      "sha256": "9e1a45cb9aec023eed535a73149f46f9c1bb7881ce6dd1d85c2dea14230b1a64"
+    },
+    ".gauntlet": {
+      "files": 2,
+      "sha256": "a0a6996bcf1793dea15ae52771ebe9921caba6a834ffb6a3537aece7a1a26f22"
+    },
+    "evidence/phase-2": {
+      "files": 18,
+      "sha256": "86dc4885943178a679fd7572d199281d5d667c2bd302e9add09035b2a1ed34e6"
+    },
+    "pyproject.toml": {
+      "files": 1,
+      "manifest_sha256": "a3e2379e101903cafce82cda1058a9d6f0c8cf66f143dc75443394fe0e97eb20",
+      "content_sha256": "0f06746386a89b03dcca9009662b405b86856d44dc101fe041885f29c4297485",
+      "size_bytes": 990
+    }
+  },
+  "limitations": [
+    "This is a pre-closeout snapshot, not a readiness verdict or independent review.",
+    "The existing control and readiness records were historical inputs and still referenced an earlier HEAD; reconciliation is intentionally performed after this capture.",
+    "The references/skill-audit submodule is preserved read-only and is not initialized in this checkout.",
+    "No installed Skills, global Codex configuration, MCP configuration, credentials, external provider, deployment, push, or production state was accessed or changed."
+  ]
+}

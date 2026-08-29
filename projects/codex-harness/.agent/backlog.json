@@ -43,7 +43,7 @@
       "title": "Implement the bounded Phase 2 Execution Kernel",
       "stage": "BUILD",
       "priority": "P0",
-      "status": "VERIFY",
+      "status": "DONE",
       "origin": "User-supplied Phase 2 Execution Kernel specification",
       "dependencies": ["PHASE1-001"],
       "owner": "lead",
@@ -57,12 +57,18 @@
         "docs/implementation/phase-2-gap-map.md",
         "evidence/phase-2/readiness.json",
         "evidence/phase-2/independent-review.md",
+        "evidence/phase-2/review-manifest.json",
+        "evidence/phase-2/review-attestation.json",
+        "evidence/phase-2/PHASE2-FROZEN.md",
+        ".agent/gates/PHASE2-VERIFIED-0001.json",
         ".agent/verification.jsonl#VER-PHASE2-FINAL-LOCAL-0001",
         ".agent/execution-log.jsonl#EVT-PHASE2-CHECKPOINT-CORRECTION-0001",
         ".agent/verification.jsonl#VER-PHASE2-FINAL-CLOSEOUT-0001",
-        ".agent/execution-log.jsonl#EVT-PHASE2-FINAL-VERIFY-0001"
+        ".agent/execution-log.jsonl#EVT-PHASE2-FINAL-VERIFY-0001",
+        ".agent/verification.jsonl#VER-PHASE2-FINAL-EXACT-0001",
+        ".agent/execution-log.jsonl#EVT-PHASE2-COMPLETE-0001"
       ],
-      "next_action": "Obtain independent confirmation against the current source, test and evidence fingerprints; retain CONDITIONAL PASS and do not request PHASE2-VERIFIED until that gate is satisfied."
+      "next_action": "Keep the bounded Phase 2 packet frozen; any payload or scope change requires a new evidence, manifest and independent-review cycle."
     }
   ]
 }

@@ -1,0 +1,179 @@
+{
+  "schema_version": "P2-REVIEW-MANIFEST-1",
+  "created_at": "2026-08-28T22:49:28-03:00",
+  "review_status": "FROZEN_FOR_FINAL_EXACT_PACKET_REVIEW",
+  "goal": "Close Phase 2 as the bounded project-local deterministic execution kernel without expanding into Phase 3 or real Codex host/provider integration.",
+  "quality_bar": "P2-QB-1",
+  "reviewed_head_sha": "d95568aa5e4821a3e1d38c718dac6eb473676cdd",
+  "worktree_expectation": {
+    "status": "DIRTY_EVIDENCE_ONLY",
+    "source_tests_config_clean": true,
+    "allowed_changes": [
+      "evidence/phase-2/",
+      "control-ledger and closeout records outside the immutable payload"
+    ]
+  },
+  "hash_method": {
+    "algorithm": "SHA-256",
+    "scope_root": "projects/codex-harness",
+    "path_resolution": "Every recorded path resolves from the project root; the explicitly scoped architecture inputs use ../../architecture/... because architecture/ is a repository-level sibling of projects/.",
+    "scope_digest": "Sort the exact recorded relative paths, hash each resolved regular file with sha256sum, concatenate the resulting sha256sum records, and hash that manifest.",
+    "file_digest": "SHA-256 of the exact file bytes.",
+    "scope_exclusions": [
+      "__pycache__ directories",
+      "*.pyc files",
+      ".pytest_cache directories",
+      ".mypy_cache directories",
+      ".ruff_cache directories",
+      ".venv directories",
+      ".coverage files"
+    ]
+  },
+  "immutable_payload": {
+    "source": {
+      "root": "src",
+      "files": 29,
+      "sha256": "6d6cd917acf2db16649e66140fa300e2704aea9a900c7f21e10ee0658654ce47"
+    },
+    "tests": {
+      "root": "tests",
+      "files": 26,
+      "sha256": "99bec226f4c5c060f9cf2c07e49d72ee3dfd4b631a90258dcb8efea46368a1fd"
+    },
+    "config": {
+      "root": "config",
+      "files": 1,
+      "sha256": "1f4c1595be5e55619a5f2e26b220a67be097ca5dffc97c539900c794a12b99a6"
+    },
+    "harness_config": {
+      "root": ".harness/config",
+      "files": 1,
+      "sha256": "24bcb96d5a5830514d7c9e6df7b027e2a8d300b93ef0377d8d9e8be547ebe6c7"
+    },
+    "pyproject": {
+      "path": "pyproject.toml",
+      "files": 1,
+      "manifest_sha256": "a3e2379e101903cafce82cda1058a9d6f0c8cf66f143dc75443394fe0e97eb20",
+      "content_sha256": "0f06746386a89b03dcca9009662b405b86856d44dc101fe041885f29c4297485",
+      "size_bytes": 990
+    },
+    "architecture_baseline": {
+      "files": 44,
+      "sha256": "afe5e5609d7bc9a28b6a88f2a913c854aa3dcaa678d1c4d5cb548ff9ec913599",
+      "paths": [
+        "../../architecture/HARNESS-SPEC.md",
+        "../../architecture/docs/04-authority-model.md",
+        "../../architecture/docs/06-routing-system.md",
+        "../../architecture/docs/07-orchestration-model.md",
+        "../../architecture/docs/12-composition-contracts.md",
+        "../../architecture/docs/13-verification-system.md",
+        "../../architecture/docs/14-assurance-system.md",
+        "../../architecture/docs/15-stop-conditions.md",
+        "../../architecture/docs/18-telemetry.md",
+        "../../architecture/docs/19-observability.md",
+        "../../architecture/docs/20-eval-framework.md",
+        "../../architecture/docs/21-quality-model.md",
+        "../../architecture/docs/22-aaa-definition.md",
+        "../../architecture/docs/23-security-model.md",
+        "../../architecture/docs/24-failure-model.md",
+        "../../architecture/docs/25-degradation-model.md",
+        "../../architecture/docs/26-artifact-model.md",
+        "../../architecture/docs/27-state-model.md",
+        "../../architecture/docs/38-implementation-roadmap.md",
+        "../../architecture/docs/39-priority-matrix.md",
+        "../../architecture/docs/40-risk-register.md",
+        "../../architecture/docs/adr/ADR-001-capability-architecture.md",
+        "../../architecture/docs/adr/ADR-002-director-model.md",
+        "../../architecture/docs/adr/ADR-003-orchestration-policy.md",
+        "../../architecture/docs/adr/ADR-004-verification-authority.md",
+        "../../architecture/docs/adr/ADR-005-gauntlet-role.md",
+        "../../architecture/docs/adr/ADR-006-progressive-disclosure.md",
+        "../../architecture/docs/adr/ADR-007-telemetry.md",
+        "../../architecture/docs/adr/ADR-008-skill-modernization-strategy.md",
+        "../../architecture/docs/adr/ADR-009-codex-native-first.md",
+        "../../architecture/docs/adr/ADR-010-design-director-golden-reference.md",
+        "../../architecture/docs/adr/ADR-011-python-stdlib-kernel.md",
+        "../../architecture/docs/contracts/ArtifactRecord.json.md",
+        "../../architecture/docs/contracts/CapabilityInvocation.json.md",
+        "../../architecture/docs/contracts/CapabilityManifest.json.md",
+        "../../architecture/docs/contracts/CritiqueReport.json.md",
+        "../../architecture/docs/contracts/EvidenceRecord.json.md",
+        "../../architecture/docs/contracts/ExecutionGraph.json.md",
+        "../../architecture/docs/contracts/QualityReport.json.md",
+        "../../architecture/docs/contracts/RouteDecision.json.md",
+        "../../architecture/docs/contracts/RunSummary.json.md",
+        "../../architecture/docs/contracts/TaskProfile.json.md",
+        "../../architecture/docs/contracts/TelemetryEvent.json.md",
+        "../../architecture/docs/contracts/VerificationReport.json.md"
+      ]
+    },
+    "phase2_contracts": {
+      "files": 2,
+      "sha256": "d076b493f66f5419d6964d41a560be044dba90901814c4fbedec057e8d993427",
+      "paths": [
+        "docs/implementation/phase-2-quality-bar.md",
+        "docs/phase-2-threat-model.md"
+      ]
+    },
+    "benchmark_input": {
+      "path": ".harness/capabilities/harness-kernel/manifest.json",
+      "sha256": "d43463b87f33b76568a520a8a90d0632ddc7f1ecf64e440e7c6872fb660bf8e3"
+    },
+    "benchmark_config": {
+      "path": ".harness/config/kernel.json",
+      "sha256": "a2cf869a171919195f138ca5b8ca91cf84360095a9b01140d663803c3efed13f"
+    },
+    "pre_review_evidence": {
+      "files": 14,
+      "sha256": "83c3d34acf9851e069bf0d671d056fdbe69d279b3521be9c07f9478c6c40da89",
+      "paths": [
+        "evidence/phase-2/authority-enforcement-report.md",
+        "evidence/phase-2/benchmark-summary.json",
+        "evidence/phase-2/cli-report.md",
+        "evidence/phase-2/closeout-baseline.json",
+        "evidence/phase-2/coverage-report.md",
+        "evidence/phase-2/execution-contract-report.md",
+        "evidence/phase-2/graph-validation-report.md",
+        "evidence/phase-2/lint-report.md",
+        "evidence/phase-2/provider-report.md",
+        "evidence/phase-2/security-summary.md",
+        "evidence/phase-2/state-machine-report.md",
+        "evidence/phase-2/telemetry-report.md",
+        "evidence/phase-2/typecheck-report.md",
+        "evidence/phase-2/verification-report.md"
+      ]
+    }
+  },
+  "excluded_from_immutable_payload": [
+    "evidence/phase-2/review-manifest.json",
+    "evidence/phase-2/review-attestation.json",
+    "evidence/phase-2/readiness.json",
+    "evidence/phase-2/independent-review.md",
+    "evidence/phase-2/final-readiness.md",
+    "evidence/phase-2/final-report.md",
+    "evidence/phase-2/README.md",
+    ".agent/",
+    ".gauntlet/"
+  ],
+  "reviewer_required_declarations": [
+    "reviewed_source_sha256",
+    "reviewed_tests_sha256",
+    "reviewed_config_sha256",
+    "reviewed_harness_config_sha256",
+    "reviewed_pyproject_content_sha256",
+    "reviewed_architecture_sha256",
+    "reviewed_benchmark_input_sha256",
+    "reviewed_evidence_sha256",
+    "reviewed_head_sha",
+    "verdict",
+    "findings_by_severity",
+    "limitations"
+  ],
+  "review_safety": {
+    "mode": "READ_ONLY",
+    "no_source_tests_config_edits": true,
+    "no_external_providers": true,
+    "no_global_configuration": true,
+    "no_deploy_push_or_production_effect": true
+  }
+}

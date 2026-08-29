@@ -21,9 +21,12 @@ credenciais, host internals ou configuração global.
 - [typecheck-report.md](./typecheck-report.md)
 - [benchmark-summary.json](./benchmark-summary.json)
 - [independent-review.md](./independent-review.md)
+- [review-manifest.json](./review-manifest.json)
+- [review-attestation.json](./review-attestation.json)
 - [readiness.json](./readiness.json)
 - [final-readiness.md](./final-readiness.md)
 - [final-report.md](./final-report.md)
+- [PHASE2-FROZEN.md](./PHASE2-FROZEN.md)
 
 ## Cenários golden
 
@@ -49,14 +52,13 @@ Fase 1 permanecem parte da suíte completa.
 ## Resultado atual
 
 A rodada local final passou em 232 testes, com 85% de cobertura total, Ruff,
-mypy, 34 testes de integração CLI, benchmark `P2-BENCH-1` e scans de
-segurança. Três reviewers read-only encontraram bloqueios antes do hardening;
-uma crítica read-only pós-hardening encontrou três achados adicionais, todos
-corrigidos e retestados. A confirmação independente final contra o pacote atual
-teve uma tentativa read-only adicional (`CONDITIONAL_PASS`), sem novo defeito
-de implementação; como a reconciliação posterior alterou os bytes do pacote,
-a aprovação do pacote exato ainda está pendente. O status permanece `CONDITIONAL PASS` e nenhum gate
-`PHASE2-VERIFIED` é alegado.
+mypy, 45 testes de CLI, benchmark `P2-BENCH-1` e scans de segurança. Três
+reviewers read-only encontraram bloqueios antes do hardening; as críticas
+read-only posteriores encontraram achados adicionais, todos corrigidos e
+retestados. Aristotle confirmou os hashes imutáveis e bloqueou a readiness
+stale; ela foi reconciliada para o `HEAD` atual, e Lagrange aprovou a revisão
+exata final. O status é `PASS_WITH_LIMITATIONS` e o gate `PHASE2-VERIFIED` é
+bounded, sem alegação de produção ou `AAA_VERIFIED`.
 
 ## Limitações assumidas
 
