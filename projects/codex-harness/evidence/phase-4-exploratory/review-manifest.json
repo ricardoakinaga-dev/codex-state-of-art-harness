@@ -1,0 +1,117 @@
+{
+  "entries": [
+    {
+      "path": "README.md",
+      "sha256": "sha256:a07dbfc68213d41ba94bcc892abe1f08aff0eed3575130e3a53b0b26d5f7e2d9",
+      "size_bytes": 1116
+    },
+    {
+      "path": "artifact-report.md",
+      "sha256": "sha256:b1e7822cfa86490dd09c1a16d1e844ecba2d353eec1cb31dc7928f8c6bed26cc",
+      "size_bytes": 430
+    },
+    {
+      "path": "artifacts/ART-INV-47ad9540f4bb5ae9a0bf84fc.host-response.txt",
+      "sha256": "sha256:b866a22cf1b2e136182545d070c8ee7f578d62d65356d306748577325689e3f2",
+      "size_bytes": 70
+    },
+    {
+      "path": "authorizations/AUTH-14a0b0ea47805f84ac279272.json",
+      "sha256": "sha256:378b29486ce4d39b6f2662fcd98694576b8a06d0e7a1e3f307cd32f024da9bd1",
+      "size_bytes": 1550
+    },
+    {
+      "path": "benchmark-summary.json",
+      "sha256": "sha256:a320759c7a0cfc476f83e5117bcba8deec014913dbf6b15d79356fa04ad951ae",
+      "size_bytes": 852
+    },
+    {
+      "path": "context-manifests/INV-47ad9540f4bb5ae9a0bf84fc.json",
+      "sha256": "sha256:0a6c16c0a2329c616b3748d05db078e5a78e0ea5e1e2370af24493e7fea0b2fa",
+      "size_bytes": 607
+    },
+    {
+      "path": "coverage-report.md",
+      "sha256": "sha256:b82888d57fdea3fff0e0104185f8d21960eb26d4744529bf091805e02a369ba5",
+      "size_bytes": 201
+    },
+    {
+      "path": "design-director-pilot-report.md",
+      "sha256": "sha256:59fb7a768359888c756ceff0e25da47f598c532d86d73a846ac8d63f59beee58",
+      "size_bytes": 391
+    },
+    {
+      "path": "execution-policy.json",
+      "sha256": "sha256:9e2cbf663645d6e871f56ee6a6fa3b0e4c85d106720205ca63cebc557bc6b1e5",
+      "size_bytes": 2045
+    },
+    {
+      "path": "host-invocation-capabilities.json",
+      "sha256": "sha256:73b086e0a6aaa4e28d53c721a7029cb37ccbf848adf8e30e06fa3ab6a9ad2b82",
+      "size_bytes": 3169
+    },
+    {
+      "path": "host-load-causality-report.md",
+      "sha256": "sha256:604ac9d70d32d3e017cd2a2e0ef87b9e9dbe6f179c1f8e1e985d563589cbfce0",
+      "size_bytes": 450
+    },
+    {
+      "path": "invocation-receipts/INV-47ad9540f4bb5ae9a0bf84fc.json",
+      "sha256": "sha256:cf4cf69a44604735a4722903ce0a8517bb2b1097704a6995dc3a63bc2c3cb30c",
+      "size_bytes": 1421
+    },
+    {
+      "path": "phase2-regression.md",
+      "sha256": "sha256:fad653db33b9426627e0382f83c3c2bb9233e656726dd139e22692487efab5f1",
+      "size_bytes": 151
+    },
+    {
+      "path": "phase3-regression.md",
+      "sha256": "sha256:347e8c74f9caa41f8265dd8ea28aa4350091c082effc9d22c1eacee94eb51a5a",
+      "size_bytes": 189
+    },
+    {
+      "path": "pilot-allowlist.json",
+      "sha256": "sha256:8d70a23bb5e51005fc7f5a90b86d0cacdebd4745e06dde8b8ea15ae1122dad76",
+      "size_bytes": 1338
+    },
+    {
+      "path": "security-summary.md",
+      "sha256": "sha256:f531bde2d9985d6cdc6d34057be1ca128f405d61cd60d3d8a7ae232d912981f1",
+      "size_bytes": 602
+    },
+    {
+      "path": "telemetry-report.md",
+      "sha256": "sha256:89c61852e2a56d34e0cbdbaf10b9c43b5e4199bf657b532be2d533dc8b89ce69",
+      "size_bytes": 407
+    },
+    {
+      "path": "telemetry/INV-47ad9540f4bb5ae9a0bf84fc.json",
+      "sha256": "sha256:1efd77c8694edb96db55c21fbf04b156229b08826a41706e31f94cffc1e683b1",
+      "size_bytes": 407
+    },
+    {
+      "path": "telemetry/INV-47ad9540f4bb5ae9a0bf84fc.jsonl",
+      "sha256": "sha256:138d4db66d92ad1f2bd1c794479f586ee7ece20580a394b9665297b751ebce74",
+      "size_bytes": 1734
+    },
+    {
+      "path": "verification-pilot-report.md",
+      "sha256": "sha256:ed2e559f3abee25dd28abfb9bee20e7196cd167f28f133b401911e11287b6deb",
+      "size_bytes": 250
+    },
+    {
+      "path": "verification-report.md",
+      "sha256": "sha256:d237241039f36c39ee037a3cd6c3196022754d2b9c77bf714918f4e292dd80bf",
+      "size_bytes": 384
+    },
+    {
+      "path": "verification/INV-47ad9540f4bb5ae9a0bf84fc.json",
+      "sha256": "sha256:776278f817babd6a05be51c19b39dc033309c95507f926f41cbc3e627f8162e9",
+      "size_bytes": 732
+    }
+  ],
+  "entry_count": 22,
+  "payload_closure": "sha256:a8190096c137e05b41ba2d23c8b511f3c8cea400bbc574dd79c5c7c30f73b6e2",
+  "schema_version": "P4-REVIEW-MANIFEST-1"
+}

@@ -1,0 +1,695 @@
+{
+  "authorized_thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+  "authorized_turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2",
+  "correlation": "every explicit threadId/turnId in accepted host events matched; all parsed protocol messages were counted",
+  "invocation_id": "INV-84f7b47ea606539e92305782",
+  "result": {
+    "approval_request_count": 0,
+    "cancellation_status": "NOT_REQUESTED",
+    "completed_at": 1788019463,
+    "denied_approvals": 0,
+    "error_code": null,
+    "events": [
+      {
+        "detail": null,
+        "event_class": "HOST_INVOCATION_ACKNOWLEDGED",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2",
+        "item_type": null,
+        "method": "turn/start",
+        "sequence": 0,
+        "status": "started",
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "thread/status/changed",
+        "sequence": 1,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "turn/started",
+        "sequence": 2,
+        "status": "inProgress",
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a04e43-c4e6-7a73-a0c5-e9cb22fe78d3",
+        "item_type": "userMessage",
+        "method": "item/started",
+        "sequence": 3,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a04e43-c4e6-7a73-a0c5-e9cb22fe78d3",
+        "item_type": "userMessage",
+        "method": "item/completed",
+        "sequence": 4,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "msg_0f42151317af5bc8016a930306c04087d2a1f469600e6914fd",
+        "item_type": "agentMessage",
+        "method": "item/started",
+        "sequence": 5,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 6,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 7,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 8,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 9,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 10,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 11,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 12,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 13,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 14,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 15,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 16,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 17,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 18,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 19,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 20,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 21,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 22,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 23,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 24,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 25,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 26,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "msg_0f42151317af5bc8016a930306c04087d2a1f469600e6914fd",
+        "item_type": "agentMessage",
+        "method": "item/completed",
+        "sequence": 27,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "thread/tokenUsage/updated",
+        "sequence": 28,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "account/rateLimits/updated",
+        "sequence": 29,
+        "status": null,
+        "thread_id": null,
+        "turn_id": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "thread/status/changed",
+        "sequence": 30,
+        "status": null,
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "turn/completed",
+        "sequence": 31,
+        "status": "completed",
+        "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+        "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+      }
+    ],
+    "execution_observed": true,
+    "final_message": "PHASE4_SAFE_PILOT_ARTIFACT\n\nThis is a bounded host-invocation test.",
+    "host_command": [
+      "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+      "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "features.apps=false",
+      "app-server",
+      "--listen",
+      "stdio://"
+    ],
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_executable_path": "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+    "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+    "host_interpreter_path": "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+    "host_version": "codex-state-of-art-harness/0.150.1 (Linux Mint 22.3.0; x86_64) dumb (codex-state-of-art-harness; 0.1.0)",
+    "invocation_observed": true,
+    "load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "mcp_event_count": 0,
+    "protocol_message_count": 38,
+    "protocol_messages": [
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 0
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "configWarning",
+        "sequence": 1
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "remoteControl/status/changed",
+        "sequence": 2
+      },
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 3
+      },
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 4
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/started",
+        "sequence": 5
+      },
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 6
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/status/changed",
+        "sequence": 7
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "turn/started",
+        "sequence": 8
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/started",
+        "sequence": 9
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/completed",
+        "sequence": 10
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/started",
+        "sequence": 11
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 12
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 13
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 14
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 15
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 16
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 17
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 18
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 19
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 20
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 21
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 22
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 23
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 24
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 25
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 26
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 27
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 28
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 29
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 30
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 31
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 32
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/completed",
+        "sequence": 33
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/tokenUsage/updated",
+        "sequence": 34
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "account/rateLimits/updated",
+        "sequence": 35
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/status/changed",
+        "sequence": 36
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "turn/completed",
+        "sequence": 37
+      }
+    ],
+    "session_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+    "started_at": 1788019455,
+    "status": "SUCCESS",
+    "thread_id": "01a04e43-bf21-7f80-affa-a9bb02053c53",
+    "turn_id": "01a04e43-bf67-7551-8e01-b4482d64b8f2"
+  },
+  "schema_version": "P4-HOST-RESULT-1"
+}

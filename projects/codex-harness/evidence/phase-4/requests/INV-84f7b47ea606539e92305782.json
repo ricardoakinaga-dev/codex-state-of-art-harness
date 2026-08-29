@@ -1,0 +1,98 @@
+{
+  "request": {
+    "acceptance_criteria": [
+      "response is non-empty",
+      "marker: PHASE4_SAFE_PILOT_ARTIFACT"
+    ],
+    "authorization": {
+      "allowed_side_effects": [],
+      "allowed_tools": [],
+      "artifact_policy": {
+        "max_bytes": 16384,
+        "max_count": 1,
+        "types": [
+          "HOST_RESPONSE"
+        ]
+      },
+      "authorization_id": "AUTH-e83fb3d2c16e59aaa39f5b48",
+      "capability_id": "phase4-safe-pilot",
+      "capability_version": "0.1.0",
+      "constraints": [
+        "no arbitrary shell",
+        "no scripts",
+        "no network",
+        "no MCP",
+        "no providers",
+        "no credentials",
+        "no subagents"
+      ],
+      "context_budget": {
+        "max_bytes": 131072
+      },
+      "credential_policy": "DENY",
+      "evidence_policy": {
+        "max_count": 64,
+        "max_events": 256
+      },
+      "expires_at": 1788019529,
+      "filesystem_policy": {
+        "artifact_root": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4/artifacts",
+        "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+        "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+        "mode": "READ_ONLY",
+        "workspace": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project"
+      },
+      "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+      "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+      "issued_at": 1788019454,
+      "issued_by": "phase4-preflight",
+      "iteration_budget": {
+        "host_calls": 1,
+        "repair_iterations": 0,
+        "tool_calls": 0,
+        "verification_iterations": 1
+      },
+      "mcp_policy": "DENY",
+      "network_policy": "DENY",
+      "package_fingerprint": "sha256:76938b6602da712c10fe8aa2f67b97d57c5118c812a3fe38a033ebe7e6e1ed3e",
+      "provider_policy": "DENY",
+      "reason": "script-free project-local fallback; preferred installed pilots are ineligible",
+      "requested_execution_mode": "CONTROLLED_REAL",
+      "requested_loading_level": "L2_INSTRUCTION_KERNEL",
+      "run_id": "RUN-P4-FINAL-PILOT-PROVENANCE-PINNED-RECAPTURE-4",
+      "scope": "PROJECT",
+      "shell_policy": "DENY",
+      "task_id": "TASK-P4-FINAL-PILOT-PROVENANCE-PINNED",
+      "timeout_seconds": 75
+    },
+    "context": {
+      "acceptance_criteria": [
+        "response is non-empty",
+        "marker: PHASE4_SAFE_PILOT_ARTIFACT"
+      ],
+      "capability_id": "phase4-safe-pilot",
+      "digest": "sha256:703699f0b9262563f119e74a5309ff43b5c46106cf53ea47e87f4c42000b247a",
+      "estimated_bytes": 526,
+      "omitted_references": [],
+      "package_fingerprint": "sha256:76938b6602da712c10fe8aa2f67b97d57c5118c812a3fe38a033ebe7e6e1ed3e",
+      "selected_references": [],
+      "skill_path": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.agents/skills/phase4-safe-pilot/SKILL.md",
+      "sources": [
+        "HOST_MANAGED_SKILL"
+      ],
+      "task_digest": "sha256:c55745baf6005559640a5f7a2ac43adf7f6465a731758340c006b5e4d5f7fb6b",
+      "task_id": "TASK-P4-FINAL-PILOT-PROVENANCE-PINNED"
+    },
+    "expected_artifacts": [
+      "HOST_RESPONSE"
+    ],
+    "idempotency_key": "IDEM-84f7b47ea606539e92305782",
+    "invocation_id": "INV-84f7b47ea606539e92305782",
+    "skill_name": "phase4-safe-pilot",
+    "skill_path": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.agents/skills/phase4-safe-pilot/SKILL.md",
+    "task": "Return a short final response containing the exact marker.",
+    "workspace": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project"
+  },
+  "request_digest": "sha256:85351c304597a7410ed926b41e076ccb7b3699a4a3d9f3279f4cd3984fd4b2c0",
+  "schema_version": "P4-REQUEST-1"
+}

@@ -1,0 +1,3 @@
+# Security summary
+
+Static security review passed for the bounded surface: no operational credentials or tokens were found; the only secret-like literals are intentional Phase 2 redaction fixtures. The controlled pilot uses exact package, executable and interpreter fingerprints, project-local read-only workspace confinement, empty MCP configuration, disabled apps, zero tool budget, denied approvals, no network access, bounded output, persistent replay protection and metadata-only global snapshots. Shell, scripts, network, MCP, providers, credentials, side effects and subagents remain denied. `pip-audit` is unavailable in this environment, so this packet is security `PASS_WITH_LIMITATIONS`, not a dependency-vulnerability certification.

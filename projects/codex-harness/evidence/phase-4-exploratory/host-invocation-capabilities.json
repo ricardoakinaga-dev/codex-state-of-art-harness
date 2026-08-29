@@ -1,0 +1,91 @@
+{
+  "schema_version": "P4-HOST-CAPABILITIES-1",
+  "captured_at": "2026-08-29",
+  "host": {
+    "binary": "codex app-server --listen stdio://",
+    "observed_version": "codex-state-of-art-harness/0.150.1",
+    "transport": "newline-delimited JSON-RPC 2.0 over stdio",
+    "support_level": "P4_LEVEL_B"
+  },
+  "invocation_matrix": [
+    {
+      "surface": "initialize",
+      "host_status": "OFFICIAL_DOCUMENTED",
+      "local_observation": "OBSERVED",
+      "evidence": "app-server initialize response returned userAgent"
+    },
+    {
+      "surface": "initialized",
+      "host_status": "OFFICIAL_DOCUMENTED",
+      "local_observation": "OBSERVED",
+      "evidence": "notification accepted before skills/list"
+    },
+    {
+      "surface": "skills/list",
+      "host_status": "OFFICIAL_DOCUMENTED",
+      "local_observation": "OBSERVED",
+      "evidence": "exact capability name and absolute path matched"
+    },
+    {
+      "surface": "thread/start",
+      "host_status": "OFFICIAL_DOCUMENTED",
+      "local_observation": "OBSERVED",
+      "evidence": "ephemeral read-only thread returned thread and session IDs"
+    },
+    {
+      "surface": "turn/start with typed skill input",
+      "host_status": "OFFICIAL_DOCUMENTED",
+      "local_observation": "OBSERVED",
+      "evidence": "turn ID returned after text plus type=skill input"
+    },
+    {
+      "surface": "item/* and turn/* notifications",
+      "host_status": "OFFICIAL_DOCUMENTED",
+      "local_observation": "OBSERVED",
+      "evidence": "34 bounded host events collected"
+    },
+    {
+      "surface": "turn/interrupt",
+      "host_status": "OFFICIAL_DOCUMENTED",
+      "local_observation": "IMPLEMENTED_AND_NEGATIVE_TESTED",
+      "evidence": "timeout/cancel path is terminal and cannot verify"
+    },
+    {
+      "surface": "distinct skill-load causality event",
+      "host_status": "NOT_DOCUMENTED_FOR_THIS_BOUNDARY",
+      "local_observation": "HOST_LOAD_UNOBSERVABLE",
+      "evidence": "pilot emitted no correlated skill/loaded event"
+    }
+  ],
+  "bounded_host_request": {
+    "thread": "ephemeral",
+    "thread_sandbox": "read-only",
+    "turn_sandbox": "readOnly",
+    "network_access": false,
+    "approval_policy": "on-request; every approval is declined",
+    "runtime_workspace_roots": "one project-local workspace",
+    "developer_instruction": "deny shell, scripts, network, MCP, providers, credentials, subagents, tools and file changes"
+  },
+  "sources": [
+    {
+      "title": "Codex app server",
+      "url": "https://learn.chatgpt.com/docs/codex/app-server",
+      "used_for": "JSON-RPC transport, initialize, thread/turn lifecycle and approvals"
+    },
+    {
+      "title": "Codex CLI",
+      "url": "https://learn.chatgpt.com/docs/codex/cli",
+      "used_for": "host surface and local CLI identity"
+    },
+    {
+      "title": "Codex non-interactive mode",
+      "url": "https://learn.chatgpt.com/docs/codex/non-interactive-mode",
+      "used_for": "non-interactive bounded execution context"
+    },
+    {
+      "title": "Codex SDK",
+      "url": "https://learn.chatgpt.com/docs/codex/codex-sdk",
+      "used_for": "official programmatic integration boundary comparison"
+    }
+  ]
+}

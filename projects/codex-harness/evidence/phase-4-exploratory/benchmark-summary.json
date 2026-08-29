@@ -1,0 +1,32 @@
+{
+  "harness_operations": [
+    {
+      "max": 0.001,
+      "median": 0.0,
+      "min": 0.0,
+      "name": "artifact_read",
+      "p95": 0.001,
+      "sample_count": 10,
+      "slo": "informational; no production performance claim",
+      "unit": "milliseconds"
+    },
+    {
+      "max": 0.122,
+      "median": 0.069,
+      "min": 0.063,
+      "name": "receipt_serialization",
+      "p95": 0.122,
+      "sample_count": 10,
+      "slo": "informational; no production performance claim",
+      "unit": "milliseconds"
+    }
+  ],
+  "host_latency": {
+    "claim": "single real host observation; not a performance guarantee",
+    "observed_elapsed_seconds": 10,
+    "sample_count": 1,
+    "source": "pilot receipt integer timestamps"
+  },
+  "purpose": "reproducibility and control-plane measurement, not a production SLO",
+  "schema_version": "P4-BENCH-1"
+}

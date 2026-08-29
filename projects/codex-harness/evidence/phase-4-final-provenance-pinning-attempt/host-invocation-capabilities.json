@@ -1,0 +1,166 @@
+{
+  "adapter": "CodexAppServerAdapter",
+  "capability_matrix": [
+    {
+      "adapter_support": "ENFORCED",
+      "confidence": "HIGH",
+      "feature": "jsonrpc_app_server",
+      "limitations": "Codex app-server semantics are bounded to the recorded version.",
+      "observed_support": "HOST_OBSERVED",
+      "official_documentation": "https://learn.chatgpt.com/docs/codex/app-server"
+    },
+    {
+      "adapter_support": "REQUIRED",
+      "confidence": "HIGH",
+      "feature": "initialize",
+      "limitations": "No claim beyond the captured JSON-RPC handshake.",
+      "observed_support": "HOST_OBSERVED",
+      "official_documentation": "https://learn.chatgpt.com/docs/codex/app-server"
+    },
+    {
+      "adapter_support": "EXACT_NAME_PATH_ENABLED_REQUIRED",
+      "confidence": "HIGH",
+      "feature": "skills_list_discovery",
+      "limitations": "Discovery is not proof of causal Skill loading.",
+      "observed_support": "HOST_OBSERVED",
+      "official_documentation": "https://learn.chatgpt.com/docs/codex/app-server"
+    },
+    {
+      "adapter_support": "REQUIRED",
+      "confidence": "HIGH",
+      "feature": "typed_skill_input",
+      "limitations": "Only one bounded Skill input was exercised.",
+      "observed_support": "HOST_OBSERVED",
+      "official_documentation": "https://learn.chatgpt.com/docs/codex/app-server"
+    },
+    {
+      "adapter_support": "REQUIRED",
+      "confidence": "HIGH",
+      "feature": "ephemeral_read_only_thread",
+      "limitations": "Read-only and project-root restrictions remain host-policy parameters.",
+      "observed_support": "HOST_OBSERVED",
+      "official_documentation": "https://learn.chatgpt.com/docs/codex/app-server"
+    },
+    {
+      "adapter_support": "ENFORCED",
+      "confidence": "MEDIUM",
+      "feature": "network_denial",
+      "limitations": "The pilot did not perform a network probe.",
+      "observed_support": "REQUESTED_AND_BOUND",
+      "official_documentation": "https://learn.chatgpt.com/docs/codex/app-server"
+    },
+    {
+      "adapter_support": "DECLINE_IF_REQUESTED",
+      "confidence": "MEDIUM",
+      "feature": "approval_denial",
+      "limitations": "The final pilot exercised no approval request; adversarial denial is unit-tested.",
+      "observed_support": "NO_APPROVAL_REQUEST_OBSERVED",
+      "official_documentation": "https://learn.chatgpt.com/docs/codex/app-server"
+    },
+    {
+      "adapter_support": "mcp_servers_EMPTY_AND_APPS_DISABLED",
+      "confidence": "HIGH",
+      "feature": "mcp_suppression",
+      "limitations": "This is a pilot isolation property, not a universal MCP claim.",
+      "observed_support": "ZERO_PARSED_MCP_EVENTS",
+      "official_documentation": "NOT_EXPLICITLY_DOCUMENTED_AS_A_PHASE4_GUARANTEE"
+    },
+    {
+      "adapter_support": "CORRELATED_TO_THREAD_AND_TURN",
+      "confidence": "HIGH",
+      "feature": "turn_lifecycle_events",
+      "limitations": "Only the bounded lifecycle in this packet is evidenced.",
+      "observed_support": "HOST_OBSERVED",
+      "official_documentation": "https://learn.chatgpt.com/docs/codex/app-server"
+    },
+    {
+      "adapter_support": "COUNT_AND_SUMMARY_FOR_EVERY_PARSED_MESSAGE",
+      "confidence": "HIGH",
+      "feature": "complete_protocol_observation",
+      "limitations": "Transcript summaries intentionally omit payload contents and secrets.",
+      "observed_support": "FULL_TRANSCRIPT",
+      "official_documentation": "NOT_HOST_SEMANTICS"
+    },
+    {
+      "adapter_support": "DEADLINE_AND_INTERRUPT_BOUND",
+      "confidence": "MEDIUM",
+      "feature": "timeout_and_cancellation",
+      "limitations": "The final successful pilot did not need cancellation.",
+      "observed_support": "BOUNDED_AND_UNIT_TESTED",
+      "official_documentation": "https://learn.chatgpt.com/docs/codex/app-server"
+    },
+    {
+      "adapter_support": "PIN_AND_REHASH_BEFORE_PROCESS_START",
+      "confidence": "HIGH",
+      "feature": "host_executable_pinning",
+      "limitations": "The pin is for this host environment and policy fingerprint.",
+      "observed_support": "ABSOLUTE_PATH_AND_SHA256_RECORDED",
+      "official_documentation": "NOT_HOST_SEMANTICS"
+    },
+    {
+      "adapter_support": "FAILS_CLOSED_ON_UNOBSERVABLE_CAUSALITY_CLAIM",
+      "confidence": "HIGH",
+      "feature": "skill_load_causality",
+      "limitations": "Level C causal Skill-load evidence is not claimed.",
+      "observed_support": "HOST_LOAD_UNOBSERVABLE",
+      "official_documentation": "NOT_EXPOSED_BY_CAPTURED_PROTOCOL"
+    }
+  ],
+  "capability_matrix_schema": "P4-HOST-MATRIX-1",
+  "causality": "host execution observed; Skill load event unobservable",
+  "enforced_boundary": {
+    "approval_policy": "on-request with every approval declined",
+    "apps_feature_override": "features.apps=false",
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_executable_path": "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+    "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+    "host_interpreter_path": "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+    "isolated_runtime": "temporary HOME/CODEX_HOME with host auth copied only",
+    "mcp_config_override": "mcp_servers={}",
+    "network_access": false,
+    "process": [
+      "codex",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "features.apps=false",
+      "app-server",
+      "--listen",
+      "stdio://"
+    ],
+    "resolved_command": [
+      "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+      "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+      "-c",
+      "mcp_servers={}",
+      "features.apps=false",
+      "app-server",
+      "--listen",
+      "stdio://"
+    ],
+    "runtime_workspace_roots": [
+      "$WORKSPACE"
+    ],
+    "sandbox": "readOnly",
+    "shell_scripts_tools_providers_credentials_subagents": "DENIED"
+  },
+  "host": "Codex app-server",
+  "host_authentication": "host-managed and never sent as Skill input",
+  "host_version": "codex-state-of-art-harness/0.150.1 (Linux Mint 22.3.0; x86_64) dumb (codex-state-of-art-harness; 0.1.0)",
+  "observed_sequence": [
+    "initialize",
+    "skills/list",
+    "thread/start(ephemeral,read-only)",
+    "turn/start(typed text + typed skill input)",
+    "turn/completed"
+  ],
+  "official_sources": [
+    "https://learn.chatgpt.com/docs/codex/app-server",
+    "https://learn.chatgpt.com/docs/codex/cli",
+    "https://learn.chatgpt.com/docs/codex/non-interactive-mode",
+    "https://learn.chatgpt.com/docs/codex/codex-sdk"
+  ],
+  "outcome_status": "SUCCESS",
+  "schema_version": "P4-HOST-CAPABILITIES-1",
+  "support_level": "P4_LEVEL_B"
+}

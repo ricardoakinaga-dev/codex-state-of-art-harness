@@ -1,0 +1,19 @@
+{
+  "acceptance_criteria": [
+    "response is non-empty",
+    "marker: PHASE4_SAFE_PILOT_ARTIFACT"
+  ],
+  "capability_id": "phase4-safe-pilot",
+  "digest": "sha256:33b434f4e595998ad7b9272cda5f899b59045368a5c092bcde207c2bcec6c6e3",
+  "estimated_bytes": 526,
+  "omitted_references": [],
+  "package_fingerprint": "sha256:76938b6602da712c10fe8aa2f67b97d57c5118c812a3fe38a033ebe7e6e1ed3e",
+  "schema_version": "P4-CONTEXT-1",
+  "selected_references": [],
+  "skill_path": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.agents/skills/phase4-safe-pilot/SKILL.md",
+  "sources": [
+    "HOST_MANAGED_SKILL"
+  ],
+  "task_digest": "sha256:c55745baf6005559640a5f7a2ac43adf7f6465a731758340c006b5e4d5f7fb6b",
+  "task_id": "TASK-P4-FINAL-PILOT-APPS-OFF"
+}

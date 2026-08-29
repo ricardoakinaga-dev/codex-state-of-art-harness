@@ -1,0 +1,95 @@
+{
+  "attempt_count": 14,
+  "evidenced_real_invocation_count": 8,
+  "known_prior_attempts": [
+    {
+      "invocation_id": "INV-47ad9540f4bb5ae9a0bf84fc",
+      "mcp_startup_status_events": 0,
+      "receipt_digest": "sha256:badcf2c31779a19f24468b1111b2845c19d70842e1e17c4a1811fc0a98f55d28",
+      "source": "archived exploratory evidence",
+      "status": "SUCCESS"
+    },
+    {
+      "invocation_id": "INV-87a9942c9a8f5ebc82d2e080",
+      "mcp_startup_status_events": 3,
+      "receipt_digest": "sha256:027685ed6e83da523939e09ac22de8c2da04287366b9c43239282d0d466845f3",
+      "source": "archived MCP-boundary attempt",
+      "status": "SUCCESS"
+    },
+    {
+      "invocation_id": "INV-146dd2203cc253d79258abef",
+      "mcp_startup_status_events": 0,
+      "receipt_digest": "sha256:b3cc88f218e14420c163371cd8be6a1650dcd54345ecbb94df25be06326aa94b",
+      "source": "archived truncated-snapshot attempt",
+      "status": "SUCCESS"
+    },
+    {
+      "invocation_id": "INV-2d8b302529885a90812e4391",
+      "mcp_startup_status_events": 0,
+      "receipt_digest": "sha256:5664dd1cd7f2e7ce09f40c62e9ac17896de0695f9786ccd57da0d392f4caebb7",
+      "source": "archived scope-review attempt",
+      "status": "SUCCESS"
+    },
+    {
+      "invocation_id": "INV-41b4a9204e915ec294806b62",
+      "mcp_startup_status_events": 0,
+      "receipt_digest": "sha256:46da8169d1938b5c1bdf3beda375629dde3bcbb99a75342804c32826fddf6600",
+      "source": "archived provenance-pinning attempt",
+      "status": "SUCCESS"
+    },
+    {
+      "invocation_id": "INV-491bf851a6ea5d1199019fe2",
+      "mcp_startup_status_events": 0,
+      "receipt_digest": "sha256:299e7e32f14538e3cb181352a591e7a85a067b5acd7693ed5d5bfa01f244faa7",
+      "source": "archived final provenance-pinning attempt",
+      "status": "SUCCESS"
+    },
+    {
+      "invocation_id": "INV-0328aa2594075efa8d8c1a20",
+      "mcp_startup_status_events": 0,
+      "receipt_digest": "sha256:04f38a741786083d088016af0ae53fabfe25e369aa44a8846693f9630dc28dd5",
+      "source": "archived receipt-binding attempt",
+      "status": "SUCCESS"
+    },
+    {
+      "invocation_id": "INV-3858d2ba977b544cb8ca2f91",
+      "request_digest": "sha256:e220dc1cef983f29a5d8a25b209625ce5139a2861e8b27a431192c45bb5e8773",
+      "source": "project-local replay ledger",
+      "status": "UNRESOLVED_AFTER_PREVIOUS_ATTEMPT"
+    },
+    {
+      "invocation_id": "INV-52ea8a61f44d5cfda2078664",
+      "request_digest": "sha256:4f02e97e57c9dfc5053921943a4ce005be5acc222a3b070d378144b96edf01dc",
+      "source": "project-local replay ledger",
+      "status": "UNRESOLVED_AFTER_PREVIOUS_ATTEMPT"
+    },
+    {
+      "invocation_id": "INV-5eea538d961a5619a4890060",
+      "request_digest": "sha256:66472c959458b489433711913ffd269bd12ec419305a7ce19cfa65cc880a23ab",
+      "source": "project-local replay ledger",
+      "status": "UNRESOLVED_AFTER_PREVIOUS_ATTEMPT"
+    },
+    {
+      "invocation_id": "INV-c9fac90fd41a5775acb79298",
+      "request_digest": "sha256:688613580c1aba6919993b41556c4b0bf044977a4f83a0008ead4efcc01e818d",
+      "source": "project-local replay ledger",
+      "status": "UNRESOLVED_AFTER_PREVIOUS_ATTEMPT"
+    },
+    {
+      "invocation_id": "INV-d86bc3714a4f53239ea44ace",
+      "request_digest": "sha256:18360aaf9ddd9f8d6bc0ea9daf3de277c94d42f5fa7326db216cac28fc76d8db",
+      "source": "project-local replay ledger",
+      "status": "UNRESOLVED_AFTER_PREVIOUS_ATTEMPT"
+    },
+    {
+      "invocation_id": "INV-ffdcd09d7bd35ea8a01d3a8a",
+      "request_digest": "sha256:db0ec0aa61edd2ad4b4093c93ec7834f1f97c8f2b3fe5ebabf4b1fefa28e72d7",
+      "source": "project-local replay ledger",
+      "status": "UNRESOLVED_AFTER_PREVIOUS_ATTEMPT"
+    }
+  ],
+  "note": "Unresolved ledger reservations are retained and never replayed.",
+  "schema_version": "P4-ATTEMPT-HISTORY-1",
+  "successful_final_attempt": "INV-84f7b47ea606539e92305782",
+  "unresolved_reservation_count": 6
+}

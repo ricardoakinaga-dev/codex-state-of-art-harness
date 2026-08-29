@@ -133,3 +133,44 @@ closure `c9e81f65f5d9a86acb63360b0de60c256321d74cfa60be5c13d3300afb9e0420`.
 No host loading, arbitrary execution, production readiness or `AAA_VERIFIED`
 claim is made. The worktree is intentionally uncommitted and no global Codex
 state, Skills, providers, MCP, network or credentials were changed.
+
+## Phase 4 continuation — real capability invocation boundary
+
+- [x] (2026-08-29) Recovered the Phase 3 freeze and read the complete Phase 4 specification.
+- [x] (2026-08-29) Verified the official local Codex app-server handshake, Skill listing, ephemeral thread, typed Skill input and real bounded turn without global mutation.
+- [x] (2026-08-29) Recorded ADR-013, P4-QB-1 and the living Phase 4 ExecPlan.
+- [x] Add the explicit project-local execution policy, pilot allowlist and safe fixture.
+- [x] Write and run the Phase 4 TDD RED contract/eval suite.
+- [x] Implement the policy, authorization, context, adapter, lifecycle, artifacts, verification, assurance and CLI.
+- [x] Run the safe real pilot plus blocked preferred pilots and all negative pilots.
+- [x] Run full regressions, coverage, Ruff, mypy, security and P4-BENCH-1.
+- [x] Obtain independent exact-packet review and record the final support level.
+
+### Current Phase 4 decision
+
+The official host surface is available and a real Skill turn was observed, but
+the current protocol exposes no distinct Skill-load event. The strongest
+honest target is therefore Level B unless a later host measurement proves
+Level C. `design-director` and `verification-loop` are not promoted while
+their current Phase 3 eligibility remains blocked; a script-free project
+fixture is the explicitly documented fallback.
+
+### Current Phase 4 verification checkpoint
+
+The hardened candidate has 369 passing tests, 80.059% combined coverage,
+passing Ruff and strict mypy, one fresh successful controlled-real pilot with
+38 protocol messages and zero MCP events, and a 277-entry exact primary
+manifest that also binds historical attempt packets. The control state is
+closed as `PASS_WITH_LIMITATIONS` after independent exact-packet review.
+
+### Final Phase 4 result
+
+The exact packet closed as `PASS_WITH_LIMITATIONS` at `P4_LEVEL_B`: 369 tests
+passed, combined coverage is 80.059%, Ruff and strict mypy pass, the fresh
+controlled-real pilot observed 38 protocol messages with zero MCP or approval
+events, and Einstein's independent review found zero Critical, High, Medium or
+Low findings. The primary manifest is
+`sha256:5b3d489e728a57a3eda55fdfa93899e14a6177553e48dab6d46709730b122f12`;
+the complete post-review packet is frozen by `evidence/phase-4/review-closure.json`.
+`HOST_LOAD_UNOBSERVABLE`, unavailable `pip-audit`, production readiness,
+arbitrary execution and `AAA_VERIFIED` remain explicitly excluded.

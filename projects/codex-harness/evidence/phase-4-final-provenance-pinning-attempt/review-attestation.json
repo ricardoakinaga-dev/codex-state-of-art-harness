@@ -1,0 +1,7 @@
+{
+  "manifest_closure": "sha256:efde05bdb790e05eb94b8e54e781f0496f4b3b1ca3b818e3dd30bc49831e2f0b",
+  "review_status": "PENDING_INDEPENDENT_READ_ONLY_REVIEW",
+  "reviewed_head": "c21de8479a7c614ea38fb0fbd102998dc706c412",
+  "schema_version": "P4-REVIEW-ATTESTATION-1",
+  "scope": "Phase 4 packet only; no source or global state mutation"
+}

@@ -1,0 +1,104 @@
+{
+  "approval_request_count": 0,
+  "assurance": {
+    "decision": "PASS_WITH_LIMITATIONS",
+    "limitations": [
+      "HOST_LOAD_UNOBSERVABLE"
+    ],
+    "reason": "bounded result is verified; host limitations remain explicit",
+    "verification_digest": "sha256:f1c0efbc322cdf1c34d98756f9bfdc3d8fc59649050625b5271121ce6ed324a7"
+  },
+  "attempt_count": 10,
+  "capability_id": "phase4-safe-pilot",
+  "capability_version": "0.1.0",
+  "elapsed_seconds": 5.333,
+  "evidenced_real_invocation_count": 7,
+  "host_command": [
+    "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+    "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+    "-c",
+    "mcp_servers={}",
+    "-c",
+    "features.apps=false",
+    "app-server",
+    "--listen",
+    "stdio://"
+  ],
+  "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+  "host_executable_path": "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+  "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+  "host_interpreter_path": "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+  "host_load_observation": "HOST_LOAD_UNOBSERVABLE",
+  "host_version": "codex-state-of-art-harness/0.150.1 (Linux Mint 22.3.0; x86_64) dumb (codex-state-of-art-harness; 0.1.0)",
+  "invocation_id": "INV-0328aa2594075efa8d8c1a20",
+  "mcp_event_count": 0,
+  "package_fingerprint": "sha256:76938b6602da712c10fe8aa2f67b97d57c5118c812a3fe38a033ebe7e6e1ed3e",
+  "preflight_digest": "sha256:c4ba27b14add464d1db1551ef586a42d2bce18009d16f4146f7aadaeb70cfed1",
+  "prior_real_attempts": [
+    {
+      "invocation_id": "INV-47ad9540f4bb5ae9a0bf84fc",
+      "mcp_startup_status_events": 0,
+      "receipt_digest": "sha256:badcf2c31779a19f24468b1111b2845c19d70842e1e17c4a1811fc0a98f55d28",
+      "source": "archived exploratory evidence",
+      "status": "SUCCESS"
+    },
+    {
+      "invocation_id": "INV-87a9942c9a8f5ebc82d2e080",
+      "mcp_startup_status_events": 3,
+      "receipt_digest": "sha256:027685ed6e83da523939e09ac22de8c2da04287366b9c43239282d0d466845f3",
+      "source": "archived MCP-boundary attempt",
+      "status": "SUCCESS"
+    },
+    {
+      "invocation_id": "INV-146dd2203cc253d79258abef",
+      "mcp_startup_status_events": 0,
+      "receipt_digest": "sha256:b3cc88f218e14420c163371cd8be6a1650dcd54345ecbb94df25be06326aa94b",
+      "source": "archived truncated-snapshot attempt",
+      "status": "SUCCESS"
+    },
+    {
+      "invocation_id": "INV-2d8b302529885a90812e4391",
+      "mcp_startup_status_events": 0,
+      "receipt_digest": "sha256:5664dd1cd7f2e7ce09f40c62e9ac17896de0695f9786ccd57da0d392f4caebb7",
+      "source": "archived scope-review attempt",
+      "status": "SUCCESS"
+    },
+    {
+      "invocation_id": "INV-41b4a9204e915ec294806b62",
+      "mcp_startup_status_events": 0,
+      "receipt_digest": "sha256:46da8169d1938b5c1bdf3beda375629dde3bcbb99a75342804c32826fddf6600",
+      "source": "archived provenance-pinning attempt",
+      "status": "SUCCESS"
+    },
+    {
+      "invocation_id": "INV-491bf851a6ea5d1199019fe2",
+      "mcp_startup_status_events": 0,
+      "receipt_digest": "sha256:299e7e32f14538e3cb181352a591e7a85a067b5acd7693ed5d5bfa01f244faa7",
+      "source": "archived final provenance-pinning attempt",
+      "status": "SUCCESS"
+    },
+    {
+      "invocation_id": "INV-c9fac90fd41a5775acb79298",
+      "request_digest": "sha256:688613580c1aba6919993b41556c4b0bf044977a4f83a0008ead4efcc01e818d",
+      "source": "project-local replay ledger",
+      "status": "UNRESOLVED_AFTER_PREVIOUS_ATTEMPT"
+    },
+    {
+      "invocation_id": "INV-d86bc3714a4f53239ea44ace",
+      "request_digest": "sha256:18360aaf9ddd9f8d6bc0ea9daf3de277c94d42f5fa7326db216cac28fc76d8db",
+      "source": "project-local replay ledger",
+      "status": "UNRESOLVED_AFTER_PREVIOUS_ATTEMPT"
+    },
+    {
+      "invocation_id": "INV-ffdcd09d7bd35ea8a01d3a8a",
+      "request_digest": "sha256:db0ec0aa61edd2ad4b4093c93ec7834f1f97c8f2b3fe5ebabf4b1fefa28e72d7",
+      "source": "project-local replay ledger",
+      "status": "UNRESOLVED_AFTER_PREVIOUS_ATTEMPT"
+    }
+  ],
+  "protocol_message_count": 38,
+  "review_status": "PENDING_INDEPENDENT_READ_ONLY_REVIEW",
+  "schema_version": "P4-FINAL-RUN-1",
+  "status": "SUCCESS",
+  "unresolved_reservation_count": 3
+}

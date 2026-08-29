@@ -1,0 +1,33 @@
+{
+  "known_prior_attempts": [
+    {
+      "invocation_id": "INV-47ad9540f4bb5ae9a0bf84fc",
+      "mcp_startup_status_events": 0,
+      "receipt_digest": "sha256:badcf2c31779a19f24468b1111b2845c19d70842e1e17c4a1811fc0a98f55d28",
+      "source": "archived exploratory evidence",
+      "status": "SUCCESS"
+    },
+    {
+      "invocation_id": "INV-87a9942c9a8f5ebc82d2e080",
+      "mcp_startup_status_events": 3,
+      "receipt_digest": "sha256:027685ed6e83da523939e09ac22de8c2da04287366b9c43239282d0d466845f3",
+      "source": "archived MCP-boundary attempt",
+      "status": "SUCCESS"
+    },
+    {
+      "invocation_id": "INV-c9fac90fd41a5775acb79298",
+      "request_digest": "sha256:688613580c1aba6919993b41556c4b0bf044977a4f83a0008ead4efcc01e818d",
+      "source": "project-local replay ledger",
+      "status": "UNRESOLVED_AFTER_PREVIOUS_ATTEMPT"
+    },
+    {
+      "invocation_id": "INV-ffdcd09d7bd35ea8a01d3a8a",
+      "request_digest": "sha256:db0ec0aa61edd2ad4b4093c93ec7834f1f97c8f2b3fe5ebabf4b1fefa28e72d7",
+      "source": "project-local replay ledger",
+      "status": "UNRESOLVED_AFTER_PREVIOUS_ATTEMPT"
+    }
+  ],
+  "note": "Unresolved ledger reservations are retained and never replayed.",
+  "schema_version": "P4-ATTEMPT-HISTORY-1",
+  "successful_final_attempt": "INV-146dd2203cc253d79258abef"
+}

@@ -1,0 +1,63 @@
+{
+  "harness_operations": [
+    {
+      "max": 5.76,
+      "median": 4.422,
+      "min": 3.763,
+      "name": "preflight_and_context_prepare",
+      "p95": 5.76,
+      "sample_count": 10,
+      "slo": "informational; no production performance claim",
+      "unit": "milliseconds"
+    },
+    {
+      "max": 0.354,
+      "median": 0.178,
+      "min": 0.172,
+      "name": "request_serialization",
+      "p95": 0.354,
+      "sample_count": 10,
+      "slo": "informational; no production performance claim",
+      "unit": "milliseconds"
+    },
+    {
+      "max": 0.165,
+      "median": 0.094,
+      "min": 0.087,
+      "name": "receipt_serialization",
+      "p95": 0.165,
+      "sample_count": 10,
+      "slo": "informational; no production performance claim",
+      "unit": "milliseconds"
+    },
+    {
+      "max": 1.217,
+      "median": 0.847,
+      "min": 0.768,
+      "name": "artifact_read",
+      "p95": 1.217,
+      "sample_count": 10,
+      "slo": "informational; no production performance claim",
+      "unit": "milliseconds"
+    },
+    {
+      "max": 0.105,
+      "median": 0.068,
+      "min": 0.058,
+      "name": "verification_serialization",
+      "p95": 0.105,
+      "sample_count": 10,
+      "slo": "informational; no production performance claim",
+      "unit": "milliseconds"
+    }
+  ],
+  "host_latency": {
+    "claim": "one observation; not a performance guarantee",
+    "host_event_count": 32,
+    "observed_elapsed_seconds": 8.963,
+    "sample_count": 1,
+    "source": "monotonic wall-clock around one real pilot"
+  },
+  "purpose": "reproducibility and control-plane measurement, not a production SLO",
+  "schema_version": "P4-BENCH-1"
+}

@@ -1,0 +1,35 @@
+{
+  "after_digest": "sha256:e83de1c41650e28baaec381b2a9a809ca28d88817f233bf65b2cf56f97866d95",
+  "after_global_root_digests": {
+    "$HOME/.agents": "sha256:73dc2137ef0ef064f0b780b6d25fa90c9a7529108a00a609c73862f9b1fb0155",
+    "$HOME/.codex/auth.json": "sha256:c6fc83da1f5535ec49b6d82b0576a63f5827b934cf7bae05a734a13686cfb52f",
+    "$HOME/.codex/config.toml": "sha256:3692da1c0bac0e798cc805917a631925681e0cf36b103bcad059d9dc9f8ea4bc"
+  },
+  "before_digest": "sha256:8528e29f684194b2d77fb3f7dd606bd61cc6fd2bef4b8b04d09280764a65030e",
+  "before_global_root_digests": {
+    "$HOME/.agents": "sha256:73dc2137ef0ef064f0b780b6d25fa90c9a7529108a00a609c73862f9b1fb0155",
+    "$HOME/.codex/auth.json": "sha256:c6fc83da1f5535ec49b6d82b0576a63f5827b934cf7bae05a734a13686cfb52f",
+    "$HOME/.codex/config.toml": "sha256:3692da1c0bac0e798cc805917a631925681e0cf36b103bcad059d9dc9f8ea4bc"
+  },
+  "excluded_dynamic_state": [
+    "$HOME/.codex/sessions",
+    "$HOME/.codex/history.jsonl",
+    "$HOME/.codex/logs"
+  ],
+  "global_root_digests_unchanged": true,
+  "global_scope": [
+    "$HOME/.codex/config.toml",
+    "$HOME/.codex/auth.json",
+    "$HOME/.agents"
+  ],
+  "project_runtime_expected_mutation": true,
+  "root_delta_requires_read_only_review": false,
+  "roots": [
+    "$HOME/.agents",
+    "$HOME/.codex/auth.json",
+    "$HOME/.codex/config.toml",
+    "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4"
+  ],
+  "schema_version": "P4-GLOBAL-MUTATION-1",
+  "scope": "metadata-only snapshots; file contents and credentials were not read"
+}

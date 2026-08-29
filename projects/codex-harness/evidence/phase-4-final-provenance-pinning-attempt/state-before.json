@@ -1,0 +1,4774 @@
+{
+  "entries": [
+    {
+      "mode": 16384,
+      "mtime_ns": 1787366031090466906,
+      "relative": "skills",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547135364126,
+      "relative": "skills/api-design",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547135285682,
+      "relative": "skills/api-design/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 13110,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547135364126,
+      "relative": "skills/api-design/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547135416830,
+      "relative": "skills/api-design/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 247,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547139748891,
+      "relative": "skills/article-writing",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547139663425,
+      "relative": "skills/article-writing/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 2914,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547139748891,
+      "relative": "skills/article-writing/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547139802300,
+      "relative": "skills/article-writing/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 288,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547143896662,
+      "relative": "skills/backend-patterns",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547143896662,
+      "relative": "skills/backend-patterns/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 13837,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547144055006,
+      "relative": "skills/backend-patterns/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547144055006,
+      "relative": "skills/backend-patterns/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 259,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547148390599,
+      "relative": "skills/bun-runtime",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547148327475,
+      "relative": "skills/bun-runtime/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 2596,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547148390599,
+      "relative": "skills/bun-runtime/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547148443569,
+      "relative": "skills/bun-runtime/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 246,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547152464511,
+      "relative": "skills/claude-api",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547152390812,
+      "relative": "skills/claude-api/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 8493,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547152464511,
+      "relative": "skills/claude-api/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547152515883,
+      "relative": "skills/claude-api/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 279,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547156633632,
+      "relative": "skills/coding-standards",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547156554685,
+      "relative": "skills/coding-standards/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 12697,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547156633632,
+      "relative": "skills/coding-standards/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547156688176,
+      "relative": "skills/coding-standards/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 261,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547160893011,
+      "relative": "skills/content-engine",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547160819896,
+      "relative": "skills/content-engine/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 4358,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547160893011,
+      "relative": "skills/content-engine/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547160945493,
+      "relative": "skills/content-engine/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 274,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547165028365,
+      "relative": "skills/crosspost",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547164958005,
+      "relative": "skills/crosspost/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 3435,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547165028365,
+      "relative": "skills/crosspost/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547165081059,
+      "relative": "skills/crosspost/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 300,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547169286921,
+      "relative": "skills/deep-research",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547169286921,
+      "relative": "skills/deep-research/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 4582,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547169400991,
+      "relative": "skills/deep-research/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547169400991,
+      "relative": "skills/deep-research/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 281,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547173747186,
+      "relative": "skills/dmux-workflows",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547173747186,
+      "relative": "skills/dmux-workflows/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 4718,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547173840349,
+      "relative": "skills/dmux-workflows/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547173840349,
+      "relative": "skills/dmux-workflows/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 250,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547178321906,
+      "relative": "skills/documentation-lookup",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547178248449,
+      "relative": "skills/documentation-lookup/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 4900,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547178321906,
+      "relative": "skills/documentation-lookup/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547178383089,
+      "relative": "skills/documentation-lookup/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 241,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547182420200,
+      "relative": "skills/e2e-testing",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547182353050,
+      "relative": "skills/e2e-testing/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 8065,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547182420200,
+      "relative": "skills/e2e-testing/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547182472202,
+      "relative": "skills/e2e-testing/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 234,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209168818270,
+      "relative": "skills/engineering-framework",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209153874840,
+      "relative": "skills/engineering-framework/.agent",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209152725513,
+      "relative": "skills/engineering-framework/.agent/PLANS.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 2642,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209152879108,
+      "relative": "skills/engineering-framework/.agent/backlog.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 4728,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209153101210,
+      "relative": "skills/engineering-framework/.agent/execution-log.jsonl",
+      "root": "$HOME/.agents",
+      "size_bytes": 35281,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209153399757,
+      "relative": "skills/engineering-framework/.agent/gates",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209153277796,
+      "relative": "skills/engineering-framework/.agent/gates/implementation-ready-v2.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 2649,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209153399757,
+      "relative": "skills/engineering-framework/.agent/gates/implementation-ready.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 2598,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209153570150,
+      "relative": "skills/engineering-framework/.agent/plans",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209153570150,
+      "relative": "skills/engineering-framework/.agent/plans/engineering-framework-v1.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 36996,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209153874840,
+      "relative": "skills/engineering-framework/.agent/state.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 1188,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209154155817,
+      "relative": "skills/engineering-framework/.agent/verification.jsonl",
+      "root": "$HOME/.agents",
+      "size_bytes": 73783,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209154340610,
+      "relative": "skills/engineering-framework/.gitignore",
+      "root": "$HOME/.agents",
+      "size_bytes": 59,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209154447619,
+      "relative": "skills/engineering-framework/AGENTS.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 1179,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209154559195,
+      "relative": "skills/engineering-framework/CHANGELOG.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 1446,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209154687675,
+      "relative": "skills/engineering-framework/MIGRATION.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 5724,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209154832162,
+      "relative": "skills/engineering-framework/README.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 8430,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209154991460,
+      "relative": "skills/engineering-framework/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 11413,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209155118230,
+      "relative": "skills/engineering-framework/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209155118230,
+      "relative": "skills/engineering-framework/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 321,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209155277041,
+      "relative": "skills/engineering-framework/assets",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209156481394,
+      "relative": "skills/engineering-framework/assets/templates",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209155374483,
+      "relative": "skills/engineering-framework/assets/templates/adr.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 1282,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209155484077,
+      "relative": "skills/engineering-framework/assets/templates/audit.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 2097,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209155584247,
+      "relative": "skills/engineering-framework/assets/templates/authority-record.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 523,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209155677380,
+      "relative": "skills/engineering-framework/assets/templates/backlog.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 41,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209155786294,
+      "relative": "skills/engineering-framework/assets/templates/discovery.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 2787,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209155905463,
+      "relative": "skills/engineering-framework/assets/templates/execplan.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 2827,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156003482,
+      "relative": "skills/engineering-framework/assets/templates/execution-event.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 403,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156118077,
+      "relative": "skills/engineering-framework/assets/templates/prd.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 3736,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156239187,
+      "relative": "skills/engineering-framework/assets/templates/runtime-state.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 923,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156368286,
+      "relative": "skills/engineering-framework/assets/templates/spec.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 4392,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156481394,
+      "relative": "skills/engineering-framework/assets/templates/task.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 1873,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156584131,
+      "relative": "skills/engineering-framework/assets/templates/verification-record.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 620,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209157201612,
+      "relative": "skills/engineering-framework/docs",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156708237,
+      "relative": "skills/engineering-framework/docs/codex-research.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 9166,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156852749,
+      "relative": "skills/engineering-framework/docs/current-framework-audit.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 8887,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156996120,
+      "relative": "skills/engineering-framework/docs/framework-architecture.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 20566,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209157201612,
+      "relative": "skills/engineering-framework/docs/release-audit.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 23135,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209161094459,
+      "relative": "skills/engineering-framework/evals",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209157460448,
+      "relative": "skills/engineering-framework/evals/README.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 7810,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209157612415,
+      "relative": "skills/engineering-framework/evals/decision-contexts.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 18552,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209157770901,
+      "relative": "skills/engineering-framework/evals/decision-vocabulary.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 7208,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209160462176,
+      "relative": "skills/engineering-framework/evals/forward",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209158043392,
+      "relative": "skills/engineering-framework/evals/forward/README.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 12845,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209158173425,
+      "relative": "skills/engineering-framework/evals/forward/agent-a.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 8682,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209158312644,
+      "relative": "skills/engineering-framework/evals/forward/agent-b.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 7863,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209158455466,
+      "relative": "skills/engineering-framework/evals/forward/agent-c.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 7589,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209158621889,
+      "relative": "skills/engineering-framework/evals/forward/pass-10-final.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 23468,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209158780769,
+      "relative": "skills/engineering-framework/evals/forward/pass-11-final.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 23142,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209158937950,
+      "relative": "skills/engineering-framework/evals/forward/pass-12-final.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 23227,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209159092376,
+      "relative": "skills/engineering-framework/evals/forward/pass-13-final.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 23442,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209159259833,
+      "relative": "skills/engineering-framework/evals/forward/pass-14-final.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 23168,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209159392827,
+      "relative": "skills/engineering-framework/evals/forward/pass-2-a.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 9338,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209159519440,
+      "relative": "skills/engineering-framework/evals/forward/pass-2-b.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 9625,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209159641643,
+      "relative": "skills/engineering-framework/evals/forward/pass-2-c.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 7072,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209159770780,
+      "relative": "skills/engineering-framework/evals/forward/pass-3-c.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 8187,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209159919507,
+      "relative": "skills/engineering-framework/evals/forward/pass-4-final.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 23091,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209160081039,
+      "relative": "skills/engineering-framework/evals/forward/pass-5-final.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 21970,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209160275719,
+      "relative": "skills/engineering-framework/evals/forward/pass-6-final.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 22682,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209160462176,
+      "relative": "skills/engineering-framework/evals/forward/pass-8-final.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 23942,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209160638418,
+      "relative": "skills/engineering-framework/evals/forward/pass-9-final.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 23103,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209160863152,
+      "relative": "skills/engineering-framework/evals/requirements.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 45699,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209161094459,
+      "relative": "skills/engineering-framework/evals/reviews.jsonl",
+      "root": "$HOME/.agents",
+      "size_bytes": 168258,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209161630444,
+      "relative": "skills/engineering-framework/evals/scenarios.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 49295,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209162448433,
+      "relative": "skills/engineering-framework/examples",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209161803180,
+      "relative": "skills/engineering-framework/examples/README.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 840,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209161908827,
+      "relative": "skills/engineering-framework/examples/brownfield",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209162042035,
+      "relative": "skills/engineering-framework/examples/brownfield/README.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 4114,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209162184532,
+      "relative": "skills/engineering-framework/examples/greenfield",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209162184532,
+      "relative": "skills/engineering-framework/examples/greenfield/README.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 4575,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209162448433,
+      "relative": "skills/engineering-framework/examples/incident",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209162448433,
+      "relative": "skills/engineering-framework/examples/incident/README.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 3226,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209162644336,
+      "relative": "skills/engineering-framework/examples/small-change",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209162644336,
+      "relative": "skills/engineering-framework/examples/small-change/README.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 1883,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209166333915,
+      "relative": "skills/engineering-framework/references",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209162825365,
+      "relative": "skills/engineering-framework/references/00-framework-kernel.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 7116,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209162984974,
+      "relative": "skills/engineering-framework/references/01-adaptive-engineering.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 5732,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209163131181,
+      "relative": "skills/engineering-framework/references/02-project-detection.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 7316,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209163300100,
+      "relative": "skills/engineering-framework/references/03-lifecycle-gates.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 13089,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209163502184,
+      "relative": "skills/engineering-framework/references/04-discovery-engine.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 5751,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209163656081,
+      "relative": "skills/engineering-framework/references/05-prd-engine.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 5823,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209163783812,
+      "relative": "skills/engineering-framework/references/06-spec-engine.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 6723,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209163914867,
+      "relative": "skills/engineering-framework/references/07-execplan-engine.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 7311,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209164052084,
+      "relative": "skills/engineering-framework/references/08-build-engine.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 6223,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209164182370,
+      "relative": "skills/engineering-framework/references/09-verification-quality.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 9496,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209164363919,
+      "relative": "skills/engineering-framework/references/10-testing-strategy.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 7598,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209164504911,
+      "relative": "skills/engineering-framework/references/11-runtime-state.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 14279,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209164670961,
+      "relative": "skills/engineering-framework/references/12-session-recovery.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 8983,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209164814680,
+      "relative": "skills/engineering-framework/references/13-audit-evolution.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 7356,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209164976724,
+      "relative": "skills/engineering-framework/references/14-operational-modes.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 7969,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209165202883,
+      "relative": "skills/engineering-framework/references/15-risk-engine.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 6307,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209165466581,
+      "relative": "skills/engineering-framework/references/16-security-engineering.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 7200,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209165624287,
+      "relative": "skills/engineering-framework/references/17-data-migrations.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 6750,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209165772825,
+      "relative": "skills/engineering-framework/references/18-codex-instruction-model.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 6871,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209165905532,
+      "relative": "skills/engineering-framework/references/19-context-engineering.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 6253,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209166035887,
+      "relative": "skills/engineering-framework/references/20-agent-orchestration.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 5886,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209166161295,
+      "relative": "skills/engineering-framework/references/21-traceability.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 7393,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209166333915,
+      "relative": "skills/engineering-framework/references/contracts.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 25738,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787365498034187878,
+      "relative": "skills/engineering-framework/scripts",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209166597906,
+      "relative": "skills/engineering-framework/scripts/__init__.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 63,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787929787417855623,
+      "relative": "skills/engineering-framework/scripts/__pycache__",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787365498035392954,
+      "relative": "skills/engineering-framework/scripts/__pycache__/_framework.cpython-312.pyc",
+      "root": "$HOME/.agents",
+      "size_bytes": 54862,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787929787417855623,
+      "relative": "skills/engineering-framework/scripts/__pycache__/check_links.cpython-312.pyc",
+      "root": "$HOME/.agents",
+      "size_bytes": 6444,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787926732671026112,
+      "relative": "skills/engineering-framework/scripts/__pycache__/check_state.cpython-312.pyc",
+      "root": "$HOME/.agents",
+      "size_bytes": 171239,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209166689487,
+      "relative": "skills/engineering-framework/scripts/_framework.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 49557,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209166990360,
+      "relative": "skills/engineering-framework/scripts/check_links.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 4700,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209167108535,
+      "relative": "skills/engineering-framework/scripts/check_state.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 160090,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209167785858,
+      "relative": "skills/engineering-framework/scripts/detect_project.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 15068,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209167942958,
+      "relative": "skills/engineering-framework/scripts/doctor.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 9235,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209168073674,
+      "relative": "skills/engineering-framework/scripts/forward_eval_packet.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 8831,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209168220150,
+      "relative": "skills/engineering-framework/scripts/run_evals.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 91038,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209168624651,
+      "relative": "skills/engineering-framework/scripts/traceability_check.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 28048,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209168818270,
+      "relative": "skills/engineering-framework/scripts/validate_skill.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 9973,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209174409345,
+      "relative": "skills/engineering-framework/tests",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209169023275,
+      "relative": "skills/engineering-framework/tests/__init__.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 66,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209172034949,
+      "relative": "skills/engineering-framework/tests/fixtures",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209169492849,
+      "relative": "skills/engineering-framework/tests/fixtures/detect",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209169235146,
+      "relative": "skills/engineering-framework/tests/fixtures/detect/brownfield.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 315,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209171149481,
+      "relative": "skills/engineering-framework/tests/fixtures/detect/invalid-enum.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 83,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209171388980,
+      "relative": "skills/engineering-framework/tests/fixtures/evals",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209171388980,
+      "relative": "skills/engineering-framework/tests/fixtures/evals/known-bad-decisions.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 690,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209171551058,
+      "relative": "skills/engineering-framework/tests/fixtures/gates",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209171551058,
+      "relative": "skills/engineering-framework/tests/fixtures/gates/valid-gate.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 1832,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209171825166,
+      "relative": "skills/engineering-framework/tests/fixtures/links",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209171731748,
+      "relative": "skills/engineering-framework/tests/fixtures/links/known-bad",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209171825166,
+      "relative": "skills/engineering-framework/tests/fixtures/links/known-bad/a.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 47,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209172034949,
+      "relative": "skills/engineering-framework/tests/fixtures/links/valid",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209171938314,
+      "relative": "skills/engineering-framework/tests/fixtures/links/valid/a.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 108,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209172034949,
+      "relative": "skills/engineering-framework/tests/fixtures/links/valid/b.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 28,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209172190759,
+      "relative": "skills/engineering-framework/tests/fixtures/state",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209172190759,
+      "relative": "skills/engineering-framework/tests/fixtures/state/corrupt-state.json",
+      "root": "$HOME/.agents",
+      "size_bytes": 45,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209172449798,
+      "relative": "skills/engineering-framework/tests/support.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 12140,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209172573023,
+      "relative": "skills/engineering-framework/tests/test_check_links.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 1492,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209172851824,
+      "relative": "skills/engineering-framework/tests/test_check_state.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 183869,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209173400820,
+      "relative": "skills/engineering-framework/tests/test_cli_matrix.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 2285,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209173543558,
+      "relative": "skills/engineering-framework/tests/test_detect_project.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 12401,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209173682929,
+      "relative": "skills/engineering-framework/tests/test_doctor.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 6147,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209173809153,
+      "relative": "skills/engineering-framework/tests/test_forward_eval_packet.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 4210,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209174072570,
+      "relative": "skills/engineering-framework/tests/test_run_evals.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 106409,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209174409345,
+      "relative": "skills/engineering-framework/tests/test_traceability.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 12989,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209174553548,
+      "relative": "skills/engineering-framework/tests/test_validate_skill.py",
+      "root": "$HOME/.agents",
+      "size_bytes": 8528,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547186507376,
+      "relative": "skills/eval-harness",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547186507376,
+      "relative": "skills/eval-harness/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 5515,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547186616713,
+      "relative": "skills/eval-harness/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547186616713,
+      "relative": "skills/eval-harness/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 255,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547191865577,
+      "relative": "skills/everything-claude-code",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547191865577,
+      "relative": "skills/everything-claude-code/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 11348,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547191959993,
+      "relative": "skills/everything-claude-code/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547191959993,
+      "relative": "skills/everything-claude-code/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 310,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547196765716,
+      "relative": "skills/exa-search",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547196765716,
+      "relative": "skills/exa-search/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 4815,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547196868536,
+      "relative": "skills/exa-search/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547196868536,
+      "relative": "skills/exa-search/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 275,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547200946127,
+      "relative": "skills/fal-ai-media",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547200871830,
+      "relative": "skills/fal-ai-media/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 6856,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547200946127,
+      "relative": "skills/fal-ai-media/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547201006788,
+      "relative": "skills/fal-ai-media/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 255,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547205420327,
+      "relative": "skills/frontend-patterns",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547205339008,
+      "relative": "skills/frontend-patterns/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 14773,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547205420327,
+      "relative": "skills/frontend-patterns/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547205496126,
+      "relative": "skills/frontend-patterns/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 251,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547210918975,
+      "relative": "skills/frontend-slides",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547210850852,
+      "relative": "skills/frontend-slides/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 6558,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547210918975,
+      "relative": "skills/frontend-slides/STYLE_PRESETS.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 9145,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547211032809,
+      "relative": "skills/frontend-slides/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547211032809,
+      "relative": "skills/frontend-slides/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 285,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547215050283,
+      "relative": "skills/investor-materials",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547214972144,
+      "relative": "skills/investor-materials/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 2723,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547215050283,
+      "relative": "skills/investor-materials/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547215096380,
+      "relative": "skills/investor-materials/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 300,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547218731154,
+      "relative": "skills/investor-outreach",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547218655895,
+      "relative": "skills/investor-outreach/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 2643,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547218731154,
+      "relative": "skills/investor-outreach/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547218785855,
+      "relative": "skills/investor-outreach/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 300,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547223400800,
+      "relative": "skills/market-research",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547223322129,
+      "relative": "skills/market-research/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 2226,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547223400800,
+      "relative": "skills/market-research/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547223453920,
+      "relative": "skills/market-research/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 281,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547227790038,
+      "relative": "skills/nextjs-turbopack",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547227647284,
+      "relative": "skills/nextjs-turbopack/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 2162,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547227790038,
+      "relative": "skills/nextjs-turbopack/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547227907845,
+      "relative": "skills/nextjs-turbopack/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 242,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547231962605,
+      "relative": "skills/security-review",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547231893261,
+      "relative": "skills/security-review/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 12234,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547231962605,
+      "relative": "skills/security-review/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547232013958,
+      "relative": "skills/security-review/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 288,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547235938398,
+      "relative": "skills/strategic-compact",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547235938398,
+      "relative": "skills/strategic-compact/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 4043,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547236045094,
+      "relative": "skills/strategic-compact/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547236045094,
+      "relative": "skills/strategic-compact/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 257,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547239782798,
+      "relative": "skills/tdd-workflow",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547239782798,
+      "relative": "skills/tdd-workflow/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 9787,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547239915818,
+      "relative": "skills/tdd-workflow/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547239915818,
+      "relative": "skills/tdd-workflow/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 258,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547243525365,
+      "relative": "skills/verification-loop",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547243465683,
+      "relative": "skills/verification-loop/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 2491,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547243525365,
+      "relative": "skills/verification-loop/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547243575700,
+      "relative": "skills/verification-loop/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 256,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547247293369,
+      "relative": "skills/video-editing",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547247209965,
+      "relative": "skills/video-editing/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 9691,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547247293369,
+      "relative": "skills/video-editing/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547247345642,
+      "relative": "skills/video-editing/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 283,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547251049334,
+      "relative": "skills/x-api",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547251049334,
+      "relative": "skills/x-api/SKILL.md",
+      "root": "$HOME/.agents",
+      "size_bytes": 6458,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1776831547251154516,
+      "relative": "skills/x-api/agents",
+      "root": "$HOME/.agents",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1776831547251154516,
+      "relative": "skills/x-api/agents/openai.yaml",
+      "root": "$HOME/.agents",
+      "size_bytes": 279,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787314385840207124,
+      "relative": ".",
+      "root": "$HOME/.codex/auth.json",
+      "size_bytes": 4116,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916367783704034,
+      "relative": ".",
+      "root": "$HOME/.codex/config.toml",
+      "size_bytes": 4263,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600589235526,
+      "relative": ".system",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600589235526,
+      "relative": ".system/.codex-system-skills.marker",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 17,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600577101044,
+      "relative": ".system/imagegen",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600576254220,
+      "relative": ".system/imagegen/LICENSE.txt",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 10776,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600576308874,
+      "relative": ".system/imagegen/SKILL.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 19201,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600576374502,
+      "relative": ".system/imagegen/agents",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600576374502,
+      "relative": ".system/imagegen/agents/openai.yaml",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 275,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600576458109,
+      "relative": ".system/imagegen/assets",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600576429945,
+      "relative": ".system/imagegen/assets/imagegen-small.svg",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2889,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600576458109,
+      "relative": ".system/imagegen/assets/imagegen.png",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1711,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600577101044,
+      "relative": ".system/imagegen/references",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600576509099,
+      "relative": ".system/imagegen/references/cli.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 9655,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600577003204,
+      "relative": ".system/imagegen/references/codex-network.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1779,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600577036513,
+      "relative": ".system/imagegen/references/image-api.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 6072,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600577068219,
+      "relative": ".system/imagegen/references/prompting.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 8282,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600577101044,
+      "relative": ".system/imagegen/references/sample-prompts.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 17617,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600577210384,
+      "relative": ".system/imagegen/scripts",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600577162823,
+      "relative": ".system/imagegen/scripts/image_gen.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 34271,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600577210384,
+      "relative": ".system/imagegen/scripts/remove_chroma_key.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 13836,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600581297878,
+      "relative": ".system/openai-docs",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600577271170,
+      "relative": ".system/openai-docs/LICENSE.txt",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 10776,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600577304432,
+      "relative": ".system/openai-docs/SKILL.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 5446,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600577360711,
+      "relative": ".system/openai-docs/agents",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600577360711,
+      "relative": ".system/openai-docs/agents/openai.yaml",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 370,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600577438750,
+      "relative": ".system/openai-docs/assets",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600577410528,
+      "relative": ".system/openai-docs/assets/openai-small.svg",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1091,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600577438750,
+      "relative": ".system/openai-docs/assets/openai.png",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1429,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600581297878,
+      "relative": ".system/openai-docs/references",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600577493716,
+      "relative": ".system/openai-docs/references/codex-self-knowledge.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 7417,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600577524149,
+      "relative": ".system/openai-docs/references/latest-model.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2094,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600577549949,
+      "relative": ".system/openai-docs/references/mcp-diagnostics.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2318,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600577575809,
+      "relative": ".system/openai-docs/references/model-migration.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 5054,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600580235514,
+      "relative": ".system/openai-docs/references/model-selection.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1344,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600580235514,
+      "relative": ".system/openai-docs/references/official-docs.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 3337,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581224133,
+      "relative": ".system/openai-docs/references/prompting-guide.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 15747,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581268803,
+      "relative": ".system/openai-docs/references/upgrade-guide.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1050,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581297878,
+      "relative": ".system/openai-docs/references/upgrading-to-gpt-5p6-sol.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 23093,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600581453645,
+      "relative": ".system/openai-docs/scripts",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581391575,
+      "relative": ".system/openai-docs/scripts/fetch-codex-manual.mjs",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 16085,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581427584,
+      "relative": ".system/openai-docs/scripts/resolve-latest-model-info",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1038,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581453645,
+      "relative": ".system/openai-docs/scripts/resolve-latest-model-info.cjs",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 3937,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600581761869,
+      "relative": ".system/plugin-creator",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581514448,
+      "relative": ".system/plugin-creator/SKILL.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 11467,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600581597986,
+      "relative": ".system/plugin-creator/agents",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581597986,
+      "relative": ".system/plugin-creator/agents/openai.yaml",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 339,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600581677431,
+      "relative": ".system/plugin-creator/assets",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581651113,
+      "relative": ".system/plugin-creator/assets/plugin-creator-small.svg",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1319,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581677431,
+      "relative": ".system/plugin-creator/assets/plugin-creator.png",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1563,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600581761869,
+      "relative": ".system/plugin-creator/references",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581732233,
+      "relative": ".system/plugin-creator/references/installing-and-updating.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 6000,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581761869,
+      "relative": ".system/plugin-creator/references/plugin-json-spec.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 9179,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600581956538,
+      "relative": ".system/plugin-creator/scripts",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581843051,
+      "relative": ".system/plugin-creator/scripts/create_basic_plugin.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 11495,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581875550,
+      "relative": ".system/plugin-creator/scripts/identifier_validation.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 784,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581901055,
+      "relative": ".system/plugin-creator/scripts/read_marketplace_name.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1644,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581927310,
+      "relative": ".system/plugin-creator/scripts/update_plugin_cachebuster.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 3043,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600581956538,
+      "relative": ".system/plugin-creator/scripts/validate_plugin.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 21533,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600582022040,
+      "relative": ".system/review-agent",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600582022040,
+      "relative": ".system/review-agent/SKILL.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2661,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600582074537,
+      "relative": ".system/review-agent/agents",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600582074537,
+      "relative": ".system/review-agent/agents/openai.yaml",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 252,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600582356678,
+      "relative": ".system/skill-creator",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600582123953,
+      "relative": ".system/skill-creator/SKILL.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 15311,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600582186605,
+      "relative": ".system/skill-creator/agents",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600582186605,
+      "relative": ".system/skill-creator/agents/openai.yaml",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 183,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600582275995,
+      "relative": ".system/skill-creator/assets",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600582247648,
+      "relative": ".system/skill-creator/assets/skill-creator-small.svg",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1319,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600582275995,
+      "relative": ".system/skill-creator/assets/skill-creator.png",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1563,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600582275995,
+      "relative": ".system/skill-creator/license.txt",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 11358,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600582356678,
+      "relative": ".system/skill-creator/references",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600582356678,
+      "relative": ".system/skill-creator/references/openai_yaml.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2356,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600587516141,
+      "relative": ".system/skill-creator/scripts",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600586235522,
+      "relative": ".system/skill-creator/scripts/generate_openai_yaml.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 6619,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600587473208,
+      "relative": ".system/skill-creator/scripts/init_skill.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 10160,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600587516141,
+      "relative": ".system/skill-creator/scripts/quick_validate.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4227,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600588621662,
+      "relative": ".system/skill-installer",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600587600275,
+      "relative": ".system/skill-installer/LICENSE.txt",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 11358,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600587633824,
+      "relative": ".system/skill-installer/SKILL.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 3367,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600588525518,
+      "relative": ".system/skill-installer/agents",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600588525518,
+      "relative": ".system/skill-installer/agents/openai.yaml",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 221,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351600588621662,
+      "relative": ".system/skill-installer/assets",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600588592274,
+      "relative": ".system/skill-installer/assets/skill-installer-small.svg",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 923,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600588621662,
+      "relative": ".system/skill-installer/assets/skill-installer.png",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1086,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351776203528776,
+      "relative": ".system/skill-installer/scripts",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351776204137741,
+      "relative": ".system/skill-installer/scripts/__pycache__",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351776204137741,
+      "relative": ".system/skill-installer/scripts/__pycache__/github_utils.cpython-312.pyc",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1432,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600588681737,
+      "relative": ".system/skill-installer/scripts/github_utils.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 659,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600588714426,
+      "relative": ".system/skill-installer/scripts/install-skill-from-github.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 11790,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351600589235526,
+      "relative": ".system/skill-installer/scripts/list-skills.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2967,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787916268272874373,
+      "relative": "design-director",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268268865982,
+      "relative": "design-director/SKILL.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 16727,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787916268269017411,
+      "relative": "design-director/agents",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268269017411,
+      "relative": "design-director/agents/openai.yaml",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 326,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787916268269161488,
+      "relative": "design-director/evals",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268269161488,
+      "relative": "design-director/evals/evals.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 19958,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787916268272799002,
+      "relative": "design-director/references",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268269392911,
+      "relative": "design-director/references/accessibility.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1681,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268269499525,
+      "relative": "design-director/references/anti-patterns.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 5237,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268269628087,
+      "relative": "design-director/references/art-direction.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1913,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268269733497,
+      "relative": "design-director/references/asset-acceptance.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4043,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268269915740,
+      "relative": "design-director/references/banner-design.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1370,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268270047149,
+      "relative": "design-director/references/color.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1420,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268270150658,
+      "relative": "design-director/references/critic-contract.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 6488,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268270284732,
+      "relative": "design-director/references/dashboards.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1381,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268270388599,
+      "relative": "design-director/references/degradation-and-evidence.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2105,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268270494321,
+      "relative": "design-director/references/design-principles.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2119,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268270601720,
+      "relative": "design-director/references/design-systems.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1567,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268270708248,
+      "relative": "design-director/references/frontend-quality-gates.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 10000,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268270860957,
+      "relative": "design-director/references/game-visuals.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1386,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268271040201,
+      "relative": "design-director/references/identity-and-references.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4300,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268271155903,
+      "relative": "design-director/references/imagegen-direction.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2444,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268271274313,
+      "relative": "design-director/references/iteration-policy.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4944,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268271381484,
+      "relative": "design-director/references/landing-pages.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1365,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268271485788,
+      "relative": "design-director/references/mobile.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1119,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268271608352,
+      "relative": "design-director/references/motion.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 969,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268271759247,
+      "relative": "design-director/references/quality-rubric.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 7044,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268271891744,
+      "relative": "design-director/references/responsive-design.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1345,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268272028823,
+      "relative": "design-director/references/routing-matrix.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4155,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268272139616,
+      "relative": "design-director/references/screenshot-analysis.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1648,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268272251183,
+      "relative": "design-director/references/spacing-layout.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1473,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268272363896,
+      "relative": "design-director/references/typography.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1534,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268272468787,
+      "relative": "design-director/references/visual-brief-contract.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1744,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268272574984,
+      "relative": "design-director/references/visual-hierarchy.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1737,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268272799002,
+      "relative": "design-director/references/visual-qa.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 6705,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268272874373,
+      "relative": "design-director/references/workflows.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 3782,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787916268275300748,
+      "relative": "design-director/scripts",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268273084435,
+      "relative": "design-director/scripts/audit_assets.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 31931,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268273298644,
+      "relative": "design-director/scripts/audit_design_tokens.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 21871,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268273477878,
+      "relative": "design-director/scripts/benchmark_validate.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 78980,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268273839516,
+      "relative": "design-director/scripts/check_contrast.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1947,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268274056731,
+      "relative": "design-director/scripts/compare_visual.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 9626,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268274216539,
+      "relative": "design-director/scripts/quality_gates.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 14622,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268274529180,
+      "relative": "design-director/scripts/score_visual.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 60578,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268274668209,
+      "relative": "design-director/scripts/smoke_evals.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2975,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787916268275165799,
+      "relative": "design-director/scripts/tests",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268274808472,
+      "relative": "design-director/scripts/tests/test_auditors.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 20845,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268275165799,
+      "relative": "design-director/scripts/tests/test_benchmark_contract.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 63865,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268275300748,
+      "relative": "design-director/scripts/tests/test_helpers.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 5265,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787916268275425810,
+      "relative": "design-director/scripts/validate_package.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 5836,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1777848579126270524,
+      "relative": "elevenlabs-api",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1777848579126270524,
+      "relative": "elevenlabs-api/SKILL.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2861,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1777848579126270524,
+      "relative": "elevenlabs-api/agents",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1777848579126270524,
+      "relative": "elevenlabs-api/agents/openai.yaml",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 272,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1777848719557292783,
+      "relative": "elevenlabs-api/scripts",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1777848719557292783,
+      "relative": "elevenlabs-api/scripts/configure-key.sh",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 828,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1777848579126270524,
+      "relative": "elevenlabs-api/scripts/tts.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2832,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209168818270,
+      "relative": "engineering-framework",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209153874840,
+      "relative": "engineering-framework/.agent",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209152725513,
+      "relative": "engineering-framework/.agent/PLANS.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2642,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209152879108,
+      "relative": "engineering-framework/.agent/backlog.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4728,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209153101210,
+      "relative": "engineering-framework/.agent/execution-log.jsonl",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 35281,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209153399757,
+      "relative": "engineering-framework/.agent/gates",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209153277796,
+      "relative": "engineering-framework/.agent/gates/implementation-ready-v2.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2649,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209153399757,
+      "relative": "engineering-framework/.agent/gates/implementation-ready.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2598,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209153570150,
+      "relative": "engineering-framework/.agent/plans",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209153570150,
+      "relative": "engineering-framework/.agent/plans/engineering-framework-v1.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 36996,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209153874840,
+      "relative": "engineering-framework/.agent/state.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1188,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209154155817,
+      "relative": "engineering-framework/.agent/verification.jsonl",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 73783,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209154340610,
+      "relative": "engineering-framework/.gitignore",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 59,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209154447619,
+      "relative": "engineering-framework/AGENTS.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1179,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209154559195,
+      "relative": "engineering-framework/CHANGELOG.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1446,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209154687675,
+      "relative": "engineering-framework/MIGRATION.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 5724,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209154832162,
+      "relative": "engineering-framework/README.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 8430,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209154991460,
+      "relative": "engineering-framework/SKILL.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 11413,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209155118230,
+      "relative": "engineering-framework/agents",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209155118230,
+      "relative": "engineering-framework/agents/openai.yaml",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 321,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209155277041,
+      "relative": "engineering-framework/assets",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209156481394,
+      "relative": "engineering-framework/assets/templates",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209155374483,
+      "relative": "engineering-framework/assets/templates/adr.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1282,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209155484077,
+      "relative": "engineering-framework/assets/templates/audit.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2097,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209155584247,
+      "relative": "engineering-framework/assets/templates/authority-record.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 523,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209155677380,
+      "relative": "engineering-framework/assets/templates/backlog.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 41,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209155786294,
+      "relative": "engineering-framework/assets/templates/discovery.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2787,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209155905463,
+      "relative": "engineering-framework/assets/templates/execplan.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2827,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156003482,
+      "relative": "engineering-framework/assets/templates/execution-event.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 403,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156118077,
+      "relative": "engineering-framework/assets/templates/prd.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 3736,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156239187,
+      "relative": "engineering-framework/assets/templates/runtime-state.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 923,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156368286,
+      "relative": "engineering-framework/assets/templates/spec.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4392,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156481394,
+      "relative": "engineering-framework/assets/templates/task.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1873,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156584131,
+      "relative": "engineering-framework/assets/templates/verification-record.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 620,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209157201612,
+      "relative": "engineering-framework/docs",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156708237,
+      "relative": "engineering-framework/docs/codex-research.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 9166,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156852749,
+      "relative": "engineering-framework/docs/current-framework-audit.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 8887,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209156996120,
+      "relative": "engineering-framework/docs/framework-architecture.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 20566,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209157201612,
+      "relative": "engineering-framework/docs/release-audit.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 23135,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209161094459,
+      "relative": "engineering-framework/evals",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209157460448,
+      "relative": "engineering-framework/evals/README.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 7810,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209157612415,
+      "relative": "engineering-framework/evals/decision-contexts.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 18552,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209157770901,
+      "relative": "engineering-framework/evals/decision-vocabulary.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 7208,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209160462176,
+      "relative": "engineering-framework/evals/forward",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209158043392,
+      "relative": "engineering-framework/evals/forward/README.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 12845,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209158173425,
+      "relative": "engineering-framework/evals/forward/agent-a.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 8682,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209158312644,
+      "relative": "engineering-framework/evals/forward/agent-b.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 7863,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209158455466,
+      "relative": "engineering-framework/evals/forward/agent-c.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 7589,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209158621889,
+      "relative": "engineering-framework/evals/forward/pass-10-final.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 23468,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209158780769,
+      "relative": "engineering-framework/evals/forward/pass-11-final.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 23142,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209158937950,
+      "relative": "engineering-framework/evals/forward/pass-12-final.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 23227,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209159092376,
+      "relative": "engineering-framework/evals/forward/pass-13-final.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 23442,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209159259833,
+      "relative": "engineering-framework/evals/forward/pass-14-final.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 23168,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209159392827,
+      "relative": "engineering-framework/evals/forward/pass-2-a.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 9338,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209159519440,
+      "relative": "engineering-framework/evals/forward/pass-2-b.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 9625,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209159641643,
+      "relative": "engineering-framework/evals/forward/pass-2-c.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 7072,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209159770780,
+      "relative": "engineering-framework/evals/forward/pass-3-c.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 8187,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209159919507,
+      "relative": "engineering-framework/evals/forward/pass-4-final.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 23091,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209160081039,
+      "relative": "engineering-framework/evals/forward/pass-5-final.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 21970,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209160275719,
+      "relative": "engineering-framework/evals/forward/pass-6-final.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 22682,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209160462176,
+      "relative": "engineering-framework/evals/forward/pass-8-final.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 23942,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209160638418,
+      "relative": "engineering-framework/evals/forward/pass-9-final.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 23103,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209160863152,
+      "relative": "engineering-framework/evals/requirements.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 45699,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209161094459,
+      "relative": "engineering-framework/evals/reviews.jsonl",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 168258,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209161630444,
+      "relative": "engineering-framework/evals/scenarios.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 49295,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209162448433,
+      "relative": "engineering-framework/examples",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209161803180,
+      "relative": "engineering-framework/examples/README.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 840,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209161908827,
+      "relative": "engineering-framework/examples/brownfield",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209162042035,
+      "relative": "engineering-framework/examples/brownfield/README.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4114,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209162184532,
+      "relative": "engineering-framework/examples/greenfield",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209162184532,
+      "relative": "engineering-framework/examples/greenfield/README.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4575,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209162448433,
+      "relative": "engineering-framework/examples/incident",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209162448433,
+      "relative": "engineering-framework/examples/incident/README.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 3226,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209162644336,
+      "relative": "engineering-framework/examples/small-change",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209162644336,
+      "relative": "engineering-framework/examples/small-change/README.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1883,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209166333915,
+      "relative": "engineering-framework/references",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209162825365,
+      "relative": "engineering-framework/references/00-framework-kernel.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 7116,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209162984974,
+      "relative": "engineering-framework/references/01-adaptive-engineering.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 5732,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209163131181,
+      "relative": "engineering-framework/references/02-project-detection.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 7316,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209163300100,
+      "relative": "engineering-framework/references/03-lifecycle-gates.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 13089,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209163502184,
+      "relative": "engineering-framework/references/04-discovery-engine.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 5751,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209163656081,
+      "relative": "engineering-framework/references/05-prd-engine.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 5823,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209163783812,
+      "relative": "engineering-framework/references/06-spec-engine.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 6723,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209163914867,
+      "relative": "engineering-framework/references/07-execplan-engine.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 7311,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209164052084,
+      "relative": "engineering-framework/references/08-build-engine.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 6223,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209164182370,
+      "relative": "engineering-framework/references/09-verification-quality.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 9496,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209164363919,
+      "relative": "engineering-framework/references/10-testing-strategy.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 7598,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209164504911,
+      "relative": "engineering-framework/references/11-runtime-state.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 14279,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209164670961,
+      "relative": "engineering-framework/references/12-session-recovery.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 8983,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209164814680,
+      "relative": "engineering-framework/references/13-audit-evolution.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 7356,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209164976724,
+      "relative": "engineering-framework/references/14-operational-modes.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 7969,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209165202883,
+      "relative": "engineering-framework/references/15-risk-engine.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 6307,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209165466581,
+      "relative": "engineering-framework/references/16-security-engineering.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 7200,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209165624287,
+      "relative": "engineering-framework/references/17-data-migrations.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 6750,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209165772825,
+      "relative": "engineering-framework/references/18-codex-instruction-model.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 6871,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209165905532,
+      "relative": "engineering-framework/references/19-context-engineering.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 6253,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209166035887,
+      "relative": "engineering-framework/references/20-agent-orchestration.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 5886,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209166161295,
+      "relative": "engineering-framework/references/21-traceability.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 7393,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209166333915,
+      "relative": "engineering-framework/references/contracts.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 25738,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787365498034187878,
+      "relative": "engineering-framework/scripts",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209166597906,
+      "relative": "engineering-framework/scripts/__init__.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 63,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787402169647738218,
+      "relative": "engineering-framework/scripts/__pycache__",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787365498035392954,
+      "relative": "engineering-framework/scripts/__pycache__/_framework.cpython-312.pyc",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 54862,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787402169576630438,
+      "relative": "engineering-framework/scripts/__pycache__/check_links.cpython-312.pyc",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 6443,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787375057201742163,
+      "relative": "engineering-framework/scripts/__pycache__/check_state.cpython-312.pyc",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 171238,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787402169632322190,
+      "relative": "engineering-framework/scripts/__pycache__/forward_eval_packet.cpython-312.pyc",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 11054,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787402169629530388,
+      "relative": "engineering-framework/scripts/__pycache__/run_evals.cpython-312.pyc",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 100534,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787402169642100069,
+      "relative": "engineering-framework/scripts/__pycache__/traceability_check.cpython-312.pyc",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 32787,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787402169647738218,
+      "relative": "engineering-framework/scripts/__pycache__/validate_skill.cpython-312.pyc",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 14116,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209166689487,
+      "relative": "engineering-framework/scripts/_framework.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 49557,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209166990360,
+      "relative": "engineering-framework/scripts/check_links.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4700,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209167108535,
+      "relative": "engineering-framework/scripts/check_state.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 160090,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209167785858,
+      "relative": "engineering-framework/scripts/detect_project.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 15068,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209167942958,
+      "relative": "engineering-framework/scripts/doctor.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 9235,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209168073674,
+      "relative": "engineering-framework/scripts/forward_eval_packet.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 8831,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209168220150,
+      "relative": "engineering-framework/scripts/run_evals.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 91038,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209168624651,
+      "relative": "engineering-framework/scripts/traceability_check.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 28048,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209168818270,
+      "relative": "engineering-framework/scripts/validate_skill.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 9973,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209174409345,
+      "relative": "engineering-framework/tests",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209169023275,
+      "relative": "engineering-framework/tests/__init__.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 66,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209172034949,
+      "relative": "engineering-framework/tests/fixtures",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209169492849,
+      "relative": "engineering-framework/tests/fixtures/detect",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209169235146,
+      "relative": "engineering-framework/tests/fixtures/detect/brownfield.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 315,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209171149481,
+      "relative": "engineering-framework/tests/fixtures/detect/invalid-enum.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 83,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209171388980,
+      "relative": "engineering-framework/tests/fixtures/evals",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209171388980,
+      "relative": "engineering-framework/tests/fixtures/evals/known-bad-decisions.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 690,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209171551058,
+      "relative": "engineering-framework/tests/fixtures/gates",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209171551058,
+      "relative": "engineering-framework/tests/fixtures/gates/valid-gate.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1832,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209171825166,
+      "relative": "engineering-framework/tests/fixtures/links",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209171731748,
+      "relative": "engineering-framework/tests/fixtures/links/known-bad",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209171825166,
+      "relative": "engineering-framework/tests/fixtures/links/known-bad/a.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 47,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209172034949,
+      "relative": "engineering-framework/tests/fixtures/links/valid",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209171938314,
+      "relative": "engineering-framework/tests/fixtures/links/valid/a.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 108,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209172034949,
+      "relative": "engineering-framework/tests/fixtures/links/valid/b.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 28,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787364209172190759,
+      "relative": "engineering-framework/tests/fixtures/state",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209172190759,
+      "relative": "engineering-framework/tests/fixtures/state/corrupt-state.json",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 45,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209172449798,
+      "relative": "engineering-framework/tests/support.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 12140,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209172573023,
+      "relative": "engineering-framework/tests/test_check_links.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1492,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209172851824,
+      "relative": "engineering-framework/tests/test_check_state.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 183869,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209173400820,
+      "relative": "engineering-framework/tests/test_cli_matrix.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 2285,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209173543558,
+      "relative": "engineering-framework/tests/test_detect_project.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 12401,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209173682929,
+      "relative": "engineering-framework/tests/test_doctor.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 6147,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209173809153,
+      "relative": "engineering-framework/tests/test_forward_eval_packet.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4210,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209174072570,
+      "relative": "engineering-framework/tests/test_run_evals.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 106409,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209174409345,
+      "relative": "engineering-framework/tests/test_traceability.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 12989,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787364209174553548,
+      "relative": "engineering-framework/tests/test_validate_skill.py",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 8528,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1786933444022948759,
+      "relative": "gauntlet-loop",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1786933444021793364,
+      "relative": "gauntlet-loop/SKILL.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 9265,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1786933444022179187,
+      "relative": "gauntlet-loop/agents",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1786933444022426824,
+      "relative": "gauntlet-loop/agents/openai.yaml",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 271,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1786933444022948759,
+      "relative": "gauntlet-loop/assets",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1786933444022703952,
+      "relative": "gauntlet-loop/assets/progress-template.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 336,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1786933444022948759,
+      "relative": "gauntlet-loop/assets/state-template.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 963,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1786933444024153011,
+      "relative": "gauntlet-loop/references",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1786933444023369685,
+      "relative": "gauntlet-loop/references/protocol.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 12287,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1786933444023770031,
+      "relative": "gauntlet-loop/references/quality-bars.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 10375,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1786933444024153011,
+      "relative": "gauntlet-loop/references/role-packets.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4994,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1777850250230992406,
+      "relative": "graphic-creation",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1777850250230992406,
+      "relative": "graphic-creation/SKILL.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 3337,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1777850250231992413,
+      "relative": "graphic-creation/agents",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1777850250231992413,
+      "relative": "graphic-creation/agents/openai.yaml",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 303,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351776478040684,
+      "relative": "orchestrate",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351776477689665,
+      "relative": "orchestrate/SKILL.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 5263,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351776478040684,
+      "relative": "orchestrate/agents",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351776478040684,
+      "relative": "orchestrate/agents/openai.yaml",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 253,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1787351776479940795,
+      "relative": "orchestrate/references",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351776478413743,
+      "relative": "orchestrate/references/agent-brief.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4249,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351776478720534,
+      "relative": "orchestrate/references/delegation.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4837,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351776479042690,
+      "relative": "orchestrate/references/orchestration-workflow.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4965,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351776479359784,
+      "relative": "orchestrate/references/recovery.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4896,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351776479659739,
+      "relative": "orchestrate/references/task-graph.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4297,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1787351776479940795,
+      "relative": "orchestrate/references/verification.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4829,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1781144703762627063,
+      "relative": "vps-truth-source",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1781144703762627063,
+      "relative": "vps-truth-source/SKILL.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 3047,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1781144401455628841,
+      "relative": "vps-truth-source/agents",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1781144401455703621,
+      "relative": "vps-truth-source/agents/openai.yaml",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 225,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1781144703934628225,
+      "relative": "vps-truth-source/references",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1781144703934628225,
+      "relative": "vps-truth-source/references/source-layout.md",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 1043,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1781144704107629394,
+      "relative": "vps-truth-source/scripts",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1781146658726647638,
+      "relative": "vps-truth-source/scripts/sync-vps-truth.sh",
+      "root": "$HOME/.codex/skills",
+      "size_bytes": 511,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1788011609877928598,
+      "relative": ".invocation-ledger.json.lock",
+      "root": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4",
+      "size_bytes": 0,
+      "status": "FILE"
+    },
+    {
+      "mode": 16384,
+      "mtime_ns": 1788014596653273207,
+      "relative": "artifacts",
+      "root": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4",
+      "size_bytes": 4096,
+      "status": "DIRECTORY"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1788012657487454311,
+      "relative": "artifacts/INV-146dd2203cc253d79258abef.host-response.txt",
+      "root": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4",
+      "size_bytes": 67,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1788013158573858167,
+      "relative": "artifacts/INV-2d8b302529885a90812e4391.host-response.txt",
+      "root": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4",
+      "size_bytes": 67,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1788014596646184045,
+      "relative": "artifacts/INV-41b4a9204e915ec294806b62.host-response.txt",
+      "root": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4",
+      "size_bytes": 67,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1788009689904161057,
+      "relative": "artifacts/INV-47ad9540f4bb5ae9a0bf84fc.host-response.txt",
+      "root": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4",
+      "size_bytes": 70,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1788011835276425318,
+      "relative": "artifacts/INV-87a9942c9a8f5ebc82d2e080.host-response.txt",
+      "root": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4",
+      "size_bytes": 70,
+      "status": "FILE"
+    },
+    {
+      "mode": 32768,
+      "mtime_ns": 1788014590594379689,
+      "relative": "invocation-ledger.json",
+      "root": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4",
+      "size_bytes": 1479,
+      "status": "FILE"
+    }
+  ],
+  "entry_count": 592,
+  "metadata_digest": "sha256:f39cc2aa15e34750844158c46562bd4a6f7a8a549bc0d8f1104a26f24496c5ce",
+  "root_entry_digests": {
+    "$HOME/.agents": "sha256:73dc2137ef0ef064f0b780b6d25fa90c9a7529108a00a609c73862f9b1fb0155",
+    "$HOME/.codex/auth.json": "sha256:c6fc83da1f5535ec49b6d82b0576a63f5827b934cf7bae05a734a13686cfb52f",
+    "$HOME/.codex/config.toml": "sha256:3692da1c0bac0e798cc805917a631925681e0cf36b103bcad059d9dc9f8ea4bc",
+    "$HOME/.codex/skills": "sha256:ad04825303228ec32c121cbf2fa34e4e6b7df3ef8216bae0d8ccee551239039e",
+    "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4": "sha256:ad797878d379a7bb5b16891e488feaa255a98572650ab77fca6a841210006844"
+  },
+  "roots": [
+    {
+      "root": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4",
+      "status": "OBSERVED"
+    },
+    {
+      "root": "$HOME/.codex/config.toml",
+      "status": "OBSERVED_FILE"
+    },
+    {
+      "root": "$HOME/.codex/auth.json",
+      "status": "OBSERVED_FILE"
+    },
+    {
+      "root": "$HOME/.codex/skills",
+      "status": "OBSERVED"
+    },
+    {
+      "root": "$HOME/.agents",
+      "status": "OBSERVED"
+    }
+  ],
+  "scanned_entry_count": 592,
+  "schema_version": "P4-STATE-SNAPSHOT-1",
+  "truncated": false
+}

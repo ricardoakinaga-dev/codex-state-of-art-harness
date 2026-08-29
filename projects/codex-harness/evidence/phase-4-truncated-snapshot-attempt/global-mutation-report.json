@@ -1,0 +1,22 @@
+{
+  "after_digest": "sha256:c5d0bf65bba82c08006424f6e6c09b7bb5bee5ca823e1060e136141f9b8e8cea",
+  "after_global_root_digests": {
+    "$HOME/.codex": "sha256:925c0856e7f73fde6c1eb8749b632556b1ecbcc0da8abeb92b3fdb320a7b81e7",
+    "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4": "sha256:d4e164f4371f6c50b6790613b2e750517521e98d618a11ff4fd7b859ee4b8c88"
+  },
+  "before_digest": "sha256:c0a2dd221eadbb8e3edb4d111a9c9509e88252ffec5dde61d30d598c64220a04",
+  "before_global_root_digests": {
+    "$HOME/.codex": "sha256:f04eca01fd6c5a812a26d94c917b8eba487b36e741748e65c01e299d26246708",
+    "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4": "sha256:2882ded4a7a16d7b1f8a2be9be51a055221ba7c852795c09cd43a2f40091e810"
+  },
+  "global_root_digests_unchanged": false,
+  "project_runtime_expected_mutation": true,
+  "root_delta_requires_read_only_review": true,
+  "roots": [
+    "$HOME/.agents",
+    "$HOME/.codex",
+    "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4"
+  ],
+  "schema_version": "P4-GLOBAL-MUTATION-1",
+  "scope": "metadata-only snapshots; file contents and credentials were not read"
+}

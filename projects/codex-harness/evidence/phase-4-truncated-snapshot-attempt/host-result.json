@@ -1,0 +1,345 @@
+{
+  "authorized_thread_id": "01a04ddb-ecc9-7251-973a-cfc6db561a9f",
+  "authorized_turn_id": "01a04ddb-ecde-7562-8a45-a31d99f67cf2",
+  "correlation": "every explicit threadId/turnId in accepted host events matched",
+  "invocation_id": "INV-146dd2203cc253d79258abef",
+  "result": {
+    "cancellation_status": "NOT_REQUESTED",
+    "completed_at": 1788012657,
+    "denied_approvals": 0,
+    "error_code": null,
+    "events": [
+      {
+        "detail": null,
+        "event_class": "HOST_INVOCATION_ACKNOWLEDGED",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a04ddb-ecde-7562-8a45-a31d99f67cf2",
+        "item_type": null,
+        "method": "turn/start",
+        "sequence": 0,
+        "status": "started"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "thread/status/changed",
+        "sequence": 1,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "turn/started",
+        "sequence": 2,
+        "status": "inProgress"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a04ddb-f1ac-7fe3-b1b2-00832dd586ca",
+        "item_type": "userMessage",
+        "method": "item/started",
+        "sequence": 3,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a04ddb-f1ac-7fe3-b1b2-00832dd586ca",
+        "item_type": "userMessage",
+        "method": "item/completed",
+        "sequence": 4,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "msg_0880c78814dcd494016a92e870fb3c87d28778230a3057f402",
+        "item_type": "agentMessage",
+        "method": "item/started",
+        "sequence": 5,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 6,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 7,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 8,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 9,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 10,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 11,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 12,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 13,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 14,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 15,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 16,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 17,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 18,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 19,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 20,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 21,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 22,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 23,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 24,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 25,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 26,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "msg_0880c78814dcd494016a92e870fb3c87d28778230a3057f402",
+        "item_type": "agentMessage",
+        "method": "item/completed",
+        "sequence": 27,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "thread/tokenUsage/updated",
+        "sequence": 28,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "account/rateLimits/updated",
+        "sequence": 29,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "thread/status/changed",
+        "sequence": 30,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "turn/completed",
+        "sequence": 31,
+        "status": "completed"
+      }
+    ],
+    "execution_observed": true,
+    "final_message": "PHASE4_SAFE_PILOT_ARTIFACT\n\nThis is a bounded host-invocation test.",
+    "host_version": "codex-state-of-art-harness/0.150.1 (Linux Mint 22.3.0; x86_64) dumb (codex-state-of-art-harness; 0.1.0)",
+    "invocation_observed": true,
+    "load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "session_id": "01a04ddb-ecc9-7251-973a-cfc6db561a9f",
+    "started_at": 1788012652,
+    "status": "SUCCESS",
+    "thread_id": "01a04ddb-ecc9-7251-973a-cfc6db561a9f",
+    "turn_id": "01a04ddb-ecde-7562-8a45-a31d99f67cf2"
+  },
+  "schema_version": "P4-HOST-RESULT-1"
+}

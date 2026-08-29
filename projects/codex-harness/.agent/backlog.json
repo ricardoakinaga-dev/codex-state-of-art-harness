@@ -99,6 +99,32 @@
         ".agent/execution-log.jsonl#EVT-PHASE3-GATE-VERIFIED-0002"
       ],
       "next_action": "Keep the bounded Phase 3 payload frozen; any source, test, runtime configuration or scope change requires a new evidence, manifest and independent-review cycle."
+    },
+    {
+      "id": "PHASE4-001",
+      "title": "Implement the bounded real Codex capability invocation boundary",
+      "stage": "VERIFY",
+      "priority": "P0",
+      "status": "DONE",
+      "origin": "User-supplied Phase 4 Real Capability Invocation Boundary specification",
+      "dependencies": ["PHASE3-001"],
+      "owner": "lead",
+      "acceptance_summary": "Build and verify one explicitly authorized, exact-fingerprint-bound Codex app-server pilot with dry-run, prepare-only, controlled-real and blocked modes, bounded context, workspace confinement, truthful host causality, receipts, artifacts, verification, assurance, negative pilots, security evidence, independent review and an honest A/B/C support level without arbitrary execution or global mutation.",
+      "evidence_refs": [
+        ".agent/plans/PHASE-4-real-capability-invocation.md",
+        "docs/implementation/phase-4-quality-bar.md",
+        "architecture/docs/adr/ADR-013-phase-4-real-capability-invocation-boundary.md",
+        "evidence/phase-4/readiness.json",
+        "evidence/phase-4/review-manifest.json",
+        "evidence/phase-4/final-run.json",
+        "evidence/phase-4/requests/INV-84f7b47ea606539e92305782.json",
+        "evidence/phase-4/independent-review.md",
+        "evidence/phase-4/review-attestation.json",
+        "evidence/phase-4/review-closure.json",
+        "evidence/phase-4/PHASE4-FROZEN.md",
+        "evidence/phase-4/final-report.md"
+      ],
+      "next_action": "Keep the exact bounded Phase 4 packet frozen; any broader host, Skill, tool, provider, MCP, Director, distributed or production scope requires a new phase and review cycle."
     }
   ]
 }

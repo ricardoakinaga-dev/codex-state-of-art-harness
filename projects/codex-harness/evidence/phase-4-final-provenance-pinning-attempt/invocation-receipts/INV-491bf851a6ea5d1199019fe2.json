@@ -1,0 +1,40 @@
+{
+  "artifact_refs": [
+    "ART-INV-491bf851a6ea5d1199019fe2"
+  ],
+  "authorization_digest": "sha256:fc377616c5b739568ba8b0efc0778f963a7ccc14fd30ef22291a3f189945dbe8",
+  "authorization_id": "AUTH-7e4be3c01722507e83d291f7",
+  "capability_id": "phase4-safe-pilot",
+  "capability_version": "0.1.0",
+  "closed_at": 1788016677,
+  "context_digest": "sha256:703699f0b9262563f119e74a5309ff43b5c46106cf53ea47e87f4c42000b247a",
+  "created_at": 1788016669,
+  "host_event_count": 30,
+  "host_event_digest": "sha256:646975dab5469bfac53ba890dca6feda1809267de33e57bf1a4e4af9637b1a1f",
+  "host_invoked": true,
+  "host_load_observation": "HOST_LOAD_UNOBSERVABLE",
+  "invocation_id": "INV-491bf851a6ea5d1199019fe2",
+  "lifecycle": [
+    "DISCOVERED",
+    "RESOLVED",
+    "AUTHORIZED",
+    "CONTEXT_PREPARED",
+    "INVOCATION_REQUESTED",
+    "HOST_ACKNOWLEDGED",
+    "EXECUTING",
+    "RESULT_RECEIVED",
+    "VERIFYING",
+    "VERIFIED",
+    "CLOSED"
+  ],
+  "mode": "CONTROLLED_REAL",
+  "package_fingerprint": "sha256:76938b6602da712c10fe8aa2f67b97d57c5118c812a3fe38a033ebe7e6e1ed3e",
+  "receipt_digest": "sha256:299e7e32f14538e3cb181352a591e7a85a067b5acd7693ed5d5bfa01f244faa7",
+  "request_digest": "sha256:414684bc2d8e5d230cdb9eea154ac9d88a01fefe0f63f0664abc7ff4865cf7f2",
+  "result_digest": "sha256:fdf8312dea9c916cfff6f7a56b4125b7189f091aca838b1bc83afbc3438c7d94",
+  "schema_version": "P4-RECEIPT-1",
+  "status": "SUCCESS",
+  "verification_refs": [
+    "sha256:644b7128d5e9c2db02147e116fcbb91dc910271a644ce48bf7d306e06d2aeab1"
+  ]
+}

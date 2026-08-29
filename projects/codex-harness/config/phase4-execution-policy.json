@@ -1,0 +1,74 @@
+{
+  "schema_version": "P4-POLICY-1",
+  "rules": [
+    {
+      "capability_id": "phase4-safe-pilot",
+      "version": "0.1.0",
+      "package_fingerprint": "sha256:76938b6602da712c10fe8aa2f67b97d57c5118c812a3fe38a033ebe7e6e1ed3e",
+      "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+      "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+      "execution_approved": true,
+      "allowed_modes": [
+        "DRY_RUN",
+        "PREPARE_ONLY",
+        "CONTROLLED_REAL"
+      ],
+      "allowed_tools": [],
+      "allowed_side_effects": [],
+      "allowed_providers": [],
+      "allow_scripts": false,
+      "allow_network": false,
+      "allow_shell": false,
+      "allow_mcp": false,
+      "allow_credentials": false,
+      "expected_artifact_types": [
+        "HOST_RESPONSE"
+      ],
+      "reason": "script-free project-local fallback; preferred installed pilots are ineligible"
+    },
+    {
+      "capability_id": "design-director",
+      "version": "0.1.0",
+      "package_fingerprint": "sha256:564d610da9260d25cbcddfbb3f96f70fb9dabd643c46b4242c4b891d399eba95",
+      "execution_approved": false,
+      "allowed_modes": [
+        "DRY_RUN",
+        "PREPARE_ONLY"
+      ],
+      "allowed_tools": [],
+      "allowed_side_effects": [],
+      "allowed_providers": [],
+      "allow_scripts": false,
+      "allow_network": false,
+      "allow_shell": false,
+      "allow_mcp": false,
+      "allow_credentials": false,
+      "expected_artifact_types": [
+        "HOST_RESPONSE"
+      ],
+      "reason": "preferred pilot is synthesized, third-party, partial-compatible and script-bearing"
+    },
+    {
+      "capability_id": "verification-loop",
+      "version": "0.1.0",
+      "package_fingerprint": "sha256:6cddd9e336f44c261eea24fc983c18f740df9dca8ebfbed0faffc7b9d73ba0ce",
+      "execution_approved": false,
+      "allowed_modes": [
+        "DRY_RUN",
+        "PREPARE_ONLY"
+      ],
+      "allowed_tools": [],
+      "allowed_side_effects": [],
+      "allowed_providers": [],
+      "allow_scripts": false,
+      "allow_network": false,
+      "allow_shell": false,
+      "allow_mcp": false,
+      "allow_credentials": false,
+      "expected_artifact_types": [
+        "HOST_RESPONSE"
+      ],
+      "reason": "preferred pilot is invalid and rejected by Phase 3 discovery"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "artifact_refs": [
+    "ART-INV-47ad9540f4bb5ae9a0bf84fc"
+  ],
+  "authorization_digest": "sha256:8cc29521ad0af74bd9493b88ac5397cc055716bd9c4aed88088df8e34087bd17",
+  "authorization_id": "AUTH-14a0b0ea47805f84ac279272",
+  "capability_id": "phase4-safe-pilot",
+  "capability_version": "0.1.0",
+  "closed_at": 1788009689,
+  "context_digest": "sha256:1730d272b02175570beba795cd7270704a352078bc78c2d476655a45ab792184",
+  "created_at": 1788009679,
+  "host_event_count": 34,
+  "host_event_digest": "sha256:e667011550e3bba41103a101a87b2ebfabb5a7f375b829b254f0d5266d23941a",
+  "host_invoked": true,
+  "host_load_observation": "HOST_LOAD_UNOBSERVABLE",
+  "invocation_id": "INV-47ad9540f4bb5ae9a0bf84fc",
+  "lifecycle": [
+    "DISCOVERED",
+    "RESOLVED",
+    "AUTHORIZED",
+    "CONTEXT_PREPARED",
+    "INVOCATION_REQUESTED",
+    "HOST_ACKNOWLEDGED",
+    "EXECUTING",
+    "RESULT_RECEIVED",
+    "VERIFYING",
+    "VERIFIED",
+    "CLOSED"
+  ],
+  "mode": "CONTROLLED_REAL",
+  "package_fingerprint": "sha256:76938b6602da712c10fe8aa2f67b97d57c5118c812a3fe38a033ebe7e6e1ed3e",
+  "receipt_digest": "sha256:badcf2c31779a19f24468b1111b2845c19d70842e1e17c4a1811fc0a98f55d28",
+  "result_digest": "sha256:adf9018d91c4c75a7db721eafeb0bab91bcb72896b4c1278c9b5d00e9502dcfb",
+  "schema_version": "P4-RECEIPT-1",
+  "status": "SUCCESS",
+  "verification_refs": [
+    "sha256:1b9e054b48fc9db86874f320e496fcddc6e25f2d094874ae81aa66e6e22bf874"
+  ]
+}

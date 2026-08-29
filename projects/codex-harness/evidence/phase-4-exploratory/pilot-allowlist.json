@@ -1,0 +1,36 @@
+{
+  "schema_version": "P4-PILOT-ALLOWLIST-1",
+  "policy_is_separate_from_routing": true,
+  "controlled_real_allowlist": [
+    {
+      "capability_id": "phase4-safe-pilot",
+      "version": "0.1.0",
+      "package_fingerprint": "sha256:76938b6602da712c10fe8aa2f67b97d57c5118c812a3fe38a033ebe7e6e1ed3e",
+      "scope": "PROJECT",
+      "trust": "PROJECT_TRUSTED",
+      "compatibility": "PARTIAL",
+      "scripts": [],
+      "tools": [],
+      "providers": [],
+      "dependencies": [],
+      "real_execution": "APPROVED_WITH_EXPLICIT_FINGERPRINT_CONFIRMATION"
+    }
+  ],
+  "preferred_candidates": [
+    {
+      "capability_id": "design-director",
+      "version": "0.1.0",
+      "package_fingerprint": "sha256:564d610da9260d25cbcddfbb3f96f70fb9dabd643c46b4242c4b891d399eba95",
+      "status": "DRY_RUN_ONLY",
+      "blockers_for_real": ["BLOCKED_EXECUTION_POLICY", "EXECUTION_MODE_NOT_ALLOWED", "FORBIDDEN_SCRIPT"]
+    },
+    {
+      "capability_id": "verification-loop",
+      "version": "0.1.0",
+      "package_fingerprint": "sha256:6cddd9e336f44c261eea24fc983c18f740df9dca8ebfbed0faffc7b9d73ba0ce",
+      "status": "REJECTED_BY_PHASE3",
+      "blockers_for_real": ["CAPABILITY_MISSING_OR_UNUSABLE"]
+    }
+  ],
+  "selection_rationale": "A tiny script-free local fixture was used rather than invoking either preferred installed Skill."
+}

@@ -1,0 +1,45 @@
+{
+  "adapter": "CodexAppServerAdapter",
+  "causality": "host execution observed; Skill load event unobservable",
+  "enforced_boundary": {
+    "approval_policy": "on-request with every approval declined",
+    "apps_feature_override": "features.apps=false",
+    "isolated_runtime": "temporary HOME/CODEX_HOME with host auth copied only",
+    "mcp_config_override": "mcp_servers={}",
+    "network_access": false,
+    "process": [
+      "codex",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "features.apps=false",
+      "app-server",
+      "--listen",
+      "stdio://"
+    ],
+    "runtime_workspace_roots": [
+      "$WORKSPACE"
+    ],
+    "sandbox": "readOnly",
+    "shell_scripts_tools_providers_credentials_subagents": "DENIED"
+  },
+  "host": "Codex app-server",
+  "host_authentication": "host-managed and never sent as Skill input",
+  "host_version": "codex-state-of-art-harness/0.150.1 (Linux Mint 22.3.0; x86_64) dumb (codex-state-of-art-harness; 0.1.0)",
+  "observed_sequence": [
+    "initialize",
+    "skills/list",
+    "thread/start(ephemeral,read-only)",
+    "turn/start(typed text + typed skill input)",
+    "turn/completed"
+  ],
+  "official_sources": [
+    "https://learn.chatgpt.com/docs/codex/app-server",
+    "https://learn.chatgpt.com/docs/codex/cli",
+    "https://learn.chatgpt.com/docs/codex/non-interactive-mode",
+    "https://learn.chatgpt.com/docs/codex/codex-sdk"
+  ],
+  "outcome_status": "SUCCESS",
+  "schema_version": "P4-HOST-CAPABILITIES-1",
+  "support_level": "P4_LEVEL_B"
+}

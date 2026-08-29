@@ -1,0 +1,51 @@
+{
+  "attempt_count": 10,
+  "benchmark": "P4-BENCH-1",
+  "coverage": "80.124% combined branch coverage",
+  "critical": 0,
+  "evidenced_real_invocation_count": 7,
+  "excluded_claims": [
+    "PRODUCTION_READY",
+    "AAA_VERIFIED",
+    "ARBITRARY_SKILL_EXECUTION",
+    "SAFE_ARBITRARY_CODE_EXECUTION",
+    "MCP_COMPLETE",
+    "PROVIDER_COMPLETE",
+    "SUBAGENT_COMPLETE",
+    "FULL_HOST_CAUSALITY",
+    "GLOBAL_MUTATION_SAFE",
+    "DISTRIBUTED_EXECUTION"
+  ],
+  "execution_mode": "CONTROLLED_REAL",
+  "high": 0,
+  "host_support_level": "P4_LEVEL_B",
+  "independent_review": "PENDING",
+  "limitations": [
+    "HOST_LOAD_UNOBSERVABLE"
+  ],
+  "load_observation_status": "HOST_LOAD_UNOBSERVABLE",
+  "medium": "PENDING_REVIEW",
+  "mypy": "PASS (47 source files)",
+  "phase": "PHASE4-001",
+  "phase2_base": "FROZEN",
+  "phase2_regression": "PASS",
+  "phase3_base": "FROZEN",
+  "phase3_regression": "PASS",
+  "pilot_capabilities": [
+    "phase4-safe-pilot"
+  ],
+  "pilot_fingerprints": [
+    "sha256:76938b6602da712c10fe8aa2f67b97d57c5118c812a3fe38a033ebe7e6e1ed3e"
+  ],
+  "quality_bar": "P4-QB-1",
+  "real_invocation_count": 7,
+  "review_attestation": "PENDING",
+  "review_manifest": "sha256:25a9a0e9f03505c256ad10d4e0a588247e65f94dfd64156c0fe49dcd230cd3c3",
+  "reviewed_head": "c21de8479a7c614ea38fb0fbd102998dc706c412",
+  "ruff": "PASS (check + format)",
+  "security": "PASS_WITH_LIMITATIONS (pip-audit unavailable; static review PASS)",
+  "status": "PENDING_INDEPENDENT_READ_ONLY_REVIEW",
+  "successful_final_invocation_count": 1,
+  "tests": "369 passed",
+  "unresolved_reservation_count": 3
+}

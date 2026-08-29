@@ -1,0 +1,3 @@
+# Security summary
+
+PASS for the bounded scope. The policy is exact-byte and fail-closed; controlled-real requires explicit mode plus fingerprint confirmation; the adapter uses the official app-server JSON-RPC boundary with an ephemeral read-only thread, read-only turn sandbox, network disabled, and approval denial. Scripts, shell, tools, files, network, MCP, providers, credentials and subagents are denied. Artifact/evidence paths reject traversal and symlinks and output serialization redacts paths and secret-like values. Host authentication remains host-owned and was not passed as Skill input.

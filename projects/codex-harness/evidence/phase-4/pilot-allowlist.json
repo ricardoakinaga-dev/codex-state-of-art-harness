@@ -1,0 +1,47 @@
+{
+  "controlled_real_rule": {
+    "allow_credentials": false,
+    "allow_mcp": false,
+    "allow_network": false,
+    "allow_scripts": false,
+    "allow_shell": false,
+    "allowed_modes": [
+      "DRY_RUN",
+      "PREPARE_ONLY",
+      "CONTROLLED_REAL"
+    ],
+    "allowed_providers": [],
+    "allowed_side_effects": [],
+    "allowed_tools": [],
+    "capability_id": "phase4-safe-pilot",
+    "execution_approved": true,
+    "expected_artifact_types": [
+      "HOST_RESPONSE"
+    ],
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+    "package_fingerprint": "sha256:76938b6602da712c10fe8aa2f67b97d57c5118c812a3fe38a033ebe7e6e1ed3e",
+    "reason": "script-free project-local fallback; preferred installed pilots are ineligible",
+    "version": "0.1.0"
+  },
+  "fallback": {
+    "capability_id": "phase4-safe-pilot",
+    "package_fingerprint": "sha256:76938b6602da712c10fe8aa2f67b97d57c5118c812a3fe38a033ebe7e6e1ed3e",
+    "real_mode": "EXPLICITLY_APPROVED_FOR_BOUNDED_PILOT",
+    "version": "0.1.0"
+  },
+  "preferred_pilots": [
+    {
+      "capability_id": "design-director",
+      "real_mode": "BLOCKED",
+      "reason": "script-bearing synthesized third-party global package"
+    },
+    {
+      "capability_id": "verification-loop",
+      "real_mode": "BLOCKED",
+      "reason": "invalid rejected package"
+    }
+  ],
+  "schema_version": "P4-PILOT-ALLOWLIST-1",
+  "selection": "exact capability ID + SemVer + package fingerprint"
+}

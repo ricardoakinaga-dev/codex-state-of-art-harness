@@ -1,0 +1,11 @@
+{
+  "approval_requests_denied": 0,
+  "execution_observed": true,
+  "host_event_count": 34,
+  "host_event_digest": "sha256:e667011550e3bba41103a101a87b2ebfabb5a7f375b829b254f0d5266d23941a",
+  "host_invoked": true,
+  "host_version": "codex-state-of-art-harness/0.150.1",
+  "invocation_id": "INV-47ad9540f4bb5ae9a0bf84fc",
+  "load_observation": "HOST_LOAD_UNOBSERVABLE",
+  "schema_version": "P4-TELEMETRY-1"
+}

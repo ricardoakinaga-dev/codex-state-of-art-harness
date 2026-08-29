@@ -1,0 +1,391 @@
+{
+  "entries": [
+    {
+      "path": "README.md",
+      "scope": "evidence",
+      "sha256": "sha256:cf2c46cd254fa13b1228b91c5ab8055d08f7b10443c820c42c093a78f1a10f69",
+      "size_bytes": 599
+    },
+    {
+      "path": "artifact-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:51e7a60a7716b2c7dd9408a1d71bd1488af3367d40272795be710a882914dd82",
+      "size_bytes": 334
+    },
+    {
+      "path": "artifacts/ART-INV-491bf851a6ea5d1199019fe2.host-response.txt",
+      "scope": "evidence",
+      "sha256": "sha256:a2020e99304949809f2d75c3471e1ce9aaae134d63e9fa070405d05c06b1ccd5",
+      "size_bytes": 67
+    },
+    {
+      "path": "attempt-history.json",
+      "scope": "evidence",
+      "sha256": "sha256:b1aa8b9290fc8f1b6ca75a4a95d8e8f91218427616e9f598b527ee76caaf33ba",
+      "size_bytes": 2261
+    },
+    {
+      "path": "authorizations/AUTH-7e4be3c01722507e83d291f7.json",
+      "scope": "evidence",
+      "sha256": "sha256:c172832237c0cd452bbd350ecfbc981a125b50b937265fd508d566b2a0aab527",
+      "size_bytes": 2007
+    },
+    {
+      "path": "benchmark-summary.json",
+      "scope": "evidence",
+      "sha256": "sha256:e601e500ce251e7a4a0873e988b8e45e11713f00b59418444502a653dddf09c1",
+      "size_bytes": 1655
+    },
+    {
+      "path": "context-manifests/INV-491bf851a6ea5d1199019fe2.json",
+      "scope": "evidence",
+      "sha256": "sha256:8159b79800af1d31673053c88554bdb536ab633abf2fa788da3afc5a8990a350",
+      "size_bytes": 824
+    },
+    {
+      "path": "coverage-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:7e3de02d3d865d2cab33dd815d8debac94e3906c84d1a71e5b3926e67f7262f7",
+      "size_bytes": 129
+    },
+    {
+      "path": "design-director-pilot-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:76b89c5993eb63d580721dbb6ecf71bfa81f162fcb4f9d1ba258e37dc9ef5a41",
+      "size_bytes": 304
+    },
+    {
+      "path": "execution-policy.json",
+      "scope": "evidence",
+      "sha256": "sha256:5882ceac5b6a261b7e2a9340aed00161d25ff3dcd0c16042e6f94d2981c27ed1",
+      "size_bytes": 2356
+    },
+    {
+      "path": "final-run.json",
+      "scope": "evidence",
+      "sha256": "sha256:7590748268ec07ebb7090321d8aef50041d5d7776f29806d4b493c94b1d35337",
+      "size_bytes": 3767
+    },
+    {
+      "path": "global-mutation-report.json",
+      "scope": "evidence",
+      "sha256": "sha256:d4b51c8388c87179a984f038bc17ec227d1be929b776d694950775378d1658ac",
+      "size_bytes": 1874
+    },
+    {
+      "path": "host-invocation-capabilities.json",
+      "scope": "evidence",
+      "sha256": "sha256:29d75cbda9f6873ae4ec2e64280d7ee871f36fdc606fc8a691563763e274e554",
+      "size_bytes": 6710
+    },
+    {
+      "path": "host-load-causality-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:44bb41e51ee33a8467b48cb074f84bd5ae80089824b832852456eed6f25c58bf",
+      "size_bytes": 339
+    },
+    {
+      "path": "host-result.json",
+      "scope": "evidence",
+      "sha256": "sha256:d38552ab1805fdbef44c01182a71c9e7dfb0afc8f0f7fd225fc9ee1f5e2b4439",
+      "size_bytes": 20027
+    },
+    {
+      "path": "invocation-receipts/INV-491bf851a6ea5d1199019fe2.json",
+      "scope": "evidence",
+      "sha256": "sha256:6d21efc4295f6bf9fdfe304a678d6e805be940e8c1bea433e68eb16b30f416e6",
+      "size_bytes": 1516
+    },
+    {
+      "path": "mypy-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:92d280c551e67b489ba79542e7dd28743347298e5062ce034ed5fffaa233313e",
+      "size_bytes": 108
+    },
+    {
+      "path": "outcome.json",
+      "scope": "evidence",
+      "sha256": "sha256:b240b28cafac48f1cd20efb2b06f1436cf71bf818006e100487995d5706ab5d5",
+      "size_bytes": 26327
+    },
+    {
+      "path": "phase2-regression.md",
+      "scope": "evidence",
+      "sha256": "sha256:3eea3f00b6026eeee934ca41840a4e4992feca0e3ae195ebea0ab9792dd28d21",
+      "size_bytes": 132
+    },
+    {
+      "path": "phase3-regression.md",
+      "scope": "evidence",
+      "sha256": "sha256:17ebb5b5d718432e88979eca6cea40ef02c7d48e47971a067927018c38395923",
+      "size_bytes": 132
+    },
+    {
+      "path": "phase3-supersession.md",
+      "scope": "evidence",
+      "sha256": "sha256:1880be41e6bd87e49a4876a5156080777e7f040ab893d43ccc65a32693bec9d8",
+      "size_bytes": 399
+    },
+    {
+      "path": "pilot-allowlist.json",
+      "scope": "evidence",
+      "sha256": "sha256:1956321db5d4cd190473213d9fee085492ce699111f1ca0906ca06911a9d44a0",
+      "size_bytes": 1488
+    },
+    {
+      "path": "ruff-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:58a3b864a7b0314611350e3b35b281d196636a827af401859b772d178e2ce4bc",
+      "size_bytes": 136
+    },
+    {
+      "path": "security-summary.md",
+      "scope": "evidence",
+      "sha256": "sha256:f5cb44d1db77b91b06ed0a457a758b02d7c7caa95ffb30f1f5e6b1f69f9ce156",
+      "size_bytes": 434
+    },
+    {
+      "path": "state-after.json",
+      "scope": "evidence",
+      "sha256": "sha256:a0694f0a98ff8ed1df513e1a6ab532da0f34e1093334d3981dd06480ebdad566",
+      "size_bytes": 134272
+    },
+    {
+      "path": "state-before.json",
+      "scope": "evidence",
+      "sha256": "sha256:234444c3c695428037109e4967055d5296a49bcc9e83c02a80709f00b5bfc3c0",
+      "size_bytes": 133920
+    },
+    {
+      "path": "telemetry-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:31e2bb5a7025ffa34423e2d9dc14e92c6c7184a0c30a16ad77c5472ccab63592",
+      "size_bytes": 472
+    },
+    {
+      "path": "telemetry/INV-491bf851a6ea5d1199019fe2.json",
+      "scope": "evidence",
+      "sha256": "sha256:ceee5ceb304669f019a953147d7863a698d6506771ef5a7eba0da4f17983ff49",
+      "size_bytes": 17579
+    },
+    {
+      "path": "telemetry/INV-491bf851a6ea5d1199019fe2.jsonl",
+      "scope": "evidence",
+      "sha256": "sha256:2d479ecb1b99948757d38ddabb21af8c793cfefa8e221babf4d4c37b5e32c8c7",
+      "size_bytes": 8713
+    },
+    {
+      "path": "test-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:8a281b289aaa2affaa5944f9c6a0eeb7902e29887973830805ba08f85675a713",
+      "size_bytes": 137
+    },
+    {
+      "path": "verification-pilot-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:8f026c346535840d793f6dcfdcb5a83a8e414d40faa8ab0fe7326edf71183b72",
+      "size_bytes": 198
+    },
+    {
+      "path": "verification-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:0b9d33ee1835f3f7d1495e4cd808dc4eaac1ac84f3c07b92eb3fe121c65a6be1",
+      "size_bytes": 357
+    },
+    {
+      "path": "verification/INV-491bf851a6ea5d1199019fe2.json",
+      "scope": "evidence",
+      "sha256": "sha256:d9851291256bb97771be9123e002ccec6ac54ba37403d8a87546836e3044b6d1",
+      "size_bytes": 854
+    },
+    {
+      "path": "architecture/docs/adr/ADR-013-phase-4-real-capability-invocation-boundary.md",
+      "scope": "repository",
+      "sha256": "sha256:92b220facd8c985c7b70df9b2d343887d02ba539fe80d7cb4752d637571b8696",
+      "size_bytes": 5246
+    },
+    {
+      "path": "projects/codex-harness/.agent/plans/PHASE-4-real-capability-invocation.md",
+      "scope": "repository",
+      "sha256": "sha256:4b212d7bae541ec29d1b34fb060b3884d37fc6b1cdf5c5faa5c74037e8770635",
+      "size_bytes": 10545
+    },
+    {
+      "path": "projects/codex-harness/config/phase4-execution-policy.json",
+      "scope": "repository",
+      "sha256": "sha256:8151988159da83a41ce7c0105555bf400c2a7c54db72702273e5d8d44640a9f7",
+      "size_bytes": 2280
+    },
+    {
+      "path": "projects/codex-harness/docs/implementation/phase-4-quality-bar.md",
+      "scope": "repository",
+      "sha256": "sha256:b6c4782c3fa77139ee64095d9bac24d4f50e8c70b03b038277f24bbd232946e7",
+      "size_bytes": 3002
+    },
+    {
+      "path": "projects/codex-harness/docs/implementation/phase-4-real-capability-invocation-report.md",
+      "scope": "repository",
+      "sha256": "sha256:27b7916e0a0fedf13ddad3b2b498167f099f2323c58d2c15843be28cc6a7c3e8",
+      "size_bytes": 6856
+    },
+    {
+      "path": "projects/codex-harness/pyproject.toml",
+      "scope": "repository",
+      "sha256": "sha256:c5f2ceba9f1a0a7fe96e057cc4bad872cd0a61ea8340f813c58873257d04b5a4",
+      "size_bytes": 1083
+    },
+    {
+      "path": "projects/codex-harness/scripts/finalize_phase4_evidence.py",
+      "scope": "repository",
+      "sha256": "sha256:0b3ed123cfae4edfc69348283e6005a130fe636875df76f84cab35e174d1a286",
+      "size_bytes": 14429
+    },
+    {
+      "path": "projects/codex-harness/scripts/publish_phase4_evidence.py",
+      "scope": "repository",
+      "sha256": "sha256:5745e23486a23c91f38bb272d08b958b816fc959260f2ceac87a14d8cca91279",
+      "size_bytes": 44316
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase4_artifacts.py",
+      "scope": "repository",
+      "sha256": "sha256:2af906fd8b2eaead43012f241e1a124399a87b1640064c7991c7bd443c98d629",
+      "size_bytes": 7859
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase4_benchmarks.py",
+      "scope": "repository",
+      "sha256": "sha256:bd6324c80c1e517aa9168919f5db4b30e65c31207e9f30abde1a2e1aafefade6",
+      "size_bytes": 1311
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase4_cli.py",
+      "scope": "repository",
+      "sha256": "sha256:e6c79b8514c1df61cc31526784117fa49bba80e8c9d375dcfb3f06bf108a055c",
+      "size_bytes": 9648
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase4_evidence.py",
+      "scope": "repository",
+      "sha256": "sha256:5f7fe8d42caef5bffa263d22312daa819357e47e50c986804e4de6f3a31354ce",
+      "size_bytes": 13519
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase4_execution.py",
+      "scope": "repository",
+      "sha256": "sha256:c78e6909134b2b7ca587bfda3b74d2fcbb4dbd232e296a4a4019e98398df031e",
+      "size_bytes": 44295
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase4_host.py",
+      "scope": "repository",
+      "sha256": "sha256:d23a8ec2289a61219ae3414f2b94738a5c6305ab99b4a3df873bc07b416fb106",
+      "size_bytes": 43485
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase4_models.py",
+      "scope": "repository",
+      "sha256": "sha256:de7017a32a146fa651258d84671eb6c9e8f891e16251e3ae0592a614c2e5a5e6",
+      "size_bytes": 32160
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase4_policy.py",
+      "scope": "repository",
+      "sha256": "sha256:76029b4b1da151bbc591fec88881b797b11949ff03d28a3117a9d576bf7c47df",
+      "size_bytes": 28043
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase4_verification.py",
+      "scope": "repository",
+      "sha256": "sha256:2c1f3e079e1e4c9b0542441e5fddf1c9a87af1848cf27e78b9f49a6b8bad19b2",
+      "size_bytes": 8388
+    },
+    {
+      "path": "projects/codex-harness/tests/evals/phase4/test_phase4_negative.py",
+      "scope": "repository",
+      "sha256": "sha256:4c6746f21cc31bfc6b67e403e0531c123d1bf1c7d839e53e1ee5e8a209dff9ea",
+      "size_bytes": 1567
+    },
+    {
+      "path": "projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.agents/skills/phase4-safe-pilot/SKILL.md",
+      "scope": "repository",
+      "sha256": "sha256:c8378b0203eac3cbc620d05c1252d297552019419f6838f31b06eac44c731030",
+      "size_bytes": 526
+    },
+    {
+      "path": "projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4/invocation-ledger.json",
+      "scope": "repository",
+      "sha256": "sha256:dfe19aff358f583fae77a662a540db1a0cc3a288ac8ef2939ad71070647cbfda",
+      "size_bytes": 1718
+    },
+    {
+      "path": "projects/codex-harness/tests/fixtures/phase4/pilot-design-project/README.md",
+      "scope": "repository",
+      "sha256": "sha256:c9953dcbab605123a39f6be598ac8f23ff9db40116c4e794bf38acf846a53a19",
+      "size_bytes": 524
+    },
+    {
+      "path": "projects/codex-harness/tests/integration/test_phase4_cli.py",
+      "scope": "repository",
+      "sha256": "sha256:9f95e5991e8ff9395e10a7f90f9cc1cbe296b6ae31c1bf1cc7d703d6dca82723",
+      "size_bytes": 2921
+    },
+    {
+      "path": "projects/codex-harness/tests/integration/test_phase4_real_host.py",
+      "scope": "repository",
+      "sha256": "sha256:c73182399919f542d19c229e5e51ddab018954563392c9e0369a75bbae9127fc",
+      "size_bytes": 2781
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase4_artifacts.py",
+      "scope": "repository",
+      "sha256": "sha256:eb4dfbb9c65943a04572a73d83126f87e9df13b8c4deb9605eeebb8e7a02557e",
+      "size_bytes": 1496
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase4_benchmarks.py",
+      "scope": "repository",
+      "sha256": "sha256:31ce91e9888de1e99f593f84688b78d0bbc5006c6a320632fce57cbc444b7cdd",
+      "size_bytes": 644
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase4_evidence.py",
+      "scope": "repository",
+      "sha256": "sha256:f598ba0cbc64a4143195942db52aa8a427eae92a9cfc313fb392fba60babf4e9",
+      "size_bytes": 2967
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase4_execution.py",
+      "scope": "repository",
+      "sha256": "sha256:e67a8ecd56f20994d1d1eed07c13cba9fab621bfc55bfe27cc21bf9479ffe742",
+      "size_bytes": 16198
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase4_finalizer.py",
+      "scope": "repository",
+      "sha256": "sha256:6784b241bbead845170dcd35fa7d41410e6a9551e7625b8740c4404136def440",
+      "size_bytes": 1418
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase4_host.py",
+      "scope": "repository",
+      "sha256": "sha256:57e1456dd15662fd9dd3054a7fd84a46e1d81022f5efb7213c77a090cc75b294",
+      "size_bytes": 15365
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase4_models.py",
+      "scope": "repository",
+      "sha256": "sha256:a491cf067508cd70b1abfb235b1d16be6db94a49fb599cf7ca4a4f5ec8c17632",
+      "size_bytes": 1717
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase4_policy.py",
+      "scope": "repository",
+      "sha256": "sha256:d030ee8e61ccceafba15f316fb1af8f7117c334fa461de0cdadfe2fe39952eb4",
+      "size_bytes": 9478
+    }
+  ],
+  "entry_count": 64,
+  "payload_closure": "sha256:efde05bdb790e05eb94b8e54e781f0496f4b3b1ca3b818e3dd30bc49831e2f0b",
+  "schema_version": "P4-REVIEW-MANIFEST-1"
+}

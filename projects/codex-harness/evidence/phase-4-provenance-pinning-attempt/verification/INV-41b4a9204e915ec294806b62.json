@@ -1,0 +1,28 @@
+{
+  "acceptance_criteria": [
+    "response is non-empty",
+    "marker: PHASE4_SAFE_PILOT_ARTIFACT"
+  ],
+  "artifact_refs": [
+    "ART-INV-41b4a9204e915ec294806b62"
+  ],
+  "checks": [
+    "HOST_RESULT_COMPLETED",
+    "HOST_EXECUTION_OBSERVED",
+    "HOST_RESPONSE_NON_EMPTY",
+    "ONE_ARTIFACT_CAPTURED",
+    "ARTIFACT_INTEGRITY:ART-INV-41b4a9204e915ec294806b62",
+    "ARTIFACT_TYPE:HOST_RESPONSE",
+    "ACCEPTANCE:response is non-empty",
+    "ACCEPTANCE:marker: PHASE4_SAFE_PILOT_ARTIFACT",
+    "RECEIPT_REFERENCE_CORRELATED",
+    "EVIDENCE_REFERENCES_PRESENT"
+  ],
+  "digest": "sha256:e394fc00a4637ea2f630eae3bd70f2b5c8fbf606e4befe6c045b6a422681c939",
+  "evidence_refs": [
+    "receipt://INV-41b4a9204e915ec294806b62"
+  ],
+  "reason": "all bounded artifact and acceptance checks passed",
+  "schema_version": "P4-VERIFICATION-1",
+  "status": "VERIFIED"
+}

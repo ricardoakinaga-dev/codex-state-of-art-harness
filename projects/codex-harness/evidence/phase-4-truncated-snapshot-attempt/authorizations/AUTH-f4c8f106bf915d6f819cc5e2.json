@@ -1,0 +1,58 @@
+{
+  "allowed_side_effects": [],
+  "allowed_tools": [],
+  "artifact_policy": {
+    "max_bytes": 16384,
+    "max_count": 1,
+    "types": [
+      "HOST_RESPONSE"
+    ]
+  },
+  "authorization_id": "AUTH-f4c8f106bf915d6f819cc5e2",
+  "capability_id": "phase4-safe-pilot",
+  "capability_version": "0.1.0",
+  "constraints": [
+    "no arbitrary shell",
+    "no scripts",
+    "no network",
+    "no MCP",
+    "no providers",
+    "no credentials",
+    "no subagents"
+  ],
+  "context_budget": {
+    "max_bytes": 131072
+  },
+  "credential_policy": "DENY",
+  "evidence_policy": {
+    "max_count": 64,
+    "max_events": 256
+  },
+  "expires_at": 1788012727,
+  "filesystem_policy": {
+    "artifact_root": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4/artifacts",
+    "mode": "READ_ONLY",
+    "workspace": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase4/pilot-design-project"
+  },
+  "issued_at": 1788012652,
+  "issued_by": "phase4-preflight",
+  "iteration_budget": {
+    "host_calls": 1,
+    "repair_iterations": 0,
+    "tool_calls": 0,
+    "verification_iterations": 1
+  },
+  "mcp_policy": "DENY",
+  "network_policy": "DENY",
+  "package_fingerprint": "sha256:76938b6602da712c10fe8aa2f67b97d57c5118c812a3fe38a033ebe7e6e1ed3e",
+  "provider_policy": "DENY",
+  "reason": "script-free project-local fallback; preferred installed pilots are ineligible",
+  "requested_execution_mode": "CONTROLLED_REAL",
+  "requested_loading_level": "L2_INSTRUCTION_KERNEL",
+  "run_id": "RUN-P4-FINAL-PILOT-APPS-OFF",
+  "schema_version": "P4-AUTHORIZATION-1",
+  "scope": "PROJECT",
+  "shell_policy": "DENY",
+  "task_id": "TASK-P4-FINAL-PILOT-APPS-OFF",
+  "timeout_seconds": 75
+}

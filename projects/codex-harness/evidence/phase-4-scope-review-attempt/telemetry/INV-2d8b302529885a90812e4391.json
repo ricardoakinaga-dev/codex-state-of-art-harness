@@ -1,0 +1,335 @@
+{
+  "approval_requests_denied": 0,
+  "cancellation_status": "NOT_REQUESTED",
+  "elapsed_seconds_wall_clock": 4.313,
+  "events": [
+    {
+      "detail": null,
+      "event_class": "HOST_INVOCATION_ACKNOWLEDGED",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "01a04de3-9480-71a1-b549-2a42807d84d6",
+      "item_type": null,
+      "method": "turn/start",
+      "sequence": 0,
+      "status": "started"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "thread/status/changed",
+      "sequence": 1,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "turn/started",
+      "sequence": 2,
+      "status": "inProgress"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "01a04de3-997a-74a1-8bc6-43c8e5d74119",
+      "item_type": "userMessage",
+      "method": "item/started",
+      "sequence": 3,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "01a04de3-997a-74a1-8bc6-43c8e5d74119",
+      "item_type": "userMessage",
+      "method": "item/completed",
+      "sequence": 4,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "msg_0f2cdc6735c818ca016a92ea66135887d28772b37d11f97c20",
+      "item_type": "agentMessage",
+      "method": "item/started",
+      "sequence": 5,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 6,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 7,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 8,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 9,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 10,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 11,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 12,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 13,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 14,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 15,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 16,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 17,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 18,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 19,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 20,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 21,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 22,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 23,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 24,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 25,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 26,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "msg_0f2cdc6735c818ca016a92ea66135887d28772b37d11f97c20",
+      "item_type": "agentMessage",
+      "method": "item/completed",
+      "sequence": 27,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "thread/tokenUsage/updated",
+      "sequence": 28,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "account/rateLimits/updated",
+      "sequence": 29,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "thread/status/changed",
+      "sequence": 30,
+      "status": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "turn/completed",
+      "sequence": 31,
+      "status": "completed"
+    }
+  ],
+  "execution_observed": true,
+  "host_event_count": 32,
+  "host_event_digest": "sha256:c785b0325ac447960612cd5d8eb841f922422a964024a7683c0559456a20f366",
+  "host_invoked": true,
+  "host_version": "codex-state-of-art-harness/0.150.1 (Linux Mint 22.3.0; x86_64) dumb (codex-state-of-art-harness; 0.1.0)",
+  "invocation_id": "INV-2d8b302529885a90812e4391",
+  "load_observation": "HOST_LOAD_UNOBSERVABLE",
+  "schema_version": "P4-TELEMETRY-1"
+}

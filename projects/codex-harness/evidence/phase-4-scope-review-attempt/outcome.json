@@ -1,0 +1,531 @@
+{
+  "artifacts": [
+    {
+      "artifact_id": "ART-INV-2d8b302529885a90812e4391",
+      "artifact_type": "HOST_RESPONSE",
+      "dependencies": [
+        "INV-2d8b302529885a90812e4391"
+      ],
+      "digest": "sha256:a2020e99304949809f2d75c3471e1ce9aaae134d63e9fa070405d05c06b1ccd5",
+      "evidence_state": "CAPTURED",
+      "invocation_id": "INV-2d8b302529885a90812e4391",
+      "location": "$WORKSPACE/.harness/phase4/artifacts/INV-2d8b302529885a90812e4391.host-response.txt",
+      "producer_capability": "phase4-safe-pilot",
+      "provenance": "HARNESS_OBSERVED",
+      "size_bytes": 67,
+      "timestamp": 1788013158
+    }
+  ],
+  "assurance": {
+    "decision": "PASS_WITH_LIMITATIONS",
+    "limitations": [
+      "HOST_LOAD_UNOBSERVABLE"
+    ],
+    "reason": "bounded result is verified; host limitations remain explicit",
+    "verification_digest": "sha256:ffa8b55733e4834ed54db162b4d8faf21f668b5fe9ae6429b66b86a7823e77c5"
+  },
+  "blockers": [],
+  "host_invoked": true,
+  "host_result": {
+    "cancellation_status": "NOT_REQUESTED",
+    "completed_at": 1788013158,
+    "denied_approvals": 0,
+    "error_code": null,
+    "events": [
+      {
+        "detail": null,
+        "event_class": "HOST_INVOCATION_ACKNOWLEDGED",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a04de3-9480-71a1-b549-2a42807d84d6",
+        "item_type": null,
+        "method": "turn/start",
+        "sequence": 0,
+        "status": "started"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "thread/status/changed",
+        "sequence": 1,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "turn/started",
+        "sequence": 2,
+        "status": "inProgress"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a04de3-997a-74a1-8bc6-43c8e5d74119",
+        "item_type": "userMessage",
+        "method": "item/started",
+        "sequence": 3,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a04de3-997a-74a1-8bc6-43c8e5d74119",
+        "item_type": "userMessage",
+        "method": "item/completed",
+        "sequence": 4,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "msg_0f2cdc6735c818ca016a92ea66135887d28772b37d11f97c20",
+        "item_type": "agentMessage",
+        "method": "item/started",
+        "sequence": 5,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 6,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 7,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 8,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 9,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 10,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 11,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 12,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 13,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 14,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 15,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 16,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 17,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 18,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 19,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 20,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 21,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 22,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 23,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 24,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 25,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 26,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "msg_0f2cdc6735c818ca016a92ea66135887d28772b37d11f97c20",
+        "item_type": "agentMessage",
+        "method": "item/completed",
+        "sequence": 27,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "thread/tokenUsage/updated",
+        "sequence": 28,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "account/rateLimits/updated",
+        "sequence": 29,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "thread/status/changed",
+        "sequence": 30,
+        "status": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "turn/completed",
+        "sequence": 31,
+        "status": "completed"
+      }
+    ],
+    "execution_observed": true,
+    "final_message": "PHASE4_SAFE_PILOT_ARTIFACT\n\nThis is a bounded host-invocation test.",
+    "host_version": "codex-state-of-art-harness/0.150.1 (Linux Mint 22.3.0; x86_64) dumb (codex-state-of-art-harness; 0.1.0)",
+    "invocation_observed": true,
+    "load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "session_id": "01a04de3-9469-79c1-82f6-38024b426b15",
+    "started_at": 1788013154,
+    "status": "SUCCESS",
+    "thread_id": "01a04de3-9469-79c1-82f6-38024b426b15",
+    "turn_id": "01a04de3-9480-71a1-b549-2a42807d84d6"
+  },
+  "limitations": [
+    "HOST_LOAD_UNOBSERVABLE"
+  ],
+  "mode": "CONTROLLED_REAL",
+  "preflight": {
+    "allowed": true,
+    "authorization": {
+      "allowed_side_effects": [],
+      "allowed_tools": [],
+      "artifact_policy": {
+        "max_bytes": 16384,
+        "max_count": 1,
+        "types": [
+          "HOST_RESPONSE"
+        ]
+      },
+      "authorization_id": "AUTH-4e2eb21a41455e7981c4d2b9",
+      "capability_id": "phase4-safe-pilot",
+      "capability_version": "0.1.0",
+      "constraints": [
+        "no arbitrary shell",
+        "no scripts",
+        "no network",
+        "no MCP",
+        "no providers",
+        "no credentials",
+        "no subagents"
+      ],
+      "context_budget": {
+        "max_bytes": 131072
+      },
+      "credential_policy": "DENY",
+      "evidence_policy": {
+        "max_count": 64,
+        "max_events": 256
+      },
+      "expires_at": 1788013229,
+      "filesystem_policy": {
+        "artifact_root": "$WORKSPACE/.harness/phase4/artifacts",
+        "mode": "READ_ONLY",
+        "workspace": "$WORKSPACE"
+      },
+      "issued_at": 1788013154,
+      "issued_by": "phase4-preflight",
+      "iteration_budget": {
+        "host_calls": 1,
+        "repair_iterations": 0,
+        "tool_calls": 0,
+        "verification_iterations": 1
+      },
+      "mcp_policy": "DENY",
+      "network_policy": "DENY",
+      "package_fingerprint": "sha256:76938b6602da712c10fe8aa2f67b97d57c5118c812a3fe38a033ebe7e6e1ed3e",
+      "provider_policy": "DENY",
+      "reason": "script-free project-local fallback; preferred installed pilots are ineligible",
+      "requested_execution_mode": "CONTROLLED_REAL",
+      "requested_loading_level": "L2_INSTRUCTION_KERNEL",
+      "run_id": "RUN-P4-FINAL-PILOT-SCOPED-GLOBAL",
+      "scope": "PROJECT",
+      "shell_policy": "DENY",
+      "task_id": "TASK-P4-FINAL-PILOT-SCOPED-GLOBAL",
+      "timeout_seconds": 75
+    },
+    "blockers": [],
+    "context": {
+      "acceptance_criteria": [
+        "response is non-empty",
+        "marker: PHASE4_SAFE_PILOT_ARTIFACT"
+      ],
+      "capability_id": "phase4-safe-pilot",
+      "digest": "sha256:6b33f3191b3e488eedf1509eaae4e7aaea86543c3422bd5ba488a5c6b9783e20",
+      "estimated_bytes": 526,
+      "omitted_references": [],
+      "package_fingerprint": "sha256:76938b6602da712c10fe8aa2f67b97d57c5118c812a3fe38a033ebe7e6e1ed3e",
+      "selected_references": [],
+      "skill_path": "$WORKSPACE/.agents/skills/phase4-safe-pilot/SKILL.md",
+      "sources": [
+        "HOST_MANAGED_SKILL"
+      ],
+      "task_digest": "sha256:c55745baf6005559640a5f7a2ac43adf7f6465a731758340c006b5e4d5f7fb6b",
+      "task_id": "TASK-P4-FINAL-PILOT-SCOPED-GLOBAL"
+    },
+    "digest": "sha256:c0820efe04048c77b8b9f3751278dce9da877e22b44bbdc2642b7176b185d5b7",
+    "mode": "CONTROLLED_REAL",
+    "warnings": [
+      "NETWORK_DENIED",
+      "SHELL_DENIED",
+      "MCP_DENIED",
+      "CREDENTIALS_DENIED"
+    ]
+  },
+  "receipt": {
+    "artifact_refs": [
+      "ART-INV-2d8b302529885a90812e4391"
+    ],
+    "authorization_digest": "sha256:56c50b6d5b92496f00f3246f91e6919d852f9749d43026742d1ee3088ebe01a1",
+    "authorization_id": "AUTH-4e2eb21a41455e7981c4d2b9",
+    "capability_id": "phase4-safe-pilot",
+    "capability_version": "0.1.0",
+    "closed_at": 1788013158,
+    "context_digest": "sha256:6b33f3191b3e488eedf1509eaae4e7aaea86543c3422bd5ba488a5c6b9783e20",
+    "created_at": 1788013154,
+    "host_event_count": 32,
+    "host_event_digest": "sha256:c785b0325ac447960612cd5d8eb841f922422a964024a7683c0559456a20f366",
+    "host_invoked": true,
+    "host_load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "invocation_id": "INV-2d8b302529885a90812e4391",
+    "lifecycle": [
+      "DISCOVERED",
+      "RESOLVED",
+      "AUTHORIZED",
+      "CONTEXT_PREPARED",
+      "INVOCATION_REQUESTED",
+      "HOST_ACKNOWLEDGED",
+      "EXECUTING",
+      "RESULT_RECEIVED",
+      "VERIFYING",
+      "VERIFIED",
+      "CLOSED"
+    ],
+    "mode": "CONTROLLED_REAL",
+    "package_fingerprint": "sha256:76938b6602da712c10fe8aa2f67b97d57c5118c812a3fe38a033ebe7e6e1ed3e",
+    "receipt_digest": "sha256:5664dd1cd7f2e7ce09f40c62e9ac17896de0695f9786ccd57da0d392f4caebb7",
+    "result_digest": "sha256:ed02bd33c2c9b9f77503eb063c52f02d4554c8a25c1dbd86b5acf1f0cd814644",
+    "status": "SUCCESS",
+    "verification_refs": [
+      "sha256:ffa8b55733e4834ed54db162b4d8faf21f668b5fe9ae6429b66b86a7823e77c5"
+    ]
+  },
+  "schema_version": "P4-OUTCOME-1",
+  "status": "SUCCESS",
+  "verification": {
+    "acceptance_criteria": [
+      "response is non-empty",
+      "marker: PHASE4_SAFE_PILOT_ARTIFACT"
+    ],
+    "artifact_refs": [
+      "ART-INV-2d8b302529885a90812e4391"
+    ],
+    "checks": [
+      "HOST_RESULT_COMPLETED",
+      "HOST_EXECUTION_OBSERVED",
+      "HOST_RESPONSE_NON_EMPTY",
+      "ONE_ARTIFACT_CAPTURED",
+      "ARTIFACT_INTEGRITY:ART-INV-2d8b302529885a90812e4391",
+      "ARTIFACT_TYPE:HOST_RESPONSE",
+      "ACCEPTANCE:response is non-empty",
+      "ACCEPTANCE:marker: PHASE4_SAFE_PILOT_ARTIFACT",
+      "RECEIPT_REFERENCE_CORRELATED",
+      "EVIDENCE_REFERENCES_PRESENT"
+    ],
+    "digest": "sha256:ffa8b55733e4834ed54db162b4d8faf21f668b5fe9ae6429b66b86a7823e77c5",
+    "evidence_refs": [
+      "receipt://INV-2d8b302529885a90812e4391"
+    ],
+    "reason": "all bounded artifact and acceptance checks passed",
+    "status": "VERIFIED"
+  },
+  "warnings": [
+    "NETWORK_DENIED",
+    "SHELL_DENIED",
+    "MCP_DENIED",
+    "CREDENTIALS_DENIED"
+  ]
+}
