@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 from collections.abc import Iterable
 from datetime import UTC, datetime
+from pathlib import PurePosixPath
 
 from .phase3_models import (
     CapabilityLifecycle,
@@ -25,6 +26,7 @@ from .phase3_paths import (
     PathSafetyError,
     bounded_file_metadata,
     digest_bytes,
+    is_metadata_only_surface,
     is_sensitive_relative_path,
     read_bounded_file,
 )
@@ -42,6 +44,19 @@ _LEVELS = (
     DisclosureLevel.APPROVED_PACKAGE,
 )
 _TEXT_SUFFIXES = {".md", ".json", ".yaml", ".yml", ".toml", ".txt", ".cfg"}
+_SCRIPT_LANGUAGES = {
+    ".bash": "shell",
+    ".go": "go",
+    ".js": "javascript",
+    ".kts": "kotlin",
+    ".pl": "perl",
+    ".ps1": "powershell",
+    ".py": "python",
+    ".rb": "ruby",
+    ".rs": "rust",
+    ".sh": "shell",
+    ".ts": "typescript",
+}
 
 
 def _now() -> str:
@@ -127,10 +142,16 @@ class SafeCapabilityLoader:
             if index >= self.limits.max_reference_files:
                 warnings.append("reference file count bound reached")
                 break
+            if not isinstance(relative, str) or not relative or "\x00" in relative:
+                warnings.append("reference path is invalid")
+                continue
             if relative in seen:
                 continue
             seen.add(relative)
             normalized_relative = relative.replace("\\", "/")
+            if len(PurePosixPath(normalized_relative).parts) > self.limits.max_reference_depth:
+                warnings.append("reference depth bound reached")
+                continue
             suffix = (
                 normalized_relative.rsplit(".", 1)[-1].casefold()
                 if "." in normalized_relative
@@ -139,7 +160,7 @@ class SafeCapabilityLoader:
             try:
                 metadata_only = (
                     is_sensitive_relative_path(relative)
-                    or normalized_relative.startswith(("scripts/", "assets/"))
+                    or is_metadata_only_surface(relative)
                     or f".{suffix}" not in _TEXT_SUFFIXES
                 )
             except PathSafetyError:
@@ -156,11 +177,26 @@ class SafeCapabilityLoader:
                 if total > self.limits.max_reference_bytes:
                     warnings.append("reference byte bound reached")
                     break
+                reference_hash = "sha256:unavailable-metadata"
+                if not is_sensitive_relative_path(relative):
+                    try:
+                        reference_hash = digest_bytes(
+                            read_bounded_file(
+                                record.path,
+                                relative,
+                                max_bytes=self.limits.max_reference_bytes,
+                            )
+                        )
+                    except PathSafetyError as exc:
+                        warnings.append(
+                            f"reference metadata unavailable: {relative}: {str(exc)[:160]}"
+                        )
+                        continue
                 loaded.append(
                     LoadedReference(
                         relative,
                         size_bytes,
-                        "sha256:unavailable-metadata",
+                        reference_hash,
                         None,
                         binary=True,
                     )
@@ -209,6 +245,8 @@ class SafeCapabilityLoader:
                 relative,
                 by_path[relative].size_bytes if relative in by_path else 0,
                 by_path[relative].sha256 if relative in by_path else "sha256:" + "0" * 64,
+                declared_purpose=None,
+                language=_SCRIPT_LANGUAGES.get(PurePosixPath(relative).suffix.casefold()),
             )
             for relative in record.scripts[: self.limits.max_files_per_capability]
         )

@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from harness_kernel.phase3_models import Phase3Limits
+from harness_kernel.phase3_models import CapabilityRoot, Phase3Limits, RootScope
 from harness_kernel.phase3_paths import (
     PathSafetyError,
     bounded_file_metadata,
@@ -72,6 +72,23 @@ def test_symlink_root_and_base_are_rejected(tmp_path: Path) -> None:
         bounded_walk(link, Phase3Limits())
     with pytest.raises(PathSafetyError):
         read_bounded_file(link, "file.txt", max_bytes=100)
+
+
+def test_forged_canonical_root_cannot_escape_claimed_path(tmp_path: Path) -> None:
+    claimed = tmp_path / "claimed"
+    external = tmp_path / "external"
+    claimed.mkdir()
+    external.mkdir()
+    (external / "outside.txt").write_text("outside", encoding="utf-8")
+    forged = CapabilityRoot(
+        "forged",
+        RootScope.PROJECT,
+        str(claimed),
+        canonical_path=str(external),
+    )
+
+    with pytest.raises(PathSafetyError, match="canonical"):
+        bounded_walk(forged, Phase3Limits())
 
 
 def test_bounds_fail_closed(tmp_path: Path) -> None:

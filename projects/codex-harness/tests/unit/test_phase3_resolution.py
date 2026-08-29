@@ -108,6 +108,130 @@ def test_explicit_version_pin_is_honored(tmp_path: Path) -> None:
     assert result.selected[0].version == "1.0.0"
 
 
+def test_divergence_blocks_only_the_affected_version(tmp_path: Path) -> None:
+    root = tmp_path / "root"
+    root.mkdir()
+    for directory, version, description in (
+        ("demo-v1-project", "1.0.0", "project bytes"),
+        ("demo-v1-global", "1.0.0", "global bytes"),
+        ("demo-v2", "2.0.0", "clean bytes"),
+    ):
+        package = root / directory
+        package.mkdir()
+        (package / "SKILL.md").write_text(
+            f"---\nname: demo\ndescription: {description}\nversion: {version}\n"
+            "do_not_activate_when: never\n---\nbody\n",
+            encoding="utf-8",
+        )
+
+    inventory = inventory_for((root, RootScope.PROJECT))
+    engine = ResolutionEngine()
+    pinned = engine.resolve(inventory, "demo@2.0.0")
+    unpinned = engine.resolve(inventory, "demo")
+
+    assert pinned.status is ResolutionStatus.RESOLVED
+    assert pinned.selected[0].version == "2.0.0"
+    assert unpinned.status is ResolutionStatus.RESOLVED
+    assert unpinned.selected[0].version == "2.0.0"
+
+
+def test_same_size_metadata_only_byte_divergence_blocks_resolution(tmp_path: Path) -> None:
+    project = tmp_path / "project"
+    global_root = tmp_path / "global"
+    project.mkdir()
+    global_root.mkdir()
+    project_package = project / "demo"
+    global_package = global_root / "demo"
+    project_package.mkdir()
+    global_package.mkdir()
+    skill_bytes = (
+        b"---\nname: demo\ndescription: same\nversion: 1.0.0\n"
+        b"do_not_activate_when: never\n---\nbody\n"
+    )
+    (project_package / "SKILL.md").write_bytes(skill_bytes)
+    (global_package / "SKILL.md").write_bytes(skill_bytes)
+    (project_package / "scripts").mkdir()
+    (global_package / "scripts").mkdir()
+    (project_package / "scripts" / "payload.py").write_bytes(b"aa")
+    (global_package / "scripts" / "payload.py").write_bytes(b"bb")
+
+    inventory = inventory_for(
+        (project, RootScope.PROJECT),
+        (global_root, RootScope.GLOBAL),
+    )
+    engine = ResolutionEngine()
+    findings = engine.duplicate_report(inventory)
+    result = engine.resolve(inventory, "demo")
+
+    assert any(item.category == "DIVERGENT_BYTES" for item in findings)
+    assert result.status is ResolutionStatus.BLOCKED
+    assert "CAPABILITY_DIVERGENCE" in result.blockers
+
+
+def test_unreadable_sensitive_bytes_never_count_as_identical_duplicates(tmp_path: Path) -> None:
+    project = tmp_path / "project"
+    global_root = tmp_path / "global"
+    project.mkdir()
+    global_root.mkdir()
+    for root, secret in ((project, b"aa"), (global_root, b"bb")):
+        package = root / "demo"
+        package.mkdir()
+        (package / "SKILL.md").write_bytes(
+            b"---\nname: demo\ndescription: same\nversion: 1.0.0\n"
+            b"do_not_activate_when: never\n---\nbody\n"
+        )
+        (package / ".env").write_bytes(b"TOKEN=" + secret)
+
+    inventory = inventory_for(
+        (project, RootScope.PROJECT),
+        (global_root, RootScope.GLOBAL),
+    )
+    engine = ResolutionEngine()
+    findings = engine.duplicate_report(inventory)
+    result = engine.resolve(inventory, "demo")
+
+    assert any(item.category == "UNVERIFIABLE_BYTES" for item in findings)
+    assert result.status is ResolutionStatus.BLOCKED
+    assert "CAPABILITY_UNVERIFIABLE_BYTES" in result.blockers
+
+
+def test_dependency_depth_is_bounded(tmp_path: Path) -> None:
+    root = tmp_path / "root"
+    root.mkdir()
+    for name, dependency in (
+        ("root-cap", "level-one"),
+        ("level-one", "level-two"),
+        ("level-two", ""),
+    ):
+        package = root / name
+        package.mkdir()
+        dependency_line = f"dependencies: {dependency}\n" if dependency else ""
+        (package / "SKILL.md").write_text(
+            f"---\nname: {name}\nversion: 1.0.0\n{dependency_line}"
+            "do_not_activate_when: never\n---\nbody\n",
+            encoding="utf-8",
+        )
+
+    result = ResolutionEngine(Phase3Limits(max_dependency_depth=1)).resolve(
+        inventory_for((root, RootScope.PROJECT)),
+        "root-cap",
+    )
+
+    assert result.status is ResolutionStatus.BLOCKED
+    assert "DEPENDENCY_DEPTH" in result.blockers
+
+
+def test_duplicate_candidate_bound_is_enforced(tmp_path: Path) -> None:
+    root = tmp_path / "root"
+    root.mkdir()
+    skill(root, "first")
+    skill(root, "second")
+    inventory = inventory_for((root, RootScope.PROJECT))
+
+    with pytest.raises(ResolutionError, match="duplicate candidate bound"):
+        ResolutionEngine(Phase3Limits(max_duplicate_candidates=1)).duplicate_report(inventory)
+
+
 def test_dependency_version_conflict_fails_closed(tmp_path: Path) -> None:
     root = tmp_path / "root"
     root.mkdir()

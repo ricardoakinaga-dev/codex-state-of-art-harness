@@ -45,7 +45,8 @@ fail closed and must never run the referenced script/provider/MCP/network.
 
 The real-host smoke is inspection-only. It may observe the current Codex
 installation layout and local metadata, but the result must distinguish
-`OBSERVED`, `OFFICIAL_DOCUMENTED`, `INFERRED`, `UNAVAILABLE` and `UNKNOWN`.
+`OBSERVED`, `VERIFIED_OFFICIAL`, `OFFICIAL_DOCUMENTED`, `INFERRED`,
+`UNSUPPORTED_BY_HOST`, `UNAVAILABLE` and `UNKNOWN`.
 The implementation must not claim that a capability is loaded merely because
 its directory or `SKILL.md` was discovered.
 

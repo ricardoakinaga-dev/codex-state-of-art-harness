@@ -1,5 +1,35 @@
 {
   "checks": {
+    "capabilities_compatibility": {
+      "capability_count": 43,
+      "exit_code": 0
+    },
+    "capabilities_duplicates": {
+      "duplicate_count": 1,
+      "exit_code": 0
+    },
+    "capabilities_inspect_explain": {
+      "capability_id": "harness-kernel",
+      "exit_code": 0,
+      "explanation": true,
+      "load_eligibility": "ELIGIBLE_DECLARATIVE_METADATA_ONLY"
+    },
+    "capabilities_list": {
+      "capability_count": 43,
+      "exit_code": 0,
+      "refresh": false,
+      "writes": []
+    },
+    "capabilities_refresh": {
+      "capability_count": 43,
+      "exit_code": 0,
+      "refresh": true,
+      "writes": []
+    },
+    "capabilities_roots": {
+      "exit_code": 0,
+      "root_count": 5
+    },
     "doctor": {
       "exit_code": 0,
       "host_loaded": false,
@@ -18,14 +48,17 @@
       "capability_count": 43,
       "exit_code": 0,
       "host_id": "codex-host-local",
-      "observation_status": "OBSERVED"
+      "observation_status": "OBSERVED",
+      "schema_version": "P3-HOST-1"
     },
     "host_list": {
       "capability_count": 43,
       "exit_code": 0,
+      "refresh": false,
       "writes": []
     },
     "host_refresh": {
+      "capability_count": 43,
       "exit_code": 0,
       "refresh": true,
       "writes": []
@@ -37,7 +70,7 @@
     "load_plan": {
       "actual_host_loaded": false,
       "exit_code": 0,
-      "prepared": true
+      "prepared": false
     },
     "resolve": {
       "exit_code": 0,

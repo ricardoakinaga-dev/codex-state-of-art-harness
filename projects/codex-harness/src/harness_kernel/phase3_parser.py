@@ -72,6 +72,43 @@ def _unquote(value: str) -> str:
     return value
 
 
+def _has_mapping_separator(value: str) -> bool:
+    in_quote: str | None = None
+    escaped = False
+    for index, character in enumerate(value):
+        if in_quote is not None:
+            if in_quote == '"' and escaped:
+                escaped = False
+            elif in_quote == '"' and character == "\\":
+                escaped = True
+            elif character == in_quote:
+                in_quote = None
+            continue
+        if character in {"'", '"'}:
+            in_quote = character
+        elif character == ":" and (index + 1 == len(value) or value[index + 1].isspace()):
+            return True
+    return False
+
+
+def _scalar_metadata(value: str) -> str:
+    clean = value.strip()
+    if not clean:
+        return ""
+    if len(clean) >= 2 and clean[0] == clean[-1] and clean[0] in {"'", '"'}:
+        clean = clean[1:-1]
+    elif (
+        clean[0] in "[{"
+        or clean.startswith(("- ", "*", "&", "!"))
+        or clean in {"|", ">"}
+        or _has_mapping_separator(clean)
+    ):
+        raise _MetadataStructureError("front matter structured metadata is unsupported")
+    if "\x00" in clean:
+        raise _MetadataStructureError("front matter metadata contains NUL")
+    return clean[:400]
+
+
 def _items(value: str, pending: Iterable[str] = ()) -> tuple[str, ...]:
     raw = value.strip()
     values: list[str] = list(pending)
@@ -92,9 +129,13 @@ def _items(value: str, pending: Iterable[str] = ()) -> tuple[str, ...]:
             except (TypeError, ValueError):
                 parsed = None
         if isinstance(parsed, list):
-            values.extend(str(item) for item in parsed if isinstance(item, str))
+            if not all(isinstance(item, str) for item in parsed):
+                raise _MetadataStructureError("front matter structured metadata is unsupported")
+            values.extend(parsed)
+        elif raw.startswith("["):
+            raise _MetadataStructureError("front matter structured list is malformed")
         else:
-            values.extend(_unquote(part.strip()) for part in raw.split(",") if part.strip())
+            values.extend(_scalar_metadata(part) for part in raw.split(",") if part.strip())
     result: list[str] = []
     for item in values[:_MAX_LIST_ITEMS]:
         if "\x00" not in item and item not in result:
@@ -155,7 +196,10 @@ def _parse_front_matter(
             continue
         stripped = line.strip()
         if stripped.startswith("-") and current_key is not None:
-            pending.append(_unquote(stripped[1:].strip())[:400])
+            try:
+                pending.append(_scalar_metadata(stripped[1:]))
+            except _MetadataStructureError as exc:
+                errors.append(str(exc))
             continue
         if current_key is not None:
             lists[current_key] = _items("", pending)
@@ -179,9 +223,20 @@ def _parse_front_matter(
             continue
         raw_value = raw.strip()
         if raw_value:
-            values[normalized] = _unquote(raw_value)[:2000]
-            if raw_value.startswith("[") or "," in raw_value:
-                lists[normalized] = _items(raw_value)
+            try:
+                if raw_value.startswith("["):
+                    parsed_items = _items(raw_value)
+                    values[normalized] = raw_value[:2000]
+                    lists[normalized] = parsed_items
+                else:
+                    if "," in raw_value:
+                        parsed_items = _items(raw_value)
+                        values[normalized] = _scalar_metadata(raw_value)[:2000]
+                        lists[normalized] = parsed_items
+                    else:
+                        values[normalized] = _scalar_metadata(raw_value)[:2000]
+            except _MetadataStructureError as exc:
+                errors.append(str(exc))
             current_key = None
             pending = []
         else:

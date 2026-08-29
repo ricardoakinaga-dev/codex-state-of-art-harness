@@ -10,7 +10,7 @@
       "event_type": "CAPABILITY_DISCOVERED",
       "lifecycle": "DISCOVERED",
       "observation": "OBSERVED",
-      "timestamp": "2026-08-29T04:21:30+00:00"
+      "timestamp": "2026-08-29T05:26:48+00:00"
     },
     {
       "capability_id": "design-director",
@@ -21,7 +21,7 @@
       "event_type": "CAPABILITY_SELECTED",
       "lifecycle": "SELECTED",
       "observation": "INFERRED",
-      "timestamp": "2026-08-29T04:21:30+00:00"
+      "timestamp": "2026-08-29T05:26:48+00:00"
     },
     {
       "capability_id": "design-director",
@@ -29,23 +29,57 @@
         "level": "L2_INSTRUCTION_KERNEL"
       },
       "event_id": "P3-EVT-000003",
+      "event_type": "CAPABILITY_LOAD_PLANNED",
+      "lifecycle": "LOAD_PLANNED",
+      "observation": "INFERRED",
+      "timestamp": "2026-08-29T05:26:48+00:00"
+    },
+    {
+      "capability_id": "design-director",
+      "data": {
+        "level": "L2_INSTRUCTION_KERNEL"
+      },
+      "event_id": "P3-EVT-000004",
       "event_type": "CAPABILITY_CONTEXT_PREPARED",
       "lifecycle": "CONTEXT_PREPARED",
       "observation": "OBSERVED",
-      "timestamp": "2026-08-29T04:21:30+00:00"
+      "timestamp": "2026-08-29T05:26:48+00:00"
     },
     {
       "capability_id": "design-director",
       "data": {
         "reason": "host-load-unavailable"
       },
-      "event_id": "P3-EVT-000004",
+      "event_id": "P3-EVT-000005",
       "event_type": "CAPABILITY_BLOCKED",
       "lifecycle": "BLOCKED",
       "observation": "OBSERVED",
-      "timestamp": "2026-08-29T04:21:30+00:00"
+      "timestamp": "2026-08-29T05:26:48+00:00"
     }
   ],
   "host_loaded_events": 0,
-  "schema_version": "P3-TELEMETRY-1"
+  "schema_version": "P3-TELEMETRY-1",
+  "supported_event_types": [
+    "HOST_INSPECTION_STARTED",
+    "HOST_INSPECTION_COMPLETED",
+    "ROOT_DISCOVERED",
+    "METADATA_PARSED",
+    "MANIFEST_SYNTHESIZED",
+    "DUPLICATE_FOUND",
+    "DIVERGENCE_FOUND",
+    "COMPATIBILITY_CHECKED",
+    "TRUST_EVALUATED",
+    "LOAD_OBSERVED",
+    "LOAD_UNOBSERVABLE",
+    "REGISTERED_FROM_HOST",
+    "REJECTED_FROM_HOST",
+    "CAPABILITY_DISCOVERED",
+    "CAPABILITY_SELECTED",
+    "CAPABILITY_LOAD_PLANNED",
+    "CAPABILITY_CONTEXT_PREPARED",
+    "CAPABILITY_HOST_LOADED",
+    "CAPABILITY_EXECUTED",
+    "CAPABILITY_BLOCKED",
+    "CAPABILITY_REJECTED"
+  ]
 }

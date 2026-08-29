@@ -1,87 +1,101 @@
 {
-  "generated_at": "2026-08-29T04:06:35+00:00",
+  "generated_at": "2026-08-29T05:18:00.820851+00:00",
   "host": {
-    "capability_count": 43,
-    "inventory_errors": 6,
+    "capability_count": 100,
+    "inventory_errors": 4,
     "root_count": 5
   },
   "iterations": 3,
-  "limitations": [
-    "local process baseline only",
-    "does not measure production latency, concurrency, provider latency, host loading, quality, causal impact or SLOs"
-  ],
+  "limitations": "Local process baseline only; this does not measure production latency, concurrency, provider latency, host loading, quality, causal impact or SLOs.",
   "operations": {
     "compatibility": {
+      "duration_ns_per_op": 6240,
+      "duration_ns_total": 18721,
       "iterations": 3,
-      "max_ns": 362720371,
-      "median_ms": 259.582,
-      "median_ns": 259581835,
-      "min_ns": 253584397
+      "max_ns": 6216,
+      "median_ns": 5151,
+      "min_ns": 4719
     },
     "duplicate_analysis": {
+      "duration_ns_per_op": 914273,
+      "duration_ns_total": 2742820,
       "iterations": 3,
-      "max_ns": 386632036,
-      "median_ms": 329.85,
-      "median_ns": 329850260,
-      "min_ns": 294225584
+      "max_ns": 1250761,
+      "median_ns": 749159,
+      "min_ns": 733876
     },
     "host_snapshot": {
+      "duration_ns_per_op": 224070591,
+      "duration_ns_total": 672211773,
       "iterations": 3,
-      "max_ns": 338501766,
-      "median_ms": 300.961,
-      "median_ns": 300961323,
-      "min_ns": 239983183
+      "max_ns": 267900348,
+      "median_ns": 241406134,
+      "min_ns": 162891597
     },
     "load_plan": {
+      "duration_ns_per_op": 96279,
+      "duration_ns_total": 288837,
       "iterations": 3,
-      "max_ns": 247515,
-      "median_ms": 0.12,
-      "median_ns": 120467,
-      "min_ns": 102936
+      "max_ns": 116882,
+      "median_ns": 86628,
+      "min_ns": 81376
     },
     "manifest_synthesis": {
+      "duration_ns_per_op": 203244769,
+      "duration_ns_total": 609734307,
       "iterations": 3,
-      "max_ns": 327984870,
-      "median_ms": 327.844,
-      "median_ns": 327844322,
-      "min_ns": 319851884
+      "max_ns": 234572499,
+      "median_ns": 200362022,
+      "min_ns": 174789432
     },
     "package_discovery": {
+      "duration_ns_per_op": 196704288,
+      "duration_ns_total": 590112864,
       "iterations": 3,
-      "max_ns": 364760169,
-      "median_ms": 307.922,
-      "median_ns": 307922266,
-      "min_ns": 277217576
+      "max_ns": 299727456,
+      "median_ns": 175791182,
+      "min_ns": 114582275
     },
     "parse": {
+      "duration_ns_per_op": 85004,
+      "duration_ns_total": 255014,
       "iterations": 3,
-      "max_ns": 279627842,
-      "median_ms": 265.362,
-      "median_ns": 265361639,
-      "min_ns": 242613193
+      "max_ns": 87703,
+      "median_ns": 82880,
+      "min_ns": 80170
     },
     "registry_bridge": {
+      "duration_ns_per_op": 507940,
+      "duration_ns_total": 1523821,
       "iterations": 3,
-      "max_ns": 551480,
-      "median_ms": 0.293,
-      "median_ns": 293394,
-      "min_ns": 280285
+      "max_ns": 956421,
+      "median_ns": 294675,
+      "min_ns": 267992
     },
     "root_discovery": {
+      "duration_ns_per_op": 532347,
+      "duration_ns_total": 1597043,
       "iterations": 3,
-      "max_ns": 714685,
-      "median_ms": 0.642,
-      "median_ns": 642413,
-      "min_ns": 549232
+      "max_ns": 570414,
+      "median_ns": 511885,
+      "min_ns": 506549
     },
     "trust": {
+      "duration_ns_per_op": 5661,
+      "duration_ns_total": 16985,
       "iterations": 3,
-      "max_ns": 320904220,
-      "median_ms": 311.57,
-      "median_ns": 311570150,
-      "min_ns": 273035570
+      "max_ns": 5256,
+      "median_ns": 5111,
+      "min_ns": 4777
     }
   },
+  "platform": "Linux-7.0.0-30-generic-x86_64-with-glibc2.39",
+  "python_version": "3.12.3",
+  "scenario": {
+    "capability_count": 100,
+    "fixture_kind": "temporary_synthetic_skill_packages",
+    "root_count": 5
+  },
   "schema_version": "P3-BENCH-1",
-  "scope": "real local host inspection and bounded declarative operations"
+  "scope": "project-local bounded declarative fixtures only"
 }

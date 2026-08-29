@@ -13,6 +13,7 @@ from .phase3_models import (
     DependencyResolution,
     DependencyStatus,
     DuplicateFinding,
+    Phase3Limits,
     ResolutionResult,
     ResolutionStatus,
     RootScope,
@@ -33,6 +34,7 @@ _VERSION = re.compile(
     r"(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$"
 )
 _MAX_VERSION_LENGTH = 256
+_UNVERIFIABLE_DIGEST = "sha256:unavailable-metadata"
 
 
 def _is_semver(value: str) -> bool:
@@ -60,6 +62,9 @@ class ResolutionEngine:
         TrustLevel.UNVERIFIED: 2,
         TrustLevel.REJECTED: 0,
     }
+
+    def __init__(self, limits: Phase3Limits | None = None) -> None:
+        self.limits = limits or Phase3Limits()
 
     @staticmethod
     def _version(value: str) -> tuple[int, int, int, int, tuple[tuple[int, str], ...]]:
@@ -90,7 +95,9 @@ class ResolutionEngine:
 
     def duplicate_report(self, inventory: CapabilityInventory) -> tuple[DuplicateFinding, ...]:
         by_id: dict[str, list[CapabilityRecord]] = {}
-        for record in inventory.capabilities:
+        for index, record in enumerate(inventory.capabilities):
+            if index >= self.limits.max_duplicate_candidates:
+                raise ResolutionError("duplicate candidate bound exceeded")
             by_id.setdefault(record.capability_id, []).append(record)
         findings: list[DuplicateFinding] = []
         for capability_id, records in sorted(by_id.items()):
@@ -102,6 +109,17 @@ class ResolutionEngine:
                 for version in versions
                 if len({item.content_hash for item in records if item.version == version}) > 1
             )
+            unverifiable_versions = tuple(
+                version
+                for version in versions
+                if len([item for item in records if item.version == version]) > 1
+                and any(
+                    package_file.sha256 == _UNVERIFIABLE_DIGEST
+                    for item in records
+                    if item.version == version
+                    for package_file in item.files
+                )
+            )
             if divergent_versions:
                 findings.append(
                     DuplicateFinding(
@@ -112,6 +130,19 @@ class ResolutionEngine:
                         tuple(hashes),
                         paths,
                         "same capability ID/version has divergent package bytes",
+                    )
+                )
+            if unverifiable_versions:
+                findings.append(
+                    DuplicateFinding(
+                        capability_id,
+                        "UNVERIFIABLE_BYTES",
+                        True,
+                        unverifiable_versions,
+                        tuple(hashes),
+                        paths,
+                        "same capability ID/version includes bytes unavailable to "
+                        "the safe inspector",
                     )
                 )
             elif len(records) > 1 and len(hashes) == 1:
@@ -135,7 +166,10 @@ class ResolutionEngine:
                         tuple(versions),
                         tuple(hashes),
                         paths,
-                        "multiple valid versions require an explicit deterministic choice",
+                        (
+                            "multiple valid versions are available; unpinned requests "
+                            "select the highest compatible SemVer"
+                        ),
                     )
                 )
         aliases: dict[str, list[CapabilityRecord]] = {}
@@ -176,6 +210,7 @@ class ResolutionEngine:
         *,
         version: str | None,
         explicit: bool,
+        blocked_versions: tuple[str, ...] = (),
     ) -> CapabilityRecord | None:
         eligible = tuple(
             item
@@ -190,6 +225,7 @@ class ResolutionEngine:
             and item.kind.value != "INVALID"
             and item.trust.level is not TrustLevel.REJECTED
             and item.compatibility.status is not CompatibilityStatus.INCOMPATIBLE
+            and item.version not in blocked_versions
         )
         if version is not None:
             eligible = tuple(item for item in eligible if item.version == version)
@@ -235,21 +271,46 @@ class ResolutionEngine:
         if pin is not None and not _is_semver(pin):
             raise ResolutionError("explicit version pin is invalid")
         duplicates = self.duplicate_report(inventory)
-        blocking_ids = {item.capability_id for item in duplicates if item.blocking}
-        if capability_id in blocking_ids:
+        blocked_versions = tuple(
+            sorted(
+                {
+                    version
+                    for item in duplicates
+                    if item.capability_id == capability_id
+                    and item.blocking
+                    and item.category in {"DIVERGENT_BYTES", "UNVERIFIABLE_BYTES"}
+                    for version in item.versions
+                },
+                key=self._version,
+            )
+        )
+
+        def divergence_result() -> ResolutionResult:
+            duplicate_blockers = tuple(
+                dict.fromkeys(
+                    "CAPABILITY_DIVERGENCE"
+                    if item.category == "DIVERGENT_BYTES"
+                    else "CAPABILITY_UNVERIFIABLE_BYTES"
+                    for item in duplicates
+                    if item.capability_id == capability_id and item.blocking
+                )
+            )
             return ResolutionResult(
                 request,
                 ResolutionStatus.BLOCKED,
                 (),
                 tuple(item for item in duplicates if item.capability_id == capability_id),
                 (),
-                ("CAPABILITY_DIVERGENCE",),
+                duplicate_blockers,
                 (
                     "automatic selection is blocked; a version pin cannot distinguish "
                     "divergent bytes",
                 ),
                 "explicit pin > project > workspace > approved shared > global > system > external",
             )
+
+        if pin is not None and pin in blocked_versions:
+            return divergence_result()
         by_id: dict[str, tuple[CapabilityRecord, ...]] = {}
         for record in inventory.capabilities:
             by_id[record.capability_id] = (*by_id.get(record.capability_id, ()), record)
@@ -257,8 +318,11 @@ class ResolutionEngine:
             by_id.get(capability_id, ()),
             version=pin,
             explicit=pin is not None,
+            blocked_versions=blocked_versions,
         )
         if root is None:
+            if blocked_versions:
+                return divergence_result()
             return ResolutionResult(
                 request,
                 ResolutionStatus.MISSING,
@@ -275,7 +339,7 @@ class ResolutionEngine:
         visiting: list[str] = []
         processed: set[str] = set()
 
-        def visit(record: CapabilityRecord) -> None:
+        def visit(record: CapabilityRecord, depth: int = 0) -> None:
             if record.capability_id in visiting:
                 dependencies.append(
                     DependencyResolution(
@@ -336,7 +400,32 @@ class ResolutionEngine:
                         )
                     )
                     continue
-                if any(item.capability_id == dep_id and item.blocking for item in duplicates):
+                if depth >= self.limits.max_dependency_depth:
+                    dependencies.append(
+                        DependencyResolution(
+                            dep_id,
+                            DependencyStatus.BLOCKED,
+                            None,
+                            dependency,
+                            "dependency depth bound exceeded",
+                        )
+                    )
+                    blockers.append("DEPENDENCY_DEPTH")
+                    continue
+                dependency_blocked_versions = tuple(
+                    sorted(
+                        {
+                            version
+                            for item in duplicates
+                            if item.capability_id == dep_id
+                            and item.blocking
+                            and item.category in {"DIVERGENT_BYTES", "UNVERIFIABLE_BYTES"}
+                            for version in item.versions
+                        },
+                        key=self._version,
+                    )
+                )
+                if dep_version is not None and dep_version in dependency_blocked_versions:
                     dependencies.append(
                         DependencyResolution(
                             dep_id,
@@ -349,9 +438,24 @@ class ResolutionEngine:
                     blockers.append("AMBIGUOUS_DEPENDENCY")
                     continue
                 candidate = self._select(
-                    by_id.get(dep_id, ()), version=dep_version, explicit=dep_version is not None
+                    by_id.get(dep_id, ()),
+                    version=dep_version,
+                    explicit=dep_version is not None,
+                    blocked_versions=dependency_blocked_versions,
                 )
                 if candidate is None:
+                    if dependency_blocked_versions:
+                        dependencies.append(
+                            DependencyResolution(
+                                dep_id,
+                                DependencyStatus.AMBIGUOUS,
+                                None,
+                                dependency,
+                                "dependency has no non-divergent eligible package version",
+                            )
+                        )
+                        blockers.append("AMBIGUOUS_DEPENDENCY")
+                        continue
                     dependencies.append(
                         DependencyResolution(
                             dep_id,
@@ -373,7 +477,7 @@ class ResolutionEngine:
                     )
                 )
                 selected.append(candidate)
-                visit(candidate)
+                visit(candidate, depth + 1)
             visiting.pop()
 
         visit(root)

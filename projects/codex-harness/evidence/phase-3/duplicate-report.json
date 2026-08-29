@@ -6,8 +6,8 @@
       "category": "DIVERGENT_BYTES",
       "explanation": "same capability ID/version has divergent package bytes",
       "hashes": [
-        "sha256:36ac1756cf577bca3b3eb4c61de4d5414a160dd3238b20be934a27c64bbac93c",
-        "sha256:9a0c58678552857367e5f79bdd35a2c8c555ac5a4a48b20890cff4f458be9f8d"
+        "sha256:1aa9f1cb8645098aee210897c83688ad700fad0cec17a6aff6c5d8e810bcfdb8",
+        "sha256:ca13d1e0a1f07a075a831fd61570f66ec00d031f864c805b54fa01a4d204b992"
       ],
       "paths": [
         "$HOME/.agents/skills/engineering-framework",

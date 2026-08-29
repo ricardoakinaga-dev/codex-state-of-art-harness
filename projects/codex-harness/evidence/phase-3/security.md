@@ -8,6 +8,8 @@ Passed checks:
   in the Phase 3 packet;
 - `git diff --check`: pass;
 - bounded parser/path/loader/eval tests: pass;
+- non-sensitive metadata-only scripts/assets are content-fingerprinted without
+  retaining content; unreadable sensitive duplicate bytes block conservatively;
 - all CLI refresh operations return `writes: []` and keep the host read-only.
 
 `pip-audit` is **UNAVAILABLE** in the local environment (exit 127). This is

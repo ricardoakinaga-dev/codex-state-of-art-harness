@@ -1,0 +1,24 @@
+{
+  "schema_version": "P3-FIXTURES-1",
+  "materialization": "temporary_project_local_only",
+  "scenarios": [
+    {"id": "native_manifest", "class": "known_good", "scope": "project"},
+    {"id": "synthesized_skill", "class": "known_good", "scope": "project"},
+    {"id": "legacy_skill", "class": "known_good", "scope": "global"},
+    {"id": "invalid_manifest", "class": "known_bad", "scope": "project"},
+    {"id": "project_global_identical_duplicate", "class": "known_good", "scope": "project_global"},
+    {"id": "divergent_duplicate", "class": "known_bad", "scope": "project_global"},
+    {"id": "multiple_versions", "class": "known_good", "scope": "project"},
+    {"id": "incompatible_capability", "class": "known_bad", "scope": "project"},
+    {"id": "malformed_front_matter", "class": "known_bad", "scope": "project"},
+    {"id": "unsafe_path", "class": "known_bad", "scope": "project"},
+    {"id": "nested_metadata_surface", "class": "known_good", "scope": "project"},
+    {"id": "references_scripts_assets", "class": "known_good", "scope": "project"},
+    {"id": "precedence_override", "class": "known_good", "scope": "project_global"},
+    {"id": "dependency_cycle", "class": "known_bad", "scope": "project"},
+    {"id": "context_disclosure_levels", "class": "known_good", "scope": "project"},
+    {"id": "cross_agent_design_director", "class": "real_host_conditional", "scope": "installed"},
+    {"id": "cross_agent_engineering_framework", "class": "real_host_conditional", "scope": "installed"},
+    {"id": "cross_agent_ecc_conventions", "class": "real_host_conditional", "scope": "installed"}
+  ]
+}

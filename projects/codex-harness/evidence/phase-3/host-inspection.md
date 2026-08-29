@@ -13,6 +13,11 @@ as unavailable, and `host_loaded: false` is preserved as an unavailable load
 causality signal. All discovered roots are marked `READ_ONLY` and
 `mutable: false`.
 
+The structured snapshot labels official Skill discovery, optional
+`agents/openai.yaml`, documented ancestor/symlink host behavior,
+`UNSUPPORTED_BY_HOST` adapter gaps, and the inferred legacy `.codex/skills`
+compatibility policy separately; no inferred behavior is labeled official.
+
 Observed roots are `project.agents` (unavailable), `project.harness` (readable),
 `global.agents` (readable), `global.codex` (readable), and `system.codex`
 (unavailable). Persisted paths use `$WORKSPACE`, `$HOME`, or a redacted system

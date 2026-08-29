@@ -30,7 +30,7 @@ from .models import (
     SourceType,
     TaskProfile,
 )
-from .phase3_models import CapabilityLifecycle, CapabilityRecord, RootScope
+from .phase3_models import CapabilityLifecycle, CapabilityRecord, Phase3Limits, RootScope
 from .registry import CapabilityRegistry
 from .routing import MinimumRoutePolicy, minimum_route
 
@@ -69,6 +69,17 @@ def _primary(value: str) -> CapabilityPrimaryType:
 
 class Phase3RouterBridge:
     """Convert selected declarative records and invoke only the pure router."""
+
+    def __init__(self, limits: Phase3Limits | None = None) -> None:
+        self.limits = limits or Phase3Limits()
+
+    def _bounded_records(self, records: Iterable[CapabilityRecord]) -> tuple[CapabilityRecord, ...]:
+        selected: list[CapabilityRecord] = []
+        for index, record in enumerate(records):
+            if index >= self.limits.max_capabilities:
+                raise IntegrationError("capability record count bound exceeded")
+            selected.append(record)
+        return tuple(selected)
 
     def manifest(self, record: CapabilityRecord) -> CapabilityManifest:
         if record.status in {
@@ -150,7 +161,8 @@ class Phase3RouterBridge:
         )
 
     def registry(self, records: Iterable[CapabilityRecord]) -> CapabilityRegistry:
-        manifests = tuple(self.manifest(record) for record in records)
+        bounded_records = self._bounded_records(records)
+        manifests = tuple(self.manifest(record) for record in bounded_records)
         try:
             return CapabilityRegistry.from_manifests(manifests)
         except (TypeError, ValueError) as exc:
@@ -163,7 +175,7 @@ class Phase3RouterBridge:
         *,
         policy: MinimumRoutePolicy | None = None,
     ) -> tuple[object, CapabilityRegistry]:
-        selected = tuple(records)
+        selected = self._bounded_records(records)
         registry = self.registry(selected) if selected else CapabilityRegistry()
         decision = minimum_route(profile, registry, policy=policy)
         return decision, registry

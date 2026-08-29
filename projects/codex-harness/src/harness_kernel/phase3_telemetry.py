@@ -42,6 +42,22 @@ _EVENT_TYPES = {
     CapabilityLifecycle.AMBIGUOUS: Phase3EventType.BLOCKED,
 }
 
+_STAGE_LIFECYCLES = {
+    Phase3EventType.HOST_INSPECTION_STARTED: CapabilityLifecycle.DISCOVERED,
+    Phase3EventType.HOST_INSPECTION_COMPLETED: CapabilityLifecycle.INSPECTED,
+    Phase3EventType.ROOT_DISCOVERED: CapabilityLifecycle.DISCOVERED,
+    Phase3EventType.METADATA_PARSED: CapabilityLifecycle.INSPECTED,
+    Phase3EventType.MANIFEST_SYNTHESIZED: CapabilityLifecycle.INSPECTED,
+    Phase3EventType.DUPLICATE_FOUND: CapabilityLifecycle.AMBIGUOUS,
+    Phase3EventType.DIVERGENCE_FOUND: CapabilityLifecycle.BLOCKED,
+    Phase3EventType.COMPATIBILITY_CHECKED: CapabilityLifecycle.INSPECTED,
+    Phase3EventType.TRUST_EVALUATED: CapabilityLifecycle.INSPECTED,
+    Phase3EventType.LOAD_OBSERVED: CapabilityLifecycle.HOST_LOADED,
+    Phase3EventType.LOAD_UNOBSERVABLE: CapabilityLifecycle.BLOCKED,
+    Phase3EventType.REGISTERED_FROM_HOST: CapabilityLifecycle.SELECTED,
+    Phase3EventType.REJECTED_FROM_HOST: CapabilityLifecycle.REJECTED,
+}
+
 
 _ABSOLUTE_PATH = re.compile(r"(?<![A-Za-z0-9$])/(?:[^\s,;]+)")
 
@@ -112,12 +128,68 @@ class Phase3Telemetry:
             and observation is not ObservationStatus.OBSERVED
         ):
             raise TelemetryError("runtime lifecycle telemetry requires an observed host signal")
+        return self._append(
+            capability_id,
+            lifecycle,
+            observation,
+            _EVENT_TYPES[lifecycle],
+            timestamp=timestamp,
+            data=data,
+        )
+
+    def record_event(
+        self,
+        event_type: Phase3EventType,
+        capability_id: str,
+        observation: ObservationStatus,
+        *,
+        timestamp: str | None = None,
+        data: Mapping[str, str] | None = None,
+    ) -> Phase3Telemetry:
+        """Record a host stage with an explicit event type and honest lifecycle."""
+
+        if not isinstance(event_type, Phase3EventType) or event_type not in _STAGE_LIFECYCLES:
+            raise TelemetryError("host stage event type is invalid")
+        return self._append(
+            capability_id,
+            _STAGE_LIFECYCLES[event_type],
+            observation,
+            event_type,
+            timestamp=timestamp,
+            data=data,
+        )
+
+    def _append(
+        self,
+        capability_id: str,
+        lifecycle: CapabilityLifecycle,
+        observation: ObservationStatus,
+        event_type: Phase3EventType,
+        *,
+        timestamp: str | None,
+        data: Mapping[str, str] | None,
+    ) -> Phase3Telemetry:
+        if not capability_id or "\x00" in capability_id:
+            raise TelemetryError("capability ID is invalid")
+        if not isinstance(lifecycle, CapabilityLifecycle):
+            raise TelemetryError("lifecycle is invalid")
+        if not isinstance(observation, ObservationStatus):
+            raise TelemetryError("observation status is invalid")
+        if (
+            lifecycle
+            in {
+                CapabilityLifecycle.HOST_LOADED,
+                CapabilityLifecycle.EXECUTED,
+            }
+            and observation is not ObservationStatus.OBSERVED
+        ):
+            raise TelemetryError("runtime lifecycle telemetry requires an observed host signal")
         if len(self.events) >= self.max_events:
             raise TelemetryError("telemetry event bound exceeded")
         sequence = len(self.events) + 1
         event = Phase3Event(
             f"P3-EVT-{sequence:06d}",
-            _EVENT_TYPES[lifecycle],
+            event_type,
             capability_id,
             lifecycle,
             observation,
@@ -129,6 +201,7 @@ class Phase3Telemetry:
     def to_dict(self) -> dict[str, object]:
         return {
             "schema_version": "P3-TELEMETRY-1",
+            "supported_event_types": [item.value for item in Phase3EventType],
             "events": public_data(self.events),
             "host_loaded_events": sum(
                 1 for item in self.events if item.lifecycle is CapabilityLifecycle.HOST_LOADED

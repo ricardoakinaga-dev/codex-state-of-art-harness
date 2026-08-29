@@ -48,6 +48,21 @@ def _parser() -> argparse.ArgumentParser:
     inspect_capability.add_argument(
         "--json", action="store_true", dest="json_output", default=argparse.SUPPRESS
     )
+    capabilities = commands.add_parser(
+        "capabilities", help="inspect and plan against discovered capabilities"
+    )
+    capability_commands = capabilities.add_subparsers(dest="capability_command", required=True)
+    for name in ("roots", "list", "duplicates", "compatibility", "refresh"):
+        sub = capability_commands.add_parser(name)
+        sub.add_argument(
+            "--json", action="store_true", dest="json_output", default=argparse.SUPPRESS
+        )
+    inspect_capability_alias = capability_commands.add_parser("inspect")
+    inspect_capability_alias.add_argument("capability_id")
+    inspect_capability_alias.add_argument("--explain", action="store_true")
+    inspect_capability_alias.add_argument(
+        "--json", action="store_true", dest="json_output", default=argparse.SUPPRESS
+    )
     resolve = commands.add_parser("resolve", help="resolve one capability ID without loading it")
     resolve.add_argument("capability_id")
     resolve.add_argument("--version")
@@ -81,7 +96,9 @@ def _adapter(arguments: argparse.Namespace) -> CodexHostAdapter:
     )
 
 
-def _record_public(adapter: CodexHostAdapter, record: Any) -> dict[str, object]:
+def _record_public(
+    adapter: CodexHostAdapter, record: Any, *, explain: bool = False
+) -> dict[str, object]:
     item = cast(dict[str, object], public_data(record))
     item["path"] = redact_path(
         record.path,
@@ -91,6 +108,36 @@ def _record_public(adapter: CodexHostAdapter, record: Any) -> dict[str, object]:
     )
     provenance = cast(dict[str, object], item["provenance"])
     provenance["source_repository"] = f"root://{record.root_id}"
+    if explain:
+        item["explanation"] = {
+            "load_eligibility": record.load_eligibility,
+            "selection": {
+                "scope": record.scope.value,
+                "version": record.version,
+                "precedence": (
+                    "explicit pin > project > workspace > approved shared > global > "
+                    "system > external"
+                ),
+            },
+            "source": {
+                "kind": record.kind.value,
+                "root_id": record.root_id,
+                "content_hash": record.content_hash,
+                "provenance_confidence": str(record.provenance.confidence),
+            },
+            "compatibility": public_data(record.compatibility),
+            "trust": public_data(record.trust),
+            "routing": {
+                "load_eligibility": record.load_eligibility,
+                "activation_guarded": bool(record.do_not_activate_when),
+                "estimated_context_tokens": max(1, len(record.description) // 4),
+            },
+            "execution": {
+                "scripts": "DISABLED_PHASE3",
+                "providers": "METADATA_ONLY",
+                "host_loaded": False,
+            },
+        }
     return item
 
 
@@ -178,6 +225,50 @@ def _execute(arguments: argparse.Namespace) -> dict[str, object]:
             }
         record = adapter.inspect_capability(arguments.capability_id)
         return _record_public(adapter, record)
+    if command == "capabilities":
+        capability_command = arguments.capability_command
+        inventory = adapter.discover_capabilities()
+        if capability_command == "roots":
+            return {
+                "schema_version": "P3-ROOTS-1",
+                "roots": [
+                    public_root(
+                        item, workspace_root=adapter.project_root, home_dir=adapter.home_dir
+                    )
+                    for item in inventory.roots
+                ],
+            }
+        if capability_command in {"list", "refresh"}:
+            value = public_inventory(
+                inventory,
+                workspace_root=adapter.project_root,
+                home_dir=adapter.home_dir,
+            )
+            value["refresh"] = capability_command == "refresh"
+            value["writes"] = []
+            return value
+        if capability_command == "duplicates":
+            return {
+                "schema_version": "P3-DUPLICATES-1",
+                "duplicates": _duplicates_public(adapter, engine.duplicate_report(inventory)),
+            }
+        if capability_command == "compatibility":
+            return {
+                "schema_version": "P3-COMPATIBILITY-1",
+                "capabilities": [
+                    {
+                        "capability_id": item.capability_id,
+                        "version": item.version,
+                        "status": item.compatibility.status.value,
+                        "missing_features": item.compatibility.missing_features,
+                        "portability_debt": item.compatibility.portability_debt,
+                        "reasons": item.compatibility.reasons,
+                    }
+                    for item in inventory.capabilities
+                ],
+            }
+        record = adapter.inspect_capability(arguments.capability_id)
+        return _record_public(adapter, record, explain=arguments.explain)
     inventory = adapter.discover_capabilities()
     if command == "resolve":
         request = arguments.capability_id

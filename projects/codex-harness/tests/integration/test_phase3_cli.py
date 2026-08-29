@@ -14,6 +14,7 @@ def test_phase3_cli_host_inspect_is_json_and_read_only(tmp_path: Path, capsys: o
     output = capsys.readouterr().out  # type: ignore[attr-defined]
     value = json.loads(output)
 
+    assert value["schema_version"] == "P3-HOST-1"
     assert value["host_id"] == "codex-host-local"
     assert value["observation_status"] == "OBSERVED"
     assert value["roots"]
@@ -21,6 +22,41 @@ def test_phase3_cli_host_inspect_is_json_and_read_only(tmp_path: Path, capsys: o
 
     assert main(["--json", "host", "roots"]) == 0
     assert json.loads(capsys.readouterr().out)["schema_version"] == "P3-ROOTS-1"
+
+
+def test_phase3_cli_capabilities_alias_and_explain_are_read_only(
+    tmp_path: Path, capsys: object
+) -> None:
+    project = tmp_path / "project"
+    package = project / ".agents" / "skills" / "demo"
+    package.mkdir(parents=True)
+    (package / "SKILL.md").write_text(
+        "---\nname: demo\ndescription: demo\ndo_not_activate_when: never\n---\nbody\n",
+        encoding="utf-8",
+    )
+
+    assert main(["--project-root", str(project), "capabilities", "roots", "--json"]) == 0
+    roots = json.loads(capsys.readouterr().out)
+    assert roots["schema_version"] == "P3-ROOTS-1"
+
+    assert (
+        main(
+            [
+                "--project-root",
+                str(project),
+                "capabilities",
+                "inspect",
+                "demo",
+                "--explain",
+                "--json",
+            ]
+        )
+        == 0
+    )
+    inspected = json.loads(capsys.readouterr().out)
+    assert inspected["capability_id"] == "demo"
+    assert inspected["explanation"]["load_eligibility"] == "ELIGIBLE_DECLARATIVE_METADATA_ONLY"
+    assert str(project) not in json.dumps(inspected)
 
 
 def test_phase3_cli_resolve_and_load_plan_do_not_execute(tmp_path: Path, capsys: object) -> None:

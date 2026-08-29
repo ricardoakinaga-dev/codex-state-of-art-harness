@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import pytest
+
 from harness_kernel.phase3_models import ParseStatus
 from harness_kernel.phase3_parser import parse_skill_text
 
@@ -121,6 +123,23 @@ def test_parser_fails_closed_on_deeply_nested_list_metadata() -> None:
     )
 
     assert document.status is ParseStatus.INVALID
+
+
+@pytest.mark.parametrize(
+    "metadata",
+    (
+        'activates_when: [{"task": "build"}]',
+        "activates_when:\n  - {task: build}",
+    ),
+)
+def test_parser_rejects_nested_front_matter_structures(metadata: str) -> None:
+    document = parse_skill_text(
+        f"---\nname: nested\n{metadata}\ndo_not_activate_when: never\n---\nbody\n",
+        source="SKILL.md",
+    )
+
+    assert document.status is ParseStatus.INVALID
+    assert any("structured" in issue for issue in document.errors)
 
 
 def test_parser_rejects_invalid_or_oversized_semver() -> None:

@@ -7,6 +7,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -17,6 +19,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -27,6 +31,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -37,6 +43,8 @@
         "package validation rejected the record"
       ],
       "level": "REJECTED",
+      "owner_claim": null,
+      "reason": "invalid or unsafe package metadata",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -47,6 +55,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -57,6 +67,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -67,6 +79,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -77,6 +91,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -87,6 +103,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -97,6 +115,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.codex",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.codex",
       "scope": "GLOBAL"
     },
@@ -107,6 +127,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -117,6 +139,8 @@
         "package validation rejected the record"
       ],
       "level": "REJECTED",
+      "owner_claim": null,
+      "reason": "invalid or unsafe package metadata",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -127,6 +151,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -137,6 +163,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.codex",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.codex",
       "scope": "GLOBAL"
     },
@@ -147,6 +175,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -157,6 +187,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.codex",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.codex",
       "scope": "GLOBAL"
     },
@@ -167,6 +199,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -177,6 +211,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -187,6 +223,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -197,6 +235,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -207,6 +247,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -217,6 +259,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -227,6 +271,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.codex",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.codex",
       "scope": "GLOBAL"
     },
@@ -237,6 +283,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.codex",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.codex",
       "scope": "GLOBAL"
     },
@@ -247,6 +295,8 @@
         "project-local ownership boundary"
       ],
       "level": "PROJECT_TRUSTED",
+      "owner_claim": "local://project.harness",
+      "reason": "project ownership is trusted for local selection, not proof of safety",
       "root_id": "project.harness",
       "scope": "PROJECT"
     },
@@ -257,6 +307,8 @@
         "package validation rejected the record"
       ],
       "level": "REJECTED",
+      "owner_claim": null,
+      "reason": "invalid or unsafe package metadata",
       "root_id": "global.codex",
       "scope": "GLOBAL"
     },
@@ -267,6 +319,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -277,6 +331,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -287,6 +343,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -297,6 +355,8 @@
         "package validation rejected the record"
       ],
       "level": "REJECTED",
+      "owner_claim": null,
+      "reason": "invalid or unsafe package metadata",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -307,6 +367,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.codex",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.codex",
       "scope": "GLOBAL"
     },
@@ -317,6 +379,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.codex",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.codex",
       "scope": "GLOBAL"
     },
@@ -327,6 +391,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.codex",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.codex",
       "scope": "GLOBAL"
     },
@@ -337,6 +403,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.codex",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.codex",
       "scope": "GLOBAL"
     },
@@ -347,6 +415,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -357,6 +427,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.codex",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.codex",
       "scope": "GLOBAL"
     },
@@ -367,6 +439,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.codex",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.codex",
       "scope": "GLOBAL"
     },
@@ -377,6 +451,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -387,6 +463,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -397,6 +475,8 @@
         "package validation rejected the record"
       ],
       "level": "REJECTED",
+      "owner_claim": null,
+      "reason": "invalid or unsafe package metadata",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -407,6 +487,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     },
@@ -417,6 +499,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.codex",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.codex",
       "scope": "GLOBAL"
     },
@@ -427,6 +511,8 @@
         "no project or independent verification evidence"
       ],
       "level": "THIRD_PARTY",
+      "owner_claim": "local://global.agents",
+      "reason": "external or global package is not automatically trusted",
       "root_id": "global.agents",
       "scope": "GLOBAL"
     }

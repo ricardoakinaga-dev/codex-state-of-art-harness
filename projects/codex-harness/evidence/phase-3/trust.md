@@ -9,4 +9,6 @@ timestamp and authority label.
 Trust is a selection input, not proof of execution safety. Rejected, stale,
 ambiguous, incompatible or low-trust records cannot cross the loader/router
 selection boundary. No official provenance is inferred from a familiar
-directory name.
+directory name. Field provenance on synthesized manifests uses `DECLARED`,
+`DERIVED`, `INFERRED` and `UNKNOWN`; it is distinct from observed trust
+confidence.

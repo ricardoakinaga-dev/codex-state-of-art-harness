@@ -12,6 +12,7 @@ from harness_kernel.phase3_models import (
     Phase3Limits,
     RootScope,
 )
+from harness_kernel.phase3_paths import digest_bytes
 from harness_kernel.phase3_resolution import ResolutionEngine
 
 
@@ -49,7 +50,7 @@ def test_discovery_synthesizes_manifest_and_inventory(tmp_path: Path) -> None:
     assert inventory.capabilities[0].kind is CapabilityKind.SYNTHESIZED
     assert inventory.capabilities[0].content_hash.startswith("sha256:")
     assert inventory.capabilities[0].references == ("references/guide.md",)
-    assert inventory.capabilities[0].manifest.field_provenance["name"] == "OBSERVED"
+    assert inventory.capabilities[0].manifest.field_provenance["name"] == "DECLARED"
 
 
 def test_native_manifest_and_invalid_package_are_distinct(tmp_path: Path) -> None:
@@ -133,6 +134,49 @@ def test_script_and_asset_text_files_are_metadata_only(tmp_path: Path) -> None:
     assert files["scripts/payload.md"].kind == "metadata_only"
     assert files["assets/payload.yaml"].observation is ObservationStatus.UNAVAILABLE
     assert files["assets/payload.yaml"].kind == "metadata_only"
+
+
+def test_nested_script_and_asset_text_files_are_metadata_only(tmp_path: Path) -> None:
+    root = tmp_path / "capabilities"
+    package = write_skill(root, "nested-surface-boundary")
+    (package / "nested" / "scripts").mkdir(parents=True)
+    (package / "nested" / "assets").mkdir(parents=True)
+    (package / "nested" / "scripts" / "payload.md").write_text("do-not-read", encoding="utf-8")
+    (package / "nested" / "assets" / "payload.yaml").write_text(
+        "secret: do-not-read", encoding="utf-8"
+    )
+
+    inventory = CapabilityDiscovery(Phase3Limits()).scan(
+        (CapabilityRoot("project", RootScope.PROJECT, str(root), source="fixture"),)
+    )
+    files = {item.relative_path: item for item in inventory.capabilities[0].files}
+
+    assert files["nested/scripts/payload.md"].observation is ObservationStatus.UNAVAILABLE
+    assert files["nested/scripts/payload.md"].kind == "metadata_only"
+    assert files["nested/assets/payload.yaml"].observation is ObservationStatus.UNAVAILABLE
+    assert files["nested/assets/payload.yaml"].kind == "metadata_only"
+
+
+def test_non_sensitive_metadata_only_bytes_are_fingerprinted_without_loading_content(
+    tmp_path: Path,
+) -> None:
+    root = tmp_path / "capabilities"
+    package = write_skill(root, "fingerprinted-surface")
+    (package / "scripts").mkdir()
+    (package / "scripts" / "payload.py").write_bytes(b"aa")
+
+    inventory = CapabilityDiscovery(Phase3Limits()).scan(
+        (CapabilityRoot("project", RootScope.PROJECT, str(root), source="fixture"),)
+    )
+    script = next(
+        item
+        for item in inventory.capabilities[0].files
+        if item.relative_path == "scripts/payload.py"
+    )
+
+    assert script.observation is ObservationStatus.UNAVAILABLE
+    assert script.sha256 == digest_bytes(b"aa")
+    assert not hasattr(script, "content")
 
 
 def test_discovery_rejects_deeply_nested_native_json(tmp_path: Path) -> None:

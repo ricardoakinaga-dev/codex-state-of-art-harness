@@ -5,7 +5,7 @@
   "config_refs": [
     "codex.config.presence-only"
   ],
-  "fingerprint": "sha256:259de3ce1e455658131408abf4ac445a9273d536142cc9e5656cba1af78a798d",
+  "fingerprint": "sha256:b7bd91b888d7b1e3ba98a953a87f91e2ec09514c857140666459e01d3d5f4c0f",
   "host_id": "codex-host-local",
   "identity": {
     "adapter": "CodexHostAdapter",
@@ -27,7 +27,19 @@
     "system.codex: root unavailable"
   ],
   "observation_status": "OBSERVED",
-  "observed_at": "2026-08-29T04:21:11+00:00",
+  "observed_at": "2026-08-29T05:27:49+00:00",
+  "official_behavior": {
+    "adapter_ancestor_discovery": "UNSUPPORTED_BY_HOST",
+    "adapter_symlink_policy": "INFERRED",
+    "agents_openai_metadata": "VERIFIED_OFFICIAL",
+    "codex_runtime_version": "UNKNOWN",
+    "host_load_observation": "UNSUPPORTED_BY_HOST",
+    "legacy_codex_skill_root": "INFERRED",
+    "official_ancestor_root_semantics": "VERIFIED_OFFICIAL",
+    "official_symlink_support": "VERIFIED_OFFICIAL",
+    "provider_tool_execution": "UNSUPPORTED_BY_HOST",
+    "skill_discovery": "VERIFIED_OFFICIAL"
+  },
   "project_root": "$WORKSPACE",
   "provider_metadata": {
     "entries": [],
@@ -99,6 +111,7 @@
       "source": "system Codex compatibility root"
     }
   ],
+  "schema_version": "P3-HOST-1",
   "tool_metadata": {
     "entries": [],
     "limitations": [

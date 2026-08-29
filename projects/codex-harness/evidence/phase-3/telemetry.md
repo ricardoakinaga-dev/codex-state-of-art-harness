@@ -1,10 +1,10 @@
 # Honest lifecycle telemetry
 
 `P3-TELEMETRY-1` distinguishes discovery, selection, load planning, context
-preparation, host loading and execution. The captured telemetry packet has
-four events: `CAPABILITY_DISCOVERED`, `CAPABILITY_SELECTED`,
-`CAPABILITY_LOAD_PLANNED` and `CAPABILITY_CONTEXT_PREPARED`; it has zero
-`HOST_LOADED` events.
+preparation, blocked state, host loading and execution. The captured telemetry
+packet has five events: `CAPABILITY_DISCOVERED`, `CAPABILITY_SELECTED`,
+`CAPABILITY_LOAD_PLANNED`, `CAPABILITY_CONTEXT_PREPARED` and
+`CAPABILITY_BLOCKED`; it has zero `HOST_LOADED` or `EXECUTED` events.
 
 The telemetry API rejects a `HOST_LOADED` event unless the caller supplies an
 `OBSERVED` host signal. Sensitive keys are redacted and absolute paths are

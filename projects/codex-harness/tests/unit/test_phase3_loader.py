@@ -12,6 +12,7 @@ from harness_kernel.phase3_models import (
     Phase3Limits,
     RootScope,
 )
+from harness_kernel.phase3_paths import digest_bytes
 
 
 def test_loader_prepares_text_but_never_executes_scripts(tmp_path: Path) -> None:
@@ -37,6 +38,8 @@ def test_loader_prepares_text_but_never_executes_scripts(tmp_path: Path) -> None
     assert loaded.host_load.status.value == "UNAVAILABLE"
     assert loaded.references[0].content == "reference"
     assert loaded.scripts[0].execution == "DISABLED_PHASE3"
+    assert loaded.scripts[0].declared_purpose is None
+    assert loaded.scripts[0].language == "shell"
     script_reference = (
         SafeCapabilityLoader(Phase3Limits())
         .load(
@@ -48,7 +51,7 @@ def test_loader_prepares_text_but_never_executes_scripts(tmp_path: Path) -> None
     )
     assert script_reference.content is None
     assert script_reference.binary is True
-    assert script_reference.sha256 == "sha256:unavailable-metadata"
+    assert script_reference.sha256 == digest_bytes(b"#!/bin/sh\necho unsafe\n")
 
 
 def test_loader_blocks_reference_escape(tmp_path: Path) -> None:
@@ -95,6 +98,42 @@ def test_loader_applies_reference_file_bound(tmp_path: Path) -> None:
     )
 
     assert len(loaded.references) == 1
+
+
+def test_loader_applies_reference_depth_and_nested_script_surface_policy(tmp_path: Path) -> None:
+    root = tmp_path / "skills"
+    package = root / "demo"
+    references = package / "references" / "deep"
+    scripts = package / "nested" / "scripts"
+    references.mkdir(parents=True)
+    scripts.mkdir(parents=True)
+    (package / "SKILL.md").write_text(
+        "---\nname: demo\ndescription: demo\n---\nbody\n",
+        encoding="utf-8",
+    )
+    (references / "guide.md").write_text("guide", encoding="utf-8")
+    (scripts / "payload.md").write_text("do-not-read", encoding="utf-8")
+    inventory = CapabilityDiscovery(Phase3Limits()).scan(
+        (CapabilityRoot("project", RootScope.PROJECT, str(root), source="fixture"),)
+    )
+    record = inventory.capabilities[0]
+    loader = SafeCapabilityLoader(Phase3Limits(max_reference_depth=2))
+
+    deep_reference = loader.load(
+        record,
+        DisclosureLevel.SELECTED_REFERENCES,
+        selected_references=("references/deep/guide.md",),
+    )
+    nested_script = SafeCapabilityLoader().load(
+        record,
+        DisclosureLevel.SELECTED_REFERENCES,
+        selected_references=("nested/scripts/payload.md",),
+    )
+
+    assert deep_reference.references == ()
+    assert any("depth" in warning for warning in deep_reference.warnings)
+    assert nested_script.references[0].content is None
+    assert nested_script.references[0].binary is True
 
 
 def test_loader_plan_does_not_claim_context_for_identity_or_routing(tmp_path: Path) -> None:

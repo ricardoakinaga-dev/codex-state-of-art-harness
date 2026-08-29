@@ -45,6 +45,10 @@ PYTHONPATH=src .venv/bin/python -m harness_kernel doctor
 PYTHONPATH=src .venv/bin/python -m harness_kernel run --dry-run --json "Change one local label"
 PYTHONPATH=src .venv/bin/python -m harness_kernel.phase3_cli host inspect --json
 PYTHONPATH=src .venv/bin/python -m harness_kernel.phase3_cli host list --json
+PYTHONPATH=src .venv/bin/python -m harness_kernel.phase3_cli capabilities list --json
+PYTHONPATH=src .venv/bin/python -m harness_kernel.phase3_cli capabilities inspect harness-kernel --explain --json
+# Após instalar o projeto: harness host inspect --json
+# Após instalar o projeto: harness capabilities list --json
 ```
 
 A CLI lê dados project-local e metadados read-only do host, não carrega

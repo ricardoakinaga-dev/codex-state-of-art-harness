@@ -4,12 +4,14 @@
       "capability_id": "api-design",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -18,12 +20,14 @@
       "capability_id": "article-writing",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -32,12 +36,14 @@
       "capability_id": "backend-patterns",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -46,12 +52,14 @@
       "capability_id": "bun-runtime",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -60,12 +68,14 @@
       "capability_id": "claude-api",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -74,12 +84,14 @@
       "capability_id": "coding-standards",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -88,12 +100,14 @@
       "capability_id": "content-engine",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -102,12 +116,14 @@
       "capability_id": "crosspost",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -116,12 +132,14 @@
       "capability_id": "deep-research",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -130,12 +148,14 @@
       "capability_id": "design-director",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.codex",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -144,12 +164,14 @@
       "capability_id": "dmux-workflows",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -158,12 +180,14 @@
       "capability_id": "documentation-lookup",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -172,12 +196,14 @@
       "capability_id": "e2e-testing",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -186,12 +212,14 @@
       "capability_id": "elevenlabs-api",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.codex",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -200,12 +228,14 @@
       "capability_id": "engineering-framework",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -214,12 +244,14 @@
       "capability_id": "engineering-framework",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.codex",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -228,6 +260,7 @@
       "capability_id": "eval-harness",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven",
         "tool availability is not execution authorization"
@@ -235,6 +268,7 @@
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -243,12 +277,14 @@
       "capability_id": "everything-claude-code-conventions",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -257,12 +293,14 @@
       "capability_id": "exa-search",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -271,12 +309,14 @@
       "capability_id": "fal-ai-media",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -285,12 +325,14 @@
       "capability_id": "frontend-patterns",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -299,12 +341,14 @@
       "capability_id": "frontend-slides",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -313,12 +357,14 @@
       "capability_id": "gauntlet-loop",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.codex",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -327,12 +373,14 @@
       "capability_id": "graphic-creation",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.codex",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -341,9 +389,15 @@
       "capability_id": "harness-kernel",
       "confidence": "OBSERVED",
       "missing_features": [],
+      "platform_limits": [
+        "Python >= 3.12"
+      ],
       "portability_debt": [],
       "reasons": [
         "declared platform limits match observed local runtime"
+      ],
+      "required_features": [
+        "Python >= 3.12"
       ],
       "root_id": "project.harness",
       "status": "COMPATIBLE",
@@ -353,12 +407,14 @@
       "capability_id": "imagegen",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.codex",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -367,12 +423,14 @@
       "capability_id": "investor-materials",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -381,12 +439,14 @@
       "capability_id": "investor-outreach",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -395,12 +455,14 @@
       "capability_id": "market-research",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -409,12 +471,14 @@
       "capability_id": "nextjs-turbopack",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -423,12 +487,14 @@
       "capability_id": "openai-docs",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.codex",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -437,12 +503,14 @@
       "capability_id": "orchestrate",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.codex",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -451,12 +519,14 @@
       "capability_id": "plugin-creator",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.codex",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -465,12 +535,14 @@
       "capability_id": "review-agent",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.codex",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -479,12 +551,14 @@
       "capability_id": "security-review",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -493,12 +567,14 @@
       "capability_id": "skill-creator",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.codex",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -507,12 +583,14 @@
       "capability_id": "skill-installer",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.codex",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -521,12 +599,14 @@
       "capability_id": "strategic-compact",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -535,12 +615,14 @@
       "capability_id": "tdd-workflow",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -549,12 +631,14 @@
       "capability_id": "verification-loop",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -563,12 +647,14 @@
       "capability_id": "video-editing",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -577,12 +663,14 @@
       "capability_id": "vps-truth-source",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.codex",
       "status": "PARTIAL",
       "version": "0.1.0"
@@ -591,12 +679,14 @@
       "capability_id": "x-api",
       "confidence": "INFERRED",
       "missing_features": [],
+      "platform_limits": [],
       "portability_debt": [
         "manifest was synthesized or legacy; native host contract is not proven"
       ],
       "reasons": [
         "requirements not represented by a verified host capability contract"
       ],
+      "required_features": [],
       "root_id": "global.agents",
       "status": "PARTIAL",
       "version": "0.1.0"

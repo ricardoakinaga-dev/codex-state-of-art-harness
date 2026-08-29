@@ -28,10 +28,15 @@ credentials or global-state mutations are allowed.
 
 Primary records:
 
-- `host-inspection.json`, `real-inventory.json`, `duplicate-report.json`;
-- `compatibility-report.json`, `trust-report.json`, `safe-loader.json`,
-  `routing-integration.json`, `telemetry.json`;
-- `benchmark-summary.json`, `coverage.md`, `security.md`;
+- canonical reports: `host-inspection-report.md`,
+  `capability-discovery-report.md`, `duplicate-resolution-report.md`,
+  `compatibility-report.md`, `trust-report.md`, `safe-loader-report.md`,
+  `routing-integration-report.md`, `telemetry-report.md`,
+  `security-summary.md`, `coverage-report.md`, `final-report.md`;
+- machine-readable records: `real-capability-inventory.json`,
+  `host-inspection.json`, `real-inventory.json`, `duplicate-report.json`,
+  `compatibility-report.json`, `trust-report.json`, `safe-loader.json`,
+  `routing-integration.json`, `telemetry.json`, `benchmark-summary.json`;
 - `review-manifest.json`, `review-attestation.json`, `readiness.json` and
   `independent-review.md`;
 - `../../docs/implementation/phase-3-host-capability-integration-report.md`.

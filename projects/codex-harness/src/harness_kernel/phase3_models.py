@@ -23,7 +23,9 @@ class P3Enum(StrEnum):
 class ObservationStatus(P3Enum):
     OBSERVED = "OBSERVED"
     OFFICIAL_DOCUMENTED = "OFFICIAL_DOCUMENTED"
+    VERIFIED_OFFICIAL = "VERIFIED_OFFICIAL"
     INFERRED = "INFERRED"
+    UNSUPPORTED_BY_HOST = "UNSUPPORTED_BY_HOST"
     UNAVAILABLE = "UNAVAILABLE"
     UNKNOWN = "UNKNOWN"
 
@@ -110,6 +112,19 @@ class DependencyStatus(P3Enum):
 
 
 class Phase3EventType(P3Enum):
+    HOST_INSPECTION_STARTED = "HOST_INSPECTION_STARTED"
+    HOST_INSPECTION_COMPLETED = "HOST_INSPECTION_COMPLETED"
+    ROOT_DISCOVERED = "ROOT_DISCOVERED"
+    METADATA_PARSED = "METADATA_PARSED"
+    MANIFEST_SYNTHESIZED = "MANIFEST_SYNTHESIZED"
+    DUPLICATE_FOUND = "DUPLICATE_FOUND"
+    DIVERGENCE_FOUND = "DIVERGENCE_FOUND"
+    COMPATIBILITY_CHECKED = "COMPATIBILITY_CHECKED"
+    TRUST_EVALUATED = "TRUST_EVALUATED"
+    LOAD_OBSERVED = "LOAD_OBSERVED"
+    LOAD_UNOBSERVABLE = "LOAD_UNOBSERVABLE"
+    REGISTERED_FROM_HOST = "REGISTERED_FROM_HOST"
+    REJECTED_FROM_HOST = "REJECTED_FROM_HOST"
     DISCOVERED = "CAPABILITY_DISCOVERED"
     SELECTED = "CAPABILITY_SELECTED"
     LOAD_PLANNED = "CAPABILITY_LOAD_PLANNED"
@@ -170,6 +185,9 @@ class Phase3Limits:
     max_reference_bytes: int = 256 * 1024
     max_total_bytes: int = 16 * 1024 * 1024
     max_depth: int = 4
+    max_dependency_depth: int = 16
+    max_reference_depth: int = 16
+    max_duplicate_candidates: int = 4096
 
     def __post_init__(self) -> None:
         for name in (
@@ -183,6 +201,9 @@ class Phase3Limits:
             "max_reference_bytes",
             "max_total_bytes",
             "max_depth",
+            "max_dependency_depth",
+            "max_reference_depth",
+            "max_duplicate_candidates",
         ):
             value = getattr(self, name)
             if not isinstance(value, int) or isinstance(value, bool) or value < 1:
@@ -546,6 +567,7 @@ class HostSnapshot:
     confidence: ObservationStatus
     fingerprint: str
     observation_status: ObservationStatus
+    official_behavior: Mapping[str, ObservationStatus | str] = field(default_factory=dict)
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "identity", _map_proxy(self.identity))
@@ -562,6 +584,13 @@ class HostSnapshot:
             )
         except ValueError:
             object.__setattr__(self, "observation_status", ObservationStatus.UNKNOWN)
+        normalized_behavior: dict[str, ObservationStatus] = {}
+        for key, value in self.official_behavior.items():
+            try:
+                normalized_behavior[str(key)] = ObservationStatus(value)
+            except ValueError:
+                normalized_behavior[str(key)] = ObservationStatus.UNKNOWN
+        object.__setattr__(self, "official_behavior", MappingProxyType(normalized_behavior))
 
 
 @dataclass(frozen=True, slots=True)
@@ -595,6 +624,8 @@ class LoadedScript:
     size_bytes: int
     sha256: str
     execution: str = "DISABLED_PHASE3"
+    declared_purpose: str | None = None
+    language: str | None = None
 
 
 @dataclass(frozen=True, slots=True)

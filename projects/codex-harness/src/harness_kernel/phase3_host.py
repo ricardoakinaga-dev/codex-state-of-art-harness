@@ -238,6 +238,18 @@ class CodexHostAdapter:
             ObservationStatus.OBSERVED,
             fingerprint,
             ObservationStatus.OBSERVED,
+            {
+                "skill_discovery": ObservationStatus.VERIFIED_OFFICIAL,
+                "agents_openai_metadata": ObservationStatus.VERIFIED_OFFICIAL,
+                "official_ancestor_root_semantics": ObservationStatus.VERIFIED_OFFICIAL,
+                "official_symlink_support": ObservationStatus.VERIFIED_OFFICIAL,
+                "legacy_codex_skill_root": ObservationStatus.INFERRED,
+                "adapter_ancestor_discovery": ObservationStatus.UNSUPPORTED_BY_HOST,
+                "adapter_symlink_policy": ObservationStatus.INFERRED,
+                "host_load_observation": ObservationStatus.UNSUPPORTED_BY_HOST,
+                "provider_tool_execution": ObservationStatus.UNSUPPORTED_BY_HOST,
+                "codex_runtime_version": ObservationStatus.UNKNOWN,
+            },
         )
 
     def inspect_capability(self, capability_id: str) -> CapabilityRecord:
@@ -315,6 +327,7 @@ def public_snapshot(
     home_dir: str | Path | None = None,
 ) -> dict[str, object]:
     value = cast(dict[str, object], public_data(snapshot))
+    value["schema_version"] = "P3-HOST-1"
     value["roots"] = [
         public_root(item, workspace_root=workspace_root, home_dir=home_dir)
         for item in snapshot.roots
@@ -349,6 +362,7 @@ def public_inventory(
     home_dir: str | Path | None = None,
 ) -> dict[str, object]:
     value = cast(dict[str, object], public_data(inventory))
+    value["schema_version"] = "P3-INVENTORY-1"
     value["roots"] = [
         public_root(item, workspace_root=workspace_root, home_dir=home_dir)
         for item in inventory.roots

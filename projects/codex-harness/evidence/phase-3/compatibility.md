@@ -10,4 +10,5 @@ confidence and its declared Python limit.
 
 Incompatible records transition to `INCOMPATIBLE` and are not selectable. A
 missing host signal remains `UNAVAILABLE` or `UNKNOWN`; it is never upgraded to
-compatibility by directory presence alone.
+compatibility by directory presence alone. `capabilities compatibility` is an
+alias for the same read-only report.

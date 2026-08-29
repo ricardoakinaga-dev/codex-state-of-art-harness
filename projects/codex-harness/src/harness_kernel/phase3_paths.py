@@ -80,8 +80,20 @@ def canonicalize_root(
 
 
 def _root_path(root: CapabilityRoot | str | Path) -> Path:
-    value = root.canonical_path or root.path if isinstance(root, CapabilityRoot) else str(root)
-    path = Path(_validate_text(value, "root path"))
+    if isinstance(root, CapabilityRoot):
+        configured = Path(_validate_text(root.path, "root path"))
+        claimed = Path(_validate_text(root.canonical_path or root.path, "canonical root path"))
+        if not claimed.is_absolute():
+            raise PathSafetyError("canonical root path must be absolute")
+        try:
+            if configured.resolve(strict=False) != claimed.resolve(strict=False):
+                raise PathSafetyError("canonical root path does not match claimed root")
+        except (OSError, RuntimeError) as exc:
+            raise PathSafetyError("root cannot be canonicalized") from exc
+        value = configured
+    else:
+        value = Path(str(root))
+    path = value if isinstance(value, Path) else Path(_validate_text(str(value), "root path"))
     if not path.is_absolute():
         raise PathSafetyError("base path must be absolute")
     return path
@@ -132,6 +144,13 @@ def safe_relative_path(root: CapabilityRoot | str | Path, relative: str) -> str:
     except (OSError, RuntimeError, ValueError) as exc:
         raise PathSafetyError("relative path escapes its root") from exc
     return "/".join(parts)
+
+
+def is_metadata_only_surface(relative: str) -> bool:
+    """Return whether a file is below a scripts/assets metadata boundary."""
+
+    parts = _relative_parts(relative)
+    return any(part.casefold() in {"scripts", "assets"} for part in parts[:-1])
 
 
 _SENSITIVE_NAME = re.compile(

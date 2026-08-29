@@ -34,6 +34,7 @@ from .phase3_paths import (
     bounded_file_metadata,
     bounded_walk,
     digest_bytes,
+    is_metadata_only_surface,
     is_sensitive_relative_path,
     read_bounded_file,
 )
@@ -232,19 +233,44 @@ def _manifest_from_data(
         version_value = "0.1.0"
     if data:
         declared = {
-            "capability_id": "capability_id",
-            "display_name": "display_name",
-            "description": "description",
-            "version": "version",
-            "primary_type": "primary_type",
-            "scope": "scope",
-            "dependencies": "dependencies",
-            "composition": "composition",
-            "compatibility": "compatibility",
+            "schema_version",
+            "capability_id",
+            "display_name",
+            "description",
+            "version",
+            "primary_type",
+            "scope",
+            "dependencies",
+            "composition",
+            "compatibility",
+            "contracts",
+            "provenance",
+            "security",
+            "status",
+            "license",
         }
-        provenance = {key: ObservationStatus.OBSERVED.value for key in data if key in declared}
+        provenance = {key: "DECLARED" if key in declared else "UNKNOWN" for key in data}
         provenance.update(
-            {key: ObservationStatus.UNKNOWN.value for key in data if key not in declared}
+            {
+                key: (
+                    "DERIVED"
+                    if key in {"description", "primary_type"} and key not in data
+                    else "UNKNOWN"
+                )
+                for key in (
+                    "schema_version",
+                    "capability_id",
+                    "display_name",
+                    "description",
+                    "version",
+                    "primary_type",
+                    "scope",
+                    "dependencies",
+                    "composition",
+                    "compatibility",
+                )
+                if key not in provenance
+            }
         )
         field_details = _field_map("manifest.json", provenance)
         description = str(data.get("description") or skill_description)[:2000]
@@ -268,11 +294,20 @@ def _manifest_from_data(
         )
         kind = content_kind
     else:
-        provenance = {"name": ObservationStatus.OBSERVED.value} if skill_id else {}
-        provenance.update(
-            {key: ObservationStatus.OBSERVED.value for key in skill_values if key != "name"}
-        )
-        provenance.update({key: ObservationStatus.UNKNOWN.value for key, _ in skill_unknown_fields})
+        provenance = {
+            "schema_version": "DERIVED",
+            "capability_id": "DERIVED",
+            "display_name": "DERIVED",
+            "description": "DECLARED" if skill_description else "UNKNOWN",
+            "version": "DECLARED" if "version" in skill_values else "DERIVED",
+            "primary_type": "DECLARED" if "primary_type" in skill_values else "DERIVED",
+            "kind": "DERIVED",
+        }
+        if skill_id:
+            provenance["name"] = "DECLARED"
+        provenance.update({key: "DECLARED" for key in skill_values if key != "name"})
+        provenance.update({key: "DECLARED" for key in skill_lists if key in skill_values})
+        provenance.update({key: "UNKNOWN" for key, _ in skill_unknown_fields})
         field_details = _field_map(source, provenance)
         description = skill_description[:2000]
         activates = _strings(skill_lists.get("activates_when"))
@@ -322,7 +357,7 @@ def _manifest_from_data(
 def _relative_categories(files: Iterable[str]) -> dict[str, tuple[str, ...]]:
     values = tuple(sorted(files))
     return {
-        key: tuple(item for item in values if item == key or item.startswith(f"{key}/"))
+        key: tuple(item for item in values if item == key or key in Path(item).parts[:-1])
         for key in (
             "agents",
             "references",
@@ -396,7 +431,7 @@ class CapabilityDiscovery:
             suffix = Path(relative).suffix.casefold()
             metadata_only = (
                 is_sensitive_relative_path(relative)
-                or relative.startswith(("scripts/", "assets/"))
+                or is_metadata_only_surface(relative)
                 or not (suffix in _TEXT_SUFFIXES or Path(relative).name in {"SKILL.md", "LICENSE"})
             )
             if metadata_only:
@@ -408,11 +443,20 @@ class CapabilityDiscovery:
                 if size_bytes > max_file:
                     errors.append(f"{relative}: metadata file exceeds its bound")
                     continue
+                metadata_hash = "sha256:unavailable-metadata"
+                if not is_sensitive_relative_path(relative):
+                    try:
+                        metadata_hash = digest_bytes(
+                            read_bounded_file(package, relative, max_bytes=max_file)
+                        )
+                    except PathSafetyError as exc:
+                        errors.append(f"{relative}: {str(exc)[:160]}")
+                        continue
                 file_records.append(
                     PackageFile(
                         relative,
                         size_bytes,
-                        "sha256:unavailable-metadata",
+                        metadata_hash,
                         "sensitive_metadata"
                         if is_sensitive_relative_path(relative)
                         else "metadata_only",
