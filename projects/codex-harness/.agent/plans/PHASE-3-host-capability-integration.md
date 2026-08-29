@@ -19,8 +19,8 @@ shell, network or production runtime.
 - [x] (2026-08-29) CLI/doctor, eval fixtures, evidence scaffolding and
       benchmark path added.
 - [x] (2026-08-29) Full regression, security scan, canonical evidence refresh,
-      review-driven hardening and Dewey's fresh exact-packet review completed;
-      the control-only final handoff gate is recorded.
+      review-driven hardening and Raman's fresh exact-packet review completed;
+      the superseding `PHASE3-VERIFIED-0004` gate is recorded.
 
 ## Surprises & Discoveries
 
@@ -55,8 +55,8 @@ shell, network or production runtime.
 
 The additive implementation now has a coherent host boundary, declarative
 loader and registry/router bridge. The current local result is
-`PASS_WITH_LIMITATIONS`: 308 tests pass at 82% combined coverage, the
-reproducible P3 benchmark covers 100 temporary capabilities, Dewey approved
+`PASS_WITH_LIMITATIONS`: 316 tests pass at 82% combined coverage, the
+reproducible P3 benchmark covers 100 temporary capabilities, Raman approved
 the exact 119-entry packet with zero Critical/High/Medium/Low findings, host
 loading and execution remain unclaimed, and the remaining environmental
 limitations are explicit.

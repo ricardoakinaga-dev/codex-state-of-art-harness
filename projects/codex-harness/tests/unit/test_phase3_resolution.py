@@ -285,3 +285,25 @@ def test_resolution_rejects_invalid_or_oversized_semver_requests(tmp_path: Path)
         engine.resolve(inventory, "demo@01.0.0")
     with pytest.raises(ResolutionError, match="invalid"):
         engine.resolve(inventory, f"demo@{'9' * 5_000}.0.0")
+
+
+def test_resolution_blocks_changed_inventory_snapshot(tmp_path: Path) -> None:
+    root = tmp_path / "root"
+    root.mkdir()
+    package = root / "demo"
+    package.mkdir()
+    skill_path = package / "SKILL.md"
+    skill_path.write_text(
+        "---\nname: demo\nversion: 1.0.0\ndo_not_activate_when: never\n---\noriginal\n",
+        encoding="utf-8",
+    )
+    inventory = inventory_for((root, RootScope.PROJECT))
+    skill_path.write_text(
+        "---\nname: demo\nversion: 1.0.0\ndo_not_activate_when: never\n---\nchanged\n",
+        encoding="utf-8",
+    )
+
+    result = ResolutionEngine().resolve(inventory, "demo")
+
+    assert result.status is ResolutionStatus.BLOCKED
+    assert "CAPABILITY_STALE_FINGERPRINT" in result.blockers

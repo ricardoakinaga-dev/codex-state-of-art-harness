@@ -3,10 +3,10 @@
   "status": "PASS_WITH_LIMITATIONS",
   "quality_bar": "P3-QB-1",
   "scope": "PHASE3-001 bounded read-only Codex host capability integration",
-  "measured_at": "2026-08-29T03:05:30-03:00",
+  "measured_at": "2026-08-29T09:02:43-03:00",
   "phase2_base_sha": "d95568aa5e4821a3e1d38c718dac6eb473676cdd",
-  "reviewed_head_sha": "4c2689e3c28207d41d7ecef9ec6933c0ca154e32",
-  "worktree": "CONTROL_ONLY_AFTER_PAYLOAD_COMMIT",
+  "reviewed_head_sha": "4da78c208e60f33278ac30426c2b6e08657fddfe",
+  "worktree": "DIRTY_REVIEWED_CANDIDATE_CONTROL_UPDATE",
   "host_observation": {
     "status": "OBSERVED",
     "root_count": 5,
@@ -31,15 +31,15 @@
     "blocking_reason": "same capability ID/version has divergent package bytes; a version pin alone cannot distinguish them"
   },
   "tests": {
-    "command": "PYTHONPATH=src .venv/bin/coverage run --branch -m pytest -q -p no:cacheprovider",
-    "passed": 308,
+    "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/coverage run --branch -m pytest -q -p no:cacheprovider",
+    "passed": 316,
     "failed": 0,
-    "duration_seconds": 101.18,
+    "duration_seconds": 86.62,
     "coverage_percent": 82,
-    "coverage_total_statements": 8972,
-    "coverage_missed_statements": 1304,
-    "coverage_total_branches": 2984,
-    "coverage_partial_branches": 715,
+    "coverage_total_statements": 9059,
+    "coverage_missed_statements": 1328,
+    "coverage_total_branches": 3024,
+    "coverage_partial_branches": 718,
     "phase2_baseline": 232
   },
   "quality_tools": {
@@ -47,39 +47,148 @@
     "ruff_check": "PASS",
     "mypy": "PASS",
     "state_checker": "PASS 10/10",
-    "manifest_closure": "PASS 119 manifest entries",
+    "manifest_closure": "PASS 119 entries",
     "phase2_regression": "PASS",
     "static_runtime_scan": "PASS",
     "privacy_scan": "PASS",
     "pip_audit": "UNAVAILABLE"
   },
   "criteria": [
-    {"id": "P3-01", "status": "PASS", "evidence_refs": ["evidence/phase-3/coverage-report.md", "evidence/phase-2/PHASE2-FROZEN.md", "evidence/phase-3/phase2-supersession.md"]},
-    {"id": "P3-02", "status": "PASS", "evidence_refs": ["evidence/phase-3/host-inspection.json", "evidence/phase-3/host-inspection.md"]},
-    {"id": "P3-03", "status": "PASS", "evidence_refs": ["tests/unit/test_phase3_paths.py", "tests/evals/phase3/", "evidence/phase-3/security.md"]},
-    {"id": "P3-04", "status": "PASS", "evidence_refs": ["evidence/phase-3/real-capability-inventory.json", "evidence/phase-3/capability-discovery-report.md"]},
-    {"id": "P3-05", "status": "PASS", "evidence_refs": ["tests/unit/test_phase3_parser.py", "evidence/phase-3/real-capability-inventory.json"]},
-    {"id": "P3-06", "status": "PASS", "evidence_refs": ["evidence/phase-3/safe-loader.json", "evidence/phase-3/safe-loader-report.md"]},
-    {"id": "P3-07", "status": "PASS", "evidence_refs": ["evidence/phase-3/compatibility-report.json", "evidence/phase-3/trust-report.json"]},
-    {"id": "P3-08", "status": "PASS", "evidence_refs": ["evidence/phase-3/duplicate-report.json", "evidence/phase-3/duplicate-resolution-report.md"]},
-    {"id": "P3-09", "status": "PASS", "evidence_refs": ["evidence/phase-3/routing-integration.json", "tests/unit/test_phase3_integration.py"]},
-    {"id": "P3-10", "status": "PASS", "evidence_refs": ["evidence/phase-3/telemetry-report.md", "tests/unit/test_phase3_host_telemetry.py"]},
-    {"id": "P3-11", "status": "PASS", "evidence_refs": ["evidence/phase-3/cli-smoke.json", "tests/integration/test_phase3_cli.py"]},
-    {"id": "P3-12", "status": "PASS", "evidence_refs": ["evidence/phase-3/security-summary.md", "tests/evals/phase3/test_known_bad_phase3.py"]},
-    {"id": "P3-13", "status": "PASS", "evidence_refs": ["evidence/phase-3/host-inspection.json", "evidence/phase-3/cli-smoke.json"]},
-    {"id": "P3-14", "status": "PASS", "evidence_refs": ["evidence/phase-3/review-manifest.json", "evidence/phase-3/review-attestation.json", "evidence/phase-3/independent-review.md", "evidence/phase-3/coverage.md", "evidence/phase-3/benchmark-summary.json"]}
+    {
+      "id": "P3-01",
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-3/coverage-report.md",
+        "evidence/phase-2/PHASE2-FROZEN.md",
+        "evidence/phase-3/phase2-supersession.md"
+      ]
+    },
+    {
+      "id": "P3-02",
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-3/host-inspection.json",
+        "evidence/phase-3/host-inspection.md"
+      ]
+    },
+    {
+      "id": "P3-03",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/unit/test_phase3_paths.py",
+        "tests/evals/phase3/",
+        "evidence/phase-3/security.md"
+      ]
+    },
+    {
+      "id": "P3-04",
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-3/real-capability-inventory.json",
+        "evidence/phase-3/capability-discovery-report.md"
+      ]
+    },
+    {
+      "id": "P3-05",
+      "status": "PASS",
+      "evidence_refs": [
+        "tests/unit/test_phase3_parser.py",
+        "evidence/phase-3/real-capability-inventory.json"
+      ]
+    },
+    {
+      "id": "P3-06",
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-3/safe-loader.json",
+        "evidence/phase-3/safe-loader-report.md"
+      ]
+    },
+    {
+      "id": "P3-07",
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-3/compatibility-report.json",
+        "evidence/phase-3/trust-report.json"
+      ]
+    },
+    {
+      "id": "P3-08",
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-3/duplicate-report.json",
+        "evidence/phase-3/duplicate-resolution-report.md"
+      ]
+    },
+    {
+      "id": "P3-09",
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-3/routing-integration.json",
+        "tests/unit/test_phase3_integration.py"
+      ]
+    },
+    {
+      "id": "P3-10",
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-3/telemetry-report.md",
+        "tests/unit/test_phase3_host_telemetry.py"
+      ]
+    },
+    {
+      "id": "P3-11",
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-3/cli-smoke.json",
+        "tests/integration/test_phase3_cli.py"
+      ]
+    },
+    {
+      "id": "P3-12",
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-3/security-summary.md",
+        "tests/evals/phase3/test_known_bad_phase3.py"
+      ]
+    },
+    {
+      "id": "P3-13",
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-3/host-inspection.json",
+        "evidence/phase-3/cli-smoke.json"
+      ]
+    },
+    {
+      "id": "P3-14",
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-3/review-manifest.json",
+        "evidence/phase-3/review-attestation.json",
+        "evidence/phase-3/independent-review.md",
+        "evidence/phase-3/coverage.md",
+        "evidence/phase-3/benchmark-summary.json"
+      ]
+    }
   ],
-  "independent_review": "Dewey APPROVE / PASS_WITH_LIMITATIONS / Critical 0 / High 0 / Medium 0 / Low 0",
-  "review_manifest_sha256": "69dbebe06c3ffd8145f389a756b76a54fea1eefc8a74ddad71791c66ea989ca5",
-  "reviewed_payload_closure_sha256": "97d37253ce3512ef358929fbd3df67f6f08d1fb7197699b85288443373867641",
+  "independent_review": "Raman APPROVE / PASS_WITH_LIMITATIONS / Critical 0 / High 0 / Medium 0 / Low 0",
+  "review_manifest_sha256": "3bd721c61d19f496b0edc16dece195297b8e7bf3a92c06ff9e2cc150f5c9745b",
+  "reviewed_payload_closure_sha256": "c9e81f65f5d9a86acb63360b0de60c256321d74cfa60be5c13d3300afb9e0420",
   "review_attestation": "evidence/phase-3/review-attestation.json",
-  "final_gate": ".agent/gates/PHASE3-VERIFIED-0002.json",
+  "final_gate": ".agent/gates/PHASE3-VERIFIED-0004.json",
   "limitations": [
     "pip-audit is unavailable in the local environment",
     "the adapter cannot observe Codex host-load causality, provider/tool runtime or unavailable system roots",
     "global mutation, installation, script/provider/MCP/shell/network/credential execution, production SLOs and AAA_VERIFIED remain out of scope",
     "one divergent same-ID/version duplicate remains intentionally blocked pending verifier-selected exact bytes or host cleanup",
+    "Raman independently approved the updated exact packet after recomputing all 119 entries, seven group digests and the closure; the local verification record covers the full 316-test run, while the reviewer did not rerun real-host checks under the global-state constraint",
     "the project-local harness CLI entry point is an explicit Phase 3 supersession of one historical pyproject.toml byte; the Phase 2 kernel and historical closeout remain unchanged"
   ],
-  "excluded_claims": ["PRODUCTION_READY", "AAA_VERIFIED", "HOST_LOADED", "CAUSAL_QUALITY"]
+  "excluded_claims": [
+    "PRODUCTION_READY",
+    "AAA_VERIFIED",
+    "HOST_LOADED",
+    "CAUSAL_QUALITY"
+  ]
 }

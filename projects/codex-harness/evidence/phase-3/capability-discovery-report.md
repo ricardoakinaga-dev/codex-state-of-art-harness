@@ -18,4 +18,6 @@ assets when observed. Every record includes scope, provenance, content hash,
 compatibility, trust, load eligibility and field provenance. Unknown metadata
 is visible as `UNKNOWN`; synthesized fields are not represented as native.
 Scripts/assets and sensitive files are metadata-only. Non-sensitive
-metadata-only bytes receive bounded digests without content retention.
+metadata-only bytes receive bounded digests without content retention. Root
+aliases and hard-linked package files are rejected, and the resulting snapshot
+is revalidated before resolution or content disclosure.

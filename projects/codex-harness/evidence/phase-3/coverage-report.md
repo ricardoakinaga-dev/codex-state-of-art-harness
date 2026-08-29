@@ -10,8 +10,8 @@ PYTHONPATH=src .venv/bin/ruff check src tests
 PYTHONPATH=src .venv/bin/mypy src
 ```
 
-Latest measured result: 308 tests passed in 84.20 seconds; 8,972 statements,
-1,304 missed statements, 2,984 branches, 715 partial branches and 82% combined
+Latest measured result: 316 tests passed in 86.62 seconds; 9,059 statements,
+1,328 missed statements, 3,024 branches, 718 partial branches and 82% combined
 coverage. The project gate remains at least 80%. Unit, integration,
 adversarial, eval, golden, real-host, security/privacy, stale-fingerprint,
 path-safety and bounded-performance checks are included; the frozen Phase 2

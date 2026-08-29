@@ -113,3 +113,23 @@ scope. The review manifest is
 source, test, runtime-configuration or scope changes require a new closeout
 cycle. Production readiness, real Codex integrations and `AAA_VERIFIED` remain
 explicitly deferred.
+
+## Phase 3 recovery and hardening — final
+
+- [x] Reconstructed the post-reset state, reread the supplied Phase 3 prompt and the project documentation, and preserved the Phase 2 freeze.
+- [x] Obtained independent failure evidence for stale snapshot bytes, secret-key telemetry leakage, root aliases, hard links and unapproved L3 references.
+- [x] Added RED tests first, then hardened discovery/resolution/loader/path/telemetry behavior; the repaired focused slice passed 42 tests.
+- [x] Re-ran the complete local verification: 316 tests passed, 82% combined branch coverage, Ruff/mypy, read-only CLI/host smoke, static runtime/privacy scans and `check_state` 10/10.
+- [x] Recomputed the 119-entry exact manifest and closure after making `final-readiness.md` consistent with the control model.
+- [x] Obtained Raman's final independent read-only approval of the exact packet with zero Critical, High, Medium or Low findings.
+- [x] Recorded the superseding `PHASE3-VERIFIED-0004` gate and append-only `VERIFY → DONE` ledger closeout.
+
+## Final result
+
+Phase 3 is complete within the bounded read-only host-capability scope as
+`PASS_WITH_LIMITATIONS`. The current packet is manifest
+`3bd721c61d19f496b0edc16dece195297b8e7bf3a92c06ff9e2cc150f5c9745b` with
+closure `c9e81f65f5d9a86acb63360b0de60c256321d74cfa60be5c13d3300afb9e0420`.
+No host loading, arbitrary execution, production readiness or `AAA_VERIFIED`
+claim is made. The worktree is intentionally uncommitted and no global Codex
+state, Skills, providers, MCP, network or credentials were changed.

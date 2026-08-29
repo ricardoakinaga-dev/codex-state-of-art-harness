@@ -1,21 +1,21 @@
 {
   "schema_version": "P3-REVIEW-ATTESTATION-1",
-  "reviewer": "Dewey",
+  "reviewer": "Raman",
   "review_mode": "INDEPENDENT_READ_ONLY_EXACT_PACKET",
-  "recorded_at": "2026-08-29T03:05:30-03:00",
-  "reviewed_head_sha": "4c2689e3c28207d41d7ecef9ec6933c0ca154e32",
+  "recorded_at": "2026-08-29T09:02:43-03:00",
+  "reviewed_head_sha": "4da78c208e60f33278ac30426c2b6e08657fddfe",
   "phase2_base_sha": "d95568aa5e4821a3e1d38c718dac6eb473676cdd",
-  "review_manifest_sha256": "69dbebe06c3ffd8145f389a756b76a54fea1eefc8a74ddad71791c66ea989ca5",
+  "review_manifest_sha256": "3bd721c61d19f496b0edc16dece195297b8e7bf3a92c06ff9e2cc150f5c9745b",
   "reviewed_groups": {
     "config": "ecbcdb3e6a3be32e087becb45499ccaa1b13a1fb258c8d6d5b40c0e36f92737b",
-    "contracts_and_boundaries": "770edc3dae320fa1c4e27f8125379e99d28a5efbbfa801cc0922df06b0ee22ef",
-    "phase3_evidence_pre_review": "bd548a0a862d7d6594ce0c929b75a0444922a6474904e3544e563435891f96b4",
+    "contracts_and_boundaries": "d39dcb9256a1fafa09db690fbb989d1b26c09a1decadebf5ac404b8d231bdde5",
+    "phase3_evidence_pre_review": "d07112f46dfec525155c1a079cf899ff886efbd23335e4dbe8811d2d9d6e1156",
     "phase3_fixtures": "92c41445df35f3a235df37a0f74369d2825a7afdabcde0c8f0aaf0047b981762",
     "project_readme": "1da78e6ab6b4bbb050f6d3616cc7261e6c7593a6ce9148c4687d4389dc31dabc",
-    "source": "c3c9757c05e92d609de75436e119e890b74413d099c0dc6d885af9fb5453febd",
-    "tests": "f3a853cc47901e15139335b62974af9074df2002ae38343dda470d23c7833d34"
+    "source": "dbb37c0d60a568c8242bee493c3b756a0b00ff90cded813fdd467ff9bcefb758",
+    "tests": "249517b9e8b3af9e028f1bd764de58d42065a22a1916c7b40c1e816e761b6f17"
   },
-  "reviewed_payload_closure_sha256": "97d37253ce3512ef358929fbd3df67f6f08d1fb7197699b85288443373867641",
+  "reviewed_payload_closure_sha256": "c9e81f65f5d9a86acb63360b0de60c256321d74cfa60be5c13d3300afb9e0420",
   "verdict": "APPROVE",
   "status": "PASS_WITH_LIMITATIONS",
   "critical": 0,
@@ -23,11 +23,10 @@
   "medium": 0,
   "low": 0,
   "limitations": [
-    "pip-audit is unavailable in the local environment; no unavailable scanner is represented as a pass",
-    "Codex runtime version and causal host-load signals are unavailable through this read-only adapter; no host-loaded claim is made",
-    "some roots are unavailable or depth-bounded",
-    "engineering-framework@0.1.0 has divergent bytes and remains intentionally blocked",
-    "the bounded scope excludes global mutation, Skills installation, subagents, MCP, shell, network, credentials, production SLOs and AAA causal quality"
+    "pip-audit is unavailable in the local environment; no unavailable scanner is represented as a pass.",
+    "Codex runtime version and causal host-load signals remain unavailable; no host-loaded or execution claim is made.",
+    "Some roots are unavailable or depth-bounded, and the intentionally divergent engineering-framework duplicate remains blocked.",
+    "pip-audit is unavailable; host runtime/load signals are unavailable; real-host checks were not rerun under the global-state constraint; and the divergent engineering-framework duplicate remains intentionally blocked."
   ],
-  "reviewer_notes": "Dewey independently reviewed the current exact packet, recomputed all 119 file entries and group/closure digests, and confirmed no actionable Critical, High, Medium or Low finding. A local full-suite rerun also passed 308 tests; the review itself did not duplicate that full run. The packet is approved as PASS_WITH_LIMITATIONS only; this does not claim production readiness or AAA_VERIFIED. No files, commits, pushes, installs or global state were changed during review."
+  "reviewer_notes": "Raman independently recomputed all 119 manifest entries, all seven group digests and the payload closure; every value matched. The repaired controls and consistent exact-packet control state were inspected, with no actionable Critical, High, Medium or Low finding. The reviewer did not edit source, tests, configuration, evidence or global state, and did not commit, push or install anything."
 }

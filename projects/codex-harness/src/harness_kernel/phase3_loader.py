@@ -7,6 +7,7 @@ from collections.abc import Iterable
 from datetime import UTC, datetime
 from pathlib import PurePosixPath
 
+from .phase3_discovery import revalidate_capability
 from .phase3_models import (
     CapabilityLifecycle,
     CapabilityLoadPlan,
@@ -134,6 +135,7 @@ class SafeCapabilityLoader:
         record: CapabilityRecord,
         selected: Iterable[str],
         warnings: list[str],
+        approved: frozenset[str],
     ) -> tuple[LoadedReference, ...]:
         loaded: list[LoadedReference] = []
         total = 0
@@ -148,6 +150,9 @@ class SafeCapabilityLoader:
             if relative in seen:
                 continue
             seen.add(relative)
+            if relative not in approved:
+                warnings.append(f"reference is not approved by package inventory: {relative}")
+                continue
             normalized_relative = relative.replace("\\", "/")
             if len(PurePosixPath(normalized_relative).parts) > self.limits.max_reference_depth:
                 warnings.append("reference depth bound reached")
@@ -267,8 +272,19 @@ class SafeCapabilityLoader:
             if _at_least(level, DisclosureLevel.ROUTING_METADATA)
             else {}
         )
+        fresh = True
+        if record.status not in {
+            CapabilityLifecycle.REJECTED,
+            CapabilityLifecycle.INCOMPATIBLE,
+            CapabilityLifecycle.STALE,
+            CapabilityLifecycle.AMBIGUOUS,
+        }:
+            fresh, freshness_reason = revalidate_capability(record, self.limits)
+            if not fresh:
+                warnings.append(f"capability snapshot is stale: {freshness_reason}")
         blocked_record = (
-            record.status
+            not fresh
+            or record.status
             in {
                 CapabilityLifecycle.REJECTED,
                 CapabilityLifecycle.INCOMPATIBLE,
@@ -304,7 +320,10 @@ class SafeCapabilityLoader:
                 if selected_references is not None
                 else record.manifest.references or record.references
             )
-            references = self._load_references(record, requested, warnings)
+            approved = frozenset(
+                (*record.references, *record.manifest.references, *record.scripts, *record.assets)
+            )
+            references = self._load_references(record, requested, warnings, approved)
         if _at_least(level, DisclosureLevel.APPROVED_PACKAGE):
             package_files = record.files
             scripts = self._scripts(record)
@@ -337,7 +356,7 @@ class SafeCapabilityLoader:
             scripts,
             package_files,
             token_estimate,
-            not blocked_record and _at_least(level, DisclosureLevel.INSTRUCTION_KERNEL),
+            not blocked_record and instruction is not None,
             False,
             host_load,
             tuple(warnings),
@@ -367,6 +386,14 @@ class SafeCapabilityLoader:
                 statuses[record.capability_id] = CapabilityLifecycle.BLOCKED
                 continue
             result = self.load(record, level)
+            if any(
+                warning.startswith("capability snapshot is stale:") for warning in result.warnings
+            ):
+                statuses[record.capability_id] = CapabilityLifecycle.BLOCKED
+                continue
+            if _at_least(level, DisclosureLevel.INSTRUCTION_KERNEL) and not result.context_prepared:
+                statuses[record.capability_id] = CapabilityLifecycle.BLOCKED
+                continue
             selected.append(record.capability_id)
             tokens += result.context_tokens_estimate
             statuses[record.capability_id] = (

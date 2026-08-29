@@ -92,11 +92,20 @@ def _root_path(root: CapabilityRoot | str | Path) -> Path:
             raise PathSafetyError("root cannot be canonicalized") from exc
         value = configured
     else:
-        value = Path(str(root))
+        value = Path(_validate_text(str(root), "root path"))
     path = value if isinstance(value, Path) else Path(_validate_text(str(value), "root path"))
     if not path.is_absolute():
         raise PathSafetyError("base path must be absolute")
     return path
+
+
+def canonical_root_key(root: CapabilityRoot | str | Path) -> str:
+    """Return the canonical comparison key for a validated root reference."""
+
+    try:
+        return str(_root_path(root).resolve(strict=False))
+    except (OSError, RuntimeError, ValueError) as exc:
+        raise PathSafetyError("root cannot be canonicalized") from exc
 
 
 def _validated_base(base: Path, *, missing_ok: bool = False) -> Path | None:
@@ -246,6 +255,8 @@ def read_bounded_file(base: str | Path, relative: str, *, max_bytes: int) -> byt
         opened_metadata = os.fstat(descriptor)
         if not stat.S_ISREG(opened_metadata.st_mode):
             raise PathSafetyError("only regular files may be read")
+        if opened_metadata.st_nlink > 1:
+            raise PathSafetyError("hard link aliases are not readable")
         with os.fdopen(descriptor, "rb") as handle:
             descriptor = None
             payload = handle.read(max_bytes + 1)
@@ -278,6 +289,8 @@ def bounded_file_metadata(base: str | Path, relative: str) -> tuple[int, bool]:
         metadata = os.fstat(descriptor)
         if not stat.S_ISREG(metadata.st_mode):
             raise PathSafetyError("only regular files may be inspected")
+        if metadata.st_nlink > 1:
+            raise PathSafetyError("hard link aliases are not inspectable")
         return metadata.st_size, bool(metadata.st_mode & 0o111)
     except FileNotFoundError:
         raise PathSafetyError("file is unavailable") from None
@@ -378,6 +391,9 @@ def bounded_walk(root: CapabilityRoot | str | Path, limits: Phase3Limits) -> Wal
                         continue
                     if not stat.S_ISREG(mode):
                         errors.append(f"{relative}: non-regular entry")
+                        continue
+                    if entry_stat.st_nlink > 1:
+                        unsafe.append(relative)
                         continue
                     descriptor: int | None = None
                     try:

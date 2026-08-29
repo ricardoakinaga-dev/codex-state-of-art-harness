@@ -141,3 +141,34 @@ def test_sensitive_file_content_is_not_read(tmp_path: Path) -> None:
     assert bounded_file_metadata(root, ".env")[0] > 0
     with pytest.raises(PathSafetyError, match="sensitive"):
         read_bounded_file(root, ".env", max_bytes=100)
+
+
+def test_hardlinked_file_content_is_not_read_even_when_name_is_benign(tmp_path: Path) -> None:
+    root = tmp_path / "skills"
+    root.mkdir()
+    source = tmp_path / "outside.txt"
+    source.write_text("private external bytes", encoding="utf-8")
+    alias = root / "README.md"
+    try:
+        alias.hardlink_to(source)
+    except OSError:
+        pytest.skip("hardlinks are unavailable")
+
+    with pytest.raises(PathSafetyError, match="hard link"):
+        read_bounded_file(root, "README.md", max_bytes=100)
+
+
+def test_duplicate_root_aliases_are_rejected_by_discovery(tmp_path: Path) -> None:
+    root = tmp_path / "skills"
+    root.mkdir()
+    roots = (
+        CapabilityRoot("one", RootScope.PROJECT, str(root), source="fixture"),
+        CapabilityRoot("two", RootScope.PROJECT, f"{root}//", source="fixture"),
+    )
+
+    from harness_kernel.phase3_discovery import CapabilityDiscovery
+
+    inventory = CapabilityDiscovery(Phase3Limits()).scan(roots)
+
+    assert len(inventory.roots) == 1
+    assert any("duplicate canonical root" in error for error in inventory.errors)

@@ -60,6 +60,11 @@ _STAGE_LIFECYCLES = {
 
 
 _ABSOLUTE_PATH = re.compile(r"(?<![A-Za-z0-9$])/(?:[^\s,;]+)")
+_SENSITIVE_KEY = re.compile(
+    r"(?:secret|token|password|credential|authorization|cookie|private|passphrase|bearer|session|"
+    r"(?:api|access|client|encryption|signing)[_-]?key|(?:^|[_-])key(?:$|[_-]))",
+    re.I,
+)
 
 
 def _redact_value(value: str) -> str:
@@ -77,11 +82,11 @@ def _redact_value(value: str) -> str:
 def _safe_data(data: Mapping[str, str] | None) -> dict[str, str]:
     if not data:
         return {}
-    sensitive = {"secret", "token", "password", "credential", "api_key", "authorization"}
     result: dict[str, str] = {}
     for key, value in list(data.items())[:32]:
-        normalized_key = str(key)[:80]
-        if any(marker in normalized_key.casefold() for marker in sensitive):
+        raw_key = str(key)
+        normalized_key = raw_key[:80]
+        if _SENSITIVE_KEY.search(raw_key):
             result[normalized_key] = "<REDACTED>"
         else:
             result[normalized_key] = _redact_value(str(value))[:300]

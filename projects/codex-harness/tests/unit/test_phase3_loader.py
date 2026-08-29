@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from dataclasses import replace
 from pathlib import Path
 
 import pytest
@@ -177,6 +178,71 @@ def test_loader_identity_level_does_not_expose_routing_metadata(tmp_path: Path) 
     assert dict(loaded.routing_metadata) == {}
     assert loaded.instruction_kernel is None
     assert loaded.context_prepared is False
+
+
+def test_loader_does_not_claim_context_when_instruction_is_unavailable(tmp_path: Path) -> None:
+    root = tmp_path / "skills"
+    package = root / "demo"
+    package.mkdir(parents=True)
+    (package / "SKILL.md").write_text("---\nname: demo\n---\nbody\n", encoding="utf-8")
+    inventory = CapabilityDiscovery(Phase3Limits()).scan(
+        (CapabilityRoot("project", RootScope.PROJECT, str(root), source="fixture"),)
+    )
+    record = replace(inventory.capabilities[0], skill_md=None)
+
+    loaded = SafeCapabilityLoader().load(record, DisclosureLevel.INSTRUCTION_KERNEL)
+
+    assert loaded.instruction_kernel is None
+    assert loaded.context_prepared is False
+    assert any("no SKILL.md" in warning for warning in loaded.warnings)
+
+
+def test_loader_rejects_unapproved_in_package_reference(tmp_path: Path) -> None:
+    root = tmp_path / "skills"
+    package = root / "demo"
+    package.mkdir(parents=True)
+    (package / "SKILL.md").write_text("---\nname: demo\n---\nbody\n", encoding="utf-8")
+    (package / "private.md").write_text("must not be disclosed", encoding="utf-8")
+    inventory = CapabilityDiscovery(Phase3Limits()).scan(
+        (CapabilityRoot("project", RootScope.PROJECT, str(root), source="fixture"),)
+    )
+
+    loaded = SafeCapabilityLoader().load(
+        inventory.capabilities[0],
+        DisclosureLevel.SELECTED_REFERENCES,
+        selected_references=("private.md",),
+    )
+
+    assert loaded.references == ()
+    assert any("not approved" in warning for warning in loaded.warnings)
+
+
+def test_loader_rejects_changed_snapshot_before_disclosing_bytes(tmp_path: Path) -> None:
+    root = tmp_path / "skills"
+    package = root / "demo"
+    package.mkdir(parents=True)
+    skill = package / "SKILL.md"
+    skill.write_text("---\nname: demo\n---\noriginal\n", encoding="utf-8")
+    inventory = CapabilityDiscovery(Phase3Limits()).scan(
+        (CapabilityRoot("project", RootScope.PROJECT, str(root), source="fixture"),)
+    )
+    skill.write_text("---\nname: demo\n---\nchanged\n", encoding="utf-8")
+
+    loaded = SafeCapabilityLoader().load(
+        inventory.capabilities[0], DisclosureLevel.INSTRUCTION_KERNEL
+    )
+
+    assert loaded.instruction_kernel is None
+    assert loaded.context_prepared is False
+    assert any("stale" in warning.lower() for warning in loaded.warnings)
+
+    plan = SafeCapabilityLoader().plan(
+        ("demo",), (inventory.capabilities[0],), DisclosureLevel.INSTRUCTION_KERNEL
+    )
+
+    assert plan.selected == ()
+    assert plan.prepared is False
+    assert plan.statuses["demo"].value == "BLOCKED"
 
 
 def test_loader_bounds_reference_and_plan_iterables(tmp_path: Path) -> None:

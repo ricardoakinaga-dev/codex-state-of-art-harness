@@ -124,6 +124,36 @@ def test_telemetry_redacts_paths_and_sensitive_values() -> None:
     assert "<REDACTED>" in value
 
 
+def test_telemetry_redacts_compound_secret_key_names() -> None:
+    telemetry = Phase3Telemetry().record(
+        "demo",
+        CapabilityLifecycle.DISCOVERED,
+        ObservationStatus.OBSERVED,
+        data={
+            "session_cookie": "session-secret",
+            "private_key": "private-secret",
+            "accessKey": "access-secret",
+        },
+    )
+
+    value = str(telemetry.to_dict())
+
+    assert "session-secret" not in value
+    assert "private-secret" not in value
+    assert "access-secret" not in value
+
+
+def test_telemetry_checks_untruncated_secret_key_names() -> None:
+    telemetry = Phase3Telemetry().record(
+        "demo",
+        CapabilityLifecycle.DISCOVERED,
+        ObservationStatus.OBSERVED,
+        data={"x" * 80 + "private_key": "long-prefix-secret"},
+    )
+
+    assert "long-prefix-secret" not in str(telemetry.to_dict())
+
+
 def test_telemetry_rejects_unobserved_execution() -> None:
     with pytest.raises(TelemetryError):
         Phase3Telemetry().record(

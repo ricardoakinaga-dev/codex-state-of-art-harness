@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import re
 from collections.abc import Mapping
+from dataclasses import replace
 
+from .phase3_discovery import revalidate_capability
 from .phase3_models import (
     CapabilityInventory,
     CapabilityLifecycle,
@@ -270,7 +272,32 @@ class ResolutionEngine:
         pin = (explicit_pins or {}).get(capability_id, request_version)
         if pin is not None and not _is_semver(pin):
             raise ResolutionError("explicit version pin is invalid")
-        duplicates = self.duplicate_report(inventory)
+        current_records: list[CapabilityRecord] = []
+        stale_ids: set[str] = set()
+        blocked_statuses = {
+            CapabilityLifecycle.REJECTED,
+            CapabilityLifecycle.INCOMPATIBLE,
+            CapabilityLifecycle.STALE,
+            CapabilityLifecycle.AMBIGUOUS,
+        }
+        for record in inventory.capabilities:
+            if record.status in blocked_statuses:
+                current_records.append(record)
+                continue
+            fresh, _ = revalidate_capability(record, self.limits)
+            if fresh:
+                current_records.append(record)
+                continue
+            stale_ids.add(record.capability_id)
+            current_records.append(
+                replace(
+                    record,
+                    status=CapabilityLifecycle.STALE,
+                    load_eligibility="BLOCKED_STALE_FINGERPRINT",
+                )
+            )
+        current_inventory = replace(inventory, capabilities=tuple(current_records))
+        duplicates = self.duplicate_report(current_inventory)
         blocked_versions = tuple(
             sorted(
                 {
@@ -312,7 +339,7 @@ class ResolutionEngine:
         if pin is not None and pin in blocked_versions:
             return divergence_result()
         by_id: dict[str, tuple[CapabilityRecord, ...]] = {}
-        for record in inventory.capabilities:
+        for record in current_inventory.capabilities:
             by_id[record.capability_id] = (*by_id.get(record.capability_id, ()), record)
         root = self._select(
             by_id.get(capability_id, ()),
@@ -323,6 +350,18 @@ class ResolutionEngine:
         if root is None:
             if blocked_versions:
                 return divergence_result()
+            if capability_id in stale_ids:
+                return ResolutionResult(
+                    request,
+                    ResolutionStatus.BLOCKED,
+                    (),
+                    tuple(item for item in duplicates if item.capability_id == capability_id),
+                    (),
+                    ("CAPABILITY_STALE_FINGERPRINT",),
+                    ("inventory snapshot is stale and must be rediscovered",),
+                    "explicit pin > project > workspace > approved shared > global > "
+                    "system > external",
+                )
             return ResolutionResult(
                 request,
                 ResolutionStatus.MISSING,
@@ -455,6 +494,18 @@ class ResolutionEngine:
                             )
                         )
                         blockers.append("AMBIGUOUS_DEPENDENCY")
+                        continue
+                    if dep_id in stale_ids:
+                        dependencies.append(
+                            DependencyResolution(
+                                dep_id,
+                                DependencyStatus.BLOCKED,
+                                None,
+                                dependency,
+                                "dependency inventory snapshot is stale",
+                            )
+                        )
+                        blockers.append("STALE_DEPENDENCY")
                         continue
                     dependencies.append(
                         DependencyResolution(

@@ -18,5 +18,6 @@ without a corresponding `do-not-activate` exclusion. Compatibility is `PARTIAL` 
 inventory records 102 references and 62 script entries as metadata only.
 
 Each record carries a content hash, root scope, provenance, compatibility,
-trust, lifecycle and load eligibility. The persisted JSON is sanitized and
-does not expose raw host paths.
+trust, lifecycle and load eligibility. Resolution and L2+ loading revalidate
+these package fingerprints before selecting or disclosing bytes. The persisted
+JSON is sanitized and does not expose raw host paths.

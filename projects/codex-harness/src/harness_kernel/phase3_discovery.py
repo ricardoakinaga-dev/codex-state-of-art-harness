@@ -33,6 +33,7 @@ from .phase3_paths import (
     PathSafetyError,
     bounded_file_metadata,
     bounded_walk,
+    canonical_root_key,
     digest_bytes,
     is_metadata_only_surface,
     is_sensitive_relative_path,
@@ -661,7 +662,11 @@ class CapabilityDiscovery:
         for root in roots_value:
             if scan_exhausted:
                 break
-            canonical = root.canonical_path or root.path
+            try:
+                canonical = canonical_root_key(root)
+            except PathSafetyError as exc:
+                errors.append(f"{root.root_id}: {str(exc)[:200]}")
+                continue
             if canonical in seen_paths:
                 errors.append(f"duplicate canonical root: {root.root_id}")
                 continue
@@ -756,3 +761,63 @@ class CapabilityDiscovery:
             self.observed_at,
             fingerprint,
         )
+
+
+def revalidate_capability(
+    record: CapabilityRecord,
+    limits: Phase3Limits,
+) -> tuple[bool, str]:
+    """Recheck a snapshot before resolution or content disclosure.
+
+    The inventory is a point-in-time observation. This bounded recheck detects
+    changed, added, removed, aliased or unreadable package files without
+    retaining a second copy of the package content.
+    """
+
+    try:
+        walked = bounded_walk(record.path, limits)
+    except (PathSafetyError, OSError):
+        return False, "package path is no longer safely inspectable"
+    if walked.errors or walked.unsafe_paths:
+        return False, "package walk is no longer clean"
+    expected = {item.relative_path: item for item in record.files}
+    if set(walked.files) != set(expected):
+        return False, "package file set changed since discovery"
+    max_file = max(
+        limits.max_skill_bytes,
+        limits.max_manifest_bytes,
+        limits.max_reference_bytes,
+    )
+    current_files: list[PackageFile] = []
+    for relative in walked.files:
+        observed = expected[relative]
+        try:
+            size_bytes, executable = bounded_file_metadata(record.path, relative)
+        except PathSafetyError:
+            return False, f"file metadata changed: {relative}"
+        if size_bytes != observed.size_bytes or executable != observed.executable:
+            return False, f"file metadata changed: {relative}"
+        digest = observed.sha256
+        if not (
+            observed.observation is ObservationStatus.UNAVAILABLE
+            and is_sensitive_relative_path(relative)
+        ):
+            try:
+                digest = digest_bytes(read_bounded_file(record.path, relative, max_bytes=max_file))
+            except PathSafetyError:
+                return False, f"file bytes are no longer safely readable: {relative}"
+            if digest != observed.sha256:
+                return False, f"file bytes changed since discovery: {relative}"
+        current_files.append(
+            PackageFile(
+                relative,
+                size_bytes,
+                digest,
+                observed.kind,
+                executable,
+                observed.observation,
+            )
+        )
+    if _package_digest(current_files) != record.content_hash:
+        return False, "package fingerprint changed since discovery"
+    return True, "inventory snapshot is current"

@@ -206,3 +206,33 @@ inputs and pre-review evidence closure. No production, real Codex host/provider,
 Skills, subagent, MCP, shell, network, credential, advanced concurrency,
 multi-process locking or `AAA_VERIFIED` claim is made. Any future payload or
 scope change requires a new evidence, manifest and independent-review cycle.
+
+## Current final state — Phase 3 recovery and hardening closeout
+
+The host-program reset was recovered without changing the Phase 2 frozen
+packet or global Codex state. The bounded Phase 3 candidate was reopened after
+the prior packet became stale, then hardened against changed inventory bytes,
+canonical-root aliases, hard links, unapproved L3 references, misleading
+`context_prepared` claims and compound/long-prefix telemetry secrets.
+
+The first independent recovery review identified those gaps; the RED control
+slice reproduced them with seven expected failures, and the repaired slice
+passed 42/42. The full local verification then passed 316 tests with 82%
+combined branch coverage, Ruff, strict mypy, read-only host/CLI smoke, static
+runtime/privacy scans and manifest closure checks. Raman independently
+approved the final exact packet with zero Critical, High, Medium or Low
+findings.
+
+Current state is `PHASE3-001 DONE` / `PASS_WITH_LIMITATIONS`, with
+`.agent/gates/PHASE3-VERIFIED-0004.json` as the superseding gate and
+`RELEASE_READY` as the next gate. The exact packet is manifest
+`3bd721c61d19f496b0edc16dece195297b8e7bf3a92c06ff9e2cc150f5c9745b` with
+payload closure
+`c9e81f65f5d9a86acb63360b0de60c256321d74cfa60be5c13d3300afb9e0420`.
+
+The worktree remains intentionally dirty because no commit or push was
+requested. The result does not claim host-loaded causality, execution,
+production readiness or `AAA_VERIFIED`; `pip-audit`, runtime/load signals and
+two real-host checks remain unavailable or intentionally outside the bounded
+review environment. Future source, test, runtime-configuration or scope
+changes require a new evidence, manifest and independent-review cycle.

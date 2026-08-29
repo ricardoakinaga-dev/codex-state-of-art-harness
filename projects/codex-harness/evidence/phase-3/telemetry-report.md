@@ -10,7 +10,7 @@ rejects those runtime lifecycle events unless the observation is an actual
 `OBSERVED` host signal; this adapter reports host load as
 `UNSUPPORTED_BY_HOST`/`UNAVAILABLE`.
 
-Telemetry records are immutable append results. Sensitive keys are redacted,
-absolute paths are replaced by safe placeholders/digests, event counts are
-bounded and no telemetry write is performed outside the project evidence
-workflow.
+Telemetry records are immutable append results. Sensitive keys—including
+compound or long-prefix secret names—are redacted before truncation; absolute
+paths are replaced by safe placeholders/digests, event counts are bounded and
+no telemetry write is performed outside the project evidence workflow.

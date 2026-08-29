@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T05:18:00.820851+00:00",
+  "generated_at": "2026-08-29T11:39:04.387692+00:00",
   "host": {
     "capability_count": 100,
     "inventory_errors": 4,
@@ -9,84 +9,84 @@
   "limitations": "Local process baseline only; this does not measure production latency, concurrency, provider latency, host loading, quality, causal impact or SLOs.",
   "operations": {
     "compatibility": {
-      "duration_ns_per_op": 6240,
-      "duration_ns_total": 18721,
+      "duration_ns_per_op": 5382,
+      "duration_ns_total": 16146,
       "iterations": 3,
-      "max_ns": 6216,
-      "median_ns": 5151,
-      "min_ns": 4719
+      "max_ns": 5321,
+      "median_ns": 4570,
+      "min_ns": 4318
     },
     "duplicate_analysis": {
-      "duration_ns_per_op": 914273,
-      "duration_ns_total": 2742820,
+      "duration_ns_per_op": 781621,
+      "duration_ns_total": 2344863,
       "iterations": 3,
-      "max_ns": 1250761,
-      "median_ns": 749159,
-      "min_ns": 733876
+      "max_ns": 801527,
+      "median_ns": 785981,
+      "min_ns": 752844
     },
     "host_snapshot": {
-      "duration_ns_per_op": 224070591,
-      "duration_ns_total": 672211773,
+      "duration_ns_per_op": 177054310,
+      "duration_ns_total": 531162932,
       "iterations": 3,
-      "max_ns": 267900348,
-      "median_ns": 241406134,
-      "min_ns": 162891597
+      "max_ns": 198572393,
+      "median_ns": 188048450,
+      "min_ns": 144530374
     },
     "load_plan": {
-      "duration_ns_per_op": 96279,
-      "duration_ns_total": 288837,
+      "duration_ns_per_op": 579440,
+      "duration_ns_total": 1738321,
       "iterations": 3,
-      "max_ns": 116882,
-      "median_ns": 86628,
-      "min_ns": 81376
+      "max_ns": 596607,
+      "median_ns": 574869,
+      "min_ns": 561718
     },
     "manifest_synthesis": {
-      "duration_ns_per_op": 203244769,
-      "duration_ns_total": 609734307,
+      "duration_ns_per_op": 86986956,
+      "duration_ns_total": 260960868,
       "iterations": 3,
-      "max_ns": 234572499,
-      "median_ns": 200362022,
-      "min_ns": 174789432
+      "max_ns": 88038734,
+      "median_ns": 87840802,
+      "min_ns": 85072035
     },
     "package_discovery": {
-      "duration_ns_per_op": 196704288,
-      "duration_ns_total": 590112864,
+      "duration_ns_per_op": 143640374,
+      "duration_ns_total": 430921123,
       "iterations": 3,
-      "max_ns": 299727456,
-      "median_ns": 175791182,
-      "min_ns": 114582275
+      "max_ns": 192553646,
+      "median_ns": 129751715,
+      "min_ns": 108606937
     },
     "parse": {
-      "duration_ns_per_op": 85004,
-      "duration_ns_total": 255014,
+      "duration_ns_per_op": 86917,
+      "duration_ns_total": 260753,
       "iterations": 3,
-      "max_ns": 87703,
-      "median_ns": 82880,
-      "min_ns": 80170
+      "max_ns": 96348,
+      "median_ns": 84603,
+      "min_ns": 75961
     },
     "registry_bridge": {
-      "duration_ns_per_op": 507940,
-      "duration_ns_total": 1523821,
+      "duration_ns_per_op": 297169,
+      "duration_ns_total": 891509,
       "iterations": 3,
-      "max_ns": 956421,
-      "median_ns": 294675,
-      "min_ns": 267992
+      "max_ns": 317880,
+      "median_ns": 295372,
+      "min_ns": 274031
     },
     "root_discovery": {
-      "duration_ns_per_op": 532347,
-      "duration_ns_total": 1597043,
+      "duration_ns_per_op": 908150,
+      "duration_ns_total": 2724451,
       "iterations": 3,
-      "max_ns": 570414,
-      "median_ns": 511885,
-      "min_ns": 506549
+      "max_ns": 1444496,
+      "median_ns": 762826,
+      "min_ns": 507871
     },
     "trust": {
-      "duration_ns_per_op": 5661,
-      "duration_ns_total": 16985,
+      "duration_ns_per_op": 5000,
+      "duration_ns_total": 15000,
       "iterations": 3,
-      "max_ns": 5256,
-      "median_ns": 5111,
-      "min_ns": 4777
+      "max_ns": 4750,
+      "median_ns": 4449,
+      "min_ns": 4267
     }
   },
   "platform": "Linux-7.0.0-30-generic-x86_64-with-glibc2.39",

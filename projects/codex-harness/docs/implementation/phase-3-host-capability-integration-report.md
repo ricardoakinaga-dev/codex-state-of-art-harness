@@ -71,21 +71,25 @@ native manifest.
 ## Loader, trust, compatibility and resolution
 
 The loader only prepares bounded context. L0/L1 do not prepare instructions;
-L2 reads a bounded UTF-8 instruction kernel; L3 reads selected in-package
-references; L4 returns approved package metadata and script descriptors with
-`execution=DISABLED_PHASE3`. Reference paths are normalized, contained and
-bounded by count, bytes and depth. Host load is always `UNAVAILABLE` in this
-adapter.
+L2 reads a bounded UTF-8 instruction kernel only after snapshot revalidation; L3
+reads selected in-package references only from the discovered package
+inventory; L4 returns approved package metadata and script descriptors with
+`execution=DISABLED_PHASE3`. Missing `SKILL.md`, stale snapshots and unsafe
+references do not produce a prepared-context claim. Reference paths are
+normalized, contained and bounded by count, bytes and depth. Host load is
+always `UNAVAILABLE` in this adapter.
 
 Trust derives from root scope, rejection state and observed evidence. Platform
 requirements remain compatibility assessments with explicit portability debt.
-Expected inventory fingerprints mark records stale before selection. Duplicate
-resolution distinguishes same bytes, divergent same-ID/version bytes, multiple
-versions, aliases and forks. A divergent version blocks that version, while a
-clean compatible version remains resolvable; dependencies are depth-bounded and
-cycles/conflicts fail closed. Project-local roots have higher precedence than
-workspace/shared/global/system roots, but precedence never overrides divergent
-bytes for the affected version.
+Expected inventory fingerprints are revalidated before resolution and before
+content disclosure; changed, added, removed, aliased or unreadable package
+files become stale and cannot be selected. Duplicate resolution distinguishes
+same bytes, divergent same-ID/version bytes, multiple versions, aliases and
+forks. A divergent version blocks that version, while a clean compatible version
+remains resolvable; dependencies are depth-bounded and cycles/conflicts fail
+closed. Project-local roots have higher precedence than workspace/shared/global/
+system roots, but precedence never overrides divergent bytes for the affected
+version.
 
 ## Routing and telemetry
 
@@ -111,6 +115,9 @@ present and reports absence instead of simulating them.
 The current verification numbers and tool availability are recorded in
 `evidence/phase-3/coverage-report.md`, `security-summary.md` and
 `readiness.json`; `pip-audit` is explicitly unavailable when it cannot run.
+The current local full run is 316 passing tests with 82% combined branch
+coverage. The real-host smoke remains a read-only observation and reports
+unavailable roots instead of treating absence as a loaded capability.
 The Phase 2 full regression remains a blocking acceptance criterion and is
 reported separately from the Phase 3 additions.
 

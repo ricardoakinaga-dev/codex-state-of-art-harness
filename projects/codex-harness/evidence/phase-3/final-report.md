@@ -16,8 +16,12 @@ verified gate; this report does not claim production readiness.
 - Safe SKILL/native manifest parsing and synthesis with explicit field
   provenance and native/synthesized/legacy/invalid distinctions.
 - Trust, provenance, compatibility, staleness, duplicate/dependency
-  resolution, project-local precedence and divergence blocking.
+  resolution, project-local precedence, canonical-root de-duplication and
+  divergence blocking.
 - L0-L4 declarative safe loader and `Phase3RouterBridge` into the frozen router.
+- Snapshot revalidation before resolution/disclosure, package-inventory
+  allowlisting for selected references, hard-link rejection and compound-key
+  telemetry redaction.
 - Honest lifecycle telemetry, `host` and `capabilities` CLI commands,
   `--explain`, doctor checks and reproducible Phase 3 benchmarks.
 
@@ -26,4 +30,6 @@ verified gate; this report does not claim production readiness.
 Host-load causality, runtime version, provider/tool/MCP execution, Skill
 installation, mutation, shell/network/credential access, subagents, production
 SLOs and `AAA_VERIFIED` causal-quality claims remain deferred. The real host's
-divergent `engineering-framework` version remains intentionally blocked.
+divergent `engineering-framework` version remains intentionally blocked. The
+latest local verification is 316 passing tests and 82% combined branch
+coverage; `pip-audit` is unavailable.
