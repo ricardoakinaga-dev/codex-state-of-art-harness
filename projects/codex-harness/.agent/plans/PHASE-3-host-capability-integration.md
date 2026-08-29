@@ -18,8 +18,9 @@ shell, network or production runtime.
       compatibility, resolution, integration and telemetry implemented.
 - [x] (2026-08-29) CLI/doctor, eval fixtures, evidence scaffolding and
       benchmark path added.
-- [x] (2026-08-29) Full regression, security scan, independent review and
-      final readiness packet completed; final gate is being recorded.
+- [x] (2026-08-29) Full regression, security scan, canonical evidence refresh,
+      review-driven hardening and Dewey's fresh exact-packet review completed;
+      the control-only final handoff gate is recorded.
 
 ## Surprises & Discoveries
 
@@ -31,6 +32,13 @@ shell, network or production runtime.
 - Host runtime/tool/provider causality is not observable from this adapter;
   the implementation reports `UNKNOWN` or `UNAVAILABLE` instead of inferring
   it.
+- Non-sensitive metadata-only bytes are hashed with bounded reads while
+  sensitive bytes remain unreadable; unresolved sensitive duplicate identity
+  is blocked conservatively rather than treated as equal.
+- The installed project-local `harness` CLI entry point changes one historical
+  `pyproject.toml` byte; this is explicitly documented as a bounded Phase 3
+  supersession with a new manifest and review, while the Phase 2 kernel remains
+  unchanged.
 
 ## Decision Log
 
@@ -46,11 +54,12 @@ shell, network or production runtime.
 ## Outcomes & Retrospective
 
 The additive implementation now has a coherent host boundary, declarative
-loader and registry/router bridge. The final local result is
-`PASS_WITH_LIMITATIONS`: 290 tests pass at 82% combined coverage, the exact
-packet is independently approved with zero actionable findings, host loading
-and execution remain unclaimed, and the verified gate records the remaining
-environmental limitations.
+loader and registry/router bridge. The current local result is
+`PASS_WITH_LIMITATIONS`: 308 tests pass at 82% combined coverage, the
+reproducible P3 benchmark covers 100 temporary capabilities, Dewey approved
+the exact 119-entry packet with zero Critical/High/Medium/Low findings, host
+loading and execution remain unclaimed, and the remaining environmental
+limitations are explicit.
 
 ## Context and Orientation
 
@@ -92,7 +101,9 @@ The extension is split into focused modules:
   conflicts and deterministic selection.
 - `phase3_integration.py`: bridge observed manifests into the existing
   immutable registry and minimum route policy without execution.
-- `phase3_telemetry.py`: honest phase-3 events and load-plan state.
+- `phase3_telemetry.py`: honest phase-3 lifecycle and host-stage events.
+- `phase3_benchmarks.py`: reproducible local P3-BENCH-1 operations over a
+  temporary 100-capability declarative fixture scenario.
 - `phase3_cli.py`: explicit read-only host/inventory/resolve/load-plan CLI.
 
 ## Milestones
@@ -178,11 +189,11 @@ history or claim a load that was not observed.
 
 ## Artifacts and Evidence
 
-The Phase 3 packet is under `evidence/phase-3/` and will contain sanitized
-host snapshot/inventory, duplicate/compatibility/trust reports, loader/router/
-telemetry evidence, test/coverage/lint/type/security/benchmark results,
-independent review, readiness, a review manifest/attestation and the final
-implementation report.
+The Phase 3 packet is under `evidence/phase-3/` and contains the canonical
+sanitized host snapshot/inventory, duplicate/compatibility/trust reports,
+loader/router/telemetry evidence, test/coverage/lint/type/security/benchmark
+results, independent review, readiness, a review manifest/attestation and the
+final implementation report.
 
 ## Verification commands
 
@@ -197,6 +208,8 @@ PYTHONPATH=src .venv/bin/python -m harness_kernel.phase3_cli doctor --json
 PYTHONPATH=src .venv/bin/python -m harness_kernel.phase3_cli host inspect --json
 PYTHONPATH=src .venv/bin/python -m harness_kernel.phase3_cli host list --json
 PYTHONPATH=src .venv/bin/python -m harness_kernel.phase3_cli host duplicates --json
+PYTHONPATH=src .venv/bin/python -m harness_kernel.phase3_cli capabilities list --json
+PYTHONPATH=src .venv/bin/python -m harness_kernel.phase3_cli capabilities inspect harness-kernel --explain --json
 ```
 
 The final packet must include the exact commands/results, sanitized host

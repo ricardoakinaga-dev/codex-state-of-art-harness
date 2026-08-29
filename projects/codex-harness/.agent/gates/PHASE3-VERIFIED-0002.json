@@ -1,0 +1,90 @@
+{
+  "record_id": "GATE-PHASE3-VERIFIED-0002",
+  "timestamp": "2026-08-29T03:06:10-03:00",
+  "gate_id": "VERIFIED",
+  "scope": "PHASE3-001 bounded read-only Codex host capability integration",
+  "scope_ref": "PHASE3-001",
+  "version": 2,
+  "criteria": [
+    {
+      "id": "V-001-ACCEPTANCE-EVIDENCE",
+      "description": "The bounded Phase 3 acceptance matrix has current executable evidence and an independent exact-packet approval.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-3/readiness.json",
+        "evidence/phase-3/independent-review.md",
+        "evidence/phase-3/review-attestation.json",
+        "evidence/phase-3/review-manifest.json",
+        ".agent/verification.jsonl#VER-PHASE3-FINAL-LOCAL-0002"
+      ],
+      "confidence": "HIGH",
+      "limitations": "The evidence covers only the bounded local read-only host capability adapter and its declarative integration; it does not claim Codex host loading or runtime execution."
+    },
+    {
+      "id": "V-002-REGRESSION-RISK",
+      "description": "Regression, bounded-input, security, provenance, duplicate-resolution and exact-packet risks have current checks with no open Critical, High or Medium findings.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-3/coverage-report.md",
+        "evidence/phase-3/security-summary.md",
+        "evidence/phase-3/duplicate-report.json",
+        "evidence/phase-3/review-attestation.json",
+        ".agent/verification.jsonl#VER-PHASE3-FINAL-LOCAL-0002"
+      ],
+      "confidence": "HIGH",
+      "limitations": "pip-audit is unavailable locally; the static runtime/privacy scans and adversarial checks pass, and no unavailable scanner is represented as a pass."
+    },
+    {
+      "id": "V-003-LIMITATIONS-AUTHORITY",
+      "description": "Deferred scope, authority boundary, residual risks, duplicate blocking, the explicit pyproject supersession and freeze rules are explicit and prevent an overbroad completion claim.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-3/readiness.json",
+        "evidence/phase-3/phase2-supersession.md",
+        "evidence/phase-2/PHASE2-FROZEN.md",
+        "evidence/phase-3/review-attestation.json",
+        ".agent/verification.jsonl#VER-PHASE3-FINAL-LOCAL-0002"
+      ],
+      "confidence": "HIGH",
+      "limitations": "A new evidence, manifest and independent-review cycle is required before any source, test, runtime configuration, contract or scope expansion."
+    }
+  ],
+  "evidence": [
+    "evidence/phase-3/review-manifest.json",
+    "evidence/phase-3/review-attestation.json",
+    "evidence/phase-3/readiness.json",
+    "evidence/phase-3/independent-review.md",
+    "evidence/phase-3/final-readiness.md",
+    "evidence/phase-3/coverage-report.md",
+    "evidence/phase-3/security-summary.md",
+    "evidence/phase-3/phase2-supersession.md",
+    "evidence/phase-2/PHASE2-FROZEN.md",
+    ".agent/verification.jsonl#VER-PHASE3-FINAL-LOCAL-0002"
+  ],
+  "confidence": "HIGH",
+  "gaps": [],
+  "conditions": [],
+  "authority": {
+    "required": false,
+    "state": "NOT_REQUIRED",
+    "actor": "lead",
+    "scope": "PHASE3-001 bounded read-only Codex host capability integration",
+    "decision": "Dewey independently approved the exact Phase 3 packet as PASS_WITH_LIMITATIONS; no external approval is required for this local, reversible and explicitly bounded verification.",
+    "evidence_ref": "evidence/phase-3/review-attestation.json",
+    "expires_or_revalidates": "Revalidate on any source, test, runtime configuration, contract, provider, host, network, credential, deployment, production or material scope change."
+  },
+  "residual_risk": "MEDIUM",
+  "decision": "PASS",
+  "next_action": "Publish the control-only review, readiness and gate reconciliation; keep the bounded Phase 3 payload frozen and prohibit production, host-loaded or AAA_VERIFIED claims.",
+  "revalidation_triggers": [
+    "Changing source, tests, pyproject, runtime configuration, architecture inputs, contract files or benchmark inputs",
+    "Adding a real Codex host-load, provider, tool, Skill, subagent, MCP, shell, network, credential, installation or deployment integration",
+    "Changing authority, persistence, mutation, execution, routing, telemetry, evidence, verification, assurance or security boundaries",
+    "Moving from local verification to release or production operation",
+    "Resolving or changing the intentionally blocked divergent same-ID/version duplicate"
+  ],
+  "supersedes": "GATE-PHASE3-VERIFIED-0001"
+}

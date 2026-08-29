@@ -90,9 +90,9 @@
         "evidence/phase-3/independent-review.md",
         "evidence/phase-3/readiness.json",
         "evidence/phase-3/final-readiness.md",
-        ".agent/gates/PHASE3-VERIFIED-0001.json",
-        ".agent/verification.jsonl#VER-PHASE3-FINAL-LOCAL-0001",
-        ".agent/execution-log.jsonl#EVT-PHASE3-COMPLETE-0001"
+        ".agent/gates/PHASE3-VERIFIED-0002.json",
+        ".agent/verification.jsonl#VER-PHASE3-FINAL-LOCAL-0002",
+        ".agent/execution-log.jsonl#EVT-PHASE3-GATE-VERIFIED-0002"
       ],
       "next_action": "Keep the bounded Phase 3 packet frozen; any payload or scope change requires a new evidence, manifest and independent-review cycle."
     }
