@@ -7,7 +7,7 @@ canonical evidence were hardened after that review.
 
 | Check | Current result |
 | --- | --- |
-| Phase 2 frozen packet preserved | PASS; historical base remains `d95568aa5e4821a3e1d38c718dac6eb473676cdd` |
+| Phase 2 frozen packet preserved | PASS_WITH_LIMITATIONS; historical packet remains unchanged, with the one documented project-local `pyproject.toml` CLI-entrypoint supersession recorded in `phase2-supersession.md` |
 | Current host observation | PASS; 5 roots, 43 records, 38 inspected, 5 rejected |
 | Safety and bounded parsing | PASS; nested structures, SemVer, paths, roots, references and file surfaces fail closed |
 | Progressive loader | PASS; L0/L1 selection/planning, L2-L4 bounded declarative context, host load unavailable |

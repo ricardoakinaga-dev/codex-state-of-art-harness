@@ -16,3 +16,18 @@ This record authorizes only the additive read-only boundary described by
 `P3-QB-1` and ADR-012. It does not authorize installing, deleting, rewriting,
 synchronizing or modernizing global Skills/configuration, or executing scripts,
 providers, MCP, shell, network or credentials.
+
+## Explicit frozen-file supersession
+
+The Phase 3 CLI requirement needs an installed project-local command named
+`harness`. The only historical Phase 2 payload file changed for that exposure
+is `pyproject.toml`, with one additive `[project.scripts]` entry pointing to
+`harness_kernel.phase3_cli:main`. No Phase 2 kernel source, Phase 2 test,
+runtime behavior, dependency, global configuration or credential was changed.
+
+Because `pyproject.toml` is named by the historical Phase 2 manifest, this is
+an explicit legitimate Phase 3 extension under the freeze procedure above,
+not a silent reuse of the Phase 2 attestation. The Phase 3 manifest records
+the current bytes, the full Phase 2 regression suite is rerun, and all Phase 2
+closeout artifacts remain unchanged as historical evidence at the frozen
+`d95568aa5e4821a3e1d38c718dac6eb473676cdd` source boundary.

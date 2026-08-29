@@ -12,7 +12,10 @@ It does not install or modify Skills, execute scripts/providers/MCP/shell,
 perform network or credential access, import package code, or claim that a
 discovered package is host-loaded. The independent-review, readiness and gate
 records are the controlling status artifacts; this report describes the
-implementation and its evidence boundary.
+implementation and its evidence boundary. The installed `harness` command is
+exposed through one additive project-local `pyproject.toml` entry point; that
+historical Phase 2 file change is explicitly superseded and bounded by
+`evidence/phase-3/phase2-supersession.md`.
 
 ## Architecture rebaseline and modules
 
