@@ -1,0 +1,52 @@
+{
+  "schema_version": "P5-POLICY-1",
+  "policy_id": "phase5-design-director-response-only",
+  "builder": {
+    "capability_id": "design-director",
+    "version": "0.1.0",
+    "scope": "GLOBAL",
+    "canonical_path": "/home/ricardo/.codex/skills/design-director",
+    "package_fingerprint": "sha256:564d610da9260d25cbcddfbb3f96f70fb9dabd643c46b4242c4b891d399eba95",
+    "manifest_fingerprint": "sha256:402e36727b060eaf4ef740daf8ddfdcfce40cede7cb51ad48c14a582b9037c43",
+    "status": "APPROVED_RESPONSE_ONLY",
+    "execution_approved": true,
+    "allowed_mode": "RESPONSE_ONLY_BUILDER",
+    "allow_tools": false,
+    "allow_scripts": false,
+    "allow_shell": false,
+    "allow_network": false,
+    "allow_mcp": false,
+    "allow_providers": false,
+    "allow_credentials": false,
+    "scripts_metadata_only": true,
+    "reason": "Exact local package approved for one response-derived HTML pilot; package scripts and all host side effects remain denied."
+  },
+  "secondary": {
+    "capability_id": "verification-loop",
+    "version": "0.1.0",
+    "scope": "GLOBAL",
+    "canonical_path": "/home/ricardo/.agents/skills/verification-loop",
+    "package_fingerprint": "sha256:6cddd9e336f44c261eea24fc983c18f740df9dca8ebfbed0faffc7b9d73ba0ce",
+    "manifest_fingerprint": "sha256:1ad02d474bf8f54eb48ea482bc2c628e6611be913a9b41de502241fe135c43f4",
+    "status": "BLOCKED",
+    "blocker": "EXTERNAL_VERIFIER_NOT_ELIGIBLE"
+  },
+  "graph": [
+    "DESIGN_BUILDER",
+    "STRUCTURAL_VERIFICATION",
+    "VISUAL_CRITIQUE",
+    "OPTIONAL_REPAIR",
+    "FINAL_VERIFICATION",
+    "ASSURANCE"
+  ],
+  "budgets": {
+    "max_builder_invocations": 2,
+    "max_structural_verifications": 2,
+    "max_visual_critiques": 2,
+    "max_repairs": 1,
+    "max_render_versions": 2,
+    "max_artifact_bytes": 131072,
+    "max_context_bytes": 32768,
+    "max_evidence_records": 64
+  }
+}

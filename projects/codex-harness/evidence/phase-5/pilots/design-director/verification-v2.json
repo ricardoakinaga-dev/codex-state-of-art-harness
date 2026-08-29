@@ -1,0 +1,24 @@
+{
+  "artifact_digest": "sha256:b85e7db1b2eb9e6c6f3adfa0a4dd39e0ee01bb955a73a7adec6936ec25483adb",
+  "artifact_version": "artifact_v2",
+  "checks": [
+    "artifact_digest",
+    "semantic_copy",
+    "semantic_landmarks",
+    "browser_loadability",
+    "browser_overflow",
+    "browser_accessibility",
+    "browser_confinement"
+  ],
+  "console_errors": [],
+  "created_at": 1788041876,
+  "digest": "sha256:a4cb8fc9f8ac21f450c768150fa138429814883fa1fd155e8cd73f4aab148ade",
+  "findings": [],
+  "network_failures": [],
+  "render_refs": [
+    "render-desktop-v2",
+    "render-mobile-v2"
+  ],
+  "status": "PASS",
+  "verification_id": "VER-P5-V2"
+}

@@ -1,0 +1,28 @@
+- generic [active] [ref=f5e1] [box=0,0,390,1025]:
+  - banner [ref=f5e2] [box=0,0,390,78]:
+    - generic [ref=f5e3] [box=20,13,350,29]:
+      - link "Northline Veterinary Emergency Center home" [ref=f5e4] [cursor=pointer] [box=20,13,104,29]:
+        - /url: "#main"
+        - generic [ref=f5e10] [box=58,19,66,18]: Northline
+      - generic "Open 24 hours, seven days a week" [ref=f5e12] [box=271,14,99,28]:
+        - generic [box=298,28,0,0]: Open all night · Every night
+        - text: Open 24/7
+  - main [ref=f5e14] [box=0,78,390,866]:
+    - region [ref=f5e15] [box=20,78,350,866]:
+      - generic [ref=f5e16] [box=20,126,350,364]:
+        - paragraph [ref=f5e17] [box=20,126,350,11]: 24/7 emergency veterinary care
+        - heading "When every minute matters, stay close to care." [level=1] [ref=f5e18] [box=20,159,350,132]
+        - paragraph [ref=f5e19] [box=20,314,350,50]: Northline Veterinary Emergency Center pairs calm triage with advanced overnight care.
+        - generic [ref=f5e20] [box=20,394,350,96]:
+          - link "Call the emergency team" [ref=f5e21] [cursor=pointer] [box=20,394,350,60]:
+            - /url: tel:+15550109111
+          - generic [ref=f5e24] [box=20,459,151,29]: Immediate phone triageavailable now
+      - generic "Northline orbital clinical emblem" [ref=f5e25] [box=20,535,350,354]:
+        - img "Northline orbital clinical mark A luminous clinical cross encircled by precise orbital paths." [ref=f5e27] [box=20,535,350,350]
+        - generic [ref=f5e39] [box=224,840,146,58]:
+          - strong [ref=f5e40] [box=237,852,133,16]: Northline signal
+          - text: Always visible.Always oriented.
+  - contentinfo [ref=f5e41] [box=0,944,390,81]:
+    - generic [ref=f5e42] [box=20,945,350,80]:
+      - generic [ref=f5e43] [box=20,973,175,24]: Northline Veterinary Emergency Center
+      - generic [ref=f5e45] [box=277,973,93,24]: Emergency care · 24/7

@@ -16,6 +16,12 @@ e permanece fora do runtime.
   veja [`evidence/phase-2/PHASE2-FROZEN.md`](evidence/phase-2/PHASE2-FROZEN.md).
 - Phase 3: extensão read-only de host capability integration em execução sob
   `P3-QB-1`; o runtime completo do Codex continua `NOT PROVEN`.
+- Phase 4: boundary de invocação real controlada, congelada em
+  `PASS_WITH_LIMITATIONS`; veja [`evidence/phase-4/PHASE4-FROZEN.md`](evidence/phase-4/PHASE4-FROZEN.md).
+- Phase 5: piloto local bounded de composição do `design-director`, fechado em
+  `PASS_WITH_LIMITATIONS`/suporte A sob `P5-QB-1`; o Skill instalado permanece
+  read-only e nenhum resultado de produção ou `AAA` é alegado. Veja
+  [`evidence/phase-5/PHASE5-FROZEN.md`](evidence/phase-5/PHASE5-FROZEN.md).
 
 A Phase 2 permite somente providers fixtures determinísticos e execução
 project-local. A Phase 3 adiciona inspeção, inventário, parsing e planejamento

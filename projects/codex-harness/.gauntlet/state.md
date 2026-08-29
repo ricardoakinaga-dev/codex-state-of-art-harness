@@ -236,3 +236,37 @@ production readiness or `AAA_VERIFIED`; `pip-audit`, runtime/load signals and
 two real-host checks remain unavailable or intentionally outside the bounded
 review environment. Future source, test, runtime-configuration or scope
 changes require a new evidence, manifest and independent-review cycle.
+## Phase 5 continuation — bounded design-director composition pilot
+
+At `2026-08-29T21:15:00-03:00`, the Phase 5 scope was opened after recovery of
+the Phase 4 closeout. The Phase 2, Phase 3 and Phase 4 packets remain frozen
+historical authorities. The new bar is `docs/implementation/phase-5-quality-bar.md`
+(`P5-QB-1`), the additive decision is
+`../../architecture/docs/adr/ADR-014-phase-5-design-director-composition-pilot.md`,
+and the entry gate is `.agent/gates/PHASE5-SCOPE-READY-0001.json`.
+
+The fixed graph is `DESIGN_BUILDER → STRUCTURAL_VERIFICATION → VISUAL_CRITIQUE
+→ OPTIONAL_REPAIR → FINAL_VERIFICATION → ASSURANCE`. The installed
+`design-director` is read-only and may run only under an exact narrow
+response-only eligibility decision; `verification-loop` remains blocked when
+its Phase 3 invalid/rejected metadata is observed. No artifact, render, critic
+or composition value claim exists yet. The next action is the mandatory RED
+suite, followed by the smallest implementation that can produce a real,
+bounded pilot or a truthful block.
+
+## Phase 5 final closeout — 2026-08-29
+
+The bounded pilot completed as `PASS_WITH_LIMITATIONS` at support level A. A
+real response-derived `artifact_v2` was produced in the isolated fixture,
+captured with native Chromium at 1440x900 and 390x844, structurally verified,
+blind-critiqued, repaired once, reverified and independently reviewed. The
+final artifact digest is `sha256:b85e7db1b2eb9e6c6f3adfa0a4dd39e0ee01bb955a73a7adec6936ec25483adb`.
+
+The exact review manifest covers 139 entries with payload closure
+`sha256:0bc4aa985a55adbfbb5acc95f8c94a70d03f3ebaf8d867707cc47fa2bc36cb2a`.
+The final packet is frozen by `evidence/phase-5/PHASE5-FROZEN.md`; any source,
+test, fixture, evidence, runtime-configuration or scope change requires a new
+manifest and independent-review cycle. The final quality run passed 424 tests,
+80% combined branch coverage, Ruff and strict mypy. No Critical or High finding
+remains. Host load, external verifier eligibility, complete interaction/a11y,
+production readiness, AAA and causal benchmark claims remain excluded.

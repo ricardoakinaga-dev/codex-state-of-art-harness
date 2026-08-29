@@ -174,3 +174,27 @@ Low findings. The primary manifest is
 the complete post-review packet is frozen by `evidence/phase-4/review-closure.json`.
 `HOST_LOAD_UNOBSERVABLE`, unavailable `pip-audit`, production readiness,
 arbitrary execution and `AAA_VERIFIED` remain explicitly excluded.
+## Phase 5 scope recovery and entry
+
+- [x] Recover the Phase 4 closeout and preserve Phase 2–4 evidence as frozen inputs.
+- [x] Read the complete Phase 5 requirements and the design-director visual QA references.
+- [x] Freeze `P5-QB-1`, ADR-014, the Phase 5 ExecPlan and the bounded graph/role boundary.
+- [x] Record the `PHASE5-SCOPE-READY-0001` gate and append-only state transition.
+- [ ] Write and run the RED suite before implementation.
+- [ ] Implement the exact eligibility, artifact lineage, bounded composition and native verification contracts.
+- [ ] Run real builder/browser/critic evidence, benchmark and independent final review.
+
+## Phase 5 final closeout
+
+- [x] Run the mandatory RED suite before implementation and preserve its expected collection failure as historical TDD evidence.
+- [x] Implement exact eligibility, immutable artifact lineage, fixed composition graph, bounded budgets, native browser verification and adversarial controls.
+- [x] Produce real `artifact_v1` and repaired `artifact_v2` evidence in the isolated design-director fixture.
+- [x] Complete native desktop/mobile verification, final assurance, baseline comparison and exact manifest closure.
+- [x] Obtain independent visual and engineering reviews for the exact final packet.
+- [x] Pass the `PHASE5-VERIFIED-0001` gate and freeze the packet as `PASS_WITH_LIMITATIONS` / support A.
+
+Final controls: 424 tests passed, combined branch coverage 80%, Ruff and
+strict mypy passed, no Critical/High findings, and the review manifest covers
+139 matching entries. The external `verification-loop` capability remains
+blocked, so the support level is A; future expansion requires a new phase and
+new exact review packet.

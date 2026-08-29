@@ -1,0 +1,102 @@
+{
+  "record_id": "GATE-PHASE5-SCOPE-READY-0001",
+  "timestamp": "2026-08-29T21:15:00-03:00",
+  "gate_id": "SCOPE_READY",
+  "scope": "PHASE5-001 bounded design-director composition pilot",
+  "scope_ref": "PHASE5-001",
+  "version": 1,
+  "criteria": [
+    {
+      "id": "P5-SCOPE-001",
+      "description": "The Phase 5 goal, fixed composition graph, role ownership, artifact lineage and stop conditions are explicit.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        ".agent/plans/PHASE-5-design-director-composition.md",
+        "docs/implementation/phase-5-quality-bar.md",
+        "../../architecture/docs/adr/ADR-014-phase-5-design-director-composition-pilot.md"
+      ],
+      "confidence": "HIGH",
+      "limitations": "This gate authorizes only the bounded local pilot; it does not authorize general composition."
+    },
+    {
+      "id": "P5-SCOPE-002",
+      "description": "The Phase 2, Phase 3 and Phase 4 packets remain historical regression authorities and are not rewritten.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-2/PHASE2-FROZEN.md",
+        "evidence/phase-3/readiness.json",
+        ".agent/gates/PHASE3-VERIFIED-0004.json",
+        "evidence/phase-4/PHASE4-FROZEN.md"
+      ],
+      "confidence": "HIGH",
+      "limitations": "New Phase 5 source changes will require fresh Phase 2–4 regression evidence at closeout."
+    },
+    {
+      "id": "P5-SCOPE-003",
+      "description": "The installed design-director remains read-only and external verification-loop is not executable without a new exact eligibility decision.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-3/readiness.json",
+        "evidence/phase-4/design-director-pilot-report.md",
+        "evidence/phase-4/verification-pilot-report.md",
+        "../../references/skill-audit/reports/99-final-audit.md"
+      ],
+      "confidence": "HIGH",
+      "limitations": "The pilot may approve only an exact, narrow response-only route after preflight; no installed package bytes are copied or edited."
+    },
+    {
+      "id": "P5-SCOPE-004",
+      "description": "The mandatory TDD, security, visual QA, browser evidence and independent review activities are planned before implementation.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        ".agent/plans/PHASE-5-design-director-composition.md",
+        "docs/implementation/phase-5-quality-bar.md",
+        "../../.codex/skills/gauntlet-loop/SKILL.md",
+        "../../.codex/skills/engineering-framework/SKILL.md"
+      ],
+      "confidence": "HIGH",
+      "limitations": "The RED result and final review are later gates, not implied by this entry decision."
+    }
+  ],
+  "evidence": [
+    ".agent/plans/PHASE-5-design-director-composition.md",
+    "docs/implementation/phase-5-quality-bar.md",
+    "../../architecture/docs/adr/ADR-014-phase-5-design-director-composition-pilot.md",
+    "evidence/phase-2/PHASE2-FROZEN.md",
+    "evidence/phase-3/readiness.json",
+    ".agent/gates/PHASE3-VERIFIED-0004.json",
+    "evidence/phase-4/PHASE4-FROZEN.md"
+  ],
+  "confidence": "HIGH",
+  "gaps": [
+    "The real builder, browser, visual critic, regression and final review evidence are intentionally pending."
+  ],
+  "conditions": [
+    "Run the RED suite before production code.",
+    "Block the route if the exact package precheck fails.",
+    "Do not claim a visual artifact without a current native render."
+  ],
+  "authority": {
+    "required": false,
+    "state": "NOT_REQUIRED",
+    "actor": "lead",
+    "scope": "PHASE5-001 bounded local design-director composition pilot",
+    "decision": "The new phase is locally reversible and additive; final closeout still requires independent exact-packet review.",
+    "evidence_ref": ".agent/plans/PHASE-5-design-director-composition.md",
+    "expires_or_revalidates": "Revalidate on any external Skill mutation, install/delete, global configuration, credentials, provider, MCP, shell, network, deployment, production or scope expansion."
+  },
+  "residual_risk": "HIGH",
+  "decision": "PASS",
+  "next_action": "Write the Phase 5 RED tests, then implement only the fixed bounded composition contracts.",
+  "revalidation_triggers": [
+    "Changing the frozen task, acceptance criteria, graph nodes or role ownership",
+    "Changing installed capability bytes or the exact allowlist fingerprint",
+    "Adding arbitrary tools, scripts, shell, network, MCP, providers, credentials or subagents",
+    "Adding production hosting or global configuration mutation"
+  ],
+  "supersedes": null
+}

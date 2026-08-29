@@ -1,0 +1,75 @@
+{
+  "acceptance_criteria": [
+    "section:header",
+    "section:main",
+    "section:footer",
+    "copy:Northline",
+    "copy:Call the emergency team",
+    "viewport:1440x900",
+    "viewport:390x844",
+    "dimension:ART_DIRECTION",
+    "dimension:VISUAL_HIERARCHY",
+    "dimension:TYPOGRAPHY",
+    "dimension:COMPOSITION",
+    "dimension:SPACING",
+    "dimension:COLOR_SYSTEM",
+    "dimension:ASSET_QUALITY",
+    "dimension:PRODUCT_SPECIFICITY",
+    "dimension:RESPONSIVENESS",
+    "dimension:ACCESSIBILITY",
+    "dimension:POLISH",
+    "dimension:GENERIC_AI_SLOP_AVOIDANCE",
+    "forbidden:lorem ipsum",
+    "forbidden:placeholder",
+    "forbidden:http://",
+    "forbidden:https://",
+    "forbidden:<script",
+    "forbidden:javascript:"
+  ],
+  "artifact": {
+    "acceptance_digest": "sha256:db7d5771eb46a30286363388894b0034ae1e6d518eff620b8309e0bfa7707cd4",
+    "artifact_id": "ART-P5-V2",
+    "digest": "sha256:b85e7db1b2eb9e6c6f3adfa0a4dd39e0ee01bb955a73a7adec6936ec25483adb",
+    "invocation_id": "INV-P5-b9a64e75b39e529084455ff1",
+    "parent_artifact_digest": "sha256:28c25dc82baedfb856ea41ce6cde2c520909869c3e946de9d750d826e8ff7e85",
+    "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase5/design-pilot/workspace/artifacts/artifact_v2/index.html",
+    "producer_capability": "design-director",
+    "size_bytes": 9161,
+    "source_kind": "HOST_RESPONSE_DERIVED",
+    "task_id": "TASK-P5-DESIGN-001",
+    "version": "artifact_v2"
+  },
+  "benchmark_id": "P5-DESIGN-1",
+  "builder_rationale_withheld": true,
+  "packet_digest": "sha256:787dbe50ee40db153a2c6b975b77493974096119044dab9dd7cdfe4b8086566b",
+  "renders": [
+    {
+      "artifact_version": "artifact_v2",
+      "captured_at": 1788041876,
+      "captured_by": "playwright",
+      "digest": "sha256:d4513a1b228012e100d1f21e4c5e295a71273a4d075c8a5b58a92a6c008d7c04",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-5/pilots/design-director/artifact-v2/desktop.png",
+      "render_id": "render-desktop-v2",
+      "size_bytes": 522986,
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "artifact_version": "artifact_v2",
+      "captured_at": 1788041876,
+      "captured_by": "playwright",
+      "digest": "sha256:c554ae0ab7552d53242775f9a3cdadbb1c398cad49f7e60abd1e820023712ba3",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-5/pilots/design-director/artifact-v2/mobile.png",
+      "render_id": "render-mobile-v2",
+      "size_bytes": 179598,
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  ],
+  "run_id": "RUN-P5-DESIGN-001",
+  "self_score_withheld": true
+}

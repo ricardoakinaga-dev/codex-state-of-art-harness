@@ -1,0 +1,53 @@
+{
+  "acceptance_criteria": [
+    "section:header",
+    "section:main",
+    "section:footer",
+    "copy:Northline",
+    "copy:Call the emergency team",
+    "viewport:1440x900",
+    "viewport:390x844",
+    "dimension:ART_DIRECTION",
+    "dimension:VISUAL_HIERARCHY",
+    "dimension:TYPOGRAPHY",
+    "dimension:COMPOSITION",
+    "dimension:SPACING",
+    "dimension:COLOR_SYSTEM",
+    "dimension:ASSET_QUALITY",
+    "dimension:PRODUCT_SPECIFICITY",
+    "dimension:RESPONSIVENESS",
+    "dimension:ACCESSIBILITY",
+    "dimension:POLISH",
+    "dimension:GENERIC_AI_SLOP_AVOIDANCE",
+    "forbidden:lorem ipsum",
+    "forbidden:placeholder",
+    "forbidden:http://",
+    "forbidden:https://",
+    "forbidden:<script",
+    "forbidden:javascript:"
+  ],
+  "artifact_digest": "sha256:b85e7db1b2eb9e6c6f3adfa0a4dd39e0ee01bb955a73a7adec6936ec25483adb",
+  "artifact_path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase5/design-pilot/workspace/artifacts/artifact_v2/index.html",
+  "artifact_version": "artifact_v2",
+  "benchmark_id": "P5-DESIGN-1",
+  "builder_rationale_withheld": true,
+  "instructions": "Inspect the bound artifact and both native renders independently. Return a JSON critique only; do not modify the workspace.",
+  "packet_digest": "sha256:787dbe50ee40db153a2c6b975b77493974096119044dab9dd7cdfe4b8086566b",
+  "render_paths": [
+    "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-5/pilots/design-director/artifact-v2/desktop.png",
+    "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-5/pilots/design-director/artifact-v2/mobile.png"
+  ],
+  "render_viewports": [
+    [
+      1440,
+      900
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "run_id": "RUN-P5-DESIGN-001",
+  "schema_version": "P5-BLIND-REQUEST-1",
+  "self_score_withheld": true
+}

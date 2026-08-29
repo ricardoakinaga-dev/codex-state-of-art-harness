@@ -88,10 +88,13 @@ Esta é a especificação documental do futuro `Codex Capability Harness`. Ela d
 - [`adr/ADR-009-codex-native-first.md`](./adr/ADR-009-codex-native-first.md)
 - [`adr/ADR-010-design-director-golden-reference.md`](./adr/ADR-010-design-director-golden-reference.md)
 - [`adr/ADR-011-python-stdlib-kernel.md`](./adr/ADR-011-python-stdlib-kernel.md) — stack de runtime da Fase 1
+- [`adr/ADR-013-phase-4-real-capability-invocation-boundary.md`](./adr/ADR-013-phase-4-real-capability-invocation-boundary.md)
+- [`adr/ADR-014-phase-5-design-director-composition-pilot.md`](./adr/ADR-014-phase-5-design-director-composition-pilot.md)
 
 ### Implementation
 
 - [`phase-1-quality-bar.md`](../../projects/codex-harness/docs/implementation/phase-1-quality-bar.md) — barra congelada e regras de veredito
+- [`phase-5-quality-bar.md`](../../projects/codex-harness/docs/implementation/phase-5-quality-bar.md) — barra congelada para o piloto de composição visual
 - [`phase-1-deferred.md`](../../projects/codex-harness/docs/implementation/phase-1-deferred.md) — limites explícitos da Fase 1
 - O relatório de implementação da Fase 1 ainda não existe; a implementação foi pausada durante a reorganização estrutural.
 

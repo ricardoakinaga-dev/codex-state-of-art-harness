@@ -1,0 +1,51 @@
+{
+  "review_id": "IR-P5-DESIGN-001-20260829-FINAL-EXACT-02",
+  "independence": "INDEPENDENT_READ_ONLY",
+  "artifact_digest": "sha256:b85e7db1b2eb9e6c6f3adfa0a4dd39e0ee01bb955a73a7adec6936ec25483adb",
+  "packet_digest": "sha256:787dbe50ee40db153a2c6b975b77493974096119044dab9dd7cdfe4b8086566b",
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "support_level": "A",
+  "counts": {
+    "critical": 0,
+    "high": 0,
+    "medium": 4,
+    "low": 2,
+    "polish": 1,
+    "observed_blockers": 0
+  },
+  "findings": [
+    {"id": "F-001", "severity": "MEDIUM", "status": "OPEN", "summary": "390px lower-hero closure remains incomplete."},
+    {"id": "F-002", "severity": "LOW", "status": "OPEN", "summary": "Mobile triage reassurance alignment/spacing remains weak."},
+    {"id": "F-003", "severity": "MEDIUM", "status": "NOT_RUN", "summary": "Intermediate breakpoint evidence near 768px is absent."},
+    {"id": "F-004", "severity": "MEDIUM", "status": "NOT_RUN", "summary": "Complete keyboard, focus, interaction, contrast, and zoom/reflow evidence is absent."},
+    {"id": "MOBILE-FOOTER-001", "severity": "LOW", "status": "OPEN", "summary": "Mobile footer typography is too small."},
+    {"id": "TYPE-UTILITY-001", "severity": "POLISH", "status": "OPEN", "summary": "Utility typography remains generic."}
+  ],
+  "controls_checked": {
+    "manifest_full_digest": "PASS — the review-time manifest snapshot raw SHA-256 matched sha256:fb99c977bfc21b779e27a9c2f859218417f3e56be175c343a8c08dd965029b18.",
+    "manifest_structure": "PASS — the review-time snapshot had 138 entries, 101 evidence and 37 repository records; recording this review produces the final 139-entry manifest.",
+    "payload_closure": "CONSISTENT for the review-time snapshot — sha256:1f5c80123e0426997706d0426e08f72075ec021293270ed1f97701ce515c5b7b matched its closure documents; the final recorded closure is bound by the attestation.",
+    "entry_hash_size": "PARTIAL at review time — named manifest-bound payloads matched declared hash/size; the local final reclosure subsequently completed the full 139-entry check.",
+    "artifact_packet_identity": "PASS — artifact_v2, artifact digest, packet digest, final-verification digest, receipt digest, task, and run identifiers agree across current records.",
+    "capability_controls": "CONSISTENT — design-director@0.1.0, stated fingerprints, response-only route, denied tools/network/MCP/providers/credentials/subagents, and ineligible external verifier are coherently bound.",
+    "fixed_graph_budget_receipt": "PASS — receipt graph matches FIXED_GRAPH; invocation counts remain within the fixed 2/2/2/1/2/131072/32768/64 budget contract.",
+    "path_controls": "PASS by source inspection — absolute non-traversing paths, workspace containment, regular-file checks, symlink rejection for renders, artifact/version/viewport binding.",
+    "browser_controls": "PASS for the recorded packet — loadability, overflow, accessibility, confinement, empty console errors, and empty network failures are recorded; no live browser rerun was performed.",
+    "ruff_mypy_coverage": "CONSISTENT — current packet records state Ruff PASS, mypy PASS, 424 tests, and 80.0% coverage; evidence is manifest-bound but was not rerun."
+  },
+  "limitations": [
+    "Full all-138-entry payload rehash and independent payload-closure recomputation were not completed in the restricted immediate-stop pass.",
+    "Capability-source files, blind-packet-v2.json, raw render/metric binaries, and report contents outside the authorized list were not semantically inspected.",
+    "No Playwright/browser interaction rerun was performed.",
+    "No Critical or High blocker is present in the authorized current records; this is not a broader production or accessibility certification."
+  ],
+  "excluded_claims": [
+    "AAA or HARNESS_AAA_VERIFIED",
+    "Unconditional PASS",
+    "Production readiness",
+    "Complete interactive accessibility certification",
+    "Pixel-perfect or reference-fidelity compliance",
+    "Causal superiority over the baseline",
+    "Production-valid telephone destination"
+  ]
+}

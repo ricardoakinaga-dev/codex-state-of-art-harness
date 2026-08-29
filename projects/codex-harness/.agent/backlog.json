@@ -125,6 +125,31 @@
         "evidence/phase-4/final-report.md"
       ],
       "next_action": "Keep the exact bounded Phase 4 packet frozen; any broader host, Skill, tool, provider, MCP, Director, distributed or production scope requires a new phase and review cycle."
+    },
+    {
+      "id": "PHASE5-001",
+      "title": "Implement the bounded design-director composition pilot",
+      "stage": "DONE",
+      "priority": "P0",
+      "status": "DONE",
+      "origin": "User-supplied Phase 5 design-director composition specification",
+      "dependencies": ["PHASE4-001"],
+      "owner": "lead",
+      "acceptance_summary": "Run one exact design-director builder through the fixed composition graph, produce a response-derived HTML artifact, capture desktop/mobile renders, verify structurally, obtain a blind independent critique, allow at most one repair, compare against a native baseline and close with exact evidence without global or installed capability mutation.",
+      "evidence_refs": [
+        ".agent/plans/PHASE-5-design-director-composition.md",
+        ".agent/gates/PHASE5-SCOPE-READY-0001.json",
+        ".agent/gates/PHASE5-VERIFIED-0001.json",
+        "docs/implementation/phase-5-quality-bar.md",
+        "../../architecture/docs/adr/ADR-014-phase-5-design-director-composition-pilot.md",
+        "evidence/phase-5/PHASE5-FROZEN.md",
+        "evidence/phase-5/review-manifest.json",
+        "evidence/phase-5/independent-engineering-review-reclosure-02.json",
+        "evidence/phase-5/review-attestation.json",
+        "evidence/phase-5/readiness.json",
+        "evidence/phase-5/final-report.md"
+      ],
+      "next_action": "Keep the exact Phase 5 packet frozen; any source, test, runtime-configuration or scope change requires a new evidence, manifest and independent-review cycle."
     }
   ]
 }

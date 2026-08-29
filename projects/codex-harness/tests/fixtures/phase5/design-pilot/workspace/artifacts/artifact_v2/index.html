@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northline Veterinary Emergency Center</title>
+<style>
+:root{--ink:#f4f0e7;--muted:#abaeaa;--night:#071614;--panel:#0c211e;--line:rgba(221,232,219,.16);--mint:#9ed8c4;--signal:#efaa72;--signal-dark:#281208}
+*{box-sizing:border-box}
+html{background:var(--night);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+body{margin:0;min-width:320px;min-height:100vh;background:radial-gradient(circle at 79% 42%,rgba(77,145,122,.13),transparent 30%),linear-gradient(135deg,#061310 0%,#081917 57%,#061210 100%)}
+a{color:inherit}
+.shell{width:min(100% - 96px,1344px);margin-inline:auto}
+header{height:116px;border-bottom:1px solid var(--line)}
+.header-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.brand{display:flex;align-items:center;gap:16px;text-decoration:none}
+.brand-mark{width:36px;height:36px;flex:none}
+.brand-name{display:block;font-family:Georgia,'Times New Roman',serif;font-size:22px;line-height:1;letter-spacing:-.02em}
+.brand-detail{display:block;margin-top:7px;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.17em;text-transform:uppercase}
+.status{display:flex;align-items:center;gap:14px;color:#d4dbd4;font-size:12px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}
+.status-dot{width:9px;height:9px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 5px rgba(239,170,114,.12),0 0 24px rgba(239,170,114,.45)}
+main{min-height:calc(100vh - 196px)}
+.hero{min-height:690px;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(440px,.92fr);align-items:center;gap:72px;padding:64px 0 70px}
+.copy{max-width:720px}
+.eyebrow{display:flex;align-items:center;gap:14px;margin:0 0 29px;color:var(--mint);font-size:12px;font-weight:700;letter-spacing:.19em;text-transform:uppercase}
+.eyebrow:before{content:'';width:37px;height:1px;background:var(--mint)}
+h1{max-width:760px;margin:0;font-family:Georgia,'Times New Roman',serif;font-size:clamp(58px,5.3vw,82px);font-weight:400;line-height:.99;letter-spacing:-.052em;text-wrap:balance}
+.support{max-width:610px;margin:28px 0 0;color:#c1c5c0;font-size:18px;line-height:1.65}
+.actions{display:flex;align-items:center;gap:26px;margin-top:39px}
+.cta{display:inline-flex;min-height:58px;align-items:center;justify-content:center;gap:16px;padding:0 25px;border:1px solid #fac69d;background:var(--signal);color:var(--signal-dark);font-size:14px;font-weight:800;letter-spacing:.01em;text-decoration:none;box-shadow:0 12px 35px rgba(0,0,0,.22)}
+.cta svg{width:18px;height:18px}
+.micro{color:var(--muted);font-size:12px;line-height:1.5;letter-spacing:.08em;text-transform:uppercase}
+.visual{position:relative;display:grid;place-items:center;min-height:530px}
+.visual:before{content:'';position:absolute;inset:9%;border:1px solid rgba(158,216,196,.09);border-radius:50%}
+.observatory{position:relative;width:min(100%,510px);aspect-ratio:1}
+.orbit-svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 25px 45px rgba(0,0,0,.25))}
+.visual-note{position:absolute;right:2px;bottom:22px;width:185px;padding:16px 0 0 18px;border-top:1px solid var(--line);border-left:1px solid var(--line);color:var(--muted);font-size:10px;line-height:1.6;letter-spacing:.14em;text-transform:uppercase}
+.visual-note strong{display:block;margin-bottom:4px;color:var(--ink);font-size:12px;letter-spacing:.08em}
+footer{height:80px;border-top:1px solid var(--line)}
+.footer-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:30px;color:#8f9993;font-size:10px;letter-spacing:.13em;text-transform:uppercase}
+.footer-line{width:44px;height:1px;background:var(--signal);opacity:.65}
+a:focus-visible{outline:3px solid #fff;outline-offset:5px}
+@media(max-width:900px){
+.shell{width:min(100% - 48px,720px)}
+header{height:auto;min-height:92px;padding:18px 0}
+.header-inner{align-items:center;gap:18px}
+.brand{gap:12px;min-width:0}
+.brand-mark{width:31px;height:31px}
+.brand-name{font-size:20px}
+.brand-detail{display:none}
+.status{gap:9px;font-size:10px;letter-spacing:.1em}
+.status-dot{width:8px;height:8px}
+.hero{grid-template-columns:1fr;gap:44px;padding:58px 0 68px}
+.copy{max-width:680px}
+.visual{min-height:450px}
+.observatory{width:min(88vw,470px)}
+footer{height:auto;min-height:80px}
+}
+@media(max-width:520px){
+.shell{width:calc(100% - 40px)}
+header{min-height:78px;padding:13px 0}
+.header-inner{gap:10px}
+.brand{gap:9px}
+.brand-mark{width:29px;height:29px}
+.brand-name{font-size:18px;white-space:nowrap}
+.status{padding:8px 10px;border:1px solid var(--line);font-size:0;letter-spacing:0}
+.status:after{content:'Open 24/7';font-size:9px;letter-spacing:.08em;white-space:nowrap}
+.status-dot{width:7px;height:7px;box-shadow:0 0 0 3px rgba(239,170,114,.12)}
+.hero{min-height:0;gap:45px;padding:48px 0 55px}
+.eyebrow{gap:11px;margin-bottom:22px;font-size:10px;letter-spacing:.14em}
+.eyebrow:before{width:25px}
+h1{font-size:43px;line-height:1.02;letter-spacing:-.045em}
+.support{margin-top:23px;font-size:16px;line-height:1.55}
+.actions{display:block;margin-top:31px}
+.cta{width:100%;min-height:60px;padding-inline:20px}
+.micro{margin-top:16px;text-align:center;font-size:10px}
+.visual{min-height:330px}
+.observatory{width:100%;max-width:350px}
+.visual-note{right:0;bottom:-8px;width:146px;padding:11px 0 0 12px;font-size:8px}
+.visual-note strong{font-size:10px}
+.footer-inner{min-height:80px;align-items:center;font-size:8px;line-height:1.5;letter-spacing:.1em}
+.footer-line{width:28px}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="shell header-inner">
+<a class="brand" href="#main" aria-label="Northline Veterinary Emergency Center home">
+<svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17" fill="none" stroke="#9ed8c4" stroke-width="1"/><ellipse cx="20" cy="20" rx="17" ry="7" fill="none" stroke="#9ed8c4" stroke-width="1" transform="rotate(-38 20 20)"/><circle cx="31" cy="9" r="2.5" fill="#efaa72"/><path d="M20 13v14M13 20h14" stroke="#f4f0e7" stroke-width="2"/></svg>
+<span><span class="brand-name">Northline</span><span class="brand-detail">Veterinary Emergency Center</span></span>
+</a>
+<div class="status" aria-label="Open 24 hours, seven days a week"><span class="status-dot" aria-hidden="true"></span><span>Open all night · Every night</span></div>
+</div>
+</header>
+<main id="main">
+<section class="shell hero" aria-labelledby="hero-title">
+<div class="copy">
+<p class="eyebrow">24/7 emergency veterinary care</p>
+<h1 id="hero-title">When every minute matters, stay close to care.</h1>
+<p class="support">Northline Veterinary Emergency Center pairs calm triage with advanced overnight care.</p>
+<div class="actions">
+<a class="cta" href="tel:+15550109111"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.2 3.5 10 8.1 7.8 10c1.2 2.7 3.4 4.9 6.1 6.1l1.9-2.2 4.7 2.8-.8 3c-.2.8-1 1.4-1.9 1.3C9.9 20.2 3.8 14.1 3 6.2c-.1-.9.5-1.7 1.3-1.9l2.9-.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Call the emergency team</a>
+<span class="micro">Immediate phone triage<br>available now</span>
+</div>
+</div>
+<div class="visual" aria-label="Northline orbital clinical emblem">
+<div class="observatory">
+<svg class="orbit-svg" viewBox="0 0 520 520" role="img" aria-labelledby="mark-title mark-desc">
+<title id="mark-title">Northline orbital clinical mark</title><desc id="mark-desc">A luminous clinical cross encircled by precise orbital paths.</desc>
+<defs><radialGradient id="halo"><stop offset="0" stop-color="#173c34"/><stop offset=".62" stop-color="#0d2622"/><stop offset="1" stop-color="#091a17"/></radialGradient><filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<circle cx="260" cy="260" r="205" fill="url(#halo)" stroke="#26483f"/>
+<circle cx="260" cy="260" r="156" fill="none" stroke="#9ed8c4" stroke-opacity=".18" stroke-dasharray="2 11"/>
+<ellipse cx="260" cy="260" rx="205" ry="84" fill="none" stroke="#9ed8c4" stroke-opacity=".55" stroke-width="1.2" transform="rotate(-32 260 260)"/>
+<ellipse cx="260" cy="260" rx="181" ry="59" fill="none" stroke="#9ed8c4" stroke-opacity=".24" transform="rotate(52 260 260)"/>
+<path d="M260 89v342M89 260h342" stroke="#9ed8c4" stroke-opacity=".09"/>
+<circle cx="260" cy="260" r="89" fill="#0a1d1a" stroke="#9ed8c4" stroke-opacity=".4"/>
+<path d="M242 202h36v40h40v36h-40v40h-36v-40h-40v-36h40z" fill="#f4f0e7"/>
+<circle cx="405" cy="145" r="8" fill="#efaa72" filter="url(#glow)"/>
+<circle cx="122" cy="336" r="3" fill="#9ed8c4"/><circle cx="368" cy="392" r="3" fill="#9ed8c4"/>
+<path d="M260 41v22M260 457v22M41 260h22M457 260h22" stroke="#9ed8c4" stroke-opacity=".55"/>
+</svg>
+</div>
+<div class="visual-note"><strong>Northline signal</strong>Always visible.<br>Always oriented.</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="shell footer-inner"><span>Northline Veterinary Emergency Center</span><span class="footer-line" aria-hidden="true"></span><span>Emergency care · 24/7</span></div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "benchmark_id": "P5-BENCH-1",
+  "evidence_label": "PILOT_COMPOSITION_EVIDENCE",
+  "baseline": {
+    "score": 34,
+    "defects": 8,
+    "latency_ms": 38,
+    "reviewer": "HARNESS_NATIVE_BASELINE_INSPECTION"
+  },
+  "composition": {
+    "score": 87,
+    "defects": 4,
+    "latency_ms": 58,
+    "reviewer": "INS-P5-DESIGN-001-V2-INDEPENDENT-20260829",
+    "builder_invocations": 2,
+    "verifier_invocations": 2,
+    "critic_invocations": 2,
+    "repair_invocations": 1
+  },
+  "delta": {
+    "score": 53,
+    "defects_reduced": 4,
+    "latency_ms": 20
+  },
+  "interpretation": "Pilot evidence compares a bounded composition with a native minimal baseline; it is not causal proof or a production benchmark.",
+  "inputs": [
+    "pilots/design-director/baseline/desktop.png",
+    "pilots/design-director/baseline/mobile.png",
+    "pilots/design-director/independent-critique-v2.json",
+    "pilots/design-director/composition-receipt.json"
+  ]
+}

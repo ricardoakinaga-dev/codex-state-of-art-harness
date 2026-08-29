@@ -1,0 +1,31 @@
+{
+  "schema_version": "P5-FINGERPRINTS-1",
+  "evaluated_at": "2026-08-29",
+  "builder": {
+    "capability_id": "design-director",
+    "version": "0.1.0",
+    "package_fingerprint": "sha256:564d610da9260d25cbcddfbb3f96f70fb9dabd643c46b4242c4b891d399eba95",
+    "manifest_fingerprint": "sha256:402e36727b060eaf4ef740daf8ddfdcfce40cede7cb51ad48c14a582b9037c43",
+    "canonical_path": "/home/ricardo/.codex/skills/design-director",
+    "status": "INSPECTED",
+    "load_eligibility": "ELIGIBLE_DECLARATIVE_METADATA_ONLY",
+    "trust": "THIRD_PARTY",
+    "compatibility": "PARTIAL",
+    "provenance": "LOCAL",
+    "scripts_metadata_only": true
+  },
+  "secondary": {
+    "capability_id": "verification-loop",
+    "version": "0.1.0",
+    "package_fingerprint": "sha256:6cddd9e336f44c261eea24fc983c18f740df9dca8ebfbed0faffc7b9d73ba0ce",
+    "manifest_fingerprint": "sha256:1ad02d474bf8f54eb48ea482bc2c628e6611be913a9b41de502241fe135c43f4",
+    "canonical_path": "/home/ricardo/.agents/skills/verification-loop",
+    "status": "REJECTED",
+    "load_eligibility": "BLOCKED_INVALID_METADATA",
+    "trust": "REJECTED",
+    "compatibility": "PARTIAL",
+    "provenance": "LOCAL",
+    "scripts_metadata_only": true
+  },
+  "mutation_policy": "read-only inspection; no installed package bytes copied or changed"
+}

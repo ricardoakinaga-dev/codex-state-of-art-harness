@@ -1,0 +1,37 @@
+{
+  "artifact_version": "artifact_v1",
+  "artifact_digest": "sha256:28c25dc82baedfb856ea41ce6cde2c520909869c3e946de9d750d826e8ff7e85",
+  "capture_method": "playwright_native",
+  "capture_id": "CAP-P5-V1-MOBILE",
+  "browser": {
+    "engine": "Chromium",
+    "version": "152.0.7977.64",
+    "executable": "/opt/google/chrome/chrome",
+    "executable_digest": "sha256:44bd90e776ea03a952242b3536d4a10a2e43c64a227c243af2840f07f1f0ed17"
+  },
+  "url": "http://127.0.0.1:8765/index.html",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "document_width": 390,
+  "viewport_width": 390,
+  "body_height": 989,
+  "h1_count": 1,
+  "landmarks": [
+    [
+      "header",
+      1
+    ],
+    [
+      "main",
+      1
+    ],
+    [
+      "footer",
+      1
+    ]
+  ],
+  "focusable_count": 1,
+  "external_resources": []
+}

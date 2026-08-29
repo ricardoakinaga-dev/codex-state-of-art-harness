@@ -1,0 +1,77 @@
+{
+  "artifact_digest": "sha256:b85e7db1b2eb9e6c6f3adfa0a4dd39e0ee01bb955a73a7adec6936ec25483adb",
+  "benchmark_id": "P5-DESIGN-1",
+  "blinded": true,
+  "builder_rationale_withheld": true,
+  "dimension_scores": {
+    "ACCESSIBILITY": 7.9,
+    "ART_DIRECTION": 9.0,
+    "ASSET_QUALITY": 9.1,
+    "COLOR_SYSTEM": 8.9,
+    "COMPOSITION": 8.5,
+    "GENERIC_AI_SLOP_AVOIDANCE": 9.4,
+    "POLISH": 8.4,
+    "PRODUCT_SPECIFICITY": 9.4,
+    "RESPONSIVENESS": 8.2,
+    "SPACING": 8.4,
+    "TYPOGRAPHY": 8.4,
+    "VISUAL_HIERARCHY": 9.0
+  },
+  "evidence_confidence": "MEDIUM",
+  "evidence_missing": [
+    "No native intermediate render around 768px.",
+    "No hover, focus-visible, active, keyboard, or telephone-link interaction capture.",
+    "No runtime accessibility audit, contrast measurement, zoom/reflow check, or screen-reader path.",
+    "The supplied 390x844 render does not show the complete mobile hero or footer, leaving below-fold mobile treatment unverified."
+  ],
+  "findings": [
+    {
+      "evidence": "artifact-v2/mobile.png; artifact_v2/index.html:77-80, 107-124",
+      "expected": "The orbital emblem and supporting Northline signal note should resolve as a complete, readable mobile composition.",
+      "finding_id": "F-001",
+      "location": "Mobile hero visual, 390x844",
+      "observed": "The emblem continues beyond the bottom edge of the supplied mobile render; the supporting note is not readable and only a lower horizontal rule is visible.",
+      "severity": "MEDIUM",
+      "status": "OPEN"
+    },
+    {
+      "evidence": "artifact-v2/mobile.png; artifact_v2/index.html:74-76, 102-105",
+      "expected": "The secondary triage reassurance should have deliberate alignment and spacing relative to the full-width primary CTA.",
+      "finding_id": "F-002",
+      "location": "Mobile CTA support copy",
+      "observed": "“IMMEDIATE PHONE TRIAGE / AVAILABLE NOW” is left-aligned at the shell gutter beneath the CTA, reading as an orphaned label rather than a deliberately grouped support message.",
+      "severity": "LOW",
+      "status": "OPEN"
+    },
+    {
+      "evidence": "blind-packet-v2.json; review-request-v2.json; artifact_v2/index.html:43-57",
+      "expected": "The layout transition between the two-column desktop state and the stacked mobile state should be checked at an intermediate width.",
+      "finding_id": "F-003",
+      "location": "Responsive transition coverage",
+      "observed": "Only 1440x900 and 390x844 native renders are supplied. The artifact changes layout at max-width:900px, but no intermediate render is available.",
+      "severity": "MEDIUM",
+      "status": "NOT_RUN"
+    },
+    {
+      "evidence": "artifact_v2/index.html:2, 42, 87-110; default-only desktop and mobile renders",
+      "expected": "Focus visibility, keyboard operation, telephone-link behavior, and actual contrast should be verified on the rendered artifact.",
+      "finding_id": "F-004",
+      "location": "Keyboard, focus, contrast, and interaction states",
+      "observed": "The HTML includes semantic landmarks, a labeled heading, accessible SVG titles/descriptions, and a focus-visible rule, but no focus, keyboard, interaction, or contrast evidence is supplied.",
+      "severity": "MEDIUM",
+      "status": "NOT_RUN"
+    }
+  ],
+  "independence": "INDEPENDENT",
+  "inspection_id": "INS-P5-DESIGN-001-V2-INDEPENDENT-20260829",
+  "overall_score": 87.0,
+  "packet_digest": "sha256:787dbe50ee40db153a2c6b975b77493974096119044dab9dd7cdfe4b8086566b",
+  "run_id": "RUN-P5-DESIGN-001",
+  "self_score_withheld": true,
+  "top_corrections": [
+    "{'priority': 1, 'correction': 'Recompose the mobile lower hero so the orbital mark and Northline signal note are either fully readable in the tested viewport or intentionally treated as below-fold content.', 'impact': 'Improves mobile composition closure and resolves the tension with the “Always visible” supporting copy.'}",
+    "{'priority': 2, 'correction': 'Make the mobile triage reassurance a block-level element with explicit alignment and spacing beneath the CTA.', 'impact': 'Improves CTA grouping, scan rhythm, and responsive stability.'}",
+    "{'priority': 3, 'correction': 'Inspect an intermediate render around 768px and verify focus-visible, keyboard, tap, and contrast behavior before final acceptance.', 'impact': 'Closes the remaining responsive and accessibility evidence gaps.'}"
+  ],
+  "verdict": "PASS_WITH_LIMITATIONS"
+}

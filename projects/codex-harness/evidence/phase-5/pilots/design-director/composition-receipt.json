@@ -1,0 +1,35 @@
+{
+  "artifact_versions": [
+    "artifact_v1",
+    "artifact_v2"
+  ],
+  "builder_invocations": 2,
+  "critic_invocations": 2,
+  "digest": "sha256:40c1b5c68695d5b4b9be12bd222d0858e372158d0596a7ade080840103b2f32c",
+  "events": [
+    "DESIGN_BUILDER",
+    "STRUCTURAL_VERIFICATION",
+    "VISUAL_CRITIQUE",
+    "OPTIONAL_REPAIR",
+    "FINAL_VERIFICATION",
+    "ASSURANCE"
+  ],
+  "external_verifier": "BLOCKED:EXTERNAL_VERIFIER_NOT_ELIGIBLE",
+  "graph": [
+    "DESIGN_BUILDER",
+    "STRUCTURAL_VERIFICATION",
+    "VISUAL_CRITIQUE",
+    "OPTIONAL_REPAIR",
+    "FINAL_VERIFICATION",
+    "ASSURANCE"
+  ],
+  "repair_invocations": 1,
+  "run_id": "RUN-P5-DESIGN-001",
+  "stale_evidence": [
+    "verification-v1",
+    "critique-v1"
+  ],
+  "status": "PASS_WITH_LIMITATIONS",
+  "task_id": "TASK-P5-DESIGN-001",
+  "verifier_invocations": 2
+}

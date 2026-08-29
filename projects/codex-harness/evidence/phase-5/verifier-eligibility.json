@@ -1,0 +1,20 @@
+{
+  "schema_version": "P5-ELIGIBILITY-1",
+  "capability_id": "verification-loop",
+  "version": "0.1.0",
+  "scope": "GLOBAL",
+  "status": "BLOCKED",
+  "blocker": "EXTERNAL_VERIFIER_NOT_ELIGIBLE",
+  "load_eligibility": "BLOCKED_INVALID_METADATA",
+  "package_status": "REJECTED",
+  "trust": "REJECTED",
+  "compatibility": "PARTIAL",
+  "package_fingerprint": "sha256:6cddd9e336f44c261eea24fc983c18f740df9dca8ebfbed0faffc7b9d73ba0ce",
+  "manifest_fingerprint": "sha256:1ad02d474bf8f54eb48ea482bc2c628e6611be913a9b41de502241fe135c43f4",
+  "canonical_path": "/home/ricardo/.agents/skills/verification-loop",
+  "inspected_files": ["SKILL.md", "agents/openai.yaml"],
+  "execution_attempted": false,
+  "fallback_impersonation": false,
+  "evidence": "pilots/design-director/route-decision.json",
+  "policy": "composition-policy.json"
+}

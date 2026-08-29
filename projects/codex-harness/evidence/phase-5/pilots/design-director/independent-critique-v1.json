@@ -1,0 +1,68 @@
+{
+  "benchmark_id": "P5-DESIGN-1",
+  "run_id": "RUN-P5-DESIGN-001",
+  "inspection_id": "INS-P5-DESIGN-001-ARTIFACT-V1",
+  "artifact_digest": "sha256:28c25dc82baedfb856ea41ce6cde2c520909869c3e946de9d750d826e8ff7e85",
+  "independence": "INDEPENDENT",
+  "blinded": true,
+  "builder_rationale_withheld": true,
+  "self_score_withheld": true,
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "overall_score": 83,
+  "evidence_confidence": "MEDIUM",
+  "dimension_scores": {
+    "ART_DIRECTION": 9,
+    "VISUAL_HIERARCHY": 9,
+    "TYPOGRAPHY": 8,
+    "COMPOSITION": 9,
+    "SPACING": 8,
+    "COLOR_SYSTEM": 9,
+    "ASSET_QUALITY": 8,
+    "PRODUCT_SPECIFICITY": 7,
+    "RESPONSIVENESS": 8,
+    "ACCESSIBILITY": 8,
+    "POLISH": 8,
+    "GENERIC_AI_SLOP_AVOIDANCE": 9
+  },
+  "findings": [
+    {
+      "id": "F-RESP-001",
+      "location": "Mobile header / emergency status",
+      "expected": "Brand and availability signal remain legible and balanced at 390×844.",
+      "observed": "The status wraps into three short lines, “EMERGENCY / TEAM / READY,” crowding the brand row.",
+      "severity": "MEDIUM",
+      "evidence": "mobile.png, 390×844, header region",
+      "status": "OPEN"
+    },
+    {
+      "id": "F-TRUTH-001",
+      "location": "Primary call CTA / tel target",
+      "expected": "Emergency CTA routes to a verified Northline triage number.",
+      "observed": "index.html uses tel:+15550109111, a 555-series number; production validity is unverified.",
+      "severity": "MEDIUM",
+      "evidence": "artifact_v1/index.html, CTA href",
+      "status": "OPEN"
+    },
+    {
+      "id": "F-SPEC-001",
+      "location": "Hero visual / clinical signal",
+      "expected": "The visual anchor clearly communicates the veterinary-emergency context.",
+      "observed": "The plus/orbit motif is polished but could read as a generic medical signal without the copy or wordmark; no veterinary cue appears in the visual anchor.",
+      "severity": "LOW",
+      "evidence": "desktop.png and mobile.png, hero visual",
+      "status": "OPEN"
+    }
+  ],
+  "top_corrections": [
+    "Recompose the 390px header to avoid three-line status crowding.",
+    "Verify or replace the 555-series CTA target before production use.",
+    "Add one restrained veterinary-specific cue to the hero signal or supporting content.",
+    "Capture the intermediate breakpoint and keyboard/focus states before final sign-off."
+  ],
+  "evidence_missing": [
+    "No 768px/intermediate native render.",
+    "No live interaction evidence for keyboard focus, hover/pressed behavior, touch, or reduced-motion.",
+    "No automated/manual contrast or screen-reader report.",
+    "No mobile scroll-end/footer capture or canonical Northline reference beyond the blind request."
+  ]
+}

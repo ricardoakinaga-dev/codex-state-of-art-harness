@@ -1,0 +1,130 @@
+{
+  "record_id": "GATE-PHASE5-VERIFIED-0002",
+  "timestamp": "2026-08-29T22:48:00-03:00",
+  "gate_id": "VERIFIED",
+  "scope": "PHASE5-001 bounded design-director composition pilot",
+  "scope_ref": "PHASE5-001",
+  "version": 2,
+  "criteria": [
+    {
+      "id": "V-001-REAL-ARTIFACT",
+      "description": "A real response-derived artifact exists under the isolated fixture and is bound to the exact design-director receipt and package identity.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-5/pilots/design-director/builder-invocation-receipt.json",
+        "evidence/phase-5/pilots/design-director/builder-repair-receipt.json",
+        "evidence/phase-5/pilots/design-director/artifact-v1/packet.json",
+        "evidence/phase-5/pilots/design-director/artifact-v2/packet.json",
+        "evidence/phase-5/eligibility-report.md"
+      ],
+      "confidence": "HIGH",
+      "limitations": "The artifact is a fictional project-local HTML/CSS/SVG pilot output, not a production site."
+    },
+    {
+      "id": "V-002-FIXED-COMPOSITION",
+      "description": "The fixed finite graph, budgets, immutable handoffs, blind critique and one-shot repair lineage are enforced and evidenced.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-5/composition-policy.json",
+        "evidence/phase-5/policy-report.md",
+        "evidence/phase-5/pilots/design-director/composition-receipt.json",
+        "evidence/phase-5/pilots/design-director/repair-plan.json",
+        ".agent/verification.jsonl#VER-PHASE5-FINAL-LOCAL-0001"
+      ],
+      "confidence": "HIGH",
+      "limitations": "The pilot supports only the declared graph and fixed limits; arbitrary orchestration is excluded."
+    },
+    {
+      "id": "V-003-NATIVE-VERIFICATION",
+      "description": "Native desktop/mobile browser evidence and a distinct final structural verification pass the declared artifact, semantic, browser and confinement checks.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-5/pilots/design-director/artifact-v2/desktop.png",
+        "evidence/phase-5/pilots/design-director/artifact-v2/mobile.png",
+        "evidence/phase-5/pilots/design-director/final-verification.json",
+        "evidence/phase-5/composition-report.md"
+      ],
+      "confidence": "HIGH",
+      "limitations": "Complete interaction and intermediate-breakpoint evidence remains outside the final two-render contract."
+    },
+    {
+      "id": "V-004-INDEPENDENT-REVIEWS",
+      "description": "Fresh independent engineering and visual reviews approve the exact final packet with no Critical or High findings.",
+      "required": true,
+      "status": "PASS_WITH_LIMITATIONS",
+      "evidence_refs": [
+        "evidence/phase-5/independent-review.md",
+        "evidence/phase-5/independent-engineering-review-reclosure-02.json",
+        "evidence/phase-5/independent-engineering-review.json",
+        "evidence/phase-5/pilots/design-director/independent-visual-review-v2.json",
+        "evidence/phase-5/review-attestation.json"
+      ],
+      "confidence": "HIGH",
+      "limitations": "Reviewers retained Medium/Low/Polish findings for responsive closure, interaction coverage, mobile footer treatment and utility typography."
+    },
+    {
+      "id": "V-005-REGRESSION-QUALITY",
+      "description": "Phase 2–4 regressions, project tests, coverage, Ruff, mypy and bounded security checks are green within the declared environment.",
+      "required": true,
+      "status": "PASS_WITH_LIMITATIONS",
+      "evidence_refs": [
+        "evidence/phase-5/phase2-regression.md",
+        "evidence/phase-5/phase3-regression.md",
+        "evidence/phase-5/phase4-regression.md",
+        "evidence/phase-5/test-report.md",
+        "evidence/phase-5/coverage-report.md",
+        "evidence/phase-5/security-summary.md"
+      ],
+      "confidence": "HIGH",
+      "limitations": "pip-audit is unavailable; host-load causality, production behavior and AAA verification are excluded."
+    }
+  ],
+  "evidence": [
+    "evidence/phase-5/review-manifest.json",
+    "evidence/phase-5/review-attestation.json",
+    "evidence/phase-5/readiness.json",
+    "evidence/phase-5/final-report.md",
+    "evidence/phase-5/PHASE5-FROZEN.md",
+    "evidence/phase-5/independent-review.md",
+    "evidence/phase-5/pilots/design-director/final-verification.json",
+    "evidence/phase-5/independent-engineering-review-reclosure-02.json",
+    ".agent/verification.jsonl#VER-PHASE5-FINAL-LOCAL-0001",
+    ".agent/verification.jsonl#VER-PHASE5-FINAL-RECLOSURE-0001",
+    ".agent/verification.jsonl#VER-PHASE5-INDEPENDENT-RECLOSURE-FINAL-0001"
+  ],
+  "confidence": "HIGH",
+  "gaps": [
+    "HOST_LOAD_UNOBSERVABLE",
+    "EXTERNAL_VERIFIER_NOT_ELIGIBLE",
+    "INTERACTIVE_ACCESSIBILITY_PARTIAL",
+    "INTERMEDIATE_RESPONSIVE_EVIDENCE_NOT_FINALIZED"
+  ],
+  "conditions": [
+    "Keep the exact manifest-bound packet frozen.",
+    "Reopen Phase 5 and obtain a new manifest and independent reviews for any source, test, fixture, evidence or scope change."
+  ],
+  "authority": {
+    "required": false,
+    "state": "NOT_REQUIRED",
+    "actor": "lead",
+    "scope": "PHASE5-001 bounded design-director composition pilot",
+    "decision": "The exact local packet is accepted as PASS_WITH_LIMITATIONS at support A after independent engineering and visual review; no production or AAA claim is authorized.",
+    "evidence_ref": "evidence/phase-5/review-attestation.json",
+    "expires_or_revalidates": "Revalidate on any manifest-bound change or expansion beyond the bounded project-local pilot."
+  },
+  "residual_risk": "MEDIUM",
+  "decision": "PASS",
+  "support_level": "A",
+  "review_manifest_digest": "sha256:88f5ad7e97a267f3d235ed0f7504cbcf428825594db3fd8cf47e99cb75ae51ed",
+  "payload_closure": "sha256:0bc4aa985a55adbfbb5acc95f8c94a70d03f3ebaf8d867707cc47fa2bc36cb2a",
+  "next_action": "Keep PHASE5-001 frozen; any future change requires a new exact packet and review cycle.",
+  "revalidation_triggers": [
+    "Changing Phase 5 source, tests, fixture, evidence, reports, policy or architecture inputs",
+    "Changing capability identity, authorization, graph, budgets, repair, browser or evidence boundaries",
+    "Adding a second eligible capability, host-loaded causal signal, provider, tool, MCP, shell, network, credential, deployment or production path",
+    "Seeking AAA, unconditional PASS or production-readiness status"
+  ]
+}

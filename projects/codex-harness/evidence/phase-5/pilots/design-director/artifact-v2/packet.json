@@ -1,0 +1,13 @@
+{
+  "acceptance_digest": "sha256:db7d5771eb46a30286363388894b0034ae1e6d518eff620b8309e0bfa7707cd4",
+  "artifact_id": "ART-P5-V2",
+  "digest": "sha256:b85e7db1b2eb9e6c6f3adfa0a4dd39e0ee01bb955a73a7adec6936ec25483adb",
+  "invocation_id": "01a04f47-3154-7512-80e0-0faf06ebf55b",
+  "parent_artifact_digest": "sha256:28c25dc82baedfb856ea41ce6cde2c520909869c3e946de9d750d826e8ff7e85",
+  "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase5/design-pilot/workspace/artifacts/artifact_v2/index.html",
+  "producer_capability": "design-director",
+  "size_bytes": 9161,
+  "source_kind": "HOST_RESPONSE_DERIVED",
+  "task_id": "TASK-P5-DESIGN-001",
+  "version": "artifact_v2"
+}

@@ -1,0 +1,856 @@
+{
+  "control_exclusions": [
+    "PHASE5-FROZEN.md",
+    "final-report.md",
+    "readiness.json",
+    "review-attestation.json",
+    "review-manifest.json"
+  ],
+  "entries": [
+    {
+      "path": "P5-QB-1.md",
+      "scope": "evidence",
+      "sha256": "sha256:26d2d929c5ba71ee120cec28adb763ba80d9cc196091c9c3f28f0409a5f4440d",
+      "size_bytes": 1137
+    },
+    {
+      "path": "README.md",
+      "scope": "evidence",
+      "sha256": "sha256:273e44f0d81561e3edb6029b379f9499faca58076859fc5ec3cbeff8f4eaec66",
+      "size_bytes": 1785
+    },
+    {
+      "path": "benchmark-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:10b32e343ecad9f64a67c308708081d6f3e418ac2f88234e95751db52186db07",
+      "size_bytes": 614
+    },
+    {
+      "path": "benchmark-summary.json",
+      "scope": "evidence",
+      "sha256": "sha256:87ec2c228461bfe79e5f84063e8d5260c1224ced2f51badfcaffd074916de2f4",
+      "size_bytes": 942
+    },
+    {
+      "path": "capability-fingerprints.json",
+      "scope": "evidence",
+      "sha256": "sha256:9a0646b6727c464e52f6b904c23c4c3242775fa3165019ff486289bce61c07b8",
+      "size_bytes": 1296
+    },
+    {
+      "path": "composition-policy.json",
+      "scope": "evidence",
+      "sha256": "sha256:8376a55ba9d4416156fddd0166e08e5b9e768989923f1c3813e2ff01dcc2ee65",
+      "size_bytes": 1499
+    },
+    {
+      "path": "composition-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:2c534020fc33d03f7319dc437503a1bbc7839abc79fb5e5179b1be91c45e7e85",
+      "size_bytes": 2030
+    },
+    {
+      "path": "composition-value-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:36dd29713a259322ad582fa163ad1fd7b2ca63381c1b3f96ef2ff696d8e2288b",
+      "size_bytes": 1327
+    },
+    {
+      "path": "context-cost-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:72575df529a014e6895f1595469b256e4786f4ce10abc3e64160c67c380d97b8",
+      "size_bytes": 1111
+    },
+    {
+      "path": "coverage-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:da69f2d686b4cab246c12a1412bcc5c730fb8a0486c44edb5d38ee85ea928f3e",
+      "size_bytes": 835
+    },
+    {
+      "path": "design-director-eligibility.json",
+      "scope": "evidence",
+      "sha256": "sha256:d668b5736b884b31203801a1600e0934966661daab6f9a1549e551caa4b9c6e0",
+      "size_bytes": 900
+    },
+    {
+      "path": "eligibility-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:05f344d9a3a944fde4263e97584cf79abd0fd85b5d8a6491a8b95dd0d7f7f4ca",
+      "size_bytes": 959
+    },
+    {
+      "path": "fingerprint-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:da375af849b3dab3d61ec56f95fedcbd1e42b4d597e8be3d99fde852ddd4c028",
+      "size_bytes": 884
+    },
+    {
+      "path": "independent-engineering-review-reclosure-02.json",
+      "scope": "evidence",
+      "sha256": "sha256:6165e3c0db1fd24e23767ac5f9517ce4b3fe04d58c609df3d6e41dee995c0294",
+      "size_bytes": 4097
+    },
+    {
+      "path": "independent-engineering-review.json",
+      "scope": "evidence",
+      "sha256": "sha256:82a96f4389210f07b5b7dcc477456a6660f79c41a74a4e67179f975d7dcb9625",
+      "size_bytes": 3673
+    },
+    {
+      "path": "independent-review.md",
+      "scope": "evidence",
+      "sha256": "sha256:e7ce2a1f25f534c29cf7312b00e11dc2303a13c9f66fb195806028a99ec5d803",
+      "size_bytes": 1977
+    },
+    {
+      "path": "mypy-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:4a4ffe5e08f42ce3d539bb05974026da54b893cbb5e3b4cab295719d871c6cbc",
+      "size_bytes": 188
+    },
+    {
+      "path": "phase2-regression.md",
+      "scope": "evidence",
+      "sha256": "sha256:1cd1829da292ed57802d353ae5271967309611004088ba106e94a9f981d2da4c",
+      "size_bytes": 674
+    },
+    {
+      "path": "phase3-regression.md",
+      "scope": "evidence",
+      "sha256": "sha256:cb5ee32180a94507e59e4d0df038a49f33420ebb11b5bd98a6f95ef0e174d106",
+      "size_bytes": 812
+    },
+    {
+      "path": "phase4-regression.md",
+      "scope": "evidence",
+      "sha256": "sha256:27e868c5e18efc2f516eda6b948378381bd5340b5f338917cd248608bb405c37",
+      "size_bytes": 647
+    },
+    {
+      "path": "pilots/design-director/acceptance-criteria.json",
+      "scope": "evidence",
+      "sha256": "sha256:64a461cc7bd93c01b2ee285d369cbd9502ea467c17e723c20694018e1b9f89cd",
+      "size_bytes": 683
+    },
+    {
+      "path": "pilots/design-director/artifact-v1/console-errors.json",
+      "scope": "evidence",
+      "sha256": "sha256:37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "path": "pilots/design-director/artifact-v1/desktop-console.log",
+      "scope": "evidence",
+      "sha256": "sha256:8244bba88be0b62a7e4395f5ad8839ee394e16c040dcd709e31a5bdd12a704a7",
+      "size_bytes": 43
+    },
+    {
+      "path": "pilots/design-director/artifact-v1/desktop-metrics.json",
+      "scope": "evidence",
+      "sha256": "sha256:675e9c1a24205a25247797f0a299c9a93c5a2c3b73e5e9e02ab94d0c0bf28f7a",
+      "size_bytes": 814
+    },
+    {
+      "path": "pilots/design-director/artifact-v1/desktop-network.log",
+      "scope": "evidence",
+      "sha256": "sha256:1ca46ab44c3774f9c6bdeaa3f6ca7cc79701df146c6c6af64e175f3dcce5b67b",
+      "size_bytes": 75
+    },
+    {
+      "path": "pilots/design-director/artifact-v1/desktop-snapshot.md",
+      "scope": "evidence",
+      "sha256": "sha256:7df9d7154f3aa936346cd2361a2baa141fe5c6627b5587cb33fab2c1e6e476af",
+      "size_bytes": 1755
+    },
+    {
+      "path": "pilots/design-director/artifact-v1/desktop.png",
+      "scope": "evidence",
+      "sha256": "sha256:d38af3b287c78b4e9f754e8d902ac07eefdf2b47775d36d1d2a81ace8145ad11",
+      "size_bytes": 621875
+    },
+    {
+      "path": "pilots/design-director/artifact-v1/index.html",
+      "scope": "evidence",
+      "sha256": "sha256:28c25dc82baedfb856ea41ce6cde2c520909869c3e946de9d750d826e8ff7e85",
+      "size_bytes": 8177
+    },
+    {
+      "path": "pilots/design-director/artifact-v1/mobile-console.log",
+      "scope": "evidence",
+      "sha256": "sha256:8244bba88be0b62a7e4395f5ad8839ee394e16c040dcd709e31a5bdd12a704a7",
+      "size_bytes": 43
+    },
+    {
+      "path": "pilots/design-director/artifact-v1/mobile-metrics.json",
+      "scope": "evidence",
+      "sha256": "sha256:57cf6ee596b7ab3900ad6ecadf5e33f452c0d746e8f6f3b4fde20dd24ee8f067",
+      "size_bytes": 810
+    },
+    {
+      "path": "pilots/design-director/artifact-v1/mobile-network.log",
+      "scope": "evidence",
+      "sha256": "sha256:1ca46ab44c3774f9c6bdeaa3f6ca7cc79701df146c6c6af64e175f3dcce5b67b",
+      "size_bytes": 75
+    },
+    {
+      "path": "pilots/design-director/artifact-v1/mobile-snapshot.md",
+      "scope": "evidence",
+      "sha256": "sha256:7ef10de8bcb3e2bd04bb5ffabfdea1a8ff475e282731ab3cb138b22b16a11add",
+      "size_bytes": 1471
+    },
+    {
+      "path": "pilots/design-director/artifact-v1/mobile.png",
+      "scope": "evidence",
+      "sha256": "sha256:1a7d75a3913b60144ea5486d4122d020df47e686d57bf75ea633e7fa85d804c8",
+      "size_bytes": 229938
+    },
+    {
+      "path": "pilots/design-director/artifact-v1/network-failures.json",
+      "scope": "evidence",
+      "sha256": "sha256:37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "path": "pilots/design-director/artifact-v1/packet.json",
+      "scope": "evidence",
+      "sha256": "sha256:74a7948da46bc751110fb5e54d6f37a90ee6cf87fb9e1deeb25ee3f4da604bc6",
+      "size_bytes": 655
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/console-errors.json",
+      "scope": "evidence",
+      "sha256": "sha256:37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/desktop-console.log",
+      "scope": "evidence",
+      "sha256": "sha256:8244bba88be0b62a7e4395f5ad8839ee394e16c040dcd709e31a5bdd12a704a7",
+      "size_bytes": 43
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/desktop-metrics.json",
+      "scope": "evidence",
+      "sha256": "sha256:8b46c4576ec90554a6692e1e70d75ef7df6332bf53ef2f9ac51c7f9d7c13c47e",
+      "size_bytes": 862
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/desktop-network.log",
+      "scope": "evidence",
+      "sha256": "sha256:3ad6d3983ea1e83fa57509f50255dd49dc9d812f28f32741e0ab8c8ad1eff8a2",
+      "size_bytes": 75
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/desktop-snapshot.md",
+      "scope": "evidence",
+      "sha256": "sha256:6bd447134c7a4a0827d96da2e6770ece5d8cf4878871f1057a286e3b59679179",
+      "size_bytes": 1985
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/desktop.png",
+      "scope": "evidence",
+      "sha256": "sha256:d4513a1b228012e100d1f21e4c5e295a71273a4d075c8a5b58a92a6c008d7c04",
+      "size_bytes": 522986
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/index.html",
+      "scope": "evidence",
+      "sha256": "sha256:b85e7db1b2eb9e6c6f3adfa0a4dd39e0ee01bb955a73a7adec6936ec25483adb",
+      "size_bytes": 9161
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/intermediate-metrics.json",
+      "scope": "evidence",
+      "sha256": "sha256:f1f43ee0f803ef30cfed4e295bcbd7ed9313e70fdf21d971636fba6e60c418e0",
+      "size_bytes": 205
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/intermediate-snapshot.md",
+      "scope": "evidence",
+      "sha256": "sha256:dd1dfdc43935fcef1d417a83bcf7c997f8e56cd606e35e7b0f42b42cafafff69",
+      "size_bytes": 1839
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/intermediate.png",
+      "scope": "evidence",
+      "sha256": "sha256:bb1f67afbbaaf4fdb4ce7aa9e8e0e290eaa69631b90b09f158d6ebfaae98148d",
+      "size_bytes": 309851
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/keyboard-focus-metrics.json",
+      "scope": "evidence",
+      "sha256": "sha256:836a4f17692b78066e63545682f60965a202e02fdc9ea2d5b0448bc1f7db3cb8",
+      "size_bytes": 199
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/keyboard-focus-snapshot.md",
+      "scope": "evidence",
+      "sha256": "sha256:2e8545a17deb477944f870fbcde86f9a5df4a504d1d16109648488e2c79a9e5c",
+      "size_bytes": 1839
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/keyboard-focus.png",
+      "scope": "evidence",
+      "sha256": "sha256:d1a5df58e5c741ce78d493ce1ae33f4ef8f2cef4e9bcdd458e735a2a7ea9bc24",
+      "size_bytes": 309776
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/mobile-console.log",
+      "scope": "evidence",
+      "sha256": "sha256:8244bba88be0b62a7e4395f5ad8839ee394e16c040dcd709e31a5bdd12a704a7",
+      "size_bytes": 43
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/mobile-footer-metrics.json",
+      "scope": "evidence",
+      "sha256": "sha256:2186968764a559b6f81146a5ccf30a03376812c08b9b778c7f27b33d8794afcf",
+      "size_bytes": 129
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/mobile-footer-snapshot.md",
+      "scope": "evidence",
+      "sha256": "sha256:e3ab755ed2ce8f4e0b1d9d364ce09c258f97e2fa28b16a52e7ffa726d7079dbe",
+      "size_bytes": 1913
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/mobile-footer.png",
+      "scope": "evidence",
+      "sha256": "sha256:01f87b034d81868347eb4473b9ce59eac67c9ea2f807a4dd308a99d29f6703d9",
+      "size_bytes": 179636
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/mobile-metrics.json",
+      "scope": "evidence",
+      "sha256": "sha256:95f0cdf00c962b56987dc07df77d0c0953453f2081e8873a3b9beb16d4a07a9b",
+      "size_bytes": 859
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/mobile-network.log",
+      "scope": "evidence",
+      "sha256": "sha256:3ad6d3983ea1e83fa57509f50255dd49dc9d812f28f32741e0ab8c8ad1eff8a2",
+      "size_bytes": 75
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/mobile-snapshot.md",
+      "scope": "evidence",
+      "sha256": "sha256:6cfff9ec1e89c91cff0611ff0160ef65fe39660b15ca7a4a56674147ebaf666c",
+      "size_bytes": 1893
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/mobile.png",
+      "scope": "evidence",
+      "sha256": "sha256:c554ae0ab7552d53242775f9a3cdadbb1c398cad49f7e60abd1e820023712ba3",
+      "size_bytes": 179598
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/network-failures.json",
+      "scope": "evidence",
+      "sha256": "sha256:37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "size_bytes": 3
+    },
+    {
+      "path": "pilots/design-director/artifact-v2/packet.json",
+      "scope": "evidence",
+      "sha256": "sha256:3f36381d5c7748db395290889a935e360ed22af0aed42d7e9ff4f975fbbcc1af",
+      "size_bytes": 724
+    },
+    {
+      "path": "pilots/design-director/assurance.json",
+      "scope": "evidence",
+      "sha256": "sha256:44c3baac1e989199d96a4f624417207e277f85d3278565cfa2db9746efe882e2",
+      "size_bytes": 725
+    },
+    {
+      "path": "pilots/design-director/baseline/desktop-console.log",
+      "scope": "evidence",
+      "sha256": "sha256:8244bba88be0b62a7e4395f5ad8839ee394e16c040dcd709e31a5bdd12a704a7",
+      "size_bytes": 43
+    },
+    {
+      "path": "pilots/design-director/baseline/desktop-metrics.json",
+      "scope": "evidence",
+      "sha256": "sha256:6aa567a40aa6bfe9dfd912aa103ad62309d0872096d7f3b7f97e16bd444e0182",
+      "size_bytes": 263
+    },
+    {
+      "path": "pilots/design-director/baseline/desktop-network.log",
+      "scope": "evidence",
+      "sha256": "sha256:90ff87435fe9a37ba850f669dfc409d8872e3f1b3ebc0061c20596ee31314293",
+      "size_bytes": 70
+    },
+    {
+      "path": "pilots/design-director/baseline/desktop-snapshot.md",
+      "scope": "evidence",
+      "sha256": "sha256:ecdc593c8fa28fda6636338155a72d84c93379485fe2690d8b9b23cf19c7eb72",
+      "size_bytes": 688
+    },
+    {
+      "path": "pilots/design-director/baseline/desktop.png",
+      "scope": "evidence",
+      "sha256": "sha256:6e058487294bb437de0966bbf186ac83b7ddd6ef09c43a55553bab7636c9bef9",
+      "size_bytes": 39343
+    },
+    {
+      "path": "pilots/design-director/baseline/mobile-console.log",
+      "scope": "evidence",
+      "sha256": "sha256:8244bba88be0b62a7e4395f5ad8839ee394e16c040dcd709e31a5bdd12a704a7",
+      "size_bytes": 43
+    },
+    {
+      "path": "pilots/design-director/baseline/mobile-metrics.json",
+      "scope": "evidence",
+      "sha256": "sha256:f0357022eeefa3749c3e0d2168db966031cb3d73a59af8935639b90d156517a0",
+      "size_bytes": 260
+    },
+    {
+      "path": "pilots/design-director/baseline/mobile-network.log",
+      "scope": "evidence",
+      "sha256": "sha256:90ff87435fe9a37ba850f669dfc409d8872e3f1b3ebc0061c20596ee31314293",
+      "size_bytes": 70
+    },
+    {
+      "path": "pilots/design-director/baseline/mobile-snapshot.md",
+      "scope": "evidence",
+      "sha256": "sha256:7d1c768073786be54151655db36949d564801c5b11b477ed6dd0f401e8f5d7e3",
+      "size_bytes": 681
+    },
+    {
+      "path": "pilots/design-director/baseline/mobile.png",
+      "scope": "evidence",
+      "sha256": "sha256:56c4510615ead68ef32c70bd46f89d38cdf6a97813e303896d23a939c9c1d70f",
+      "size_bytes": 37308
+    },
+    {
+      "path": "pilots/design-director/blind-packet-v1.json",
+      "scope": "evidence",
+      "sha256": "sha256:c699733fde91ab372c28f669a0072e01ec057c3456377aade1d0c60ab7caf66e",
+      "size_bytes": 2673
+    },
+    {
+      "path": "pilots/design-director/blind-packet-v2.json",
+      "scope": "evidence",
+      "sha256": "sha256:a9b9c94ddd4173afb187f6c0d1b88cda38ab586f72b6a7e5862d0dc9c8207903",
+      "size_bytes": 2742
+    },
+    {
+      "path": "pilots/design-director/builder-authorization.json",
+      "scope": "evidence",
+      "sha256": "sha256:a93e197fe35518a8415048f81af78f7b627bd36e8c5cf6da741645b12975606d",
+      "size_bytes": 2106
+    },
+    {
+      "path": "pilots/design-director/builder-context-manifest.json",
+      "scope": "evidence",
+      "sha256": "sha256:7f1ec79017c6db50767d398df80d859e704fd02842228b7f3bc233b07a9c52d5",
+      "size_bytes": 2838
+    },
+    {
+      "path": "pilots/design-director/builder-invocation-receipt.json",
+      "scope": "evidence",
+      "sha256": "sha256:ed723d8cb86c6a3c5d580667b922211a8a39467f4b86e9b358febab2b3056ea8",
+      "size_bytes": 1453
+    },
+    {
+      "path": "pilots/design-director/builder-repair-authorization.json",
+      "scope": "evidence",
+      "sha256": "sha256:888ff0d37fdaf87dfa7a15d96623c361e45d914f2f3c69b6bb15e93b1785548a",
+      "size_bytes": 2106
+    },
+    {
+      "path": "pilots/design-director/builder-repair-context-manifest.json",
+      "scope": "evidence",
+      "sha256": "sha256:f42d5fb0fab057edacd4085e8c4f8d2898197c4c8331410baa0b378bad711b83",
+      "size_bytes": 2838
+    },
+    {
+      "path": "pilots/design-director/builder-repair-receipt.json",
+      "scope": "evidence",
+      "sha256": "sha256:d2899a658e9ed6608300a79c0018f057e6e04b7974eb5093914122e078037530",
+      "size_bytes": 1739
+    },
+    {
+      "path": "pilots/design-director/composition-receipt.json",
+      "scope": "evidence",
+      "sha256": "sha256:d8290b20a5cfd94b780cc7e4af53c03be52f9314500f3df71439e6f9ea35f056",
+      "size_bytes": 825
+    },
+    {
+      "path": "pilots/design-director/critique-v1.json",
+      "scope": "evidence",
+      "sha256": "sha256:1f71db3f7293e9ff2b50241f0923cc05db6d82d60ffa32fdb0fe9854f6134c3a",
+      "size_bytes": 2881
+    },
+    {
+      "path": "pilots/design-director/critique-v2.json",
+      "scope": "evidence",
+      "sha256": "sha256:26890c5f7f1bdf589e2e018c5b76979bf2003112b635fd6fc257ccbd966799e5",
+      "size_bytes": 4430
+    },
+    {
+      "path": "pilots/design-director/eligibility.json",
+      "scope": "evidence",
+      "sha256": "sha256:c1b4a0ecb306bea14b1eb51aa5411ebb3e4f211c68008005131a2253050ce036",
+      "size_bytes": 4749
+    },
+    {
+      "path": "pilots/design-director/final-summary.md",
+      "scope": "evidence",
+      "sha256": "sha256:e80613543ca3c7a10863abe50e93549a4da27acbe4209a516c9ffbc345c623db",
+      "size_bytes": 763
+    },
+    {
+      "path": "pilots/design-director/final-verification.json",
+      "scope": "evidence",
+      "sha256": "sha256:7a5e70979f0ac2cfff191e63e92bb80931b5c717a64180063809c66ffb05513a",
+      "size_bytes": 646
+    },
+    {
+      "path": "pilots/design-director/independent-critique-v1.json",
+      "scope": "evidence",
+      "sha256": "sha256:8eed715370a601bc839c26569138e4a90a6d012d943bdc06c559183c301c6341",
+      "size_bytes": 2737
+    },
+    {
+      "path": "pilots/design-director/independent-critique-v2.json",
+      "scope": "evidence",
+      "sha256": "sha256:6558d82f3fbfb8b5d076fdcf82d61d29022433a4b7948dbc1cc5789ac6f959f0",
+      "size_bytes": 4356
+    },
+    {
+      "path": "pilots/design-director/independent-visual-review-v2.json",
+      "scope": "evidence",
+      "sha256": "sha256:05c63587075af391798eb8766941b04bbe9f7aaef20dfb8c3279b66457e9b03e",
+      "size_bytes": 4776
+    },
+    {
+      "path": "pilots/design-director/repair-plan.json",
+      "scope": "evidence",
+      "sha256": "sha256:458a383ac3b7ae7e54bb2ced4712dbcd4b4ba7ca5df88370be2f15fd50b30e7a",
+      "size_bytes": 367
+    },
+    {
+      "path": "pilots/design-director/repair-route-decision.json",
+      "scope": "evidence",
+      "sha256": "sha256:c826aac768431429ffe3f86bba84908459dcaa52172f6ae6be107201cf603191",
+      "size_bytes": 7401
+    },
+    {
+      "path": "pilots/design-director/review-request-v1.json",
+      "scope": "evidence",
+      "sha256": "sha256:aeb6258858868340d31d14afc7c50317ee96223f76515bd45ddcd8b45259d545",
+      "size_bytes": 1900
+    },
+    {
+      "path": "pilots/design-director/review-request-v2.json",
+      "scope": "evidence",
+      "sha256": "sha256:223ddcd7cec47af170ba683fad27594963b885a3f470f56de55201269f72b96a",
+      "size_bytes": 1900
+    },
+    {
+      "path": "pilots/design-director/route-decision.json",
+      "scope": "evidence",
+      "sha256": "sha256:368bb88b3500a93b87c74378a289a363b411ff90d0dc1aa519f1d95c59e44f6b",
+      "size_bytes": 7401
+    },
+    {
+      "path": "pilots/design-director/task.json",
+      "scope": "evidence",
+      "sha256": "sha256:7f022a814c9cb91812fc6674a6f7d168ff7ae8b0dafa332d9ec2401bd19a273b",
+      "size_bytes": 3288
+    },
+    {
+      "path": "pilots/design-director/verification-v1.json",
+      "scope": "evidence",
+      "sha256": "sha256:094784366eeb0ce837957d1d3463b3dc72a2cf5f8e65f13656653d0e80eeeb59",
+      "size_bytes": 640
+    },
+    {
+      "path": "pilots/design-director/verification-v2.json",
+      "scope": "evidence",
+      "sha256": "sha256:48f4284b6effcaddb449f461f8b4925e0dd24cdc4623572503b5f7faf98b8090",
+      "size_bytes": 640
+    },
+    {
+      "path": "policy-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:38930ecc52afefb0200f2e9dc5f5afa3b2ae022755cb1dc615d3f70d642c3a28",
+      "size_bytes": 900
+    },
+    {
+      "path": "routing-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:d58a18ef0500b1ec7795822b284388a3816d554e1fcd948e23e91f1b038bca73",
+      "size_bytes": 1505
+    },
+    {
+      "path": "ruff-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:76afa84be3581a7c43943fe9c9257793814044328dab770bcfe691f92b049c87",
+      "size_bytes": 224
+    },
+    {
+      "path": "security-summary.md",
+      "scope": "evidence",
+      "sha256": "sha256:4466ff1a2fa5a2beb999a743d5e6108686fb5c3b76251d7ea4759b306fa6820c",
+      "size_bytes": 1377
+    },
+    {
+      "path": "telemetry-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:29e3da0c9e9acceaec3d078a2855675067f59b3e0edabf6a11214f8a66f9eb8b",
+      "size_bytes": 1002
+    },
+    {
+      "path": "test-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:c8b5bd9a9427a5e4a258b534a566427c4759e756fbea33a0a5f56773552a0bf3",
+      "size_bytes": 497
+    },
+    {
+      "path": "verifier-eligibility.json",
+      "scope": "evidence",
+      "sha256": "sha256:8d08585cf84e29cb48079bd3a183d64e380cbcfa7764500a2a53fa9f8f2678ae",
+      "size_bytes": 825
+    },
+    {
+      "path": "visual-quality-report.md",
+      "scope": "evidence",
+      "sha256": "sha256:bf855f19b48f2a91fec4ab4538f3beb5632968c5b82436ec094b6ab633ee2e95",
+      "size_bytes": 2482
+    },
+    {
+      "path": "README.md",
+      "scope": "repository",
+      "sha256": "sha256:01b11756d76fb8c733091c9aa514662815ee38e4ae1b4b7f5ac272be1de5f91c",
+      "size_bytes": 1920
+    },
+    {
+      "path": "architecture/docs/README.md",
+      "scope": "repository",
+      "sha256": "sha256:e17865b79a5ecb329d537a617ba65e0c2baf01ef1416400b2f9b5da9c02c1a3e",
+      "size_bytes": 11035
+    },
+    {
+      "path": "architecture/docs/adr/ADR-014-phase-5-design-director-composition-pilot.md",
+      "scope": "repository",
+      "sha256": "sha256:872032a8acb12a4992d5e173d5784be8734569ba00867fc195f0bbbb9ddbd333",
+      "size_bytes": 5945
+    },
+    {
+      "path": "projects/codex-harness/.agent/gates/PHASE5-SCOPE-READY-0001.json",
+      "scope": "repository",
+      "sha256": "sha256:055a437269b254a7a46f7e817b8f4f042fbfb7ff420ae7444ef11bd9844b82d0",
+      "size_bytes": 4628
+    },
+    {
+      "path": "projects/codex-harness/.agent/plans/PHASE-5-design-director-composition.md",
+      "scope": "repository",
+      "sha256": "sha256:c31c07548aa5607092544221517f991dbb13e1bcaed9080554610df3bbe4900b",
+      "size_bytes": 4718
+    },
+    {
+      "path": "projects/codex-harness/README.md",
+      "scope": "repository",
+      "sha256": "sha256:284886e4a987bd2cecef315ef4ef281e2588abbc09f09da99e026e698b6e404c",
+      "size_bytes": 3287
+    },
+    {
+      "path": "projects/codex-harness/config/phase5-composition-policy.json",
+      "scope": "repository",
+      "sha256": "sha256:74f3f4e5913c50c9dc9b32886db7c0fccd92ede39e96c87be72c749f205626e3",
+      "size_bytes": 1852
+    },
+    {
+      "path": "projects/codex-harness/docs/implementation/phase-5-quality-bar.md",
+      "scope": "repository",
+      "sha256": "sha256:1d7de732a3ac451fdc330abe76e5a4233ffdde59fdf41fdc971d933351197b06",
+      "size_bytes": 4584
+    },
+    {
+      "path": "projects/codex-harness/pyproject.toml",
+      "scope": "repository",
+      "sha256": "sha256:dc97c20930431b2047a26052f4e34caa62a20ad4a3d4c32a1f083c2df4c71755",
+      "size_bytes": 1133
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase5_artifacts.py",
+      "scope": "repository",
+      "sha256": "sha256:c6bb50674ac86e1ffb9d40468ebc89a587497a41c93afe2529ad7a1ba1a0b6b0",
+      "size_bytes": 7961
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase5_benchmarks.py",
+      "scope": "repository",
+      "sha256": "sha256:7e0b201b6620d74447451733364bdf5910988f9950fa8c65073ae9f2ef436311",
+      "size_bytes": 5572
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase5_cli.py",
+      "scope": "repository",
+      "sha256": "sha256:240d0dc80313744721061e420b223b9cb041dc9262ac5a4b5c474100aa6f1f2b",
+      "size_bytes": 34658
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase5_execution.py",
+      "scope": "repository",
+      "sha256": "sha256:3808ee73ce0cf249eb5bae91d2fd024ff9cdd1e00a316a7da5ec52fe86e3ca4c",
+      "size_bytes": 20862
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase5_finalization.py",
+      "scope": "repository",
+      "sha256": "sha256:e4893a9f79f31de70f05a9d057c890ed7ba4ddb7586ff8e35d24736a2f5eb700",
+      "size_bytes": 23536
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase5_models.py",
+      "scope": "repository",
+      "sha256": "sha256:1e78d58a9ceaef19c1016d5d1875b4b4c11bbb5889510a6eda271aa1b06d1db4",
+      "size_bytes": 30229
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase5_paths.py",
+      "scope": "repository",
+      "sha256": "sha256:86a4d386da69ac1cd5f464265fa52c904e895df3a3d116a1f851d4f88071d957",
+      "size_bytes": 2416
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase5_pilot.py",
+      "scope": "repository",
+      "sha256": "sha256:293bf932c1ff4b31a01d121a2f1c2bc03d2ec7f11690146fc5888180a45dcf1c",
+      "size_bytes": 10432
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase5_policy.py",
+      "scope": "repository",
+      "sha256": "sha256:f0ac6fd08b51e8a362c05c239b6561fd62cb37ec6e6fc4042d47453ac651df70",
+      "size_bytes": 21542
+    },
+    {
+      "path": "projects/codex-harness/src/harness_kernel/phase5_verification.py",
+      "scope": "repository",
+      "sha256": "sha256:d5f750563d064dc0da4d790b55a25961b76f807183d38e94b9299713cf2607fc",
+      "size_bytes": 24898
+    },
+    {
+      "path": "projects/codex-harness/tests/evals/phase5/test_phase5_negative.py",
+      "scope": "repository",
+      "sha256": "sha256:42e4df356e4c896f23db6f361274f2303e9c3a22483defb6a1efdbddc59ae213",
+      "size_bytes": 2296
+    },
+    {
+      "path": "projects/codex-harness/tests/fixtures/phase5/design-pilot/baseline/index.html",
+      "scope": "repository",
+      "sha256": "sha256:f7f42c106873e7318529929c3ad82c21b2f6495cc470a632d858ccb9b6bd5c3d",
+      "size_bytes": 849
+    },
+    {
+      "path": "projects/codex-harness/tests/fixtures/phase5/design-pilot/task.json",
+      "scope": "repository",
+      "sha256": "sha256:09742bd9c3bb6ab16b0cf3f0cc6a882adc4204545810a32cb74f778d5c1c5082",
+      "size_bytes": 2904
+    },
+    {
+      "path": "projects/codex-harness/tests/fixtures/phase5/design-pilot/workspace/README.md",
+      "scope": "repository",
+      "sha256": "sha256:332c5cf25da7c146641cca3112657ca12f4a0e37b621872985558902eedbeb39",
+      "size_bytes": 251
+    },
+    {
+      "path": "projects/codex-harness/tests/fixtures/phase5/design-pilot/workspace/artifacts/README.md",
+      "scope": "repository",
+      "sha256": "sha256:5b53fc4881dc964f6aa5e1fba507f530eccc405aed349568f20d3bf3882edd3f",
+      "size_bytes": 168
+    },
+    {
+      "path": "projects/codex-harness/tests/fixtures/phase5/design-pilot/workspace/artifacts/artifact_v1/index.html",
+      "scope": "repository",
+      "sha256": "sha256:28c25dc82baedfb856ea41ce6cde2c520909869c3e946de9d750d826e8ff7e85",
+      "size_bytes": 8177
+    },
+    {
+      "path": "projects/codex-harness/tests/fixtures/phase5/design-pilot/workspace/artifacts/artifact_v2/index.html",
+      "scope": "repository",
+      "sha256": "sha256:b85e7db1b2eb9e6c6f3adfa0a4dd39e0ee01bb955a73a7adec6936ec25483adb",
+      "size_bytes": 9161
+    },
+    {
+      "path": "projects/codex-harness/tests/integration/test_phase5_cli.py",
+      "scope": "repository",
+      "sha256": "sha256:bf0aaa232f02f0d8b682c24275d297c8be1d239141cc3e5fc6d40c18da47f07d",
+      "size_bytes": 2901
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/phase5_support.py",
+      "scope": "repository",
+      "sha256": "sha256:206d454e467a23ae43f5729de1b7cef96eea3065a76a95edabbee696316b2d6c",
+      "size_bytes": 5506
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase5_artifacts.py",
+      "scope": "repository",
+      "sha256": "sha256:f9f06c4c7d2331281ad0ed75b83bbd5a0e57d77db90dead940c4f0326160c426",
+      "size_bytes": 2137
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase5_benchmarks.py",
+      "scope": "repository",
+      "sha256": "sha256:c418054ca32d889c6b2cfe321db4754c0d1cf7693572a9b7c5a75f7b715eabc3",
+      "size_bytes": 1442
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase5_cli_runtime.py",
+      "scope": "repository",
+      "sha256": "sha256:8659240a133cc47d8940493a8168db3c8253076a6093e358718cbf3957c9d956",
+      "size_bytes": 10338
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase5_execution.py",
+      "scope": "repository",
+      "sha256": "sha256:fd8a466f4363fa317334cc838f52cfef47028a62f6629bb5247fdde1d0db45ba",
+      "size_bytes": 6833
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase5_finalization.py",
+      "scope": "repository",
+      "sha256": "sha256:326077b50943768e38941dc19e822df25ce745ea7ff6d602540b449bdb5e3e0b",
+      "size_bytes": 14410
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase5_hardening.py",
+      "scope": "repository",
+      "sha256": "sha256:c282a3015e07127d7950eac14e5b144e34ff55e5c201b3757ba68bdd28b71340",
+      "size_bytes": 13117
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase5_models.py",
+      "scope": "repository",
+      "sha256": "sha256:8200d476213478297825f28e15a33676283999e8e4e3bb7e64c76870f25ef788",
+      "size_bytes": 4291
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase5_policy.py",
+      "scope": "repository",
+      "sha256": "sha256:3967859b240bd222f111dd9436438f207d79f61314a463ca5cf812f4a08e9359",
+      "size_bytes": 6215
+    },
+    {
+      "path": "projects/codex-harness/tests/unit/test_phase5_verification.py",
+      "scope": "repository",
+      "sha256": "sha256:c546311fbe61ecd2e37286a2ff6d97c20e66948deaf95410738ddc5795e9e285",
+      "size_bytes": 3948
+    }
+  ],
+  "entry_count": 139,
+  "final_packet": {
+    "artifact_digest": "sha256:b85e7db1b2eb9e6c6f3adfa0a4dd39e0ee01bb955a73a7adec6936ec25483adb",
+    "packet_digest": "sha256:787dbe50ee40db153a2c6b975b77493974096119044dab9dd7cdfe4b8086566b",
+    "run_id": "RUN-P5-DESIGN-001",
+    "task_id": "TASK-P5-DESIGN-001"
+  },
+  "payload_closure": "sha256:0bc4aa985a55adbfbb5acc95f8c94a70d03f3ebaf8d867707cc47fa2bc36cb2a",
+  "phase": "PHASE5-001",
+  "schema_version": "P5-REVIEW-MANIFEST-1",
+  "scope": "bounded design-director composition pilot"
+}

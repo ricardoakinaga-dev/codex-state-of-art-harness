@@ -1,0 +1,83 @@
+{
+  "schema_version": "P5-TASK-1",
+  "artifact_root": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase5/design-pilot/workspace/artifacts",
+  "brief": {
+    "accessibility_intent": "Use semantic landmarks, one clear h1, visible keyboard focus, readable contrast, a viewport declaration, and comfortable touch targets.",
+    "asset_role": "A geometric orbital clinical mark should carry the visual identity as an original code-native asset rather than a placeholder photo.",
+    "audience": "Pet owners making a high-stakes urgent-care decision at night.",
+    "exact_copy": {
+      "cta": "Call the emergency team",
+      "eyebrow": "24/7 emergency veterinary care",
+      "heading": "When every minute matters, stay close to care.",
+      "support": "Northline Veterinary Emergency Center pairs calm triage with advanced overnight care."
+    },
+    "job": "Orient quickly, communicate clinical confidence, and make the emergency call obvious.",
+    "medium": "A response-derived standalone HTML/CSS/SVG artifact.",
+    "must_avoid": [
+      "generic SaaS template geometry",
+      "invented testimonials or unsupported claims",
+      "placeholder imagery or lorem ipsum",
+      "remote assets, scripts, and third-party fonts"
+    ],
+    "must_include": [
+      "semantic header, main, and footer landmarks",
+      "an original code-native orbital clinical mark",
+      "an intentional desktop-to-mobile reflow",
+      "a strong typographic hierarchy and obvious emergency CTA"
+    ],
+    "outcome": "A premium emergency landing hero that helps a pet owner orient quickly and call for care.",
+    "primary_action": "Call the emergency team",
+    "responsive_intent": "Use a composed two-column desktop hero that becomes an intentional, spacious stacked mobile composition without clipping or horizontal overflow.",
+    "thesis": "Quiet clinical confidence with a warm, nocturnal observatory signal."
+  },
+  "created_at": 1756500000,
+  "criteria": {
+    "dimensions": [
+      "ART_DIRECTION",
+      "VISUAL_HIERARCHY",
+      "TYPOGRAPHY",
+      "COMPOSITION",
+      "SPACING",
+      "COLOR_SYSTEM",
+      "ASSET_QUALITY",
+      "PRODUCT_SPECIFICITY",
+      "RESPONSIVENESS",
+      "ACCESSIBILITY",
+      "POLISH",
+      "GENERIC_AI_SLOP_AVOIDANCE"
+    ],
+    "forbidden_signals": [
+      "lorem ipsum",
+      "placeholder",
+      "http://",
+      "https://",
+      "<script",
+      "javascript:"
+    ],
+    "max_artifact_bytes": 131072,
+    "render_viewports": [
+      [
+        1440,
+        900
+      ],
+      [
+        390,
+        844
+      ]
+    ],
+    "required_copy": [
+      "Northline",
+      "Call the emergency team"
+    ],
+    "required_sections": [
+      "header",
+      "main",
+      "footer"
+    ]
+  },
+  "request": "Create a premium single-page hero for fictional Northline Veterinary Emergency Center, a high-end veterinary emergency clinic. Make the visual direction distinctive, calm under pressure, and immediately actionable on desktop and mobile.",
+  "run_id": "RUN-P5-DESIGN-001",
+  "task_id": "TASK-P5-DESIGN-001",
+  "title": "Northline emergency veterinary hero",
+  "workspace": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/tests/fixtures/phase5/design-pilot/workspace"
+}

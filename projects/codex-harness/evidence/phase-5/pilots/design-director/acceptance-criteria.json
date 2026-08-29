@@ -1,0 +1,44 @@
+{
+  "dimensions": [
+    "ART_DIRECTION",
+    "VISUAL_HIERARCHY",
+    "TYPOGRAPHY",
+    "COMPOSITION",
+    "SPACING",
+    "COLOR_SYSTEM",
+    "ASSET_QUALITY",
+    "PRODUCT_SPECIFICITY",
+    "RESPONSIVENESS",
+    "ACCESSIBILITY",
+    "POLISH",
+    "GENERIC_AI_SLOP_AVOIDANCE"
+  ],
+  "forbidden_signals": [
+    "lorem ipsum",
+    "placeholder",
+    "http://",
+    "https://",
+    "<script",
+    "javascript:"
+  ],
+  "max_artifact_bytes": 131072,
+  "render_viewports": [
+    [
+      1440,
+      900
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "required_copy": [
+    "Northline",
+    "Call the emergency team"
+  ],
+  "required_sections": [
+    "header",
+    "main",
+    "footer"
+  ]
+}

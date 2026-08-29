@@ -1,0 +1,81 @@
+{
+  "review_id": "IR-P5-DESIGN-001-20260829-CLOSEOUT-01",
+  "independence": "INDEPENDENT",
+  "packet_digest": "sha256:787dbe50ee40db153a2c6b975b77493974096119044dab9dd7cdfe4b8086566b",
+  "artifact_digest": "sha256:b85e7db1b2eb9e6c6f3adfa0a4dd39e0ee01bb955a73a7adec6936ec25483adb",
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "support_level": "A",
+  "critical_count": 0,
+  "high_count": 0,
+  "medium_count": 3,
+  "low_count": 2,
+  "findings": [
+    {
+      "id": "F-001",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "evidence": "critique-v2.json:F-001; independent-critique-v2.json:F-001",
+      "required_action": "Recompose the 390px lower hero so the orbital mark and Northline signal note are fully readable or explicitly below fold, then recapture."
+    },
+    {
+      "id": "F-002",
+      "severity": "LOW",
+      "status": "OPEN",
+      "evidence": "critique-v2.json:F-002; independent-critique-v2.json:F-002",
+      "required_action": "Give the mobile triage reassurance explicit block-level alignment and spacing beneath the CTA."
+    },
+    {
+      "id": "F-003",
+      "severity": "MEDIUM",
+      "status": "NOT_RUN",
+      "evidence": "critique-v2.json:F-003; independent-critique-v2.json:F-003",
+      "required_action": "Capture and inspect a native intermediate render near 768px."
+    },
+    {
+      "id": "F-004",
+      "severity": "MEDIUM",
+      "status": "NOT_RUN",
+      "evidence": "critique-v2.json:F-004; independent-visual-review-v2.json:A11Y-FOCUS-001",
+      "required_action": "Verify CTA focus, complete keyboard traversal, tap/telephone behavior, contrast, zoom/reflow, and accessibility interaction states."
+    },
+    {
+      "id": "MOBILE-FOOTER-001",
+      "severity": "LOW",
+      "status": "OPEN",
+      "evidence": "independent-visual-review-v2.json:MOBILE-FOOTER-001",
+      "required_action": "Increase mobile footer typography and recapture scroll-end evidence showing comfortable legibility."
+    },
+    {
+      "id": "TYPE-UTILITY-001",
+      "severity": "POLISH",
+      "status": "OPEN",
+      "evidence": "independent-visual-review-v2.json:TYPE-UTILITY-001",
+      "required_action": "Optionally replace generic utility typography with a more deliberate supporting type treatment."
+    }
+  ],
+  "controls_checked": [
+    "Exact design-director capability, version, package fingerprint, manifest fingerprint, task, context, authorization, and receipt binding",
+    "Fixed graph, finite budgets, and one-shot repair lineage",
+    "Exact blind-critic independence and safety flags",
+    "Repair correction binding, artifact_v1 parent binding, and stale v1 handling",
+    "Path confinement, symlink rejection, response-only resource restrictions, and browser provenance",
+    "Canonical packet, artifact, verification, assurance, and composition digest recomputation",
+    "55 scoped Phase 5 tests/evals passed",
+    "Support A accepted without requiring the ineligible verification-loop capability"
+  ],
+  "limitations": [
+    "External verification-loop remains ineligible.",
+    "Host load remains unobservable.",
+    "Render binaries, browser metric files, and supplemental visual evidence were outside the authorized inspection list and were not independently rehashed.",
+    "Intermediate responsive behavior and complete interactive accessibility remain unverified."
+  ],
+  "excluded_claims": [
+    "AAA or HARNESS_AAA_VERIFIED",
+    "Unconditional PASS",
+    "Production readiness",
+    "Complete interactive accessibility certification",
+    "Pixel-perfect or reference-fidelity compliance",
+    "Claim that the entire mobile page fits within one 390x844 viewport",
+    "Causal superiority over the baseline"
+  ]
+}

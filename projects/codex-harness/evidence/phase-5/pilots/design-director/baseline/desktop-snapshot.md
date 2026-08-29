@@ -1,0 +1,9 @@
+- generic [active] [ref=f9e1] [box=0,0,1440,490]:
+  - banner [ref=f9e2] [box=48,48,1344,18]: Northline Veterinary Emergency Center
+  - main [ref=f9e3] [box=360,156,720,178]:
+    - paragraph [ref=f9e4] [box=360,156,720,18]: 24/7 emergency veterinary care
+    - heading "When every minute matters, stay close to care." [level=1] [ref=f9e5] [box=360,195,720,37]
+    - paragraph [ref=f9e6] [box=360,254,720,18]: Northline Veterinary Emergency Center pairs calm triage with advanced overnight care.
+    - link "Call the emergency team" [ref=f9e7] [cursor=pointer] [box=360,288,214,46]:
+      - /url: tel:+15550109111
+  - contentinfo [ref=f9e8] [box=48,424,1344,18]: 24-hour emergency reception

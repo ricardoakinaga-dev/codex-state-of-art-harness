@@ -1,0 +1,17 @@
+{
+  "artifact_digest": "sha256:b85e7db1b2eb9e6c6f3adfa0a4dd39e0ee01bb955a73a7adec6936ec25483adb",
+  "blockers": [],
+  "created_at": 1788041876,
+  "critique_digest": "sha256:787dbe50ee40db153a2c6b975b77493974096119044dab9dd7cdfe4b8086566b",
+  "digest": "sha256:df4b6d06cfc5d5c445bc02c1fe0f441aa99116c2d757464ea46a6d20c0b2bf02",
+  "limitations": [
+    "EXTERNAL_VERIFIER_NOT_ELIGIBLE",
+    "HOST_LOAD_UNOBSERVABLE",
+    "REPAIR_APPLIED"
+  ],
+  "reason": "Native browser-boundary verification and a blind visual critique completed",
+  "run_id": "RUN-P5-DESIGN-001",
+  "status": "PASS_WITH_LIMITATIONS",
+  "support_level": "A",
+  "verification_digest": "sha256:fb725968b77d4c657109b1d45288d9f1566280c3c6e1dde9e666f68197df9b94"
+}

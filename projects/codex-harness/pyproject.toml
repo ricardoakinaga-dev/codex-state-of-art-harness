@@ -9,6 +9,7 @@ dependencies = []
 harness-kernel = "harness_kernel.cli:main"
 harness = "harness_kernel.phase3_cli:main"
 harness-phase4 = "harness_kernel.phase4_cli:main"
+harness-phase5 = "harness_kernel.phase5_cli:main"
 
 [project.optional-dependencies]
 dev = [

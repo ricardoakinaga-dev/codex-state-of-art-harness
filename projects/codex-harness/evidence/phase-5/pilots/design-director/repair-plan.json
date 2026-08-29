@@ -1,0 +1,9 @@
+{
+  "budget_remaining": 0,
+  "correction": "Recompose the 390px header to avoid three-line status crowding.",
+  "owner": "OPTIONAL_REPAIR",
+  "reason": "The blind visual critique reported a material open finding; one repair was authorized",
+  "source_artifact_version": "artifact_v1",
+  "status": "PASS_WITH_LIMITATIONS",
+  "target_artifact_version": "artifact_v2"
+}
