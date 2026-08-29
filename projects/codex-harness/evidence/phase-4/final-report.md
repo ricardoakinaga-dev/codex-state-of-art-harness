@@ -18,7 +18,7 @@ The host turn and execution were observed, but Skill-load causality remains unob
 
 ## Evidence
 
-Primary manifest: `review-manifest.json` (`sha256:5b3d489e728a57a3eda55fdfa93899e14a6177553e48dab6d46709730b122f12`). The full post-review packet is covered by `review-closure.json`; the attestation is `review-attestation.json`.
+Primary manifest: `review-manifest.json` (`sha256:a1c67b10d2b1990c9b45622f67f796e738959d309b4bc7cee7c88b4d9a6741ee`). The full post-review packet is covered by `review-closure.json`; the attestation is `review-attestation.json`.
 
 ## Deferred work
 

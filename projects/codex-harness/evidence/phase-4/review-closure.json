@@ -1,10 +1,10 @@
 {
-  "closure": "sha256:5726e750395f2362613fa6b4b5f65e58eee0a9ba3338862b5d8b4599d90d3989",
+  "closure": "sha256:fefe5c5b91295b6cadc3e974f23a2c0c6a9816dd491be53b011935718ab1db08",
   "entries": [
     {
       "path": "PHASE4-FROZEN.md",
       "scope": "evidence",
-      "sha256": "sha256:d8053dbe584c49e1b7f4021f18f6830b58e094dd8a6fbdc5aa60b5452be5f614",
+      "sha256": "sha256:6d1cc360537337eaf8eafc28b62bd6091ca46649d3d7403b0516d436878df826",
       "size_bytes": 886
     },
     {
@@ -70,7 +70,7 @@
     {
       "path": "final-report.md",
       "scope": "evidence",
-      "sha256": "sha256:b59241dc94cf8fd1047580f07f882a69b31d89dc060d8e2dd2b7c22eeaf3cb43",
+      "sha256": "sha256:dfcd5b94ac16355f2b10bc104261e116350b218eea6d57e878e41122d6d1b4c5",
       "size_bytes": 1237
     },
     {
@@ -106,8 +106,8 @@
     {
       "path": "independent-review.md",
       "scope": "evidence",
-      "sha256": "sha256:b02b2449f80c28175030c1cc4c09722a02b68532affda6eca5e06c2177196ca4",
-      "size_bytes": 1492
+      "sha256": "sha256:e572d3899337b3ca654b6751b448072e7e228695e298a96b0e773bc638995825",
+      "size_bytes": 622
     },
     {
       "path": "invocation-receipts/INV-84f7b47ea606539e92305782.json",
@@ -154,7 +154,7 @@
     {
       "path": "readiness.json",
       "scope": "evidence",
-      "sha256": "sha256:c0f2e7e0e8542224b8976a76a62d79ae64caa3ec970fc38230a79cfdd66b3d99",
+      "sha256": "sha256:7cee61a7f6c41b1904f7b55983fef23c42a825d5c6d6a98cf594a712f50fd51e",
       "size_bytes": 1671
     },
     {
@@ -166,13 +166,13 @@
     {
       "path": "review-attestation.json",
       "scope": "evidence",
-      "sha256": "sha256:53a298fd6acb7e725f78689134414fe0fb450d531b254d8de25a48a423a954bb",
-      "size_bytes": 488
+      "sha256": "sha256:1badd2ca6e980630575cd24b8d625e2583adf3f0f7f899e4dae61761e75b15f0",
+      "size_bytes": 485
     },
     {
       "path": "review-manifest.json",
       "scope": "evidence",
-      "sha256": "sha256:24e6c2596ae8cf3a78119f167acfa9e79aef3d9f62bafe5c9bd791280b49c8f8",
+      "sha256": "sha256:3ede1fac5a96255b47006319629bc28e852da330be0d5f53dfb19cbc81574aa4",
       "size_bytes": 71019
     },
     {
@@ -250,8 +250,8 @@
     {
       "path": "projects/codex-harness/.agent/plans/PHASE-4-real-capability-invocation.md",
       "scope": "repository",
-      "sha256": "sha256:4b212d7bae541ec29d1b34fb060b3884d37fc6b1cdf5c5faa5c74037e8770635",
-      "size_bytes": 10545
+      "sha256": "sha256:95f1a9a8a8254189cb5d2eef307ee2625c5a37ac67cb1ed234ebb3f884e95d24",
+      "size_bytes": 10544
     },
     {
       "path": "projects/codex-harness/config/phase4-execution-policy.json",
@@ -262,8 +262,8 @@
     {
       "path": "projects/codex-harness/docs/implementation/phase-4-quality-bar.md",
       "scope": "repository",
-      "sha256": "sha256:b6c4782c3fa77139ee64095d9bac24d4f50e8c70b03b038277f24bbd232946e7",
-      "size_bytes": 3002
+      "sha256": "sha256:6f60ffb82d40bd699fe75de142c636c96363dd457f4dce416b6b5c0a9dccafd7",
+      "size_bytes": 3001
     },
     {
       "path": "projects/codex-harness/docs/implementation/phase-4-real-capability-invocation-report.md",
@@ -1624,8 +1624,8 @@
     {
       "path": "projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.agents/skills/phase4-safe-pilot/SKILL.md",
       "scope": "repository",
-      "sha256": "sha256:c8378b0203eac3cbc620d05c1252d297552019419f6838f31b06eac44c731030",
-      "size_bytes": 526
+      "sha256": "sha256:b9e28f7d88c9d15fb3ee311170b93beb3062cbc26395bd998f6376f3e560ab23",
+      "size_bytes": 525
     },
     {
       "path": "projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4/invocation-ledger.json",
@@ -1636,8 +1636,8 @@
     {
       "path": "projects/codex-harness/tests/fixtures/phase4/pilot-design-project/README.md",
       "scope": "repository",
-      "sha256": "sha256:c9953dcbab605123a39f6be598ac8f23ff9db40116c4e794bf38acf846a53a19",
-      "size_bytes": 524
+      "sha256": "sha256:9127d3b5a429d35cc4d4d73e68c6d31c907d4bbc9234ea8eb65a4d210c571514",
+      "size_bytes": 523
     },
     {
       "path": "projects/codex-harness/tests/integration/test_phase4_cli.py",

@@ -14,14 +14,14 @@
   "active_execplan": ".agent/plans/PHASE-4-real-capability-invocation.md",
   "active_task": "PHASE4-001",
   "verification_state": "VERIFIED",
-  "repository_state": "GIT main at c21de8479a7c614ea38fb0fbd102998dc706c412 with the Phase 2/3 freezes preserved; the bounded Phase 4 source, tests, policy, ADR, controlled-real pilot, quality packet and exact independent review are closed locally as PASS_WITH_LIMITATIONS. The worktree remains intentionally uncommitted.",
+  "repository_state": "GIT main at 8592ba78ea688374fddf998dc11ff23072b4a4b3 with the Phase 2/3 freezes preserved; the bounded Phase 4 packet was re-manifested after repository-byte normalization, independently re-reviewed and closed as PASS_WITH_LIMITATIONS. The controlled-real pilot and exact evidence chain remain unchanged.",
   "instruction_scope_refs": ["README.md", ".agent/plans/PHASE-4-real-capability-invocation.md", "docs/implementation/phase-4-quality-bar.md", "docs/implementation/phase-4-real-capability-invocation-report.md", "architecture/docs/adr/ADR-013-phase-4-real-capability-invocation-boundary.md", "evidence/phase-4/README.md", "evidence/phase-3/PHASE3-FROZEN.md", "evidence/phase-3/review-manifest.json", "evidence/phase-3/review-attestation.json", "evidence/phase-2/PHASE2-FROZEN.md", ".agent/gates/PHASE2-VERIFIED-0001.json", ".agent/gates/PHASE3-VERIFIED-0004.json"],
   "last_gate_record": ".agent/gates/PHASE3-VERIFIED-0004.json",
-  "last_event_id": "EVT-PHASE4-COMPLETE-0001",
-  "state_revision": 45,
+  "last_event_id": "EVT-PHASE4-COMPLETE-0002",
+  "state_revision": 47,
   "next_gate": "PHASE5-SCOPE-REQUIRED",
   "next_action": "Keep evidence/phase-4/ frozen at PASS_WITH_LIMITATIONS; any broader host, Skill, tool, provider, MCP, Director, distributed or production scope requires a new phase, policy, evidence packet and independent review.",
   "blocked_by": [],
   "human_approval_required": [],
-  "updated_at": "2026-08-29T13:12:00-03:00"
+  "updated_at": "2026-08-29T13:29:00-03:00"
 }

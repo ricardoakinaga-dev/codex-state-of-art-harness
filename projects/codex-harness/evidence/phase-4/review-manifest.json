@@ -213,8 +213,8 @@
     {
       "path": "projects/codex-harness/.agent/plans/PHASE-4-real-capability-invocation.md",
       "scope": "repository",
-      "sha256": "sha256:4b212d7bae541ec29d1b34fb060b3884d37fc6b1cdf5c5faa5c74037e8770635",
-      "size_bytes": 10545
+      "sha256": "sha256:95f1a9a8a8254189cb5d2eef307ee2625c5a37ac67cb1ed234ebb3f884e95d24",
+      "size_bytes": 10544
     },
     {
       "path": "projects/codex-harness/config/phase4-execution-policy.json",
@@ -225,8 +225,8 @@
     {
       "path": "projects/codex-harness/docs/implementation/phase-4-quality-bar.md",
       "scope": "repository",
-      "sha256": "sha256:b6c4782c3fa77139ee64095d9bac24d4f50e8c70b03b038277f24bbd232946e7",
-      "size_bytes": 3002
+      "sha256": "sha256:6f60ffb82d40bd699fe75de142c636c96363dd457f4dce416b6b5c0a9dccafd7",
+      "size_bytes": 3001
     },
     {
       "path": "projects/codex-harness/docs/implementation/phase-4-real-capability-invocation-report.md",
@@ -1587,8 +1587,8 @@
     {
       "path": "projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.agents/skills/phase4-safe-pilot/SKILL.md",
       "scope": "repository",
-      "sha256": "sha256:c8378b0203eac3cbc620d05c1252d297552019419f6838f31b06eac44c731030",
-      "size_bytes": 526
+      "sha256": "sha256:b9e28f7d88c9d15fb3ee311170b93beb3062cbc26395bd998f6376f3e560ab23",
+      "size_bytes": 525
     },
     {
       "path": "projects/codex-harness/tests/fixtures/phase4/pilot-design-project/.harness/phase4/invocation-ledger.json",
@@ -1599,8 +1599,8 @@
     {
       "path": "projects/codex-harness/tests/fixtures/phase4/pilot-design-project/README.md",
       "scope": "repository",
-      "sha256": "sha256:c9953dcbab605123a39f6be598ac8f23ff9db40116c4e794bf38acf846a53a19",
-      "size_bytes": 524
+      "sha256": "sha256:9127d3b5a429d35cc4d4d73e68c6d31c907d4bbc9234ea8eb65a4d210c571514",
+      "size_bytes": 523
     },
     {
       "path": "projects/codex-harness/tests/integration/test_phase4_cli.py",
@@ -1664,6 +1664,6 @@
     }
   ],
   "entry_count": 277,
-  "payload_closure": "sha256:5b3d489e728a57a3eda55fdfa93899e14a6177553e48dab6d46709730b122f12",
+  "payload_closure": "sha256:a1c67b10d2b1990c9b45622f67f796e738959d309b4bc7cee7c88b4d9a6741ee",
   "schema_version": "P4-REVIEW-MANIFEST-1"
 }

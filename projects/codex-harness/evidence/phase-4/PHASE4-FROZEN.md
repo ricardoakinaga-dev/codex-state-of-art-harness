@@ -1,11 +1,11 @@
 # PHASE4-FROZEN
 
 - Status: `PASS_WITH_LIMITATIONS`
-- Reviewed HEAD: `c21de8479a7c614ea38fb0fbd102998dc706c412`
+- Reviewed HEAD: `8592ba78ea688374fddf998dc11ff23072b4a4b3`
 - Pilot capability: `['phase4-safe-pilot']`
 - Pilot fingerprint: `['sha256:76938b6602da712c10fe8aa2f67b97d57c5118c812a3fe38a033ebe7e6e1ed3e']`
 - Host support: `P4_LEVEL_B`
-- Review manifest: `review-manifest.json` (`sha256:5b3d489e728a57a3eda55fdfa93899e14a6177553e48dab6d46709730b122f12`)
+- Review manifest: `review-manifest.json` (`sha256:a1c67b10d2b1990c9b45622f67f796e738959d309b4bc7cee7c88b4d9a6741ee`)
 - Independent attestation: `review-attestation.json`
 - Full packet closure: `review-closure.json`
 - Tests: `369 passed`
