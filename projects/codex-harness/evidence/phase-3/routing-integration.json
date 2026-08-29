@@ -1,0 +1,18 @@
+{
+  "execution": "not invoked",
+  "profile_task_id": "TASK-P3-ROUTER",
+  "registry_ids": [
+    "harness-kernel"
+  ],
+  "registry_lookup": true,
+  "route_kind": "SPECIALIST",
+  "route_status": "SELECTED",
+  "schema_version": "P3-ROUTING-1",
+  "selected": [
+    "harness-kernel"
+  ],
+  "unresolved": [
+    "EVIDENCE_UNAVAILABLE",
+    "CLASSIFICATION_UNCERTAIN"
+  ]
+}

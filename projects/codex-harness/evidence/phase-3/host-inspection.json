@@ -1,0 +1,112 @@
+{
+  "adapter_version": "P3-1",
+  "capability_count": 43,
+  "confidence": "OBSERVED",
+  "config_refs": [
+    "codex.config.presence-only"
+  ],
+  "fingerprint": "sha256:259de3ce1e455658131408abf4ac445a9273d536142cc9e5656cba1af78a798d",
+  "host_id": "codex-host-local",
+  "identity": {
+    "adapter": "CodexHostAdapter",
+    "adapter_version": "P3-1",
+    "codex_runtime": "UNKNOWN",
+    "os": "Linux",
+    "python": "3.12.3"
+  },
+  "limitations": [
+    "Codex runtime version is not observed through a public local adapter",
+    "host-loaded state is unavailable; discovery and context preparation are not loading",
+    "scripts, binaries, providers, MCP, shell and network are never executed",
+    "global and system roots are read-only dependencies",
+    "project.agents: root unavailable",
+    "global.agents/engineering-framework/tests/fixtures/links/known-bad: depth bound",
+    "global.agents/engineering-framework/tests/fixtures/links/valid: depth bound",
+    "global.codex/engineering-framework/tests/fixtures/links/known-bad: depth bound",
+    "global.codex/engineering-framework/tests/fixtures/links/valid: depth bound",
+    "system.codex: root unavailable"
+  ],
+  "observation_status": "OBSERVED",
+  "observed_at": "2026-08-29T04:21:11+00:00",
+  "project_root": "$WORKSPACE",
+  "provider_metadata": {
+    "entries": [],
+    "limitations": [
+      "provider discovery is deferred; no provider credentials are read"
+    ],
+    "name": "providers",
+    "status": "UNAVAILABLE"
+  },
+  "roots": [
+    {
+      "authority": "READ_ONLY",
+      "canonical_path": "$WORKSPACE/.agents/skills",
+      "confidence": "OBSERVED",
+      "mutable": false,
+      "path": "$WORKSPACE/.agents/skills",
+      "readable": false,
+      "root_id": "project.agents",
+      "scope": "PROJECT",
+      "security_status": "UNAVAILABLE",
+      "source": "official project skill discovery"
+    },
+    {
+      "authority": "READ_ONLY",
+      "canonical_path": "$WORKSPACE/.harness/capabilities",
+      "confidence": "OBSERVED",
+      "mutable": false,
+      "path": "$WORKSPACE/.harness/capabilities",
+      "readable": true,
+      "root_id": "project.harness",
+      "scope": "PROJECT",
+      "security_status": "VALIDATED",
+      "source": "project-local harness capabilities"
+    },
+    {
+      "authority": "READ_ONLY",
+      "canonical_path": "$HOME/.agents/skills",
+      "confidence": "OBSERVED",
+      "mutable": false,
+      "path": "$HOME/.agents/skills",
+      "readable": true,
+      "root_id": "global.agents",
+      "scope": "GLOBAL",
+      "security_status": "VALIDATED",
+      "source": "official user skill discovery"
+    },
+    {
+      "authority": "READ_ONLY",
+      "canonical_path": "$HOME/.codex/skills",
+      "confidence": "OBSERVED",
+      "mutable": false,
+      "path": "$HOME/.codex/skills",
+      "readable": true,
+      "root_id": "global.codex",
+      "scope": "GLOBAL",
+      "security_status": "VALIDATED",
+      "source": "legacy Codex compatibility root"
+    },
+    {
+      "authority": "READ_ONLY",
+      "canonical_path": "$system.codex/dfc942cc0321",
+      "confidence": "OBSERVED",
+      "mutable": false,
+      "path": "$system.codex/dfc942cc0321",
+      "readable": false,
+      "root_id": "system.codex",
+      "scope": "SYSTEM",
+      "security_status": "UNAVAILABLE",
+      "source": "system Codex compatibility root"
+    }
+  ],
+  "tool_metadata": {
+    "entries": [],
+    "limitations": [
+      "tool inventory is not a tool-execution or authorization signal"
+    ],
+    "name": "tools",
+    "status": "UNAVAILABLE"
+  },
+  "version": "UNKNOWN",
+  "workspace_root": null
+}

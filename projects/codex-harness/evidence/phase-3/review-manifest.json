@@ -1,0 +1,612 @@
+{
+  "created_at": "2026-08-29T04:37:37+00:00",
+  "excluded_from_immutable_payload": [
+    "evidence/phase-3/review-manifest.json",
+    "evidence/phase-3/review-attestation.json",
+    "evidence/phase-3/readiness.json",
+    "evidence/phase-3/independent-review.md",
+    ".agent/",
+    ".gauntlet/"
+  ],
+  "goal": "Close the bounded read-only Phase 3 Codex host capability integration without claiming execution, production readiness or AAA verification.",
+  "hash_method": {
+    "algorithm": "SHA-256",
+    "file_digest": "SHA-256 of exact file bytes.",
+    "path_resolution": "All paths resolve from the project root; ../../architecture/... resolves to the repository-level architecture sibling.",
+    "scope_digest": "Sort path records, concatenate '<sha256>  <relative path>\\n', then SHA-256 the resulting UTF-8 bytes.",
+    "scope_exclusions": [
+      "__pycache__",
+      "*.pyc",
+      ".pytest_cache",
+      ".mypy_cache",
+      ".ruff_cache",
+      ".venv",
+      ".coverage"
+    ],
+    "scope_root": "projects/codex-harness"
+  },
+  "immutable_payload": {
+    "config": {
+      "count": 5,
+      "files": [
+        {
+          "path": ".harness/README.md",
+          "sha256": "c61f4a351302f6188992c94fa902b922b7567426d6f2d3b12d0a9aa12d42d846",
+          "size_bytes": 576
+        },
+        {
+          "path": ".harness/capabilities/README.md",
+          "sha256": "c17a1166fe9f7bf12bc8b962b1ec61ea595a9df7cd926725aa9d4d9d27c26cf0",
+          "size_bytes": 470
+        },
+        {
+          "path": ".harness/config/kernel.json",
+          "sha256": "a2cf869a171919195f138ca5b8ca91cf84360095a9b01140d663803c3efed13f",
+          "size_bytes": 997
+        },
+        {
+          "path": "config/README.md",
+          "sha256": "f0321970f31977c9a4393a2272783b7a2397ef6a0c5ebfae1415c5b29eba32d0",
+          "size_bytes": 259
+        },
+        {
+          "path": "pyproject.toml",
+          "sha256": "0f06746386a89b03dcca9009662b405b86856d44dc101fe041885f29c4297485",
+          "size_bytes": 990
+        }
+      ],
+      "sha256": "5633223cd80fc71963d9f17f3b92d90e2c9af03d0ab95ac3486725d1872a96e6"
+    },
+    "contracts_and_boundaries": {
+      "count": 5,
+      "files": [
+        {
+          "path": "../../architecture/docs/adr/ADR-012-phase-roadmap-rebaseline-after-phase-2.md",
+          "sha256": "42e1e5c08e9f1f6fdc02c4d0574cdca1bbf5d450be4c223f4b01973dcf87fab5",
+          "size_bytes": 3877
+        },
+        {
+          "path": "docs/implementation/phase-3-quality-bar.md",
+          "sha256": "2ae9ede2cbe5ec403390a99a7e02ce7ae104aa74a8f0e972da890198aa397c98",
+          "size_bytes": 5481
+        },
+        {
+          "path": "evidence/phase-2/PHASE2-FROZEN.md",
+          "sha256": "811e3047583454325ec2c5df62303ccba4f6bf6823024b499083688e7dcc7e86",
+          "size_bytes": 1847
+        },
+        {
+          "path": "evidence/phase-3/phase2-supersession.md",
+          "sha256": "54e54c3f00e3cf7f013b50fc1cb5cd73793be8895c0af22ce8c71f2ba68c2d6c",
+          "size_bytes": 980
+        },
+        {
+          "path": "docs/implementation/phase-3-host-capability-integration-report.md",
+          "sha256": "06185fc74a87806b9d0cbfb44914342a21a80f8e003f41adac45ef2013ebbdfe",
+          "size_bytes": 2722
+        }
+      ],
+      "sha256": "7ad2a3e3907390088db285c7fd1e66bb569c85073b99a1412c1a6ab2e96c5001"
+    },
+    "payload_closure": {
+      "count": 102,
+      "sha256": "631ffb8e3392a3a1cdcb612c936a7a0de77ce9546a582eeeba424cbdb8c93ee4"
+    },
+    "phase3_evidence_pre_review": {
+      "count": 23,
+      "files": [
+        {
+          "path": "evidence/phase-3/README.md",
+          "sha256": "9144e34f8dcb04699b4db9c6f5f8bed62a5f756c7eac7f6604753097d245cbd1",
+          "size_bytes": 1783
+        },
+        {
+          "path": "evidence/phase-3/benchmark-summary.json",
+          "sha256": "87079bb7a4a9557608cbad151626b908ffaf621e3a06e9f5674f00ec46ea8d7f",
+          "size_bytes": 2072
+        },
+        {
+          "path": "evidence/phase-3/benchmark.md",
+          "sha256": "f0ab7b8c869f3b1c5207e19a086dc7b560722734e3431b84b59693178946ee94",
+          "size_bytes": 893
+        },
+        {
+          "path": "evidence/phase-3/capability-discovery.md",
+          "sha256": "9dfb2b0143b29bcfbc1d9224bd830d203f439df90eb4376908a4e9d57100f04c",
+          "size_bytes": 1029
+        },
+        {
+          "path": "evidence/phase-3/cli-smoke.json",
+          "sha256": "c532d49deffded6f685f787ebbfde13a2b47ef4fee7e738585d2d718a646e5d3",
+          "size_bytes": 987
+        },
+        {
+          "path": "evidence/phase-3/compatibility-report.json",
+          "sha256": "24d9e52e8e528264e658c3c3c8a0d0dd2d84897f29086166cc48b8524ecb8a26",
+          "size_bytes": 18444
+        },
+        {
+          "path": "evidence/phase-3/compatibility.md",
+          "sha256": "d678549b38fe05ccc51a239db52df63dfeaffa07921757ae7897fade39913086",
+          "size_bytes": 714
+        },
+        {
+          "path": "evidence/phase-3/coverage.md",
+          "sha256": "161f01d2837c831bbba81949ac1d18fdfb91e59697f739f75f7009f719f90dec",
+          "size_bytes": 816
+        },
+        {
+          "path": "evidence/phase-3/duplicate-report.json",
+          "sha256": "605c50850c37f7fb435317baff402b11bf04f12dcc3076f58a2e1dbb7ddab23d",
+          "size_bytes": 633
+        },
+        {
+          "path": "evidence/phase-3/duplicate-report.md",
+          "sha256": "ba991e49644f9553fe0318ca79f1a5d62162cd1b0b72bf3c5be6f2c73ebecc1f",
+          "size_bytes": 807
+        },
+        {
+          "path": "evidence/phase-3/host-inspection.json",
+          "sha256": "7b2490e91cf140a59b532d1b73687d040082617af950e5172b28705ab4cf253e",
+          "size_bytes": 3594
+        },
+        {
+          "path": "evidence/phase-3/host-inspection.md",
+          "sha256": "01daf9d860b082084a5bfd909f7520c3155bb0ee95ed6f0648dc20389ddb2cc9",
+          "size_bytes": 1022
+        },
+        {
+          "path": "evidence/phase-3/phase2-supersession.md",
+          "sha256": "54e54c3f00e3cf7f013b50fc1cb5cd73793be8895c0af22ce8c71f2ba68c2d6c",
+          "size_bytes": 980
+        },
+        {
+          "path": "evidence/phase-3/real-inventory.json",
+          "sha256": "791758ac9b369180e495c6907cb8e62c0ff5930e9a4ad28b07cb75825017e4e3",
+          "size_bytes": 27546
+        },
+        {
+          "path": "evidence/phase-3/routing-integration.json",
+          "sha256": "c5521ca2e2e271a1d071430d50c3e4f1222b3fc0e4125c5d9c39761a73724186",
+          "size_bytes": 365
+        },
+        {
+          "path": "evidence/phase-3/routing-integration.md",
+          "sha256": "f6670835cb3c822aa8f67b8a74ecc9315da9145feef4766f9ce2d28bc6040bf8",
+          "size_bytes": 682
+        },
+        {
+          "path": "evidence/phase-3/safe-loader.json",
+          "sha256": "407393ceecabb5725a8b59a0712e4c3edabe902221e341db015fbb297aca4fe8",
+          "size_bytes": 2152
+        },
+        {
+          "path": "evidence/phase-3/safe-loader.md",
+          "sha256": "a4e344009b31587f6771dfad513cd0d32114a8ef523aaaafd95e970c46695a61",
+          "size_bytes": 788
+        },
+        {
+          "path": "evidence/phase-3/security.md",
+          "sha256": "ef65372e7f56cd923b8d2293c58f4b470c0b2fa2a926eb77dca6f96b6cc46513",
+          "size_bytes": 738
+        },
+        {
+          "path": "evidence/phase-3/telemetry.json",
+          "sha256": "cfe48463310a0d8dce52349910d134d3b0209754be2fd7054c72a41f8f8ef660",
+          "size_bytes": 1379
+        },
+        {
+          "path": "evidence/phase-3/telemetry.md",
+          "sha256": "33384395cc02c576f7d10b1eac5816e966a641612bceff2c515d1b0ece34bb09",
+          "size_bytes": 634
+        },
+        {
+          "path": "evidence/phase-3/trust-report.json",
+          "sha256": "551d82740093e25df99f0f2822256e507f57360585ff8de8149587a6f58fd7fe",
+          "size_bytes": 11337
+        },
+        {
+          "path": "evidence/phase-3/trust.md",
+          "sha256": "db6322bbdf289568c1c00a7a2de2197bf182ffb1331b4c21a7384d48c1a6e0ce",
+          "size_bytes": 605
+        }
+      ],
+      "sha256": "83fd73a3fc79cb8c986b02bb47c1ffe0d6b853e1b3b3ae5645204530e01c3f75"
+    },
+    "project_readme": {
+      "count": 1,
+      "files": [
+        {
+          "path": "README.md",
+          "sha256": "6c880ff5707bbbce75d95a9ef09afae52f1f202582bc45fa63403f76f4ae9585",
+          "size_bytes": 2492
+        }
+      ],
+      "sha256": "d0ef7e9fb0698b79f9622b3ff5c45e4c3d5fe97a7e14ba3ab13176bf08cfe649"
+    },
+    "source": {
+      "count": 35,
+      "files": [
+        {
+          "path": "src/harness_kernel/__init__.py",
+          "sha256": "3fa413d0b3a26177f76232f011c1c72be48a8759cce1805bd520706b6c166655",
+          "size_bytes": 1042
+        },
+        {
+          "path": "src/harness_kernel/__main__.py",
+          "sha256": "e848ac0f3a772ea8bdb280f077d58f7e3f5f27a723c64654806339f84fac98f0",
+          "size_bytes": 93
+        },
+        {
+          "path": "src/harness_kernel/artifacts.py",
+          "sha256": "5934cb0f22f1f24f3aa4b3cff16f7557476227379a6fe4553046bc62388244ca",
+          "size_bytes": 7298
+        },
+        {
+          "path": "src/harness_kernel/assurance.py",
+          "sha256": "f99675351f87cea3586d5b3450727cc1d07e951851d9393f45868343bac30081",
+          "size_bytes": 13064
+        },
+        {
+          "path": "src/harness_kernel/authority.py",
+          "sha256": "d30595497644d1e59e2e50acee48630bfad3d7882f54745e89bf30f84eabcd0e",
+          "size_bytes": 21762
+        },
+        {
+          "path": "src/harness_kernel/benchmarks.py",
+          "sha256": "b3856b04c3963fc75a464714ccf8ead2f60ea907b34a6f5d9d71181ed3415656",
+          "size_bytes": 13317
+        },
+        {
+          "path": "src/harness_kernel/boundary.py",
+          "sha256": "64390817cd01bc9d8aca5b5d166294779026b46633b6a02389608325bfa71cf5",
+          "size_bytes": 7979
+        },
+        {
+          "path": "src/harness_kernel/classification.py",
+          "sha256": "c74d884cfd9a57676d93f31b5c6e8dbd3d0fad5487eb8fa395da280d50b20adf",
+          "size_bytes": 49724
+        },
+        {
+          "path": "src/harness_kernel/cli.py",
+          "sha256": "5010a80b306cd670d290dea3be7dd9c5ac090bb7d0dd3dec5a3e43a533bfdd9d",
+          "size_bytes": 51161
+        },
+        {
+          "path": "src/harness_kernel/errors.py",
+          "sha256": "5239ff6ec829d0f03d12cf07f9efc25bc17e92d7c4bea8e82c9d6047d75d9ab6",
+          "size_bytes": 4981
+        },
+        {
+          "path": "src/harness_kernel/evidence.py",
+          "sha256": "af1f55089d2136cab532f6ce6b5ef94acf4249ee874647f2edadfc3c76c2934b",
+          "size_bytes": 14153
+        },
+        {
+          "path": "src/harness_kernel/execution.py",
+          "sha256": "88ca2c1a7b9c277dd53d0a4158b3d9d13c97a049a8744543a84da38a550ba353",
+          "size_bytes": 126624
+        },
+        {
+          "path": "src/harness_kernel/graph.py",
+          "sha256": "54c1b8466d3382fc388fcd50430e1da066173735e59b419dc85f179824f7c65e",
+          "size_bytes": 18755
+        },
+        {
+          "path": "src/harness_kernel/models.py",
+          "sha256": "d7679c213cfbc3ee1461d45d647c9e81293e2f8c06a02ebbb71965c5e77a1687",
+          "size_bytes": 33407
+        },
+        {
+          "path": "src/harness_kernel/persistence.py",
+          "sha256": "3ff4ca1773d27235021b7491b690e282ac56f291dba5fcdd91ffa9b48811e4d5",
+          "size_bytes": 24252
+        },
+        {
+          "path": "src/harness_kernel/phase3_cli.py",
+          "sha256": "fb97fa9ab9d23be87e6c49b1d81ad774b6db9738973f2163e6d3ae8ff028d91b",
+          "size_bytes": 9395
+        },
+        {
+          "path": "src/harness_kernel/phase3_discovery.py",
+          "sha256": "470275036adac64f8ee1d0560ac487dc93c9dd2c87ad2aed5b7150193ff11898",
+          "size_bytes": 27901
+        },
+        {
+          "path": "src/harness_kernel/phase3_host.py",
+          "sha256": "5303455663c3ba31432c84fabc9048a08b5c9088d23665c584ec65fccd793e2f",
+          "size_bytes": 12914
+        },
+        {
+          "path": "src/harness_kernel/phase3_integration.py",
+          "sha256": "9d4ac98f34d7c9d4e530b52adf7807b3780914203cdbd53b67d460ac9d71a9c4",
+          "size_bytes": 6018
+        },
+        {
+          "path": "src/harness_kernel/phase3_loader.py",
+          "sha256": "0728ac7a404e5ab42cccb4f12a933634bf84f72cf27a85c0ad83ffe8203071b3",
+          "size_bytes": 13328
+        },
+        {
+          "path": "src/harness_kernel/phase3_models.py",
+          "sha256": "0762482ef364d52dfeb2a68a7ff3d0ae4e448b4811f824f668259d1b27c1f59d",
+          "size_bytes": 22541
+        },
+        {
+          "path": "src/harness_kernel/phase3_parser.py",
+          "sha256": "af40021cd4fe4df22d834333050105e81c6a15dc584293215ce822308d414dc8",
+          "size_bytes": 14860
+        },
+        {
+          "path": "src/harness_kernel/phase3_paths.py",
+          "sha256": "953b3c979106c20dd905444335c5eae1c654fbd245e4c00a1ed4fd678891b7a0",
+          "size_bytes": 17043
+        },
+        {
+          "path": "src/harness_kernel/phase3_resolution.py",
+          "sha256": "7ef94e4e35fca712a2ad40f2060671288be08bfb94dfd6b156aab0ca93fd9c8d",
+          "size_bytes": 16002
+        },
+        {
+          "path": "src/harness_kernel/phase3_telemetry.py",
+          "sha256": "69e73e6f32ece7b5770da2d1aa2475b816a0ff8fa60f30010c07d60cf7946b7c",
+          "size_bytes": 4701
+        },
+        {
+          "path": "src/harness_kernel/phase3_trust.py",
+          "sha256": "1952cd6b752b156152dda3e8f35012a63d3c042b6bc9a8deb8b42b46e568116e",
+          "size_bytes": 6595
+        },
+        {
+          "path": "src/harness_kernel/providers.py",
+          "sha256": "0c945de95cd0e891492ca1f7a0986aa363e6940711a9ebf435c7a380844f26cd",
+          "size_bytes": 23733
+        },
+        {
+          "path": "src/harness_kernel/registry.py",
+          "sha256": "f36a7f5289ff8a5260aaacb53c9807875f8368e0e645c1ca5c1032e2d521215a",
+          "size_bytes": 40329
+        },
+        {
+          "path": "src/harness_kernel/routing.py",
+          "sha256": "e98e271c592fedf5332c86df7ae40726ca234b1d3bf84532d925c2d9aaa6fb72",
+          "size_bytes": 24718
+        },
+        {
+          "path": "src/harness_kernel/serialization.py",
+          "sha256": "aa8dda90c8376a1e3bed54c0099021e29a62fc44a7a9913454c39951b92a9bad",
+          "size_bytes": 13278
+        },
+        {
+          "path": "src/harness_kernel/state.py",
+          "sha256": "78304d6a907569ea73d76870ae7aa66d5959420a251de8ca3cbe0c94854449c5",
+          "size_bytes": 10029
+        },
+        {
+          "path": "src/harness_kernel/stops.py",
+          "sha256": "88d455bb2bab153875e50c395755987869ddaa51053ac2f3549e5b2e9c039da3",
+          "size_bytes": 11966
+        },
+        {
+          "path": "src/harness_kernel/telemetry.py",
+          "sha256": "24697e08376614f098c47c1770421d15af47efb2e9d8dd72bb91e6d1f092414d",
+          "size_bytes": 15645
+        },
+        {
+          "path": "src/harness_kernel/validation.py",
+          "sha256": "267d971ccd98bc515c306c9f891765d66fb12ae2f483872d14a8cee9605da340",
+          "size_bytes": 28690
+        },
+        {
+          "path": "src/harness_kernel/verification.py",
+          "sha256": "f48476eea3097bbf6b4eb1d7c071194a8ba61d6f3b28da495a05ea89e9eb271d",
+          "size_bytes": 21369
+        }
+      ],
+      "sha256": "0e46fdb98c82aca5eccc7c7193962bafebe9d5bd3fb09d849e74838cddb95c90"
+    },
+    "tests": {
+      "count": 33,
+      "files": [
+        {
+          "path": "tests/evals/phase3/test_known_bad_phase3.py",
+          "sha256": "2da6052562c9a3b3d56d77c9754bdadb91f490cd89557364bc3475c4ed78c199",
+          "size_bytes": 1168
+        },
+        {
+          "path": "tests/evals/phase3/test_phase3_matrix.py",
+          "sha256": "0da262401c135da52ba65b0d8f4aeda4cc21df6a2915fb10f00ba84e9fd2f022",
+          "size_bytes": 1226
+        },
+        {
+          "path": "tests/integration/test_benchmarks.py",
+          "sha256": "0a537a094e0ee165bf64d40a9172d6b6e86998cdf642ec11a9a4cbd07f187049",
+          "size_bytes": 3188
+        },
+        {
+          "path": "tests/integration/test_cli.py",
+          "sha256": "f089a02011be00912356be141ae27265abb5d702b89e11216f7ae5e1b20f1fed",
+          "size_bytes": 14440
+        },
+        {
+          "path": "tests/integration/test_golden_scenarios.py",
+          "sha256": "1f1eae76f86e9e02b3a400a1ce9e4f090c2ea6abafd24963f6f7eb675f39509b",
+          "size_bytes": 1694
+        },
+        {
+          "path": "tests/integration/test_phase2_cli.py",
+          "sha256": "6f6b5ac7f463e7c62db4323dd567964e7da74c651f35eb8f5ff41511a3b9c4b2",
+          "size_bytes": 4178
+        },
+        {
+          "path": "tests/integration/test_phase2_golden.py",
+          "sha256": "e1708b9014fe941a90750e08b8dfb7d475bdcbf791bebcc6dd9556a371dcdff1",
+          "size_bytes": 8604
+        },
+        {
+          "path": "tests/integration/test_phase3_cli.py",
+          "sha256": "36a4eb72e54839d2a1472f07cce4b330127f19b4bbd50efe4269f471ea89b7e1",
+          "size_bytes": 2502
+        },
+        {
+          "path": "tests/integration/test_phase3_real_host.py",
+          "sha256": "511eee1c308be629197f69d73d2006d88e8e5ce13ff102c01283ca45c27bd678",
+          "size_bytes": 1151
+        },
+        {
+          "path": "tests/unit/phase2_support.py",
+          "sha256": "69b6fd66660a7e78b70d7f82ba502bf806a349fbaa82a1ad7bc5155fd703b24c",
+          "size_bytes": 1030
+        },
+        {
+          "path": "tests/unit/test_artifacts.py",
+          "sha256": "54b3fa93cfc0917c3600f7ca7f1c3124404dd0346ae0e077620d73c16b8b5a95",
+          "size_bytes": 2428
+        },
+        {
+          "path": "tests/unit/test_authority.py",
+          "sha256": "f199dbf0e36d2bb6a60026060548f4b6543b52a3b0cb045261c9fdb55bbac194",
+          "size_bytes": 2671
+        },
+        {
+          "path": "tests/unit/test_classification.py",
+          "sha256": "844134ad3f8dfd04c304fe2af38cd4fb095fa7a68036aa19507c3bd31c1980a3",
+          "size_bytes": 5575
+        },
+        {
+          "path": "tests/unit/test_cli_in_process.py",
+          "sha256": "51e2f760461992807dd6e8d0916225e6a993d12874897e2ddaaa0b41ea96f13c",
+          "size_bytes": 9961
+        },
+        {
+          "path": "tests/unit/test_contracts.py",
+          "sha256": "9f051d601668c79577ecb8f28c1bd99acd73c610ecc65fe9cd46c92326355ec4",
+          "size_bytes": 19643
+        },
+        {
+          "path": "tests/unit/test_evidence.py",
+          "sha256": "9ad43236a57c653e51b2b278990af50fcee0410da0dd4bceb4682f59105ea446",
+          "size_bytes": 2365
+        },
+        {
+          "path": "tests/unit/test_phase2_adversarial.py",
+          "sha256": "b1b41d5dfe4f9635705ad3fcaa78ccf93a23a8470a14274bab52998360fd9f20",
+          "size_bytes": 44611
+        },
+        {
+          "path": "tests/unit/test_phase2_execution_paths.py",
+          "sha256": "91fd0601c8f1f49f1fc053069babb0c6886c85f4dbf255bec613f4b8d9f0ea38",
+          "size_bytes": 18421
+        },
+        {
+          "path": "tests/unit/test_phase2_kernel.py",
+          "sha256": "efb435eeb870ca0265829e6cc67cf441f72c247a9a4058aae0d56cbfa6c966f8",
+          "size_bytes": 13721
+        },
+        {
+          "path": "tests/unit/test_phase3_discovery.py",
+          "sha256": "d2db486c45ef2162de8ce4674437ae4ac9f3a09c4ae87fbe637c8c9d55550bd9",
+          "size_bytes": 7951
+        },
+        {
+          "path": "tests/unit/test_phase3_host_telemetry.py",
+          "sha256": "eb2e2740d4a784c5d45485d69c7adca0a87879360417bc88f3ca056f17b949db",
+          "size_bytes": 2955
+        },
+        {
+          "path": "tests/unit/test_phase3_integration.py",
+          "sha256": "a76f5f911710aa55d943c2d16e2d6bc2837683511c1702974461c47f63cfdf88",
+          "size_bytes": 1369
+        },
+        {
+          "path": "tests/unit/test_phase3_loader.py",
+          "sha256": "0a3e7ddb79ffccb14134cda76d47e3d161baa29aaba678dc0e36a9717832d2c3",
+          "size_bytes": 6757
+        },
+        {
+          "path": "tests/unit/test_phase3_parser.py",
+          "sha256": "c7c2567997604940523e04c5c4e1c38f3599e9ff4e183f722663195cd7a94e73",
+          "size_bytes": 4358
+        },
+        {
+          "path": "tests/unit/test_phase3_paths.py",
+          "sha256": "ee9b4aa7a788607299af406b666f439a93b90a3cac41b0986dc5c39413e4c44e",
+          "size_bytes": 4268
+        },
+        {
+          "path": "tests/unit/test_phase3_resolution.py",
+          "sha256": "c793eda54fdf6d2735e60c4597b327e2ebb2bd04732c9d3983eac968f11629e6",
+          "size_bytes": 5479
+        },
+        {
+          "path": "tests/unit/test_phase3_trust.py",
+          "sha256": "a264744e296899818b6c31f5ab2141838c8c9ca6bc4283a7316b5ff80a75b225",
+          "size_bytes": 1687
+        },
+        {
+          "path": "tests/unit/test_registry.py",
+          "sha256": "9b0357b2fc1aaafc4891e660721c1bd9c9ad58bc0d83c9b4fb066e2b17bdb7de",
+          "size_bytes": 7644
+        },
+        {
+          "path": "tests/unit/test_routing.py",
+          "sha256": "99e9a5e273da5f82a483ce2e1d2ea98fc348d450a821cf4f7b00d637dea08d68",
+          "size_bytes": 7713
+        },
+        {
+          "path": "tests/unit/test_state.py",
+          "sha256": "2068bb18f639393fe79dc2dfff1dc539b163c98d9bec727fbf074a1852c4e51a",
+          "size_bytes": 1878
+        },
+        {
+          "path": "tests/unit/test_stops.py",
+          "sha256": "a77b5964b7b77d478ae2ef5bf126e602f6a666de4b0a33731ce5dfd946fc4c49",
+          "size_bytes": 2685
+        },
+        {
+          "path": "tests/unit/test_telemetry.py",
+          "sha256": "563485cafe032ff2eaaa61f2bacea8142b2ecfb419f6b41114a54eba9a4d520c",
+          "size_bytes": 4310
+        },
+        {
+          "path": "tests/unit/test_validation.py",
+          "sha256": "a5371b16f61e210f78e44becae846d269220664f1ab2a83ae26db467f6d0dc7c",
+          "size_bytes": 8532
+        }
+      ],
+      "sha256": "be29312ba1155e59290ac2fa783664536133568c0af7b595782537513556dab6"
+    }
+  },
+  "quality_bar": "P3-QB-1",
+  "review_safety": {
+    "mode": "READ_ONLY",
+    "no_deploy_push_or_production_effect": true,
+    "no_external_providers": true,
+    "no_global_configuration": true,
+    "no_source_tests_config_edits": true
+  },
+  "review_status": "PENDING_EXACT_PACKET_REVIEW",
+  "reviewed_head_sha": "e16cf053695e03c43847bb732ed123e138ef56bc",
+  "reviewer_required_declarations": [
+    "reviewed_source_sha256",
+    "reviewed_tests_sha256",
+    "reviewed_config_sha256",
+    "reviewed_contracts_and_boundaries_sha256",
+    "reviewed_evidence_sha256",
+    "reviewed_payload_closure_sha256",
+    "reviewed_head_sha",
+    "verdict",
+    "findings_by_severity",
+    "limitations"
+  ],
+  "schema_version": "P3-REVIEW-MANIFEST-1",
+  "worktree_expectation": {
+    "allowed_changes": [
+      "Phase 3 source/tests/docs/evidence/control records",
+      "no Phase 2 frozen packet rewrites"
+    ],
+    "source_tests_config_clean": false,
+    "status": "DIRTY_SCOPED_PHASE3"
+  },
+  "phase2_base_sha": "d95568aa5e4821a3e1d38c718dac6eb473676cdd"
+}

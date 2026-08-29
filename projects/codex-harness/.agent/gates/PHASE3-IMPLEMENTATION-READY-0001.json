@@ -1,0 +1,78 @@
+{
+  "record_id": "GATE-PHASE3-IR-0001",
+  "timestamp": "2026-08-29T00:15:27-03:00",
+  "gate_id": "IMPLEMENTATION_READY",
+  "scope": "Phase 3 bounded read-only Codex host capability integration",
+  "scope_ref": "PHASE3-001",
+  "version": 1,
+  "criteria": [
+    {
+      "id": "IR-001",
+      "description": "Phase 3 scope, quality bar, rebaseline, plan and Phase 2 additive supersession are explicit.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        ".agent/plans/PHASE-3-host-capability-integration.md",
+        "docs/implementation/phase-3-quality-bar.md",
+        "evidence/phase-3/phase2-supersession.md"
+      ],
+      "confidence": "HIGH",
+      "limitations": "The original roadmap remains historical context; the new boundary is additive."
+    },
+    {
+      "id": "IR-002",
+      "description": "The Phase 2 exact packet and gate are preserved as the regression authority.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-2/PHASE2-FROZEN.md",
+        ".agent/gates/PHASE2-VERIFIED-0001.json"
+      ],
+      "confidence": "HIGH",
+      "limitations": "Phase 3 source/test additions require a new manifest and independent review."
+    },
+    {
+      "id": "IR-003",
+      "description": "Known-bad tests were executed RED before implementation and the bounded read-only host boundary is available for GREEN verification.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        ".agent/verification.jsonl#VER-PHASE3-RED-0001",
+        "tests/unit/test_phase3_paths.py",
+        "tests/unit/test_phase3_parser.py",
+        "tests/evals/phase3/test_known_bad_phase3.py"
+      ],
+      "confidence": "HIGH",
+      "limitations": "The RED collection failure was expected because Phase 3 modules did not exist yet."
+    }
+  ],
+  "evidence": [
+    ".agent/plans/PHASE-3-host-capability-integration.md",
+    "docs/implementation/phase-3-quality-bar.md",
+    "evidence/phase-3/README.md",
+    "evidence/phase-3/phase2-supersession.md",
+    "evidence/phase-2/PHASE2-FROZEN.md",
+    ".agent/verification.jsonl#VER-PHASE3-RED-0001"
+  ],
+  "confidence": "HIGH",
+  "gaps": [],
+  "conditions": [],
+  "authority": {
+    "required": false,
+    "state": "NOT_REQUIRED",
+    "actor": "lead",
+    "scope": "Phase 3 bounded read-only Codex host capability integration",
+    "decision": "No external approval is required to begin this bounded local implementation; final Phase 3 closure still requires independent review.",
+    "evidence_ref": ".agent/plans/PHASE-3-host-capability-integration.md",
+    "expires_or_revalidates": "Revalidate on any installation, deletion, global configuration, credential, provider, shell, network, deployment or production change."
+  },
+  "residual_risk": "MEDIUM",
+  "decision": "PASS",
+  "next_action": "Continue BUILD with bounded host discovery, safe loading, resolution, telemetry and evidence.",
+  "revalidation_triggers": [
+    "Any source, test, pyproject or runtime configuration modification outside the additive Phase 3 scope",
+    "Any request to install, delete, rewrite, execute or synchronize host capabilities",
+    "Any attempt to claim host-loaded causality, production readiness or AAA verification"
+  ],
+  "supersedes": null
+}

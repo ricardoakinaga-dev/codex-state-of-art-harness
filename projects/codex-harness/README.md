@@ -12,14 +12,16 @@ e permanece fora do runtime.
 
 - Arquitetura do sistema: `PROPOSED`.
 - Phase 1: `IMPLEMENTED/VERIFIED` dentro desta fronteira.
-- Phase 2: `IMPLEMENTED/CONDITIONAL PASS` dentro do kernel local bounded; a
-  revisão independente final e o gate `PHASE2-VERIFIED` continuam pendentes.
-- Runtime completo do Codex: `NOT PROVEN`.
+- Phase 2: `PASS_WITH_LIMITATIONS` e congelada dentro do kernel local bounded;
+  veja [`evidence/phase-2/PHASE2-FROZEN.md`](evidence/phase-2/PHASE2-FROZEN.md).
+- Phase 3: extensão read-only de host capability integration em execução sob
+  `P3-QB-1`; o runtime completo do Codex continua `NOT PROVEN`.
 
 A Phase 2 permite somente providers fixtures determinísticos e execução
-project-local. Não há Skill/subagent/MCP/host adapter, shell, rede, deploy ou
-mutação de configuração global. A verificação atual registra 187 testes,
-84% de cobertura total, Ruff/mypy/CLI/benchmark/security PASS e
+project-local. A Phase 3 adiciona inspeção, inventário, parsing e planejamento
+de carregamento declarativo; não executa Skill/subagent/MCP/provider, shell,
+rede ou deploy, nem muta configuração global. O closeout da Phase 2 registra
+232 testes, 85% de cobertura total, Ruff/mypy/CLI/benchmark/security PASS e
 `check_state.py` 10/10; isso não é uma alegação de runtime completo do Codex.
 
 ## Verificação local
@@ -41,9 +43,12 @@ PYTHONPATH=src .venv/bin/python -m harness_kernel validate .harness/config/kerne
 PYTHONPATH=src .venv/bin/python -m harness_kernel registry list
 PYTHONPATH=src .venv/bin/python -m harness_kernel doctor
 PYTHONPATH=src .venv/bin/python -m harness_kernel run --dry-run --json "Change one local label"
+PYTHONPATH=src .venv/bin/python -m harness_kernel.phase3_cli host inspect --json
+PYTHONPATH=src .venv/bin/python -m harness_kernel.phase3_cli host list --json
 ```
 
-A CLI lê somente dados project-local, não carrega módulos de input e não
-executa capacidades arbitrárias. `run` chama exclusivamente providers
-determinísticos registrados e grava apenas sob `.harness/`; `doctor` e
-`--dry-run` não executam provider.
+A CLI lê dados project-local e metadados read-only do host, não carrega
+módulos de input e não executa capacidades arbitrárias. `run` chama
+exclusivamente providers determinísticos registrados e grava apenas sob
+`.harness/`; `doctor`, `--dry-run` e os comandos Phase 3 de host não executam
+provider nem afirmam que uma capability foi carregada.

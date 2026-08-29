@@ -1,0 +1,441 @@
+{
+  "capabilities": [
+    {
+      "capability_id": "api-design",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "article-writing",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "backend-patterns",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "bun-runtime",
+      "confidence": "OBSERVED",
+      "evidence": [
+        "package validation rejected the record"
+      ],
+      "level": "REJECTED",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "claude-api",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "coding-standards",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "content-engine",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "crosspost",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "deep-research",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "design-director",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.codex",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "dmux-workflows",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "documentation-lookup",
+      "confidence": "OBSERVED",
+      "evidence": [
+        "package validation rejected the record"
+      ],
+      "level": "REJECTED",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "e2e-testing",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "elevenlabs-api",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.codex",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "engineering-framework",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "engineering-framework",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.codex",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "eval-harness",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "everything-claude-code-conventions",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "exa-search",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "fal-ai-media",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "frontend-patterns",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "frontend-slides",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "gauntlet-loop",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.codex",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "graphic-creation",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.codex",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "harness-kernel",
+      "confidence": "OBSERVED",
+      "evidence": [
+        "project-local ownership boundary"
+      ],
+      "level": "PROJECT_TRUSTED",
+      "root_id": "project.harness",
+      "scope": "PROJECT"
+    },
+    {
+      "capability_id": "imagegen",
+      "confidence": "OBSERVED",
+      "evidence": [
+        "package validation rejected the record"
+      ],
+      "level": "REJECTED",
+      "root_id": "global.codex",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "investor-materials",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "investor-outreach",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "market-research",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "nextjs-turbopack",
+      "confidence": "OBSERVED",
+      "evidence": [
+        "package validation rejected the record"
+      ],
+      "level": "REJECTED",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "openai-docs",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.codex",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "orchestrate",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.codex",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "plugin-creator",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.codex",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "review-agent",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.codex",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "security-review",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "skill-creator",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.codex",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "skill-installer",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.codex",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "strategic-compact",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "tdd-workflow",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "verification-loop",
+      "confidence": "OBSERVED",
+      "evidence": [
+        "package validation rejected the record"
+      ],
+      "level": "REJECTED",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "video-editing",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "vps-truth-source",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.codex",
+      "scope": "GLOBAL"
+    },
+    {
+      "capability_id": "x-api",
+      "confidence": "INFERRED",
+      "evidence": [
+        "no project or independent verification evidence"
+      ],
+      "level": "THIRD_PARTY",
+      "root_id": "global.agents",
+      "scope": "GLOBAL"
+    }
+  ],
+  "capability_count": 43,
+  "level_counts": {
+    "PROJECT_TRUSTED": 1,
+    "REJECTED": 5,
+    "THIRD_PARTY": 37
+  },
+  "schema_version": "P3-TRUST-1"
+}

@@ -69,6 +69,32 @@
         ".agent/execution-log.jsonl#EVT-PHASE2-COMPLETE-0001"
       ],
       "next_action": "Keep the bounded Phase 2 packet frozen; any payload or scope change requires a new evidence, manifest and independent-review cycle."
+    },
+    {
+      "id": "PHASE3-001",
+      "title": "Implement the bounded read-only Codex host capability integration",
+      "stage": "BUILD",
+      "priority": "P0",
+      "status": "DONE",
+      "origin": "User-supplied Phase 3 Host Capability Integration specification",
+      "dependencies": ["PHASE2-001"],
+      "owner": "lead",
+      "acceptance_summary": "Inspect the real host without mutation, discover project/workspace/global capability roots, synthesize safe declarative manifests, load bounded metadata progressively, resolve trust/compatibility/duplicates/dependencies/conflicts, bridge selected metadata to the frozen registry/router, and prove honest telemetry with adversarial tests and evidence.",
+      "evidence_refs": [
+        ".agent/plans/PHASE-3-host-capability-integration.md",
+        "docs/implementation/phase-3-quality-bar.md",
+        "evidence/phase-3/phase2-supersession.md",
+        "evidence/phase-3/README.md",
+        "evidence/phase-3/review-manifest.json",
+        "evidence/phase-3/review-attestation.json",
+        "evidence/phase-3/independent-review.md",
+        "evidence/phase-3/readiness.json",
+        "evidence/phase-3/final-readiness.md",
+        ".agent/gates/PHASE3-VERIFIED-0001.json",
+        ".agent/verification.jsonl#VER-PHASE3-FINAL-LOCAL-0001",
+        ".agent/execution-log.jsonl#EVT-PHASE3-COMPLETE-0001"
+      ],
+      "next_action": "Keep the bounded Phase 3 packet frozen; any payload or scope change requires a new evidence, manifest and independent-review cycle."
     }
   ]
 }

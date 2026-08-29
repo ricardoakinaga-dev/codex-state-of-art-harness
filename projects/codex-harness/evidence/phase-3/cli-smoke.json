@@ -1,0 +1,49 @@
+{
+  "checks": {
+    "doctor": {
+      "exit_code": 0,
+      "host_loaded": false,
+      "status": "PASS_WITH_LIMITATIONS"
+    },
+    "host_compatibility": {
+      "capability_count": 43,
+      "exit_code": 0
+    },
+    "host_duplicates": {
+      "duplicate_count": 1,
+      "exit_code": 0,
+      "paths_redacted": true
+    },
+    "host_inspect": {
+      "capability_count": 43,
+      "exit_code": 0,
+      "host_id": "codex-host-local",
+      "observation_status": "OBSERVED"
+    },
+    "host_list": {
+      "capability_count": 43,
+      "exit_code": 0,
+      "writes": []
+    },
+    "host_refresh": {
+      "exit_code": 0,
+      "refresh": true,
+      "writes": []
+    },
+    "host_roots": {
+      "exit_code": 0,
+      "root_count": 5
+    },
+    "load_plan": {
+      "actual_host_loaded": false,
+      "exit_code": 0,
+      "prepared": true
+    },
+    "resolve": {
+      "exit_code": 0,
+      "selected_count": 1,
+      "status": "RESOLVED"
+    }
+  },
+  "schema_version": "P3-CLI-1"
+}

@@ -1,0 +1,87 @@
+{
+  "generated_at": "2026-08-29T04:06:35+00:00",
+  "host": {
+    "capability_count": 43,
+    "inventory_errors": 6,
+    "root_count": 5
+  },
+  "iterations": 3,
+  "limitations": [
+    "local process baseline only",
+    "does not measure production latency, concurrency, provider latency, host loading, quality, causal impact or SLOs"
+  ],
+  "operations": {
+    "compatibility": {
+      "iterations": 3,
+      "max_ns": 362720371,
+      "median_ms": 259.582,
+      "median_ns": 259581835,
+      "min_ns": 253584397
+    },
+    "duplicate_analysis": {
+      "iterations": 3,
+      "max_ns": 386632036,
+      "median_ms": 329.85,
+      "median_ns": 329850260,
+      "min_ns": 294225584
+    },
+    "host_snapshot": {
+      "iterations": 3,
+      "max_ns": 338501766,
+      "median_ms": 300.961,
+      "median_ns": 300961323,
+      "min_ns": 239983183
+    },
+    "load_plan": {
+      "iterations": 3,
+      "max_ns": 247515,
+      "median_ms": 0.12,
+      "median_ns": 120467,
+      "min_ns": 102936
+    },
+    "manifest_synthesis": {
+      "iterations": 3,
+      "max_ns": 327984870,
+      "median_ms": 327.844,
+      "median_ns": 327844322,
+      "min_ns": 319851884
+    },
+    "package_discovery": {
+      "iterations": 3,
+      "max_ns": 364760169,
+      "median_ms": 307.922,
+      "median_ns": 307922266,
+      "min_ns": 277217576
+    },
+    "parse": {
+      "iterations": 3,
+      "max_ns": 279627842,
+      "median_ms": 265.362,
+      "median_ns": 265361639,
+      "min_ns": 242613193
+    },
+    "registry_bridge": {
+      "iterations": 3,
+      "max_ns": 551480,
+      "median_ms": 0.293,
+      "median_ns": 293394,
+      "min_ns": 280285
+    },
+    "root_discovery": {
+      "iterations": 3,
+      "max_ns": 714685,
+      "median_ms": 0.642,
+      "median_ns": 642413,
+      "min_ns": 549232
+    },
+    "trust": {
+      "iterations": 3,
+      "max_ns": 320904220,
+      "median_ms": 311.57,
+      "median_ns": 311570150,
+      "min_ns": 273035570
+    }
+  },
+  "schema_version": "P3-BENCH-1",
+  "scope": "real local host inspection and bounded declarative operations"
+}

@@ -1,0 +1,76 @@
+{
+  "actual_host_loaded": false,
+  "execution": "DISABLED_PHASE3",
+  "levels": [
+    {
+      "context_prepared": false,
+      "host_load_status": "UNAVAILABLE",
+      "host_loaded": false,
+      "instruction_bytes": 0,
+      "level": "L0_IDENTITY",
+      "lifecycle_status": "SELECTED",
+      "package_file_count": 0,
+      "reference_count": 0,
+      "routing_metadata_fields": 0,
+      "script_count": 0,
+      "warnings": []
+    },
+    {
+      "context_prepared": false,
+      "host_load_status": "UNAVAILABLE",
+      "host_loaded": false,
+      "instruction_bytes": 0,
+      "level": "L1_ROUTING_METADATA",
+      "lifecycle_status": "LOAD_PLANNED",
+      "package_file_count": 0,
+      "reference_count": 0,
+      "routing_metadata_fields": 10,
+      "script_count": 0,
+      "warnings": []
+    },
+    {
+      "context_prepared": true,
+      "host_load_status": "UNAVAILABLE",
+      "host_loaded": false,
+      "instruction_bytes": 16654,
+      "level": "L2_INSTRUCTION_KERNEL",
+      "lifecycle_status": "CONTEXT_PREPARED",
+      "package_file_count": 0,
+      "reference_count": 0,
+      "routing_metadata_fields": 10,
+      "script_count": 0,
+      "warnings": []
+    },
+    {
+      "context_prepared": true,
+      "host_load_status": "UNAVAILABLE",
+      "host_loaded": false,
+      "instruction_bytes": 16654,
+      "level": "L3_SELECTED_REFERENCES",
+      "lifecycle_status": "CONTEXT_PREPARED",
+      "package_file_count": 0,
+      "reference_count": 29,
+      "routing_metadata_fields": 10,
+      "script_count": 0,
+      "warnings": []
+    },
+    {
+      "context_prepared": true,
+      "host_load_status": "UNAVAILABLE",
+      "host_loaded": false,
+      "instruction_bytes": 16654,
+      "level": "L4_APPROVED_DECLARATIVE_PACKAGE",
+      "lifecycle_status": "CONTEXT_PREPARED",
+      "package_file_count": 44,
+      "reference_count": 29,
+      "routing_metadata_fields": 10,
+      "script_count": 12,
+      "warnings": [
+        "script files are inventory-only and execution is disabled in Phase 3"
+      ]
+    }
+  ],
+  "sample_capability_id": "design-director",
+  "sample_root_id": "global.codex",
+  "schema_version": "P3-LOADER-1"
+}

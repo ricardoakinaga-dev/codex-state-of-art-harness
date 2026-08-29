@@ -1,0 +1,22 @@
+{
+  "duplicates": [
+    {
+      "blocking": true,
+      "capability_id": "engineering-framework",
+      "category": "DIVERGENT_BYTES",
+      "explanation": "same capability ID/version has divergent package bytes",
+      "hashes": [
+        "sha256:36ac1756cf577bca3b3eb4c61de4d5414a160dd3238b20be934a27c64bbac93c",
+        "sha256:9a0c58678552857367e5f79bdd35a2c8c555ac5a4a48b20890cff4f458be9f8d"
+      ],
+      "paths": [
+        "$HOME/.agents/skills/engineering-framework",
+        "$HOME/.codex/skills/engineering-framework"
+      ],
+      "versions": [
+        "0.1.0"
+      ]
+    }
+  ],
+  "schema_version": "P3-DUPLICATES-1"
+}
