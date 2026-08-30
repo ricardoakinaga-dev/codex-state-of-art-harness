@@ -1,0 +1,1 @@
+{"marker":"P6_VNEXT_HOST_ACK","capability":"verification-loop-vnext","role":"VERIFIER","read_only":true,"self_approval":false,"criteria_digest":"sha256:f26e3d93c72accca37d34c5f25d1cc7c467469b6236342c83882d09cf41427a8","artifact_version":"artifact_v1"}

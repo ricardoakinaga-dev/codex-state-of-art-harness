@@ -1,0 +1,72 @@
+{
+  "context_cost": {
+    "handoff_bound_bytes": 16384,
+    "report_bytes": 110293
+  },
+  "coverage": "82.0%",
+  "criterion_coverage": "17/17 required (100.0%)",
+  "critical": 0,
+  "current_capability_fingerprint": "sha256:6cddd9e336f44c261eea24fc983c18f740df9dca8ebfbed0faffc7b9d73ba0ce",
+  "current_capability_id": "verification-loop",
+  "design_director_fingerprint": "sha256:564d610da9260d25cbcddfbb3f96f70fb9dabd643c46b4242c4b891d399eba95",
+  "eval_status": "PASS_BEHAVIORAL",
+  "excluded_claims": [
+    "global_migration",
+    "production_readiness",
+    "causal_improvement",
+    "AAA_VERIFIED",
+    "visual_approval",
+    "release_authorization"
+  ],
+  "false_pass_count": 0,
+  "final_artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+  "final_verification_digest": "sha256:50984a30c4f9dfd713106a249f474d168ef3df0ec084d42ae84ea5073f43943f",
+  "high": 0,
+  "independent_capability_review": {
+    "reviewer": "01a05185-27b5-75e3-a962-9f8124337fbe",
+    "status": "PASS"
+  },
+  "independent_composition_review": {
+    "reviewer": "01a05185-2722-73b0-b5c3-76805927409c",
+    "status": "PASS"
+  },
+  "limitations": [
+    "host_skill_load_event_unobservable",
+    "visual_quality_authority_excluded_from_factual_verifier",
+    "host_load_causality_unobservable",
+    "qualitative_visual_authority_deferred"
+  ],
+  "medium": 0,
+  "mypy": "PASS",
+  "negative_eval_status": "FULL_CATALOG_PASS",
+  "phase": 6,
+  "phase2_regression": "PASS",
+  "phase3_regression": "PASS",
+  "phase4_regression": "PASS",
+  "phase5_regression": "PASS",
+  "quality_bar": "P6-QB-1",
+  "real_builder_invocations": [
+    "01a04ffd-e980-7e83-beab-08b8c843ad3b",
+    "INV-P5-85644f8ad3015c76b11a0369"
+  ],
+  "real_verifier_invocations": [
+    "INV-a0f9ae6bd5e052a78aef9c00"
+  ],
+  "repair_invocations": [],
+  "review_attestation": "review-attestation.json",
+  "review_attestation_digest": "sha256:d2d4dc9fd4dc538a2ba789d9cc9843a6c198d54d3193860aba2ec4d59404bee7",
+  "review_manifest": "review-manifest.json",
+  "review_manifest_closure_digest": "sha256:e1070f92054387caf3a460f70f9741f5cf1717b5d08f08f75dcb99c02e10f9ea",
+  "reviewed_head": "17557e413dd1b74ea7106c1ca6fc270ad481694c",
+  "ruff": "PASS",
+  "security": "PASS_WITH_LIMITATIONS",
+  "status": "PASS_WITH_LIMITATIONS",
+  "support_level": "P6_LEVEL_B",
+  "tests": "519 passed",
+  "upstream_ref": "d8e6a51755c6971a65eef73419076d449df0f490",
+  "vnext_capability_id": "verification-loop-vnext",
+  "vnext_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "vnext_manifest_digest": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c",
+  "vnext_promotion_state": "VERIFIED_CANDIDATE",
+  "vnext_version": "0.1.0"
+}

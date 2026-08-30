@@ -1,0 +1,8 @@
+{
+  "decision": "PASS_WITH_LIMITATIONS",
+  "limitations": [
+    "HOST_LOAD_UNOBSERVABLE"
+  ],
+  "reason": "bounded result is verified; host limitations remain explicit",
+  "verification_digest": "sha256:3d089f941d9e14a4d3e5eed2fefcbacc926b2ab4f7f643948282f5eb4bc88101"
+}

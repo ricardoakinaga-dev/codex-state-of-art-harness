@@ -1,0 +1,361 @@
+{
+  "manifest": {
+    "allowed_tools": [],
+    "benchmarks": [
+      "benchmarks/benchmark-fixtures.json"
+    ],
+    "budgets": {
+      "attempts_per_procedure": 1,
+      "composition_repairs": 1,
+      "context_bytes": 16384,
+      "evidence_records": 256,
+      "max_no_progress_rounds": 1,
+      "procedures_per_run": 32,
+      "report_bytes": 131072,
+      "selected_references_bytes": 65536,
+      "total_seconds": 120,
+      "unbounded_loops": 0,
+      "verifier_invocations": 2
+    },
+    "capability_id": "verification-loop-vnext",
+    "compatibility": {
+      "host_features": [
+        "phase3-native-manifest",
+        "bounded-metadata-loader"
+      ],
+      "optional_tools": [],
+      "platform_limits": [
+        "Python >= 3.12"
+      ],
+      "required_tools": [],
+      "support_level": "P6_LEVEL_B"
+    },
+    "composition": {
+      "can_be_called_by": [
+        "ROUTER",
+        "ORCHESTRATOR"
+      ],
+      "can_call": [],
+      "conflicts": [
+        "BUILDER",
+        "DESIGN_DIRECTOR",
+        "REVIEWER",
+        "ASSURANCE"
+      ],
+      "conflicts_with": [
+        "BUILDER",
+        "DESIGN_DIRECTOR",
+        "REVIEWER",
+        "ASSURANCE"
+      ],
+      "do_not_combine": [
+        "BUILDER",
+        "DESIGN_DIRECTOR",
+        "REVIEWER",
+        "ASSURANCE",
+        "ORCHESTRATOR",
+        "RELEASE_AUTHORITY"
+      ],
+      "fresh_final_verification_required": true,
+      "must_run_after": [
+        "BUILDER"
+      ],
+      "must_run_before": [
+        "REVIEWER",
+        "ASSURANCE"
+      ],
+      "optional": [
+        "INDEPENDENT_REVIEWER",
+        "SECURITY_AWARE_PROFILE"
+      ],
+      "same_invocation_role": "VERIFIER_ONLY"
+    },
+    "contracts": {
+      "gates": [
+        "P6_IDENTITY_BOUND",
+        "P6_CRITERIA_FROZEN",
+        "P6_ROLE_SEPARATED",
+        "P6_EVIDENCE_FRESH",
+        "P6_BUDGET_BOUND"
+      ],
+      "inputs": [
+        "VerificationInput",
+        "ArtifactIdentity",
+        "CriterionSet",
+        "EvidenceLedger",
+        "ToolPolicy",
+        "FreshnessReceipt"
+      ],
+      "outputs": [
+        "VerificationOutput",
+        "CriterionLineage",
+        "BoundedStopDecision",
+        "Limitations",
+        "TelemetryLedger"
+      ],
+      "stop_conditions": [
+        "ALL_REQUIRED_CRITERIA_RESOLVED",
+        "BLOCKING_FAILURE_FOUND",
+        "MISSING_REQUIRED_TOOL",
+        "MISSING_REQUIRED_ARTIFACT",
+        "STALE_INPUT",
+        "BUDGET_EXHAUSTED",
+        "NO_PROGRESS",
+        "REPEATED_PROCEDURE_FAILURE",
+        "HUMAN_OVERRIDE"
+      ]
+    },
+    "dependencies": {
+      "capabilities": [],
+      "providers": [],
+      "references": [
+        "references/evidence-lineage.md",
+        "references/role-boundaries.md",
+        "references/deterministic-boundaries.md"
+      ],
+      "tools": []
+    },
+    "deprecation": {
+      "reason": null,
+      "successor": null
+    },
+    "description": "Project-local factual verification with bounded, read-only evidence lineage.",
+    "display_name": "Verification Loop vNext",
+    "evals": [
+      "evals/scenarios.json"
+    ],
+    "execution_policy": {
+      "allowed_tools": [],
+      "arbitrary_interpolation": "deny",
+      "credential": "deny",
+      "credentials": "deny",
+      "mcp": "deny",
+      "network": "deny",
+      "provider": "deny",
+      "shell": "deny",
+      "workspace_write": "deny"
+    },
+    "owner": "VERIFIER",
+    "primary_type": "VERIFIER",
+    "profiles": "profiles.json",
+    "provenance": {
+      "authority_status": "PROJECT_LOCAL_CANDIDATE",
+      "current_source_refs": [
+        "evidence/phase-6/current-verification-loop-snapshot.json",
+        "evidence/phase-6/current-ineligibility-analysis.md"
+      ],
+      "forked_from": "verification-loop-current-baseline",
+      "inspected_at": "2026-08-29T00:00:00Z",
+      "installation_scope": "PROJECT",
+      "origin": "PROJECT",
+      "precedence": 300,
+      "project_scope": "codex-state-of-art-harness",
+      "source_hash": "sha256:01a9ae310ad4426bb05660dda6cefdeaac9513417585c09c8bb1b94738649a78",
+      "source_hashes": {
+        "current": "sha256:01a9ae310ad4426bb05660dda6cefdeaac9513417585c09c8bb1b94738649a78",
+        "fork": "sha256:abe40a95fc1fe7d5ff47ed2bab27600f160871e487fb1698546b0c80e45b1fbb",
+        "upstream": "sha256:f0d56107f79e607d4de6c5543b8edfb1b58ab9ae4019b39831689cd91116543e"
+      },
+      "source_refs": [
+        "evidence/phase-6/current-verification-loop-snapshot.json",
+        "evidence/phase-6/current-ineligibility-analysis.md",
+        "evidence/phase-6/upstream-analysis.md",
+        ".harness/capabilities/verification-loop-vnext/manifest.json"
+      ],
+      "source_repository": "local://codex-state-of-art-harness",
+      "source_type": "PROJECT_LOCAL_NATIVE",
+      "upstream_source_refs": [
+        "evidence/phase-6/upstream-analysis.md"
+      ]
+    },
+    "quality": {
+      "benchmark_refs": [
+        "benchmarks/benchmark-fixtures.json"
+      ],
+      "composition_contract": "composition-contract.json",
+      "eval_refs": [
+        "evals/scenarios.json"
+      ],
+      "last_result": "REAL_COMPOSITION_PASS",
+      "profile_refs": [
+        "profiles.json"
+      ]
+    },
+    "read_only": true,
+    "record": {
+      "evidence_refs": [
+        "P6-04",
+        "P6-05",
+        "P6-09",
+        "P6-14",
+        "P6-15"
+      ],
+      "provenance": {
+        "created_at": "2026-08-29T00:00:00Z",
+        "source_refs": [
+          "evidence/phase-6/current-verification-loop-snapshot.json",
+          "evidence/phase-6/current-ineligibility-analysis.md",
+          "evidence/phase-6/upstream-analysis.md"
+        ],
+        "source_type": "PROJECT_LOCAL_NATIVE"
+      },
+      "status": "CURRENT"
+    },
+    "references": [
+      "references/evidence-lineage.md",
+      "references/role-boundaries.md",
+      "references/deterministic-boundaries.md"
+    ],
+    "registry_bridge": false,
+    "role": "VERIFIER",
+    "schema_version": "CM-1",
+    "scope": {
+      "activates_when": [
+        "A bounded factual verification report is requested for identified project artifacts and criteria",
+        "Claim, Procedure, Evidence and Status lineage must be checked",
+        "Freshness, identity, role and stop conditions require deterministic inspection"
+      ],
+      "do_not_activate_when": [
+        "An artifact must be built, repaired, designed or art-directed",
+        "Visual quality, acceptance, assurance or release authority is requested",
+        "Arbitrary shell, network, MCP, provider, credential or workspace mutation is required",
+        "Criteria are missing, ambiguous or being changed by the verifier"
+      ],
+      "domains": [
+        "VERIFICATION",
+        "ENGINEERING"
+      ],
+      "installation_scope": "PROJECT",
+      "minimum_task_class": "SMALL",
+      "project_scope": "codex-state-of-art-harness",
+      "scope": "PROJECT"
+    },
+    "scripts": [
+      "scripts/deterministic-procedures.json"
+    ],
+    "security": {
+      "allowed_tools": [],
+      "credential": {
+        "allowed": false,
+        "mode": "deny"
+      },
+      "credentials": {
+        "allowed": false,
+        "mode": "deny"
+      },
+      "data_classes": [
+        "PROJECT_LOCAL_ARTIFACTS",
+        "PROJECT_LOCAL_EVIDENCE"
+      ],
+      "mcp": {
+        "allowed": false,
+        "mode": "deny"
+      },
+      "network": {
+        "allowed": false,
+        "mode": "deny"
+      },
+      "permissions": [
+        "read_project_local_data"
+      ],
+      "provider": {
+        "allowed": false,
+        "mode": "deny"
+      },
+      "read_only": true,
+      "secret_policy": "Never read, store or emit secrets.",
+      "shell": {
+        "allowed": false,
+        "mode": "deny"
+      },
+      "workspace_write": {
+        "allowed": false,
+        "mode": "deny"
+      }
+    },
+    "status": "CANDIDATE",
+    "stop_conditions": [
+      "ALL_REQUIRED_CRITERIA_RESOLVED",
+      "BLOCKING_FAILURE_FOUND",
+      "MISSING_REQUIRED_TOOL",
+      "MISSING_REQUIRED_ARTIFACT",
+      "STALE_INPUT",
+      "BUDGET_EXHAUSTED",
+      "NO_PROGRESS",
+      "REPEATED_PROCEDURE_FAILURE",
+      "HUMAN_OVERRIDE"
+    ],
+    "type": "VERIFIER",
+    "version": "0.1.0"
+  },
+  "manifest_digest": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c",
+  "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "package_files": [
+    {
+      "bytes": 4652,
+      "path": "SKILL.md",
+      "sha256": "sha256:8f4045de1e3019c619a6ffdfb2d1182c19af449a79e3a07d6ed830e5d3572db0"
+    },
+    {
+      "bytes": 847,
+      "path": "benchmark-metadata.json",
+      "sha256": "sha256:140dca64773dbe93174aefedf3aca8e609ee1d39714d42ad12a2d3113b64bf83"
+    },
+    {
+      "bytes": 3083,
+      "path": "benchmarks/benchmark-fixtures.json",
+      "sha256": "sha256:d35a8ed9ac57b3e6aadd3f2f20d108e1f2adfea213b855710b8a1b102a5923bb"
+    },
+    {
+      "bytes": 1169,
+      "path": "composition-contract.json",
+      "sha256": "sha256:037dc07cf7d9a7a70a03477b1bcc0702e5ad1114e931aea39aee749779f02e5c"
+    },
+    {
+      "bytes": 876,
+      "path": "eval-metadata.json",
+      "sha256": "sha256:91343f7d82cb2288457078edb8859c5bfd4268eb3b695c0fcb8bb3d1f01360cf"
+    },
+    {
+      "bytes": 26978,
+      "path": "evals/scenarios.json",
+      "sha256": "sha256:c9d997f190804b3bec553ceb3d1a0a8c82f895785ff75ec5b4a06204e6f48413"
+    },
+    {
+      "bytes": 7111,
+      "path": "manifest.json",
+      "sha256": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c"
+    },
+    {
+      "bytes": 1098,
+      "path": "package-metadata.json",
+      "sha256": "sha256:fc2c76bbbec81b8c05528ba03a4b28417d37d0fdd2661118f0c19f6ab143f7a3"
+    },
+    {
+      "bytes": 2691,
+      "path": "profiles.json",
+      "sha256": "sha256:a02f4777347e65f83ce864688b8288f7e2fe512e15bd90b7e9e708d018463c39"
+    },
+    {
+      "bytes": 675,
+      "path": "references/deterministic-boundaries.md",
+      "sha256": "sha256:645c1a58e1fb582ba6b5abba82dfd2e7ecadbdbe745e6e283fb89d2f1b984ca2"
+    },
+    {
+      "bytes": 742,
+      "path": "references/evidence-lineage.md",
+      "sha256": "sha256:a947c7d88a6f0115bfc2025fc559c335a034043f99ee4eddf64f6190083f1c7e"
+    },
+    {
+      "bytes": 717,
+      "path": "references/role-boundaries.md",
+      "sha256": "sha256:43cb959090bb0e104667132a7601ffd8307967ea81a19f2c0bc0dc5fef86fe0b"
+    },
+    {
+      "bytes": 1852,
+      "path": "scripts/deterministic-procedures.json",
+      "sha256": "sha256:8466a554daf2d4b80ddde71722b040de9d1b1826390a6489574234e92f32d622"
+    }
+  ],
+  "schema_version": "P6-MANIFEST-REPORT-1"
+}

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import math
 from pathlib import Path
 
 import pytest
@@ -39,6 +40,16 @@ def test_evidence_writer_rejects_escape_and_symlinked_directories(tmp_path: Path
     (root / "link").symlink_to(outside, target_is_directory=True)
     with pytest.raises(EvidenceError):
         writer.write_text("link/file.txt", "unsafe")
+
+
+def test_evidence_writer_rejects_nonfinite_and_cyclic_json(tmp_path: Path) -> None:
+    writer = EvidenceWriter(tmp_path / "evidence")
+    with pytest.raises(EvidenceError, match="serialized safely"):
+        writer.write_json("reports/nonfinite.json", {"value": math.nan})
+    cyclic: list[object] = []
+    cyclic.append(cyclic)
+    with pytest.raises(EvidenceError, match="serialized safely"):
+        writer.write_json("reports/cyclic.json", cyclic)
 
 
 def test_review_manifest_binds_repository_inputs_and_metadata_snapshot_is_content_free(

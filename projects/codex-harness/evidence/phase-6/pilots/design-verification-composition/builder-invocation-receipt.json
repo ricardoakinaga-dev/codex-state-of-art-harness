@@ -1,0 +1,32 @@
+{
+  "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+  "artifact_id": "ART-P5-V1",
+  "artifact_path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+  "artifact_size_bytes": 7672,
+  "artifact_version": "artifact_v1",
+  "attempt_count": 1,
+  "attempts": [
+    {
+      "authorization_id": "AUTH-P5-0ee92b1193f05cf3b77810df",
+      "context_digest": "sha256:cd741d0e9cda4e2fc39ce05b2d38c24e60892641c7763a6f512fe187b50fddd0",
+      "error_code": null,
+      "host_invoked": true,
+      "invocation_id": "INV-P5-85644f8ad3015c76b11a0369",
+      "load_observation": "HOST_LOAD_UNOBSERVABLE",
+      "status": "PASS"
+    }
+  ],
+  "authorization_id": "AUTH-P5-0ee92b1193f05cf3b77810df",
+  "capability_id": "design-director",
+  "capability_version": "0.1.0",
+  "context_digest": "sha256:cd741d0e9cda4e2fc39ce05b2d38c24e60892641c7763a6f512fe187b50fddd0",
+  "created_at": 1788048487,
+  "manifest_fingerprint": "sha256:402e36727b060eaf4ef740daf8ddfdcfce40cede7cb51ad48c14a582b9037c43",
+  "package_fingerprint": "sha256:564d610da9260d25cbcddfbb3f96f70fb9dabd643c46b4242c4b891d399eba95",
+  "producer_capability": "design-director",
+  "rationale_withheld_from_critic": true,
+  "run_id": "RUN-P6-COMPOSITION-001",
+  "schema_version": "P5-BUILDER-RECEIPT-1",
+  "status": "PASS",
+  "task_id": "TASK-P6-COMPOSITION-001"
+}

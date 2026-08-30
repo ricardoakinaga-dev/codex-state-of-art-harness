@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import re
 import stat
 from collections.abc import Mapping
@@ -797,20 +798,51 @@ class CompositionReceipt:
 def public_data(value: Any) -> Any:
     """Serialize frozen Phase 5 records without exposing arbitrary objects."""
 
+    return _public_data(value, active=set())
+
+
+def _public_data(value: Any, *, active: set[int]) -> Any:
+    tracked = (is_dataclass(value) and type(value) is not type) or isinstance(
+        value, (Mapping, tuple, list, set, frozenset)
+    )
+    if tracked:
+        identity = id(value)
+        if identity in active:
+            raise ValueError("cyclic data cannot be serialized")
+        active.add(identity)
+    try:
+        return _public_data_inner(value, active=active)
+    finally:
+        if tracked:
+            active.remove(id(value))
+
+
+def _public_data_inner(value: Any, *, active: set[int]) -> Any:
     if isinstance(value, Phase5Enum):
         return value.value
     if isinstance(value, Path):
         return str(value)
     if is_dataclass(value) and not isinstance(value, type):
-        return {item.name: public_data(getattr(value, item.name)) for item in fields(value)}
+        return {
+            item.name: _public_data(getattr(value, item.name), active=active)
+            for item in fields(value)
+        }
     if isinstance(value, Mapping):
-        return {str(key): public_data(item) for key, item in value.items()}
+        return {str(key): _public_data(item, active=active) for key, item in value.items()}
     if isinstance(value, (list, tuple, set, frozenset)):
-        return [public_data(item) for item in value]
+        return [_public_data(item, active=active) for item in value]
+    if isinstance(value, float) and not math.isfinite(value):
+        raise ValueError("non-finite float cannot be serialized")
     if value is None or isinstance(value, (str, int, float, bool)):
         return value
     return str(value)
 
 
 def canonical_json(value: object) -> str:
-    return json.dumps(public_data(value), ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return json.dumps(
+        public_data(value),
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+        allow_nan=False,
+    )

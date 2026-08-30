@@ -1,0 +1,14 @@
+{
+  "causal_claim": false,
+  "critical_oracle_mismatch_count": 0,
+  "false_pass_count": 0,
+  "schema_version": "P6-COMPOSITION-VALUE-1",
+  "status": "PASS_WITH_LIMITATIONS",
+  "support_level": "P6_LEVEL_B",
+  "value": [
+    "real builder-to-verifier handoff",
+    "criterion-level factual lineage",
+    "fresh browser/artifact binding",
+    "honest host-load limitation"
+  ]
+}

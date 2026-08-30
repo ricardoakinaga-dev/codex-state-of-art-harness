@@ -1,0 +1,13 @@
+{
+  "acceptance_digest": "sha256:f26e3d93c72accca37d34c5f25d1cc7c467469b6236342c83882d09cf41427a8",
+  "artifact_id": "ART-P5-V1",
+  "digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+  "invocation_id": "01a04ffd-e980-7e83-beab-08b8c843ad3b",
+  "parent_artifact_digest": null,
+  "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+  "producer_capability": "design-director",
+  "size_bytes": 7672,
+  "source_kind": "HOST_RESPONSE_DERIVED",
+  "task_id": "TASK-P6-COMPOSITION-001",
+  "version": "artifact_v1"
+}

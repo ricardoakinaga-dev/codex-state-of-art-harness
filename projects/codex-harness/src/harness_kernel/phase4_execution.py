@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import stat
-import tempfile
 import time
 import uuid
 from collections.abc import Callable, Generator, Mapping
@@ -23,7 +23,6 @@ from .phase3_discovery import revalidate_capability
 from .phase3_models import CapabilityInventory, CapabilityRecord, Phase3Limits, ResolutionResult
 from .phase4_artifacts import (
     ArtifactCaptureError,
-    _mkdir_safe,
     capture_host_response,
     validate_artifact_path,
 )
@@ -112,6 +111,10 @@ _TRANSITIONS: dict[InvocationLifecycle, frozenset[InvocationLifecycle]] = {
     InvocationLifecycle.CLOSED: frozenset(),
 }
 
+_MAX_LEDGER_JSON_NESTING = 64
+_LEDGER_ANCHOR_SCHEMA = "P4-LEDGER-ANCHOR-1"
+_LEDGER_TOKEN_LENGTH = 32
+
 
 class LifecycleError(ValueError):
     """Raised when a Phase 4 invocation attempts an invalid transition."""
@@ -119,6 +122,18 @@ class LifecycleError(ValueError):
 
 class ReplayLedgerError(ValueError):
     """Raised when the project-local idempotency ledger is unsafe or corrupt."""
+
+
+def _new_ledger_token() -> str:
+    return uuid.uuid4().hex
+
+
+def _is_ledger_token(value: object) -> bool:
+    return (
+        type(value) is str
+        and len(value) == _LEDGER_TOKEN_LENGTH
+        and all(character in "0123456789abcdef" for character in value)
+    )
 
 
 def _ledger_path(request: CapabilityInvocationRequest, configured: str | Path | None) -> Path:
@@ -132,7 +147,6 @@ def _ledger_path(request: CapabilityInvocationRequest, configured: str | Path | 
         raise ReplayLedgerError("replay ledger must be absolute")
     try:
         target = validate_artifact_path(candidate, workspace)
-        _mkdir_safe(target.parent, workspace)
     except ArtifactCaptureError as exc:
         raise ReplayLedgerError("replay ledger is outside the project workspace") from exc
     try:
@@ -141,22 +155,385 @@ def _ledger_path(request: CapabilityInvocationRequest, configured: str | Path | 
         return target
     except OSError as exc:
         raise ReplayLedgerError("replay ledger cannot be inspected") from exc
-    if stat.S_ISLNK(metadata.st_mode) or not stat.S_ISREG(metadata.st_mode):
+    if (
+        stat.S_ISLNK(metadata.st_mode)
+        or not stat.S_ISREG(metadata.st_mode)
+        or metadata.st_nlink != 1
+    ):
         raise ReplayLedgerError("replay ledger is not a regular file")
     return target
 
 
-def _load_ledger(path: Path) -> dict[str, dict[str, object]]:
+def _open_workspace_descriptor(workspace: Path) -> int:
+    """Open the authorized workspace directory with a stable descriptor."""
+
+    if not hasattr(os, "O_NOFOLLOW") or not hasattr(os, "O_DIRECTORY"):
+        raise ReplayLedgerError("workspace directories cannot be secured on this platform")
     try:
-        if not path.exists():
-            return {}
-        if path.stat().st_size > 128 * 1024:
+        workspace_path = validate_artifact_path(workspace, workspace)
+    except ArtifactCaptureError as exc:
+        raise ReplayLedgerError("workspace cannot be opened safely") from exc
+    flags = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW | getattr(os, "O_CLOEXEC", 0)
+    descriptor: int | None = None
+    try:
+        descriptor = os.open(workspace_path, flags)
+        metadata = os.fstat(descriptor)
+        path_metadata = os.stat(workspace_path, follow_symlinks=False)
+        if not stat.S_ISDIR(metadata.st_mode) or (metadata.st_dev, metadata.st_ino) != (
+            path_metadata.st_dev,
+            path_metadata.st_ino,
+        ):
+            raise ReplayLedgerError("workspace changed during safe open")
+        return descriptor
+    except ReplayLedgerError:
+        if descriptor is not None:
+            with suppress(OSError):
+                os.close(descriptor)
+        raise
+    except OSError as exc:
+        if descriptor is not None:
+            with suppress(OSError):
+                os.close(descriptor)
+        raise ReplayLedgerError("workspace cannot be opened safely") from exc
+
+
+def _open_ledger_parent(path: Path, workspace: Path, *, workspace_fd: int) -> int:
+    """Open/create the ledger parent through descriptor-relative no-follow traversal."""
+
+    if not hasattr(os, "O_NOFOLLOW") or not hasattr(os, "O_DIRECTORY"):
+        raise ReplayLedgerError("replay ledger directories cannot be secured on this platform")
+    try:
+        workspace_path = validate_artifact_path(workspace, workspace)
+        relative = path.parent.relative_to(workspace_path)
+    except (ArtifactCaptureError, ValueError) as exc:
+        raise ReplayLedgerError("replay ledger parent is outside the project workspace") from exc
+    if any(part in {"", ".", ".."} for part in relative.parts):
+        raise ReplayLedgerError("replay ledger parent contains traversal")
+
+    flags = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW | getattr(os, "O_CLOEXEC", 0)
+    descriptor: int | None = None
+    try:
+        descriptor = os.dup(workspace_fd)
+        for part in relative.parts:
+            next_descriptor: int | None = None
+            try:
+                next_descriptor = os.open(part, flags, dir_fd=descriptor)
+            except FileNotFoundError:
+                with suppress(FileExistsError):
+                    os.mkdir(part, 0o700, dir_fd=descriptor)
+                next_descriptor = os.open(part, flags, dir_fd=descriptor)
+            try:
+                metadata = os.fstat(next_descriptor)
+            except OSError:
+                with suppress(OSError):
+                    os.close(next_descriptor)
+                raise
+            if not stat.S_ISDIR(metadata.st_mode):
+                os.close(next_descriptor)
+                raise ReplayLedgerError("replay ledger parent is not a directory")
+            os.close(descriptor)
+            descriptor = next_descriptor
+        if descriptor is None:  # pragma: no cover - the workspace open always assigns it
+            raise ReplayLedgerError("replay ledger parent cannot be opened")
+        return descriptor
+    except ReplayLedgerError:
+        if descriptor is not None:
+            with suppress(OSError):
+                os.close(descriptor)
+        raise
+    except OSError as exc:
+        if descriptor is not None:
+            with suppress(OSError):
+                os.close(descriptor)
+        raise ReplayLedgerError("replay ledger parent cannot be opened safely") from exc
+
+
+def _ledger_anchor_name(path: Path, workspace: Path) -> str:
+    try:
+        relative = path.relative_to(workspace)
+    except ValueError as exc:
+        raise ReplayLedgerError("replay ledger anchor is outside the workspace") from exc
+    digest = hashlib.sha256(str(relative).encode("utf-8")).hexdigest()[:24]
+    return f".phase4-ledger-anchor-{digest}.json"
+
+
+def _load_ledger_anchor(
+    workspace_fd: int, name: str
+) -> tuple[tuple[int, int], bool, str | None] | None:
+    descriptor: int | None = None
+    try:
+        flags = os.O_RDONLY | os.O_NOFOLLOW | getattr(os, "O_CLOEXEC", 0)
+        descriptor = os.open(name, flags, dir_fd=workspace_fd)
+        metadata = os.fstat(descriptor)
+        if not stat.S_ISREG(metadata.st_mode) or metadata.st_nlink != 1:
+            raise ReplayLedgerError("replay ledger anchor is not a unique regular file")
+        if metadata.st_size > 4 * 1024:
+            raise ReplayLedgerError("replay ledger anchor exceeds its bound")
+        payload = os.read(descriptor, 4 * 1024 + 1)
+        if len(payload) > 4 * 1024:
+            raise ReplayLedgerError("replay ledger anchor exceeds its bound")
+        value = json.loads(
+            payload.decode("utf-8"),
+            parse_constant=lambda item: (_ for _ in ()).throw(
+                ValueError(f"non-finite JSON constant: {item}")
+            ),
+        )
+    except FileNotFoundError:
+        return None
+    except ReplayLedgerError:
+        raise
+    except (OSError, UnicodeError, json.JSONDecodeError, RecursionError, ValueError) as exc:
+        raise ReplayLedgerError("replay ledger anchor cannot be read safely") from exc
+    finally:
+        if descriptor is not None:
+            with suppress(OSError):
+                os.close(descriptor)
+    if not isinstance(value, Mapping) or value.get("schema_version") != _LEDGER_ANCHOR_SCHEMA:
+        raise ReplayLedgerError("replay ledger anchor schema is invalid")
+    parent_dev = value.get("parent_dev")
+    parent_ino = value.get("parent_ino")
+    if (
+        type(parent_dev) is not int
+        or parent_dev < 0
+        or type(parent_ino) is not int
+        or parent_ino < 0
+    ):
+        raise ReplayLedgerError("replay ledger anchor identity is invalid")
+    ledger_initialized = value.get("ledger_initialized", False)
+    if type(ledger_initialized) is not bool:
+        raise ReplayLedgerError("replay ledger anchor initialization state is invalid")
+    ledger_token = value.get("ledger_token")
+    if ledger_token is not None and not _is_ledger_token(ledger_token):
+        raise ReplayLedgerError("replay ledger anchor token is invalid")
+    return (parent_dev, parent_ino), ledger_initialized, ledger_token
+
+
+def _create_ledger_anchor(
+    workspace_fd: int,
+    name: str,
+    parent_identity: tuple[int, int],
+) -> None:
+    ledger_token = _new_ledger_token()
+    payload = (
+        json.dumps(
+            {
+                "schema_version": _LEDGER_ANCHOR_SCHEMA,
+                "parent_dev": parent_identity[0],
+                "parent_ino": parent_identity[1],
+                "ledger_initialized": False,
+                "ledger_token": ledger_token,
+            },
+            sort_keys=True,
+            separators=(",", ":"),
+            allow_nan=False,
+        ).encode("utf-8")
+        + b"\n"
+    )
+    descriptor: int | None = None
+    try:
+        flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW | getattr(os, "O_CLOEXEC", 0)
+        try:
+            descriptor = os.open(name, flags, 0o600, dir_fd=workspace_fd)
+        except FileExistsError:
+            return
+        offset = 0
+        while offset < len(payload):
+            written = os.write(descriptor, payload[offset:])
+            if written <= 0:
+                raise ReplayLedgerError("replay ledger anchor could not be written")
+            offset += written
+        os.fsync(descriptor)
+        os.fsync(workspace_fd)
+    except OSError as exc:
+        raise ReplayLedgerError("replay ledger anchor could not be created safely") from exc
+    finally:
+        if descriptor is not None:
+            with suppress(OSError):
+                os.close(descriptor)
+
+
+def _set_ledger_anchor_state(
+    workspace_fd: int,
+    name: str,
+    parent_identity: tuple[int, int],
+    *,
+    ledger_initialized: bool,
+    ledger_token: str,
+) -> None:
+    """Atomically record the ledger identity token and initialization state."""
+
+    if not _is_ledger_token(ledger_token):
+        raise ReplayLedgerError("replay ledger anchor token is invalid")
+
+    payload = (
+        json.dumps(
+            {
+                "schema_version": _LEDGER_ANCHOR_SCHEMA,
+                "parent_dev": parent_identity[0],
+                "parent_ino": parent_identity[1],
+                "ledger_initialized": ledger_initialized,
+                "ledger_token": ledger_token,
+            },
+            sort_keys=True,
+            separators=(",", ":"),
+            allow_nan=False,
+        ).encode("utf-8")
+        + b"\n"
+    )
+    temporary_name: str | None = None
+    descriptor: int | None = None
+    try:
+        metadata = os.stat(name, dir_fd=workspace_fd, follow_symlinks=False)
+        if stat.S_ISLNK(metadata.st_mode) or not stat.S_ISREG(metadata.st_mode):
+            raise ReplayLedgerError("replay ledger anchor is not a regular file")
+        if metadata.st_nlink != 1:
+            raise ReplayLedgerError("replay ledger anchor is not unique")
+        flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW | getattr(os, "O_CLOEXEC", 0)
+        for _ in range(8):
+            candidate = f".{name}.{uuid.uuid4().hex}.tmp"
+            try:
+                descriptor = os.open(candidate, flags, 0o600, dir_fd=workspace_fd)
+            except FileExistsError:
+                continue
+            temporary_name = candidate
+            break
+        if descriptor is None or temporary_name is None:
+            raise ReplayLedgerError("replay ledger anchor temporary file could not be created")
+        offset = 0
+        while offset < len(payload):
+            written = os.write(descriptor, payload[offset:])
+            if written <= 0:
+                raise ReplayLedgerError("replay ledger anchor could not be written")
+            offset += written
+        os.fsync(descriptor)
+        os.close(descriptor)
+        descriptor = None
+        os.replace(
+            temporary_name,
+            name,
+            src_dir_fd=workspace_fd,
+            dst_dir_fd=workspace_fd,
+        )
+        os.fsync(workspace_fd)
+        temporary_name = None
+    except OSError as exc:
+        raise ReplayLedgerError("replay ledger anchor could not be updated safely") from exc
+    finally:
+        if descriptor is not None:
+            with suppress(OSError):
+                os.close(descriptor)
+        if temporary_name is not None:
+            with suppress(OSError):
+                os.unlink(temporary_name, dir_fd=workspace_fd)
+
+
+def _bind_ledger_parent(
+    path: Path, workspace: Path, *, workspace_fd: int, directory_fd: int
+) -> tuple[str, bool, str | None]:
+    """Bind the selected parent directory identity to a stable workspace anchor."""
+
+    workspace_path = validate_artifact_path(workspace, workspace)
+    anchor_name = _ledger_anchor_name(path, workspace_path)
+    metadata = os.fstat(directory_fd)
+    parent_identity = (metadata.st_dev, metadata.st_ino)
+    bound_identity = _load_ledger_anchor(workspace_fd, anchor_name)
+    if bound_identity is None:
+        _create_ledger_anchor(workspace_fd, anchor_name, parent_identity)
+        bound_identity = _load_ledger_anchor(workspace_fd, anchor_name)
+    if bound_identity is None or bound_identity[0] != parent_identity:
+        raise ReplayLedgerError("replay ledger parent changed identity")
+    return anchor_name, bound_identity[1], bound_identity[2]
+
+
+def _ledger_file_present(path: Path, *, directory_fd: int) -> bool:
+    try:
+        metadata = os.stat(path.name, dir_fd=directory_fd, follow_symlinks=False)
+    except FileNotFoundError:
+        return False
+    if stat.S_ISLNK(metadata.st_mode) or not stat.S_ISREG(metadata.st_mode):
+        raise ReplayLedgerError("replay ledger is not a unique regular file")
+    if metadata.st_nlink != 1:
+        raise ReplayLedgerError("replay ledger is not unique")
+    return True
+
+
+def _json_nesting_exceeds(payload: bytes, *, max_depth: int) -> bool:
+    depth = 0
+    escaped = False
+    in_string = False
+    for byte in payload:
+        if in_string:
+            if escaped:
+                escaped = False
+            elif byte == 92:
+                escaped = True
+            elif byte == 34:
+                in_string = False
+            continue
+        if byte == 34:
+            in_string = True
+        elif byte in {91, 123}:
+            depth += 1
+            if depth > max_depth:
+                return True
+        elif byte in {93, 125}:
+            depth = max(0, depth - 1)
+    return False
+
+
+def _load_ledger(
+    path: Path,
+    *,
+    directory_fd: int,
+    expected_ledger_token: str | None = None,
+) -> dict[str, dict[str, object]]:
+    descriptor: int | None = None
+    try:
+        if not hasattr(os, "O_NOFOLLOW"):
+            raise ReplayLedgerError("replay ledger cannot be secured on this platform")
+        flags = os.O_RDONLY | getattr(os, "O_CLOEXEC", 0) | os.O_NOFOLLOW
+        descriptor = os.open(path.name, flags, dir_fd=directory_fd)
+        metadata = os.fstat(descriptor)
+        if not stat.S_ISREG(metadata.st_mode) or metadata.st_nlink != 1:
+            raise ReplayLedgerError("replay ledger is not a unique regular file")
+        if metadata.st_size > 128 * 1024:
             raise ReplayLedgerError("replay ledger exceeds its bound")
-        payload = json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        chunks: list[bytes] = []
+        total = 0
+        while True:
+            chunk = os.read(descriptor, min(64 * 1024, 128 * 1024 - total + 1))
+            if not chunk:
+                break
+            total += len(chunk)
+            if total > 128 * 1024:
+                raise ReplayLedgerError("replay ledger exceeds its bound")
+            chunks.append(chunk)
+        payload_bytes = b"".join(chunks)
+        if _json_nesting_exceeds(payload_bytes, max_depth=_MAX_LEDGER_JSON_NESTING):
+            raise ReplayLedgerError("replay ledger JSON nesting exceeds its bound")
+        payload = json.loads(
+            payload_bytes.decode("utf-8"),
+            parse_constant=lambda value: (_ for _ in ()).throw(
+                ValueError(f"non-finite JSON constant: {value}")
+            ),
+        )
+    except FileNotFoundError:
+        return {}
+    except ReplayLedgerError:
+        raise
+    except (OSError, UnicodeError, json.JSONDecodeError, RecursionError, ValueError) as exc:
         raise ReplayLedgerError("replay ledger cannot be read safely") from exc
+    finally:
+        if descriptor is not None:
+            with suppress(OSError):
+                os.close(descriptor)
     if not isinstance(payload, Mapping) or payload.get("schema_version") != "P4-LEDGER-1":
         raise ReplayLedgerError("replay ledger schema is invalid")
+    ledger_token = payload.get("ledger_token")
+    if ledger_token is not None and not _is_ledger_token(ledger_token):
+        raise ReplayLedgerError("replay ledger token is invalid")
+    if expected_ledger_token is not None and ledger_token != expected_ledger_token:
+        raise ReplayLedgerError("replay ledger token does not match its anchor")
     raw_entries = payload.get("entries")
     if not isinstance(raw_entries, Mapping):
         raise ReplayLedgerError("replay ledger entries are invalid")
@@ -172,53 +549,160 @@ def _load_ledger(path: Path) -> dict[str, dict[str, object]]:
     return entries
 
 
-def _write_ledger(path: Path, entries: Mapping[str, Mapping[str, object]]) -> None:
-    payload = {"schema_version": "P4-LEDGER-1", "entries": entries}
-    temporary_name: str | None = None
+def _write_ledger(
+    path: Path,
+    entries: Mapping[str, Mapping[str, object]],
+    *,
+    directory_fd: int,
+    ledger_token: str,
+) -> None:
+    if not _is_ledger_token(ledger_token):
+        raise ReplayLedgerError("replay ledger token is invalid")
+    payload = {
+        "schema_version": "P4-LEDGER-1",
+        "ledger_token": ledger_token,
+        "entries": entries,
+    }
     try:
-        with tempfile.NamedTemporaryFile(
-            mode="w",
-            encoding="utf-8",
-            dir=path.parent,
-            prefix=f".{path.name}.",
-            suffix=".tmp",
-            delete=False,
-        ) as handle:
-            temporary_name = handle.name
-            json.dump(payload, handle, sort_keys=True, separators=(",", ":"))
-            handle.write("\n")
-            handle.flush()
-            os.fsync(handle.fileno())
-        os.replace(temporary_name, path)
+        encoded = (
+            json.dumps(payload, sort_keys=True, separators=(",", ":"), allow_nan=False) + "\n"
+        ).encode("utf-8")
+    except (TypeError, ValueError) as exc:
+        raise ReplayLedgerError("replay ledger contains unsupported values") from exc
+    if len(encoded) > 128 * 1024:
+        raise ReplayLedgerError("replay ledger exceeds its bound")
+    temporary_name: str | None = None
+    temporary_descriptor: int | None = None
+    try:
+        try:
+            metadata = os.stat(path.name, dir_fd=directory_fd, follow_symlinks=False)
+        except FileNotFoundError:
+            metadata = None
+        if metadata is not None and (
+            stat.S_ISLNK(metadata.st_mode)
+            or not stat.S_ISREG(metadata.st_mode)
+            or metadata.st_nlink != 1
+        ):
+            raise ReplayLedgerError("replay ledger is not a unique regular file")
+        flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW | getattr(os, "O_CLOEXEC", 0)
+        for _ in range(8):
+            candidate = f".{path.name}.{uuid.uuid4().hex}.tmp"
+            try:
+                temporary_descriptor = os.open(candidate, flags, 0o600, dir_fd=directory_fd)
+            except FileExistsError:
+                continue
+            temporary_name = candidate
+            break
+        if temporary_descriptor is None or temporary_name is None:
+            raise ReplayLedgerError("replay ledger temporary file could not be created")
+        offset = 0
+        while offset < len(encoded):
+            written = os.write(temporary_descriptor, encoded[offset:])
+            if written <= 0:
+                raise ReplayLedgerError("replay ledger temporary file could not be written")
+            offset += written
+        os.fsync(temporary_descriptor)
+        os.close(temporary_descriptor)
+        temporary_descriptor = None
+        os.replace(
+            temporary_name,
+            path.name,
+            src_dir_fd=directory_fd,
+            dst_dir_fd=directory_fd,
+        )
+        os.fsync(directory_fd)
         temporary_name = None
     except OSError as exc:
         raise ReplayLedgerError("replay ledger could not be written atomically") from exc
     finally:
+        if temporary_descriptor is not None:
+            with suppress(OSError):
+                os.close(temporary_descriptor)
         if temporary_name is not None:
             with suppress(OSError):
-                Path(temporary_name).unlink(missing_ok=True)
+                os.unlink(temporary_name, dir_fd=directory_fd)
 
 
 @contextmanager
-def _ledger_lock(path: Path) -> Generator[None, None, None]:
+def _ledger_lock(path: Path, *, workspace: Path) -> Generator[tuple[int, str], None, None]:
     """Serialize reservations across threads and independent processes."""
 
-    lock_path = path.with_name(f".{path.name}.lock")
-    flags = os.O_CREAT | os.O_RDWR | getattr(os, "O_NOFOLLOW", 0)
+    if fcntl is None:
+        raise ReplayLedgerError("replay ledger locking is unavailable on this platform")
+    workspace_fd = _open_workspace_descriptor(workspace)
+    directory_fd: int | None = None
+    descriptor: int | None = None
+    lock_name = f".{path.name}.lock"
     try:
-        descriptor = os.open(lock_path, flags, 0o600)
+        # The workspace directory is the authoritative cross-process lock. The
+        # legacy lock file is still validated and locked for compatibility, but
+        # unlink/recreate races on it cannot split reservation ownership.
+        fcntl.flock(workspace_fd, fcntl.LOCK_EX)
+        directory_fd = _open_ledger_parent(path, workspace, workspace_fd=workspace_fd)
+        anchor_name, ledger_initialized, ledger_token = _bind_ledger_parent(
+            path,
+            workspace,
+            workspace_fd=workspace_fd,
+            directory_fd=directory_fd,
+        )
+        if ledger_token is None:
+            # Upgrade a pre-token ledger once while the authoritative workspace
+            # lock is held. Future replacements must carry this stable token.
+            ledger_token = _new_ledger_token()
+            if _ledger_file_present(path, directory_fd=directory_fd):
+                legacy_entries = _load_ledger(path, directory_fd=directory_fd)
+                _write_ledger(
+                    path,
+                    legacy_entries,
+                    directory_fd=directory_fd,
+                    ledger_token=ledger_token,
+                )
+                ledger_initialized = True
+            parent_metadata = os.fstat(directory_fd)
+            _set_ledger_anchor_state(
+                workspace_fd,
+                anchor_name,
+                (parent_metadata.st_dev, parent_metadata.st_ino),
+                ledger_initialized=ledger_initialized,
+                ledger_token=ledger_token,
+            )
+        if ledger_initialized and not _ledger_file_present(path, directory_fd=directory_fd):
+            raise ReplayLedgerError("replay ledger disappeared after initialization")
+        if not hasattr(os, "O_NOFOLLOW"):
+            raise ReplayLedgerError("replay ledger lock cannot be secured on this platform")
+        flags = os.O_CREAT | os.O_RDWR | os.O_NOFOLLOW | getattr(os, "O_CLOEXEC", 0)
+        descriptor = os.open(lock_name, flags, 0o600, dir_fd=directory_fd)
+        metadata = os.fstat(descriptor)
+        if not stat.S_ISREG(metadata.st_mode) or metadata.st_nlink != 1:
+            raise ReplayLedgerError("replay ledger lock is not a unique regular file")
+        fcntl.flock(descriptor, fcntl.LOCK_EX)
+        if ledger_token is None:  # pragma: no cover - every anchor receives a token above
+            raise ReplayLedgerError("replay ledger token is unavailable")
+        yield directory_fd, ledger_token
+        if not ledger_initialized and _ledger_file_present(path, directory_fd=directory_fd):
+            parent_metadata = os.fstat(directory_fd)
+            _set_ledger_anchor_state(
+                workspace_fd,
+                anchor_name,
+                (parent_metadata.st_dev, parent_metadata.st_ino),
+                ledger_initialized=True,
+                ledger_token=ledger_token,
+            )
     except OSError as exc:
         raise ReplayLedgerError("replay ledger lock is unsafe") from exc
-    handle = os.fdopen(descriptor, "a+", encoding="utf-8")
-    try:
-        if fcntl is not None:
-            fcntl.flock(handle.fileno(), fcntl.LOCK_EX)
-        yield
     finally:
-        if fcntl is not None:
+        if descriptor is not None:
             with suppress(OSError):
-                fcntl.flock(handle.fileno(), fcntl.LOCK_UN)
-        handle.close()
+                fcntl.flock(descriptor, fcntl.LOCK_UN)
+            with suppress(OSError):
+                os.close(descriptor)
+        if directory_fd is not None:
+            with suppress(OSError):
+                os.close(directory_fd)
+        with suppress(OSError):
+            fcntl.flock(workspace_fd, fcntl.LOCK_UN)
+        with suppress(OSError):
+            os.close(workspace_fd)
 
 
 def transition(
@@ -519,14 +1003,17 @@ class InvocationEngine:
         fresh_after_host, _freshness_reason = revalidate_capability(prepared.record, Phase3Limits())
         if not fresh_after_host:
             lifecycle = transition(lifecycle, InvocationLifecycle.FAILED)
-            return self._host_failure_outcome(
-                prepared,
-                replace(
-                    host_result,
-                    status=InvocationResultStatus.FAILURE,
-                    error_code="CAPABILITY_CHANGED_DURING_INVOCATION",
+            return self._finalize_real_outcome(
+                prepared.request,
+                self._host_failure_outcome(
+                    prepared,
+                    replace(
+                        host_result,
+                        status=InvocationResultStatus.FAILURE,
+                        error_code="CAPABILITY_CHANGED_DURING_INVOCATION",
+                    ),
+                    lifecycle,
                 ),
-                lifecycle,
             )
         if not host_result.invocation_observed and host_result.status in {
             InvocationResultStatus.TIMED_OUT,
@@ -538,12 +1025,18 @@ class InvocationEngine:
                 if host_result.status is InvocationResultStatus.TIMED_OUT
                 else InvocationLifecycle.CANCELLED,
             )
-            return self._host_terminal_outcome(prepared, host_result, lifecycle)
+            return self._finalize_real_outcome(
+                prepared.request,
+                self._host_terminal_outcome(prepared, host_result, lifecycle),
+            )
         if host_result.invocation_observed:
             lifecycle = transition(lifecycle, InvocationLifecycle.HOST_ACKNOWLEDGED)
         else:
             lifecycle = transition(lifecycle, InvocationLifecycle.FAILED)
-            return self._host_failure_outcome(prepared, host_result, lifecycle)
+            return self._finalize_real_outcome(
+                prepared.request,
+                self._host_failure_outcome(prepared, host_result, lifecycle),
+            )
         if host_result.status in {
             InvocationResultStatus.TIMED_OUT,
             InvocationResultStatus.CANCELLED,
@@ -554,20 +1047,26 @@ class InvocationEngine:
                 if host_result.status is InvocationResultStatus.TIMED_OUT
                 else InvocationLifecycle.CANCELLED,
             )
-            return self._host_terminal_outcome(prepared, host_result, lifecycle)
+            return self._finalize_real_outcome(
+                prepared.request,
+                self._host_terminal_outcome(prepared, host_result, lifecycle),
+            )
         lifecycle = transition(lifecycle, InvocationLifecycle.EXECUTING)
         lifecycle = transition(lifecycle, InvocationLifecycle.RESULT_RECEIVED)
         lifecycle = transition(lifecycle, InvocationLifecycle.VERIFYING)
         if not host_result.execution_observed:
             lifecycle = transition(lifecycle, InvocationLifecycle.FAILED)
-            return self._host_failure_outcome(
-                prepared,
-                replace(
-                    host_result,
-                    status=InvocationResultStatus.FAILURE,
-                    error_code="HOST_EXECUTION_UNOBSERVED",
+            return self._finalize_real_outcome(
+                prepared.request,
+                self._host_failure_outcome(
+                    prepared,
+                    replace(
+                        host_result,
+                        status=InvocationResultStatus.FAILURE,
+                        error_code="HOST_EXECUTION_UNOBSERVED",
+                    ),
+                    lifecycle,
                 ),
-                lifecycle,
             )
         artifacts = self._capture_artifacts(prepared.request, host_result, authorization)
         verification = verify_host_result(
@@ -654,19 +1153,22 @@ class InvocationEngine:
             ):
                 raise RuntimeError("receipt binding remained invalid after fail-closed repair")
         limitations = assurance.limitations if assurance is not None else ()
-        return ExecutionOutcome(
-            mode=prepared.mode,
-            status=status,
-            blockers=(),
-            warnings=preflight.warnings,
-            host_invoked=True,
-            preflight=preflight,
-            receipt=receipt,
-            artifacts=artifacts,
-            verification=verification,
-            assurance=assurance,
-            host_result=host_result,
-            limitations=limitations,
+        return self._finalize_real_outcome(
+            prepared.request,
+            ExecutionOutcome(
+                mode=prepared.mode,
+                status=status,
+                blockers=(),
+                warnings=preflight.warnings,
+                host_invoked=True,
+                preflight=preflight,
+                receipt=receipt,
+                artifacts=artifacts,
+                verification=verification,
+                assurance=assurance,
+                host_result=host_result,
+                limitations=limitations,
+            ),
         )
 
     @staticmethod
@@ -797,8 +1299,13 @@ class InvocationEngine:
             with self._replay_lock:
                 if request.invocation_id in self._used_real_invocations:
                     return "REPLAY_DETECTED"
-                with _ledger_lock(path):
-                    entries = _load_ledger(path)
+                with _ledger_lock(path, workspace=Path(request.workspace)) as lock:
+                    directory_fd, ledger_token = lock
+                    entries = _load_ledger(
+                        path,
+                        directory_fd=directory_fd,
+                        expected_ledger_token=ledger_token,
+                    )
                     existing = entries.get(request.invocation_id)
                     if existing is not None:
                         if existing.get("request_digest") == request_digest:
@@ -813,11 +1320,57 @@ class InvocationEngine:
                         "reserved_at": self._clock(),
                         "status": "RESERVED_FOR_CONTROLLED_REAL",
                     }
-                    _write_ledger(path, entries)
+                    _write_ledger(
+                        path,
+                        entries,
+                        directory_fd=directory_fd,
+                        ledger_token=ledger_token,
+                    )
                 self._used_real_invocations.add(request.invocation_id)
         except ReplayLedgerError as exc:
             return str(exc) if str(exc) else "REPLAY_LEDGER_INVALID"
         return None
+
+    def _finalize_real_outcome(
+        self,
+        request: CapabilityInvocationRequest,
+        outcome: ExecutionOutcome,
+    ) -> ExecutionOutcome:
+        """Bind the terminal receipt to the reservation without weakening replay safety."""
+
+        try:
+            path = _ledger_path(request, self._replay_ledger)
+            request_digest = stable_digest_payload(request, workspace=request.workspace)
+            with (
+                self._replay_lock,
+                _ledger_lock(path, workspace=Path(request.workspace)) as lock,
+            ):
+                directory_fd, ledger_token = lock
+                entries = _load_ledger(
+                    path,
+                    directory_fd=directory_fd,
+                    expected_ledger_token=ledger_token,
+                )
+                existing = entries.get(request.invocation_id)
+                if existing is None or existing.get("request_digest") != request_digest:
+                    raise ReplayLedgerError("replay reservation disappeared or was rebound")
+                entries[request.invocation_id] = {
+                    **existing,
+                    "status": outcome.status.value,
+                    "closed_at": outcome.receipt.closed_at,
+                    "receipt_digest": outcome.receipt.receipt_digest,
+                }
+                _write_ledger(
+                    path,
+                    entries,
+                    directory_fd=directory_fd,
+                    ledger_token=ledger_token,
+                )
+        except ReplayLedgerError:
+            # A failed terminal write leaves the reservation fail-closed. The
+            # invocation outcome remains truthful, while replay stays blocked.
+            pass
+        return outcome
 
     def _capture_artifacts(
         self,

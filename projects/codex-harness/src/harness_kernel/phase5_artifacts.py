@@ -7,13 +7,13 @@ import json
 import os
 import re
 import stat
-import tempfile
 from collections.abc import Mapping
-from contextlib import suppress
 from dataclasses import dataclass
 from pathlib import Path
 from types import MappingProxyType
 
+from .phase4_artifacts import ArtifactCaptureError as Phase4ArtifactCaptureError
+from .phase4_artifacts import _atomic_write_at, _open_confined_directory
 from .phase5_models import ArtifactPacket, Phase5Task
 
 
@@ -112,18 +112,12 @@ def extract_response_artifact(response: str, *, max_bytes: int = 131_072) -> Res
 
 
 def _ensure_directory(path: Path, workspace: Path) -> None:
-    validate_artifact_path(path, workspace)
     try:
-        path.mkdir(parents=True, exist_ok=True)
-    except OSError as exc:
-        raise ArtifactCaptureError("artifact directory cannot be created") from exc
-    _safe_existing_components(path)
-    try:
-        metadata = path.lstat()
-    except OSError as exc:
-        raise ArtifactCaptureError("artifact directory cannot be inspected") from exc
-    if stat.S_ISLNK(metadata.st_mode) or not stat.S_ISDIR(metadata.st_mode):
-        raise ArtifactCaptureError("artifact root is not a directory")
+        descriptor = _open_confined_directory(path, workspace)
+    except Phase4ArtifactCaptureError as exc:
+        raise ArtifactCaptureError("artifact directory cannot be created safely") from exc
+    else:
+        os.close(descriptor)
 
 
 def materialize_response_artifact(
@@ -151,28 +145,16 @@ def materialize_response_artifact(
         task=task,
         parent_artifact_digest=parent_artifact_digest,
     )
-    temporary_name: str | None = None
     try:
-        with tempfile.NamedTemporaryFile(
-            mode="w",
-            encoding="utf-8",
-            dir=str(version_root),
-            prefix=".index.html.",
-            suffix=".tmp",
-            delete=False,
-        ) as handle:
-            temporary_name = handle.name
-            handle.write(response_artifact.html)
-            handle.flush()
-            os.fsync(handle.fileno())
-        os.replace(temporary_name, target_name)
-        temporary_name = None
-    except OSError as exc:
+        directory_fd = _open_confined_directory(version_root, Path(task.workspace))
+    except Phase4ArtifactCaptureError as exc:
+        raise ArtifactCaptureError("artifact directory cannot be opened safely") from exc
+    try:
+        _atomic_write_at(directory_fd, response_artifact.filename, response_artifact.html.encode())
+    except Phase4ArtifactCaptureError as exc:
         raise ArtifactCaptureError("artifact could not be materialized atomically") from exc
     finally:
-        if temporary_name is not None:
-            with suppress(OSError):
-                Path(temporary_name).unlink(missing_ok=True)
+        os.close(directory_fd)
     return packet
 
 

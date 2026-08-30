@@ -1,0 +1,83 @@
+{
+  "artifact_root": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts",
+  "brief": {
+    "accessibility_intent": "Use semantic landmarks, one clear h1, visible keyboard focus, readable contrast, a viewport declaration, and comfortable touch targets.",
+    "asset_role": "A geometric triage signal should carry the visual identity as an original code-native asset rather than a placeholder photo.",
+    "audience": "Pet owners making a high-stakes urgent-care decision at night.",
+    "exact_copy": {
+      "cta": "Call the triage team",
+      "eyebrow": "24/7 emergency veterinary triage",
+      "heading": "A calmer next step when every minute matters.",
+      "support": "PulsePaw helps you assess what to do next and reach the right emergency team without adding noise."
+    },
+    "job": "Orient quickly, communicate clinical confidence, and make the emergency call obvious.",
+    "medium": "A response-derived standalone HTML/CSS/SVG artifact.",
+    "must_avoid": [
+      "generic SaaS template geometry",
+      "invented testimonials or unsupported clinical claims",
+      "placeholder imagery or lorem ipsum",
+      "remote assets, scripts, and third-party fonts"
+    ],
+    "must_include": [
+      "semantic header, main, and footer landmarks",
+      "an original code-native triage signal visual",
+      "an intentional desktop-to-mobile reflow",
+      "a strong typographic hierarchy and obvious emergency CTA"
+    ],
+    "outcome": "A premium emergency triage hero that helps a pet owner orient quickly and contact the care team.",
+    "primary_action": "Call the triage team",
+    "responsive_intent": "Use a composed two-column desktop hero that becomes an intentional, spacious stacked mobile composition without clipping or horizontal overflow.",
+    "thesis": "Calm clinical clarity with a precise signal for the next safe action."
+  },
+  "created_at": 1788000000,
+  "criteria": {
+    "dimensions": [
+      "ART_DIRECTION",
+      "VISUAL_HIERARCHY",
+      "TYPOGRAPHY",
+      "COMPOSITION",
+      "SPACING",
+      "COLOR_SYSTEM",
+      "ASSET_QUALITY",
+      "PRODUCT_SPECIFICITY",
+      "RESPONSIVENESS",
+      "ACCESSIBILITY",
+      "POLISH",
+      "GENERIC_AI_SLOP_AVOIDANCE"
+    ],
+    "forbidden_signals": [
+      "lorem ipsum",
+      "placeholder",
+      "http://",
+      "https://",
+      "<script",
+      "javascript:"
+    ],
+    "max_artifact_bytes": 131072,
+    "render_viewports": [
+      [
+        1440,
+        900
+      ],
+      [
+        390,
+        844
+      ]
+    ],
+    "required_copy": [
+      "PulsePaw",
+      "Call the triage team"
+    ],
+    "required_sections": [
+      "header",
+      "main",
+      "footer"
+    ]
+  },
+  "request": "Create a premium single-page hero for fictional PulsePaw Triage, an AI-assisted emergency veterinary triage service. The visual direction must feel modern, calm, trustworthy and clinically credible, with one deliberate custom visual asset and responsive desktop/mobile behavior.",
+  "run_id": "RUN-P6-COMPOSITION-001",
+  "schema_version": "P5-TASK-1",
+  "task_id": "TASK-P6-COMPOSITION-001",
+  "title": "PulsePaw emergency triage hero",
+  "workspace": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace"
+}

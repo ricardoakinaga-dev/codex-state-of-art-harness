@@ -1,0 +1,62 @@
+{
+  "allowed_side_effects": [],
+  "allowed_tools": [],
+  "artifact_policy": {
+    "max_bytes": 131072,
+    "max_count": 1,
+    "types": [
+      "HOST_RESPONSE"
+    ]
+  },
+  "authorization_id": "AUTH-P5-0ee92b1193f05cf3b77810df",
+  "capability_id": "design-director",
+  "capability_version": "0.1.0",
+  "constraints": [
+    "no scripts",
+    "no tools",
+    "no shell",
+    "no network",
+    "no MCP",
+    "no providers",
+    "no credentials",
+    "no subagents",
+    "no host file changes"
+  ],
+  "context_budget": {
+    "max_bytes": 32768
+  },
+  "credential_policy": "DENY",
+  "evidence_policy": {
+    "max_count": 64,
+    "max_events": 256
+  },
+  "expires_at": 1788048553,
+  "filesystem_policy": {
+    "artifact_root": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts",
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+    "mode": "READ_ONLY",
+    "workspace": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace"
+  },
+  "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+  "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+  "issued_at": 1788048433,
+  "issued_by": "phase5-preflight",
+  "iteration_budget": {
+    "host_calls": 1,
+    "repair_iterations": 0,
+    "tool_calls": 0
+  },
+  "mcp_policy": "DENY",
+  "network_policy": "DENY",
+  "package_fingerprint": "sha256:564d610da9260d25cbcddfbb3f96f70fb9dabd643c46b4242c4b891d399eba95",
+  "provider_policy": "DENY",
+  "reason": "Exact design-director response-only builder pilot",
+  "requested_execution_mode": "CONTROLLED_REAL",
+  "requested_loading_level": "L2_INSTRUCTION_KERNEL",
+  "run_id": "RUN-P6-COMPOSITION-001",
+  "scope": "GLOBAL",
+  "shell_policy": "DENY",
+  "task_id": "TASK-P6-COMPOSITION-001",
+  "timeout_seconds": 120
+}

@@ -1,0 +1,78 @@
+{
+  "schema_version": "P6-CURRENT-SNAPSHOT-1",
+  "snapshot_status": "CURRENT",
+  "observed_at": "2026-08-29T20:31:58-03:00",
+  "capability_id": "verification-loop",
+  "installed": {
+    "path": "/home/ricardo/.agents/skills/verification-loop",
+    "alternate_codex_path": "/home/ricardo/.codex/skills/verification-loop",
+    "alternate_codex_path_exists": false,
+    "scope": "GLOBAL",
+    "files": [
+      {
+        "path": "SKILL.md",
+        "bytes": 2491,
+        "lines": 126,
+        "sha256": "sha256:01a9ae310ad4426bb05660dda6cefdeaac9513417585c09c8bb1b94738649a78"
+      },
+      {
+        "path": "agents/openai.yaml",
+        "bytes": 256,
+        "lines": 7,
+        "sha256": "sha256:1907fd04fea5c83d15faf14acfc978de90076d4351341cf9259639aa0c3b7bd3"
+      }
+    ],
+    "package_fingerprint_phase3": "sha256:6cddd9e336f44c261eea24fc983c18f740df9dca8ebfbed0faffc7b9d73ba0ce",
+    "manifest_fingerprint_phase3": "sha256:1ad02d474bf8f54eb48ea482bc2c628e6611be913a9b41de502241fe135c43f4",
+    "phase3_kind": "INVALID",
+    "phase3_lifecycle": "REJECTED",
+    "phase3_load_eligibility": "BLOCKED_INVALID_METADATA",
+    "phase3_trust": "REJECTED",
+    "phase3_compatibility": "PARTIAL",
+    "phase3_host_load_observation": "UNSUPPORTED_BY_HOST",
+    "implicit_invocation": true,
+    "has_native_manifest": false,
+    "has_references": false,
+    "has_scripts": false,
+    "has_evals": false,
+    "has_benchmarks": false
+  },
+  "lineage": {
+    "local_lineage_file": "../../references/skill-audit/data/skill-lineage.json",
+    "repository": "https://github.com/ricardoakinaga-dev/everything-claude-code",
+    "repository_branch": "main",
+    "installed_source_path": ".agents/skills/verification-loop/SKILL.md",
+    "installed_source_commit_recorded_by_audit": "8bdf88e5ad8877bcd00a4aba7ccbfb50f235f10f",
+    "source_commit_note": "Local audit says the clone is shallow; no import tag is proven.",
+    "authority_status": "PARTIAL",
+    "signature_status": "UNKNOWN"
+  },
+  "host_observation": {
+    "discovery_roots": [
+      "project.agents",
+      "project.harness",
+      "workspace.agents",
+      "global.agents",
+      "global.codex",
+      "system.codex"
+    ],
+    "load_causality": "UNSUPPORTED_BY_HOST",
+    "runtime_version": "UNKNOWN",
+    "real_invocation_status": "BLOCKED"
+  },
+  "baseline": {
+    "repository_head": "17557e413dd1b74ea7106c1ca6fc270ad481694c",
+    "tests": "424 passed",
+    "ruff": "PASS",
+    "mypy": "PASS",
+    "coverage": "80% recorded in Phase 5 final reclosure",
+    "global_mutation": "NONE",
+    "installed_package_mutation": "NONE"
+  },
+  "unknowns": [
+    "Complete historical upstream lineage and signed provenance",
+    "Causal host Skill-load event for the installed package",
+    "Whether the current host accepts project-local .harness capability loading at runtime"
+  ],
+  "preservation_rule": "This snapshot is read-only evidence. Any changed installed byte requires a new snapshot and invalidates this record."
+}

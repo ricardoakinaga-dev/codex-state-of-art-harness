@@ -1,0 +1,17 @@
+{
+  "freshness_binding": "PASS",
+  "identity_binding": "PASS",
+  "immutability": "PASS",
+  "models": [
+    "VerificationInput",
+    "VerificationOutput",
+    "Claim",
+    "ProcedureResult",
+    "Evidence",
+    "StopDecision",
+    "Phase6Telemetry"
+  ],
+  "report_bound_bytes": 110293,
+  "schema_version": "P6-CONTRACT-VALIDATION-1",
+  "status": "PASS"
+}

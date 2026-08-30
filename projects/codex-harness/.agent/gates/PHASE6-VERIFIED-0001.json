@@ -1,0 +1,134 @@
+{
+  "record_id": "GATE-PHASE6-VERIFIED-0001",
+  "timestamp": "2026-08-30T04:24:07-03:00",
+  "gate_id": "VERIFIED",
+  "scope": "PHASE6-001 additive project-local Codex-native verification-loop-vNext candidate",
+  "scope_ref": "PHASE6-001",
+  "version": 1,
+  "criteria": [
+    {
+      "id": "V-001-ACCEPTANCE-EVIDENCE",
+      "description": "The Phase 6 acceptance bar is satisfied by current-line and upstream analysis, typed native contracts, bounded deterministic checks, profiles, stop conditions, evals, benchmark records, Phase 3/4 proof, real bounded composition and browser evidence.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-6/P6-QB-1.md",
+        "evidence/phase-6/current-verification-loop-snapshot.json",
+        "evidence/phase-6/current-ineligibility-analysis.md",
+        "evidence/phase-6/upstream-analysis.md",
+        "evidence/phase-6/modernization-plan.md",
+        "evidence/phase-6/final-report.md",
+        "evidence/phase-6/PHASE6-FROZEN.md"
+      ],
+      "confidence": "HIGH",
+      "limitations": "The candidate is project-local and additive; it does not migrate or replace the installed current package."
+    },
+    {
+      "id": "V-002-QUALITY-REGRESSION",
+      "description": "The complete current suite, coverage receipt, lint, format, strict typing, compilation, browser-script syntax, diff hygiene and real host smoke remain green after the final fixes.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-6/quality-receipt.json",
+        "evidence/phase-6/coverage-report.json",
+        "evidence/phase-6/pilots/design-verification-composition/composition-receipt.json",
+        ".agent/verification.jsonl#VER-PHASE6-FINAL-0001"
+      ],
+      "confidence": "HIGH",
+      "limitations": "The declared environment does not provide pip-audit; dependency-audit findings are not presented as complete."
+    },
+    {
+      "id": "V-003-BOUNDED-COMPOSITION",
+      "description": "The real bounded Design Director plus verification-loop-vNext composition passes its fixed graph, host preflight, discovery, app-server/browser capture, artifact integrity, semantic checks, telemetry and final verification boundaries.",
+      "required": true,
+      "status": "PASS_WITH_LIMITATIONS",
+      "evidence_refs": [
+        "evidence/phase-6/pilots/design-verification-composition/composition-receipt.json",
+        "evidence/phase-6/pilots/design-verification-composition/verification-report.json",
+        "evidence/phase-6/pilots/design-verification-composition/verification-plan.json",
+        "evidence/phase-6/pilots/design-verification-composition/browser/browser-capture-manifest.json",
+        "evidence/phase-6/pilots/design-verification-composition/browser/desktop-1440x900.png",
+        "evidence/phase-6/pilots/design-verification-composition/browser/mobile-390x844.png"
+      ],
+      "confidence": "HIGH",
+      "limitations": "Host-load causality remains HOST_LOAD_UNOBSERVABLE; the composition is a bounded local pilot, not a production deployment."
+    },
+    {
+      "id": "V-004-INDEPENDENT-REVIEWS",
+      "description": "Two fresh independent reviewers inspected the exact candidate packet at review time and returned PASS_WITH_LIMITATIONS at P6_LEVEL_B with zero Critical, High, Medium or Low technical findings.",
+      "required": true,
+      "status": "PASS_WITH_LIMITATIONS",
+      "evidence_refs": [
+        "evidence/phase-6/independent-review.md",
+        "evidence/phase-6/review-attestation.json",
+        "evidence/phase-6/review-manifest.json"
+      ],
+      "confidence": "HIGH",
+      "limitations": "The exact review-time candidate closure was sha256:0e879558919407584eddb53e7354200580a0d1e714daa3173da712ddf026d2be; later local recording controls are bound by the final closure."
+    },
+    {
+      "id": "V-005-EXACT-CLOSURE",
+      "description": "The final review manifest is internally exact, all recorded controls reconcile to it, and the frozen report records the final bounded decision and limitations.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [
+        "evidence/phase-6/review-manifest.json",
+        "evidence/phase-6/review-attestation.json",
+        "evidence/phase-6/readiness.json",
+        "evidence/phase-6/promotion-decision.json",
+        "evidence/phase-6/PHASE6-FROZEN.md",
+        ".agent/verification.jsonl#VER-PHASE6-FINAL-0002"
+      ],
+      "confidence": "HIGH",
+      "limitations": "The packet is frozen at the declared P6_LEVEL_B boundary; any material change requires a new exact closure and independent review."
+    }
+  ],
+  "evidence": [
+    "evidence/phase-6/review-manifest.json",
+    "evidence/phase-6/review-attestation.json",
+    "evidence/phase-6/readiness.json",
+    "evidence/phase-6/promotion-decision.json",
+    "evidence/phase-6/final-report.md",
+    "evidence/phase-6/PHASE6-FROZEN.md",
+    "evidence/phase-6/independent-review.md",
+    "evidence/phase-6/quality-receipt.json",
+    "evidence/phase-6/pilots/design-verification-composition/composition-receipt.json",
+    "evidence/phase-6/pilots/design-verification-composition/verification-report.json",
+    ".agent/verification.jsonl#VER-PHASE6-FINAL-0001",
+    ".agent/verification.jsonl#VER-PHASE6-FINAL-0002"
+  ],
+  "confidence": "HIGH",
+  "gaps": [
+    "HOST_LOAD_UNOBSERVABLE",
+    "EXTERNAL_VERIFIER_NOT_ELIGIBLE",
+    "QUALITATIVE_NOT_RUN_12_DIMENSIONS",
+    "PIP_AUDIT_UNAVAILABLE",
+    "NO_PRODUCTION_OR_GLOBAL_MIGRATION_EVIDENCE"
+  ],
+  "conditions": [
+    "Keep the exact Phase 6 packet frozen at P6_LEVEL_B.",
+    "Do not claim migration, production readiness, causal improvement, AAA verification or P6_LEVEL_C support.",
+    "Reopen Phase 6 for any source, test, fixture, policy, runtime-configuration, evidence, control-plane or scope change."
+  ],
+  "authority": {
+    "required": false,
+    "state": "NOT_REQUIRED",
+    "actor": "lead",
+    "scope": "PHASE6-001 additive project-local verification-loop-vNext candidate",
+    "decision": "Accept PASS_WITH_LIMITATIONS at P6_LEVEL_B after two fresh exact-packet independent reviews; no migration, production, causal, AAA or P6_LEVEL_C claim is authorized.",
+    "evidence_ref": "evidence/phase-6/review-attestation.json",
+    "expires_or_revalidates": "Revalidate on any manifest-bound change or expansion beyond the bounded project-local candidate."
+  },
+  "residual_risk": "MEDIUM",
+  "decision": "PASS",
+  "support_level": "P6_LEVEL_B",
+  "review_manifest_digest": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c",
+  "payload_closure": "sha256:e1070f92054387caf3a460f70f9741f5cf1717b5d08f08f75dcb99c02e10f9ea",
+  "next_action": "Keep PHASE6-001 frozen; any future source, test, fixture, policy, runtime-configuration, evidence, control-plane or scope change requires a new exact packet and independent-review cycle.",
+  "revalidation_triggers": [
+    "Changing Phase 6 source, tests, fixtures, policies, reports, evidence or architecture inputs",
+    "Changing capability identity, authorization, graph, budgets, repair, browser, host or evidence boundaries",
+    "Adding another eligible capability, provider, tool, MCP, shell, network, credential, deployment or production path",
+    "Seeking P6_LEVEL_C, causal improvement, production readiness, AAA verification or unconditional PASS"
+  ]
+}

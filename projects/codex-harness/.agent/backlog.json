@@ -21,7 +21,7 @@
     {
       "id": "PHASE1-001",
       "title": "Implement the contract-first Phase 1 Harness Kernel",
-      "stage": "BUILD",
+      "stage": "DONE",
       "priority": "P0",
       "status": "DONE",
       "origin": "User-supplied Phase 1 implementation specification",
@@ -150,6 +150,39 @@
         "evidence/phase-5/final-report.md"
       ],
       "next_action": "Keep the exact Phase 5 packet frozen; any source, test, runtime-configuration or scope change requires a new evidence, manifest and independent-review cycle."
+    },
+    {
+      "id": "PHASE6-001",
+      "title": "Modernize verification-loop as a project-local Codex-native vNext candidate",
+      "stage": "DONE",
+      "priority": "P0",
+      "status": "DONE",
+      "origin": "User-supplied Phase 6 verification-loop modernization specification",
+      "dependencies": ["PHASE5-001"],
+      "owner": "lead",
+      "acceptance_summary": "Inspect current and upstream lineage, document ineligibility, build a native project-local verification package with typed immutable contracts, criterion-level evidence/freshness, deterministic bounded read-only checks, profiles, stop conditions, evals, benchmarks, Phase 3/4 proof, real bounded composition when eligible, independent reviews and exact evidence closure without changing the installed package or making migration/production/AAA claims.",
+      "evidence_refs": [
+        ".agent/plans/PHASE-6-verification-loop-modernization.md",
+        ".agent/gates/PHASE6-SCOPE-READY-0001.json",
+        "evidence/phase-6/P6-QB-1.md",
+        "evidence/phase-6/current-verification-loop-snapshot.json",
+        "evidence/phase-6/current-ineligibility-analysis.md",
+        "evidence/phase-6/upstream-analysis.md",
+        "evidence/phase-6/modernization-plan.md",
+        "evidence/phase-6/quality-receipt.json",
+        "evidence/phase-6/review-manifest.json",
+        "evidence/phase-6/review-attestation.json",
+        "evidence/phase-6/readiness.json",
+        "evidence/phase-6/final-report.md",
+        "evidence/phase-6/promotion-decision.json",
+        "evidence/phase-6/PHASE6-FROZEN.md",
+        "evidence/phase-6/independent-review.md",
+        ".agent/gates/PHASE6-VERIFIED-0001.json",
+        ".agent/verification.jsonl#VER-PHASE6-FINAL-0001",
+        ".agent/verification.jsonl#VER-PHASE6-FINAL-0002",
+        ".agent/execution-log.jsonl#EVT-PHASE6-COMPLETE-0001"
+      ],
+      "next_action": "Keep the exact Phase 6 packet frozen; any source, test, runtime-configuration, evidence, control-plane or scope change requires a new manifest and independent-review cycle."
     }
   ]
 }

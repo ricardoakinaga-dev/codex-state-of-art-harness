@@ -1,0 +1,8 @@
+{
+  "global_migration": "NOT_AUTHORIZED",
+  "reason": "project-local promotion only; host load causality and qualitative review remain bounded",
+  "schema_version": "P6-PROMOTION-1",
+  "status": "PASS_WITH_LIMITATIONS",
+  "support_level": "P6_LEVEL_B",
+  "vnext_promotion_state": "VERIFIED_CANDIDATE"
+}

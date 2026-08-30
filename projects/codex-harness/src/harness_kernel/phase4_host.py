@@ -49,6 +49,100 @@ HostBinding = tuple[
     str | None,
 ]
 
+_MAX_PROTOCOL_JSON_NESTING = 64
+_SAFE_HOST_PATH = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+
+def _json_nesting_exceeds(payload: bytes, *, max_depth: int) -> bool:
+    """Bound structural JSON nesting before handing untrusted bytes to the parser."""
+
+    depth = 0
+    escaped = False
+    in_string = False
+    for byte in payload:
+        if in_string:
+            if escaped:
+                escaped = False
+            elif byte == 92:
+                escaped = True
+            elif byte == 34:
+                in_string = False
+            continue
+        if byte == 34:
+            in_string = True
+        elif byte in {91, 123}:
+            depth += 1
+            if depth > max_depth:
+                return True
+        elif byte in {93, 125}:
+            depth = max(0, depth - 1)
+    return False
+
+
+def _reject_non_finite_json(value: str) -> object:
+    raise ValueError(f"non-finite JSON constant is not allowed: {value}")
+
+
+def _sha256_fd(fd: int) -> str:
+    """Hash an already-open regular file without reopening its pathname."""
+
+    try:
+        position = os.lseek(fd, 0, os.SEEK_CUR)
+        os.lseek(fd, 0, os.SEEK_SET)
+        digest = hashlib.sha256()
+        while chunk := os.read(fd, 1024 * 1024):
+            digest.update(chunk)
+        os.lseek(fd, position, os.SEEK_SET)
+    except OSError as exc:
+        raise HostProtocolError("pinned host file cannot be hashed safely") from exc
+    return "sha256:" + digest.hexdigest()
+
+
+def _read_fd_bounded(fd: int, *, max_bytes: int) -> bytes:
+    """Read a bounded descriptor while keeping the descriptor identity pinned."""
+
+    chunks: list[bytes] = []
+    total = 0
+    while True:
+        chunk = os.read(fd, min(1024 * 1024, max_bytes - total + 1))
+        if not chunk:
+            return b"".join(chunks)
+        total += len(chunk)
+        if total > max_bytes:
+            raise HostProtocolError("host authentication file exceeds its bound")
+        chunks.append(chunk)
+
+
+def _open_pinned_files(pinned_files: tuple[tuple[str, str], ...]) -> tuple[int, ...]:
+    """Open the exact hashed host files and expose them through stable fd paths."""
+
+    if not hasattr(os, "O_NOFOLLOW") or not Path("/proc/self/fd").is_dir():
+        raise HostProtocolError("host executable descriptor execution is unavailable")
+    descriptors: list[int] = []
+    try:
+        flags = os.O_RDONLY | os.O_CLOEXEC | os.O_NOFOLLOW
+        for raw_path, expected_digest in pinned_files:
+            descriptor = os.open(raw_path, flags)
+            descriptors.append(descriptor)
+            metadata = os.fstat(descriptor)
+            if not stat.S_ISREG(metadata.st_mode) or not metadata.st_mode & (
+                stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH
+            ):
+                raise HostProtocolError("pinned host file is not an executable regular file")
+            if _sha256_fd(descriptor) != expected_digest:
+                raise HostProtocolError("pinned host file fingerprint changed")
+        return tuple(descriptors)
+    except OSError as exc:
+        for descriptor in descriptors:
+            with suppress(OSError):
+                os.close(descriptor)
+        raise HostProtocolError("pinned host file cannot be opened safely") from exc
+    except HostProtocolError:
+        for descriptor in descriptors:
+            with suppress(OSError):
+                os.close(descriptor)
+        raise
+
 
 class AppServerClient(Protocol):
     def call(
@@ -129,10 +223,19 @@ class _SubprocessClient:
         runtime_codex_home = runtime_root / "codex-home"
         runtime_home.mkdir()
         runtime_codex_home.mkdir()
+        pinned_descriptors: tuple[int, ...] = ()
         try:
             self._copy_host_authentication(runtime_codex_home)
+            if any(raw_path not in command for raw_path, _ in pinned_files):
+                raise HostProtocolError("pinned host file is not present in the process command")
+            pinned_descriptors = _open_pinned_files(pinned_files)
+            descriptor_paths = {
+                raw_path: f"/proc/self/fd/{descriptor}"
+                for (raw_path, _), descriptor in zip(pinned_files, pinned_descriptors, strict=True)
+            }
+            process_command = tuple(descriptor_paths.get(item, item) for item in command)
             self._process = subprocess.Popen(
-                list(command),
+                list(process_command),
                 cwd=str(cwd),
                 stdin=subprocess.PIPE,
                 stdout=subprocess.PIPE,
@@ -140,6 +243,7 @@ class _SubprocessClient:
                 text=False,
                 bufsize=0,
                 close_fds=True,
+                pass_fds=pinned_descriptors,
                 start_new_session=True,
                 env=self._safe_environment(
                     runtime_home=runtime_home,
@@ -150,6 +254,10 @@ class _SubprocessClient:
         except Exception:
             self._runtime_directory.cleanup()
             raise
+        finally:
+            for descriptor in pinned_descriptors:
+                with suppress(OSError):
+                    os.close(descriptor)
 
     @staticmethod
     def _copy_host_authentication(runtime_codex_home: Path) -> None:
@@ -157,26 +265,68 @@ class _SubprocessClient:
 
         configured_home = os.environ.get("CODEX_HOME")
         source_home = Path(configured_home) if configured_home else Path.home() / ".codex"
+        if not source_home.is_absolute():
+            return
+        if not hasattr(os, "O_NOFOLLOW") or not hasattr(os, "O_DIRECTORY"):
+            return
+        home_fd: int | None = None
+        auth_fd: int | None = None
         try:
-            home_metadata = source_home.lstat()
-            auth_path = source_home / "auth.json"
-            auth_metadata = auth_path.lstat()
+            source_home = source_home.resolve(strict=True)
+            home_fd = os.open(
+                source_home,
+                os.O_RDONLY | os.O_DIRECTORY | os.O_CLOEXEC | os.O_NOFOLLOW,
+            )
         except (FileNotFoundError, OSError):
             return
-        if not source_home.is_absolute() or not stat.S_ISDIR(home_metadata.st_mode):
-            return
-        if stat.S_ISLNK(auth_metadata.st_mode) or not stat.S_ISREG(auth_metadata.st_mode):
-            return
+        try:
+            home_metadata = os.fstat(home_fd)
+            if not stat.S_ISDIR(home_metadata.st_mode):
+                return
+            auth_fd = os.open(
+                "auth.json",
+                os.O_RDONLY | os.O_CLOEXEC | os.O_NOFOLLOW,
+                dir_fd=home_fd,
+            )
+            before = os.fstat(auth_fd)
+            if not stat.S_ISREG(before.st_mode):
+                return
+            content = _read_fd_bounded(auth_fd, max_bytes=4 * 1024 * 1024)
+            after = os.fstat(auth_fd)
+            if (before.st_dev, before.st_ino, before.st_size, before.st_mtime_ns) != (
+                after.st_dev,
+                after.st_ino,
+                after.st_size,
+                after.st_mtime_ns,
+            ):
+                raise HostProtocolError("host authentication file changed during safe copy")
+        finally:
+            if auth_fd is not None:
+                os.close(auth_fd)
+            if home_fd is not None:
+                os.close(home_fd)
         copied_auth = runtime_codex_home / "auth.json"
-        shutil.copyfile(auth_path, copied_auth)
-        copied_auth.chmod(0o600)
+        try:
+            copied_fd = os.open(
+                copied_auth,
+                os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_CLOEXEC | os.O_NOFOLLOW,
+                0o600,
+            )
+            try:
+                offset = 0
+                while offset < len(content):
+                    offset += os.write(copied_fd, content[offset:])
+                os.fsync(copied_fd)
+            finally:
+                os.close(copied_fd)
+        except OSError as exc:
+            raise HostProtocolError("host authentication file cannot be copied safely") from exc
 
     @staticmethod
     def _safe_environment(
         *, runtime_home: Path, runtime_codex_home: Path, runtime_tmp: Path
     ) -> dict[str, str]:
         allowed = (
-            "PATH",
             "HOME",
             "USER",
             "LOGNAME",
@@ -187,6 +337,10 @@ class _SubprocessClient:
             "CODEX_HOME",
         )
         result = {key: os.environ[key] for key in allowed if key in os.environ}
+        # The host executable and interpreter are passed by descriptor.  A fixed
+        # system path prevents secondary helpers from being selected by an
+        # attacker-controlled inherited PATH.
+        result["PATH"] = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
         result["HOME"] = str(runtime_home)
         result["CODEX_HOME"] = str(runtime_codex_home)
         result["TMPDIR"] = str(runtime_tmp)
@@ -233,8 +387,15 @@ class _SubprocessClient:
         if len(line) > self.max_line_bytes:
             raise HostProtocolError("app-server response exceeds the line bound")
         try:
-            value = json.loads(line.decode("utf-8"))
-        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+            if _json_nesting_exceeds(line, max_depth=_MAX_PROTOCOL_JSON_NESTING):
+                raise HostProtocolError("app-server message exceeds the nesting bound")
+            value = json.loads(
+                line.decode("utf-8"),
+                parse_constant=_reject_non_finite_json,
+            )
+        except HostProtocolError:
+            raise
+        except (UnicodeDecodeError, json.JSONDecodeError, RecursionError, ValueError) as exc:
             raise HostProtocolError("app-server returned invalid JSON") from exc
         if not isinstance(value, dict):
             raise HostProtocolError("app-server message must be an object")
@@ -424,7 +585,18 @@ def _sha256_regular_file(path: Path) -> str:
 
 
 def _resolve_regular_executable(program: str) -> tuple[Path, str]:
-    candidate = shutil.which(program)
+    configured_name = {
+        "codex": "CODEX_EXECUTABLE",
+        "node": "NODE_EXECUTABLE",
+    }.get(program)
+    configured = os.environ.get(configured_name) if configured_name is not None else None
+    candidate: str | None
+    if configured is not None:
+        candidate = configured
+        if not Path(candidate).is_absolute():
+            raise HostProtocolError(f"{configured_name} must be an absolute path")
+    else:
+        candidate = shutil.which(program, path=_SAFE_HOST_PATH)
     if not candidate:
         raise HostProtocolError(f"host executable {program} is unavailable")
     try:
@@ -893,7 +1065,7 @@ class CodexAppServerAdapter:
                     status = InvocationResultStatus.FAILURE
                     error_code = "HOST_PROTOCOL_OBSERVATION_INCOMPLETE"
                 if not all(
-                    isinstance(value, int) and value >= 0
+                    type(value) is int and value >= 0
                     for value in (
                         protocol_message_count,
                         mcp_event_count,
@@ -905,6 +1077,9 @@ class CodexAppServerAdapter:
                     protocol_message_count = 0
                     mcp_event_count = 0
                     approval_request_count = 0
+                elif protocol_message_count > 4_096:
+                    status = InvocationResultStatus.FAILURE
+                    error_code = "HOST_PROTOCOL_MESSAGE_BUDGET_EXCEEDED"
                 denied_approvals = max(denied_approvals, approval_request_count)
             with self._active_lock:
                 self._active_sessions.pop(request.invocation_id, None)
@@ -999,7 +1174,6 @@ class CodexAppServerAdapter:
             params,
             _mapping(params.get("thread")),
             _mapping(params.get("turn")),
-            _mapping(params.get("item")),
         )
         for node in nodes:
             for key, expected in (
@@ -1014,7 +1188,21 @@ class CodexAppServerAdapter:
         if "id" in turn and turn["id"] != turn_id:
             return False
         thread = _mapping(params.get("thread"))
-        return not ("id" in thread and thread["id"] != thread_id)
+        if "id" in thread and thread["id"] != thread_id:
+            return False
+        method = _text(message.get("method"))
+        thread_seen = (
+            any(key in node for node in nodes for key in ("threadId", "thread_id"))
+            or "id" in thread
+        )
+        turn_seen = any(key in node for node in nodes for key in ("turnId", "turn_id")) or (
+            "id" in turn
+        )
+        item = _mapping(params.get("item"))
+        terminal_item = method == "item/completed" and _text(item.get("type")) == "agentMessage"
+        if method in {"turn/completed", "turn/failed", "turn/cancelled"} or terminal_item:
+            return thread_seen and turn_seen
+        return True
 
     @staticmethod
     def _event_from_message(

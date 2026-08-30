@@ -1,0 +1,139 @@
+{
+  "claims_are_command_derived": true,
+  "commands": [
+    {
+      "argv": [
+        "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.venv/bin/python",
+        "-m",
+        "coverage",
+        "erase"
+      ],
+      "elapsed_ms": 135,
+      "exit_code": 0,
+      "name": "coverage_erase",
+      "status": "PASS",
+      "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": ""
+    },
+    {
+      "argv": [
+        "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.venv/bin/python",
+        "-m",
+        "coverage",
+        "run",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "elapsed_ms": 83658,
+      "exit_code": 0,
+      "name": "full_tests",
+      "status": "PASS",
+      "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_digest": "sha256:b495bbea95fb05704e020205be0c8e871b79067c5d6598b172f61d74d8dbd093",
+      "stdout_tail": "........................................................................ [ 13%]\n........................................................................ [ 27%]\n........................................................................ [ 41%]\n........................................................................ [ 55%]\n........................................................................ [ 69%]\n........................................................................ [ 83%]\n........................................................................ [ 97%]\n...............                                                          [100%]\n519 passed in 82.38s (0:01:22)\n"
+    },
+    {
+      "argv": [
+        "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.venv/bin/ruff",
+        "format",
+        "--check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "elapsed_ms": 9,
+      "exit_code": 0,
+      "name": "ruff_format",
+      "status": "PASS",
+      "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_digest": "sha256:b419319d53a875220e0cf380a0e112a7af774f4615d33e5a07dd68bc3bdd20e5",
+      "stdout_tail": "142 files already formatted\n"
+    },
+    {
+      "argv": [
+        "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.venv/bin/ruff",
+        "check",
+        "src",
+        "tests",
+        "scripts"
+      ],
+      "elapsed_ms": 9,
+      "exit_code": 0,
+      "name": "ruff_check",
+      "status": "PASS",
+      "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_digest": "sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stdout_tail": "All checks passed!\n"
+    },
+    {
+      "argv": [
+        "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.venv/bin/mypy",
+        "--strict",
+        "src"
+      ],
+      "elapsed_ms": 187,
+      "exit_code": 0,
+      "name": "mypy_strict",
+      "status": "PASS",
+      "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_digest": "sha256:0f5e2c0f274fe3238699ff97fc09737970ee01e440d6d8f78a8522bdc43ee59b",
+      "stdout_tail": "Success: no issues found in 63 source files\n"
+    },
+    {
+      "argv": [
+        "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.venv/bin/python",
+        "-m",
+        "coverage",
+        "report",
+        "--fail-under=80"
+      ],
+      "elapsed_ms": 2144,
+      "exit_code": 0,
+      "name": "coverage_gate",
+      "status": "PASS",
+      "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_digest": "sha256:391a12b5c5783cc2c0902c1c899f0240b8b04b3114bad17558685582fcb08f58",
+      "stdout_tail": "1     68    89%\nsrc/harness_kernel/phase4_policy.py           407     84    79%\nsrc/harness_kernel/phase4_verification.py     157     64    59%\nsrc/harness_kernel/phase5_artifacts.py        113     24    79%\nsrc/harness_kernel/phase5_benchmarks.py        53      6    89%\nsrc/harness_kernel/phase5_cli.py              344     65    81%\nsrc/harness_kernel/phase5_execution.py        217     53    76%\nsrc/harness_kernel/phase5_finalization.py     224     43    81%\nsrc/harness_kernel/phase5_models.py           550     58    89%\nsrc/harness_kernel/phase5_paths.py             43      9    79%\nsrc/harness_kernel/phase5_pilot.py            144     32    78%\nsrc/harness_kernel/phase5_policy.py           187     37    80%\nsrc/harness_kernel/phase5_verification.py     267     50    81%\nsrc/harness_kernel/phase6_checks.py           240     45    81%\nsrc/harness_kernel/phase6_composition.py      451    280    38%\nsrc/harness_kernel/phase6_host.py             213     47    78%\nsrc/harness_kernel/phase6_models.py          1041    156    85%\nsrc/harness_kernel/phase6_policy.py            98     19    81%\nsrc/harness_kernel/phase6_stop.py              88      9    90%\nsrc/harness_kernel/phase6_telemetry.py         95     10    89%\nsrc/harness_kernel/phase6_verifier.py         184     44    76%\nsrc/harness_kernel/providers.py               288     43    85%\nsrc/harness_kernel/registry.py                493    104    79%\nsrc/harness_kernel/routing.py                 249     37    85%\nsrc/harness_kernel/serialization.py           252     64    75%\nsrc/harness_kernel/state.py                   119     32    73%\nsrc/harness_kernel/stops.py                   147      8    95%\nsrc/harness_kernel/telemetry.py               207     36    83%\nsrc/harness_kernel/validation.py              323     39    88%\nsrc/harness_kernel/verification.py            141     10    93%\n---------------------------------------------------------------\nTOTAL                                       16950   3051    82%\n"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "elapsed_ms": 26,
+      "exit_code": 0,
+      "name": "git_diff_check",
+      "status": "PASS",
+      "stderr_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_tail": "",
+      "stdout_digest": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_tail": ""
+    }
+  ],
+  "coverage_collected_fresh": true,
+  "coverage_data_bytes": 77824,
+  "coverage_data_digest": "sha256:ebf9afa829ec7224278f634763cd57952de7497e907148418aa7457ff3cbb955",
+  "coverage_data_path": ".coverage",
+  "coverage_mode": "statement",
+  "coverage_percent": 82.0,
+  "minimum_coverage_percent": 80.0,
+  "project_root": "codex-harness",
+  "recorded_at": "2026-08-30T07:20:32.847326+00:00",
+  "schema_version": "P6-QUALITY-RECEIPT-1",
+  "source_stable": true,
+  "source_tree_digest_after": "sha256:7d6222dc80f081ec80bb8af8d49f1121bbdab55dc561ea8c5d84ce37ab0d161f",
+  "source_tree_digest_before": "sha256:7d6222dc80f081ec80bb8af8d49f1121bbdab55dc561ea8c5d84ce37ab0d161f",
+  "status": "PASS",
+  "tests_passed": 519
+}

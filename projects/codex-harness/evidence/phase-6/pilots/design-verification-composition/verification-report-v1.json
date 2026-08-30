@@ -1,0 +1,2639 @@
+{
+  "digest": "sha256:09dae6abb9a7fa4af08e89776507ceba6e06392955f6c8226737e3d63b8639ac",
+  "elapsed_ms": 120,
+  "input": {
+    "acceptance_criteria_ref": "sha256:f26e3d93c72accca37d34c5f25d1cc7c467469b6236342c83882d09cf41427a8",
+    "allowed_tools": [],
+    "artifact_refs": [
+      {
+        "artifact_id": "ART-P5-V1",
+        "digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "manifest_digest": null,
+        "observed_at": 1788073518,
+        "package_digest": null,
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+        "producer_id": "design-director",
+        "producer_role": "DESIGN_DIRECTOR",
+        "size_bytes": 7672,
+        "version": "artifact_v1"
+      },
+      {
+        "artifact_id": "ART-DESKTOP-RENDER",
+        "digest": "sha256:a6d3940aee429bde35d0fd6eefd83a4614b42100fdcd27089d2752f32a8fdd89",
+        "manifest_digest": null,
+        "observed_at": 1788073518,
+        "package_digest": null,
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/desktop-1440x900.jpg",
+        "producer_id": "playwright",
+        "producer_role": null,
+        "size_bytes": 73998,
+        "version": "artifact_v1"
+      },
+      {
+        "artifact_id": "ART-MOBILE-RENDER",
+        "digest": "sha256:d418f01f7a464d26243dc324a8282af8f7f07189a5844aaf81facd6898e33b3c",
+        "manifest_digest": null,
+        "observed_at": 1788073518,
+        "package_digest": null,
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/mobile-390x844.jpg",
+        "producer_id": "playwright",
+        "producer_role": null,
+        "size_bytes": 42077,
+        "version": "artifact_v1"
+      },
+      {
+        "artifact_id": "ART-BUILDER-RECEIPT",
+        "digest": "sha256:8620c2003aced85fdfb7592c74bf4a376dff2e2dad313a40ad73a74a869f9a95",
+        "manifest_digest": null,
+        "observed_at": 1788073518,
+        "package_digest": null,
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/builder-handoff-receipt.json",
+        "producer_id": "design-director",
+        "producer_role": "DESIGN_DIRECTOR",
+        "size_bytes": 1518,
+        "version": "artifact_v1"
+      },
+      {
+        "artifact_id": "ART-BROWSER-CAPTURE-MANIFEST",
+        "digest": "sha256:4c3f5968bf5a6727c8e3e04f94bd61a43e391b03b2479478ade3369ceda76782",
+        "manifest_digest": null,
+        "observed_at": 1788073518,
+        "package_digest": null,
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/browser-capture-manifest.json",
+        "producer_id": "playwright",
+        "producer_role": null,
+        "size_bytes": 3851,
+        "version": "artifact_v1"
+      }
+    ],
+    "authority": "VERIFIER",
+    "budgets": {
+      "max_attempts_per_procedure": 1,
+      "max_criteria": 256,
+      "max_duration_seconds": 120,
+      "max_evidence_records": 256,
+      "max_procedures": 32,
+      "max_report_bytes": 131072
+    },
+    "builder_host_invocation_ref": "INV-P5-85644f8ad3015c76b11a0369",
+    "builder_invocation_ref": "01a04ffd-e980-7e83-beab-08b8c843ad3b",
+    "capability_id": "verification-loop-vnext",
+    "capability_provenance": "PROJECT_LOCAL:sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "claims": [
+      {
+        "claim_id": "artifact-identity",
+        "criterion_id": "artifact-identity",
+        "qualitative": false,
+        "required": true,
+        "text": "the declared HTML artifact digest matches its bytes"
+      },
+      {
+        "claim_id": "html-document",
+        "criterion_id": "html-document",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact declares a complete HTML document"
+      },
+      {
+        "claim_id": "semantic-header",
+        "criterion_id": "semantic-header",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact contains a semantic header landmark"
+      },
+      {
+        "claim_id": "semantic-main",
+        "criterion_id": "semantic-main",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact contains a semantic main landmark"
+      },
+      {
+        "claim_id": "semantic-footer",
+        "criterion_id": "semantic-footer",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact contains a semantic footer landmark"
+      },
+      {
+        "claim_id": "copy-product",
+        "criterion_id": "copy-product",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact includes the frozen product name PulsePaw"
+      },
+      {
+        "claim_id": "copy-cta",
+        "criterion_id": "copy-cta",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact includes the frozen primary action"
+      },
+      {
+        "claim_id": "forbidden-lorem",
+        "criterion_id": "forbidden-lorem",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include lorem ipsum"
+      },
+      {
+        "claim_id": "forbidden-placeholder",
+        "criterion_id": "forbidden-placeholder",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include placeholder content"
+      },
+      {
+        "claim_id": "forbidden-http",
+        "criterion_id": "forbidden-http",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include HTTP remote references"
+      },
+      {
+        "claim_id": "forbidden-https",
+        "criterion_id": "forbidden-https",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include HTTPS remote references"
+      },
+      {
+        "claim_id": "forbidden-script",
+        "criterion_id": "forbidden-script",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include script tags"
+      },
+      {
+        "claim_id": "forbidden-javascript",
+        "criterion_id": "forbidden-javascript",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include javascript URLs"
+      },
+      {
+        "claim_id": "desktop-render",
+        "criterion_id": "desktop-render",
+        "qualitative": false,
+        "required": true,
+        "text": "the desktop render digest is current and declared"
+      },
+      {
+        "claim_id": "mobile-render",
+        "criterion_id": "mobile-render",
+        "qualitative": false,
+        "required": true,
+        "text": "the mobile render digest is current and declared"
+      },
+      {
+        "claim_id": "builder-receipt",
+        "criterion_id": "builder-receipt",
+        "qualitative": false,
+        "required": true,
+        "text": "the Design Director builder receipt is current and readable"
+      },
+      {
+        "claim_id": "browser-capture-binding",
+        "criterion_id": "browser-capture-binding",
+        "qualitative": false,
+        "required": true,
+        "text": "browser evidence binds the current HTML artifact, task and criteria"
+      }
+    ],
+    "context_budget": 16384,
+    "deferred_criteria": [
+      "qualitative-art-direction",
+      "qualitative-visual-hierarchy",
+      "qualitative-typography",
+      "qualitative-composition",
+      "qualitative-spacing",
+      "qualitative-color-system",
+      "qualitative-asset-quality",
+      "qualitative-product-specificity",
+      "qualitative-responsiveness",
+      "qualitative-accessibility",
+      "qualitative-polish",
+      "qualitative-generic-ai-slop-avoidance"
+    ],
+    "digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+    "evidence_refs": [
+      {
+        "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "artifact_id": "ART-P5-V1",
+        "digest": "sha256:7c410e005706214941ef7dd8e1bcf6709fd915e59fb3e7ee0ae5a90d69ca2c75",
+        "evidence_id": "artifact-identity-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "artifact_id": "ART-P5-V1",
+        "digest": "sha256:a64a81cbfba601b89a908c646c49a5cab8677b2f27336b91eb92824abfae2912",
+        "evidence_id": "html-document-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "artifact_id": "ART-P5-V1",
+        "digest": "sha256:88150de0dcfcac3d969a1ac96aecc452f31a9d9e57b14838aeab5fb9f312e43c",
+        "evidence_id": "semantic-header-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "artifact_id": "ART-P5-V1",
+        "digest": "sha256:d760e7768ee84406f0a46d84d445297bceabba7bebd9e5babf694648ea3602bc",
+        "evidence_id": "semantic-main-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "artifact_id": "ART-P5-V1",
+        "digest": "sha256:7caef6a0b02d338c1e1861ac9a038ca84700857ed0f6031776ef5e2cb0ae8fcd",
+        "evidence_id": "semantic-footer-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "artifact_id": "ART-P5-V1",
+        "digest": "sha256:bf7640d832d56dae6ce6eb3918ac29b4bd5963d960421b2167e62dc1a4d7fa92",
+        "evidence_id": "copy-product-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "artifact_id": "ART-P5-V1",
+        "digest": "sha256:329159d7d7ea2de49f44d73af4394aaac792f255611c3a00591dce295b04992b",
+        "evidence_id": "copy-cta-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "artifact_id": "ART-P5-V1",
+        "digest": "sha256:2070f215b87f8a167844aa04c9b2e82d3bc142446b22b4154717b9eaab0f132c",
+        "evidence_id": "forbidden-lorem-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "artifact_id": "ART-P5-V1",
+        "digest": "sha256:58badea35c1eaf6d5c70d911ae01d01c2f83d8ac107a0001f3d38a383d848c1d",
+        "evidence_id": "forbidden-placeholder-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "artifact_id": "ART-P5-V1",
+        "digest": "sha256:87976e6e61bc5ebd791d6bf0d7cf6bc3869db133b1c879f5961e6235bab3e58d",
+        "evidence_id": "forbidden-http-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "artifact_id": "ART-P5-V1",
+        "digest": "sha256:2f2b85feb5522aa035fa516a354ddb37c6f1a64e57a013552684491fe5a87bd1",
+        "evidence_id": "forbidden-https-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "artifact_id": "ART-P5-V1",
+        "digest": "sha256:90044bb24fe64cf7d885db3ed3fe879655752083f2c483c10081c6d9f50698ca",
+        "evidence_id": "forbidden-script-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "artifact_id": "ART-P5-V1",
+        "digest": "sha256:29f94324f0f6e72b13a96e8bbad81cee7663d6da52bf9d3870184b5ed2615acb",
+        "evidence_id": "forbidden-javascript-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "artifact_digest": "sha256:a6d3940aee429bde35d0fd6eefd83a4614b42100fdcd27089d2752f32a8fdd89",
+        "artifact_id": "ART-DESKTOP-RENDER",
+        "digest": "sha256:46159af2624eb98b51b45e78f8ebca91cc96b2a030f5c87cd125fbf32f0f57d2",
+        "evidence_id": "desktop-render-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/desktop-1440x900.jpg",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "artifact_digest": "sha256:d418f01f7a464d26243dc324a8282af8f7f07189a5844aaf81facd6898e33b3c",
+        "artifact_id": "ART-MOBILE-RENDER",
+        "digest": "sha256:c66031edba6214c7a7b6be3b90aeff64a03ccc8f265ec88ae11adfe61d836c21",
+        "evidence_id": "mobile-render-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/mobile-390x844.jpg",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "artifact_digest": "sha256:8620c2003aced85fdfb7592c74bf4a376dff2e2dad313a40ad73a74a869f9a95",
+        "artifact_id": "ART-BUILDER-RECEIPT",
+        "digest": "sha256:618122e4ebc1aeacbe2b700d80003b3780935ad56bafc18407507d4ad9072379",
+        "evidence_id": "builder-receipt-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/builder-handoff-receipt.json",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "artifact_digest": "sha256:4c3f5968bf5a6727c8e3e04f94bd61a43e391b03b2479478ade3369ceda76782",
+        "artifact_id": "ART-BROWSER-CAPTURE-MANIFEST",
+        "digest": "sha256:5f3052872b2761462b6ac5092b6460bd7b2a47f398f0751152e2a2b37d2c6ca3",
+        "evidence_id": "browser-capture-binding-EVIDENCE",
+        "freshness": "FRESH",
+        "observed_at": 1788073518,
+        "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/browser-capture-manifest.json",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      }
+    ],
+    "freshness": "FRESH",
+    "known_limitations": [
+      "host_load_causality_is_reported_separately",
+      "visual_quality_authority_is_excluded"
+    ],
+    "manifest_digest": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c",
+    "observed_at": 1788073518,
+    "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "profile": "COMPOSITION",
+    "read_only": true,
+    "read_only_policy": "MUTATION_DENIED",
+    "required_criteria": [
+      "artifact-identity",
+      "html-document",
+      "semantic-header",
+      "semantic-main",
+      "semantic-footer",
+      "copy-product",
+      "copy-cta",
+      "forbidden-lorem",
+      "forbidden-placeholder",
+      "forbidden-http",
+      "forbidden-https",
+      "forbidden-script",
+      "forbidden-javascript",
+      "desktop-render",
+      "mobile-render",
+      "builder-receipt",
+      "browser-capture-binding"
+    ],
+    "role": "VERIFIER",
+    "run_id": "RUN-P6-COMPOSITION-001",
+    "scope": "PROJECT",
+    "task_id": "TASK-P6-COMPOSITION-001",
+    "verification_id": "VERIFICATION-ARTIFACT-V1",
+    "workspace": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition"
+  },
+  "output": {
+    "artifact_digest_verified": true,
+    "artifact_refs": [
+      "ART-P5-V1",
+      "ART-DESKTOP-RENDER",
+      "ART-MOBILE-RENDER",
+      "ART-BUILDER-RECEIPT",
+      "ART-BROWSER-CAPTURE-MANIFEST"
+    ],
+    "blockers": [],
+    "capability_id": "verification-loop-vnext",
+    "claims": [
+      {
+        "claim_id": "artifact-identity",
+        "criterion_id": "artifact-identity",
+        "qualitative": false,
+        "required": true,
+        "text": "the declared HTML artifact digest matches its bytes"
+      },
+      {
+        "claim_id": "html-document",
+        "criterion_id": "html-document",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact declares a complete HTML document"
+      },
+      {
+        "claim_id": "semantic-header",
+        "criterion_id": "semantic-header",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact contains a semantic header landmark"
+      },
+      {
+        "claim_id": "semantic-main",
+        "criterion_id": "semantic-main",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact contains a semantic main landmark"
+      },
+      {
+        "claim_id": "semantic-footer",
+        "criterion_id": "semantic-footer",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact contains a semantic footer landmark"
+      },
+      {
+        "claim_id": "copy-product",
+        "criterion_id": "copy-product",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact includes the frozen product name PulsePaw"
+      },
+      {
+        "claim_id": "copy-cta",
+        "criterion_id": "copy-cta",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact includes the frozen primary action"
+      },
+      {
+        "claim_id": "forbidden-lorem",
+        "criterion_id": "forbidden-lorem",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include lorem ipsum"
+      },
+      {
+        "claim_id": "forbidden-placeholder",
+        "criterion_id": "forbidden-placeholder",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include placeholder content"
+      },
+      {
+        "claim_id": "forbidden-http",
+        "criterion_id": "forbidden-http",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include HTTP remote references"
+      },
+      {
+        "claim_id": "forbidden-https",
+        "criterion_id": "forbidden-https",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include HTTPS remote references"
+      },
+      {
+        "claim_id": "forbidden-script",
+        "criterion_id": "forbidden-script",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include script tags"
+      },
+      {
+        "claim_id": "forbidden-javascript",
+        "criterion_id": "forbidden-javascript",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include javascript URLs"
+      },
+      {
+        "claim_id": "desktop-render",
+        "criterion_id": "desktop-render",
+        "qualitative": false,
+        "required": true,
+        "text": "the desktop render digest is current and declared"
+      },
+      {
+        "claim_id": "mobile-render",
+        "criterion_id": "mobile-render",
+        "qualitative": false,
+        "required": true,
+        "text": "the mobile render digest is current and declared"
+      },
+      {
+        "claim_id": "builder-receipt",
+        "criterion_id": "builder-receipt",
+        "qualitative": false,
+        "required": true,
+        "text": "the Design Director builder receipt is current and readable"
+      },
+      {
+        "claim_id": "browser-capture-binding",
+        "criterion_id": "browser-capture-binding",
+        "qualitative": false,
+        "required": true,
+        "text": "browser evidence binds the current HTML artifact, task and criteria"
+      }
+    ],
+    "confidence": "HIGH",
+    "criterion_results": [
+      {
+        "confidence": "HIGH",
+        "criterion_id": "artifact-identity",
+        "digest": "sha256:035a5358655e9b7586235e8fd2eb1b9181774e278d7fcb9c22cd041067e43775",
+        "evidence_refs": [
+          "artifact-identity-EVIDENCE"
+        ],
+        "expected": "the declared HTML artifact digest matches its bytes",
+        "limitations": [],
+        "observed": "artifact ART-P5-V1 digest observed as sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "procedure_id": "P6-PROC-ARTIFACT-IDENTITY",
+        "reason": "artifact ART-P5-V1 digest observed as sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "criterion_id": "html-document",
+        "digest": "sha256:52552c6af2f0531fafe8487e99e3a72df0ecb50e2197696fa1f67c26539a6c92",
+        "evidence_refs": [
+          "html-document-EVIDENCE"
+        ],
+        "expected": "the artifact declares a complete HTML document",
+        "limitations": [],
+        "observed": "declared text present: True",
+        "procedure_id": "P6-PROC-HTML-DOCUMENT",
+        "reason": "declared text present: True",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "criterion_id": "semantic-header",
+        "digest": "sha256:74cbf11a01229df18a4658401f51d39bbb5d44338019e2cfde022ef1618531f6",
+        "evidence_refs": [
+          "semantic-header-EVIDENCE"
+        ],
+        "expected": "the artifact contains a semantic header landmark",
+        "limitations": [],
+        "observed": "declared text present: True",
+        "procedure_id": "P6-PROC-SEMANTIC-HEADER",
+        "reason": "declared text present: True",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "criterion_id": "semantic-main",
+        "digest": "sha256:4177ef857558803014f4bb028c6cb197663a937773be35c71a205f9f80977200",
+        "evidence_refs": [
+          "semantic-main-EVIDENCE"
+        ],
+        "expected": "the artifact contains a semantic main landmark",
+        "limitations": [],
+        "observed": "declared text present: True",
+        "procedure_id": "P6-PROC-SEMANTIC-MAIN",
+        "reason": "declared text present: True",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "criterion_id": "semantic-footer",
+        "digest": "sha256:de163396b2f75ee605a76be1e0a4366fd5925a1327f178aa7adf0da9ca1a48ed",
+        "evidence_refs": [
+          "semantic-footer-EVIDENCE"
+        ],
+        "expected": "the artifact contains a semantic footer landmark",
+        "limitations": [],
+        "observed": "declared text present: True",
+        "procedure_id": "P6-PROC-SEMANTIC-FOOTER",
+        "reason": "declared text present: True",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "criterion_id": "copy-product",
+        "digest": "sha256:cdd4e9cd7cc736710698d22ddc2a1851a69dacf1ef3c4d7c90cacef691b1dc4e",
+        "evidence_refs": [
+          "copy-product-EVIDENCE"
+        ],
+        "expected": "the artifact includes the frozen product name PulsePaw",
+        "limitations": [],
+        "observed": "declared text present: True",
+        "procedure_id": "P6-PROC-COPY-PRODUCT",
+        "reason": "declared text present: True",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "criterion_id": "copy-cta",
+        "digest": "sha256:c1d2bf465446f811b65814c033712e5a9db4721f383f3ff6069e893831b23dfa",
+        "evidence_refs": [
+          "copy-cta-EVIDENCE"
+        ],
+        "expected": "the artifact includes the frozen primary action",
+        "limitations": [],
+        "observed": "declared text present: True",
+        "procedure_id": "P6-PROC-COPY-CTA",
+        "reason": "declared text present: True",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "criterion_id": "forbidden-lorem",
+        "digest": "sha256:ab38ef0244f999e0ab1aa5ded516af919284f21c50d503df73578f55f421ad65",
+        "evidence_refs": [
+          "forbidden-lorem-EVIDENCE"
+        ],
+        "expected": "the artifact does not include lorem ipsum",
+        "limitations": [],
+        "observed": "declared text absent: True",
+        "procedure_id": "P6-PROC-FORBIDDEN-LOREM",
+        "reason": "declared text absent: True",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "criterion_id": "forbidden-placeholder",
+        "digest": "sha256:e78408b9fb870bc3ae187ae7849dcfaad7775b0eb56db1ebbb39df51ad1984ec",
+        "evidence_refs": [
+          "forbidden-placeholder-EVIDENCE"
+        ],
+        "expected": "the artifact does not include placeholder content",
+        "limitations": [],
+        "observed": "declared text absent: True",
+        "procedure_id": "P6-PROC-FORBIDDEN-PLACEHOLDER",
+        "reason": "declared text absent: True",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "criterion_id": "forbidden-http",
+        "digest": "sha256:e760fae6c2905952e1c36f04dde1f82a4ed905005dbbdd4ab6e16545f8877c86",
+        "evidence_refs": [
+          "forbidden-http-EVIDENCE"
+        ],
+        "expected": "the artifact does not include HTTP remote references",
+        "limitations": [],
+        "observed": "declared text absent: True",
+        "procedure_id": "P6-PROC-FORBIDDEN-HTTP",
+        "reason": "declared text absent: True",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "criterion_id": "forbidden-https",
+        "digest": "sha256:a1834803b89c87c00954a976f09b85359ee8aaa4974e1c42a4779af6f76d2149",
+        "evidence_refs": [
+          "forbidden-https-EVIDENCE"
+        ],
+        "expected": "the artifact does not include HTTPS remote references",
+        "limitations": [],
+        "observed": "declared text absent: True",
+        "procedure_id": "P6-PROC-FORBIDDEN-HTTPS",
+        "reason": "declared text absent: True",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "criterion_id": "forbidden-script",
+        "digest": "sha256:10adc53142b0fb427dac7dd21067efcac8f0896954940684a763834bc35fbedc",
+        "evidence_refs": [
+          "forbidden-script-EVIDENCE"
+        ],
+        "expected": "the artifact does not include script tags",
+        "limitations": [],
+        "observed": "declared text absent: True",
+        "procedure_id": "P6-PROC-FORBIDDEN-SCRIPT",
+        "reason": "declared text absent: True",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "criterion_id": "forbidden-javascript",
+        "digest": "sha256:789e86189b249cbcd10f6b80022022aabd2bcf6bea529b4b11a9da4edcb25bf3",
+        "evidence_refs": [
+          "forbidden-javascript-EVIDENCE"
+        ],
+        "expected": "the artifact does not include javascript URLs",
+        "limitations": [],
+        "observed": "declared text absent: True",
+        "procedure_id": "P6-PROC-FORBIDDEN-JAVASCRIPT",
+        "reason": "declared text absent: True",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "criterion_id": "desktop-render",
+        "digest": "sha256:dd177c723de071c5547452fbf6266f851348925bd8ee25d41c66a4ae724f7ac4",
+        "evidence_refs": [
+          "desktop-render-EVIDENCE"
+        ],
+        "expected": "the desktop render digest is current and declared",
+        "limitations": [],
+        "observed": "artifact ART-DESKTOP-RENDER digest observed as sha256:a6d3940aee429bde35d0fd6eefd83a4614b42100fdcd27089d2752f32a8fdd89",
+        "procedure_id": "P6-PROC-DESKTOP-RENDER",
+        "reason": "artifact ART-DESKTOP-RENDER digest observed as sha256:a6d3940aee429bde35d0fd6eefd83a4614b42100fdcd27089d2752f32a8fdd89",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "criterion_id": "mobile-render",
+        "digest": "sha256:d627b5b6b921f9e6613fb78bfee07bc97e850f2b70765d9e4db86e2f2a50ad63",
+        "evidence_refs": [
+          "mobile-render-EVIDENCE"
+        ],
+        "expected": "the mobile render digest is current and declared",
+        "limitations": [],
+        "observed": "artifact ART-MOBILE-RENDER digest observed as sha256:d418f01f7a464d26243dc324a8282af8f7f07189a5844aaf81facd6898e33b3c",
+        "procedure_id": "P6-PROC-MOBILE-RENDER",
+        "reason": "artifact ART-MOBILE-RENDER digest observed as sha256:d418f01f7a464d26243dc324a8282af8f7f07189a5844aaf81facd6898e33b3c",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "criterion_id": "builder-receipt",
+        "digest": "sha256:4e98dece9296aef9e69088808d3ad701208778d29993453c48398440288f1fb9",
+        "evidence_refs": [
+          "builder-receipt-EVIDENCE"
+        ],
+        "expected": "the Design Director builder receipt is current and readable",
+        "limitations": [],
+        "observed": "artifact ART-BUILDER-RECEIPT digest observed as sha256:8620c2003aced85fdfb7592c74bf4a376dff2e2dad313a40ad73a74a869f9a95",
+        "procedure_id": "P6-PROC-BUILDER-RECEIPT",
+        "reason": "artifact ART-BUILDER-RECEIPT digest observed as sha256:8620c2003aced85fdfb7592c74bf4a376dff2e2dad313a40ad73a74a869f9a95",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "criterion_id": "browser-capture-binding",
+        "digest": "sha256:109d05ce60d54f92acfb2e8aa7ff884e68a3019620b0b8ce101e43a01322345c",
+        "evidence_refs": [
+          "browser-capture-binding-EVIDENCE"
+        ],
+        "expected": "browser evidence binds the current HTML artifact, task and criteria",
+        "limitations": [],
+        "observed": "browser capture source and render digests bound: True",
+        "procedure_id": "P6-PROC-BROWSER-CAPTURE-BINDING",
+        "reason": "browser capture source and render digests bound: True",
+        "status": "PASS"
+      }
+    ],
+    "deferred_criteria": [
+      "qualitative-art-direction",
+      "qualitative-visual-hierarchy",
+      "qualitative-typography",
+      "qualitative-composition",
+      "qualitative-spacing",
+      "qualitative-color-system",
+      "qualitative-asset-quality",
+      "qualitative-product-specificity",
+      "qualitative-responsiveness",
+      "qualitative-accessibility",
+      "qualitative-polish",
+      "qualitative-generic-ai-slop-avoidance"
+    ],
+    "deferred_procedures": [
+      "NOT-RUN-qualitative-art-direction",
+      "NOT-RUN-qualitative-visual-hierarchy",
+      "NOT-RUN-qualitative-typography",
+      "NOT-RUN-qualitative-composition",
+      "NOT-RUN-qualitative-spacing",
+      "NOT-RUN-qualitative-color-system",
+      "NOT-RUN-qualitative-asset-quality",
+      "NOT-RUN-qualitative-product-specificity",
+      "NOT-RUN-qualitative-responsiveness",
+      "NOT-RUN-qualitative-accessibility",
+      "NOT-RUN-qualitative-polish",
+      "NOT-RUN-qualitative-generic-ai-slop-avoidance"
+    ],
+    "evidence_refs": [
+      "artifact-identity-EVIDENCE",
+      "html-document-EVIDENCE",
+      "semantic-header-EVIDENCE",
+      "semantic-main-EVIDENCE",
+      "semantic-footer-EVIDENCE",
+      "copy-product-EVIDENCE",
+      "copy-cta-EVIDENCE",
+      "forbidden-lorem-EVIDENCE",
+      "forbidden-placeholder-EVIDENCE",
+      "forbidden-http-EVIDENCE",
+      "forbidden-https-EVIDENCE",
+      "forbidden-script-EVIDENCE",
+      "forbidden-javascript-EVIDENCE",
+      "desktop-render-EVIDENCE",
+      "mobile-render-EVIDENCE",
+      "builder-receipt-EVIDENCE",
+      "browser-capture-binding-EVIDENCE"
+    ],
+    "evidence_used": [
+      "artifact-identity-EVIDENCE",
+      "html-document-EVIDENCE",
+      "semantic-header-EVIDENCE",
+      "semantic-main-EVIDENCE",
+      "semantic-footer-EVIDENCE",
+      "copy-product-EVIDENCE",
+      "copy-cta-EVIDENCE",
+      "forbidden-lorem-EVIDENCE",
+      "forbidden-placeholder-EVIDENCE",
+      "forbidden-http-EVIDENCE",
+      "forbidden-https-EVIDENCE",
+      "forbidden-script-EVIDENCE",
+      "forbidden-javascript-EVIDENCE",
+      "desktop-render-EVIDENCE",
+      "mobile-render-EVIDENCE",
+      "builder-receipt-EVIDENCE",
+      "browser-capture-binding-EVIDENCE"
+    ],
+    "failed": [],
+    "failures": [],
+    "findings": [],
+    "freshness_status": "FRESH",
+    "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+    "limitations": [],
+    "manifest_digest": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c",
+    "not_run": [],
+    "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "passed": [
+      "artifact-identity",
+      "html-document",
+      "semantic-header",
+      "semantic-main",
+      "semantic-footer",
+      "copy-product",
+      "copy-cta",
+      "forbidden-lorem",
+      "forbidden-placeholder",
+      "forbidden-http",
+      "forbidden-https",
+      "forbidden-script",
+      "forbidden-javascript",
+      "desktop-render",
+      "mobile-render",
+      "builder-receipt",
+      "browser-capture-binding"
+    ],
+    "procedures_not_run": [
+      "NOT-RUN-qualitative-art-direction",
+      "NOT-RUN-qualitative-visual-hierarchy",
+      "NOT-RUN-qualitative-typography",
+      "NOT-RUN-qualitative-composition",
+      "NOT-RUN-qualitative-spacing",
+      "NOT-RUN-qualitative-color-system",
+      "NOT-RUN-qualitative-asset-quality",
+      "NOT-RUN-qualitative-product-specificity",
+      "NOT-RUN-qualitative-responsiveness",
+      "NOT-RUN-qualitative-accessibility",
+      "NOT-RUN-qualitative-polish",
+      "NOT-RUN-qualitative-generic-ai-slop-avoidance"
+    ],
+    "procedures_run": [
+      "P6-PROC-ARTIFACT-IDENTITY",
+      "P6-PROC-HTML-DOCUMENT",
+      "P6-PROC-SEMANTIC-HEADER",
+      "P6-PROC-SEMANTIC-MAIN",
+      "P6-PROC-SEMANTIC-FOOTER",
+      "P6-PROC-COPY-PRODUCT",
+      "P6-PROC-COPY-CTA",
+      "P6-PROC-FORBIDDEN-LOREM",
+      "P6-PROC-FORBIDDEN-PLACEHOLDER",
+      "P6-PROC-FORBIDDEN-HTTP",
+      "P6-PROC-FORBIDDEN-HTTPS",
+      "P6-PROC-FORBIDDEN-SCRIPT",
+      "P6-PROC-FORBIDDEN-JAVASCRIPT",
+      "P6-PROC-DESKTOP-RENDER",
+      "P6-PROC-MOBILE-RENDER",
+      "P6-PROC-BUILDER-RECEIPT",
+      "P6-PROC-BROWSER-CAPTURE-BINDING"
+    ],
+    "profile": "COMPOSITION",
+    "recommended_next_action": "DELIVER_OR_PROCEED",
+    "report_digest": "sha256:50984a30c4f9dfd713106a249f474d168ef3df0ec084d42ae84ea5073f43943f",
+    "reviewer_id": null,
+    "reviewer_role": null,
+    "role": "VERIFIER",
+    "run_id": "RUN-P6-COMPOSITION-001",
+    "status": "PASS",
+    "stop_reason": "ALL_REQUIRED_CRITERIA_RESOLVED",
+    "task_id": "TASK-P6-COMPOSITION-001",
+    "unknown": [],
+    "unknowns": []
+  },
+  "plan": {
+    "blocked_procedures": [],
+    "budget": {
+      "max_attempts_per_procedure": 1,
+      "max_criteria": 256,
+      "max_duration_seconds": 120,
+      "max_evidence_records": 256,
+      "max_procedures": 32,
+      "max_report_bytes": 131072
+    },
+    "claims": [
+      {
+        "claim_id": "artifact-identity",
+        "criterion_id": "artifact-identity",
+        "qualitative": false,
+        "required": true,
+        "text": "the declared HTML artifact digest matches its bytes"
+      },
+      {
+        "claim_id": "html-document",
+        "criterion_id": "html-document",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact declares a complete HTML document"
+      },
+      {
+        "claim_id": "semantic-header",
+        "criterion_id": "semantic-header",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact contains a semantic header landmark"
+      },
+      {
+        "claim_id": "semantic-main",
+        "criterion_id": "semantic-main",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact contains a semantic main landmark"
+      },
+      {
+        "claim_id": "semantic-footer",
+        "criterion_id": "semantic-footer",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact contains a semantic footer landmark"
+      },
+      {
+        "claim_id": "copy-product",
+        "criterion_id": "copy-product",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact includes the frozen product name PulsePaw"
+      },
+      {
+        "claim_id": "copy-cta",
+        "criterion_id": "copy-cta",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact includes the frozen primary action"
+      },
+      {
+        "claim_id": "forbidden-lorem",
+        "criterion_id": "forbidden-lorem",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include lorem ipsum"
+      },
+      {
+        "claim_id": "forbidden-placeholder",
+        "criterion_id": "forbidden-placeholder",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include placeholder content"
+      },
+      {
+        "claim_id": "forbidden-http",
+        "criterion_id": "forbidden-http",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include HTTP remote references"
+      },
+      {
+        "claim_id": "forbidden-https",
+        "criterion_id": "forbidden-https",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include HTTPS remote references"
+      },
+      {
+        "claim_id": "forbidden-script",
+        "criterion_id": "forbidden-script",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include script tags"
+      },
+      {
+        "claim_id": "forbidden-javascript",
+        "criterion_id": "forbidden-javascript",
+        "qualitative": false,
+        "required": true,
+        "text": "the artifact does not include javascript URLs"
+      },
+      {
+        "claim_id": "desktop-render",
+        "criterion_id": "desktop-render",
+        "qualitative": false,
+        "required": true,
+        "text": "the desktop render digest is current and declared"
+      },
+      {
+        "claim_id": "mobile-render",
+        "criterion_id": "mobile-render",
+        "qualitative": false,
+        "required": true,
+        "text": "the mobile render digest is current and declared"
+      },
+      {
+        "claim_id": "builder-receipt",
+        "criterion_id": "builder-receipt",
+        "qualitative": false,
+        "required": true,
+        "text": "the Design Director builder receipt is current and readable"
+      },
+      {
+        "claim_id": "browser-capture-binding",
+        "criterion_id": "browser-capture-binding",
+        "qualitative": false,
+        "required": true,
+        "text": "browser evidence binds the current HTML artifact, task and criteria"
+      }
+    ],
+    "criteria_digest": "sha256:f26e3d93c72accca37d34c5f25d1cc7c467469b6236342c83882d09cf41427a8",
+    "deferred_criteria": [
+      "qualitative-art-direction",
+      "qualitative-visual-hierarchy",
+      "qualitative-typography",
+      "qualitative-composition",
+      "qualitative-spacing",
+      "qualitative-color-system",
+      "qualitative-asset-quality",
+      "qualitative-product-specificity",
+      "qualitative-responsiveness",
+      "qualitative-accessibility",
+      "qualitative-polish",
+      "qualitative-generic-ai-slop-avoidance"
+    ],
+    "digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+    "expected_evidence": [
+      "artifact-identity-EVIDENCE",
+      "html-document-EVIDENCE",
+      "semantic-header-EVIDENCE",
+      "semantic-main-EVIDENCE",
+      "semantic-footer-EVIDENCE",
+      "copy-product-EVIDENCE",
+      "copy-cta-EVIDENCE",
+      "forbidden-lorem-EVIDENCE",
+      "forbidden-placeholder-EVIDENCE",
+      "forbidden-http-EVIDENCE",
+      "forbidden-https-EVIDENCE",
+      "forbidden-script-EVIDENCE",
+      "forbidden-javascript-EVIDENCE",
+      "desktop-render-EVIDENCE",
+      "mobile-render-EVIDENCE",
+      "builder-receipt-EVIDENCE",
+      "browser-capture-binding-EVIDENCE"
+    ],
+    "manifest_digest": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c",
+    "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "procedures": [
+      {
+        "check": "FILE_DIGEST",
+        "criterion_id": "artifact-identity",
+        "description": "the declared HTML artifact digest matches its bytes",
+        "deterministic": true,
+        "digest": "sha256:3aa4cb8221ccb0767ff531f43ffc2d307561b0701237959a269e37b64aa81e08",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-P5-V1",
+          "expected_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc"
+        },
+        "procedure_id": "P6-PROC-ARTIFACT-IDENTITY",
+        "read_only": true,
+        "required_tool": null
+      },
+      {
+        "check": "TEXT_CONTAINS",
+        "criterion_id": "html-document",
+        "description": "the artifact declares a complete HTML document",
+        "deterministic": true,
+        "digest": "sha256:6bf9d3e78acf41f7e8af7ec7318aad10981589dcccc3ab0f848d18859d47effd",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-P5-V1",
+          "text": "<!doctype html"
+        },
+        "procedure_id": "P6-PROC-HTML-DOCUMENT",
+        "read_only": true,
+        "required_tool": null
+      },
+      {
+        "check": "TEXT_CONTAINS",
+        "criterion_id": "semantic-header",
+        "description": "the artifact contains a semantic header landmark",
+        "deterministic": true,
+        "digest": "sha256:326262003b79b3344fa9f57cd64ac6634078e81c75ae827fca05576bb680e5c0",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-P5-V1",
+          "text": "<header"
+        },
+        "procedure_id": "P6-PROC-SEMANTIC-HEADER",
+        "read_only": true,
+        "required_tool": null
+      },
+      {
+        "check": "TEXT_CONTAINS",
+        "criterion_id": "semantic-main",
+        "description": "the artifact contains a semantic main landmark",
+        "deterministic": true,
+        "digest": "sha256:aa1d760fc18578db45d5de5ff014b272fb8f54a6d78b0af08077c2735db4088d",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-P5-V1",
+          "text": "<main"
+        },
+        "procedure_id": "P6-PROC-SEMANTIC-MAIN",
+        "read_only": true,
+        "required_tool": null
+      },
+      {
+        "check": "TEXT_CONTAINS",
+        "criterion_id": "semantic-footer",
+        "description": "the artifact contains a semantic footer landmark",
+        "deterministic": true,
+        "digest": "sha256:cfdea6b16ea6e5f27c3ce86d6480e4cc6970ce6a1ed223c95baaa73d640d4514",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-P5-V1",
+          "text": "<footer"
+        },
+        "procedure_id": "P6-PROC-SEMANTIC-FOOTER",
+        "read_only": true,
+        "required_tool": null
+      },
+      {
+        "check": "TEXT_CONTAINS",
+        "criterion_id": "copy-product",
+        "description": "the artifact includes the frozen product name PulsePaw",
+        "deterministic": true,
+        "digest": "sha256:ae56f15229535034cf2a767fc831c1f3043d9367b1828ebf6ad507cb6e1cca17",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-P5-V1",
+          "text": "PulsePaw"
+        },
+        "procedure_id": "P6-PROC-COPY-PRODUCT",
+        "read_only": true,
+        "required_tool": null
+      },
+      {
+        "check": "TEXT_CONTAINS",
+        "criterion_id": "copy-cta",
+        "description": "the artifact includes the frozen primary action",
+        "deterministic": true,
+        "digest": "sha256:cf72cf737b966a0c1c2fb8ba2f8c40a35ec1e631b41aec80c5fe489dc62c339c",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-P5-V1",
+          "text": "Call the triage team"
+        },
+        "procedure_id": "P6-PROC-COPY-CTA",
+        "read_only": true,
+        "required_tool": null
+      },
+      {
+        "check": "TEXT_ABSENT",
+        "criterion_id": "forbidden-lorem",
+        "description": "the artifact does not include lorem ipsum",
+        "deterministic": true,
+        "digest": "sha256:3ac2cb0c9cb1afdfe56bd9141a01e71033ff4564158164f8e230381497328aa0",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-P5-V1",
+          "text": "lorem ipsum"
+        },
+        "procedure_id": "P6-PROC-FORBIDDEN-LOREM",
+        "read_only": true,
+        "required_tool": null
+      },
+      {
+        "check": "TEXT_ABSENT",
+        "criterion_id": "forbidden-placeholder",
+        "description": "the artifact does not include placeholder content",
+        "deterministic": true,
+        "digest": "sha256:81043893c456f3619428be89e1718b9160e71a396c649989e515610591cab245",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-P5-V1",
+          "text": "placeholder"
+        },
+        "procedure_id": "P6-PROC-FORBIDDEN-PLACEHOLDER",
+        "read_only": true,
+        "required_tool": null
+      },
+      {
+        "check": "TEXT_ABSENT",
+        "criterion_id": "forbidden-http",
+        "description": "the artifact does not include HTTP remote references",
+        "deterministic": true,
+        "digest": "sha256:e4ca066b6cc46e9e99651e02e6e272ea54076c8b8d10fcd9755e559c3f0da965",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-P5-V1",
+          "text": "http://"
+        },
+        "procedure_id": "P6-PROC-FORBIDDEN-HTTP",
+        "read_only": true,
+        "required_tool": null
+      },
+      {
+        "check": "TEXT_ABSENT",
+        "criterion_id": "forbidden-https",
+        "description": "the artifact does not include HTTPS remote references",
+        "deterministic": true,
+        "digest": "sha256:8048b8c9eb09a24f4089194ed6c73bd7e30f5c76adeb4ad79a1fef58b7e1a3f6",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-P5-V1",
+          "text": "https://"
+        },
+        "procedure_id": "P6-PROC-FORBIDDEN-HTTPS",
+        "read_only": true,
+        "required_tool": null
+      },
+      {
+        "check": "TEXT_ABSENT",
+        "criterion_id": "forbidden-script",
+        "description": "the artifact does not include script tags",
+        "deterministic": true,
+        "digest": "sha256:fab11c4efaab843bc6e9f9a9fc56e6ca04a4cd0569282d7584a1bff0c1da3f46",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-P5-V1",
+          "text": "<script"
+        },
+        "procedure_id": "P6-PROC-FORBIDDEN-SCRIPT",
+        "read_only": true,
+        "required_tool": null
+      },
+      {
+        "check": "TEXT_ABSENT",
+        "criterion_id": "forbidden-javascript",
+        "description": "the artifact does not include javascript URLs",
+        "deterministic": true,
+        "digest": "sha256:853bd95af752c66ad6a77c4bb296e5155f06ff97676e9658306745a1ebf74115",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-P5-V1",
+          "text": "javascript:"
+        },
+        "procedure_id": "P6-PROC-FORBIDDEN-JAVASCRIPT",
+        "read_only": true,
+        "required_tool": null
+      },
+      {
+        "check": "FILE_DIGEST",
+        "criterion_id": "desktop-render",
+        "description": "the desktop render digest is current and declared",
+        "deterministic": true,
+        "digest": "sha256:08f25039e5748b49aa28ee83b5dc0880074ee8c44709e08c02d910aeaa9fc2be",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-DESKTOP-RENDER",
+          "expected_digest": "sha256:a6d3940aee429bde35d0fd6eefd83a4614b42100fdcd27089d2752f32a8fdd89"
+        },
+        "procedure_id": "P6-PROC-DESKTOP-RENDER",
+        "read_only": true,
+        "required_tool": null
+      },
+      {
+        "check": "FILE_DIGEST",
+        "criterion_id": "mobile-render",
+        "description": "the mobile render digest is current and declared",
+        "deterministic": true,
+        "digest": "sha256:5e8e579cff93fb9a920777c6236e5fd607d4905d21c5f893e99ec8594146a1da",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-MOBILE-RENDER",
+          "expected_digest": "sha256:d418f01f7a464d26243dc324a8282af8f7f07189a5844aaf81facd6898e33b3c"
+        },
+        "procedure_id": "P6-PROC-MOBILE-RENDER",
+        "read_only": true,
+        "required_tool": null
+      },
+      {
+        "check": "FILE_DIGEST",
+        "criterion_id": "builder-receipt",
+        "description": "the Design Director builder receipt is current and readable",
+        "deterministic": true,
+        "digest": "sha256:916b6e251d8d5bf4d27d8a6057144ed92ed96e345e2577c4fbf07700e2b34104",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-BUILDER-RECEIPT",
+          "expected_digest": "sha256:8620c2003aced85fdfb7592c74bf4a376dff2e2dad313a40ad73a74a869f9a95"
+        },
+        "procedure_id": "P6-PROC-BUILDER-RECEIPT",
+        "read_only": true,
+        "required_tool": null
+      },
+      {
+        "check": "BROWSER_CAPTURE",
+        "criterion_id": "browser-capture-binding",
+        "description": "browser evidence binds the current HTML artifact, task and criteria",
+        "deterministic": true,
+        "digest": "sha256:997df578ba78e0e59e653d4122c5d10711cd79baab09b7c202f6b76dc2d01d61",
+        "max_attempts": 1,
+        "parameters": {
+          "artifact_id": "ART-BROWSER-CAPTURE-MANIFEST",
+          "criteria_digest": "sha256:f26e3d93c72accca37d34c5f25d1cc7c467469b6236342c83882d09cf41427a8",
+          "desktop_artifact_id": "ART-DESKTOP-RENDER",
+          "desktop_digest": "sha256:a6d3940aee429bde35d0fd6eefd83a4614b42100fdcd27089d2752f32a8fdd89",
+          "expected_digest": "sha256:4c3f5968bf5a6727c8e3e04f94bd61a43e391b03b2479478ade3369ceda76782",
+          "mobile_artifact_id": "ART-MOBILE-RENDER",
+          "mobile_digest": "sha256:d418f01f7a464d26243dc324a8282af8f7f07189a5844aaf81facd6898e33b3c",
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source_artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+          "source_artifact_id": "ART-P5-V1",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        },
+        "procedure_id": "P6-PROC-BROWSER-CAPTURE-BINDING",
+        "read_only": true,
+        "required_tool": null
+      }
+    ],
+    "profile": "COMPOSITION",
+    "run_id": "RUN-P6-COMPOSITION-001",
+    "task_id": "TASK-P6-COMPOSITION-001",
+    "verification_id": "VERIFICATION-ARTIFACT-V1"
+  },
+  "procedure_results": [
+    {
+      "attempts": 1,
+      "criterion_id": "artifact-identity",
+      "digest": "sha256:478402de3f3499af5bcb795b5b68e777a0198774d91b0d9665b0390c31b50c08",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+          "artifact_refs": [
+            "ART-P5-V1"
+          ],
+          "criterion_id": "artifact-identity",
+          "digest": "sha256:7c410e005706214941ef7dd8e1bcf6709fd915e59fb3e7ee0ae5a90d69ca2c75",
+          "evidence_id": "artifact-identity-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "ARTIFACT",
+          "observation": "artifact ART-P5-V1 digest observed as sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "artifact-identity-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "artifact ART-P5-V1 digest observed as sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-ARTIFACT-IDENTITY",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    },
+    {
+      "attempts": 1,
+      "criterion_id": "html-document",
+      "digest": "sha256:955d9d0c2cabd829405c76888633ca4e76f40df465d81d99074e41d0e87c3b52",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+          "artifact_refs": [
+            "ART-P5-V1"
+          ],
+          "criterion_id": "html-document",
+          "digest": "sha256:a64a81cbfba601b89a908c646c49a5cab8677b2f27336b91eb92824abfae2912",
+          "evidence_id": "html-document-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "TEST",
+          "observation": "declared text present: True",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "html-document-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "declared text present: True",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-HTML-DOCUMENT",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    },
+    {
+      "attempts": 1,
+      "criterion_id": "semantic-header",
+      "digest": "sha256:9b9deb0d0132a0886ae0fc73932b646de765537f24c24f77f8784235f464bdc6",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+          "artifact_refs": [
+            "ART-P5-V1"
+          ],
+          "criterion_id": "semantic-header",
+          "digest": "sha256:88150de0dcfcac3d969a1ac96aecc452f31a9d9e57b14838aeab5fb9f312e43c",
+          "evidence_id": "semantic-header-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "TEST",
+          "observation": "declared text present: True",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "semantic-header-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "declared text present: True",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-SEMANTIC-HEADER",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    },
+    {
+      "attempts": 1,
+      "criterion_id": "semantic-main",
+      "digest": "sha256:adeccae4c1fd7d157429210f0dd099169dabae20bfe723f4d201fbdf84e5a5c0",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+          "artifact_refs": [
+            "ART-P5-V1"
+          ],
+          "criterion_id": "semantic-main",
+          "digest": "sha256:d760e7768ee84406f0a46d84d445297bceabba7bebd9e5babf694648ea3602bc",
+          "evidence_id": "semantic-main-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "TEST",
+          "observation": "declared text present: True",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "semantic-main-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "declared text present: True",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-SEMANTIC-MAIN",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    },
+    {
+      "attempts": 1,
+      "criterion_id": "semantic-footer",
+      "digest": "sha256:fe2ab9fb7571e6c9c368ae5d6264d97c18f6b6352b8394f32f38c3e7812256d0",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+          "artifact_refs": [
+            "ART-P5-V1"
+          ],
+          "criterion_id": "semantic-footer",
+          "digest": "sha256:7caef6a0b02d338c1e1861ac9a038ca84700857ed0f6031776ef5e2cb0ae8fcd",
+          "evidence_id": "semantic-footer-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "TEST",
+          "observation": "declared text present: True",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "semantic-footer-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "declared text present: True",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-SEMANTIC-FOOTER",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    },
+    {
+      "attempts": 1,
+      "criterion_id": "copy-product",
+      "digest": "sha256:fd1ef9e054f0542c59cf698d4b8b7228540efabc001a53e84d3490d6f85c2a99",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+          "artifact_refs": [
+            "ART-P5-V1"
+          ],
+          "criterion_id": "copy-product",
+          "digest": "sha256:bf7640d832d56dae6ce6eb3918ac29b4bd5963d960421b2167e62dc1a4d7fa92",
+          "evidence_id": "copy-product-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "TEST",
+          "observation": "declared text present: True",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "copy-product-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "declared text present: True",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-COPY-PRODUCT",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    },
+    {
+      "attempts": 1,
+      "criterion_id": "copy-cta",
+      "digest": "sha256:68d022fe5467bce34fd81898931fe788c7f05462d6285d804fed01021870eff7",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+          "artifact_refs": [
+            "ART-P5-V1"
+          ],
+          "criterion_id": "copy-cta",
+          "digest": "sha256:329159d7d7ea2de49f44d73af4394aaac792f255611c3a00591dce295b04992b",
+          "evidence_id": "copy-cta-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "TEST",
+          "observation": "declared text present: True",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "copy-cta-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "declared text present: True",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-COPY-CTA",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    },
+    {
+      "attempts": 1,
+      "criterion_id": "forbidden-lorem",
+      "digest": "sha256:b705bcb8824c7aa59369b5a69fd1a8329ec5d387b91c8cee00bb4133412470f2",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+          "artifact_refs": [
+            "ART-P5-V1"
+          ],
+          "criterion_id": "forbidden-lorem",
+          "digest": "sha256:2070f215b87f8a167844aa04c9b2e82d3bc142446b22b4154717b9eaab0f132c",
+          "evidence_id": "forbidden-lorem-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "TEST",
+          "observation": "declared text absent: True",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "forbidden-lorem-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "declared text absent: True",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-FORBIDDEN-LOREM",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    },
+    {
+      "attempts": 1,
+      "criterion_id": "forbidden-placeholder",
+      "digest": "sha256:5fea9d24ce7f210c9c7b86cfafb18ea7cf9bb5061f4f80fb5183bd50290d57e4",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+          "artifact_refs": [
+            "ART-P5-V1"
+          ],
+          "criterion_id": "forbidden-placeholder",
+          "digest": "sha256:58badea35c1eaf6d5c70d911ae01d01c2f83d8ac107a0001f3d38a383d848c1d",
+          "evidence_id": "forbidden-placeholder-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "TEST",
+          "observation": "declared text absent: True",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "forbidden-placeholder-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "declared text absent: True",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-FORBIDDEN-PLACEHOLDER",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    },
+    {
+      "attempts": 1,
+      "criterion_id": "forbidden-http",
+      "digest": "sha256:e2821d3953fed67f783677cafa6c9f230d88ba9656f1bec27a22b1b3ac0a5331",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+          "artifact_refs": [
+            "ART-P5-V1"
+          ],
+          "criterion_id": "forbidden-http",
+          "digest": "sha256:87976e6e61bc5ebd791d6bf0d7cf6bc3869db133b1c879f5961e6235bab3e58d",
+          "evidence_id": "forbidden-http-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "TEST",
+          "observation": "declared text absent: True",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "forbidden-http-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "declared text absent: True",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-FORBIDDEN-HTTP",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    },
+    {
+      "attempts": 1,
+      "criterion_id": "forbidden-https",
+      "digest": "sha256:d10c4a5d6a8cab63dd880192dd1871dc0597bfa42bd9a82369f6d85bbbb1c2c2",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+          "artifact_refs": [
+            "ART-P5-V1"
+          ],
+          "criterion_id": "forbidden-https",
+          "digest": "sha256:2f2b85feb5522aa035fa516a354ddb37c6f1a64e57a013552684491fe5a87bd1",
+          "evidence_id": "forbidden-https-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "TEST",
+          "observation": "declared text absent: True",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "forbidden-https-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "declared text absent: True",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-FORBIDDEN-HTTPS",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    },
+    {
+      "attempts": 1,
+      "criterion_id": "forbidden-script",
+      "digest": "sha256:ed763b221f434306be7ad4934de25cb8b3c1c8811b776502b87652b0882c0b59",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+          "artifact_refs": [
+            "ART-P5-V1"
+          ],
+          "criterion_id": "forbidden-script",
+          "digest": "sha256:90044bb24fe64cf7d885db3ed3fe879655752083f2c483c10081c6d9f50698ca",
+          "evidence_id": "forbidden-script-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "TEST",
+          "observation": "declared text absent: True",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "forbidden-script-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "declared text absent: True",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-FORBIDDEN-SCRIPT",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    },
+    {
+      "attempts": 1,
+      "criterion_id": "forbidden-javascript",
+      "digest": "sha256:d91771c1284c5214f92d6959b998e0f1f9f1749a9bc14bd01a35caef48c1c93f",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+          "artifact_refs": [
+            "ART-P5-V1"
+          ],
+          "criterion_id": "forbidden-javascript",
+          "digest": "sha256:29f94324f0f6e72b13a96e8bbad81cee7663d6da52bf9d3870184b5ed2615acb",
+          "evidence_id": "forbidden-javascript-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "TEST",
+          "observation": "declared text absent: True",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "forbidden-javascript-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "declared text absent: True",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-FORBIDDEN-JAVASCRIPT",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    },
+    {
+      "attempts": 1,
+      "criterion_id": "desktop-render",
+      "digest": "sha256:6917bcb69a92c91cf568af1cdab54cb5c44d2286de66cb36264b5e0ada0a5dc2",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:a6d3940aee429bde35d0fd6eefd83a4614b42100fdcd27089d2752f32a8fdd89",
+          "artifact_refs": [
+            "ART-DESKTOP-RENDER"
+          ],
+          "criterion_id": "desktop-render",
+          "digest": "sha256:46159af2624eb98b51b45e78f8ebca91cc96b2a030f5c87cd125fbf32f0f57d2",
+          "evidence_id": "desktop-render-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "ARTIFACT",
+          "observation": "artifact ART-DESKTOP-RENDER digest observed as sha256:a6d3940aee429bde35d0fd6eefd83a4614b42100fdcd27089d2752f32a8fdd89",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/desktop-1440x900.jpg",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "desktop-render-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "artifact ART-DESKTOP-RENDER digest observed as sha256:a6d3940aee429bde35d0fd6eefd83a4614b42100fdcd27089d2752f32a8fdd89",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-DESKTOP-RENDER",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    },
+    {
+      "attempts": 1,
+      "criterion_id": "mobile-render",
+      "digest": "sha256:da6ac51f617d78aeb99b6ee6cd61b21805fcb9e1ab2391cb07be2918684bf2d5",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:d418f01f7a464d26243dc324a8282af8f7f07189a5844aaf81facd6898e33b3c",
+          "artifact_refs": [
+            "ART-MOBILE-RENDER"
+          ],
+          "criterion_id": "mobile-render",
+          "digest": "sha256:c66031edba6214c7a7b6be3b90aeff64a03ccc8f265ec88ae11adfe61d836c21",
+          "evidence_id": "mobile-render-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "ARTIFACT",
+          "observation": "artifact ART-MOBILE-RENDER digest observed as sha256:d418f01f7a464d26243dc324a8282af8f7f07189a5844aaf81facd6898e33b3c",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/mobile-390x844.jpg",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "mobile-render-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "artifact ART-MOBILE-RENDER digest observed as sha256:d418f01f7a464d26243dc324a8282af8f7f07189a5844aaf81facd6898e33b3c",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-MOBILE-RENDER",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    },
+    {
+      "attempts": 1,
+      "criterion_id": "builder-receipt",
+      "digest": "sha256:1d6ad96b6eb68d755146eb9af75ddc15dbb3c685a8b10cd4864029b03a601686",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:8620c2003aced85fdfb7592c74bf4a376dff2e2dad313a40ad73a74a869f9a95",
+          "artifact_refs": [
+            "ART-BUILDER-RECEIPT"
+          ],
+          "criterion_id": "builder-receipt",
+          "digest": "sha256:618122e4ebc1aeacbe2b700d80003b3780935ad56bafc18407507d4ad9072379",
+          "evidence_id": "builder-receipt-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "ARTIFACT",
+          "observation": "artifact ART-BUILDER-RECEIPT digest observed as sha256:8620c2003aced85fdfb7592c74bf4a376dff2e2dad313a40ad73a74a869f9a95",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/builder-handoff-receipt.json",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "builder-receipt-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "artifact ART-BUILDER-RECEIPT digest observed as sha256:8620c2003aced85fdfb7592c74bf4a376dff2e2dad313a40ad73a74a869f9a95",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-BUILDER-RECEIPT",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    },
+    {
+      "attempts": 1,
+      "criterion_id": "browser-capture-binding",
+      "digest": "sha256:83feb451fb26b115f1eeab8aff31437e081138a2886c79fd053314cfb7529bd0",
+      "error": null,
+      "evidence": [
+        {
+          "artifact_digest": "sha256:4c3f5968bf5a6727c8e3e04f94bd61a43e391b03b2479478ade3369ceda76782",
+          "artifact_refs": [
+            "ART-BROWSER-CAPTURE-MANIFEST"
+          ],
+          "criterion_id": "browser-capture-binding",
+          "digest": "sha256:5f3052872b2761462b6ac5092b6460bd7b2a47f398f0751152e2a2b37d2c6ca3",
+          "evidence_id": "browser-capture-binding-EVIDENCE",
+          "freshness": "FRESH",
+          "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+          "kind": "RENDER",
+          "observation": "browser capture source and render digests bound: True",
+          "observed_at": 1788073518,
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+          "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/browser-capture-manifest.json",
+          "reviewer_id": null,
+          "reviewer_role": null,
+          "run_id": "RUN-P6-COMPOSITION-001",
+          "source": "deterministic",
+          "task_id": "TASK-P6-COMPOSITION-001"
+        }
+      ],
+      "evidence_refs": [
+        "browser-capture-binding-EVIDENCE"
+      ],
+      "executed": true,
+      "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+      "observation": "browser capture source and render digests bound: True",
+      "observed_at": 1788073518,
+      "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+      "procedure_id": "P6-PROC-BROWSER-CAPTURE-BINDING",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "status": "PASS",
+      "task_id": "TASK-P6-COMPOSITION-001",
+      "verifier_id": "verification-loop-vnext"
+    }
+  ],
+  "schema_version": "P6-VERIFICATION-RUN-1",
+  "telemetry": {
+    "events": [
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": null,
+        "digest": "sha256:f541e539c0d02a7afc240ca55ddd30052ab9f8daaed8b89d782e54cba8ebd820",
+        "event_id": "P6-EVT-0001",
+        "event_type": "VERIFICATION_CAPABILITY_SELECTED",
+        "observed": true,
+        "payload": {
+          "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b"
+        },
+        "procedure_id": null,
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": null,
+        "digest": "sha256:ab182537fc1f7a86e627dd3e3f71dd6bbfe81ea3d6c6dc44a384418e078ccc9d",
+        "event_id": "P6-EVT-0002",
+        "event_type": "VERIFICATION_PLAN_CREATED",
+        "observed": true,
+        "payload": {
+          "plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+          "procedure_count": 17
+        },
+        "procedure_id": null,
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "artifact-identity",
+        "digest": "sha256:255f8e2be6170ff71acecd6467fc0a5a5ddc5be813c1e97b6a53aaad56a53677",
+        "event_id": "P6-EVT-0003",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-ARTIFACT-IDENTITY",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "artifact-identity",
+        "digest": "sha256:7c00fd3624d08cc7db7a35a3e91c2d5eeecd1cd60d2f9ad4df6545bd919aeadb",
+        "event_id": "P6-EVT-0004",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-ARTIFACT-IDENTITY",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "html-document",
+        "digest": "sha256:50fc42d027b365b9e40a78bc0337d24681c91da097dc4e92b962c1c15180d6a9",
+        "event_id": "P6-EVT-0005",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-HTML-DOCUMENT",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "html-document",
+        "digest": "sha256:827aa18ff98dae64d53467b4079532e3ed4b34272971a1c9bc80863cb1cb1e1a",
+        "event_id": "P6-EVT-0006",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-HTML-DOCUMENT",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "semantic-header",
+        "digest": "sha256:f17673eb6fa478fa5f31c369ef62be66a229f7f48beb6cd1cb1e5a625cdfb667",
+        "event_id": "P6-EVT-0007",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-SEMANTIC-HEADER",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "semantic-header",
+        "digest": "sha256:c70602331d565e0f9e42fd836177fac6b83f7933057570692b9302c827fa35f9",
+        "event_id": "P6-EVT-0008",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-SEMANTIC-HEADER",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "semantic-main",
+        "digest": "sha256:26e655d8ee8aeb83dd5f5445979e61f0f9437e63327c273e6fd788a41f98b152",
+        "event_id": "P6-EVT-0009",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-SEMANTIC-MAIN",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "semantic-main",
+        "digest": "sha256:1df042343d36ea3cabdcf55a6a4accc918741bf9797692b39b783afc787fa37d",
+        "event_id": "P6-EVT-0010",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-SEMANTIC-MAIN",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "semantic-footer",
+        "digest": "sha256:4707c8971b4ded9231b7e0057fdb7b0ac0ddebda2e1e8432dfd673cd1d0d6ba7",
+        "event_id": "P6-EVT-0011",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-SEMANTIC-FOOTER",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "semantic-footer",
+        "digest": "sha256:bd4947dc1de864734da4a565e7e8b4d7e2b4e38ed619fa2d1971f6ecd322affe",
+        "event_id": "P6-EVT-0012",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-SEMANTIC-FOOTER",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "copy-product",
+        "digest": "sha256:33b1a320233a4d64ac1c8f2a0c8a19fb04056df7bb78632ac5f5566c738083c8",
+        "event_id": "P6-EVT-0013",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-COPY-PRODUCT",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "copy-product",
+        "digest": "sha256:0af47b0ff392a77d424be3d1574273d08580b49991dbcbf96a8e35c1f744ec3d",
+        "event_id": "P6-EVT-0014",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-COPY-PRODUCT",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "copy-cta",
+        "digest": "sha256:67133bd53b350ffb6cf25910df14575c56e10359fabe3e92515a6fd0eb6b0e6b",
+        "event_id": "P6-EVT-0015",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-COPY-CTA",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "copy-cta",
+        "digest": "sha256:b2ac00412a26401f322b4e222cd14d28177fab517c97dcf26d15a31ce3c60494",
+        "event_id": "P6-EVT-0016",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-COPY-CTA",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "forbidden-lorem",
+        "digest": "sha256:d7196003a1618c57944659382318f47a94139c573ad4174357b5f5a224b2a028",
+        "event_id": "P6-EVT-0017",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-FORBIDDEN-LOREM",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "forbidden-lorem",
+        "digest": "sha256:da2be9876880471bbf6c0b0b05016bb462f9768438b74f6ca500b4393f26ac33",
+        "event_id": "P6-EVT-0018",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-FORBIDDEN-LOREM",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "forbidden-placeholder",
+        "digest": "sha256:0b076999b9be4ff75c406e4dc650365a0e938d817bccdb85d27c8faadae8d2b1",
+        "event_id": "P6-EVT-0019",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-FORBIDDEN-PLACEHOLDER",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "forbidden-placeholder",
+        "digest": "sha256:80e9178fbc5d7d189e0e91b9b37801f2c6a4d6baa4a0833d1110b95f80febead",
+        "event_id": "P6-EVT-0020",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-FORBIDDEN-PLACEHOLDER",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "forbidden-http",
+        "digest": "sha256:284c0929dc7717cdafea3a699edf927840e6bfa91e654e15985c561a458a0eb0",
+        "event_id": "P6-EVT-0021",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-FORBIDDEN-HTTP",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "forbidden-http",
+        "digest": "sha256:db1b06a2c2ac3ba0e49584eb67266503a7f062e2d91ee8e60ec55ec7be40a915",
+        "event_id": "P6-EVT-0022",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-FORBIDDEN-HTTP",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "forbidden-https",
+        "digest": "sha256:ae4fbc91d71b2ef0440b6cb733eef2f158cbe517ebdee320edd00b147c940d01",
+        "event_id": "P6-EVT-0023",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-FORBIDDEN-HTTPS",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "forbidden-https",
+        "digest": "sha256:9416f59df2d24906929bb69ed4893707114b3ad20563db196dd6979996f6c75d",
+        "event_id": "P6-EVT-0024",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-FORBIDDEN-HTTPS",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "forbidden-script",
+        "digest": "sha256:21e330f26a2b1b381df4bb18a29ad4da8a6a2b4d8e1ba907f6901b0d14b93b90",
+        "event_id": "P6-EVT-0025",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-FORBIDDEN-SCRIPT",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "forbidden-script",
+        "digest": "sha256:0973f47a31ab71bf5cefd9da069992051f82f579fa3dd424d4b25f1e36a20b14",
+        "event_id": "P6-EVT-0026",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-FORBIDDEN-SCRIPT",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "forbidden-javascript",
+        "digest": "sha256:1d00d81d02eb3372dd3a5248badc76eaf8f02a700e70d0b28228c38747facaa9",
+        "event_id": "P6-EVT-0027",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-FORBIDDEN-JAVASCRIPT",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "forbidden-javascript",
+        "digest": "sha256:934ef1dcfc89442161616cc2c7e98cdf47243336b259a4ea0c32c6f27b990284",
+        "event_id": "P6-EVT-0028",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-FORBIDDEN-JAVASCRIPT",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "desktop-render",
+        "digest": "sha256:5ef5f8c3323ca00dfd66587681c4d15f74c204c542c31f55bce96a5ec94dfcec",
+        "event_id": "P6-EVT-0029",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-DESKTOP-RENDER",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "desktop-render",
+        "digest": "sha256:6d6cd02ce985189886bca91dbdaadbe6c75167270babdb9463adeb14e148ba1b",
+        "event_id": "P6-EVT-0030",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-DESKTOP-RENDER",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "mobile-render",
+        "digest": "sha256:c60d29e62c6059dd6a2726751be7475774764860a02ae1d8bce5b1e63b572ead",
+        "event_id": "P6-EVT-0031",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-MOBILE-RENDER",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "mobile-render",
+        "digest": "sha256:3778777ec4f7984f49e38928df9e6d0bb5c2f791e174b5a4f23f4db18c2cc055",
+        "event_id": "P6-EVT-0032",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-MOBILE-RENDER",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "builder-receipt",
+        "digest": "sha256:904b9c397d6117b226ea44fb44ed7498539f4a90b5f849a71452cab34acffe57",
+        "event_id": "P6-EVT-0033",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-BUILDER-RECEIPT",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "builder-receipt",
+        "digest": "sha256:1608b5ee5c70a77efce02074920dd717d8630604db6a2dd326c4cd1465188969",
+        "event_id": "P6-EVT-0034",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-BUILDER-RECEIPT",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "browser-capture-binding",
+        "digest": "sha256:b1798f20c57fc642c4e27f71f1dedbb3370903c1571e41e538059bcf3caedfc2",
+        "event_id": "P6-EVT-0035",
+        "event_type": "VERIFICATION_PROCEDURE_STARTED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-BROWSER-CAPTURE-BINDING",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": null,
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": "browser-capture-binding",
+        "digest": "sha256:4fbc8e5c71753f1c28afa84fd5c9a1374f4ac83ec5c53e25d7c7a02b3d01341c",
+        "event_id": "P6-EVT-0036",
+        "event_type": "VERIFICATION_PROCEDURE_COMPLETED",
+        "observed": true,
+        "payload": {},
+        "procedure_id": "P6-PROC-BROWSER-CAPTURE-BINDING",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": null,
+        "digest": "sha256:cb73c7066f0664646c67d55a64dea1265cfa80fb37540a8ffb325c36e862707e",
+        "event_id": "P6-EVT-0037",
+        "event_type": "VERIFICATION_REPORT_CREATED",
+        "observed": true,
+        "payload": {
+          "report_digest": "sha256:50984a30c4f9dfd713106a249f474d168ef3df0ec084d42ae84ea5073f43943f"
+        },
+        "procedure_id": null,
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      {
+        "capability_id": "verification-loop-vnext",
+        "criterion_id": null,
+        "digest": "sha256:2a9a7e476631b333bf6095856d399af5312887e08ffec3a8c9dcc2484586b9fc",
+        "event_id": "P6-EVT-0038",
+        "event_type": "VERIFICATION_FINALIZED",
+        "observed": true,
+        "payload": {
+          "stop_reason": "ALL_REQUIRED_CRITERIA_RESOLVED"
+        },
+        "procedure_id": null,
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "status": "PASS",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      }
+    ],
+    "max_events": 256
+  }
+}

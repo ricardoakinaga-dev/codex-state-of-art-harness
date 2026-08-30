@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import json
+import os
 from dataclasses import dataclass, replace
 from pathlib import Path
 from threading import Event
@@ -368,7 +370,14 @@ def test_persistent_replay_is_blocked_after_engine_restart(tmp_path: Path) -> No
         mode=ExecutionMode.CONTROLLED_REAL,
         budget=Phase4Budget(),
     )
-    assert first.execute_prepared(prepared).status is InvocationResultStatus.SUCCESS
+    first_outcome = first.execute_prepared(prepared)
+    assert first_outcome.status is InvocationResultStatus.SUCCESS
+    ledger_entry = json.loads(ledger.read_text(encoding="utf-8"))["entries"][
+        prepared.request.invocation_id
+    ]
+    assert ledger_entry["status"] == InvocationResultStatus.SUCCESS.value
+    assert ledger_entry["closed_at"] == first_outcome.receipt.closed_at
+    assert ledger_entry["receipt_digest"] == first_outcome.receipt.receipt_digest
 
     second_host = FakeHost()
     second = InvocationEngine(second_host, replay_ledger=ledger)
@@ -377,6 +386,200 @@ def test_persistent_replay_is_blocked_after_engine_restart(tmp_path: Path) -> No
     assert replay.status is InvocationResultStatus.BLOCKED
     assert "REPLAY_DETECTED" in replay.blockers
     assert second_host.calls == 0
+
+
+def test_replay_ledger_rejects_deletion_after_initialization(tmp_path: Path) -> None:
+    record, inventory, resolution, policy = _fixture(tmp_path)
+    ledger = tmp_path / ".harness" / "phase4" / "invocation-ledger.json"
+    first_host = FakeHost()
+    first = InvocationEngine(first_host, replay_ledger=ledger)
+    prepared = first.prepare(
+        record,
+        inventory,
+        resolution,
+        policy,
+        task_id="TASK-P4-LEDGER-DELETION",
+        run_id="RUN-P4-LEDGER-DELETION",
+        task="Return a bounded response.",
+        acceptance_criteria=("response is non-empty",),
+        workspace=tmp_path,
+        mode=ExecutionMode.CONTROLLED_REAL,
+        budget=Phase4Budget(),
+    )
+    assert first.execute_prepared(prepared).status is InvocationResultStatus.SUCCESS
+    ledger.unlink()
+
+    second_host = FakeHost()
+    outcome = InvocationEngine(second_host, replay_ledger=ledger).execute_prepared(prepared)
+
+    assert outcome.status is InvocationResultStatus.BLOCKED
+    assert "disappeared after initialization" in outcome.blockers[0]
+    assert second_host.calls == 0
+
+
+def test_replay_ledger_rejects_reset_after_initialization(tmp_path: Path) -> None:
+    record, inventory, resolution, policy = _fixture(tmp_path)
+    ledger = tmp_path / ".harness" / "phase4" / "invocation-ledger.json"
+    first_host = FakeHost()
+    first = InvocationEngine(first_host, replay_ledger=ledger)
+    prepared = first.prepare(
+        record,
+        inventory,
+        resolution,
+        policy,
+        task_id="TASK-P4-LEDGER-RESET",
+        run_id="RUN-P4-LEDGER-RESET",
+        task="Return a bounded response.",
+        acceptance_criteria=("response is non-empty",),
+        workspace=tmp_path,
+        mode=ExecutionMode.CONTROLLED_REAL,
+        budget=Phase4Budget(),
+    )
+    assert first.execute_prepared(prepared).status is InvocationResultStatus.SUCCESS
+    ledger.unlink()
+    ledger.write_text('{"entries":{},"schema_version":"P4-LEDGER-1"}\n', encoding="utf-8")
+
+    second_host = FakeHost()
+    outcome = InvocationEngine(second_host, replay_ledger=ledger).execute_prepared(prepared)
+
+    assert outcome.status is InvocationResultStatus.BLOCKED
+    assert "token" in outcome.blockers[0]
+    assert second_host.calls == 0
+
+
+def test_replay_ledger_rejects_parent_identity_replacement(tmp_path: Path) -> None:
+    record, inventory, resolution, policy = _fixture(tmp_path)
+    ledger = tmp_path / ".harness" / "phase4" / "invocation-ledger.json"
+    first_host = FakeHost()
+    first = InvocationEngine(first_host, replay_ledger=ledger)
+    prepared = first.prepare(
+        record,
+        inventory,
+        resolution,
+        policy,
+        task_id="TASK-P4-PARENT-IDENTITY",
+        run_id="RUN-P4-PARENT-IDENTITY",
+        task="Return a bounded response.",
+        acceptance_criteria=("response is non-empty",),
+        workspace=tmp_path,
+        mode=ExecutionMode.CONTROLLED_REAL,
+        budget=Phase4Budget(),
+    )
+    assert first.execute_prepared(prepared).status is InvocationResultStatus.SUCCESS
+
+    parent = ledger.parent
+    replacement = tmp_path / ".harness" / "phase4-replaced"
+    parent.rename(replacement)
+    parent.mkdir()
+
+    second_host = FakeHost()
+    replay = InvocationEngine(second_host, replay_ledger=ledger).execute_prepared(prepared)
+
+    assert replay.status is InvocationResultStatus.BLOCKED
+    assert "replay ledger parent changed identity" in replay.blockers[0]
+    assert second_host.calls == 0
+
+
+def test_replay_ledger_rejects_deep_json(tmp_path: Path) -> None:
+    record, inventory, resolution, policy = _fixture(tmp_path)
+    ledger = tmp_path / ".harness" / "phase4" / "invocation-ledger.json"
+    ledger.parent.mkdir(parents=True)
+    deep = "{" * 65 + "0" + "}" * 65
+    ledger.write_text(
+        '{"entries":{},"nested":' + deep + ',"schema_version":"P4-LEDGER-1"}\n',
+        encoding="utf-8",
+    )
+
+    host = FakeHost()
+    prepared = InvocationEngine(host, replay_ledger=ledger).prepare(
+        record,
+        inventory,
+        resolution,
+        policy,
+        task_id="TASK-P4-LEDGER-DEPTH",
+        run_id="RUN-P4-LEDGER-DEPTH",
+        task="Return a bounded response.",
+        acceptance_criteria=("response is non-empty",),
+        workspace=tmp_path,
+        mode=ExecutionMode.CONTROLLED_REAL,
+        budget=Phase4Budget(),
+    )
+
+    outcome = InvocationEngine(host, replay_ledger=ledger).execute_prepared(prepared)
+
+    assert outcome.status is InvocationResultStatus.BLOCKED
+    assert "JSON nesting" in outcome.blockers[0]
+    assert host.calls == 0
+
+
+@pytest.mark.skipif(not hasattr(os, "link"), reason="hardlinks are unavailable")
+def test_replay_ledger_rejects_a_hardlink_alias(tmp_path: Path) -> None:
+    record, inventory, resolution, policy = _fixture(tmp_path)
+    ledger = tmp_path / ".harness" / "phase4" / "invocation-ledger.json"
+    ledger.parent.mkdir(parents=True)
+    source = ledger.parent / "ledger-source.json"
+    source.write_text("{}", encoding="utf-8")
+    try:
+        ledger.hardlink_to(source)
+    except OSError as exc:
+        pytest.skip(f"hardlinks unavailable in test workspace: {exc}")
+
+    host = FakeHost()
+    prepared = InvocationEngine(host, replay_ledger=ledger).prepare(
+        record,
+        inventory,
+        resolution,
+        policy,
+        task_id="TASK-P4-LEDGER-HARDLINK",
+        run_id="RUN-P4-LEDGER-HARDLINK",
+        task="Return a bounded response.",
+        acceptance_criteria=("response is non-empty",),
+        workspace=tmp_path,
+        mode=ExecutionMode.CONTROLLED_REAL,
+        budget=Phase4Budget(),
+    )
+
+    outcome = InvocationEngine(host, replay_ledger=ledger).execute_prepared(prepared)
+
+    assert outcome.status is InvocationResultStatus.BLOCKED
+    assert "replay ledger" in outcome.blockers[0].lower()
+    assert host.calls == 0
+
+
+@pytest.mark.skipif(not hasattr(os, "link"), reason="hardlinks are unavailable")
+def test_replay_ledger_rejects_a_hardlinked_lock(tmp_path: Path) -> None:
+    record, inventory, resolution, policy = _fixture(tmp_path)
+    ledger = tmp_path / ".harness" / "phase4" / "invocation-ledger.json"
+    ledger.parent.mkdir(parents=True)
+    ledger.write_text('{"entries":{},"schema_version":"P4-LEDGER-1"}\n', encoding="utf-8")
+    lock = ledger.with_name(f".{ledger.name}.lock")
+    source = ledger.parent / "lock-source"
+    source.write_text("", encoding="utf-8")
+    try:
+        lock.hardlink_to(source)
+    except OSError as exc:
+        pytest.skip(f"hardlinks unavailable in test workspace: {exc}")
+
+    host = FakeHost()
+    prepared = InvocationEngine(host, replay_ledger=ledger).prepare(
+        record,
+        inventory,
+        resolution,
+        policy,
+        task_id="TASK-P4-LOCK-HARDLINK",
+        run_id="RUN-P4-LOCK-HARDLINK",
+        task="Return a bounded response.",
+        acceptance_criteria=("response is non-empty",),
+        workspace=tmp_path,
+        mode=ExecutionMode.CONTROLLED_REAL,
+        budget=Phase4Budget(),
+    )
+
+    outcome = InvocationEngine(host, replay_ledger=ledger).execute_prepared(prepared)
+
+    assert outcome.status is InvocationResultStatus.BLOCKED
+    assert "replay ledger" in outcome.blockers[0].lower()
+    assert host.calls == 0
 
 
 def test_receipt_binding_is_verified_as_part_of_success(tmp_path: Path) -> None:

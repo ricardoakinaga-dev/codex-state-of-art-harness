@@ -1,0 +1,439 @@
+{
+  "blocked_procedures": [],
+  "budget": {
+    "max_attempts_per_procedure": 1,
+    "max_criteria": 256,
+    "max_duration_seconds": 120,
+    "max_evidence_records": 256,
+    "max_procedures": 32,
+    "max_report_bytes": 131072
+  },
+  "claims": [
+    {
+      "claim_id": "artifact-identity",
+      "criterion_id": "artifact-identity",
+      "qualitative": false,
+      "required": true,
+      "text": "the declared HTML artifact digest matches its bytes"
+    },
+    {
+      "claim_id": "html-document",
+      "criterion_id": "html-document",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact declares a complete HTML document"
+    },
+    {
+      "claim_id": "semantic-header",
+      "criterion_id": "semantic-header",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact contains a semantic header landmark"
+    },
+    {
+      "claim_id": "semantic-main",
+      "criterion_id": "semantic-main",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact contains a semantic main landmark"
+    },
+    {
+      "claim_id": "semantic-footer",
+      "criterion_id": "semantic-footer",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact contains a semantic footer landmark"
+    },
+    {
+      "claim_id": "copy-product",
+      "criterion_id": "copy-product",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact includes the frozen product name PulsePaw"
+    },
+    {
+      "claim_id": "copy-cta",
+      "criterion_id": "copy-cta",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact includes the frozen primary action"
+    },
+    {
+      "claim_id": "forbidden-lorem",
+      "criterion_id": "forbidden-lorem",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact does not include lorem ipsum"
+    },
+    {
+      "claim_id": "forbidden-placeholder",
+      "criterion_id": "forbidden-placeholder",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact does not include placeholder content"
+    },
+    {
+      "claim_id": "forbidden-http",
+      "criterion_id": "forbidden-http",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact does not include HTTP remote references"
+    },
+    {
+      "claim_id": "forbidden-https",
+      "criterion_id": "forbidden-https",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact does not include HTTPS remote references"
+    },
+    {
+      "claim_id": "forbidden-script",
+      "criterion_id": "forbidden-script",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact does not include script tags"
+    },
+    {
+      "claim_id": "forbidden-javascript",
+      "criterion_id": "forbidden-javascript",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact does not include javascript URLs"
+    },
+    {
+      "claim_id": "desktop-render",
+      "criterion_id": "desktop-render",
+      "qualitative": false,
+      "required": true,
+      "text": "the desktop render digest is current and declared"
+    },
+    {
+      "claim_id": "mobile-render",
+      "criterion_id": "mobile-render",
+      "qualitative": false,
+      "required": true,
+      "text": "the mobile render digest is current and declared"
+    },
+    {
+      "claim_id": "builder-receipt",
+      "criterion_id": "builder-receipt",
+      "qualitative": false,
+      "required": true,
+      "text": "the Design Director builder receipt is current and readable"
+    },
+    {
+      "claim_id": "browser-capture-binding",
+      "criterion_id": "browser-capture-binding",
+      "qualitative": false,
+      "required": true,
+      "text": "browser evidence binds the current HTML artifact, task and criteria"
+    }
+  ],
+  "criteria_digest": "sha256:f26e3d93c72accca37d34c5f25d1cc7c467469b6236342c83882d09cf41427a8",
+  "deferred_criteria": [
+    "qualitative-art-direction",
+    "qualitative-visual-hierarchy",
+    "qualitative-typography",
+    "qualitative-composition",
+    "qualitative-spacing",
+    "qualitative-color-system",
+    "qualitative-asset-quality",
+    "qualitative-product-specificity",
+    "qualitative-responsiveness",
+    "qualitative-accessibility",
+    "qualitative-polish",
+    "qualitative-generic-ai-slop-avoidance"
+  ],
+  "digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+  "expected_evidence": [
+    "artifact-identity-EVIDENCE",
+    "html-document-EVIDENCE",
+    "semantic-header-EVIDENCE",
+    "semantic-main-EVIDENCE",
+    "semantic-footer-EVIDENCE",
+    "copy-product-EVIDENCE",
+    "copy-cta-EVIDENCE",
+    "forbidden-lorem-EVIDENCE",
+    "forbidden-placeholder-EVIDENCE",
+    "forbidden-http-EVIDENCE",
+    "forbidden-https-EVIDENCE",
+    "forbidden-script-EVIDENCE",
+    "forbidden-javascript-EVIDENCE",
+    "desktop-render-EVIDENCE",
+    "mobile-render-EVIDENCE",
+    "builder-receipt-EVIDENCE",
+    "browser-capture-binding-EVIDENCE"
+  ],
+  "manifest_digest": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c",
+  "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "procedures": [
+    {
+      "check": "FILE_DIGEST",
+      "criterion_id": "artifact-identity",
+      "description": "the declared HTML artifact digest matches its bytes",
+      "deterministic": true,
+      "digest": "sha256:3aa4cb8221ccb0767ff531f43ffc2d307561b0701237959a269e37b64aa81e08",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-P5-V1",
+        "expected_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc"
+      },
+      "procedure_id": "P6-PROC-ARTIFACT-IDENTITY",
+      "read_only": true,
+      "required_tool": null
+    },
+    {
+      "check": "TEXT_CONTAINS",
+      "criterion_id": "html-document",
+      "description": "the artifact declares a complete HTML document",
+      "deterministic": true,
+      "digest": "sha256:6bf9d3e78acf41f7e8af7ec7318aad10981589dcccc3ab0f848d18859d47effd",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-P5-V1",
+        "text": "<!doctype html"
+      },
+      "procedure_id": "P6-PROC-HTML-DOCUMENT",
+      "read_only": true,
+      "required_tool": null
+    },
+    {
+      "check": "TEXT_CONTAINS",
+      "criterion_id": "semantic-header",
+      "description": "the artifact contains a semantic header landmark",
+      "deterministic": true,
+      "digest": "sha256:326262003b79b3344fa9f57cd64ac6634078e81c75ae827fca05576bb680e5c0",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-P5-V1",
+        "text": "<header"
+      },
+      "procedure_id": "P6-PROC-SEMANTIC-HEADER",
+      "read_only": true,
+      "required_tool": null
+    },
+    {
+      "check": "TEXT_CONTAINS",
+      "criterion_id": "semantic-main",
+      "description": "the artifact contains a semantic main landmark",
+      "deterministic": true,
+      "digest": "sha256:aa1d760fc18578db45d5de5ff014b272fb8f54a6d78b0af08077c2735db4088d",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-P5-V1",
+        "text": "<main"
+      },
+      "procedure_id": "P6-PROC-SEMANTIC-MAIN",
+      "read_only": true,
+      "required_tool": null
+    },
+    {
+      "check": "TEXT_CONTAINS",
+      "criterion_id": "semantic-footer",
+      "description": "the artifact contains a semantic footer landmark",
+      "deterministic": true,
+      "digest": "sha256:cfdea6b16ea6e5f27c3ce86d6480e4cc6970ce6a1ed223c95baaa73d640d4514",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-P5-V1",
+        "text": "<footer"
+      },
+      "procedure_id": "P6-PROC-SEMANTIC-FOOTER",
+      "read_only": true,
+      "required_tool": null
+    },
+    {
+      "check": "TEXT_CONTAINS",
+      "criterion_id": "copy-product",
+      "description": "the artifact includes the frozen product name PulsePaw",
+      "deterministic": true,
+      "digest": "sha256:ae56f15229535034cf2a767fc831c1f3043d9367b1828ebf6ad507cb6e1cca17",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-P5-V1",
+        "text": "PulsePaw"
+      },
+      "procedure_id": "P6-PROC-COPY-PRODUCT",
+      "read_only": true,
+      "required_tool": null
+    },
+    {
+      "check": "TEXT_CONTAINS",
+      "criterion_id": "copy-cta",
+      "description": "the artifact includes the frozen primary action",
+      "deterministic": true,
+      "digest": "sha256:cf72cf737b966a0c1c2fb8ba2f8c40a35ec1e631b41aec80c5fe489dc62c339c",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-P5-V1",
+        "text": "Call the triage team"
+      },
+      "procedure_id": "P6-PROC-COPY-CTA",
+      "read_only": true,
+      "required_tool": null
+    },
+    {
+      "check": "TEXT_ABSENT",
+      "criterion_id": "forbidden-lorem",
+      "description": "the artifact does not include lorem ipsum",
+      "deterministic": true,
+      "digest": "sha256:3ac2cb0c9cb1afdfe56bd9141a01e71033ff4564158164f8e230381497328aa0",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-P5-V1",
+        "text": "lorem ipsum"
+      },
+      "procedure_id": "P6-PROC-FORBIDDEN-LOREM",
+      "read_only": true,
+      "required_tool": null
+    },
+    {
+      "check": "TEXT_ABSENT",
+      "criterion_id": "forbidden-placeholder",
+      "description": "the artifact does not include placeholder content",
+      "deterministic": true,
+      "digest": "sha256:81043893c456f3619428be89e1718b9160e71a396c649989e515610591cab245",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-P5-V1",
+        "text": "placeholder"
+      },
+      "procedure_id": "P6-PROC-FORBIDDEN-PLACEHOLDER",
+      "read_only": true,
+      "required_tool": null
+    },
+    {
+      "check": "TEXT_ABSENT",
+      "criterion_id": "forbidden-http",
+      "description": "the artifact does not include HTTP remote references",
+      "deterministic": true,
+      "digest": "sha256:e4ca066b6cc46e9e99651e02e6e272ea54076c8b8d10fcd9755e559c3f0da965",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-P5-V1",
+        "text": "http://"
+      },
+      "procedure_id": "P6-PROC-FORBIDDEN-HTTP",
+      "read_only": true,
+      "required_tool": null
+    },
+    {
+      "check": "TEXT_ABSENT",
+      "criterion_id": "forbidden-https",
+      "description": "the artifact does not include HTTPS remote references",
+      "deterministic": true,
+      "digest": "sha256:8048b8c9eb09a24f4089194ed6c73bd7e30f5c76adeb4ad79a1fef58b7e1a3f6",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-P5-V1",
+        "text": "https://"
+      },
+      "procedure_id": "P6-PROC-FORBIDDEN-HTTPS",
+      "read_only": true,
+      "required_tool": null
+    },
+    {
+      "check": "TEXT_ABSENT",
+      "criterion_id": "forbidden-script",
+      "description": "the artifact does not include script tags",
+      "deterministic": true,
+      "digest": "sha256:fab11c4efaab843bc6e9f9a9fc56e6ca04a4cd0569282d7584a1bff0c1da3f46",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-P5-V1",
+        "text": "<script"
+      },
+      "procedure_id": "P6-PROC-FORBIDDEN-SCRIPT",
+      "read_only": true,
+      "required_tool": null
+    },
+    {
+      "check": "TEXT_ABSENT",
+      "criterion_id": "forbidden-javascript",
+      "description": "the artifact does not include javascript URLs",
+      "deterministic": true,
+      "digest": "sha256:853bd95af752c66ad6a77c4bb296e5155f06ff97676e9658306745a1ebf74115",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-P5-V1",
+        "text": "javascript:"
+      },
+      "procedure_id": "P6-PROC-FORBIDDEN-JAVASCRIPT",
+      "read_only": true,
+      "required_tool": null
+    },
+    {
+      "check": "FILE_DIGEST",
+      "criterion_id": "desktop-render",
+      "description": "the desktop render digest is current and declared",
+      "deterministic": true,
+      "digest": "sha256:08f25039e5748b49aa28ee83b5dc0880074ee8c44709e08c02d910aeaa9fc2be",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-DESKTOP-RENDER",
+        "expected_digest": "sha256:a6d3940aee429bde35d0fd6eefd83a4614b42100fdcd27089d2752f32a8fdd89"
+      },
+      "procedure_id": "P6-PROC-DESKTOP-RENDER",
+      "read_only": true,
+      "required_tool": null
+    },
+    {
+      "check": "FILE_DIGEST",
+      "criterion_id": "mobile-render",
+      "description": "the mobile render digest is current and declared",
+      "deterministic": true,
+      "digest": "sha256:5e8e579cff93fb9a920777c6236e5fd607d4905d21c5f893e99ec8594146a1da",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-MOBILE-RENDER",
+        "expected_digest": "sha256:d418f01f7a464d26243dc324a8282af8f7f07189a5844aaf81facd6898e33b3c"
+      },
+      "procedure_id": "P6-PROC-MOBILE-RENDER",
+      "read_only": true,
+      "required_tool": null
+    },
+    {
+      "check": "FILE_DIGEST",
+      "criterion_id": "builder-receipt",
+      "description": "the Design Director builder receipt is current and readable",
+      "deterministic": true,
+      "digest": "sha256:916b6e251d8d5bf4d27d8a6057144ed92ed96e345e2577c4fbf07700e2b34104",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-BUILDER-RECEIPT",
+        "expected_digest": "sha256:8620c2003aced85fdfb7592c74bf4a376dff2e2dad313a40ad73a74a869f9a95"
+      },
+      "procedure_id": "P6-PROC-BUILDER-RECEIPT",
+      "read_only": true,
+      "required_tool": null
+    },
+    {
+      "check": "BROWSER_CAPTURE",
+      "criterion_id": "browser-capture-binding",
+      "description": "browser evidence binds the current HTML artifact, task and criteria",
+      "deterministic": true,
+      "digest": "sha256:997df578ba78e0e59e653d4122c5d10711cd79baab09b7c202f6b76dc2d01d61",
+      "max_attempts": 1,
+      "parameters": {
+        "artifact_id": "ART-BROWSER-CAPTURE-MANIFEST",
+        "criteria_digest": "sha256:f26e3d93c72accca37d34c5f25d1cc7c467469b6236342c83882d09cf41427a8",
+        "desktop_artifact_id": "ART-DESKTOP-RENDER",
+        "desktop_digest": "sha256:a6d3940aee429bde35d0fd6eefd83a4614b42100fdcd27089d2752f32a8fdd89",
+        "expected_digest": "sha256:4c3f5968bf5a6727c8e3e04f94bd61a43e391b03b2479478ade3369ceda76782",
+        "mobile_artifact_id": "ART-MOBILE-RENDER",
+        "mobile_digest": "sha256:d418f01f7a464d26243dc324a8282af8f7f07189a5844aaf81facd6898e33b3c",
+        "run_id": "RUN-P6-COMPOSITION-001",
+        "source_artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+        "source_artifact_id": "ART-P5-V1",
+        "task_id": "TASK-P6-COMPOSITION-001"
+      },
+      "procedure_id": "P6-PROC-BROWSER-CAPTURE-BINDING",
+      "read_only": true,
+      "required_tool": null
+    }
+  ],
+  "profile": "COMPOSITION",
+  "run_id": "RUN-P6-COMPOSITION-001",
+  "task_id": "TASK-P6-COMPOSITION-001",
+  "verification_id": "VERIFICATION-ARTIFACT-V1"
+}

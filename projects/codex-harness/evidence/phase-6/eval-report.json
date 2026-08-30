@@ -1,0 +1,32 @@
+{
+  "behavioral_execution": "FULL_CATALOG",
+  "categories": [
+    "artifact_identity_mismatch",
+    "blocked",
+    "builder_self_approval",
+    "context_flood",
+    "criteria_mutation",
+    "fail",
+    "missing_evidence",
+    "missing_tool",
+    "overactivation",
+    "partial",
+    "pass",
+    "path_traversal",
+    "prompt_injection",
+    "stale",
+    "underactivation",
+    "verifier_mutation"
+  ],
+  "causal_claim": false,
+  "critical_false_pass": 0,
+  "critical_oracle_mismatch": 0,
+  "execution_report": "eval-execution.json",
+  "fixture_only": false,
+  "negative_block_rate": 1.0,
+  "negative_case_execution": "FULL_CATALOG",
+  "scenario_count": 40,
+  "schema_version": "P6-EVAL-REPORT-1",
+  "status": "PASS_BEHAVIORAL",
+  "tests": "519 passed; coverage 82.0%"
+}

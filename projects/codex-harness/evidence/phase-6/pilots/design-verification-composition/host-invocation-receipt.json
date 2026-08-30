@@ -1,0 +1,54 @@
+{
+  "artifact_refs": [
+    "ART-INV-a0f9ae6bd5e052a78aef9c00"
+  ],
+  "authorization_digest": "sha256:d324af89b408ad5e171f7c280d84a70474e90d0491c77d2a9a68974a1f603058",
+  "authorization_id": "AUTH-737d68722ba5533dab338eb9",
+  "capability_id": "verification-loop-vnext",
+  "capability_version": "0.1.0",
+  "closed_at": 1788073565,
+  "context_digest": "sha256:5a565fc70eacb7abc81d36bc94e438037696984be71ad899e3d7336754ce44e8",
+  "created_at": 1788073519,
+  "host_command": [
+    "/home/ricardo/.nvm/versions/node/v22.22.2/bin/node",
+    "/home/ricardo/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+    "-c",
+    "mcp_servers={}",
+    "-c",
+    "features.apps=false",
+    "app-server",
+    "--listen",
+    "stdio://"
+  ],
+  "host_event_count": 2171,
+  "host_event_digest": "sha256:f08fa75dba573a094ee9ea751e25d603d1b57967e87846281cc86895ba7b033d",
+  "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+  "host_executable_path": "/home/ricardo/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+  "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+  "host_interpreter_path": "/home/ricardo/.nvm/versions/node/v22.22.2/bin/node",
+  "host_invoked": true,
+  "host_load_observation": "HOST_LOAD_UNOBSERVABLE",
+  "invocation_id": "INV-a0f9ae6bd5e052a78aef9c00",
+  "lifecycle": [
+    "DISCOVERED",
+    "RESOLVED",
+    "AUTHORIZED",
+    "CONTEXT_PREPARED",
+    "INVOCATION_REQUESTED",
+    "HOST_ACKNOWLEDGED",
+    "EXECUTING",
+    "RESULT_RECEIVED",
+    "VERIFYING",
+    "VERIFIED",
+    "CLOSED"
+  ],
+  "mode": "CONTROLLED_REAL",
+  "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "receipt_digest": "sha256:a906a0d6c2e9fbf717735a00d513d72f9f4051fb2b9aa14bb7d2aebbf93772d1",
+  "request_digest": "sha256:e9e0c274233e85e5abf90c021a9dda87d87a8ef471bcece0d0740774163ff0d2",
+  "result_digest": "sha256:6e3d676369f220653144d80c06bb7732b90c4c684e8ad8e656d9d0af4922cb25",
+  "status": "SUCCESS",
+  "verification_refs": [
+    "sha256:3d089f941d9e14a4d3e5eed2fefcbacc926b2ab4f7f643948282f5eb4bc88101"
+  ]
+}

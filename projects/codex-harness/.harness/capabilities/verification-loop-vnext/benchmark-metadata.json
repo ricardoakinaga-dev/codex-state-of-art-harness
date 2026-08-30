@@ -1,0 +1,34 @@
+{
+  "schema_version": "P6-BENCH-METADATA-1",
+  "package_id": "verification-loop-vnext",
+  "fixture": "benchmarks/benchmark-fixtures.json",
+  "fixture_count": 4,
+  "fixture_ids": [
+    "P6-BENCH-CURRENT",
+    "P6-BENCH-NATIVE",
+    "P6-BENCH-UPSTREAM",
+    "P6-BENCH-VNEXT"
+  ],
+  "measures": [
+    "required_criterion_coverage",
+    "false_critical_pass",
+    "identity_block_rate",
+    "stale_block_rate",
+    "criteria_mutation_block_rate",
+    "role_block_rate",
+    "unbounded_loops",
+    "context_bytes",
+    "latency_ms"
+  ],
+  "quality_invariants": {
+    "false_critical_pass": 0,
+    "minimum_required_criterion_coverage": 0.95,
+    "identity_block_rate": 1.0,
+    "stale_block_rate": 1.0,
+    "criteria_mutation_block_rate": 1.0,
+    "role_block_rate": 1.0,
+    "unbounded_loops": 0
+  },
+  "causal_claim": false,
+  "fixture_only": true
+}

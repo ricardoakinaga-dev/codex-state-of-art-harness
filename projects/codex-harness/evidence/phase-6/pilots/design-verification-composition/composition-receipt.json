@@ -1,0 +1,140 @@
+{
+  "builder_artifact": {
+    "acceptance_digest": "sha256:f26e3d93c72accca37d34c5f25d1cc7c467469b6236342c83882d09cf41427a8",
+    "artifact_id": "ART-P5-V1",
+    "digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+    "invocation_id": "01a04ffd-e980-7e83-beab-08b8c843ad3b",
+    "parent_artifact_digest": null,
+    "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+    "producer_capability": "design-director",
+    "size_bytes": 7672,
+    "source_kind": "HOST_RESPONSE_DERIVED",
+    "task_id": "TASK-P6-COMPOSITION-001",
+    "version": "artifact_v1"
+  },
+  "builder_capability": "design-director",
+  "builder_handoff_receipt_digest": "sha256:8620c2003aced85fdfb7592c74bf4a376dff2e2dad313a40ad73a74a869f9a95",
+  "builder_host_invocation_id": "INV-P5-85644f8ad3015c76b11a0369",
+  "builder_invocation_id": "01a04ffd-e980-7e83-beab-08b8c843ad3b",
+  "criteria_digest": "sha256:f26e3d93c72accca37d34c5f25d1cc7c467469b6236342c83882d09cf41427a8",
+  "criteria_frozen_before_builder": true,
+  "deferred_qualitative_criteria": [
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-art-direction",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-visual-hierarchy",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-typography",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-composition",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-spacing",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-color-system",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-asset-quality",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-product-specificity",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-responsiveness",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-accessibility",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-polish",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-generic-ai-slop-avoidance",
+      "status": "NOT_RUN"
+    }
+  ],
+  "host_invocation_id": "INV-a0f9ae6bd5e052a78aef9c00",
+  "host_phase4_preflight_digest": "sha256:759eb3fee39a3f14ae6ba7b58c1fa18b61f82e3291f154bbb07a1d28a5d9055d",
+  "host_preflight_digest": "sha256:84b6a24c944967c60d8f71a7931455ae5231976fc68f85cabbc20140b305e258",
+  "host_probe": {
+    "acknowledgement_valid": true,
+    "digest": "sha256:1ec5c1d62eae28b2be93df1eca558a88ebaaa8aadfb94f373aa183e5bdc5610d",
+    "error_code": null,
+    "execution_observed": true,
+    "host_invoked": true,
+    "host_load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "invocation_id": "INV-a0f9ae6bd5e052a78aef9c00",
+    "limitations": [
+      "host_report_is_not_local_factual_evidence",
+      "host_skill_load_event_unobservable"
+    ],
+    "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "receipt_digest": "sha256:a906a0d6c2e9fbf717735a00d513d72f9f4051fb2b9aa14bb7d2aebbf93772d1",
+    "report_valid": true,
+    "response_digest": "sha256:6e76e9daccb0adf58731baaa3ba7c81e342155a9aff99b33e05eb3c7c9eabd7d",
+    "result_digest": "sha256:3d089f941d9e14a4d3e5eed2fefcbacc926b2ab4f7f643948282f5eb4bc88101",
+    "status": "PASS"
+  },
+  "host_receipt_digest": "sha256:a906a0d6c2e9fbf717735a00d513d72f9f4051fb2b9aa14bb7d2aebbf93772d1",
+  "host_report_binding": {
+    "criteria_digest": "sha256:f26e3d93c72accca37d34c5f25d1cc7c467469b6236342c83882d09cf41427a8",
+    "input_digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+    "report_digest": "sha256:50984a30c4f9dfd713106a249f474d168ef3df0ec084d42ae84ea5073f43943f",
+    "status": "PASS"
+  },
+  "independent_critic": {
+    "required_for": "P6_LEVEL_C",
+    "status": "NOT_RUN"
+  },
+  "limitations": [
+    "host_skill_load_event_unobservable",
+    "visual_quality_authority_excluded_from_factual_verifier"
+  ],
+  "pipeline": [
+    "ROUTER",
+    "DESIGN_DIRECTOR",
+    "VERIFICATION_LOOP_VNEXT",
+    "ASSURANCE"
+  ],
+  "repair": {
+    "required_for": "P6_LEVEL_C",
+    "status": "NOT_RUN"
+  },
+  "run_id": "RUN-P6-COMPOSITION-001",
+  "schema_version": "P6-COMPOSITION-RECEIPT-1",
+  "status": "PASS_WITH_LIMITATIONS",
+  "support_level": "P6_LEVEL_B",
+  "task_id": "TASK-P6-COMPOSITION-001",
+  "verification_plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+  "verification_report_digest": "sha256:50984a30c4f9dfd713106a249f474d168ef3df0ec084d42ae84ea5073f43943f",
+  "verifier_capability": "verification-loop-vnext",
+  "verifier_manifest_digest": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c",
+  "verifier_package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b"
+}

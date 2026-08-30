@@ -5,7 +5,7 @@ from __future__ import annotations
 import hashlib
 import os
 import stat
-import tempfile
+import uuid
 from contextlib import suppress
 from pathlib import Path
 
@@ -103,22 +103,116 @@ def _has_symlink_component(path: Path) -> bool:
 
 
 def _mkdir_safe(path: Path, workspace: Path) -> None:
+    descriptor = _open_confined_directory(path, workspace)
+    os.close(descriptor)
+
+
+def _open_confined_directory(path: Path, workspace: Path) -> int:
+    """Open/create a directory below workspace using descriptor-relative no-follow steps."""
+
     workspace_resolved = _validated_workspace(workspace)
     if any(part in {".", ".."} for part in path.parts):
         raise ArtifactCaptureError("artifact directory contains traversal")
     if not path.is_absolute() or not path.is_relative_to(workspace_resolved):
         raise ArtifactCaptureError("artifact directory escapes workspace")
-    current = workspace_resolved
     relative = path.relative_to(workspace_resolved)
-    for part in relative.parts:
-        current = current / part
-        try:
-            metadata = current.lstat()
-        except FileNotFoundError:
-            current.mkdir()
-            metadata = current.lstat()
-        if stat.S_ISLNK(metadata.st_mode) or not stat.S_ISDIR(metadata.st_mode):
-            raise ArtifactCaptureError("artifact directory is unsafe")
+    if any(not part for part in relative.parts):
+        raise ArtifactCaptureError("artifact directory contains an empty component")
+    if not hasattr(os, "O_NOFOLLOW") or not hasattr(os, "O_DIRECTORY"):
+        raise ArtifactCaptureError("artifact directories cannot be secured on this platform")
+    flags = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW | getattr(os, "O_CLOEXEC", 0)
+    descriptor: int | None = None
+    try:
+        descriptor = os.open(workspace_resolved, flags)
+        for part in relative.parts:
+            next_descriptor: int | None = None
+            try:
+                next_descriptor = os.open(part, flags, dir_fd=descriptor)
+            except FileNotFoundError:
+                with suppress(FileExistsError):
+                    os.mkdir(part, 0o700, dir_fd=descriptor)
+                next_descriptor = os.open(part, flags, dir_fd=descriptor)
+            try:
+                metadata = os.fstat(next_descriptor)
+            except OSError:
+                with suppress(OSError):
+                    os.close(next_descriptor)
+                raise
+            if not stat.S_ISDIR(metadata.st_mode):
+                os.close(next_descriptor)
+                raise ArtifactCaptureError("artifact directory is unsafe")
+            os.close(descriptor)
+            descriptor = next_descriptor
+        if descriptor is None:  # pragma: no cover - workspace open always assigns it
+            raise ArtifactCaptureError("artifact directory cannot be opened")
+        return descriptor
+    except ArtifactCaptureError:
+        if descriptor is not None:
+            with suppress(OSError):
+                os.close(descriptor)
+        raise
+    except OSError as exc:
+        if descriptor is not None:
+            with suppress(OSError):
+                os.close(descriptor)
+        raise ArtifactCaptureError("artifact directory cannot be opened safely") from exc
+
+
+def _atomic_write_at(directory_fd: int, name: str, content: bytes) -> None:
+    """Write one regular file without reopening a pathname outside its pinned directory."""
+
+    if not name or Path(name).name != name or "\x00" in name:
+        raise ArtifactCaptureError("artifact filename is unsafe")
+    try:
+        metadata = os.stat(name, dir_fd=directory_fd, follow_symlinks=False)
+    except FileNotFoundError:
+        metadata = None
+    if metadata is not None and (
+        stat.S_ISLNK(metadata.st_mode)
+        or not stat.S_ISREG(metadata.st_mode)
+        or metadata.st_nlink != 1
+    ):
+        raise ArtifactCaptureError("artifact target is not a unique regular file")
+    flags = os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW | getattr(os, "O_CLOEXEC", 0)
+    temporary_name: str | None = None
+    descriptor: int | None = None
+    try:
+        for _ in range(8):
+            candidate = f".{name}.{uuid.uuid4().hex}.tmp"
+            try:
+                descriptor = os.open(candidate, flags, 0o600, dir_fd=directory_fd)
+            except FileExistsError:
+                continue
+            temporary_name = candidate
+            break
+        if descriptor is None or temporary_name is None:
+            raise ArtifactCaptureError("artifact temporary file could not be created")
+        offset = 0
+        while offset < len(content):
+            written = os.write(descriptor, content[offset:])
+            if written <= 0:
+                raise ArtifactCaptureError("artifact temporary file could not be written")
+            offset += written
+        os.fsync(descriptor)
+        os.close(descriptor)
+        descriptor = None
+        os.replace(
+            temporary_name,
+            name,
+            src_dir_fd=directory_fd,
+            dst_dir_fd=directory_fd,
+        )
+        os.fsync(directory_fd)
+        temporary_name = None
+    except OSError as exc:
+        raise ArtifactCaptureError("artifact could not be written atomically") from exc
+    finally:
+        if descriptor is not None:
+            with suppress(OSError):
+                os.close(descriptor)
+        if temporary_name is not None:
+            with suppress(OSError):
+                os.unlink(temporary_name, dir_fd=directory_fd)
 
 
 def capture_host_response(
@@ -137,30 +231,24 @@ def capture_host_response(
         raise ArtifactCaptureError("host response exceeds artifact bound")
     workspace = _validated_workspace(Path(request.workspace))
     artifact_dir = workspace / ".harness" / "phase4" / "artifacts"
-    _mkdir_safe(artifact_dir, workspace)
-    target = artifact_dir / f"{request.invocation_id}.host-response.txt"
-    target = validate_artifact_path(target, workspace)
-    temporary_name: str | None = None
+    target_name = f"{request.invocation_id}.host-response.txt"
+    target = artifact_dir / target_name
+    directory_fd = _open_confined_directory(artifact_dir, workspace)
     try:
-        with tempfile.NamedTemporaryFile(
-            mode="wb",
-            dir=artifact_dir,
-            prefix=f".{request.invocation_id}.",
-            suffix=".tmp",
-            delete=False,
-        ) as handle:
-            temporary_name = handle.name
-            handle.write(encoded)
-            handle.flush()
-            os.fsync(handle.fileno())
-        os.replace(temporary_name, target)
-        temporary_name = None
-    except OSError as exc:
-        raise ArtifactCaptureError("host response artifact could not be written") from exc
+        _atomic_write_at(directory_fd, target_name, encoded)
+        directory_identity = os.fstat(directory_fd)
     finally:
-        if temporary_name is not None:
-            with suppress(OSError):
-                Path(temporary_name).unlink(missing_ok=True)
+        with suppress(OSError):
+            os.close(directory_fd)
+    try:
+        current_identity = artifact_dir.lstat()
+    except OSError as exc:
+        raise ArtifactCaptureError("artifact directory changed during capture") from exc
+    if (current_identity.st_dev, current_identity.st_ino) != (
+        directory_identity.st_dev,
+        directory_identity.st_ino,
+    ):
+        raise ArtifactCaptureError("artifact directory changed during capture")
     digest = "sha256:" + hashlib.sha256(encoded).hexdigest()
     return ArtifactRecord(
         artifact_id=f"ART-{request.invocation_id}",
@@ -188,19 +276,27 @@ def read_artifact_bytes(
     if not isinstance(max_bytes, int) or isinstance(max_bytes, bool) or max_bytes <= 0:
         raise ArtifactCaptureError("artifact byte bound is invalid")
     path = validate_artifact_path(location, workspace)
+    directory_fd = _open_confined_directory(path.parent, Path(workspace))
     flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0)
     descriptor: int | None = None
     try:
-        descriptor = os.open(path, flags)
+        descriptor = os.open(path.name, flags, dir_fd=directory_fd)
+        metadata = os.fstat(descriptor)
+        if not stat.S_ISREG(metadata.st_mode) or metadata.st_nlink != 1:
+            raise ArtifactCaptureError("artifact is not a unique regular file")
         with os.fdopen(descriptor, "rb") as handle:
             descriptor = None
             data = handle.read(max_bytes + 1)
+    except ArtifactCaptureError:
+        raise
     except OSError as exc:
         raise ArtifactCaptureError("artifact could not be read safely") from exc
     finally:
         if descriptor is not None:
             with suppress(OSError):
                 os.close(descriptor)
+        with suppress(OSError):
+            os.close(directory_fd)
     if len(data) > max_bytes:
         raise ArtifactCaptureError("artifact exceeds its verification bound")
     return data

@@ -1,0 +1,13 @@
+{
+  "manifest_digest": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c",
+  "manifest_shape": "PASS",
+  "metadata_only_scripts": "PASS",
+  "native_identity": "PASS",
+  "no_external_boundaries": "PASS",
+  "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "references": "PASS",
+  "schema_version": "P6-PACKAGE-VALIDATION-1",
+  "skill_frontmatter": "PASS",
+  "status": "PASS",
+  "tests": "519 passed; coverage 82.0%"
+}

@@ -1,0 +1,19 @@
+{
+  "acknowledgement_valid": true,
+  "digest": "sha256:1ec5c1d62eae28b2be93df1eca558a88ebaaa8aadfb94f373aa183e5bdc5610d",
+  "error_code": null,
+  "execution_observed": true,
+  "host_invoked": true,
+  "host_load_observation": "HOST_LOAD_UNOBSERVABLE",
+  "invocation_id": "INV-a0f9ae6bd5e052a78aef9c00",
+  "limitations": [
+    "host_report_is_not_local_factual_evidence",
+    "host_skill_load_event_unobservable"
+  ],
+  "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "receipt_digest": "sha256:a906a0d6c2e9fbf717735a00d513d72f9f4051fb2b9aa14bb7d2aebbf93772d1",
+  "report_valid": true,
+  "response_digest": "sha256:6e76e9daccb0adf58731baaa3ba7c81e342155a9aff99b33e05eb3c7c9eabd7d",
+  "result_digest": "sha256:3d089f941d9e14a4d3e5eed2fefcbacc926b2ab4f7f643948282f5eb4bc88101",
+  "status": "PASS"
+}

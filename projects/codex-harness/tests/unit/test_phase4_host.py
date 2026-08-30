@@ -5,10 +5,15 @@ import sys
 from dataclasses import replace
 from pathlib import Path
 
+import pytest
+
 from harness_kernel.phase4_host import (
+    _SAFE_HOST_PATH,
     CodexAppServerAdapter,
     HostProtocolError,
     HostTimeoutError,
+    _json_nesting_exceeds,
+    _reject_non_finite_json,
     _resolve_host_binding,
     _SubprocessClient,
     _verify_pinned_files,
@@ -79,7 +84,9 @@ class FakeAppServerClient:
                     "type": "agentMessage",
                     "text": "PHASE4_SAFE_PILOT_ARTIFACT",
                     "phase": "final_answer",
-                }
+                },
+                "threadId": "thread-1",
+                "turnId": "turn-1",
             },
         }
         yield {
@@ -245,6 +252,18 @@ def test_protocol_mcp_counter_fails_closed_even_when_event_was_not_streamed(
     assert result.mcp_event_count == 1
 
 
+def test_protocol_message_counter_overflow_is_a_typed_failure(tmp_path: Path) -> None:
+    client = FakeAppServerClient()
+    client.protocol_counts = lambda: (4_097, 0, 0)  # type: ignore[attr-defined]
+
+    result = CodexAppServerAdapter(transport_factory=lambda: client).request_invocation(
+        _request(tmp_path), budget=Phase4Budget()
+    )
+
+    assert result.status.value == "FAILURE"
+    assert result.error_code == "HOST_PROTOCOL_MESSAGE_BUDGET_EXCEEDED"
+
+
 def test_protocol_transcript_is_retained_when_client_provides_it(tmp_path: Path) -> None:
     client = FakeAppServerClient()
     client.protocol_counts = lambda: (3, 0, 0)  # type: ignore[attr-defined]
@@ -289,6 +308,81 @@ def test_codex_app_server_adapter_rejects_cross_turn_events(tmp_path: Path) -> N
     assert result.error_code == "HOST_EVENT_CORRELATION_MISMATCH"
     assert result.execution_observed is False
     assert result.events[-1].event_class == "CORRELATION_REJECTED"
+
+
+def test_codex_app_server_adapter_rejects_an_uncorrelated_completion(tmp_path: Path) -> None:
+    client = FakeAppServerClient()
+
+    def uncorrelated_stream(*, timeout_seconds: float, cancel_event=None):
+        yield {"method": "turn/completed", "params": {"turn": {"status": "completed"}}}
+
+    client.stream = uncorrelated_stream  # type: ignore[method-assign]
+    result = CodexAppServerAdapter(transport_factory=lambda: client).request_invocation(
+        _request(tmp_path), budget=Phase4Budget()
+    )
+
+    assert result.status.value == "FAILURE"
+    assert result.error_code == "HOST_EVENT_CORRELATION_MISMATCH"
+    assert result.execution_observed is False
+
+
+def test_codex_app_server_adapter_rejects_an_orphan_agent_message(tmp_path: Path) -> None:
+    client = FakeAppServerClient()
+
+    def orphan_stream(*, timeout_seconds: float, cancel_event=None):
+        yield {
+            "method": "item/completed",
+            "params": {
+                "item": {
+                    "type": "agentMessage",
+                    "text": "orphaned terminal output",
+                }
+            },
+        }
+
+    client.stream = orphan_stream  # type: ignore[method-assign]
+    result = CodexAppServerAdapter(transport_factory=lambda: client).request_invocation(
+        _request(tmp_path), budget=Phase4Budget()
+    )
+
+    assert result.status.value == "FAILURE"
+    assert result.error_code == "HOST_EVENT_CORRELATION_MISMATCH"
+    assert result.final_message is None
+    assert result.execution_observed is False
+
+
+def test_codex_app_server_adapter_does_not_accept_ids_forged_inside_an_item(
+    tmp_path: Path,
+) -> None:
+    client = FakeAppServerClient()
+
+    def forged_stream(*, timeout_seconds: float, cancel_event=None):
+        yield {
+            "method": "item/completed",
+            "params": {
+                "item": {
+                    "type": "agentMessage",
+                    "text": "forged terminal output",
+                    "threadId": "thread-1",
+                    "turnId": "turn-1",
+                }
+            },
+        }
+
+    client.stream = forged_stream  # type: ignore[method-assign]
+    result = CodexAppServerAdapter(transport_factory=lambda: client).request_invocation(
+        _request(tmp_path), budget=Phase4Budget()
+    )
+
+    assert result.status.value == "FAILURE"
+    assert result.error_code == "HOST_EVENT_CORRELATION_MISMATCH"
+    assert result.final_message is None
+
+
+def test_subprocess_protocol_json_bounds_reject_non_finite_and_deep_values() -> None:
+    assert _json_nesting_exceeds(b"{" * 65, max_depth=64) is True
+    with pytest.raises(ValueError, match="non-finite"):
+        _reject_non_finite_json("NaN")
 
 
 def test_codex_app_server_adapter_timeout_is_terminal_without_extra_interrupt_budget(
@@ -339,11 +433,8 @@ def test_host_binding_uses_absolute_interpreter_and_script_pins(
     node.write_text("#!/bin/sh\n", encoding="utf-8")
     codex.chmod(0o755)
     node.chmod(0o755)
-
-    def which(program: str) -> str:
-        return str(codex if program == "codex" else node)
-
-    monkeypatch.setattr("harness_kernel.phase4_host.shutil.which", which)
+    monkeypatch.setenv("CODEX_EXECUTABLE", str(codex))
+    monkeypatch.setenv("NODE_EXECUTABLE", str(node))
 
     (
         command,
@@ -365,6 +456,22 @@ def test_host_binding_uses_absolute_interpreter_and_script_pins(
     )
 
 
+def test_host_binding_does_not_resolve_from_inherited_path(monkeypatch) -> None:
+    calls: list[tuple[str, str | None]] = []
+
+    def which(program: str, path: str | None = None) -> str | None:
+        calls.append((program, path))
+        return None
+
+    monkeypatch.delenv("CODEX_EXECUTABLE", raising=False)
+    monkeypatch.setattr("harness_kernel.phase4_host.shutil.which", which)
+
+    with pytest.raises(HostProtocolError, match="unavailable"):
+        _resolve_host_binding()
+
+    assert calls == [("codex", _SAFE_HOST_PATH)]
+
+
 def test_host_binding_rejects_a_changed_pinned_file(tmp_path: Path) -> None:
     executable = tmp_path / "codex"
     executable.write_text("#!/bin/sh\n", encoding="utf-8")
@@ -380,8 +487,15 @@ def test_host_binding_rejects_a_changed_pinned_file(tmp_path: Path) -> None:
         raise AssertionError("changed host executable was accepted")
 
 
-def test_controlled_real_validation_requires_the_bound_host_digest(tmp_path: Path) -> None:
+def test_controlled_real_validation_requires_the_bound_host_digest(
+    tmp_path: Path, monkeypatch
+) -> None:
     request = _request(tmp_path)
+    codex = tmp_path / "codex"
+    codex.write_text("#!/usr/bin/env node\n", encoding="utf-8")
+    codex.chmod(0o755)
+    monkeypatch.setenv("CODEX_EXECUTABLE", str(codex))
+    monkeypatch.setenv("NODE_EXECUTABLE", "/bin/sh")
     adapter = CodexAppServerAdapter()
 
     assert "HOST_EXECUTABLE_NOT_BOUND" in adapter.validate_invocation(request)

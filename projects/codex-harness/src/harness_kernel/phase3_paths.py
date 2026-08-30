@@ -212,11 +212,17 @@ def _open_relative(
     parts: tuple[str, ...],
     *,
     flags: int,
+    expected_base_identity: tuple[int, int] | None = None,
 ) -> int:
     validated_base = _validated_base(base)
     assert validated_base is not None
     current = _open_directory(validated_base)
     try:
+        if expected_base_identity is not None:
+            metadata = os.fstat(current)
+            identity = (metadata.st_dev, metadata.st_ino)
+            if identity != expected_base_identity:
+                raise PathSafetyError("base directory changed during safe open")
         for part in parts[:-1]:
             child = _open_directory(part, parent_fd=current)
             with suppress(OSError):
@@ -234,11 +240,21 @@ def _open_relative(
             os.close(current)
 
 
-def read_bounded_file(base: str | Path, relative: str, *, max_bytes: int) -> bytes:
+def read_bounded_file(
+    base: str | Path,
+    relative: str,
+    *,
+    max_bytes: int,
+    expected_base_identity: tuple[int, int] | None = None,
+) -> bytes:
     """Read a regular, non-sensitive file through descriptor-relative opens."""
 
     if not isinstance(max_bytes, int) or isinstance(max_bytes, bool) or max_bytes < 1:
         raise PathSafetyError("max_bytes must be a positive integer")
+    validated_base = _validated_base(Path(base))
+    assert validated_base is not None
+    base_metadata = validated_base.lstat()
+    safe_base_identity = expected_base_identity or (base_metadata.st_dev, base_metadata.st_ino)
     parts = _relative_parts(relative)
     if is_sensitive_relative_path(relative):
         raise PathSafetyError("sensitive file content is not readable")
@@ -251,7 +267,12 @@ def read_bounded_file(base: str | Path, relative: str, *, max_bytes: int) -> byt
     descriptor: int | None = None
     payload = b""
     try:
-        descriptor = _open_relative(Path(base), parts, flags=flags)
+        descriptor = _open_relative(
+            Path(base),
+            parts,
+            flags=flags,
+            expected_base_identity=safe_base_identity,
+        )
         opened_metadata = os.fstat(descriptor)
         if not stat.S_ISREG(opened_metadata.st_mode):
             raise PathSafetyError("only regular files may be read")
@@ -273,9 +294,18 @@ def read_bounded_file(base: str | Path, relative: str, *, max_bytes: int) -> byt
     return payload
 
 
-def bounded_file_metadata(base: str | Path, relative: str) -> tuple[int, bool]:
+def bounded_file_metadata(
+    base: str | Path,
+    relative: str,
+    *,
+    expected_base_identity: tuple[int, int] | None = None,
+) -> tuple[int, bool]:
     """Inspect size/executable metadata without reading file content."""
 
+    validated_base = _validated_base(Path(base))
+    assert validated_base is not None
+    base_metadata = validated_base.lstat()
+    safe_base_identity = expected_base_identity or (base_metadata.st_dev, base_metadata.st_ino)
     parts = _relative_parts(relative)
     flags = (
         os.O_RDONLY
@@ -285,7 +315,12 @@ def bounded_file_metadata(base: str | Path, relative: str) -> tuple[int, bool]:
     )
     descriptor: int | None = None
     try:
-        descriptor = _open_relative(Path(base), parts, flags=flags)
+        descriptor = _open_relative(
+            Path(base),
+            parts,
+            flags=flags,
+            expected_base_identity=safe_base_identity,
+        )
         metadata = os.fstat(descriptor)
         if not stat.S_ISREG(metadata.st_mode):
             raise PathSafetyError("only regular files may be inspected")

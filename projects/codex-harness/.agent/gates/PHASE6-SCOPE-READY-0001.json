@@ -1,0 +1,96 @@
+{
+  "record_id": "GATE-PHASE6-SCOPE-READY-0001",
+  "timestamp": "2026-08-29T20:35:00-03:00",
+  "gate_id": "SCOPE_READY",
+  "scope": "PHASE6-001 project-local verification-loop-vNext modernization candidate",
+  "scope_ref": "PHASE6-001",
+  "version": 1,
+  "criteria": [
+    {
+      "id": "P6-SCOPE-001",
+      "description": "The Phase 6 objective, roles, fixed boundaries, budgets and stop conditions are explicit before implementation.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [".agent/plans/PHASE-6-verification-loop-modernization.md", "evidence/phase-6/P6-QB-1.md", "../../architecture/docs/adr/ADR-015-verification-loop-vnext-modernization.md"],
+      "confidence": "HIGH",
+      "limitations": "This gate authorizes only the additive project-local candidate."
+    },
+    {
+      "id": "P6-SCOPE-002",
+      "description": "Phase 2, Phase 3, Phase 4 and Phase 5 packets are preserved as historical authorities and the current baseline is recorded.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": ["evidence/phase-2/PHASE2-FROZEN.md", "evidence/phase-3/readiness.json", "evidence/phase-4/PHASE4-FROZEN.md", "evidence/phase-5/PHASE5-FROZEN.md", "evidence/phase-6/current-verification-loop-snapshot.json"],
+      "confidence": "HIGH",
+      "limitations": "New Phase 6 bytes require fresh regression evidence at closeout."
+    },
+    {
+      "id": "P6-SCOPE-003",
+      "description": "The installed current package is inspected read-only, its exact ineligibility is documented, and no global or installed mutation is authorized.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": ["evidence/phase-6/current-verification-loop-snapshot.json", "evidence/phase-6/current-ineligibility-analysis.md", "evidence/phase-6/upstream-analysis.md"],
+      "confidence": "HIGH",
+      "limitations": "Host-load causality and complete signed provenance remain unknown."
+    },
+    {
+      "id": "P6-SCOPE-004",
+      "description": "TDD, security review, deterministic evals, real preflight, independent review and exact evidence closure are required before promotion.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [".agent/plans/PHASE-6-verification-loop-modernization.md", "evidence/phase-6/P6-QB-1.md"],
+      "confidence": "HIGH",
+      "limitations": "RED, implementation, host pilot and final review are intentionally pending."
+    },
+    {
+      "id": "P6-SCOPE-005",
+      "description": "The package remains project-local and additive; no global migration, installed-package edit, arbitrary tool access or production claim is in scope.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": ["../../architecture/docs/adr/ADR-015-verification-loop-vnext-modernization.md", "evidence/phase-6/modernization-plan.md"],
+      "confidence": "HIGH",
+      "limitations": "A later scope expansion requires a new gate and human authority where material."
+    }
+  ],
+  "evidence": [
+    ".agent/plans/PHASE-6-verification-loop-modernization.md",
+    "evidence/phase-6/P6-QB-1.md",
+    "evidence/phase-6/current-verification-loop-snapshot.json",
+    "evidence/phase-6/current-ineligibility-analysis.md",
+    "evidence/phase-6/upstream-analysis.md",
+    "evidence/phase-6/modernization-plan.md",
+    "../../architecture/docs/adr/ADR-015-verification-loop-vnext-modernization.md",
+    "evidence/phase-2/PHASE2-FROZEN.md",
+    "evidence/phase-3/readiness.json",
+    "evidence/phase-4/PHASE4-FROZEN.md",
+    "evidence/phase-5/PHASE5-FROZEN.md"
+  ],
+  "confidence": "HIGH",
+  "gaps": [
+    "The native package, tests, evals, discovery proof, preflight, benchmark, composition and final review are pending."
+  ],
+  "conditions": [
+    "Write the mandatory RED tests before production code.",
+    "Keep the installed current package and all prior freeze payloads byte-preserved.",
+    "Stop at the highest directly evidenced support level if host load or a required tool is unavailable."
+  ],
+  "authority": {
+    "required": false,
+    "state": "NOT_REQUIRED",
+    "actor": "lead",
+    "scope": "PHASE6-001 additive project-local modernization candidate",
+    "decision": "The candidate is locally reversible and does not mutate external state; final promotion requires independent exact-packet review.",
+    "evidence_ref": ".agent/plans/PHASE-6-verification-loop-modernization.md",
+    "expires_or_revalidates": "Revalidate on any installed/global mutation, provider/tool/credential access, deployment, production scope or authority expansion."
+  },
+  "residual_risk": "HIGH",
+  "decision": "PASS",
+  "next_action": "Write the Phase 6 RED contract, package and security tests, then implement only the bounded project-local candidate.",
+  "revalidation_triggers": [
+    "Changing the frozen quality bar, role ownership, profiles, graph or stop conditions",
+    "Changing installed package bytes or upstream provenance assumptions",
+    "Adding arbitrary shell, network, MCP, providers, credentials, subagents or mutation",
+    "Seeking global migration, production readiness, AAA or causal improvement"
+  ],
+  "supersedes": null
+}

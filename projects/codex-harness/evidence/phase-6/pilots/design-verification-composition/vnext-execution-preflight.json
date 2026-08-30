@@ -1,0 +1,18 @@
+{
+  "allowed": true,
+  "blockers": [],
+  "host_invoked": false,
+  "host_run_id": "RUN-P6-COMPOSITION-001-EVIDENCE-10-ARTIFACT-V1",
+  "mode": "CONTROLLED_REAL",
+  "phase4_preflight_digest": "sha256:759eb3fee39a3f14ae6ba7b58c1fa18b61f82e3291f154bbb07a1d28a5d9055d",
+  "preflight_digest": "sha256:84b6a24c944967c60d8f71a7931455ae5231976fc68f85cabbc20140b305e258",
+  "prepared_invocation_id": "INV-a0f9ae6bd5e052a78aef9c00",
+  "schema_version": "P6-PREFLIGHT-REPORT-1",
+  "snapshot_digest": "sha256:0670b57de0947bd53a493d4f3828b86eb1e2d21a16a2e41a0e75d90df778ea11",
+  "warnings": [
+    "NETWORK_DENIED",
+    "SHELL_DENIED",
+    "MCP_DENIED",
+    "CREDENTIALS_DENIED"
+  ]
+}

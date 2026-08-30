@@ -1,0 +1,34 @@
+{
+  "schema_version": "P6-COMPOSITION-1",
+  "capability_id": "verification-loop-vnext",
+  "role": "VERIFIER",
+  "authority": "FACTUAL_VERIFICATION_ONLY",
+  "can_call": [],
+  "can_be_called_by": ["ROUTER", "ORCHESTRATOR"],
+  "must_run_after": ["BUILDER"],
+  "must_run_before": ["REVIEWER", "ASSURANCE"],
+  "conflicts": ["BUILDER", "DESIGN_DIRECTOR", "REVIEWER", "ASSURANCE", "RELEASE_AUTHORITY"],
+  "optional": ["INDEPENDENT_REVIEWER", "SECURITY_AWARE_PROFILE"],
+  "do_not_combine": ["BUILDER", "DESIGN_DIRECTOR", "REVIEWER", "ASSURANCE", "ORCHESTRATOR", "RELEASE_AUTHORITY"],
+  "pipeline": [
+    "ROUTER",
+    "BUILDER",
+    "VERIFIER",
+    "REVIEWER",
+    "ASSURANCE"
+  ],
+  "fresh_final_verification": {
+    "required_after_repair": true,
+    "max_invocations": 2,
+    "must_rebind": ["artifact_identity", "criteria_digest", "evidence_digest"]
+  },
+  "authority_exclusions": [
+    "cannot build or repair",
+    "cannot judge visual quality",
+    "cannot redefine criteria",
+    "cannot approve builder work",
+    "cannot authorize release",
+    "cannot delegate or invoke another capability"
+  ],
+  "host_observability": "conditional_and_must_be_reported_honestly"
+}

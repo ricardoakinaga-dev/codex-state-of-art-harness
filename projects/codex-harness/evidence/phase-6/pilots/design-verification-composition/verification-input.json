@@ -1,0 +1,458 @@
+{
+  "acceptance_criteria_ref": "sha256:f26e3d93c72accca37d34c5f25d1cc7c467469b6236342c83882d09cf41427a8",
+  "allowed_tools": [],
+  "artifact_refs": [
+    {
+      "artifact_id": "ART-P5-V1",
+      "digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+      "manifest_digest": null,
+      "observed_at": 1788073518,
+      "package_digest": null,
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+      "producer_id": "design-director",
+      "producer_role": "DESIGN_DIRECTOR",
+      "size_bytes": 7672,
+      "version": "artifact_v1"
+    },
+    {
+      "artifact_id": "ART-DESKTOP-RENDER",
+      "digest": "sha256:a6d3940aee429bde35d0fd6eefd83a4614b42100fdcd27089d2752f32a8fdd89",
+      "manifest_digest": null,
+      "observed_at": 1788073518,
+      "package_digest": null,
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/desktop-1440x900.jpg",
+      "producer_id": "playwright",
+      "producer_role": null,
+      "size_bytes": 73998,
+      "version": "artifact_v1"
+    },
+    {
+      "artifact_id": "ART-MOBILE-RENDER",
+      "digest": "sha256:d418f01f7a464d26243dc324a8282af8f7f07189a5844aaf81facd6898e33b3c",
+      "manifest_digest": null,
+      "observed_at": 1788073518,
+      "package_digest": null,
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/mobile-390x844.jpg",
+      "producer_id": "playwright",
+      "producer_role": null,
+      "size_bytes": 42077,
+      "version": "artifact_v1"
+    },
+    {
+      "artifact_id": "ART-BUILDER-RECEIPT",
+      "digest": "sha256:8620c2003aced85fdfb7592c74bf4a376dff2e2dad313a40ad73a74a869f9a95",
+      "manifest_digest": null,
+      "observed_at": 1788073518,
+      "package_digest": null,
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/builder-handoff-receipt.json",
+      "producer_id": "design-director",
+      "producer_role": "DESIGN_DIRECTOR",
+      "size_bytes": 1518,
+      "version": "artifact_v1"
+    },
+    {
+      "artifact_id": "ART-BROWSER-CAPTURE-MANIFEST",
+      "digest": "sha256:4c3f5968bf5a6727c8e3e04f94bd61a43e391b03b2479478ade3369ceda76782",
+      "manifest_digest": null,
+      "observed_at": 1788073518,
+      "package_digest": null,
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/browser-capture-manifest.json",
+      "producer_id": "playwright",
+      "producer_role": null,
+      "size_bytes": 3851,
+      "version": "artifact_v1"
+    }
+  ],
+  "authority": "VERIFIER",
+  "budgets": {
+    "max_attempts_per_procedure": 1,
+    "max_criteria": 256,
+    "max_duration_seconds": 120,
+    "max_evidence_records": 256,
+    "max_procedures": 32,
+    "max_report_bytes": 131072
+  },
+  "builder_host_invocation_ref": "INV-P5-85644f8ad3015c76b11a0369",
+  "builder_invocation_ref": "01a04ffd-e980-7e83-beab-08b8c843ad3b",
+  "capability_id": "verification-loop-vnext",
+  "capability_provenance": "PROJECT_LOCAL:sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "claims": [
+    {
+      "claim_id": "artifact-identity",
+      "criterion_id": "artifact-identity",
+      "qualitative": false,
+      "required": true,
+      "text": "the declared HTML artifact digest matches its bytes"
+    },
+    {
+      "claim_id": "html-document",
+      "criterion_id": "html-document",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact declares a complete HTML document"
+    },
+    {
+      "claim_id": "semantic-header",
+      "criterion_id": "semantic-header",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact contains a semantic header landmark"
+    },
+    {
+      "claim_id": "semantic-main",
+      "criterion_id": "semantic-main",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact contains a semantic main landmark"
+    },
+    {
+      "claim_id": "semantic-footer",
+      "criterion_id": "semantic-footer",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact contains a semantic footer landmark"
+    },
+    {
+      "claim_id": "copy-product",
+      "criterion_id": "copy-product",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact includes the frozen product name PulsePaw"
+    },
+    {
+      "claim_id": "copy-cta",
+      "criterion_id": "copy-cta",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact includes the frozen primary action"
+    },
+    {
+      "claim_id": "forbidden-lorem",
+      "criterion_id": "forbidden-lorem",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact does not include lorem ipsum"
+    },
+    {
+      "claim_id": "forbidden-placeholder",
+      "criterion_id": "forbidden-placeholder",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact does not include placeholder content"
+    },
+    {
+      "claim_id": "forbidden-http",
+      "criterion_id": "forbidden-http",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact does not include HTTP remote references"
+    },
+    {
+      "claim_id": "forbidden-https",
+      "criterion_id": "forbidden-https",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact does not include HTTPS remote references"
+    },
+    {
+      "claim_id": "forbidden-script",
+      "criterion_id": "forbidden-script",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact does not include script tags"
+    },
+    {
+      "claim_id": "forbidden-javascript",
+      "criterion_id": "forbidden-javascript",
+      "qualitative": false,
+      "required": true,
+      "text": "the artifact does not include javascript URLs"
+    },
+    {
+      "claim_id": "desktop-render",
+      "criterion_id": "desktop-render",
+      "qualitative": false,
+      "required": true,
+      "text": "the desktop render digest is current and declared"
+    },
+    {
+      "claim_id": "mobile-render",
+      "criterion_id": "mobile-render",
+      "qualitative": false,
+      "required": true,
+      "text": "the mobile render digest is current and declared"
+    },
+    {
+      "claim_id": "builder-receipt",
+      "criterion_id": "builder-receipt",
+      "qualitative": false,
+      "required": true,
+      "text": "the Design Director builder receipt is current and readable"
+    },
+    {
+      "claim_id": "browser-capture-binding",
+      "criterion_id": "browser-capture-binding",
+      "qualitative": false,
+      "required": true,
+      "text": "browser evidence binds the current HTML artifact, task and criteria"
+    }
+  ],
+  "context_budget": 16384,
+  "deferred_criteria": [
+    "qualitative-art-direction",
+    "qualitative-visual-hierarchy",
+    "qualitative-typography",
+    "qualitative-composition",
+    "qualitative-spacing",
+    "qualitative-color-system",
+    "qualitative-asset-quality",
+    "qualitative-product-specificity",
+    "qualitative-responsiveness",
+    "qualitative-accessibility",
+    "qualitative-polish",
+    "qualitative-generic-ai-slop-avoidance"
+  ],
+  "digest": "sha256:f3010fcb080b33f713760e4d0e30d1179ae8a8d51a8fb540ed6db37840809ef7",
+  "evidence_refs": [
+    {
+      "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+      "artifact_id": "ART-P5-V1",
+      "digest": "sha256:7c410e005706214941ef7dd8e1bcf6709fd915e59fb3e7ee0ae5a90d69ca2c75",
+      "evidence_id": "artifact-identity-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    },
+    {
+      "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+      "artifact_id": "ART-P5-V1",
+      "digest": "sha256:a64a81cbfba601b89a908c646c49a5cab8677b2f27336b91eb92824abfae2912",
+      "evidence_id": "html-document-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    },
+    {
+      "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+      "artifact_id": "ART-P5-V1",
+      "digest": "sha256:88150de0dcfcac3d969a1ac96aecc452f31a9d9e57b14838aeab5fb9f312e43c",
+      "evidence_id": "semantic-header-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    },
+    {
+      "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+      "artifact_id": "ART-P5-V1",
+      "digest": "sha256:d760e7768ee84406f0a46d84d445297bceabba7bebd9e5babf694648ea3602bc",
+      "evidence_id": "semantic-main-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    },
+    {
+      "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+      "artifact_id": "ART-P5-V1",
+      "digest": "sha256:7caef6a0b02d338c1e1861ac9a038ca84700857ed0f6031776ef5e2cb0ae8fcd",
+      "evidence_id": "semantic-footer-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    },
+    {
+      "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+      "artifact_id": "ART-P5-V1",
+      "digest": "sha256:bf7640d832d56dae6ce6eb3918ac29b4bd5963d960421b2167e62dc1a4d7fa92",
+      "evidence_id": "copy-product-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    },
+    {
+      "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+      "artifact_id": "ART-P5-V1",
+      "digest": "sha256:329159d7d7ea2de49f44d73af4394aaac792f255611c3a00591dce295b04992b",
+      "evidence_id": "copy-cta-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    },
+    {
+      "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+      "artifact_id": "ART-P5-V1",
+      "digest": "sha256:2070f215b87f8a167844aa04c9b2e82d3bc142446b22b4154717b9eaab0f132c",
+      "evidence_id": "forbidden-lorem-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    },
+    {
+      "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+      "artifact_id": "ART-P5-V1",
+      "digest": "sha256:58badea35c1eaf6d5c70d911ae01d01c2f83d8ac107a0001f3d38a383d848c1d",
+      "evidence_id": "forbidden-placeholder-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    },
+    {
+      "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+      "artifact_id": "ART-P5-V1",
+      "digest": "sha256:87976e6e61bc5ebd791d6bf0d7cf6bc3869db133b1c879f5961e6235bab3e58d",
+      "evidence_id": "forbidden-http-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    },
+    {
+      "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+      "artifact_id": "ART-P5-V1",
+      "digest": "sha256:2f2b85feb5522aa035fa516a354ddb37c6f1a64e57a013552684491fe5a87bd1",
+      "evidence_id": "forbidden-https-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    },
+    {
+      "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+      "artifact_id": "ART-P5-V1",
+      "digest": "sha256:90044bb24fe64cf7d885db3ed3fe879655752083f2c483c10081c6d9f50698ca",
+      "evidence_id": "forbidden-script-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    },
+    {
+      "artifact_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+      "artifact_id": "ART-P5-V1",
+      "digest": "sha256:29f94324f0f6e72b13a96e8bbad81cee7663d6da52bf9d3870184b5ed2615acb",
+      "evidence_id": "forbidden-javascript-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    },
+    {
+      "artifact_digest": "sha256:a6d3940aee429bde35d0fd6eefd83a4614b42100fdcd27089d2752f32a8fdd89",
+      "artifact_id": "ART-DESKTOP-RENDER",
+      "digest": "sha256:46159af2624eb98b51b45e78f8ebca91cc96b2a030f5c87cd125fbf32f0f57d2",
+      "evidence_id": "desktop-render-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/desktop-1440x900.jpg",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    },
+    {
+      "artifact_digest": "sha256:d418f01f7a464d26243dc324a8282af8f7f07189a5844aaf81facd6898e33b3c",
+      "artifact_id": "ART-MOBILE-RENDER",
+      "digest": "sha256:c66031edba6214c7a7b6be3b90aeff64a03ccc8f265ec88ae11adfe61d836c21",
+      "evidence_id": "mobile-render-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/mobile-390x844.jpg",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    },
+    {
+      "artifact_digest": "sha256:8620c2003aced85fdfb7592c74bf4a376dff2e2dad313a40ad73a74a869f9a95",
+      "artifact_id": "ART-BUILDER-RECEIPT",
+      "digest": "sha256:618122e4ebc1aeacbe2b700d80003b3780935ad56bafc18407507d4ad9072379",
+      "evidence_id": "builder-receipt-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/builder-handoff-receipt.json",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    },
+    {
+      "artifact_digest": "sha256:4c3f5968bf5a6727c8e3e04f94bd61a43e391b03b2479478ade3369ceda76782",
+      "artifact_id": "ART-BROWSER-CAPTURE-MANIFEST",
+      "digest": "sha256:5f3052872b2761462b6ac5092b6460bd7b2a47f398f0751152e2a2b37d2c6ca3",
+      "evidence_id": "browser-capture-binding-EVIDENCE",
+      "freshness": "FRESH",
+      "observed_at": 1788073518,
+      "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/browser-capture-manifest.json",
+      "run_id": "RUN-P6-COMPOSITION-001",
+      "task_id": "TASK-P6-COMPOSITION-001"
+    }
+  ],
+  "freshness": "FRESH",
+  "known_limitations": [
+    "host_load_causality_is_reported_separately",
+    "visual_quality_authority_is_excluded"
+  ],
+  "manifest_digest": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c",
+  "observed_at": 1788073518,
+  "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "profile": "COMPOSITION",
+  "read_only": true,
+  "read_only_policy": "MUTATION_DENIED",
+  "required_criteria": [
+    "artifact-identity",
+    "html-document",
+    "semantic-header",
+    "semantic-main",
+    "semantic-footer",
+    "copy-product",
+    "copy-cta",
+    "forbidden-lorem",
+    "forbidden-placeholder",
+    "forbidden-http",
+    "forbidden-https",
+    "forbidden-script",
+    "forbidden-javascript",
+    "desktop-render",
+    "mobile-render",
+    "builder-receipt",
+    "browser-capture-binding"
+  ],
+  "role": "VERIFIER",
+  "run_id": "RUN-P6-COMPOSITION-001",
+  "scope": "PROJECT",
+  "task_id": "TASK-P6-COMPOSITION-001",
+  "verification_id": "VERIFICATION-ARTIFACT-V1",
+  "workspace": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition"
+}

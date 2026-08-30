@@ -1,6 +1,10 @@
 from __future__ import annotations
 
+import os
+import shutil
 from pathlib import Path
+
+import pytest
 
 from harness_kernel.phase4_host import CodexAppServerAdapter
 from harness_kernel.phase4_models import (
@@ -12,8 +16,14 @@ from harness_kernel.phase4_models import (
 )
 
 
-def test_official_app_server_ephemeral_handshake_is_available() -> None:
+def test_official_app_server_ephemeral_handshake_is_available(monkeypatch) -> None:
     project = Path(__file__).parents[2]
+    codex = shutil.which("codex")
+    node = shutil.which("node")
+    if not codex or not node:
+        pytest.skip("Codex and Node are not available for the real-host smoke test")
+    monkeypatch.setenv("CODEX_EXECUTABLE", os.path.realpath(codex))
+    monkeypatch.setenv("NODE_EXECUTABLE", os.path.realpath(node))
     skill_path = Path("/home/ricardo/.agents/skills/coding-standards/SKILL.md")
     authorization = CapabilityExecutionAuthorization(
         authorization_id="AUTH-P4-SMOKE",

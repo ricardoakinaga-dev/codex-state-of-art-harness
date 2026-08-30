@@ -1,0 +1,13 @@
+{
+  "attestation_kind": "LOCAL_REVIEW_ATTESTATION",
+  "builder_self_approval": "FORBIDDEN",
+  "capability_reviewer": "01a05185-27b5-75e3-a962-9f8124337fbe",
+  "composition_reviewer": "01a05185-2722-73b0-b5c3-76805927409c",
+  "cryptographic_signature": "NOT_PROVIDED",
+  "fresh_exact_packet": true,
+  "review_manifest": "review-manifest.json",
+  "review_manifest_closure_digest": "sha256:e1070f92054387caf3a460f70f9741f5cf1717b5d08f08f75dcb99c02e10f9ea",
+  "reviewed_head": "17557e413dd1b74ea7106c1ca6fc270ad481694c",
+  "schema_version": "P6-REVIEW-ATTESTATION-1",
+  "status": "PASS"
+}

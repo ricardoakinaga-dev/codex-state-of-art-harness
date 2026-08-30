@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import stat
 import time
 import uuid
 from collections.abc import Mapping
+from contextlib import suppress
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -35,6 +37,63 @@ _DIGEST_PATTERN = re.compile(r"^sha256:[0-9a-f]{64}$")
 _SECRET_PATTERN = re.compile(
     r"(?i)(?:api[_-]?key|access[_-]?token|password|passwd|secret)\s*[:=]\s*[^\s,;]+"
 )
+_MAX_POLICY_BYTES = 128 * 1024
+_MAX_POLICY_JSON_NESTING = 64
+
+
+def _json_nesting_exceeds(payload: bytes, *, max_depth: int) -> bool:
+    depth = 0
+    escaped = False
+    in_string = False
+    for byte in payload:
+        if in_string:
+            if escaped:
+                escaped = False
+            elif byte == 92:
+                escaped = True
+            elif byte == 34:
+                in_string = False
+            continue
+        if byte == 34:
+            in_string = True
+        elif byte in {91, 123}:
+            depth += 1
+            if depth > max_depth:
+                return True
+        elif byte in {93, 125}:
+            depth = max(0, depth - 1)
+    return False
+
+
+def _read_policy_bytes(path: Path) -> bytes:
+    if not hasattr(os, "O_NOFOLLOW"):
+        raise Phase4PolicyError("policy file cannot be secured on this platform")
+    descriptor: int | None = None
+    try:
+        descriptor = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | getattr(os, "O_CLOEXEC", 0))
+        metadata = os.fstat(descriptor)
+        if not stat.S_ISREG(metadata.st_mode) or metadata.st_nlink != 1:
+            raise Phase4PolicyError("policy file is not a unique regular file")
+        if metadata.st_size > _MAX_POLICY_BYTES:
+            raise Phase4PolicyError("policy file exceeds its bound")
+        chunks: list[bytes] = []
+        total = 0
+        while True:
+            chunk = os.read(descriptor, min(64 * 1024, _MAX_POLICY_BYTES - total + 1))
+            if not chunk:
+                return b"".join(chunks)
+            total += len(chunk)
+            if total > _MAX_POLICY_BYTES:
+                raise Phase4PolicyError("policy file exceeds its bound")
+            chunks.append(chunk)
+    except Phase4PolicyError:
+        raise
+    except OSError as exc:
+        raise Phase4PolicyError("policy file cannot be read safely") from exc
+    finally:
+        if descriptor is not None:
+            with suppress(OSError):
+                os.close(descriptor)
 
 
 def _tuple_strings(values: object, field_name: str) -> tuple[str, ...]:
@@ -56,6 +115,21 @@ def _strict_bool(values: Mapping[str, object], key: str, default: bool = False) 
     if not isinstance(value, bool):
         raise Phase4PolicyError(f"{key} must be boolean")
     return value
+
+
+def _metadata_only_scripts(record: CapabilityRecord) -> bool:
+    """Recognize JSON procedure metadata without granting script execution."""
+
+    if not record.scripts:
+        return False
+    files = {item.relative_path: item for item in record.files}
+    return all(
+        path.casefold().endswith(".json")
+        and files.get(path) is not None
+        and files[path].kind == "metadata_only"
+        and not files[path].executable
+        for path in record.scripts
+    )
 
 
 @dataclass(frozen=True, slots=True)
@@ -231,8 +305,18 @@ class ExecutionPolicyRegistry:
     def from_json(cls, path: str | Path) -> ExecutionPolicyRegistry:
         candidate = Path(path)
         try:
-            payload = json.loads(candidate.read_text(encoding="utf-8"))
-        except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+            content = _read_policy_bytes(candidate)
+            if _json_nesting_exceeds(content, max_depth=_MAX_POLICY_JSON_NESTING):
+                raise Phase4PolicyError("policy JSON nesting exceeds its bound")
+            payload = json.loads(
+                content.decode("utf-8"),
+                parse_constant=lambda value: (_ for _ in ()).throw(
+                    ValueError(f"non-finite JSON constant is not allowed: {value}")
+                ),
+            )
+        except Phase4PolicyError:
+            raise
+        except (OSError, UnicodeError, json.JSONDecodeError, RecursionError, ValueError) as exc:
             raise Phase4PolicyError("policy file cannot be read safely") from exc
         if not isinstance(payload, Mapping):
             raise Phase4PolicyError("policy file must contain an object")
@@ -520,6 +604,7 @@ def build_preflight(
     if rule is None:
         blockers.append("BLOCKED_EXECUTION_POLICY")
     else:
+        metadata_only_scripts = _metadata_only_scripts(record)
         if rule.package_fingerprint != record.content_hash:
             blockers.append("CAPABILITY_FINGERPRINT_MISMATCH")
         if not rule.execution_approved and mode is ExecutionMode.CONTROLLED_REAL:
@@ -531,7 +616,7 @@ def build_preflight(
                 blockers.append("HOST_EXECUTABLE_NOT_BOUND")
             if rule.host_interpreter_digest is None:
                 blockers.append("HOST_INTERPRETER_NOT_BOUND")
-            if record.scripts and not rule.allow_scripts:
+            if record.scripts and not rule.allow_scripts and not metadata_only_scripts:
                 blockers.append("FORBIDDEN_SCRIPT")
             undeclared_tools = set(record.manifest.tools).difference(rule.allowed_tools)
             if undeclared_tools:
@@ -558,6 +643,8 @@ def build_preflight(
         else:
             if record.scripts:
                 warnings.append("SCRIPTS_PRESENT_NOT_EXECUTED")
+                if metadata_only_scripts:
+                    warnings.append("SCRIPTS_METADATA_ONLY")
             if record.dependencies:
                 warnings.append("DEPENDENCIES_NOT_EXECUTED")
         if not rule.allow_network:

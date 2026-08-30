@@ -1,0 +1,33 @@
+{
+  "acceptance_criteria": [
+    "non-empty response",
+    "marker:P6_VNEXT_REPORT"
+  ],
+  "artifact_refs": [
+    "ART-INV-a0f9ae6bd5e052a78aef9c00"
+  ],
+  "checks": [
+    "REQUEST_DIGEST_BOUND",
+    "HOST_RESULT_COMPLETED",
+    "HOST_EXECUTION_OBSERVED",
+    "HOST_RESPONSE_NON_EMPTY",
+    "ONE_ARTIFACT_CAPTURED",
+    "ARTIFACT_INTEGRITY:ART-INV-a0f9ae6bd5e052a78aef9c00",
+    "ARTIFACT_TYPE:HOST_RESPONSE",
+    "HOST_EXECUTABLE_PROVENANCE_BOUND",
+    "HOST_INTERPRETER_PROVENANCE_BOUND",
+    "ACCEPTANCE:non-empty response",
+    "ACCEPTANCE:marker:P6_VNEXT_REPORT",
+    "RECEIPT_REFERENCE_CORRELATED",
+    "EVIDENCE_REFERENCES_PRESENT"
+  ],
+  "digest": "sha256:3d089f941d9e14a4d3e5eed2fefcbacc926b2ab4f7f643948282f5eb4bc88101",
+  "evidence_refs": [
+    "receipt://INV-a0f9ae6bd5e052a78aef9c00"
+  ],
+  "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+  "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+  "reason": "all bounded artifact and acceptance checks passed",
+  "request_digest": "sha256:e9e0c274233e85e5abf90c021a9dda87d87a8ef471bcece0d0740774163ff0d2",
+  "status": "VERIFIED"
+}

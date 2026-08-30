@@ -1,0 +1,19 @@
+{
+  "blockers": [],
+  "canonical_path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/verification-loop-vnext",
+  "capability_id": "verification-loop-vnext",
+  "global_state_mutation": false,
+  "host_load_observation": "UNAVAILABLE",
+  "instruction_loaded": true,
+  "kind": "NATIVE",
+  "load_eligibility": "ELIGIBLE_DECLARATIVE_METADATA_ONLY",
+  "load_level": "L2_INSTRUCTION_KERNEL",
+  "manifest_digest": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c",
+  "original_installed_capability_preserved": true,
+  "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "schema_version": "P6-DISCOVERY-1",
+  "scope": "PROJECT",
+  "snapshot_digest": "sha256:0670b57de0947bd53a493d4f3828b86eb1e2d21a16a2e41a0e75d90df778ea11",
+  "status": "INSPECTED",
+  "version": "0.1.0"
+}

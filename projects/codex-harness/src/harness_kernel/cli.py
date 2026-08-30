@@ -603,7 +603,11 @@ def _manifest_files(root: Path) -> tuple[Path, ...]:
     if capability_directory.is_dir():
         for capability in capability_directory.iterdir():
             manifest = capability / "manifest.json"
-            if capability.is_dir() and manifest.is_file():
+            if (
+                capability.is_dir()
+                and manifest.is_file()
+                and _registry_bridge_enabled(manifest, root)
+            ):
                 paths.append(manifest)
     result = tuple(sorted(paths))
     if len(result) > MAX_REGISTRY_FILES:
@@ -611,6 +615,18 @@ def _manifest_files(root: Path) -> tuple[Path, ...]:
             "REGISTRY_SIZE_LIMIT", "project registry exceeds the supported manifest limit"
         )
     return result
+
+
+def _registry_bridge_enabled(path: Path, root: Path) -> bool:
+    """Keep Phase 1 registry admission separate from native-only packages."""
+
+    try:
+        payload = _read_json(str(path), root, sys.stdin)
+    except CliError:
+        return True
+    if not isinstance(payload, Mapping):
+        return True
+    return payload.get("registry_bridge") is not False
 
 
 def _manifest_source_hash(manifest: CapabilityManifest, root: Path) -> str:

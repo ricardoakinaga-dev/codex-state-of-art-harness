@@ -1,0 +1,83 @@
+{
+  "builder_host_invocation_id": "INV-P5-85644f8ad3015c76b11a0369",
+  "builder_invocation_id": "01a04ffd-e980-7e83-beab-08b8c843ad3b",
+  "deferred_qualitative_criteria": [
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-art-direction",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-visual-hierarchy",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-typography",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-composition",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-spacing",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-color-system",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-asset-quality",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-product-specificity",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-responsiveness",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-accessibility",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-polish",
+      "status": "NOT_RUN"
+    },
+    {
+      "authority": "REVIEWER",
+      "criterion_id": "qualitative-generic-ai-slop-avoidance",
+      "status": "NOT_RUN"
+    }
+  ],
+  "limitations": [
+    "host_skill_load_event_unobservable",
+    "visual_quality_authority_excluded_from_factual_verifier"
+  ],
+  "pipeline": [
+    "ROUTER",
+    "DESIGN_DIRECTOR",
+    "VERIFICATION_LOOP_VNEXT",
+    "ASSURANCE"
+  ],
+  "schema_version": "P6-COMPOSITION-DESIGN-1",
+  "status": "PASS_WITH_LIMITATIONS",
+  "support_level": "P6_LEVEL_B",
+  "verification_plan_digest": "sha256:4592930e4a3dc7f54fbc6ac0a7212704a390231816fdbb78e8377d24a998fea9",
+  "verification_report_digest": "sha256:50984a30c4f9dfd713106a249f474d168ef3df0ec084d42ae84ea5073f43943f",
+  "verifier_manifest_digest": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c",
+  "verifier_package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b"
+}

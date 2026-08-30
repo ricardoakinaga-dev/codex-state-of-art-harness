@@ -1,0 +1,68 @@
+[
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document_width": 1440,
+    "viewport_width": 1440,
+    "body_height": 900,
+    "h1_count": 1,
+    "focusable_count": 2,
+    "landmarks": [
+      {
+        "tag": "header",
+        "count": 1
+      },
+      {
+        "tag": "main",
+        "count": 1
+      },
+      {
+        "tag": "footer",
+        "count": 1
+      }
+    ],
+    "external_resources": [],
+    "title": "PulsePaw Triage",
+    "id": "desktop",
+    "screenshot": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/desktop-1440x900.png",
+    "compact_screenshot": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/desktop-1440x900.jpg",
+    "artifact_id": "ART-P5-V1",
+    "artifact_version": "artifact_v1",
+    "source_html_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc"
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "document_width": 390,
+    "viewport_width": 390,
+    "body_height": 996,
+    "h1_count": 1,
+    "focusable_count": 2,
+    "landmarks": [
+      {
+        "tag": "header",
+        "count": 1
+      },
+      {
+        "tag": "main",
+        "count": 1
+      },
+      {
+        "tag": "footer",
+        "count": 1
+      }
+    ],
+    "external_resources": [],
+    "title": "PulsePaw Triage",
+    "id": "mobile",
+    "screenshot": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/mobile-390x844.png",
+    "compact_screenshot": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/browser/mobile-390x844.jpg",
+    "artifact_id": "ART-P5-V1",
+    "artifact_version": "artifact_v1",
+    "source_html_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc"
+  }
+]

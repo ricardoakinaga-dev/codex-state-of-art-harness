@@ -7,11 +7,11 @@ import json
 import os
 import re
 import stat
-import tempfile
 from collections.abc import Mapping
 from contextlib import suppress
 from pathlib import Path
 
+from .phase4_artifacts import ArtifactCaptureError, _atomic_write_at, _open_confined_directory
 from .phase4_models import ExecutionOutcome, canonical_json, digest_payload, public_data
 
 
@@ -79,25 +79,6 @@ def _safe_relative(root: Path, relative: str | Path) -> Path:
     return target
 
 
-def _ensure_directory(path: Path) -> None:
-    current = path
-    missing: list[Path] = []
-    while True:
-        try:
-            metadata = current.lstat()
-        except FileNotFoundError:
-            missing.append(current)
-            if current.parent == current:
-                break
-            current = current.parent
-            continue
-        if stat.S_ISLNK(metadata.st_mode) or not stat.S_ISDIR(metadata.st_mode):
-            raise EvidenceError("evidence directory contains an unsafe component")
-        break
-    for item in reversed(missing):
-        item.mkdir()
-
-
 class EvidenceWriter:
     """Write only bounded, atomic files below a project-owned evidence root."""
 
@@ -105,7 +86,25 @@ class EvidenceWriter:
         self.root = Path(root)
         if not self.root.is_absolute():
             raise EvidenceError("evidence root must be absolute")
-        _ensure_directory(self.root)
+        workspace = self.root
+        while True:
+            try:
+                workspace.lstat()
+                break
+            except FileNotFoundError:
+                if workspace.parent == workspace:
+                    raise EvidenceError("evidence root cannot be created") from None
+                workspace = workspace.parent
+            except OSError as exc:
+                raise EvidenceError("evidence root cannot be inspected") from exc
+        try:
+            descriptor = _open_confined_directory(self.root, workspace)
+        except ArtifactCaptureError as exc:
+            raise EvidenceError("evidence root is unsafe") from exc
+        try:
+            self.root = self.root.resolve(strict=True)
+        finally:
+            os.close(descriptor)
 
     def write_text(
         self, relative: str | Path, content: str, *, max_bytes: int = 512 * 1024
@@ -124,34 +123,45 @@ class EvidenceWriter:
         if len(encoded) > max_bytes:
             raise EvidenceError("evidence text exceeds its bound")
         target = _safe_relative(self.root, relative)
-        _ensure_directory(target.parent)
-        temporary_name: str | None = None
         try:
-            with tempfile.NamedTemporaryFile(
-                mode="wb", dir=target.parent, prefix=f".{target.name}.", suffix=".tmp", delete=False
-            ) as handle:
-                temporary_name = handle.name
-                handle.write(encoded)
-                handle.flush()
-                os.fsync(handle.fileno())
-            os.replace(temporary_name, target)
-            temporary_name = None
-        except OSError as exc:
+            directory_fd = _open_confined_directory(target.parent, self.root)
+        except ArtifactCaptureError as exc:
+            raise EvidenceError("evidence directory is unsafe") from exc
+        try:
+            _atomic_write_at(directory_fd, target.name, encoded)
+            directory_identity = os.fstat(directory_fd)
+        except ArtifactCaptureError as exc:
             raise EvidenceError("evidence file could not be written") from exc
         finally:
-            if temporary_name is not None:
-                with suppress(OSError):
-                    Path(temporary_name).unlink(missing_ok=True)
+            with suppress(OSError):
+                os.close(directory_fd)
+        try:
+            current_identity = target.parent.lstat()
+        except OSError as exc:
+            raise EvidenceError("evidence directory changed during write") from exc
+        if (current_identity.st_dev, current_identity.st_ino) != (
+            directory_identity.st_dev,
+            directory_identity.st_ino,
+        ):
+            raise EvidenceError("evidence directory changed during write")
         return target
 
     def write_json(
         self, relative: str | Path, value: object, *, max_bytes: int = 512 * 1024
     ) -> Path:
-        return self.write_text(
-            relative,
-            json.dumps(redact_paths(public_data(value)), indent=2, sort_keys=True) + "\n",
-            max_bytes=max_bytes,
-        )
+        try:
+            content = (
+                json.dumps(
+                    redact_paths(public_data(value)),
+                    indent=2,
+                    sort_keys=True,
+                    allow_nan=False,
+                )
+                + "\n"
+            )
+        except (TypeError, ValueError, RecursionError) as exc:
+            raise EvidenceError("evidence JSON cannot be serialized safely") from exc
+        return self.write_text(relative, content, max_bytes=max_bytes)
 
 
 def build_review_manifest(

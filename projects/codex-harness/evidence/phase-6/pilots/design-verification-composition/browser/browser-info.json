@@ -1,0 +1,16 @@
+{
+  "engine": "chromium",
+  "version": "152.0.7977.64",
+  "executable_path": "/usr/bin/google-chrome",
+  "capture_method": "playwright_local_fallback",
+  "url": "http://127.0.0.1:8765/artifacts/artifact_v1/index.html",
+  "task_id": "TASK-P6-COMPOSITION-001",
+  "run_id": "RUN-P6-COMPOSITION-001",
+  "criteria_digest": "sha256:f26e3d93c72accca37d34c5f25d1cc7c467469b6236342c83882d09cf41427a8",
+  "artifact_id": "ART-P5-V1",
+  "artifact_version": "artifact_v1",
+  "source_html": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-6/pilots/design-verification-composition/workspace/artifacts/artifact_v1/index.html",
+  "source_html_digest": "sha256:b9dd46c839b3fe03b47439ddc68dee914f2dd25fa54e966408835dfb75bc03bc",
+  "source_html_bytes": 7672,
+  "capture_started_at": "2026-08-30T04:28:53.761Z"
+}

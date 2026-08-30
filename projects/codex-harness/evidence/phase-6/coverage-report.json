@@ -1,0 +1,10 @@
+{
+  "branch_mode": false,
+  "combined_coverage_percent": 82.0,
+  "coverage_mode": "statement",
+  "minimum_percent": 80.0,
+  "schema_version": "P6-COVERAGE-1",
+  "source": "src/harness_kernel",
+  "status": "PASS",
+  "tests": 519
+}

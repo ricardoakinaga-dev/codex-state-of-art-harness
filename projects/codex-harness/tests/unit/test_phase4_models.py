@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import math
 
 import pytest
 
@@ -52,6 +53,15 @@ def test_canonical_digest_is_order_independent_and_json_safe() -> None:
     assert digest_payload(left) == digest_payload(right)
     assert json.loads(canonical_json(left)) == left
     assert public_data({"mode": ExecutionMode.DRY_RUN}) == {"mode": "DRY_RUN"}
+
+
+def test_canonical_serialization_rejects_nonfinite_and_cyclic_values() -> None:
+    with pytest.raises(ValueError, match="non-finite"):
+        canonical_json({"value": math.nan})
+    cyclic: list[object] = []
+    cyclic.append(cyclic)
+    with pytest.raises(ValueError, match="cyclic"):
+        public_data(cyclic)
 
 
 def test_host_command_preserves_repeated_argument_tokens() -> None:
