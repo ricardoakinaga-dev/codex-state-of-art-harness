@@ -1,0 +1,71 @@
+{
+  "record_id": "GATE-PHASE7-SCOPE-READY-0001",
+  "timestamp": "2026-08-30T07:55:00-03:00",
+  "gate_id": "SCOPE_READY",
+  "scope": "PHASE7-001 backend-engineering-vNext modernization pilot",
+  "scope_ref": "PHASE7-001",
+  "version": 1,
+  "criteria": [
+    {
+      "id": "P7-SCOPE-001",
+      "description": "The Phase 7 objective, specialist role, fixed pilot boundary, budgets, stop conditions and non-goals are explicit before implementation.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": [".agent/plans/PHASE-7-backend-engineering-modernization.md", "evidence/phase-7/P7-QB-1.md", "../../architecture/docs/adr/ADR-016-backend-engineering-vnext-modernization.md"],
+      "confidence": "HIGH",
+      "limitations": "This gate authorizes only the additive project-local candidate and disposable fictional pilot."
+    },
+    {
+      "id": "P7-SCOPE-002",
+      "description": "The Phase 2–6 packets are preserved as frozen historical authorities and the current Harness baseline is recorded.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": ["evidence/phase-2/PHASE2-FROZEN.md", "evidence/phase-3/readiness.json", "evidence/phase-4/PHASE4-FROZEN.md", "evidence/phase-5/PHASE5-FROZEN.md", "evidence/phase-6/PHASE6-FROZEN.md", "evidence/phase-7/README.md"],
+      "confidence": "HIGH",
+      "limitations": "Fresh regression evidence is required after any Phase 7 source or test change."
+    },
+    {
+      "id": "P7-SCOPE-003",
+      "description": "The installed backend-patterns package and global roots are read-only forensic inputs with exact identity and zero mutation authorized.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": ["evidence/phase-7/current-backend-patterns-snapshot.json", "evidence/phase-7/current-capability-analysis.md", "../../references/skill-audit/data/provenance-evidence/manifest.json"],
+      "confidence": "HIGH",
+      "limitations": "Installed provenance has medium confidence and no signed package release is claimed."
+    },
+    {
+      "id": "P7-SCOPE-004",
+      "description": "Upstream inspection, native gap analysis, TDD, security handoff, real discovery/load/preflight, independent review and exact closure are required before promotion.",
+      "required": true,
+      "status": "PASS",
+      "evidence_refs": ["evidence/phase-7/upstream-analysis.md", "evidence/phase-7/native-capability-gap-analysis.md", ".agent/plans/PHASE-7-backend-engineering-modernization.md", "evidence/phase-7/P7-QB-1.md"],
+      "confidence": "HIGH",
+      "limitations": "RED, implementation, real pilot, composition and final review remain pending."
+    }
+  ],
+  "evidence": [".agent/plans/PHASE-7-backend-engineering-modernization.md", "evidence/phase-7/P7-QB-1.md", "evidence/phase-7/current-backend-patterns-snapshot.json", "evidence/phase-7/current-capability-analysis.md", "evidence/phase-7/upstream-analysis.md", "evidence/phase-7/native-capability-gap-analysis.md", "../../architecture/docs/adr/ADR-016-backend-engineering-vnext-modernization.md", "evidence/phase-2/PHASE2-FROZEN.md", "evidence/phase-3/readiness.json", "evidence/phase-4/PHASE4-FROZEN.md", "evidence/phase-5/PHASE5-FROZEN.md", "evidence/phase-6/PHASE6-FROZEN.md"],
+  "confidence": "HIGH",
+  "gaps": [],
+  "conditions": [
+    {
+      "id": "P7-SCOPE-C01",
+      "description": "The vNext package, RED suite, pilot, real discovery/load/preflight, composition, regressions and independent review must be completed before final promotion.",
+      "non_blocking": true,
+      "impact": "The scope gate authorizes planning and controlled implementation only; it does not authorize final promotion.",
+      "owner": "lead",
+      "due_or_trigger": "Before VERIFIED gate and final closeout",
+      "due_at": "2026-08-31T23:59:59-03:00",
+      "verification_method": "Fresh implementation, pilot, composition, regression and independent-review evidence referenced by the final packet",
+      "evidence_refs": [".agent/plans/PHASE-7-backend-engineering-modernization.md", "evidence/phase-7/P7-QB-1.md"],
+      "status": "OPEN",
+      "residual_risk": "MEDIUM",
+      "authority_state": "NOT_REQUIRED"
+    }
+  ],
+  "authority": {"required": false, "state": "NOT_REQUIRED", "actor": "lead", "scope": "PHASE7-001 additive project-local backend engineering modernization pilot", "decision": "The candidate is locally reversible and the pilot is disposable; final promotion requires independent exact-packet review.", "evidence_ref": ".agent/plans/PHASE-7-backend-engineering-modernization.md", "expires_or_revalidates": "Revalidate on any installed/global mutation, credential/provider/tool escalation, deployment, destructive migration or scope expansion."},
+  "residual_risk": "MEDIUM",
+  "decision": "PASS_WITH_CONDITIONS",
+  "next_action": "Write and run the Phase 7 RED contract/security/eval suite, then issue the implementation-ready gate only after contracts and integration boundaries are closed.",
+  "revalidation_triggers": ["Changing the frozen task, acceptance criteria, package role or pilot boundary", "Changing current/upstream identity or provenance assumptions", "Adding network, shell, MCP, providers, credentials, arbitrary scripts or production state", "Adding a destructive or non-disposable migration"],
+  "supersedes": null
+}

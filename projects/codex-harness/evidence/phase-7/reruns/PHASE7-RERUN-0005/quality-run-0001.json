@@ -1,0 +1,64 @@
+{
+  "schema_version": "P7-QUALITY-RUN-1",
+  "task_id": "PHASE7-RERUN-0005",
+  "observed_at": "2026-08-30T14:02:34-03:00",
+  "scope": "current project-local Phase 7 implementation plus complete Harness suite",
+  "commands": {
+    "full_suite": "PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 .venv/bin/coverage run -m pytest -q",
+    "line_threshold": ".venv/bin/coverage report --fail-under=80",
+    "branch_observation": "PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 .venv/bin/coverage run --branch -m pytest -q",
+    "format": ".venv/bin/ruff format --check src tests scripts",
+    "lint": ".venv/bin/ruff check src tests scripts",
+    "types": ".venv/bin/mypy --strict src"
+  },
+  "results": {
+    "tests": {
+      "status": "PASS",
+      "passed": 560,
+      "failed": 0,
+      "skipped": 0,
+      "duration_seconds": 108.40
+    },
+    "line_coverage": {
+      "status": "PASS",
+      "covered_lines": 15636,
+      "statements": 19416,
+      "percent": 80.53152039555006,
+      "report_digest": "sha256:81099ef731ec51820538c3da2a02c44f1bf1af580f41a6921ac9bb5815f8b273"
+    },
+    "branch_coverage": {
+      "status": "OBSERVED_BELOW_80",
+      "covered_branches": 4842,
+      "branches": 7392,
+      "partial_branches": 2068,
+      "percent": 65.50324675324676,
+      "report_digest": "sha256:67acf12c2f8d1d55b4bad9373d4247cb68ed8b6573e4e26405af7f4e739c3973",
+      "interpretation": "The repository's operational threshold is line coverage; branch coverage is retained as an explicit limitation rather than presented as green."
+    },
+    "ruff_format": {
+      "status": "PASS",
+      "output": "153 files already formatted"
+    },
+    "ruff_check": {
+      "status": "PASS",
+      "output": "All checks passed!"
+    },
+    "mypy_strict": {
+      "status": "PASS",
+      "source_files": 65,
+      "output": "Success: no issues found in 65 source files"
+    },
+    "dependency_audit": {
+      "status": "UNAVAILABLE",
+      "tool": "pip-audit",
+      "reason": "pip-audit is not installed in the project virtual environment and no approved offline dependency-audit database is present"
+    }
+  },
+  "claims": {
+    "line_threshold_met": true,
+    "branch_threshold_met": false,
+    "security_approval": false,
+    "production_ready": false,
+    "aaa_verified": false
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "P7-PILOT-ARTIFACT-1",
+  "artifact_id": "ART-P7-BACKEND-PILOT-V1",
+  "version": "1",
+  "status": "INVALIDATED",
+  "producer_invocation": "INV-fdb34810e7965d93adafcd61",
+  "host_response_digest": "sha256:1b12de0bc0adc851b027b2769cb7dff526dca6249d7fd5a9010ec4c414f753b6",
+  "invalidated_reason": "source inspection found the wrong validation predicate and InvocationEngine acceptance was not automatic",
+  "verification_status": "STALE_OR_NOT_RUN",
+  "replacement": "ART-P7-BACKEND-PILOT-V2"
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "P7-PILOT-ARTIFACT-1",
+  "artifact_id": "ART-P7-BACKEND-PILOT-V2",
+  "version": "2",
+  "status": "CURRENT",
+  "source_material_digest": "sha256:a740e844f98d7fdcd686f119cb1f1f4b80f21c92a4e524edaa27591dfcf73a8a",
+  "source_files": ["app/__init__.py", "app/__main__.py", "app/api.py", "app/db.py", "app/migrations.py", "app/observability.py", "app/service.py", "app/validation.py"],
+  "repair_parent": "ART-P7-BACKEND-PILOT-V1",
+  "repair_count": 1,
+  "verification_binding": "VERIFICATION-PHASE7-BACKEND-PILOT-V3"
+}

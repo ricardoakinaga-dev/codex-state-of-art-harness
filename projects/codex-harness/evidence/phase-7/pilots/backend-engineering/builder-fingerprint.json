@@ -1,0 +1,15 @@
+{
+  "schema_version": "P7-PILOT-FINGERPRINT-1",
+  "capability_id": "backend-engineering-vnext",
+  "version": "0.1.0",
+  "package_fingerprint": "sha256:560d801467b48cdd1ea655c744bb31bd881ab77db1cb9d445572f0ad60a1fa0d",
+  "manifest_digest": "sha256:f9205535b0d06540a65d936b318d6066ad760ed5b432e4681e98bfdf9a49f865",
+  "current_installed_backend_patterns_fingerprint": "sha256:2e5efd41b7c89432bdd31cebea429dbc6c49a743a558b33040f55be7f7cde165",
+  "verifier_package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "verifier_manifest_digest": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c",
+  "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+  "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+  "installed_mutation_count": 0,
+  "global_mutation_count": 0,
+  "external_mutation_count": 0
+}

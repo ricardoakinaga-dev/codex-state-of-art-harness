@@ -1,0 +1,47 @@
+{
+  "aaa_verified": false,
+  "attestation_digest": "sha256:d7867eb875394d4ac21936c2cfbbe57e09e75d900afb6688f47c31adc4e6369e",
+  "candidate_support": "P7_LEVEL_B_CANDIDATE",
+  "chain_id": "PHASE7-RERUN-0007",
+  "claim_policy": {
+    "aaa_verified": false,
+    "production_ready": false,
+    "release_approval": false,
+    "security_approval": false,
+    "universal_superiority": false
+  },
+  "levels": {
+    "P7_LEVEL_A": {
+      "candidate": true,
+      "promoted": false,
+      "reason": "The package catalog and bounded contract surface are current and rebound."
+    },
+    "P7_LEVEL_B": {
+      "candidate": true,
+      "promoted": false,
+      "reason": "Real builder, one bounded repair and a fresh read-only verifier are rebound; release authority is still absent."
+    },
+    "P7_LEVEL_C": {
+      "candidate": false,
+      "promoted": false,
+      "reason": "A strict adversarial critic/repair/fresh-verification authority chain is not claimed."
+    }
+  },
+  "limitations": [
+    "branch coverage is 65.54% and is reported below the 80% target",
+    "pip-audit is unavailable in the project environment",
+    "host skill-load event remains unobservable",
+    "host response is composition telemetry and not local factual evidence",
+    "network and provider absence are bounded protocol observations, not a syscall-level isolation claim",
+    "host control-plane authentication is separate from the capability credential boundary",
+    "artifact-v3 is a derived disposable artifact; the fixed formatter was applied and its changed-path list is receipt-bound",
+    "no independent release authority or production approval is represented by this packet"
+  ],
+  "manifest_digest": "sha256:bc1a8706ac22c3dc83444791c7416128312ae70c1d1399831a48cab1efbfa99e",
+  "observed_at": "2026-08-30T18:02:12.009644Z",
+  "promotable_support": null,
+  "promotion": "NOT_PROMOTED",
+  "schema_version": "P7-RERUN-READINESS-1",
+  "status": "PASS_WITH_LIMITATIONS",
+  "task_id": "PHASE7-001"
+}

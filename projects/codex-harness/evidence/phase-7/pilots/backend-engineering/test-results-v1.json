@@ -1,0 +1,8 @@
+{
+  "schema_version": "P7-PILOT-TESTS-1",
+  "artifact_version": "1",
+  "status": "STALE",
+  "tests": "not accepted as final",
+  "reason": "v1 source was invalidated before the final bounded repair",
+  "replacement": "final-test-results.json"
+}

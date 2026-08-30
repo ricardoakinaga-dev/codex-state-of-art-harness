@@ -1,0 +1,86 @@
+{
+  "schema_version": "P7-BENCH-RESULT-1",
+  "benchmark_id": "P7-BENCH-1",
+  "comparison_label": "PILOT_MODERNIZATION_EVIDENCE",
+  "causal_claim": false,
+  "normalized_task": "P7_TASK_VET_APPOINTMENT_001",
+  "records": [
+    {
+      "fixture_id": "P7-BENCH-CURRENT",
+      "path": "installed-current-backend-patterns",
+      "outcome": "BLOCKED",
+      "execution": "NOT_EXECUTED_BY_POLICY",
+      "functional_score": null,
+      "architecture_score": null,
+      "verification_score": null,
+      "coverage_percent": null,
+      "context_bytes": 13837,
+      "latency_ms": null,
+      "finding_count": null,
+      "repair_count": 0,
+      "false_critical_pass": 0
+    },
+    {
+      "fixture_id": "P7-BENCH-UPSTREAM",
+      "path": "upstream-backend-patterns",
+      "outcome": "BLOCKED",
+      "execution": "NOT_EXECUTED_BY_POLICY",
+      "functional_score": null,
+      "architecture_score": null,
+      "verification_score": null,
+      "coverage_percent": null,
+      "context_bytes": 13349,
+      "latency_ms": null,
+      "finding_count": null,
+      "repair_count": 0,
+      "false_critical_pass": 0
+    },
+    {
+      "fixture_id": "P7-BENCH-NATIVE",
+      "path": "native-minimal-codex-surface",
+      "outcome": "PARTIAL",
+      "execution": "GENERAL_SURFACE_ONLY",
+      "functional_score": 0,
+      "architecture_score": 35,
+      "verification_score": 0,
+      "coverage_percent": null,
+      "context_bytes": null,
+      "latency_ms": null,
+      "finding_count": 0,
+      "repair_count": 0,
+      "false_critical_pass": 0
+    },
+    {
+      "fixture_id": "P7-BENCH-VNEXT",
+      "path": "project-local-backend-engineering-vnext",
+      "outcome": "PASS_WITH_LIMITATIONS",
+      "execution": "REAL_BOUNDED_PILOT",
+      "functional_score": 100,
+      "architecture_score": 88,
+      "verification_score": 100,
+      "coverage_percent": 91,
+      "context_bytes": 10342,
+      "verifier_context_bytes": 4652,
+      "context_measurement": "builder loaded SKILL.md instruction kernel only; not total host prompt",
+      "latency_ms": 23700,
+      "latency_measurement": "real verifier invocation wall-clock approximation",
+      "finding_count": 1,
+      "finding_summary": "lead repair finding: builder changed the wrong validation predicate before bounded repair",
+      "repair_count": 1,
+      "false_critical_pass": 0,
+      "receipt_ref": "pilots/backend-appointment-api/.harness/phase4/artifacts/INV-ddce4b5a61ad55c68617aa6b.host-response.txt"
+    }
+  ],
+  "invariants": {
+    "same_task": true,
+    "current_and_upstream_not_executed_without_authority": true,
+    "no_inferred_host_load": true,
+    "unbounded_loops": 0,
+    "critical_false_pass": 0
+  },
+  "limitations": [
+    "One fictional pilot and four fixture records are not a statistically powered comparison.",
+    "Current and upstream context values are SKILL.md byte counts; native and total host prompt costs were not measured.",
+    "Latency is a single local observation and not a performance benchmark or production SLO."
+  ]
+}

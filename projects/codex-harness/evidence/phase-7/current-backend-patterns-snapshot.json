@@ -1,0 +1,102 @@
+{
+  "schema_version": "P7-CURRENT-SNAPSHOT-1",
+  "observed_at": "2026-08-30T07:52:45-03:00",
+  "capability_id": "backend-patterns",
+  "declared_version": null,
+  "scope": "GLOBAL",
+  "canonical_path": "/home/ricardo/.agents/skills/backend-patterns",
+  "package_fingerprint": "sha256:2e5efd41b7c89432bdd31cebea429dbc6c49a743a558b33040f55be7f7cde165",
+  "fingerprint_algorithm": "Harness Phase 3 package digest: sorted relative path + NUL + file sha256 + observed metadata",
+  "manifest": {
+    "state": "ABSENT_LEGACY_PACKAGE",
+    "path": null,
+    "native_manifest": false,
+    "skill_front_matter": true
+  },
+  "files": {
+    "skill": {
+      "path": "SKILL.md",
+      "sha256": "sha256:952e95fd7e8d0b17f13835dde8067d7dd2abd019e6e17821d5ebf913113c589e",
+      "bytes": 13837,
+      "lines": 598,
+      "words": 1654
+    },
+    "agents": [
+      {
+        "path": "agents/openai.yaml",
+        "sha256": "sha256:6a56b16e6ea055931bc38979c12279e7cd3ac7d3440bdd8fa1dc3152d003d36b",
+        "bytes": 259,
+        "lines": 7
+      }
+    ],
+    "references": [],
+    "scripts": [],
+    "evals": [],
+    "benchmarks": [],
+    "templates": [],
+    "examples": []
+  },
+  "activation": {
+    "declared_activates_when": [],
+    "body_guidance_activates_when": [
+      "Designing REST or GraphQL API endpoints",
+      "Implementing repository, service, or controller layers",
+      "Optimizing database queries",
+      "Adding caching",
+      "Setting up background jobs or async processing",
+      "Structuring API error handling and validation",
+      "Building auth, logging or rate-limit middleware"
+    ],
+    "declared_do_not_activate_when": [],
+    "body_guidance_do_not_activate_when": [],
+    "stop_conditions": []
+  },
+  "capability_surface": {
+    "architecture": ["repository", "service", "controller", "middleware"],
+    "api": ["REST", "GraphQL", "pagination", "filtering"],
+    "data": ["Supabase examples", "query optimization", "indexes", "pooling"],
+    "reliability": ["cache", "jobs", "rate limiting"],
+    "testing": ["best-practice advice only"],
+    "verification": ["none declared"],
+    "evidence": ["none declared"]
+  },
+  "dependencies": {
+    "declared": [],
+    "tool_assumptions": ["Node.js", "Express", "Next.js API routes", "Supabase"],
+    "providers": [],
+    "runtime_dependencies": []
+  },
+  "compatibility": {
+    "codex_native_manifest": "MISSING",
+    "phase3_discovery": "LEGACY_OR_SYNTHESIZED_METADATA_ONLY",
+    "phase4_execution": "NO_EXACT_NATIVE_EXECUTION_POLICY",
+    "platform": "ecosystem-specific Node.js examples",
+    "portability_debt": "LOW per prior audit; operational contract debt is MEDIUM"
+  },
+  "trust": {
+    "origin": "everything-claude-code fork of affaan-m/ECC",
+    "installed_source_commit": "8bdf88e5ad8877bcd00a4aba7ccbfb50f235f10f",
+    "source_repository": "https://github.com/ricardoakinaga-dev/everything-claude-code",
+    "upstream_repository": "https://github.com/affaan-m/ECC",
+    "confidence": "MEDIUM",
+    "installed_mutation_count_before_phase7": 0,
+    "current_fork_comparison": "DIVERGED_FROM_CURRENT_FORK_HEAD"
+  },
+  "provenance": {
+    "audit_refs": [
+      "../../references/skill-audit/data/provenance-evidence/manifest.json",
+      "../../references/skill-audit/data/skill-lineage.json",
+      "../../references/skill-audit/reports/02b-skill-provenance.md"
+    ],
+    "snapshot_method": "read-only lstat, sorted file inventory, sha256 and byte/line/word count"
+  },
+  "package_size_bytes": 14096,
+  "key_weaknesses": [
+    "No native manifest or typed input/output contract",
+    "No explicit non-activation or stop conditions",
+    "No criterion-level evidence or verification handoff",
+    "Patterns and examples are ecosystem-specific and not repository-adaptive",
+    "Migration, transaction, concurrency and idempotency guidance is not an executable contract",
+    "Examples include mutating code without a bounded authorization model"
+  ]
+}

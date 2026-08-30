@@ -84,6 +84,23 @@ def test_preflight_requires_exact_allowlist_and_fingerprint(tmp_path: Path) -> N
     assert (
         allowed.authorization.filesystem_policy["host_interpreter_digest"] == "sha256:" + "b" * 64
     )
+    assert allowed.authorization.filesystem_policy == {
+        "workspace": str(tmp_path.resolve()),
+        "mode": "READ_ONLY",
+        "allowed_roots": (),
+        "package_path": str(Path(record.path).resolve()),
+        "package_write_allowed": False,
+        "network": "DENY",
+        "shell": "DENY",
+        "mcp": "DENY",
+        "providers": "DENY",
+        "credentials": "DENY",
+        "max_files": 256,
+        "max_bytes": 16 * 1024 * 1024,
+        "artifact_root": str(tmp_path / ".harness" / "phase4" / "artifacts"),
+        "host_executable_digest": "sha256:" + "a" * 64,
+        "host_interpreter_digest": "sha256:" + "b" * 64,
+    }
     context = allowed.context
     expected_context_payload = {
         "task_id": context.task_id,

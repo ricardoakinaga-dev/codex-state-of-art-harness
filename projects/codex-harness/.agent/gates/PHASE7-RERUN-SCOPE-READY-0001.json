@@ -1,0 +1,50 @@
+{
+  "schema_version": "P7-RERUN-SCOPE-GATE-1",
+  "gate_id": "PHASE7-RERUN-SCOPE-READY-0001",
+  "task_id": "PHASE7-RERUN-0001",
+  "run_id": "P7-REAL-BUILDER-RERUN-0001",
+  "status": "AUTHORIZED",
+  "authority": "USER_REQUEST_PLUS_PRIOR_CLOSEOUT_RECOVERY",
+  "purpose": "Re-run the bounded Phase 7 builder after the prior packet failed because the host lacked a permitted file/read/test capability.",
+  "scope": {
+    "source": "pilots/backend-appointment-api",
+    "disposable_workspace": true,
+    "write_roots": ["app", "migrations", "tests"],
+    "package_write": false,
+    "control_plane_write": false,
+    "network": "DENY",
+    "shell": "DENY",
+    "mcp": "DENY",
+    "providers": "DENY",
+    "credentials": "DENY"
+  },
+  "bounded_capabilities": [
+    "harness_list_files",
+    "harness_read_file",
+    "harness_write_file",
+    "harness_run_tests"
+  ],
+  "limits": {
+    "builder_invocations": 2,
+    "repair_iterations": 0,
+    "host_tool_calls_per_invocation": 64,
+    "max_files": 256,
+    "max_bytes": 16777216
+  },
+  "acceptance": [
+    "a current builder receipt exists",
+    "a complete artifact snapshot exists",
+    "the artifact remains inside declared roots",
+    "the host-owned fixed test observer result is recorded",
+    "the verifier receives the current receipt and artifact identity",
+    "no promotion claim is made without fresh verification and independent review"
+  ],
+  "prior_gate": "PHASE7-FINAL-FAIL-0001",
+  "stop_conditions": [
+    "unauthorized workspace mutation",
+    "forbidden host action",
+    "missing or invalid bounded tool response",
+    "host transport failure",
+    "artifact or receipt cannot be independently verified"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "P7-PILOT-BUILDER-RECEIPT-1",
+  "role": "SPECIALIST_BUILDER",
+  "package_fingerprint": "sha256:560d801467b48cdd1ea655c744bb31bd881ab77db1cb9d445572f0ad60a1fa0d",
+  "authorization_id": "AUTH-PHASE7-BUILDER-FINAL-001",
+  "attempts": [
+    {
+      "invocation_id": "INV-8bed0e027b92555abc95248c",
+      "status": "FAILURE",
+      "host_status": "SUCCESS",
+      "reason": "host response could not apply the requested context and no accepted file change resulted",
+      "receipt_digest": "sha256:ea32c15c9e355ff8b3144787473024c4feea899ca2273eebf391e66c7d4684c7",
+      "request_digest": "sha256:9475a7dd51b34d2a7152b19b6122d48a844b117371163574cc4d737121e5fdc5"
+    },
+    {
+      "invocation_id": "INV-fcdc33b7526a5efcb9691b7a",
+      "status": "FAILURE",
+      "host_status": "SUCCESS",
+      "reason": "host reported skill unavailable and editing tools prohibited; no files changed",
+      "receipt_digest": "sha256:89dd6df6ebb88f94d3381965f813b47d6c1fd564d92b4ab4e6ae83ef569da541",
+      "request_digest": "sha256:160b3f355a7e66b3821dfb9cf439d98e886e629c336ee872ea32f5b38a69db2d"
+    },
+    {
+      "invocation_id": "INV-fdb34810e7965d93adafcd61",
+      "status": "FAILURE",
+      "host_status": "SUCCESS",
+      "execution_observed": true,
+      "reason": "a real file-change event was observed, but InvocationEngine acceptance remained non-automatic and source inspection found the wrong predicate before repair",
+      "receipt_digest": "sha256:98ad5b65e63a1a72ac8d89c65b4daf5d3794195ab8ab6b05474861118dfd960e",
+      "request_digest": "sha256:36a1922e42df71a8de31bb1a982d597071bdbccda47b014c0b46b959cb80d342",
+      "host_event_digest": "sha256:dfd59254c6295d3dbe7dcdb119780e3bb514f62d2cf2deb3fc8af59c2355a1",
+      "artifact_path": "pilots/backend-appointment-api/.harness/phase4/artifacts/INV-fdb34810e7965d93adafcd61.host-response.txt"
+    }
+  ],
+  "final_host_execution_observed": true,
+  "final_invocation_engine_acceptance": "FAILURE_OR_NOT_AUTOMATICALLY_EVALUATED",
+  "final_source_change": "app/validation.py",
+  "workspace_boundary": "pilot app/migrations roots only",
+  "self_approval": false,
+  "repair_count": 1,
+  "repair_note": "Lead bounded repair corrected the wrong predicate and added a focused regression test; the v1 host response remains historical and is not reused as final verification.",
+  "host_artifact_digests": {
+    "INV-8bed0e027b92555abc95248c": "sha256:1a514836a63467699631557628a9fefdb0d80d9d3c3afb49024ad9a179a385f7",
+    "INV-fcdc33b7526a5efcb9691b7a": "sha256:5c1c502494892bb40574d3b0e4149f07e20893919e16b09a3bf325d0288601b8",
+    "INV-fdb34810e7965d93adafcd61": "sha256:1b12de0bc0adc851b027b2769cb7dff526dca6249d7fd5a9010ec4c414f753b6"
+  }
+}

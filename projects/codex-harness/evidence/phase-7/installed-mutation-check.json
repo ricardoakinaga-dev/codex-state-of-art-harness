@@ -1,0 +1,22 @@
+{
+  "schema_version": "P7-MUTATION-CHECK-1",
+  "observed_at": "2026-08-30",
+  "scope": [
+    "/home/ricardo/.agents/skills/backend-patterns/SKILL.md",
+    "/home/ricardo/.agents/skills/backend-patterns/agents/openai.yaml",
+    "global Codex configuration",
+    "project production/external state"
+  ],
+  "before": {
+    "SKILL.md": {"sha256": "sha256:952e95fd7e8d0b17f13835dde8067d7dd2abd019e6e17821d5ebf913113c589e", "bytes": 13837},
+    "agents/openai.yaml": {"sha256": "sha256:6a56b16e6ea055931bc38979c12279e7cd3ac7d3440bdd8fa1dc3152d003d36b", "bytes": 259}
+  },
+  "after": {
+    "SKILL.md": {"sha256": "sha256:952e95fd7e8d0b17f13835dde8067d7dd2abd019e6e17821d5ebf913113c589e", "bytes": 13837},
+    "agents/openai.yaml": {"sha256": "sha256:6a56b16e6ea055931bc38979c12279e7cd3ac7d3440bdd8fa1dc3152d003d36b", "bytes": 259}
+  },
+  "installed_mutations": 0,
+  "global_skill_mutations": 0,
+  "production_mutations": 0,
+  "conclusion": "unchanged hashes and sizes; no Phase 7 write was authorized outside the project-local candidate/pilot"
+}

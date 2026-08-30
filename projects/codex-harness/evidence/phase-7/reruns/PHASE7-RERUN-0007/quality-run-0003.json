@@ -1,0 +1,75 @@
+{
+  "schema_version": "P7-QUALITY-RUN-1",
+  "task_id": "PHASE7-RERUN-0007",
+  "observed_at": "2026-08-30T14:53:11-03:00",
+  "scope": "current project-local Phase 7 implementation plus complete Harness suite",
+  "commands": {
+    "full_suite_line": "PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 .venv/bin/coverage run -m pytest -q",
+    "line_threshold": ".venv/bin/coverage report --fail-under=80",
+    "full_suite_branch": "PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 .venv/bin/coverage run --branch -m pytest -q",
+    "format": ".venv/bin/ruff format --check src tests scripts",
+    "lint": ".venv/bin/ruff check src tests scripts",
+    "types": ".venv/bin/mypy --strict src",
+    "catalog_stability": "PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -c 'from pathlib import Path; from scripts.run_phase7_evals import execute_catalog; reports=[execute_catalog(Path(\".\").resolve()) for _ in range(5)]; assert all((r[\"status\"], r[\"scenario_count\"], r[\"passed_scenarios\"], r[\"critical_oracle_mismatch_count\"]) == (\"PASS\", 48, 48, 0) for r in reports)'"
+  },
+  "results": {
+    "tests": {
+      "status": "PASS",
+      "passed": 563,
+      "failed": 0,
+      "skipped": 0,
+      "line_run_duration_seconds": 78.90,
+      "branch_run_duration_seconds": 98.94
+    },
+    "line_coverage": {
+      "status": "PASS",
+      "covered_lines": 15659,
+      "statements": 19440,
+      "percent": 80.55041152263375,
+      "report_digest": "sha256:60ab631f4086fe208c17e130ae3b24057624242be049b655b5d72d135a6f0248"
+    },
+    "branch_coverage": {
+      "status": "OBSERVED_BELOW_80",
+      "covered_branches": 4851,
+      "branches": 7402,
+      "partial_branches": 2069,
+      "percent": 65.5363415293164,
+      "report_digest": "sha256:20fa5db09b77d2506f4950b856058ae2336e19b9496d945552160d0a46f15fa6",
+      "interpretation": "The repository's operational threshold is line coverage; branch coverage is retained as an explicit limitation rather than presented as green."
+    },
+    "ruff_format": {
+      "status": "PASS",
+      "output": "154 files already formatted"
+    },
+    "ruff_check": {
+      "status": "PASS",
+      "output": "All checks passed!"
+    },
+    "mypy_strict": {
+      "status": "PASS",
+      "source_files": 65,
+      "output": "Success: no issues found in 65 source files"
+    },
+    "dependency_audit": {
+      "status": "UNAVAILABLE",
+      "tool": "pip-audit",
+      "reason": "pip-audit is not installed in the project virtual environment and no approved offline dependency-audit database is present"
+    }
+  },
+  "stability_observations": {
+    "catalog_runs": 5,
+    "catalog_passes": [48, 48, 48, 48, 48],
+    "catalog_failures": 0,
+    "pilot_direct_tests_passed": 28,
+    "sqlite_lock_stress_runs": 50,
+    "sqlite_lock_stress_failures": 0
+  },
+  "claims": {
+    "line_threshold_met": true,
+    "branch_threshold_met": false,
+    "catalog_stability_observed": true,
+    "security_approval": false,
+    "production_ready": false,
+    "aaa_verified": false
+  }
+}

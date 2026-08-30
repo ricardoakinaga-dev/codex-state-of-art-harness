@@ -1,0 +1,17 @@
+{
+  "schema_version": "P7-PILOT-FINAL-TESTS-1",
+  "artifact_version": "2",
+  "status": "PASS",
+  "test_command": "../../.venv/bin/python -m pytest -q",
+  "test_result": "20 passed",
+  "coverage_command": "../../.venv/bin/coverage run -m pytest -q -p no:cacheprovider && ../../.venv/bin/coverage report -m --omit='tests/*'",
+  "coverage": {"statements": 845, "missed": 77, "line_percent": 91, "target_percent": 90},
+  "static_checks": {
+    "ruff_format": "PASS",
+    "ruff_check": "PASS",
+    "mypy_strict": "PASS, 8 source files"
+  },
+  "concurrency_repeats": {"runs": 5, "each_result": "2 passed, 18 deselected", "status": "PASS"},
+  "cli_subprocess_smoke": {"status": "PASS", "details": "real python -m app process bound to loopback, GET not-found observed, SIGINT returned cleanly"},
+  "fresh_after_repair": true
+}

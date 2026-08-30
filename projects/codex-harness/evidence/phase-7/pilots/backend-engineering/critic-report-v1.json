@@ -1,0 +1,12 @@
+{
+  "schema_version": "P7-PILOT-CRITIC-1",
+  "status": "NOT_RUN_AS_PRE_REPAIR_INDEPENDENT_CRITIC",
+  "independent": false,
+  "lead_finding": {
+    "severity": "MEDIUM",
+    "title": "Builder changed the wrong validation predicate before repair",
+    "disposition": "repaired_once_and_retested"
+  },
+  "level_c_claim": false,
+  "reason": "The strict critic-before-repair-before-final-verifier sequence was not established; the final decision is limited to P7_LEVEL_B."
+}

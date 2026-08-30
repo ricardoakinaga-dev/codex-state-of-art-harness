@@ -1,0 +1,8 @@
+{
+  "schema_version": "P7-PILOT-VERIFICATION-1",
+  "artifact_version": "1",
+  "status": "STALE",
+  "verification_id": null,
+  "reason": "v1 was invalidated by source inspection; no verifier PASS is attached to it",
+  "required_action": "rebind all evidence and run a fresh read-only verifier against artifact v2"
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "P7-PILOT-AUTH-1",
+  "authorization_id": "AUTH-PHASE7-BUILDER-FINAL-001",
+  "task_id": "TASK-PHASE7-BUILDER-FINAL-001",
+  "run_id": "RUN-PHASE7-BUILDER-FINAL-001",
+  "capability_id": "backend-engineering-vnext",
+  "requested_loading_level": "L2_INSTRUCTION_KERNEL",
+  "execution_mode": "CONTROLLED_REAL",
+  "workspace": "pilots/backend-appointment-api",
+  "filesystem_mode": "WORKSPACE_WRITE",
+  "allowed_write_roots": ["pilots/backend-appointment-api/app", "pilots/backend-appointment-api/migrations"],
+  "package_write_allowed": false,
+  "allowed_tools": [],
+  "network": "DENY",
+  "shell": "DENY",
+  "mcp": "DENY",
+  "providers": "DENY",
+  "credentials": "DENY",
+  "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+  "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+  "preflight": {"allowed": true, "blockers": [], "warnings": ["NETWORK_DENIED", "SHELL_DENIED", "MCP_DENIED", "CREDENTIALS_DENIED"]}
+}

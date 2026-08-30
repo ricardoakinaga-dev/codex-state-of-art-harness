@@ -1,0 +1,1 @@
+Failure: I could not read or edit `app/validation.py` because the requested `$backend-engineering-vnext` skill is unavailable and all file-access/editing tools were explicitly prohibited. No files were changed.

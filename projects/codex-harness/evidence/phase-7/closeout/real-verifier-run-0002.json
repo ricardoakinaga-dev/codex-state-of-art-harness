@@ -1,0 +1,30 @@
+{
+  "schema_version": "P7-CLOSEOUT-REAL-VERIFIER-1",
+  "task_id": "P7-VERIFIER-REAL-0002",
+  "run_id": "P7-REAL-VERIFIER-0002",
+  "observed_at": "2026-08-30T11:30:00-03:00",
+  "capability": "verification-loop-vnext",
+  "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "preflight": {
+    "allowed": true,
+    "digest": "sha256:f7e89d101590c86f1bd6e8582f8b58aaa7bb226119dce747b2f74ed3034c4222",
+    "host_invoked": true,
+    "tools": [],
+    "network": "DENY",
+    "shell": "DENY"
+  },
+  "host_result": {
+    "transport_status": "FAILURE",
+    "error_code": "HOSTPROTOCOLERROR",
+    "invocation_observed": true,
+    "execution_observed": false,
+    "load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "protocol_message_count": 263,
+    "mcp_event_count": 0,
+    "approval_request_count": 0,
+    "workspace_before_digest": "sha256:c978dd779c87b2c8b5f5b94e171e0e5593792d03f409ebc58add48706f65f8b3",
+    "workspace_after_digest": "sha256:c978dd779c87b2c8b5f5b94e171e0e5593792d03f409ebc58add48706f65f8b3",
+    "changed_paths": []
+  },
+  "interpretation": "Bounded event budget was too low for this read-only host turn. This run is retained as a failure observation and is not used as a verification PASS."
+}

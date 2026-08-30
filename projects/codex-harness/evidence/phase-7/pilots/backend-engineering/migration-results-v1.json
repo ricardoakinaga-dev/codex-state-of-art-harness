@@ -1,0 +1,14 @@
+{
+  "schema_version": "P7-PILOT-MIGRATION-1",
+  "status": "PASS",
+  "scope": "test databases only",
+  "checks": {
+    "ordered_apply": "PASS",
+    "unchanged_repeat_is_noop": "PASS",
+    "checksum_drift_fails_closed": "PASS",
+    "injected_failure_rolls_back_schema_and_record": "PASS",
+    "foreign_keys_and_checks": "PASS",
+    "provider_start_unique_invariant": "PASS"
+  },
+  "details": "Migration 001 is numeric-order applied, SHA-256 recorded in schema_migrations, and runs in an explicit transaction. No production database was touched."
+}

@@ -1,0 +1,1 @@
+Updated only `app/validation.py`: `validate_identifier` now rejects whitespace-only identifiers using `value.strip()`. Existing error behavior is preserved. Tests were not run due to the stated restrictions.

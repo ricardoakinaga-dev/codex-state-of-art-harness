@@ -1,0 +1,15 @@
+{
+  "schema_version": "P7-PILOT-SECURITY-1",
+  "status": "PASS_WITH_LIMITATIONS",
+  "independent": false,
+  "checks": {
+    "input_validation": "PASS",
+    "parameterized_sql": "PASS",
+    "path_and_workspace_boundary": "PASS",
+    "network_shell_mcp_credentials_denied": "PASS",
+    "log_redaction": "PASS",
+    "prompt_injection_as_data": "PASS",
+    "final_security_authority": "NOT_CLAIMED"
+  },
+  "limitations": ["loopback-only disposable fixture", "GET route has no actor authorization", "no TLS/production identity/tenancy assessment", "pip-audit unavailable in the project venv"]
+}

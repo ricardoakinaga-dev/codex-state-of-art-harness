@@ -1,0 +1,75 @@
+{
+  "schema_version": "P7-COMPOSITION-1",
+  "capability_id": "backend-engineering-vnext",
+  "role": "SPECIALIST",
+  "authority": "BACKEND_IMPLEMENTATION_WITHIN_FROZEN_HANDOFF",
+  "can_call": [],
+  "can_be_called_by": ["ROUTER", "ORCHESTRATOR", "ENGINEERING_DIRECTOR"],
+  "must_run_after": ["CLASSIFICATION", "ACCEPTANCE"],
+  "must_run_before": ["INTEGRATOR", "ASSURANCE", "RELEASE_AUTHORITY"],
+  "conflicts": ["DESIGN_DIRECTOR", "REVIEWER", "ASSURANCE", "RELEASE_AUTHORITY", "SECURITY_AUTHORITY"],
+  "optional": ["api-design", "tdd-workflow", "security-review", "verification-loop-vnext", "INDEPENDENT_REVIEWER"],
+  "do_not_combine": ["DESIGN_DIRECTOR", "REVIEWER", "ASSURANCE", "RELEASE_AUTHORITY", "SECURITY_AUTHORITY"],
+  "pipeline": [
+    "ROUTER",
+    "backend-engineering-vnext",
+    "verification-loop-vnext",
+    "security-review-when-triggered",
+    "INDEPENDENT_REVIEWER-when-available",
+    "ASSURANCE"
+  ],
+  "handoff_edges": [
+    {
+      "from": "backend-engineering-vnext",
+      "to": "api-design",
+      "when": "API contract is ambiguous or API ownership is explicitly requested",
+      "ownership": "api-design specifies or reviews; backend specialist implements"
+    },
+    {
+      "from": "backend-engineering-vnext",
+      "to": "security-review",
+      "when": "authentication, authorization, sensitive data, injection, file, privilege, callback, external exposure, or irreversible security risk is material",
+      "ownership": "security-review provides final security assurance; specialist supplies implementation evidence"
+    },
+    {
+      "from": "backend-engineering-vnext",
+      "to": "verification-loop-vnext",
+      "when": "a current artifact, diff, test, migration, API/data contract, and builder receipt are available",
+      "ownership": "verifier observes facts read-only; specialist cannot approve or repair through verifier"
+    }
+  ],
+  "fresh_final_verification": {
+    "required_after_repair": true,
+    "max_invocations": 2,
+    "must_rebind": ["artifact_identity", "diff_digest", "criteria_digest", "evidence_digest"]
+  },
+  "repair_policy": {
+    "max_repairs": 1,
+    "requires_structured_finding": true,
+    "requires_fresh_tests": true,
+    "requires_fresh_verification": true
+  },
+  "authority_exclusions": [
+    "cannot redefine the user goal",
+    "cannot own visual design or frontend UX",
+    "cannot issue final security approval",
+    "cannot approve its own material work",
+    "cannot authorize release",
+    "cannot orchestrate unrelated capabilities",
+    "cannot mutate installed or global packages",
+    "cannot change unrelated project roots"
+  ],
+  "workspace_boundary": {
+    "package_mutation": "DENY",
+    "control_plane_mutation": "DENY",
+    "pilot_mutation": "HOST_GRANTED_BOUNDED_ROOT_ONLY",
+    "external_state": "DENY"
+  },
+  "support_levels": {
+    "P7_LEVEL_A": "Package contract is independently validated as a project-local native candidate.",
+    "P7_LEVEL_B": "A plus real specialist and read-only verifier composition on the isolated pilot.",
+    "P7_LEVEL_C": "B plus independent backend/security criticism, at most one repair, and fresh final verification."
+  },
+  "causal_claim": false,
+  "host_observability": "must_report_observed_load_and_write_policy_without_inference"
+}

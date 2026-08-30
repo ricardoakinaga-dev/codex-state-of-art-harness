@@ -1,0 +1,81 @@
+{
+  "schema_version": "P7-CLOSEOUT-REAL-VERIFIER-1",
+  "task_id": "P7-VERIFIER-REAL-0003",
+  "run_id": "P7-REAL-VERIFIER-0003",
+  "observed_at": "2026-08-30T11:34:00-03:00",
+  "capability": "verification-loop-vnext",
+  "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "discovery": {
+    "package_digest": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "manifest_digest": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c",
+    "snapshot_digest": "sha256:bc28d8cca7c0d8d6332b3b0a9c5df46c1c6eb06d18bde2902ccab2cf025b8e4f",
+    "load_level": "L2_INSTRUCTION_KERNEL",
+    "instruction_loaded": true,
+    "host_load_observation": "UNAVAILABLE",
+    "blockers": []
+  },
+  "preflight": {
+    "allowed": true,
+    "digest": "sha256:f7e89d101590c86f1bd6e8582f8b58aaa7bb226119dce747b2f74ed3034c4222",
+    "phase4_digest": "sha256:92e01e6bcf993a429453a1ab650b3694cd50394cb86b5b38f74f980e52ed8e0d",
+    "host_invoked": true,
+    "tools": [],
+    "network": "DENY",
+    "shell": "DENY",
+    "mcp": "DENY",
+    "credentials": "DENY"
+  },
+  "host_result": {
+    "transport_status": "SUCCESS",
+    "semantic_verifier_status": "BLOCKED",
+    "stop_reason": "MISSING_REQUIRED_ARTIFACT",
+    "invocation_observed": true,
+    "execution_observed": true,
+    "load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "host_version": "codex-state-of-art-harness/0.151.0 (Linux Mint 22.3.0; x86_64) dumb (codex-state-of-art-harness; 0.1.0)",
+    "protocol_message_count": 484,
+    "mcp_event_count": 0,
+    "approval_request_count": 0,
+    "denied_approvals": 0,
+    "host_executable_path": "/home/ricardo/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_interpreter_path": "/home/ricardo/.nvm/versions/node/v22.22.2/bin/node",
+    "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+    "workspace_before_digest": "sha256:c978dd779c87b2c8b5f5b94e171e0e5593792d03f409ebc58add48706f65f8b3",
+    "workspace_after_digest": "sha256:c978dd779c87b2c8b5f5b94e171e0e5593792d03f409ebc58add48706f65f8b3",
+    "workspace_file_count_before": 42,
+    "workspace_file_count_after": 42,
+    "workspace_delta_ok": true,
+    "workspace_changed_paths": [],
+    "workspace_unauthorized_paths": []
+  },
+  "verifier_response": {
+    "type": "VerificationResult",
+    "version": "0.1.0",
+    "overall_status": "BLOCKED",
+    "stop_decision": {
+      "reason": "MISSING_REQUIRED_ARTIFACT",
+      "blocking_fact": "No builder artifact receipt is available after two bounded builder attempts and one permitted repair.",
+      "retry_performed": false
+    },
+    "criteria": [
+      {
+        "id": "builder_receipt_identity",
+        "status": "BLOCKED",
+        "confidence": "HIGH"
+      },
+      {
+        "id": "pilot_evidence",
+        "status": "NOT_RUN",
+        "confidence": "HIGH"
+      },
+      {
+        "id": "readonly_typed_result",
+        "status": "PASS",
+        "confidence": "HIGH"
+      }
+    ],
+    "mutations": []
+  },
+  "interpretation": "The host transport completed safely, and the verifier correctly refused to infer artifact, evidence, or release success from a missing builder handoff."
+}

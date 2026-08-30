@@ -1,0 +1,22 @@
+{
+  "schema_version": "P7-CLOSEOUT-PACKAGE-EVAL-1",
+  "observed_at": "2026-08-30",
+  "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/python scripts/run_phase7_evals.py",
+  "package_path": ".harness/capabilities/backend-engineering-vnext",
+  "package_fingerprint": "sha256:6a378943a68a8613a008d4947f38bd987f8654234b942ceee75373e8f873e0ef",
+  "status": "PASS",
+  "scenario_count": 48,
+  "passed_scenarios": 48,
+  "behavioral_execution": "FULL_CATALOG",
+  "known_bad_execution": "FULL_CATALOG",
+  "procedure_catalog_bound": true,
+  "critical_false_pass_count": 0,
+  "critical_oracle_mismatch_count": 0,
+  "causal_claim": false,
+  "fixture_only": false,
+  "notes": [
+    "Each scenario consumed its declared input identity and oracle stop condition; observed outcomes were derived from actual package/pilot observations rather than copied from expected_outcome.",
+    "Each declared known-bad fixture was applied and rejected by the catalog validator; all 48 mutation guards fired.",
+    "This result does not create a builder artifact or establish causal improvement."
+  ]
+}

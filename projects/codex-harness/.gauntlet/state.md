@@ -270,3 +270,77 @@ manifest and independent-review cycle. The final quality run passed 424 tests,
 80% combined branch coverage, Ruff and strict mypy. No Critical or High finding
 remains. Host load, external verifier eligibility, complete interaction/a11y,
 production readiness, AAA and causal benchmark claims remain excluded.
+
+## Phase 7 continuation — backend engineering modernization pilot
+
+The Phase 5 closeout above is historical. Phase 7 is a new T3 brownfield
+`FEATURE` with `EXPERIMENT` and `MIGRATION` overlays. The objective is to build
+an additive project-local `backend-engineering-vnext` specialist and exercise
+it on one disposable fictional Veterinary Appointment API. The installed
+`backend-patterns` package, global roots and frozen Phase 2–6 packets remain
+read-only authorities.
+
+The bar `evidence/phase-7/P7-QB-1.md` and ADR-016 were frozen after recovery,
+current/upstream inspection and native gap analysis. The scope and technical
+specification gates passed; implementation-ready remains pending the mandatory
+RED suite and final contract reconciliation. The current baseline is 519
+passing Harness tests, Ruff format/check and strict mypy.
+
+Fixed boundaries: the package owns backend-specific planning/implementation
+discipline and handoff, not API design authority, general coding standards,
+security assurance, verification, orchestration or release. The pilot may use
+only a bounded isolated workspace-write authorization; network, shell, MCP,
+providers, credentials and arbitrary scripts remain denied. No production,
+global migration, installed Skill mutation, destructive migration, causal or
+AAA claim is authorized.
+
+## Current next action
+
+Run the Phase 7 RED contract/security/eval slice, record its expected failure
+without rewriting history, issue the canonical `IMPLEMENTATION_READY` gate,
+then build the package/pilot in disjoint ownership lanes.
+
+## Phase 7 final closeout — 2026-08-30
+
+The Phase 7 additive backend-engineering-vNext candidate was exercised within
+its frozen local scope. The package catalog passed 48/48 with all known-bad
+guards; the pilot passed 26 tests at 90% app-only coverage; the Harness passed
+549 tests at 81% combined line coverage; Ruff, strict mypy, security boundary
+checks and fresh Phase 2–6 regressions passed.
+
+The real builder exhausted two invocations and one permitted repair without a
+verifiable artifact or receipt because the host lacked a permitted bounded
+editor/read/test surface. The real verifier remained read-only and correctly
+returned `BLOCKED/MISSING_REQUIRED_ARTIFACT`; no workspace mutation occurred.
+The exact post-repair independent re-review and strict critic/repair/fresh
+verification chain are unresolved. Old receipts and promotion reports are
+excluded from the current closeout.
+
+The current control state is `PHASE7-001 VERIFY`, verification `FAIL`,
+promotion `NOT_PROMOTED`, with `.agent/gates/PHASE7-FINAL-FAIL-0001.json` as
+the final gate and no `PHASE7-FROZEN.md` marker. The package is retained as a
+`P7_LEVEL_A_CANDIDATE` only. A future attempt requires a separately authorized
+host capability and a new gate; no third builder attempt is authorized by this
+closeout.
+
+## Phase 7 authoritative rerun state — 2026-08-30
+
+The previous `FAIL/NOT_PROMOTED` closeout remains immutable historical evidence.
+After remediation, the current chain is `PHASE7-RERUN-0007` with a successful
+real builder, one bounded repair, fresh read-only verifier 0009 and independent
+review `PASS` from `01a05394-2607-7a83-b6e0-7e6b9454bae7`. The final gate is
+`.agent/gates/PHASE7-FINAL-RERUN-0009.json`; the 104-entry byte-bound manifest is
+`evidence/phase-7/closeout-rerun-0009/review-manifest.json`.
+
+Observed controls: 563 complete-suite tests pass; line coverage is 80.5504%;
+branch coverage is 65.5363% and remains a declared limitation; the evaluator
+passes 48/48 in five consecutive runs; the pilot passes 28 tests; the
+cross-process migration stress passes 50 runs with ten processes each; Ruff,
+strict mypy and secret scan pass. No package/global/installed/provider/MCP/
+shell/network/credential mutation occurred.
+
+Current control state is `PHASE7-001 DONE`, verification
+`PASS_WITH_LIMITATIONS`, promotion `NOT_PROMOTED`, candidate support
+`P7_LEVEL_B_CANDIDATE`. This state does not assert release approval, production
+readiness, security approval, causal improvement, universal superiority or AAA
+quality. Human/release authority remains the next decision owner.

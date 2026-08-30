@@ -1,0 +1,37 @@
+{
+  "schema_version": "P4-POLICY-1",
+  "rules": [
+    {
+      "capability_id": "backend-engineering-vnext",
+      "version": "0.1.0",
+      "package_fingerprint": "sha256:fa8ff9c60f79466ea2b4d2ebbce09b376d6260a40105b344f1da7141fc36437e",
+      "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+      "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+      "execution_approved": true,
+      "allowed_modes": [
+        "DRY_RUN",
+        "PREPARE_ONLY",
+        "CONTROLLED_REAL"
+      ],
+      "allowed_tools": [],
+      "allowed_side_effects": [],
+      "allowed_providers": [],
+      "allow_scripts": false,
+      "allow_network": false,
+      "allow_shell": false,
+      "allow_mcp": false,
+      "allow_credentials": false,
+      "expected_artifact_types": [
+        "HOST_RESPONSE",
+        "FILE"
+      ],
+      "reason": "exact project-local backend builder; only the disposable app and migration roots may change",
+      "filesystem_mode": "WORKSPACE_WRITE",
+      "workspace_write_roots": [
+        "app",
+        "migrations",
+        "tests"
+      ]
+    }
+  ]
+}

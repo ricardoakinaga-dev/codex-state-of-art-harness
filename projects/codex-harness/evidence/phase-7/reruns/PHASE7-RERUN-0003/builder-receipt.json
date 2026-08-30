@@ -1,0 +1,593 @@
+{
+  "artifact": {
+    "files": {
+      "app/__init__.py": {
+        "bytes": 476,
+        "sha256": "sha256:ed684d234025cb3c68b1951b89339f645f4b4946d890dbac8da670b8b8f46594"
+      },
+      "app/__main__.py": {
+        "bytes": 1561,
+        "sha256": "sha256:e04298669e02387556458cc592c4b7b722b8a2b8e9880ecc65d281450b483b33"
+      },
+      "app/api.py": {
+        "bytes": 15701,
+        "sha256": "sha256:899434697e7d3fd105c0b8a6fb3d64acc17a900c6a68efe1ee5fd58c10891ef6"
+      },
+      "app/db.py": {
+        "bytes": 4116,
+        "sha256": "sha256:3cf4eea8e2f232e2a354f29776bce6b6ea75b524151bfa0ca8672e6dc1f1cc89"
+      },
+      "app/migrations.py": {
+        "bytes": 12455,
+        "sha256": "sha256:a0f2eeb884b915f1f7564a1988523b18c16e3603d472643ee787ab837e9c91d1"
+      },
+      "app/observability.py": {
+        "bytes": 1665,
+        "sha256": "sha256:b43ddcdda77e0cfc39da62b75b54ff51cfc8dbaa177ca8581ec023d3353933e2"
+      },
+      "app/service.py": {
+        "bytes": 18548,
+        "sha256": "sha256:85855ab12ece09550de186f04d7854b6bfa55aad70da3eeafa132ae53f53e6a4"
+      },
+      "app/validation.py": {
+        "bytes": 6186,
+        "sha256": "sha256:f8563dcfb1a1f9248381e792469b216fca7d74d2e49318296bea0bc45df54900"
+      },
+      "migrations/001_initial.sql": {
+        "bytes": 2564,
+        "sha256": "sha256:12ba8ad7c22ec493c64681f5112d8adcac2d8288d0cc6e538bd9538e189b05d7"
+      },
+      "migrations/002_ownership_triggers.sql": {
+        "bytes": 1833,
+        "sha256": "sha256:376f6b032a8ec1ec2290884e2706a3b52edd7ca7eafe3f9898daba631e287078"
+      },
+      "tests/test_pilot.py": {
+        "bytes": 36403,
+        "sha256": "sha256:8694c9466d0f6438a1aefa6d00cc6aa67b05fe5c485aa4590d0e5961f6b21a26"
+      }
+    },
+    "present": false,
+    "root": "artifact-v1"
+  },
+  "canonical_preflight": {
+    "allowed": true,
+    "blockers": [],
+    "digest": "sha256:3fff26fd89f66bc7b2825b5ceb55b61867ac6280d394d8dfe7912d2a820a3a11",
+    "host_invoked": false,
+    "mode": "CONTROLLED_REAL",
+    "phase4": {
+      "allowed": true,
+      "authorization": {
+        "authorization_id": "AUTH-069e801e9585540999efa1c2",
+        "capability_id": "backend-engineering-vnext",
+        "capability_version": "0.1.0",
+        "filesystem_policy": {
+          "allowed_roots": [
+            "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.p7-backend-builder-rerun-oxnkdzue/pilot/app",
+            "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.p7-backend-builder-rerun-oxnkdzue/pilot/migrations",
+            "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.p7-backend-builder-rerun-oxnkdzue/pilot/tests"
+          ],
+          "artifact_root": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.p7-backend-builder-rerun-oxnkdzue/pilot/.harness/phase4/artifacts",
+          "credentials": "DENY",
+          "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+          "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+          "max_bytes": 16777216,
+          "max_files": 256,
+          "mcp": "DENY",
+          "mode": "WORKSPACE_WRITE",
+          "network": "DENY",
+          "package_path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/backend-engineering-vnext",
+          "package_write_allowed": false,
+          "providers": "DENY",
+          "shell": "DENY",
+          "workspace": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.p7-backend-builder-rerun-oxnkdzue/pilot"
+        },
+        "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+        "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+        "package_fingerprint": "sha256:fa8ff9c60f79466ea2b4d2ebbce09b376d6260a40105b344f1da7141fc36437e",
+        "requested_execution_mode": "CONTROLLED_REAL",
+        "run_id": "P7-REAL-BUILDER-RERUN-0003",
+        "task_id": "PHASE7-RERUN-0003"
+      },
+      "blockers": [],
+      "context": {
+        "capability_id": "backend-engineering-vnext",
+        "digest": "sha256:2b7279ebd123131457f4e342cb03676ecc3337ebec5a6f8189990dfd4d7aae33",
+        "estimated_bytes": 22982,
+        "omitted_references": [],
+        "package_fingerprint": "sha256:fa8ff9c60f79466ea2b4d2ebbce09b376d6260a40105b344f1da7141fc36437e",
+        "selected_references": [
+          "references/api-data-contract.md",
+          "references/architecture-boundaries.md",
+          "references/deterministic-boundaries.md",
+          "references/implementation-handoff.md",
+          "references/migration-reliability.md",
+          "references/role-boundaries.md",
+          "references/security-handoff.md"
+        ],
+        "skill_path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/backend-engineering-vnext/SKILL.md",
+        "task_id": "PHASE7-RERUN-0003"
+      },
+      "digest": "sha256:9d9493ebe4c3f90dfa368137f65ea0e1096ebaeee702dffdae960eb9338c8764",
+      "request": {
+        "invocation_id": "INV-6d613b751b345949a6553832",
+        "skill_name": "backend-engineering-vnext",
+        "skill_path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/backend-engineering-vnext/SKILL.md",
+        "workspace": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.p7-backend-builder-rerun-oxnkdzue/pilot"
+      },
+      "warnings": [
+        "NETWORK_DENIED",
+        "SHELL_DENIED",
+        "MCP_DENIED",
+        "CREDENTIALS_DENIED"
+      ]
+    },
+    "snapshot": {
+      "blockers": [],
+      "capability_id": "backend-engineering-vnext",
+      "digest": "sha256:e594e48ca97d6378b05229b28065e49493a73e114f3991fed5cc0ef9c4b91585",
+      "instruction_loaded": true,
+      "manifest_digest": "sha256:06fb9ec37f3e02a0efb13a037e762f3a4be3067052fa47b98e4f4089c4413937",
+      "package_digest": "sha256:fa8ff9c60f79466ea2b4d2ebbce09b376d6260a40105b344f1da7141fc36437e",
+      "project_root": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness",
+      "record": {
+        "capability_id": "backend-engineering-vnext",
+        "content_hash": "sha256:fa8ff9c60f79466ea2b4d2ebbce09b376d6260a40105b344f1da7141fc36437e",
+        "kind": "NATIVE",
+        "load_eligibility": "ELIGIBLE_DECLARATIVE_METADATA_ONLY",
+        "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/backend-engineering-vnext",
+        "root_id": "project.harness",
+        "status": "INSPECTED",
+        "version": "0.1.0"
+      }
+    },
+    "warnings": [
+      "NETWORK_DENIED",
+      "SHELL_DENIED",
+      "MCP_DENIED",
+      "CREDENTIALS_DENIED"
+    ]
+  },
+  "capability": "backend-engineering-vnext",
+  "changed_paths": [],
+  "error_code": "HOST_TURN_NOT_COMPLETED",
+  "events": [
+    {
+      "detail": null,
+      "event_class": "HOST_INVOCATION_ACKNOWLEDGED",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "01a0537a-10fc-78a3-81bd-8790da18bb89",
+      "item_type": null,
+      "method": "turn/start",
+      "sequence": 0,
+      "status": "started",
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": "01a0537a-10fc-78a3-81bd-8790da18bb89"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "thread/status/changed",
+      "sequence": 1,
+      "status": null,
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "turn/started",
+      "sequence": 2,
+      "status": "inProgress",
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": "01a0537a-10fc-78a3-81bd-8790da18bb89"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "01a0537a-13e8-76b3-9d69-baa499eb94fe",
+      "item_type": "userMessage",
+      "method": "item/started",
+      "sequence": 3,
+      "status": null,
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": "01a0537a-10fc-78a3-81bd-8790da18bb89"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "01a0537a-13e8-76b3-9d69-baa499eb94fe",
+      "item_type": "userMessage",
+      "method": "item/completed",
+      "sequence": 4,
+      "status": null,
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": "01a0537a-10fc-78a3-81bd-8790da18bb89"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "error",
+      "sequence": 5,
+      "status": null,
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": "01a0537a-10fc-78a3-81bd-8790da18bb89"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "error",
+      "sequence": 6,
+      "status": null,
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": "01a0537a-10fc-78a3-81bd-8790da18bb89"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "error",
+      "sequence": 7,
+      "status": null,
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": "01a0537a-10fc-78a3-81bd-8790da18bb89"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "error",
+      "sequence": 8,
+      "status": null,
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": "01a0537a-10fc-78a3-81bd-8790da18bb89"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "warning",
+      "sequence": 9,
+      "status": null,
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "error",
+      "sequence": 10,
+      "status": null,
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": "01a0537a-10fc-78a3-81bd-8790da18bb89"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "error",
+      "sequence": 11,
+      "status": null,
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": "01a0537a-10fc-78a3-81bd-8790da18bb89"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "error",
+      "sequence": 12,
+      "status": null,
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": "01a0537a-10fc-78a3-81bd-8790da18bb89"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "error",
+      "sequence": 13,
+      "status": null,
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": "01a0537a-10fc-78a3-81bd-8790da18bb89"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "error",
+      "sequence": 14,
+      "status": null,
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": "01a0537a-10fc-78a3-81bd-8790da18bb89"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "thread/status/changed",
+      "sequence": 15,
+      "status": null,
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "error",
+      "sequence": 16,
+      "status": null,
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": "01a0537a-10fc-78a3-81bd-8790da18bb89"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "turn/completed",
+      "sequence": 17,
+      "status": "failed",
+      "thread_id": "01a0537a-1081-7602-bb9e-8acb92d679ad",
+      "turn_id": "01a0537a-10fc-78a3-81bd-8790da18bb89"
+    }
+  ],
+  "execution_observed": true,
+  "final_message": null,
+  "host": {
+    "command_bound": true,
+    "executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90"
+  },
+  "invocation_observed": true,
+  "package_fingerprint": "sha256:fa8ff9c60f79466ea2b4d2ebbce09b376d6260a40105b344f1da7141fc36437e",
+  "policy": {
+    "allowed_roots": [
+      "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.p7-backend-builder-rerun-oxnkdzue/pilot/app",
+      "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.p7-backend-builder-rerun-oxnkdzue/pilot/migrations",
+      "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.p7-backend-builder-rerun-oxnkdzue/pilot/tests"
+    ],
+    "artifact_root": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.p7-backend-builder-rerun-oxnkdzue/pilot/.harness/phase4/artifacts",
+    "credentials": "DENY",
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+    "max_bytes": 16777216,
+    "max_files": 256,
+    "mcp": "DENY",
+    "mode": "WORKSPACE_WRITE",
+    "network": "DENY",
+    "package_path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/backend-engineering-vnext",
+    "package_write_allowed": false,
+    "providers": "DENY",
+    "shell": "DENY",
+    "workspace": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.p7-backend-builder-rerun-oxnkdzue/pilot"
+  },
+  "promotion": "NOT_CREATED",
+  "protocol": {
+    "approval_requests": 0,
+    "mcp_events": 0,
+    "message_count": 24,
+    "observations": [
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 0
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "configWarning",
+        "sequence": 1
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "remoteControl/status/changed",
+        "sequence": 2
+      },
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 3
+      },
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 4
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/started",
+        "sequence": 5
+      },
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 6
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/status/changed",
+        "sequence": 7
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "turn/started",
+        "sequence": 8
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/started",
+        "sequence": 9
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/completed",
+        "sequence": 10
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 11
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 12
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 13
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 14
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "warning",
+        "sequence": 15
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 16
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 17
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 18
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 19
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 20
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/status/changed",
+        "sequence": 21
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 22
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "turn/completed",
+        "sequence": 23
+      }
+    ]
+  },
+  "run_id": "P7-REAL-BUILDER-RERUN-0003",
+  "schema_version": "P7-RERUN-BUILDER-RECEIPT-1",
+  "semantic_status": "FAILURE",
+  "task_id": "PHASE7-RERUN-0003",
+  "transport_status": "FAILURE",
+  "workspace": "disposable/pilot",
+  "workspace_delta": {
+    "added_paths": [],
+    "changed_paths": [],
+    "digest": "sha256:84b4d846e41fcd749a90f5825908b2d4036c3f7ad8e634385f786f270b3a66b4",
+    "errors": [],
+    "ok": true,
+    "removed_paths": [],
+    "unauthorized_paths": []
+  }
+}

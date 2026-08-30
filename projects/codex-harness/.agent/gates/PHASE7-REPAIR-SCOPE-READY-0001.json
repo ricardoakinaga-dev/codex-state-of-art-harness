@@ -1,0 +1,37 @@
+{
+  "schema_version": "P7-REPAIR-SCOPE-GATE-1",
+  "gate_id": "PHASE7-REPAIR-SCOPE-READY-0001",
+  "task_id": "PHASE7-REPAIR-0001",
+  "run_id": "P7-REAL-BUILDER-REPAIR-0001",
+  "status": "AUTHORIZED",
+  "authority": "PHASE7-RERUN-SCOPE-READY-0001",
+  "purpose": "Repair the one new Ruff formatting defect identified in the current builder artifact while preserving the reviewed idempotency hardening and public contract.",
+  "base_artifact": "evidence/phase-7/reruns/PHASE7-RERUN-0001/artifact-v1",
+  "scope": {
+    "disposable_workspace": true,
+    "write_roots": ["app", "migrations", "tests"],
+    "package_write": false,
+    "control_plane_write": false,
+    "network": "DENY",
+    "shell": "DENY",
+    "mcp": "DENY",
+    "providers": "DENY",
+    "credentials": "DENY"
+  },
+  "repair_limit": 1,
+  "allowed_change": "formatting/static-quality repair only; no API, persistence, migration or acceptance-criteria redesign",
+  "acceptance": [
+    "the existing idempotency replay hardening remains present",
+    "the focused regression test remains present",
+    "the fixed host test observer passes",
+    "the repaired artifact is complete and hashable",
+    "the repaired artifact remains inside declared roots"
+  ],
+  "stop_conditions": [
+    "any scope expansion",
+    "unauthorized workspace mutation",
+    "forbidden host action",
+    "host transport failure",
+    "fixed test observer failure"
+  ]
+}

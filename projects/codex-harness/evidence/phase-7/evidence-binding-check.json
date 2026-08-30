@@ -1,0 +1,27 @@
+{
+  "schema_version": "P7-EVIDENCE-BINDING-1",
+  "task_id": "TASK-PHASE7-VERIFIER-FINAL-001",
+  "package_fingerprint": "sha256:560d801467b48cdd1ea655c744bb31bd881ab77db1cb9d445572f0ad60a1fa0d",
+  "artifact_digest": "sha256:a740e844f98d7fdcd686f119cb1f1f4b80f21c92a4e524edaa27591dfcf73a8a",
+  "criteria_digest": "sha256:1762cecfba05366c26d351e917f2bb19815a4ac4508726a823fd09389541e90c",
+  "expected_identity": {
+    "task_id": "TASK-PHASE7-VERIFIER-FINAL-001",
+    "package_fingerprint": "sha256:560d801467b48cdd1ea655c744bb31bd881ab77db1cb9d445572f0ad60a1fa0d",
+    "artifact_digest": "sha256:a740e844f98d7fdcd686f119cb1f1f4b80f21c92a4e524edaa27591dfcf73a8a",
+    "criteria_digest": "sha256:1762cecfba05366c26d351e917f2bb19815a4ac4508726a823fd09389541e90c",
+    "authority": "VERIFIER"
+  },
+  "freshness": "FRESH",
+  "status": "VERIFIED",
+  "authority": "VERIFIER",
+  "self_approval": false,
+  "max_age_seconds": 86400,
+  "observed_at": "2026-08-30T09:30:00-03:00",
+  "evidence_digests": {
+    "pilot_tests": "sha256:85690f3842a5e128fc745f912099b69ef493c75420efd0494e2fca76248b0cc7",
+    "migration": "sha256:12ba8ad7c22ec493c64681f5112d8adcac2d8288d0cc6e538bd9538e189b05d7",
+    "host_response": "sha256:2bbf9c2764d847880c166209f56d5ab4ae8d0ea3c3174b90c54a79c8051ac3e7"
+  },
+  "validator": "validate_backend_evidence_binding",
+  "validator_result": "PASS"
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "P7-PACKAGE-1",
+  "package_id": "backend-engineering-vnext",
+  "native": true,
+  "kind": "PROJECT_LOCAL_NATIVE",
+  "scope": "PROJECT",
+  "version": "0.1.0",
+  "status": "CANDIDATE",
+  "role": "SPECIALIST",
+  "type": "SPECIALIST",
+  "primary_type": "SPECIALIST",
+  "metadata_only": true,
+  "execution": "NONE",
+  "host_load_claim": false,
+  "host_load_observation": "NOT_ASSERTED",
+  "global_state_mutation": false,
+  "installed_source_mutation": false,
+  "external_state_mutation": false,
+  "package_write_allowed": false,
+  "files": {
+    "manifest": "manifest.json",
+    "router": "SKILL.md",
+    "profiles": "profiles.json",
+    "composition": "composition-contract.json",
+    "references": [
+      "references/architecture-boundaries.md",
+      "references/api-data-contract.md",
+      "references/migration-reliability.md",
+      "references/security-handoff.md",
+      "references/implementation-handoff.md",
+      "references/deterministic-boundaries.md",
+      "references/role-boundaries.md"
+    ],
+    "scripts": ["scripts/deterministic-procedures.json"],
+    "evals": ["evals/scenarios.json"],
+    "benchmarks": ["benchmarks/benchmark-fixtures.json"]
+  },
+  "identity_binding": [
+    "manifest_digest",
+    "package_fingerprint",
+    "artifact_identity",
+    "task_identity",
+    "criteria_digest",
+    "evidence_digest"
+  ],
+  "promotion_limit": "CANDIDATE_ONLY_UNTIL_CURRENT_EVAL_BENCHMARK_AND_INDEPENDENT_REVIEW",
+  "claims_excluded": [
+    "host_loaded",
+    "production_ready",
+    "causal_improvement",
+    "universal_superiority",
+    "security_approval",
+    "release_approval",
+    "AAA_QUALITY"
+  ],
+  "frozen_task": "PHASE7-001",
+  "comparison_label": "PILOT_MODERNIZATION_EVIDENCE",
+  "no_false_causal_claim": true
+}

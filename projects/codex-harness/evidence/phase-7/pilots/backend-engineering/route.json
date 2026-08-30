@@ -1,0 +1,14 @@
+{
+  "schema_version": "P7-PILOT-ROUTE-1",
+  "classification": "BACKEND_ENGINEERING",
+  "selected_capability": "backend-engineering-vnext",
+  "route_status": "RESOLVED",
+  "phase3_discovery": "PASS",
+  "phase3_safe_load": "PASS_WITH_LIMITATIONS",
+  "phase3_host_load_observation": "HOST_LOAD_UNOBSERVABLE",
+  "phase4_preflight": "PASS",
+  "phase4_mode": "CONTROLLED_REAL",
+  "negative_routes_not_selected": ["documentation", "frontend_visual", "research_only", "release_authority", "security_authority"],
+  "native_app_server_skills_list": "did_not_expose_project_local_backend_package",
+  "host_adapter_fallback": "host-managed_instruction_kernel_with_local_identity_binding"
+}

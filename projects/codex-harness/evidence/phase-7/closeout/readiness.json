@@ -1,0 +1,43 @@
+{
+  "aaa_verified": false,
+  "attestation_digest": "sha256:ca07697e3985825c8244ba439e7fd9b5ddce2e38d64e4c679a8cc789dae6f424",
+  "blocking_facts": [
+    "P7-23: no current builder artifact after two builder invocations and one repair",
+    "P7-24: verifier semantic stop is BLOCKED/MISSING_REQUIRED_ARTIFACT",
+    "P7-30: exact post-repair independent re-review is not available",
+    "P7-31: no PHASE7-FROZEN marker is authorized for a failed gate"
+  ],
+  "candidate_support": "P7_LEVEL_A_CANDIDATE",
+  "levels": {
+    "P7_LEVEL_A": {
+      "candidate": true,
+      "promoted": false,
+      "reason": "Package contract and current catalog pass, but exact closeout review is not a promotion authority."
+    },
+    "P7_LEVEL_B": {
+      "candidate": false,
+      "promoted": false,
+      "reason": "No builder artifact/receipt and no complete builder-to-verifier handoff."
+    },
+    "P7_LEVEL_C": {
+      "candidate": false,
+      "promoted": false,
+      "reason": "Strict independent critic, one repair and fresh rebound final verification chain is incomplete."
+    }
+  },
+  "manifest_digest": "sha256:17b9a30566cb5a23cd55de766393669bd4a0e2d89b103499505103b0d326713f",
+  "observed_at": "2026-08-30T15:15:40.949690Z",
+  "observed_green": [
+    "48/48 package scenarios with full known-bad guards",
+    "26 pilot tests and 90% app-only coverage",
+    "549 Harness tests and 81% combined line coverage",
+    "current Phase 2–6 regression suites green",
+    "Ruff and strict mypy green",
+    "real verifier transport read-only with zero workspace delta"
+  ],
+  "promotable_support": null,
+  "promotion": "NOT_PROMOTED",
+  "schema_version": "P7-READINESS-1",
+  "status": "FAIL",
+  "task_id": "PHASE7-001"
+}

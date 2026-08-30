@@ -11,7 +11,7 @@ import uuid
 from collections.abc import Mapping
 from contextlib import suppress
 from dataclasses import dataclass
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 from .phase3_discovery import revalidate_capability
 from .phase3_models import CapabilityInventory, CapabilityRecord, Phase3Limits, ResolutionResult
@@ -151,6 +151,8 @@ class PilotRule:
     reason: str = "no execution permission granted"
     host_executable_digest: str | None = None
     host_interpreter_digest: str | None = None
+    filesystem_mode: str = "READ_ONLY"
+    workspace_write_roots: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
         if _ID_PATTERN.fullmatch(self.capability_id) is None:
@@ -171,6 +173,18 @@ class PilotRule:
             raise Phase4PolicyError("host_interpreter_digest is invalid")
         if not isinstance(self.execution_approved, bool):
             raise Phase4PolicyError("execution_approved must be boolean")
+        if self.filesystem_mode not in {"READ_ONLY", "WORKSPACE_WRITE"}:
+            raise Phase4PolicyError("filesystem_mode is unsupported")
+        write_roots = _tuple_strings(self.workspace_write_roots, "workspace_write_roots")
+        if any(
+            Path(root).is_absolute()
+            or any(part in {"", ".", ".."} for part in PurePosixPath(root).parts)
+            for root in write_roots
+        ):
+            raise Phase4PolicyError("workspace_write_roots must be safe relative paths")
+        if self.filesystem_mode == "WORKSPACE_WRITE" and not write_roots:
+            raise Phase4PolicyError("WORKSPACE_WRITE requires workspace_write_roots")
+        object.__setattr__(self, "workspace_write_roots", write_roots)
         if not self.reason or "\x00" in self.reason or len(self.reason) > 2_048:
             raise Phase4PolicyError("reason is invalid")
         object.__setattr__(
@@ -252,6 +266,8 @@ class ExecutionPolicyRegistry:
                 "reason",
                 "host_executable_digest",
                 "host_interpreter_digest",
+                "filesystem_mode",
+                "workspace_write_roots",
             }
             if set(raw).difference(supported_fields):
                 raise Phase4PolicyError("policy rule contains unsupported fields")
@@ -296,6 +312,14 @@ class ExecutionPolicyRegistry:
                         _required_string(raw, "host_interpreter_digest")
                         if "host_interpreter_digest" in raw
                         else None
+                    ),
+                    filesystem_mode=(
+                        _required_string(raw, "filesystem_mode")
+                        if "filesystem_mode" in raw
+                        else "READ_ONLY"
+                    ),
+                    workspace_write_roots=_tuple_strings(
+                        raw.get("workspace_write_roots"), "workspace_write_roots"
                     ),
                 )
             )
@@ -360,6 +384,8 @@ class ExecutionPolicyRegistry:
                     "reason": rule.reason,
                     "host_executable_digest": rule.host_executable_digest,
                     "host_interpreter_digest": rule.host_interpreter_digest,
+                    "filesystem_mode": rule.filesystem_mode,
+                    "workspace_write_roots": list(rule.workspace_write_roots),
                 }
                 for rule in self.rules
             ],
@@ -712,6 +738,8 @@ def build_preflight(
         "context": context.digest,
         "host_executable_digest": rule.host_executable_digest if rule is not None else None,
         "host_interpreter_digest": rule.host_interpreter_digest if rule is not None else None,
+        "filesystem_mode": rule.filesystem_mode if rule is not None else "READ_ONLY",
+        "workspace_write_roots": rule.workspace_write_roots if rule is not None else (),
         "issued_at": issued_at,
     }
     authorization_id = (
@@ -731,7 +759,23 @@ def build_preflight(
         allowed_side_effects=rule.allowed_side_effects if rule is not None else (),
         filesystem_policy={
             "workspace": str(workspace_path),
-            "mode": "READ_ONLY",
+            "mode": rule.filesystem_mode if rule is not None else "READ_ONLY",
+            "allowed_roots": (
+                tuple(str(workspace_path / relative) for relative in rule.workspace_write_roots)
+                if rule is not None and rule.filesystem_mode == "WORKSPACE_WRITE"
+                else ()
+            ),
+            "package_path": str(Path(record.path).resolve()),
+            "package_write_allowed": False,
+            "network": "ALLOW" if rule is not None and rule.allow_network else "DENY",
+            "shell": "ALLOW" if rule is not None and rule.allow_shell else "DENY",
+            "mcp": "ALLOW" if rule is not None and rule.allow_mcp else "DENY",
+            "providers": (
+                "ALLOW_SELECTED" if rule is not None and rule.allowed_providers else "DENY"
+            ),
+            "credentials": ("ALLOW" if rule is not None and rule.allow_credentials else "DENY"),
+            "max_files": 256,
+            "max_bytes": 16 * 1024 * 1024,
             "artifact_root": str(workspace_path / ".harness" / "phase4" / "artifacts"),
             "host_executable_digest": rule.host_executable_digest if rule is not None else None,
             "host_interpreter_digest": rule.host_interpreter_digest if rule is not None else None,

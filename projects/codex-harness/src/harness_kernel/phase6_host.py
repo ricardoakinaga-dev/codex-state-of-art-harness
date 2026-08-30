@@ -295,8 +295,15 @@ def _manifest_digest(record: CapabilityRecord) -> str | None:
         return None
 
 
-def discover_vnext_package(project_root: str | Path) -> Phase6HostSnapshot:
+def discover_vnext_package(
+    project_root: str | Path,
+    *,
+    capability_id: str = "verification-loop-vnext",
+) -> Phase6HostSnapshot:
     """Discover exactly one native vNext package and load only its kernel."""
+
+    if not isinstance(capability_id, str) or not capability_id or "\x00" in capability_id:
+        raise Phase6HostError("capability_id is invalid")
 
     root = _root(project_root, "project_root")
     adapter = CodexHostAdapter(project_root=root, workspace_root=root, home_dir=Path.home())
@@ -311,9 +318,7 @@ def discover_vnext_package(project_root: str | Path) -> Phase6HostSnapshot:
             observed_at=str(int(time.time())),
             fingerprint=digest_payload({"project_root": str(root), "error": error}),
         )
-    matches = tuple(
-        item for item in inventory.capabilities if item.capability_id == "verification-loop-vnext"
-    )
+    matches = tuple(item for item in inventory.capabilities if item.capability_id == capability_id)
     blockers: list[str] = []
     if any(
         error.startswith("project.harness:") or error.startswith("project.harness/")
@@ -343,7 +348,7 @@ def discover_vnext_package(project_root: str | Path) -> Phase6HostSnapshot:
     load_level = DisclosureLevel.INSTRUCTION_KERNEL
     return Phase6HostSnapshot(
         project_root=str(root),
-        capability_id="verification-loop-vnext",
+        capability_id=capability_id,
         record=record,
         inventory=inventory,
         load_result=load_result,

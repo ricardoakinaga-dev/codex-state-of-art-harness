@@ -1,0 +1,11 @@
+{
+  "schema_version": "P7-PILOT-CRITERIA-1",
+  "task_id": "TASK-PHASE7-BUILDER-FINAL-001",
+  "criteria": [
+    {"id": "P7-AC-001", "text": "Whitespace-only identifiers are rejected at the validation boundary.", "required": true},
+    {"id": "P7-AC-002", "text": "The change stays inside the declared pilot source/test roots.", "required": true},
+    {"id": "P7-AC-003", "text": "Existing appointment API, data, migration, idempotency, conflict and error behavior remains covered.", "required": true},
+    {"id": "P7-AC-004", "text": "Fresh tests/static checks/migration checks and a read-only verifier receipt are available.", "required": true}
+  ],
+  "criteria_digest": "sha256:1762cecfba05366c26d351e917f2bb19815a4ac4508726a823fd09389541e90c"
+}

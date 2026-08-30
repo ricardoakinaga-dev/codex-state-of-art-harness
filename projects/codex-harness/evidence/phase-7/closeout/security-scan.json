@@ -1,0 +1,39 @@
+{
+  "schema_version": "P7-CLOSEOUT-SECURITY-SCAN-1",
+  "observed_at": "2026-08-30T12:15:34-03:00",
+  "scope": [
+    "src/harness_kernel/phase7_backend.py",
+    "src/harness_kernel/phase7_host.py",
+    "scripts/build_phase7_closeout.py",
+    "pilots/backend-appointment-api/app",
+    "pilots/backend-appointment-api/migrations",
+    "scripts/run_phase7_evals.py"
+  ],
+  "static_dangerous_execution_scan": {
+    "patterns": ["eval(", "exec(", "pickle", "marshal", "shell=True", "os.system", "subprocess."],
+    "matches": 0,
+    "status": "PASS"
+  },
+  "static_secret_pattern_scan": {
+    "patterns": ["AKIA...", "sk-...", "private key", "password =", "api_key =", "secret ="],
+    "matches": 0,
+    "status": "PASS"
+  },
+  "dependency_audit": {
+    "tool": "pip-audit",
+    "status": "NOT_AVAILABLE",
+    "claim": "No dependency-audit PASS is made; the pilot declares no runtime dependencies."
+  },
+  "boundary_observations": {
+    "network": "DENY",
+    "shell": "DENY",
+    "mcp": "DENY",
+    "providers": "DENY",
+    "credentials": "DENY",
+    "pilot_bind_address": "loopback-only",
+    "logs_redacted": true,
+    "installed_skill_mutation": 0,
+    "production_mutation": 0
+  },
+  "status": "PASS_WITH_LIMITATIONS"
+}

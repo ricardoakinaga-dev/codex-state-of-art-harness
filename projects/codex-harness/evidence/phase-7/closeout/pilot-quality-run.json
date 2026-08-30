@@ -1,0 +1,32 @@
+{
+  "schema_version": "P7-CLOSEOUT-PILOT-QUALITY-1",
+  "observed_at": "2026-08-30T11:37:17-03:00",
+  "workspace": "pilots/backend-appointment-api",
+  "commands": {
+    "tests": "PYTHONDONTWRITEBYTECODE=1 ../../.venv/bin/pytest -q -p no:cacheprovider",
+    "coverage": "COVERAGE_FILE=/tmp/p7-pilot-coverage-app-final-20260830 ../../.venv/bin/coverage run --source=app -m pytest -q -p no:cacheprovider; COVERAGE_FILE=/tmp/p7-pilot-coverage-app-final-20260830 ../../.venv/bin/coverage report --include='app/*.py' --format=markdown",
+    "format": "../../.venv/bin/ruff format --check app tests",
+    "lint": "../../.venv/bin/ruff check app tests",
+    "typing": "../../.venv/bin/mypy --strict app"
+  },
+  "results": {
+    "tests": {
+      "status": "PASS",
+      "passed": 26,
+      "duration": "5.64s"
+    },
+    "coverage": {
+      "status": "PASS",
+      "statements": 882,
+      "missed": 88,
+      "percent": 90
+    },
+    "ruff_format": "PASS",
+    "ruff_check": "PASS",
+    "mypy_strict": {
+      "status": "PASS",
+      "source_files": 8
+    }
+  },
+  "scope": "Disposable fictional veterinary appointment API only; no production or external-service claim."
+}

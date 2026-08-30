@@ -2,13 +2,14 @@ from __future__ import annotations
 
 import json
 import os
+import tempfile
 from dataclasses import replace
 from pathlib import Path
 
 from harness_kernel.cli import _manifest_files
 from harness_kernel.phase3_discovery import CapabilityDiscovery
 from harness_kernel.phase3_models import CapabilityKind, CapabilityLifecycle, DisclosureLevel
-from harness_kernel.phase4_models import ExecutionMode
+from harness_kernel.phase4_models import ExecutionMode, Phase4Budget
 from harness_kernel.phase6_host import (
     Phase6AppServerAdapter,
     discover_vnext_package,
@@ -73,6 +74,44 @@ def test_vnext_reaches_controlled_real_preflight_with_metadata_only_scripts() ->
     assert preflight.prepared is not None
     assert preflight.prepared.request is not None
     assert "SCRIPTS_METADATA_ONLY" not in preflight.blockers
+
+
+def test_backend_builder_reaches_canonical_controlled_real_preflight() -> None:
+    snapshot = discover_vnext_package(
+        PROJECT_ROOT,
+        capability_id="backend-engineering-vnext",
+    )
+
+    with tempfile.TemporaryDirectory(prefix="phase7-preflight-", dir=PROJECT_ROOT) as raw:
+        workspace = Path(raw) / "pilot"
+        for root in ("app", "migrations", "tests"):
+            (workspace / root).mkdir(parents=True)
+
+        preflight = prepare_vnext_preflight(
+            PROJECT_ROOT,
+            snapshot=snapshot,
+            task_id="TASK-P7-CANONICAL-PREFLIGHT",
+            run_id="RUN-P7-CANONICAL-PREFLIGHT",
+            task="Build one bounded backend hardening change.",
+            acceptance_criteria=("only the declared pilot roots change",),
+            workspace=workspace,
+            policy_path=PROJECT_ROOT / "config" / "phase7-execution-policy.json",
+            mode=ExecutionMode.CONTROLLED_REAL,
+            budget=Phase4Budget(timeout_seconds=30, max_tool_calls=0, max_host_events=128),
+        )
+
+        assert snapshot.record is not None
+        assert snapshot.capability_id == "backend-engineering-vnext"
+        assert snapshot.record.capability_id == "backend-engineering-vnext"
+        assert preflight.allowed is True
+        assert preflight.prepared is not None
+        assert preflight.prepared.request is not None
+        request = preflight.prepared.request
+        assert request.authorization.filesystem_policy["mode"] == "WORKSPACE_WRITE"
+        assert request.authorization.filesystem_policy["allowed_roots"] == tuple(
+            str((workspace / root).resolve()) for root in ("app", "migrations", "tests")
+        )
+        assert preflight.host_invoked is False
 
 
 def test_phase6_host_accepts_explicit_project_local_skill_fallback() -> None:

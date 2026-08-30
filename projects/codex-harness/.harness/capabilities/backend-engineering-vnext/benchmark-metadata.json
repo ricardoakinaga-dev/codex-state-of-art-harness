@@ -1,0 +1,52 @@
+{
+  "schema_version": "P7-BENCH-METADATA-1",
+  "package_id": "backend-engineering-vnext",
+  "fixture": "benchmarks/benchmark-fixtures.json",
+  "fixture_count": 4,
+  "fixture_ids": [
+    "P7-BENCH-CURRENT",
+    "P7-BENCH-UPSTREAM",
+    "P7-BENCH-NATIVE",
+    "P7-BENCH-VNEXT"
+  ],
+  "normalized_task": "P7_TASK_VET_APPOINTMENT_001",
+  "required_fields": [
+    "id",
+    "baseline",
+    "task_id",
+    "observation_status",
+    "observed",
+    "observation",
+    "causal_claim",
+    "fixture_only"
+  ],
+  "measures": [
+    "functional_contract_coverage",
+    "architecture_fit",
+    "data_integrity_coverage",
+    "api_contract_coverage",
+    "migration_safety_coverage",
+    "security_handoff_coverage",
+    "test_evidence_coverage",
+    "false_critical_pass",
+    "context_bytes",
+    "latency_ms",
+    "finding_count",
+    "repair_count"
+  ],
+  "quality_invariants": {
+    "false_critical_pass": 0,
+    "unbounded_loops": 0,
+    "same_task": true,
+    "current_and_upstream_not_executed_without_authority": true,
+    "no_inferred_host_load": true
+  },
+  "comparison_label": "PILOT_MODERNIZATION_EVIDENCE",
+  "causal_claim": false,
+  "fixture_only": true,
+  "limitations": [
+    "Four records normalize one fictional task; they do not establish causal improvement.",
+    "Current and upstream records are read-only comparison observations, not executed packages.",
+    "Native general-surface and vNext records remain bounded project evidence, not production SLOs."
+  ]
+}

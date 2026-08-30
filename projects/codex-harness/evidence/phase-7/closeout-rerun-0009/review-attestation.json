@@ -1,0 +1,28 @@
+{
+  "attestation": "The listed bytes and observations are the current closeout boundary. The packet preserves its observed limitations and does not convert unavailable or unobservable checks into passes.",
+  "attestation_type": "NON_CRYPTOGRAPHIC_EVIDENCE_ATTESTATION",
+  "attestor": "CLOSEOUT_EVIDENCE_INTEGRATOR",
+  "chain_id": "PHASE7-RERUN-0007",
+  "claims_excluded": [
+    "AAA_QUALITY",
+    "HARNESS_AAA_VERIFIED",
+    "causal_improvement",
+    "production_readiness",
+    "release_approval",
+    "security_approval",
+    "universal_superiority"
+  ],
+  "independent_review": {
+    "note": "Independent read-only re-review: PASS; no actionable Critical, High or Medium findings. Current chain 0007 evidence, exact catalog-label validation, quality controls and the closure rebind are valid; reclosure 0009 fixes the explicit attestation manifest path.",
+    "reviewer_id": "01a05394-2607-7a83-b6e0-7e6b9454bae7",
+    "status": "PASS"
+  },
+  "manifest_digest": "sha256:bfba5424f4f0d9d49b026e050969b4c0bc523c0e72ef47580e0bd98ce634bff3",
+  "manifest_path": "evidence/phase-7/closeout-rerun-0009/review-manifest.json",
+  "observed_at": "2026-08-30T18:10:07.242949Z",
+  "package_fingerprint": "sha256:fa8ff9c60f79466ea2b4d2ebbce09b376d6260a40105b344f1da7141fc36437e",
+  "promotion": "NOT_PROMOTED",
+  "schema_version": "P7-RERUN-REVIEW-ATTESTATION-1",
+  "status": "PASS_WITH_LIMITATIONS",
+  "task_id": "PHASE7-001"
+}

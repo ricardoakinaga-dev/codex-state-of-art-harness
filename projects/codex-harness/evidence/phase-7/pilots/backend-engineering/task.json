@@ -1,0 +1,16 @@
+{
+  "schema_version": "P7-PILOT-TASK-1",
+  "task_id": "TASK-PHASE7-BUILDER-FINAL-001",
+  "run_id": "RUN-PHASE7-BUILDER-FINAL-001",
+  "domain": "BACKEND_ENGINEERING",
+  "goal": "Harden the existing Veterinary Appointment API identifier validation so whitespace-only identifiers are rejected, with a focused regression test.",
+  "pilot": "pilots/backend-appointment-api",
+  "task_profile": "BACKEND_FEATURE",
+  "fictional_data_only": true,
+  "production_state": false,
+  "same_normalized_benchmark_task": "P7_TASK_VET_APPOINTMENT_001",
+  "scope": {
+    "allowed_changes": ["pilots/backend-appointment-api/app/validation.py", "pilots/backend-appointment-api/tests/test_pilot.py"],
+    "forbidden_changes": [".harness/capabilities/backend-engineering-vnext", ".agent", "global_or_installed_skills", "production_or_external_state"]
+  }
+}

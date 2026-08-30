@@ -1,0 +1,46 @@
+{
+  "schema_version": "P7-CLOSEOUT-BUILDER-ATTEMPTS-1",
+  "observed_at": "2026-08-30T11:37:17-03:00",
+  "capability": "backend-engineering-vnext",
+  "workspace": "pilots/backend-appointment-api",
+  "attempt_budget": {
+    "builder_invocations_allowed": 2,
+    "repair_iterations_allowed": 1,
+    "repair_iterations_used": 1,
+    "additional_builder_invocations_permitted": false
+  },
+  "attempts": [
+    {
+      "ordinal": 1,
+      "kind": "initial_builder",
+      "transport_status": "SUCCESS",
+      "invocation_observed": true,
+      "execution_observed": true,
+      "semantic_status": "BLOCKED",
+      "stop_reason": "MISSING_REQUIRED_TOOL",
+      "workspace_delta_ok": true,
+      "changed_paths": [],
+      "observation": "The real app-server turn completed, but the host did not expose a permitted bounded file-edit/read/test capability to the builder. No pilot source change was produced."
+    },
+    {
+      "ordinal": 2,
+      "kind": "one_permitted_repair",
+      "transport_status": "SUCCESS",
+      "invocation_observed": true,
+      "execution_observed": true,
+      "semantic_status": "BLOCKED",
+      "stop_reason": "MISSING_REQUIRED_TOOL",
+      "workspace_delta_ok": true,
+      "changed_paths": [],
+      "observation": "The real app-server turn reported that the bounded editor was exposed without permitted file-reading or test-running capability; the partial edit was reverted and no external state was touched."
+    }
+  ],
+  "artifact": {
+    "present": false,
+    "receipt": null,
+    "promotion": "NOT_CREATED",
+    "required_gate": "P7-23"
+  },
+  "historical_receipts_excluded": true,
+  "historical_receipt_note": "Older pilot artifacts under the non-closeout evidence trail are superseded and are not accepted as the current builder handoff."
+}

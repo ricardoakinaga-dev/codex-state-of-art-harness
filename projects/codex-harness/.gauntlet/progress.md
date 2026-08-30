@@ -198,3 +198,76 @@ strict mypy passed, no Critical/High findings, and the review manifest covers
 139 matching entries. The external `verification-loop` capability remains
 blocked, so the support level is A; future expansion requires a new phase and
 new exact review packet.
+
+## Phase 7 backend engineering modernization — active
+
+- [x] Read the complete Phase 7 requirements, gauntlet, orchestration,
+  engineering-framework, backend/API/security/TDD and verification contracts.
+- [x] Recover Phase 6 as frozen history; confirm clean `c325ff6` baseline and
+  519 passing tests with Ruff and mypy.
+- [x] Inspect the installed `backend-patterns` package read-only and record
+  exact identity, provenance, portability debt and weaknesses.
+- [x] Inspect upstream `affaan-m/ECC` at observed revision
+  `d8e6a51755c6971a65eef73419076d449df0f490`.
+- [x] Freeze ADR-016, P7-QB-1, ExecPlan, scope/technical gates and pilot
+  architecture/data/migration/security/test contracts.
+- [ ] Run the mandatory TDD RED suite and close canonical implementation-ready
+  gate.
+- [ ] Build and validate the project-local package, deterministic evals and
+  benchmark metadata.
+- [ ] Build the isolated backend pilot and risk-shaped tests.
+- [ ] Prove Phase 3 discovery/load, Phase 4 workspace-write preflight and real
+  backend builder invocation.
+- [ ] Compose with read-only verification-loop-vNext; obtain independent
+  backend/security review; repair at most once and freshly verify.
+- [ ] Run complete Phase 2–6 regressions, security/dependency checks, exact
+  manifest/review/closure and freeze only if the bar is actually satisfied.
+
+Current status: `PHASE7-001 IN_PROGRESS`, support `NOT_YET_EVALUABLE`; no
+promotion or completion is claimed.
+
+## Phase 7 final closeout — 2026-08-30
+
+- [x] Completed the additive package and isolated veterinary API with TDD,
+  current package/eval validation, ownership/migration/replay hardening and
+  bounded host policy checks.
+- [x] Ran the current package catalog (`48/48`), pilot quality (`26 passed`,
+  90% app coverage), Harness quality (`549 passed`, 81% line coverage),
+  Ruff, strict mypy, security scan and fresh Phase 2–6 regressions.
+- [x] Captured the real builder budget: two attempts plus one repair, no
+  artifact receipt, and no authorized third attempt.
+- [x] Captured the real read-only verifier result as
+  `BLOCKED/MISSING_REQUIRED_ARTIFACT` with no workspace mutation.
+- [x] Obtained and recorded independent capability, host/security and pilot
+  composition challenges; unresolved promotion blockers remain explicit.
+- [x] Generated the exact 76-entry closeout manifest, attestation, readiness
+  record and final gate.
+
+Final result: `FAIL / NOT_PROMOTED`. The package remains only a
+`P7_LEVEL_A_CANDIDATE`; no `P7_LEVEL_B`, `P7_LEVEL_C`, `PHASE7-FROZEN`,
+production, causal or AAA claim is made. The next action requires a new gate
+and a host with bounded editor/read/test capability; the existing builder
+budget must not be retried.
+
+## Phase 7 authoritative rerun closeout — 2026-08-30
+
+- [x] Recovered the stale 0006 boundary without rewriting its historical receipts.
+- [x] Added cross-process SQLite migration serialization with a RED→GREEN
+  regression and 50 runs × 10 processes without failure.
+- [x] Rebound the real builder, single repair and read-only verifier as chain
+  `PHASE7-RERUN-0007` → `PHASE7-REPAIR-0007` → verifier 0009.
+- [x] Persisted and independently audited builder/repair event streams, including
+  bounded write events and workspace-delta correlation.
+- [x] Re-ran the complete Harness suite: `563 passed`, `80.5504%` line coverage;
+  branch coverage is explicitly `65.5363%` and below target.
+- [x] Re-ran the full evaluator `48/48` and five sequential stability runs,
+  all `48/48`; Ruff, strict mypy and secret scan pass.
+- [x] Obtained final independent review PASS with zero actionable
+  Critical/High/Medium findings and generated the byte-bound 104-entry closeout.
+
+Current result: `PASS_WITH_LIMITATIONS / NOT_PROMOTED`, candidate support
+`P7_LEVEL_B_CANDIDATE`. The authoritative reclosure packet is
+`evidence/phase-7/closeout-rerun-0009/` for chain 0007; production, release, security,
+causal, universal-superiority and AAA claims remain excluded. `pip-audit` is
+unavailable, host skill-load is unobservable, and a human/release authority
+must decide any future promotion.

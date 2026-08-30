@@ -1,0 +1,602 @@
+{
+  "authority": "CLOSEOUT_EVIDENCE_INTEGRATOR",
+  "chain_id": "PHASE7-RERUN-0007",
+  "claim_policy": {
+    "aaa_verified": false,
+    "production_ready": false,
+    "release_approval": false,
+    "security_approval": false,
+    "universal_superiority": false
+  },
+  "closure_controls_excluded_from_entries": [
+    "README.md",
+    "final-report.md",
+    "gate.json",
+    "independent-review.md",
+    "readiness.json",
+    "review-attestation.json",
+    "review-manifest.json"
+  ],
+  "current_chain": {
+    "builder_receipt": {
+      "digest": "sha256:0acd41592a2cd25b025e6851418c569d1000854ff15f66efcc165589e8f493d4",
+      "path": "evidence/phase-7/reruns/PHASE7-RERUN-0007/builder-receipt.json",
+      "status": "SUCCESS"
+    },
+    "catalog_evaluation": {
+      "digest": "sha256:e21ab996f073e10a471fb85e1a5c6f0263d6698c1767c955196747bc7af52877",
+      "passed": 48,
+      "path": "evidence/phase-7/reruns/eval-rerun-20260830-rerun-0007.json",
+      "status": "PASS",
+      "total": 48
+    },
+    "quality_run": {
+      "digest": "sha256:35aefdc119187d3d7ed689eead95a966038b1798e07aa8a5c1e16c284503bbb9",
+      "path": "evidence/phase-7/reruns/PHASE7-RERUN-0007/quality-run-0003.json",
+      "status": "PASS"
+    },
+    "repair_receipt": {
+      "digest": "sha256:b66a32d4e7b38394047adafdde3c47b54e9e7d3961f512da113d0edb20622e60",
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/repair-receipt.json",
+      "status": "SUCCESS"
+    },
+    "verifier_receipt": {
+      "artifact_tree_digest": "sha256:4cd2db5ecb246499516e2949dd4538270759747f56bc56e3bd3dbf1b1b210aeb",
+      "digest": "sha256:aedb82eda75d5ac1c635bcf1e3d10685407180a738ec116d0b37163c8697c076",
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/verifier-receipt-0009.json",
+      "status": "PASS_WITH_LIMITATIONS"
+    }
+  },
+  "entries": [
+    {
+      "bytes": 4630,
+      "path": "../../architecture/docs/adr/ADR-016-backend-engineering-vnext-modernization.md",
+      "sha256": "sha256:a7f21fb936de749da5fbfbbb9fed5646612deb2bd358c642ce05b0e2cc3b63ea"
+    },
+    {
+      "bytes": 4213,
+      "path": ".agent/gates/PHASE7-IMPLEMENTATION-READY-0001.json",
+      "sha256": "sha256:5a210f8a5fb47d78d807fe983a0763e254bd34b495104d0ce42ce66661275590"
+    },
+    {
+      "bytes": 1404,
+      "path": ".agent/gates/PHASE7-REPAIR-SCOPE-READY-0001.json",
+      "sha256": "sha256:016b5dbe16dd0f460d3016789db7ab2364b302b0d77f865bf180ab2ffeabdfa1"
+    },
+    {
+      "bytes": 1674,
+      "path": ".agent/gates/PHASE7-RERUN-SCOPE-READY-0001.json",
+      "sha256": "sha256:df564d03a13284f2afa8090508255ae7f11e9bda0f946574b3b2cfefebc20cd1"
+    },
+    {
+      "bytes": 1426,
+      "path": ".agent/gates/PHASE7-RERUN-SCOPE-READY-0002.json",
+      "sha256": "sha256:3db8b4ec099c3b55f5e8809cd4dbb43bea0cd087ae1659dafc315d6028a82982"
+    },
+    {
+      "bytes": 1436,
+      "path": ".agent/gates/PHASE7-RERUN-SCOPE-READY-0003.json",
+      "sha256": "sha256:a881ec8c9238e6ddcb56e7e78916b218800910024a2d0c057e46029e11ecc964"
+    },
+    {
+      "bytes": 5308,
+      "path": ".agent/gates/PHASE7-SCOPE-READY-0001.json",
+      "sha256": "sha256:debbce1ec95bab2d8d033487a1f90b47b5063097b6502839b4aaad99e25b00c8"
+    },
+    {
+      "bytes": 3555,
+      "path": ".agent/gates/PHASE7-TECHNICALLY-SPECIFIED-0001.json",
+      "sha256": "sha256:95aa4118f626d323cec4ee03845c290dccd6c1584cda5fbe663b57630044eb39"
+    },
+    {
+      "bytes": 6083,
+      "path": ".agent/plans/PHASE-7-backend-engineering-modernization.md",
+      "sha256": "sha256:554e0b7344915281ced0cb4dfbf51b605e7031ae25f5d37d0fa76cf6c699de29"
+    },
+    {
+      "bytes": 10613,
+      "path": ".harness/capabilities/backend-engineering-vnext/SKILL.md",
+      "sha256": "sha256:afc54f16064c1e4926aafead7a681df0f4c67ee7f5b2d1ad08a2cf1e0d09f391"
+    },
+    {
+      "bytes": 1472,
+      "path": ".harness/capabilities/backend-engineering-vnext/benchmark-metadata.json",
+      "sha256": "sha256:2219f8969eab66f1490aa4776dc49153455bd96c029cd494ee907dc8c42ed277"
+    },
+    {
+      "bytes": 7298,
+      "path": ".harness/capabilities/backend-engineering-vnext/benchmarks/benchmark-fixtures.json",
+      "sha256": "sha256:7ae77669f6daaff8c6118c08e76de928e280a1f390f76627e15c996cf17ba40f"
+    },
+    {
+      "bytes": 3260,
+      "path": ".harness/capabilities/backend-engineering-vnext/composition-contract.json",
+      "sha256": "sha256:395b30a20ca66c460d1551d517f96349e9b6d8a6ee8e2efb79cc039c50d0d953"
+    },
+    {
+      "bytes": 1287,
+      "path": ".harness/capabilities/backend-engineering-vnext/eval-metadata.json",
+      "sha256": "sha256:d5b91a66476c9a699f00977b569cf36632bf03197e6c2d084b3198ffc50c9ac7"
+    },
+    {
+      "bytes": 111731,
+      "path": ".harness/capabilities/backend-engineering-vnext/evals/scenarios.json",
+      "sha256": "sha256:4a60f384fac067b4a4a5da6b69ca489b1ed1453a28ed171919a8fc815a8001b9"
+    },
+    {
+      "bytes": 9045,
+      "path": ".harness/capabilities/backend-engineering-vnext/manifest.json",
+      "sha256": "sha256:06fb9ec37f3e02a0efb13a037e762f3a4be3067052fa47b98e4f4089c4413937"
+    },
+    {
+      "bytes": 1762,
+      "path": ".harness/capabilities/backend-engineering-vnext/package-metadata.json",
+      "sha256": "sha256:3c60ba5f915e970375eecae9ce22aa9518f3aba2685b79b9973c78e8dbc415eb"
+    },
+    {
+      "bytes": 6964,
+      "path": ".harness/capabilities/backend-engineering-vnext/profiles.json",
+      "sha256": "sha256:a8fa4b6c5c3e77ceadc349022e7b03b7c21f87c85ae57dea34e344b6c161eb18"
+    },
+    {
+      "bytes": 2314,
+      "path": ".harness/capabilities/backend-engineering-vnext/references/api-data-contract.md",
+      "sha256": "sha256:4f28201ab1cdfd050e8898e4bef01bfa2b2657f14dfa8e9e68092a18c25fe55d"
+    },
+    {
+      "bytes": 1665,
+      "path": ".harness/capabilities/backend-engineering-vnext/references/architecture-boundaries.md",
+      "sha256": "sha256:1af570ce3ef2291ac028e262614d3f718827e5f590a69341428023a5170afe04"
+    },
+    {
+      "bytes": 1736,
+      "path": ".harness/capabilities/backend-engineering-vnext/references/deterministic-boundaries.md",
+      "sha256": "sha256:f1edd084d7a8bacce30837af42055d1e36c92fba7557392d326e94e39a6faaed"
+    },
+    {
+      "bytes": 1570,
+      "path": ".harness/capabilities/backend-engineering-vnext/references/implementation-handoff.md",
+      "sha256": "sha256:da4b5c0f8d9a9a4ca77a04d58480e581a42fca9f62ded26dc5a24881ba77b52d"
+    },
+    {
+      "bytes": 1844,
+      "path": ".harness/capabilities/backend-engineering-vnext/references/migration-reliability.md",
+      "sha256": "sha256:f5c299d0513abf58f578d853039c3a354b70a212ad292d944061b3f725bc8ff1"
+    },
+    {
+      "bytes": 1390,
+      "path": ".harness/capabilities/backend-engineering-vnext/references/role-boundaries.md",
+      "sha256": "sha256:147595ad2e0ab59158f5ffee411ae4e12654524b4be57e7d653bcc8de7aff895"
+    },
+    {
+      "bytes": 1850,
+      "path": ".harness/capabilities/backend-engineering-vnext/references/security-handoff.md",
+      "sha256": "sha256:7500c18b7aabcdf1184f6eda0559e99cb2dfa6ffa99df71b57c527cff7780e2e"
+    },
+    {
+      "bytes": 7454,
+      "path": ".harness/capabilities/backend-engineering-vnext/scripts/deterministic-procedures.json",
+      "sha256": "sha256:e0950a5df06ca76d6f58d7c9da20666d45b188b501ef095dd778170c5ad29851"
+    },
+    {
+      "bytes": 1175,
+      "path": "config/phase7-execution-policy.json",
+      "sha256": "sha256:45961f1134756ca3efbcbce602ee7f0f88599bffbd3b77c6f1b7ea0ad9e81a1e"
+    },
+    {
+      "bytes": 6687,
+      "path": "evidence/phase-7/P7-QB-1.md",
+      "sha256": "sha256:aebc871e2d0cecaee10cfb237f346b8fb359509ce157e9fb164b8a0008a4b42f"
+    },
+    {
+      "bytes": 1589,
+      "path": "evidence/phase-7/README.md",
+      "sha256": "sha256:2052bb897d6692539be8e47edf548498cc26de89f9e2d58cf172431fdfa155e5"
+    },
+    {
+      "bytes": 476,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v2/app/__init__.py",
+      "sha256": "sha256:ed684d234025cb3c68b1951b89339f645f4b4946d890dbac8da670b8b8f46594"
+    },
+    {
+      "bytes": 1561,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v2/app/__main__.py",
+      "sha256": "sha256:e04298669e02387556458cc592c4b7b722b8a2b8e9880ecc65d281450b483b33"
+    },
+    {
+      "bytes": 15701,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v2/app/api.py",
+      "sha256": "sha256:899434697e7d3fd105c0b8a6fb3d64acc17a900c6a68efe1ee5fd58c10891ef6"
+    },
+    {
+      "bytes": 4131,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v2/app/db.py",
+      "sha256": "sha256:215f98b2dba3268c323f7fea5421d92fe60b55eb41fe75cd8971058aef9cb6db"
+    },
+    {
+      "bytes": 12849,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v2/app/migrations.py",
+      "sha256": "sha256:c152e46a5fa51d41d9c1c47d3cf972934f0184c1057beeb532be275044029b4e"
+    },
+    {
+      "bytes": 1665,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v2/app/observability.py",
+      "sha256": "sha256:b43ddcdda77e0cfc39da62b75b54ff51cfc8dbaa177ca8581ec023d3353933e2"
+    },
+    {
+      "bytes": 18853,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v2/app/service.py",
+      "sha256": "sha256:195e8507893e343ac8977d08eff344a52d0654d2419b61acaa3a4bf5962e303c"
+    },
+    {
+      "bytes": 6186,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v2/app/validation.py",
+      "sha256": "sha256:f8563dcfb1a1f9248381e792469b216fca7d74d2e49318296bea0bc45df54900"
+    },
+    {
+      "bytes": 2564,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v2/migrations/001_initial.sql",
+      "sha256": "sha256:12ba8ad7c22ec493c64681f5112d8adcac2d8288d0cc6e538bd9538e189b05d7"
+    },
+    {
+      "bytes": 1833,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v2/migrations/002_ownership_triggers.sql",
+      "sha256": "sha256:376f6b032a8ec1ec2290884e2706a3b52edd7ca7eafe3f9898daba631e287078"
+    },
+    {
+      "bytes": 39672,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v2/tests/test_pilot.py",
+      "sha256": "sha256:9ae548b461673f1a041b71b263277b83f0894db71815c515e613ed9d87995bfe"
+    },
+    {
+      "bytes": 476,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v3/app/__init__.py",
+      "sha256": "sha256:ed684d234025cb3c68b1951b89339f645f4b4946d890dbac8da670b8b8f46594"
+    },
+    {
+      "bytes": 1561,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v3/app/__main__.py",
+      "sha256": "sha256:e04298669e02387556458cc592c4b7b722b8a2b8e9880ecc65d281450b483b33"
+    },
+    {
+      "bytes": 15701,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v3/app/api.py",
+      "sha256": "sha256:899434697e7d3fd105c0b8a6fb3d64acc17a900c6a68efe1ee5fd58c10891ef6"
+    },
+    {
+      "bytes": 4131,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v3/app/db.py",
+      "sha256": "sha256:215f98b2dba3268c323f7fea5421d92fe60b55eb41fe75cd8971058aef9cb6db"
+    },
+    {
+      "bytes": 12849,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v3/app/migrations.py",
+      "sha256": "sha256:c152e46a5fa51d41d9c1c47d3cf972934f0184c1057beeb532be275044029b4e"
+    },
+    {
+      "bytes": 1665,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v3/app/observability.py",
+      "sha256": "sha256:b43ddcdda77e0cfc39da62b75b54ff51cfc8dbaa177ca8581ec023d3353933e2"
+    },
+    {
+      "bytes": 18853,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v3/app/service.py",
+      "sha256": "sha256:195e8507893e343ac8977d08eff344a52d0654d2419b61acaa3a4bf5962e303c"
+    },
+    {
+      "bytes": 6186,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v3/app/validation.py",
+      "sha256": "sha256:f8563dcfb1a1f9248381e792469b216fca7d74d2e49318296bea0bc45df54900"
+    },
+    {
+      "bytes": 2564,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v3/migrations/001_initial.sql",
+      "sha256": "sha256:12ba8ad7c22ec493c64681f5112d8adcac2d8288d0cc6e538bd9538e189b05d7"
+    },
+    {
+      "bytes": 1833,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v3/migrations/002_ownership_triggers.sql",
+      "sha256": "sha256:376f6b032a8ec1ec2290884e2706a3b52edd7ca7eafe3f9898daba631e287078"
+    },
+    {
+      "bytes": 39672,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v3/tests/test_pilot.py",
+      "sha256": "sha256:9ae548b461673f1a041b71b263277b83f0894db71815c515e613ed9d87995bfe"
+    },
+    {
+      "bytes": 182370,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/repair-receipt.json",
+      "sha256": "sha256:b66a32d4e7b38394047adafdde3c47b54e9e7d3961f512da113d0edb20622e60"
+    },
+    {
+      "bytes": 95248,
+      "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/verifier-receipt-0009.json",
+      "sha256": "sha256:aedb82eda75d5ac1c635bcf1e3d10685407180a738ec116d0b37163c8697c076"
+    },
+    {
+      "bytes": 476,
+      "path": "evidence/phase-7/reruns/PHASE7-RERUN-0007/artifact-v1/app/__init__.py",
+      "sha256": "sha256:ed684d234025cb3c68b1951b89339f645f4b4946d890dbac8da670b8b8f46594"
+    },
+    {
+      "bytes": 1561,
+      "path": "evidence/phase-7/reruns/PHASE7-RERUN-0007/artifact-v1/app/__main__.py",
+      "sha256": "sha256:e04298669e02387556458cc592c4b7b722b8a2b8e9880ecc65d281450b483b33"
+    },
+    {
+      "bytes": 15701,
+      "path": "evidence/phase-7/reruns/PHASE7-RERUN-0007/artifact-v1/app/api.py",
+      "sha256": "sha256:899434697e7d3fd105c0b8a6fb3d64acc17a900c6a68efe1ee5fd58c10891ef6"
+    },
+    {
+      "bytes": 4131,
+      "path": "evidence/phase-7/reruns/PHASE7-RERUN-0007/artifact-v1/app/db.py",
+      "sha256": "sha256:215f98b2dba3268c323f7fea5421d92fe60b55eb41fe75cd8971058aef9cb6db"
+    },
+    {
+      "bytes": 12849,
+      "path": "evidence/phase-7/reruns/PHASE7-RERUN-0007/artifact-v1/app/migrations.py",
+      "sha256": "sha256:c152e46a5fa51d41d9c1c47d3cf972934f0184c1057beeb532be275044029b4e"
+    },
+    {
+      "bytes": 1665,
+      "path": "evidence/phase-7/reruns/PHASE7-RERUN-0007/artifact-v1/app/observability.py",
+      "sha256": "sha256:b43ddcdda77e0cfc39da62b75b54ff51cfc8dbaa177ca8581ec023d3353933e2"
+    },
+    {
+      "bytes": 18853,
+      "path": "evidence/phase-7/reruns/PHASE7-RERUN-0007/artifact-v1/app/service.py",
+      "sha256": "sha256:195e8507893e343ac8977d08eff344a52d0654d2419b61acaa3a4bf5962e303c"
+    },
+    {
+      "bytes": 6186,
+      "path": "evidence/phase-7/reruns/PHASE7-RERUN-0007/artifact-v1/app/validation.py",
+      "sha256": "sha256:f8563dcfb1a1f9248381e792469b216fca7d74d2e49318296bea0bc45df54900"
+    },
+    {
+      "bytes": 2564,
+      "path": "evidence/phase-7/reruns/PHASE7-RERUN-0007/artifact-v1/migrations/001_initial.sql",
+      "sha256": "sha256:12ba8ad7c22ec493c64681f5112d8adcac2d8288d0cc6e538bd9538e189b05d7"
+    },
+    {
+      "bytes": 1833,
+      "path": "evidence/phase-7/reruns/PHASE7-RERUN-0007/artifact-v1/migrations/002_ownership_triggers.sql",
+      "sha256": "sha256:376f6b032a8ec1ec2290884e2706a3b52edd7ca7eafe3f9898daba631e287078"
+    },
+    {
+      "bytes": 39584,
+      "path": "evidence/phase-7/reruns/PHASE7-RERUN-0007/artifact-v1/tests/test_pilot.py",
+      "sha256": "sha256:92ece14a2274585dcde7787a115139812c9285a24ee92212a84c49812b4ab046"
+    },
+    {
+      "bytes": 295447,
+      "path": "evidence/phase-7/reruns/PHASE7-RERUN-0007/builder-receipt.json",
+      "sha256": "sha256:0acd41592a2cd25b025e6851418c569d1000854ff15f66efcc165589e8f493d4"
+    },
+    {
+      "bytes": 2997,
+      "path": "evidence/phase-7/reruns/PHASE7-RERUN-0007/quality-run-0003.json",
+      "sha256": "sha256:35aefdc119187d3d7ed689eead95a966038b1798e07aa8a5c1e16c284503bbb9"
+    },
+    {
+      "bytes": 77089,
+      "path": "evidence/phase-7/reruns/eval-rerun-20260830-rerun-0007.json",
+      "sha256": "sha256:e21ab996f073e10a471fb85e1a5c6f0263d6698c1767c955196747bc7af52877"
+    },
+    {
+      "bytes": 2168,
+      "path": "pilots/backend-appointment-api/.harness/phase4/artifacts/INV-47e7c92ba8965423845165e0.host-response.txt",
+      "sha256": "sha256:e1897e980567802b6bbbdf046f9e64e60709081c70356471e89181b4d7b33198"
+    },
+    {
+      "bytes": 167,
+      "path": "pilots/backend-appointment-api/.harness/phase4/artifacts/INV-8bed0e027b92555abc95248c.host-response.txt",
+      "sha256": "sha256:1a514836a63467699631557628a9fefdb0d80d9d3c2afb49024ad9a179a385f7"
+    },
+    {
+      "bytes": 1679,
+      "path": "pilots/backend-appointment-api/.harness/phase4/artifacts/INV-ddce4b5a61ad55c68617aa6b.host-response.txt",
+      "sha256": "sha256:2bbf9c2764d847880c166209f56d5ab4ae8d0ea3c3174b90c54a79c8051ac3e7"
+    },
+    {
+      "bytes": 210,
+      "path": "pilots/backend-appointment-api/.harness/phase4/artifacts/INV-fcdc33b7526a5efcb9691b7a.host-response.txt",
+      "sha256": "sha256:5c1c502494892bb40574d3b0e4149f07e20893919e16b09a3bf325d0288601b8"
+    },
+    {
+      "bytes": 207,
+      "path": "pilots/backend-appointment-api/.harness/phase4/artifacts/INV-fdb34810e7965d93adafcd61.host-response.txt",
+      "sha256": "sha256:1b12de0bc0adc851b027b2769cb7dff526dca6249d7fd5a9010ec4c414f753b6"
+    },
+    {
+      "bytes": 1755,
+      "path": "pilots/backend-appointment-api/.harness/phase4/invocation-ledger.json",
+      "sha256": "sha256:f27d1ac784ab0855c8126031dd2901f5bee772116e5b027721e29b72b042c9d8"
+    },
+    {
+      "bytes": 156,
+      "path": "pilots/backend-appointment-api/.phase4-ledger-anchor-1107ab4bf34541135abe2596.json",
+      "sha256": "sha256:ed0cfa8d6e332c2f83a223ddaebee7f65303ba5e6cb994e3564883e0c747dc3b"
+    },
+    {
+      "bytes": 5259,
+      "path": "pilots/backend-appointment-api/README.md",
+      "sha256": "sha256:7c52830647d71dd84008fec74448a6e422ad95972485b6209ac5252cb09ea592"
+    },
+    {
+      "bytes": 476,
+      "path": "pilots/backend-appointment-api/app/__init__.py",
+      "sha256": "sha256:ed684d234025cb3c68b1951b89339f645f4b4946d890dbac8da670b8b8f46594"
+    },
+    {
+      "bytes": 1561,
+      "path": "pilots/backend-appointment-api/app/__main__.py",
+      "sha256": "sha256:e04298669e02387556458cc592c4b7b722b8a2b8e9880ecc65d281450b483b33"
+    },
+    {
+      "bytes": 15701,
+      "path": "pilots/backend-appointment-api/app/api.py",
+      "sha256": "sha256:899434697e7d3fd105c0b8a6fb3d64acc17a900c6a68efe1ee5fd58c10891ef6"
+    },
+    {
+      "bytes": 4131,
+      "path": "pilots/backend-appointment-api/app/db.py",
+      "sha256": "sha256:215f98b2dba3268c323f7fea5421d92fe60b55eb41fe75cd8971058aef9cb6db"
+    },
+    {
+      "bytes": 12849,
+      "path": "pilots/backend-appointment-api/app/migrations.py",
+      "sha256": "sha256:c152e46a5fa51d41d9c1c47d3cf972934f0184c1057beeb532be275044029b4e"
+    },
+    {
+      "bytes": 1665,
+      "path": "pilots/backend-appointment-api/app/observability.py",
+      "sha256": "sha256:b43ddcdda77e0cfc39da62b75b54ff51cfc8dbaa177ca8581ec023d3353933e2"
+    },
+    {
+      "bytes": 18566,
+      "path": "pilots/backend-appointment-api/app/service.py",
+      "sha256": "sha256:32a2566c3619d89890dd4d277bb70faa0216430541c6843e88e7e6923dc9ef7c"
+    },
+    {
+      "bytes": 6186,
+      "path": "pilots/backend-appointment-api/app/validation.py",
+      "sha256": "sha256:f8563dcfb1a1f9248381e792469b216fca7d74d2e49318296bea0bc45df54900"
+    },
+    {
+      "bytes": 2564,
+      "path": "pilots/backend-appointment-api/migrations/001_initial.sql",
+      "sha256": "sha256:12ba8ad7c22ec493c64681f5112d8adcac2d8288d0cc6e538bd9538e189b05d7"
+    },
+    {
+      "bytes": 1833,
+      "path": "pilots/backend-appointment-api/migrations/002_ownership_triggers.sql",
+      "sha256": "sha256:376f6b032a8ec1ec2290884e2706a3b52edd7ca7eafe3f9898daba631e287078"
+    },
+    {
+      "bytes": 257,
+      "path": "pilots/backend-appointment-api/pyproject.toml",
+      "sha256": "sha256:8a0f4e08eb3549f4699b15415efa7dee4c58bc127928dfe7935310b20380493d"
+    },
+    {
+      "bytes": 38392,
+      "path": "pilots/backend-appointment-api/tests/test_pilot.py",
+      "sha256": "sha256:f335fe94ac18970e4d5cc1272552493370d830449f5e917acb1943a412f330ad"
+    },
+    {
+      "bytes": 24236,
+      "path": "scripts/build_phase7_rerun_closeout.py",
+      "sha256": "sha256:830c9fd341b12b6813a6b24d7f9eba51031ac7f24a2aac68a526da0174a42d7c"
+    },
+    {
+      "bytes": 34066,
+      "path": "scripts/run_phase7_evals.py",
+      "sha256": "sha256:20d2a689675c288358be6da9c23e23d8816c541984a63927747e7d61b38921f0"
+    },
+    {
+      "bytes": 12756,
+      "path": "scripts/run_phase7_real_builder.py",
+      "sha256": "sha256:4443a9de6fc81f7ba19aa79b0150576a5795a8c69a95f216cfed50817832567d"
+    },
+    {
+      "bytes": 12389,
+      "path": "scripts/run_phase7_real_repair.py",
+      "sha256": "sha256:cc23355b9bb73110eb0f424ef1f00cd843ff5afac88266fc47ca2032111a0d1d"
+    },
+    {
+      "bytes": 26012,
+      "path": "scripts/run_phase7_real_verifier.py",
+      "sha256": "sha256:10fe0252ea372a31044747437ae05323a552f9d0599cf4c8606096d89afec0f3"
+    },
+    {
+      "bytes": 57949,
+      "path": "src/harness_kernel/phase4_host.py",
+      "sha256": "sha256:b375d13ee497daba2b0b1cee62b134f5480ebc826b9e325e5a4f9430f9761883"
+    },
+    {
+      "bytes": 34827,
+      "path": "src/harness_kernel/phase4_policy.py",
+      "sha256": "sha256:9b45149a27906a9b2b94f16d8d1fafdbec8e3362c9d9af8765ac22fad9e30e42"
+    },
+    {
+      "bytes": 18790,
+      "path": "src/harness_kernel/phase6_host.py",
+      "sha256": "sha256:ce23549147f51806d5ab0901434fa08410022d30467f4a2fc5140a66977a6820"
+    },
+    {
+      "bytes": 86205,
+      "path": "src/harness_kernel/phase7_backend.py",
+      "sha256": "sha256:9cc3b89ceefe0010f0127e12462b9ea0b15040f812f10d6add2f510937299293"
+    },
+    {
+      "bytes": 85075,
+      "path": "src/harness_kernel/phase7_host.py",
+      "sha256": "sha256:24111c628b411107fc4d2e85276387808f06ef763c97ff20b7bc18286190625a"
+    },
+    {
+      "bytes": 1507,
+      "path": "tests/evals/phase7/test_phase7_backend_scenarios.py",
+      "sha256": "sha256:68ace6b02b35eb5c1e39f0a5fd8c4ffdef87f25610cbdd52cbefeeef6d76b161"
+    },
+    {
+      "bytes": 3263,
+      "path": "tests/evals/phase7/test_phase7_behavioral.py",
+      "sha256": "sha256:4d47beaa0fc500f14636dadfa09573c05fd46c4e1917bfe2d913f61524482b04"
+    },
+    {
+      "bytes": 10120,
+      "path": "tests/integration/test_phase6_host.py",
+      "sha256": "sha256:8f5fabc34c7bac1b52ef044a2fa9b9584146f2b59ab4c27ae3dc8c08aed25033"
+    },
+    {
+      "bytes": 21911,
+      "path": "tests/unit/test_phase4_host.py",
+      "sha256": "sha256:d8795646679def4a0479d5290ee31c1378e09bea2b017d8b872c7f606fece4b1"
+    },
+    {
+      "bytes": 11233,
+      "path": "tests/unit/test_phase4_policy.py",
+      "sha256": "sha256:1de479a87aeea088efd5439c8eaa51095f5598b4d9ee816f0f7ff1aed831d609"
+    },
+    {
+      "bytes": 11415,
+      "path": "tests/unit/test_phase7_backend.py",
+      "sha256": "sha256:1e3ef920e3faca45eae5e926081ae23cc6bd60852029786ecd81f6e38701e76c"
+    },
+    {
+      "bytes": 32599,
+      "path": "tests/unit/test_phase7_host.py",
+      "sha256": "sha256:8c72a638825ad0458e6b2d3f4e97a99511b7f3d77cb3d7969589f6f93c337f96"
+    }
+  ],
+  "entries_digest": "sha256:7586ae9d12f40422e72fe9d320b0f1a493b099399ab4167e0781a90d14086bdf",
+  "entry_count": 104,
+  "entry_policy": {
+    "generated_caches": "excluded",
+    "hash": "sha256 over exact bytes",
+    "paths": "project-relative, with approved architecture input retained as ../..",
+    "symlinks": "rejected"
+  },
+  "historical_exclusions": [
+    "evidence/phase-7/closeout/",
+    "evidence/phase-7/reruns/PHASE7-RERUN-0001 through PHASE7-RERUN-0005",
+    "evidence/phase-7/eval-rerun-20260830.json",
+    "evidence/phase-7/closeout/package-eval-run.json"
+  ],
+  "independent_review": {
+    "note": "Final independent read-only review after remediation: PASS; no actionable Critical, High or Medium findings. Verified current builder/repair/verifier chain 0007, evaluator 48/48 labels, quality 563/0, 80.5504% line coverage and explicit 65.5363% branch limitation.",
+    "reviewer_id": "01a05394-2607-7a83-b6e0-7e6b9454bae7",
+    "status": "PASS"
+  },
+  "observed_at": "2026-08-30T18:02:12.009644Z",
+  "package": {
+    "capability_id": "backend-engineering-vnext",
+    "fingerprint": "sha256:fa8ff9c60f79466ea2b4d2ebbce09b376d6260a40105b344f1da7141fc36437e",
+    "path": ".harness/capabilities/backend-engineering-vnext",
+    "version": "0.1.0"
+  },
+  "promotion": "NOT_PROMOTED",
+  "schema_version": "P7-RERUN-REVIEW-MANIFEST-1",
+  "status": "PASS_WITH_LIMITATIONS",
+  "task_id": "PHASE7-001"
+}

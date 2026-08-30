@@ -1,0 +1,28 @@
+{
+  "schema_version": "P7-PILOT-COMPOSITION-RECEIPT-1",
+  "builder": {
+    "capability": "backend-engineering-vnext",
+    "role": "SPECIALIST_BUILDER",
+    "final_invocation": "INV-fdb34810e7965d93adafcd61",
+    "host_execution_observed": true,
+    "acceptance_engine_status": "FAILURE_OR_NOT_AUTOMATICALLY_EVALUATED",
+    "repair_count": 1
+  },
+    "verifier": {
+    "capability": "verification-loop-vNext",
+    "role": "VERIFIER",
+    "invocation": "INV-ddce4b5a61ad55c68617aa6b",
+    "status": "SUCCESS",
+    "verification_status": "VERIFIED",
+    "read_only": true,
+    "self_approval": false,
+    "workspace_delta_changed_paths": [],
+    "receipt_digest": "sha256:09a4db9d3e94d09dcb95700e0e356f5b770cc0a0dd80ec25d27b6220b5495fb5",
+    "host_response_artifact_digest": "sha256:2bbf9c2764d847880c166209f56d5ab4ae8d0ea3c3174b90c54a79c8051ac3e7",
+    "request_digest": "sha256:6018e67e13fd4e4894a29ef7dd9b0fff95a227cefee693b49a9e3fbe7cab01f6"
+  },
+  "composition_status": "PASS_WITH_LIMITATIONS",
+  "support_level": "P7_LEVEL_B",
+  "host_load_observation": "HOST_LOAD_UNOBSERVABLE",
+  "evidence_revision": "v3_after_final_test_packet_rebind"
+}

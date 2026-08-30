@@ -1,0 +1,16 @@
+{
+  "schema_version": "P7-PILOT-PLAN-1",
+  "task_id": "TASK-PHASE7-BUILDER-FINAL-001",
+  "problem": "Identifier validation accepted non-empty whitespace-only values.",
+  "existing_architecture": ["stdlib HTTP transport", "service layer", "SQLite Database", "ordered SQL migrations", "JSONL observability"],
+  "change": "Use the existing validation boundary and add one focused regression test; do not introduce a framework, repository layer, cache, event bus or identity platform.",
+  "files": ["app/validation.py", "tests/test_pilot.py"],
+  "data_changes": "none",
+  "api_changes": "invalid whitespace-only identifiers now return the existing validation error contract",
+  "migration": "no schema change; rerun migration safety suite against test database",
+  "tests": ["unit/contract", "service/integration", "transaction", "concurrency", "loopback CLI smoke"],
+  "security_handoff": "inspect input validation, SQL parameterization, authorization abstraction, prompt text as data and log redaction",
+  "rollback": "restore the two declared pilot files; package/control-plane and external state are outside authorization",
+  "risk": "low code delta, medium system pilot risk because persistence/concurrency/security boundaries are exercised",
+  "evidence": ["builder receipt", "fresh test results", "migration results", "read-only verifier receipt"]
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "P7-CLOSEOUT-HARNESS-QUALITY-1",
+  "observed_at": "2026-08-30T12:07:09-03:00",
+  "commands": {
+    "tests": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/pytest -q -p no:cacheprovider",
+    "coverage": "COVERAGE_FILE=/tmp/p7-harness-coverage-final-20260830b PYTHONDONTWRITEBYTECODE=1 .venv/bin/coverage run -m pytest -q -p no:cacheprovider; COVERAGE_FILE=/tmp/p7-harness-coverage-final-20260830b .venv/bin/coverage report",
+    "ruff_format": ".venv/bin/ruff format --check src tests scripts",
+    "ruff_check": ".venv/bin/ruff check src tests scripts",
+    "mypy": ".venv/bin/mypy --strict src"
+  },
+  "results": {
+    "tests": {
+      "status": "PASS",
+      "passed": 549,
+      "duration": "79.45s"
+    },
+    "coverage": {
+      "status": "PASS",
+      "statements": 18886,
+      "missed": 3619,
+      "percent": 81,
+      "configured_floor_percent": 80
+    },
+    "ruff_format": "PASS",
+    "ruff_check": "PASS",
+    "mypy_strict": {
+      "status": "PASS",
+      "source_files": 65
+    }
+  },
+  "scope": "Harness project regression including the additive Phase 7 kernel; no production or external-service claim."
+}

@@ -1,0 +1,11 @@
+{
+  "schema_version": "P7-PILOT-REPAIR-1",
+  "repair_id": "REPAIR-PHASE7-001",
+  "count": 1,
+  "trigger": "lead source inspection found v1 changed the wrong validation predicate",
+  "allowed_scope": ["pilots/backend-appointment-api/app/validation.py", "pilots/backend-appointment-api/tests/test_pilot.py"],
+  "changes": ["restore header predicate semantics", "make identifier validation reject whitespace-only values", "add test_identifiers_reject_whitespace_only_values"],
+  "forbidden": ["package", "control plane", "global/installed skills", "external state"],
+  "required_after_repair": ["fresh pilot tests", "fresh static checks", "fresh migration checks", "fresh read-only verifier"],
+  "status": "APPLIED_ONCE"
+}

@@ -1,0 +1,26 @@
+{
+  "attestation": "The listed bytes and observations are the complete closeout boundary. Missing builder artifact, current builder receipts and exact post-repair independent reapproval prevent promotion.",
+  "attestation_type": "NON_CRYPTOGRAPHIC_EVIDENCE_ATTESTATION",
+  "attestor": "CLOSEOUT_EVIDENCE_INTEGRATOR",
+  "claims_excluded": [
+    "AAA_QUALITY",
+    "HARNESS_AAA_VERIFIED",
+    "production_readiness",
+    "causal_improvement",
+    "security_approval",
+    "release_approval"
+  ],
+  "independent_review": {
+    "capability": "PACKAGE_CANDIDATE_ONLY",
+    "composition": "FAIL",
+    "exact_post_repair_reapproval": "NOT_OBTAINED"
+  },
+  "manifest_digest": "sha256:17b9a30566cb5a23cd55de766393669bd4a0e2d89b103499505103b0d326713f",
+  "manifest_path": "evidence/phase-7/closeout/review-manifest.json",
+  "observed_at": "2026-08-30T15:15:40.949690Z",
+  "package_fingerprint": "sha256:6a378943a68a8613a008d4947f38bd987f8654234b942ceee75373e8f873e0ef",
+  "promotion": "NOT_PROMOTED",
+  "schema_version": "P7-REVIEW-ATTESTATION-1",
+  "status": "FAIL",
+  "task_id": "PHASE7-001"
+}

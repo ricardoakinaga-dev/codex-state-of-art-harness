@@ -1,0 +1,38 @@
+{
+  "schema_version": "P7-GATE-1",
+  "gate_id": "PHASE7-RERUN-SCOPE-READY-0002",
+  "task_id": "PHASE7-RERUN-0006",
+  "phase": "PHASE7",
+  "status": "PASS",
+  "observed_at": "2026-08-30T14:10:00-03:00",
+  "authority": "PROJECT_LOCAL_PHASE7_ORCHESTRATOR",
+  "scope": {
+    "capability": ".harness/capabilities/backend-engineering-vnext",
+    "artifact": "pilots/backend-appointment-api",
+    "allowed_write_roots": ["app", "migrations", "tests"],
+    "forbidden_boundaries": [
+      "package",
+      "agent-control-plane",
+      "global-installed-capabilities",
+      "network",
+      "providers",
+      "mcp",
+      "credentials",
+      "arbitrary-shell"
+    ]
+  },
+  "change_reason": "Repair intermittent SQLite lock handling and preserve a bounded, auditable builder-to-verifier chain.",
+  "budget": {
+    "builder_invocations": 2,
+    "repairs": 1,
+    "host_tool_calls": 64,
+    "write_event_paths": 64
+  },
+  "acceptance": [
+    "concurrent slot and idempotency requests are deterministic under a transient lock burst",
+    "the fixed test observer requires the supported project virtualenv",
+    "builder and repair event streams are persisted and verifier-auditable",
+    "all artifact changes remain bounded and the verifier remains read-only"
+  ],
+  "historical_boundary": "This gate supersedes neither the failed historical closeout nor the PHASE7-RERUN-0005 receipt chain; it authorizes a new bounded chain only."
+}

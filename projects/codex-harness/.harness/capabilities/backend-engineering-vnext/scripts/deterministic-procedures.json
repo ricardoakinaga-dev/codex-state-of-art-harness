@@ -1,0 +1,161 @@
+{
+  "schema_version": "P7-PROCEDURES-1",
+  "package_id": "backend-engineering-vnext",
+  "metadata_only": true,
+  "execution": "none",
+  "allowed_tools": [],
+  "shell": "deny",
+  "network": "deny",
+  "mcp": "deny",
+  "provider": "deny",
+  "credential": "deny",
+  "credentials": "deny",
+  "arbitrary_interpolation": "deny",
+  "workspace_write": "deny",
+  "subagents": "deny",
+  "read_only": true,
+  "procedures": [
+    {
+      "id": "P7-CHECK-IDENTITY",
+      "purpose": "Compare package, manifest, task, artifact, diff, criteria, and evidence identities.",
+      "inputs": ["package_fingerprint", "manifest_digest", "task_identity", "artifact_identity", "criteria_digest", "evidence_digest"],
+      "outputs": ["identity_status", "stale_dependencies"],
+      "observation": "identity_match_or_typed_mismatch",
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P7-CHECK-SCOPE",
+      "purpose": "Check that requested boundaries and changed paths remain inside the frozen task and authorized root.",
+      "inputs": ["task_scope", "changed_artifacts", "allowed_write_root", "scope_policy"],
+      "outputs": ["scope_status", "unauthorized_paths"],
+      "observation": "scope_conformant_or_typed_expansion",
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P7-CHECK-ARCHITECTURE",
+      "purpose": "Check that the plan names existing architecture, ownership, smallest change, and justification for additions.",
+      "inputs": ["repository_context", "architecture_decision", "boundary_inventory", "acceptance_criteria"],
+      "outputs": ["architecture_status", "unresolved_tradeoffs"],
+      "observation": "decision_fields_present_or_overengineering_signal",
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P7-CHECK-API-CONTRACT",
+      "purpose": "Check method, path, version, request, response, error, authorization, and replay declarations when API scope applies.",
+      "inputs": ["api_contract", "compatibility_posture", "acceptance_criteria"],
+      "outputs": ["api_contract_status", "missing_fields"],
+      "observation": "api_contract_complete_or_not_applicable",
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P7-CHECK-DATA-INVARIANTS",
+      "purpose": "Check ownership, constraints, indexes, persisted state, and invariant evidence for a data boundary.",
+      "inputs": ["data_contract", "constraint_declarations", "persisted_state_evidence", "acceptance_criteria"],
+      "outputs": ["data_integrity_status", "unprotected_invariants"],
+      "observation": "data_contract_complete_or_not_applicable",
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P7-CHECK-TRANSACTION",
+      "purpose": "Check atomicity, partial-state policy, rollback, retry safety, and idempotency for multi-write behavior.",
+      "inputs": ["transaction_contract", "failure_evidence", "idempotency_contract", "persisted_state_evidence"],
+      "outputs": ["transaction_status", "partial_state_risk"],
+      "observation": "transaction_contract_complete_or_not_applicable",
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P7-CHECK-CONCURRENCY",
+      "purpose": "Check race analysis, invariant enforcement, lock or compare-and-swap decision, and concurrent evidence.",
+      "inputs": ["concurrency_contract", "constraint_declarations", "concurrency_evidence", "acceptance_criteria"],
+      "outputs": ["concurrency_status", "race_gaps"],
+      "observation": "race_contract_complete_or_not_applicable",
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P7-CHECK-IDEMPOTENCY",
+      "purpose": "Check key scope, canonical request identity, same-request replay, reuse rejection, and duplicate effects.",
+      "inputs": ["idempotency_contract", "request_identity_evidence", "replay_evidence", "acceptance_criteria"],
+      "outputs": ["idempotency_status", "replay_gaps"],
+      "observation": "replay_contract_complete_or_not_applicable",
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P7-CHECK-MIGRATION",
+      "purpose": "Check ordered migration identity, checksum, compatibility, preservation, failure, and rollback posture.",
+      "inputs": ["migration_contract", "migration_evidence", "compatibility_posture", "authority"],
+      "outputs": ["migration_status", "unsafe_operations"],
+      "observation": "migration_safe_or_typed_stop",
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P7-CHECK-RELIABILITY-PERFORMANCE",
+      "purpose": "Check bounded dependency behavior, retry and timeout policy, performance observation, and degradation limits.",
+      "inputs": ["reliability_contract", "performance_budget", "performance_evidence", "dependency_inventory"],
+      "outputs": ["reliability_status", "performance_status", "unbounded_behavior"],
+      "observation": "bounded_or_typed_limitation",
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P7-CHECK-SECURITY-HANDOFF",
+      "purpose": "Check trigger recognition, controls, separate security owner, and absence of self-issued security approval.",
+      "inputs": ["security_profile", "security_handoff", "data_classes", "authority"],
+      "outputs": ["security_route_status", "unresolved_security_risks"],
+      "observation": "handoff_required_or_not_triggered",
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P7-CHECK-TEST-EVIDENCE",
+      "purpose": "Check that applicable unit, API, database, migration, negative, replay, race, security, and end-to-end evidence is current.",
+      "inputs": ["risk_profile", "test_evidence", "required_criteria", "artifact_identity"],
+      "outputs": ["test_evidence_status", "not_run_requirements"],
+      "observation": "risk_shaped_evidence_or_typed_gap",
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P7-CHECK-OBSERVABILITY",
+      "purpose": "Check correlation, outcome and failure class fields, bounded event shape, and redaction evidence.",
+      "inputs": ["observability_contract", "event_evidence", "data_classes", "acceptance_criteria"],
+      "outputs": ["observability_status", "redaction_gaps"],
+      "observation": "event_contract_complete_or_not_applicable",
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P7-CHECK-HANDOFF",
+      "purpose": "Check immutable verifier handoff fields, receipt identity, limitations, and next owner.",
+      "inputs": ["verifier_handoff", "builder_receipt", "artifact_identity", "criteria_digest", "evidence_digest"],
+      "outputs": ["handoff_status", "missing_handoff_fields"],
+      "observation": "handoff_complete_or_typed_block",
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P7-CHECK-BOUNDS",
+      "purpose": "Check context, reference, procedure, time, invocation, repair, report, and evidence-record counters.",
+      "inputs": ["budget_receipt", "selected_references", "procedure_metadata", "composition_contract"],
+      "outputs": ["budget_status", "remaining_budget"],
+      "observation": "within_bound_or_typed_exhaustion",
+      "max_attempts": 1,
+      "mutation": "none"
+    }
+  ],
+  "selection": "metadata_only_allowlist_intersection",
+  "loop_policy": {
+    "max_iterations": 1,
+    "max_repairs": 1,
+    "on_no_progress": "STOP_NO_PROGRESS",
+    "on_repeated_failure": "STOP_REPEATED_FAILURE"
+  }
+}

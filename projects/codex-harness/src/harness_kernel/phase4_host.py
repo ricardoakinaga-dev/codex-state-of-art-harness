@@ -200,6 +200,7 @@ class _SubprocessClient:
         host_executable_digest: str,
         host_interpreter_path: str | None = None,
         host_interpreter_digest: str | None = None,
+        allow_host_authentication: bool = False,
         max_line_bytes: int = 512 * 1024,
     ) -> None:
         self.cwd = cwd
@@ -209,6 +210,7 @@ class _SubprocessClient:
         self.host_executable_digest = host_executable_digest
         self.host_interpreter_path = host_interpreter_path
         self.host_interpreter_digest = host_interpreter_digest
+        self.allow_host_authentication = allow_host_authentication
         self.max_line_bytes = max_line_bytes
         self._next_id = 1
         self._protocol_message_count = 0
@@ -225,7 +227,8 @@ class _SubprocessClient:
         runtime_codex_home.mkdir()
         pinned_descriptors: tuple[int, ...] = ()
         try:
-            self._copy_host_authentication(runtime_codex_home)
+            if self.allow_host_authentication:
+                self._copy_host_transport_authentication(runtime_codex_home)
             if any(raw_path not in command for raw_path, _ in pinned_files):
                 raise HostProtocolError("pinned host file is not present in the process command")
             pinned_descriptors = _open_pinned_files(pinned_files)
@@ -260,8 +263,14 @@ class _SubprocessClient:
                     os.close(descriptor)
 
     @staticmethod
-    def _copy_host_authentication(runtime_codex_home: Path) -> None:
-        """Make authentication available without inheriting user Codex state."""
+    def _copy_host_transport_authentication(runtime_codex_home: Path) -> None:
+        """Copy only brokered app-server transport auth into the child runtime.
+
+        This is deliberately separate from capability credentials.  A
+        capability's ``credential_policy`` never enables this control-plane
+        transport path; only the adapter's explicit host-authentication mode
+        can do so.
+        """
 
         configured_home = os.environ.get("CODEX_HOME")
         source_home = Path(configured_home) if configured_home else Path.home() / ".codex"
@@ -687,12 +696,18 @@ class CodexAppServerAdapter:
         self,
         *,
         transport_factory: Callable[[], AppServerClient] | None = None,
+        host_authentication: bool = False,
     ) -> None:
+        if type(host_authentication) is not bool:
+            raise ValueError("host_authentication must be boolean")
         self._transport_factory = transport_factory
         self._active_sessions: dict[str, tuple[AppServerClient, str, str]] = {}
         self._active_lock = Lock()
         self._host_binding: HostBinding | None = None
         self._host_binding_error: str | None = None
+        # This is control-plane authentication for the official app-server,
+        # never a capability credential grant or a model-visible tool.
+        self._host_authentication = host_authentication
 
     def _resolved_host_binding(
         self,
@@ -728,7 +743,14 @@ class CodexAppServerAdapter:
             host_executable_digest=executable_digest,
             host_interpreter_path=interpreter_path,
             host_interpreter_digest=interpreter_digest,
+            allow_host_authentication=self._host_authentication,
         )
+
+    @property
+    def host_authentication_mode(self) -> str:
+        """Expose the transport-auth mode without presenting it as a capability grant."""
+
+        return "HOST_ONLY_CONTROL_PLANE" if self._host_authentication else "NONE"
 
     def prepare_invocation(self, request: CapabilityInvocationRequest) -> HostPreparation:
         errors = self.validate_invocation(request)
@@ -779,6 +801,7 @@ class CodexAppServerAdapter:
             errors.append("PROVIDER_POLICY_UNSUPPORTED")
         if request.authorization.credential_policy != "DENY":
             errors.append("CREDENTIAL_POLICY_UNSUPPORTED")
+        errors.extend(self._validate_filesystem_policy(request))
         if (
             self._transport_factory is None
             and request.authorization.requested_execution_mode is ExecutionMode.CONTROLLED_REAL
@@ -872,14 +895,7 @@ class CodexAppServerAdapter:
                 return self._blocked_result("SKILL_NOT_DISCOVERED", host_version=host_version)
             thread_response = client.call(
                 "thread/start",
-                {
-                    "cwd": request.workspace,
-                    "ephemeral": True,
-                    "sandbox": "read-only",
-                    "approvalPolicy": "on-request",
-                    "runtimeWorkspaceRoots": [request.workspace],
-                    "developerInstructions": self._developer_instructions,
-                },
+                self._thread_params(request),
                 timeout_seconds=self._remaining_timeout(deadline),
             )
             thread = _mapping(_mapping(thread_response.get("result")).get("thread"))
@@ -950,6 +966,18 @@ class CodexAppServerAdapter:
                     status = InvocationResultStatus.FAILURE
                     error_code = "HOST_EVENT_CORRELATION_MISMATCH"
                     break
+                handled, host_request_error = self._handle_host_request(
+                    message,
+                    client,
+                    events,
+                    budget,
+                )
+                if handled:
+                    if host_request_error is not None:
+                        status = InvocationResultStatus.FAILURE
+                        error_code = host_request_error
+                        break
+                    continue
                 if "id" in message and method.endswith("requestApproval"):
                     client.respond(message["id"], {"decision": "decline"})
                     denied_approvals += 1
@@ -1120,8 +1148,9 @@ class CodexAppServerAdapter:
             host_interpreter_digest=host_interpreter_digest,
         )
 
-    @staticmethod
-    def _turn_params(request: CapabilityInvocationRequest, thread_id: str) -> dict[str, object]:
+    def _turn_params(
+        self, request: CapabilityInvocationRequest, thread_id: str
+    ) -> dict[str, object]:
         criteria = "\n".join(f"- {item}" for item in request.acceptance_criteria)
         prompt = (
             f"${request.skill_name}\nTask: {request.task}\n"
@@ -1136,10 +1165,41 @@ class CodexAppServerAdapter:
                 {"type": "skill", "name": request.skill_name, "path": request.skill_path},
             ],
             "approvalPolicy": "on-request",
-            "sandboxPolicy": {"type": "readOnly", "networkAccess": False},
+            "sandboxPolicy": self._turn_sandbox_policy(request),
             "runtimeWorkspaceRoots": [request.workspace],
             "clientUserMessageId": request.invocation_id,
         }
+
+    def _thread_params(self, request: CapabilityInvocationRequest) -> dict[str, object]:
+        """Build the thread-start request so specialized hosts can bind tools."""
+
+        return {
+            "cwd": request.workspace,
+            "ephemeral": True,
+            "sandbox": self._thread_sandbox(request),
+            "approvalPolicy": "on-request",
+            "runtimeWorkspaceRoots": [request.workspace],
+            "developerInstructions": self._developer_instructions,
+        }
+
+    def _thread_sandbox(self, request: CapabilityInvocationRequest) -> str:
+        """Return the host sandbox for the default read-only adapter."""
+
+        del request
+        return "read-only"
+
+    def _turn_sandbox_policy(self, request: CapabilityInvocationRequest) -> dict[str, object]:
+        """Return the host turn sandbox for the default read-only adapter."""
+
+        del request
+        return {"type": "readOnly", "networkAccess": False}
+
+    def _validate_filesystem_policy(
+        self,
+        request: CapabilityInvocationRequest,
+    ) -> tuple[str, ...]:
+        mode = request.authorization.filesystem_policy.get("mode", "READ_ONLY")
+        return () if mode == "READ_ONLY" else ("FILESYSTEM_MODE_UNSUPPORTED",)
 
     @staticmethod
     def _skill_is_discovered(
@@ -1164,9 +1224,8 @@ class CodexAppServerAdapter:
                     return True
         return False
 
-    @staticmethod
     def _message_matches_invocation(
-        message: Mapping[str, object], thread_id: str, turn_id: str
+        self, message: Mapping[str, object], thread_id: str, turn_id: str
     ) -> bool:
         params = _mapping(message.get("params"))
         nodes = (
@@ -1204,8 +1263,8 @@ class CodexAppServerAdapter:
             return thread_seen and turn_seen
         return True
 
-    @staticmethod
     def _event_from_message(
+        self,
         message: Mapping[str, object],
         *,
         sequence: int,
@@ -1288,8 +1347,7 @@ class CodexAppServerAdapter:
             for event in events
         )
 
-    @staticmethod
-    def _is_forbidden_host_action(message: Mapping[str, object]) -> bool:
+    def _is_forbidden_host_action(self, message: Mapping[str, object]) -> bool:
         method = _text(message.get("method")).casefold()
         if method.startswith(_FORBIDDEN_HOST_METHOD_PREFIXES):
             return True
@@ -1308,6 +1366,18 @@ class CodexAppServerAdapter:
                 "subagent",
             )
         )
+
+    def _handle_host_request(
+        self,
+        message: Mapping[str, object],
+        client: AppServerClient,
+        events: list[Phase4Event],
+        budget: Phase4Budget,
+    ) -> tuple[bool, str | None]:
+        """Handle a specialized host request before generic action rejection."""
+
+        del message, client, events, budget
+        return False, None
 
     @staticmethod
     def _remaining_timeout(deadline: float) -> float:

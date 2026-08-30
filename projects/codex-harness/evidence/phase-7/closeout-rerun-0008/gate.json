@@ -1,0 +1,47 @@
+{
+  "attestation_digest": "sha256:237cdd2c93a2294b5599570a9bb2b5319428064cd0dab0d20e79a83deb70db1a",
+  "candidate_support": "P7_LEVEL_B_CANDIDATE",
+  "chain_id": "PHASE7-RERUN-0007",
+  "claims_excluded": [
+    "AAA_QUALITY",
+    "HARNESS_AAA_VERIFIED",
+    "causal_improvement",
+    "production_readiness",
+    "release_approval",
+    "security_approval",
+    "universal_superiority"
+  ],
+  "decision": "Retain the additive candidate at the observed support level and do not promote. A human/release authority must decide whether the explicit limitations are acceptable.",
+  "evidence": {
+    "builder": "evidence/phase-7/reruns/PHASE7-RERUN-0007/builder-receipt.json",
+    "evaluation": "evidence/phase-7/reruns/eval-rerun-20260830-rerun-0007.json",
+    "quality": "evidence/phase-7/reruns/PHASE7-RERUN-0007/quality-run-0003.json",
+    "repair": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/repair-receipt.json",
+    "verifier": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/verifier-receipt-0009.json"
+  },
+  "gate_id": "PHASE7-FINAL-RERUN-0008",
+  "independent_review": {
+    "note": "Independent read-only re-review after all technical remediation and final Ruff import-order correction: PASS; no actionable Critical, High or Medium findings. The live 0007 builder/repair/verifier chain, exact catalog labels, quality controls and reclosure binding were verified.",
+    "reviewer_id": "01a05394-2607-7a83-b6e0-7e6b9454bae7",
+    "status": "PASS"
+  },
+  "limitations": [
+    "branch coverage is 65.54% and is reported below the 80% target",
+    "pip-audit is unavailable in the project environment",
+    "host skill-load event remains unobservable",
+    "host response is composition telemetry and not local factual evidence",
+    "network and provider absence are bounded protocol observations, not a syscall-level isolation claim",
+    "host control-plane authentication is separate from the capability credential boundary",
+    "artifact-v3 is a derived disposable artifact; the fixed formatter was applied and its changed-path list is receipt-bound",
+    "no independent release authority or production approval is represented by this packet"
+  ],
+  "manifest_digest": "sha256:6df549f745d0f825ad52891164eb9f4e65574b5f082fded7a9600be244cb8655",
+  "observed_at": "2026-08-30T18:07:27.652288Z",
+  "package_fingerprint": "sha256:fa8ff9c60f79466ea2b4d2ebbce09b376d6260a40105b344f1da7141fc36437e",
+  "promoted_support": null,
+  "promotion": "NOT_PROMOTED",
+  "readiness_digest": "sha256:0814d91ac0842dc69efbc5e66c33f5cad5a720d8937a465caa2080a3fafc970d",
+  "schema_version": "P7-RERUN-FINAL-GATE-1",
+  "status": "PASS_WITH_LIMITATIONS",
+  "task_id": "PHASE7-001"
+}

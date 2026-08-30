@@ -1,0 +1,118 @@
+{
+  "schema_version": "P7-PROFILES-1",
+  "capability_id": "backend-engineering-vnext",
+  "profile_ids": [
+    "BACKEND_SMALL",
+    "BACKEND_FEATURE",
+    "BACKEND_API",
+    "BACKEND_DATA",
+    "BACKEND_REFACTOR",
+    "BACKEND_MIGRATION",
+    "BACKEND_HIGH_RISK"
+  ],
+  "default_profile": "BACKEND_SMALL",
+  "selection_rule": "Select the smallest profile whose gates cover the frozen boundary; never widen scope implicitly.",
+  "profiles": [
+    {
+      "id": "BACKEND_SMALL",
+      "purpose": "A narrow backend change with one bounded behavior and no material schema or trust-boundary expansion.",
+      "task_classes": ["SMALL"],
+      "gates": ["scope", "architecture_fit", "regression", "handoff"],
+      "max_criteria": 8,
+      "max_procedures": 8,
+      "max_reference_bytes": 16384,
+      "required_dimensions": ["CORRECTNESS", "ARCHITECTURE_FIT", "SCOPE_DISCIPLINE", "TEST_QUALITY", "EVIDENCE"],
+      "conditional_dimensions": ["API_CONTRACT", "ERROR_MODEL", "OBSERVABILITY"],
+      "security_handoff": "TRIGGERED_ONLY"
+    },
+    {
+      "id": "BACKEND_FEATURE",
+      "purpose": "A complete backend feature crossing service, persistence, API, and evidence-shaped tests.",
+      "task_classes": ["MEDIUM"],
+      "gates": ["scope", "architecture_fit", "api_data", "failure_model", "tests", "handoff"],
+      "max_criteria": 24,
+      "max_procedures": 20,
+      "max_reference_bytes": 49152,
+      "required_dimensions": ["CORRECTNESS", "ARCHITECTURE_FIT", "DATA_INTEGRITY", "API_CONTRACT", "ERROR_MODEL", "TEST_QUALITY", "OBSERVABILITY", "SCOPE_DISCIPLINE", "EVIDENCE"],
+      "conditional_dimensions": ["RELIABILITY", "PERFORMANCE", "MIGRATION_SAFETY", "SECURITY_HANDOFF"],
+      "security_handoff": "TRIGGERED_ONLY"
+    },
+    {
+      "id": "BACKEND_API",
+      "purpose": "A public backend endpoint or protocol change whose contract and error semantics are material.",
+      "task_classes": ["SMALL", "MEDIUM", "LARGE"],
+      "gates": ["scope", "api_schema", "validation", "authorization", "errors", "compatibility", "tests", "handoff"],
+      "max_criteria": 20,
+      "max_procedures": 18,
+      "max_reference_bytes": 49152,
+      "required_dimensions": ["CORRECTNESS", "API_CONTRACT", "ERROR_MODEL", "TEST_QUALITY", "SCOPE_DISCIPLINE", "EVIDENCE"],
+      "conditional_dimensions": ["DATA_INTEGRITY", "RELIABILITY", "PERFORMANCE", "SECURITY_HANDOFF", "OBSERVABILITY"],
+      "security_handoff": "TRIGGERED_ONLY"
+    },
+    {
+      "id": "BACKEND_DATA",
+      "purpose": "A persistence, transaction, invariant, concurrency, or idempotency boundary.",
+      "task_classes": ["MEDIUM", "LARGE"],
+      "gates": ["scope", "data_model", "constraints", "transaction", "concurrency", "idempotency", "tests", "handoff"],
+      "max_criteria": 24,
+      "max_procedures": 24,
+      "max_reference_bytes": 65536,
+      "required_dimensions": ["CORRECTNESS", "DATA_INTEGRITY", "ERROR_MODEL", "TEST_QUALITY", "SCOPE_DISCIPLINE", "EVIDENCE"],
+      "conditional_dimensions": ["API_CONTRACT", "RELIABILITY", "PERFORMANCE", "MIGRATION_SAFETY", "SECURITY_HANDOFF", "OBSERVABILITY"],
+      "security_handoff": "TRIGGERED_ONLY"
+    },
+    {
+      "id": "BACKEND_REFACTOR",
+      "purpose": "A backend structural change where architecture preservation and regression evidence matter more than new behavior.",
+      "task_classes": ["SMALL", "MEDIUM", "LARGE"],
+      "gates": ["scope", "baseline", "architecture_fit", "contract_preservation", "regression", "handoff"],
+      "max_criteria": 20,
+      "max_procedures": 16,
+      "max_reference_bytes": 49152,
+      "required_dimensions": ["CORRECTNESS", "ARCHITECTURE_FIT", "MAINTAINABILITY", "TEST_QUALITY", "SCOPE_DISCIPLINE", "EVIDENCE"],
+      "conditional_dimensions": ["DATA_INTEGRITY", "API_CONTRACT", "PERFORMANCE", "SECURITY_HANDOFF", "OBSERVABILITY"],
+      "security_handoff": "TRIGGERED_ONLY"
+    },
+    {
+      "id": "BACKEND_MIGRATION",
+      "purpose": "A schema or data migration with compatibility, preservation, apply, failure, and rollback or roll-forward evidence.",
+      "task_classes": ["MEDIUM", "LARGE", "CRITICAL"],
+      "gates": ["scope", "authority", "compatibility", "migration_safety", "data_preservation", "rollback", "tests", "handoff"],
+      "max_criteria": 28,
+      "max_procedures": 28,
+      "max_reference_bytes": 65536,
+      "required_dimensions": ["CORRECTNESS", "DATA_INTEGRITY", "MIGRATION_SAFETY", "RELIABILITY", "TEST_QUALITY", "SCOPE_DISCIPLINE", "EVIDENCE"],
+      "conditional_dimensions": ["API_CONTRACT", "PERFORMANCE", "SECURITY_HANDOFF", "OBSERVABILITY"],
+      "security_handoff": "TRIGGERED_ONLY"
+    },
+    {
+      "id": "BACKEND_HIGH_RISK",
+      "purpose": "A backend change crossing authentication, authorization, sensitive data, injection, privilege, external dependency, or irreversible risk.",
+      "task_classes": ["LARGE", "CRITICAL"],
+      "gates": ["scope", "authority", "architecture_fit", "security_route", "data_integrity", "reliability", "tests", "independent_review", "handoff"],
+      "max_criteria": 32,
+      "max_procedures": 32,
+      "max_reference_bytes": 65536,
+      "required_dimensions": ["CORRECTNESS", "ARCHITECTURE_FIT", "DATA_INTEGRITY", "API_CONTRACT", "ERROR_MODEL", "RELIABILITY", "SECURITY_HANDOFF", "TEST_QUALITY", "OBSERVABILITY", "SCOPE_DISCIPLINE", "EVIDENCE"],
+      "conditional_dimensions": ["PERFORMANCE", "MIGRATION_SAFETY", "MAINTAINABILITY"],
+      "security_handoff": "REQUIRED_WHEN_TRIGGERED",
+      "self_approval": "FORBIDDEN"
+    }
+  ],
+  "dimension_definitions": {
+    "CORRECTNESS": "Observed requested behavior and rejection behavior at the relevant boundary.",
+    "ARCHITECTURE_FIT": "Smallest sufficient change preserves sound ownership and boundaries.",
+    "DATA_INTEGRITY": "Constraints, atomicity, ownership, race, replay, and persisted state remain valid.",
+    "API_CONTRACT": "Method, path, schema, errors, authorization, compatibility, and versioning are explicit.",
+    "ERROR_MODEL": "Transport, domain, authorization, conflict, persistence, and dependency failures remain distinguishable.",
+    "RELIABILITY": "Timeout, retry, degradation, cleanup, and dependency behavior are bounded and safe.",
+    "PERFORMANCE": "A representative measurement and proportional budget precede optimization.",
+    "SECURITY_HANDOFF": "Material security triggers are routed separately without self-issued approval.",
+    "MIGRATION_SAFETY": "Apply, checksum, preservation, compatibility, failure, and rollback posture are evidenced.",
+    "TEST_QUALITY": "Tests exercise the public or persistence boundary and catch known-bad cases.",
+    "OBSERVABILITY": "Outcome and failure class are correlated without sensitive payloads.",
+    "MAINTAINABILITY": "Changed code remains comprehensible without speculative abstraction.",
+    "SCOPE_DISCIPLINE": "Only the frozen task and authorized roots are changed.",
+    "EVIDENCE": "Claims bind current artifacts, procedures, results, limitations, and owners."
+  }
+}

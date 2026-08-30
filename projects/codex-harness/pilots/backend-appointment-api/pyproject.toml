@@ -1,0 +1,10 @@
+[project]
+name = "backend-appointment-api-pilot"
+version = "0.1.0"
+description = "Disposable standard-library veterinary appointment API pilot"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

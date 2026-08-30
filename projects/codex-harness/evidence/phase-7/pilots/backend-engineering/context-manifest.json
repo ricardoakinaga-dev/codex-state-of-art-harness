@@ -1,0 +1,17 @@
+{
+  "schema_version": "P7-PILOT-CONTEXT-1",
+  "task_id": "TASK-PHASE7-BUILDER-FINAL-001",
+  "run_id": "RUN-PHASE7-BUILDER-FINAL-001",
+  "capability_id": "backend-engineering-vnext",
+  "package_fingerprint": "sha256:560d801467b48cdd1ea655c744bb31bd881ab77db1cb9d445572f0ad60a1fa0d",
+  "skill_md_bytes": 10342,
+  "loaded_instruction_kernel_bytes": 10342,
+  "verifier_loaded_instruction_kernel_bytes": 4652,
+  "context_budget_bytes": 16384,
+  "selected_references": ["architecture-boundaries.md", "api-data-contract.md", "migration-reliability.md", "security-handoff.md", "implementation-handoff.md", "deterministic-boundaries.md", "role-boundaries.md"],
+  "builder_context": "host-managed kernel plus exact task, criteria, policy and project root",
+  "verifier_context": "host-managed verification-loop-vNext kernel plus immutable handoff",
+  "host_total_prompt_bytes": null,
+  "load_observation": "HOST_LOAD_UNOBSERVABLE",
+  "measurement_limit": "The host exposes no trustworthy total prompt byte counter."
+}

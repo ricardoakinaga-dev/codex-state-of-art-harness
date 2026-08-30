@@ -1,0 +1,244 @@
+{
+  "schema_version": "CM-1",
+  "capability_id": "backend-engineering-vnext",
+  "display_name": "Backend Engineering vNext",
+  "description": "A bounded project-local backend specialist for API, data, migration, reliability, and evidence-backed implementation handoffs.",
+  "version": "0.1.0",
+  "type": "SPECIALIST",
+  "role": "SPECIALIST",
+  "primary_type": "SPECIALIST",
+  "status": "CANDIDATE",
+  "registry_bridge": false,
+  "record": {
+    "status": "CURRENT",
+    "provenance": {
+      "source_type": "PROJECT_LOCAL_NATIVE",
+      "source_refs": [
+        "evidence/phase-7/architecture-contract-report.md",
+        "evidence/phase-7/native-capability-gap-analysis.md",
+        "evidence/phase-7/upstream-analysis.md"
+      ],
+      "created_at": "2026-08-30T00:00:00Z"
+    },
+    "evidence_refs": ["P7-QB-1", "PHASE7-001"]
+  },
+  "owner": "SPECIALIST",
+  "authority": "BACKEND_IMPLEMENTATION_WITHIN_FROZEN_HANDOFF",
+  "scope": {
+    "scope": "PROJECT",
+    "installation_scope": "PROJECT",
+    "project_scope": "codex-state-of-art-harness",
+    "domains": ["BACKEND_ENGINEERING", "ENGINEERING"],
+    "activates_when": [
+      "A backend feature, service behavior, persistence rule, migration, or backend reliability boundary must be implemented",
+      "An API or data-integrity contract needs a bounded implementation and evidence handoff",
+      "Transaction, concurrency, idempotency, performance, or observability behavior is material to the task"
+    ],
+    "do_not_activate_when": [
+      "The deliverable is documentation, copy, frontend-only, visual-only, research-only, or a trivial local edit",
+      "Final security assurance, release approval, orchestration, or a global architecture decision is requested",
+      "Required context, a safe workspace boundary, or an authorized deterministic observer is missing",
+      "The request requires external service access, unrestricted shell, network, MCP, provider, credential, or production state"
+    ],
+    "minimum_task_class": "SMALL",
+    "task_scale_policy": "TRIVIAL_DIRECT_SMALL_NARROW_MEDIUM_FULL_LARGE_COMPOSED_CRITICAL_ESCALATED"
+  },
+  "contracts": {
+    "inputs": [
+      "BackendEngineeringInput",
+      "TaskProfile",
+      "FrozenAcceptanceCriteria",
+      "RepositoryContext",
+      "AuthorityReceipt",
+      "BoundedWorkspacePolicy",
+      "SecurityProfile",
+      "VerificationProfile"
+    ],
+    "outputs": [
+      "BackendImplementationPlan",
+      "BackendEngineeringOutput",
+      "ApiDataBoundaryContract",
+      "MigrationSafetyRecord",
+      "SecurityHandoff",
+      "TestEvidenceLedger",
+      "VerifierHandoff"
+    ],
+    "gates": [
+      "P7_SCOPE_BOUND",
+      "P7_ARCHITECTURE_BOUND",
+      "P7_API_DATA_CONTRACT_BOUND",
+      "P7_FAILURE_RELIABILITY_BOUND",
+      "P7_SECURITY_ROUTE_BOUND",
+      "P7_EVIDENCE_BOUND",
+      "P7_BUDGET_BOUND"
+    ],
+    "stop_conditions": [
+      "TASK_COMPLETE",
+      "BLOCKING_TEST_FAILURE",
+      "MISSING_REQUIRED_TOOL",
+      "MISSING_REQUIRED_CONTEXT",
+      "UNSAFE_MIGRATION",
+      "SECURITY_REVIEW_REQUIRED",
+      "NO_PROGRESS",
+      "REPEATED_FAILURE",
+      "OSCILLATION",
+      "BUDGET_EXHAUSTED",
+      "SCOPE_EXPANSION_REQUIRED",
+      "HUMAN_DECISION_REQUIRED"
+    ]
+  },
+  "composition": {
+    "can_call": [],
+    "can_be_called_by": ["ROUTER", "ORCHESTRATOR", "ENGINEERING_DIRECTOR"],
+    "must_run_before": ["INTEGRATOR", "ASSURANCE", "RELEASE_AUTHORITY"],
+    "must_run_after": ["CLASSIFICATION", "ACCEPTANCE"],
+    "conflicts": ["DESIGN_DIRECTOR", "REVIEWER", "ASSURANCE", "RELEASE_AUTHORITY", "SECURITY_AUTHORITY"],
+    "optional": ["api-design", "tdd-workflow", "security-review", "verification-loop-vnext", "INDEPENDENT_REVIEWER"],
+    "do_not_combine": ["DESIGN_DIRECTOR", "REVIEWER", "ASSURANCE", "RELEASE_AUTHORITY", "SECURITY_AUTHORITY"],
+    "same_invocation_role": "SPECIALIST_ONLY",
+    "fresh_final_verification_required": true,
+    "repair_limit": 1
+  },
+  "dependencies": {
+    "capabilities": [],
+    "tools": [],
+    "providers": [],
+    "references": [
+      "references/architecture-boundaries.md",
+      "references/api-data-contract.md",
+      "references/migration-reliability.md",
+      "references/security-handoff.md",
+      "references/implementation-handoff.md",
+      "references/deterministic-boundaries.md",
+      "references/role-boundaries.md"
+    ]
+  },
+  "allowed_tools": [],
+  "metadata_only": true,
+  "execution": "NONE",
+  "read_only": true,
+  "execution_policy": {
+    "allowed_tools": [],
+    "shell": "deny",
+    "network": "deny",
+    "mcp": "deny",
+    "provider": "deny",
+    "credential": "deny",
+    "credentials": "deny",
+    "workspace_write": "deny",
+    "arbitrary_interpolation": "deny",
+    "subagents": "deny"
+  },
+  "compatibility": {
+    "host_features": [
+      "phase3-native-manifest",
+      "phase3-bounded-loader",
+      "phase4-exact-byte-preflight",
+      "bounded-project-workspace"
+    ],
+    "platform_limits": ["Python >= 3.12 project runtime is the pilot reference", "No external runtime assumption"],
+    "required_tools": [],
+    "optional_tools": [],
+    "support_level": "P7_LEVEL_A_CANDIDATE"
+  },
+  "provenance": {
+    "source_type": "PROJECT_LOCAL_NATIVE",
+    "source_refs": [
+      "evidence/phase-7/architecture-contract-report.md",
+      "evidence/phase-7/api-data-boundary-report.md",
+      "evidence/phase-7/migration-safety-report.md",
+      "evidence/phase-7/security-handoff-report.md",
+      "evidence/phase-7/upstream-analysis.md"
+    ],
+    "current_source_refs": ["evidence/phase-7/current-backend-patterns-snapshot.json", "evidence/phase-7/current-capability-analysis.md"],
+    "upstream_source_refs": ["evidence/phase-7/upstream-analysis.md"],
+    "native_source_refs": ["evidence/phase-7/native-capability-gap-analysis.md"],
+    "inspected_at": "2026-08-30T00:00:00Z",
+    "source_repository": "project-local",
+    "source_hash": "sha256:2e5efd41b7c89432bdd31cebea429dbc6c49a743a558b33040f55be7f7cde165",
+    "source_hash_scope": "phase-7-current-baseline-observation",
+    "source_hashes": {
+      "current": "sha256:2e5efd41b7c89432bdd31cebea429dbc6c49a743a558b33040f55be7f7cde165",
+      "upstream": "sha256:9b983d0297a983110fdfda8dce55d19b750ca3e53ef155d75a3eff740d3874b8",
+      "native": "DECLARATIVE_GENERAL_SURFACE",
+      "vnext": "BOUND_AT_DISCOVERY"
+    },
+    "origin": "PROJECT",
+    "precedence": 200,
+    "installation_scope": "PROJECT",
+    "project_scope": "codex-state-of-art-harness",
+    "forked_from": "backend-patterns-current-baseline",
+    "authority_status": "PROJECT_LOCAL_CANDIDATE",
+    "confidence": "HIGH"
+  },
+  "trust": {
+    "level": "PROJECT_LOCAL_CANDIDATE",
+    "package_bytes": "BOUND_AT_PHASE3_DISCOVERY",
+    "external_execution": "DENIED",
+    "promotion": "REQUIRES_CURRENT_EVAL_BENCHMARK_AND_INDEPENDENT_REVIEW"
+  },
+  "security": {
+    "read_only": true,
+    "allowed_tools": [],
+    "permissions": ["read_project_local_metadata", "emit_bounded_handoff_metadata"],
+    "data_classes": ["PROJECT_LOCAL_CODE_METADATA", "SYNTHETIC_EVIDENCE"],
+    "shell": {"allowed": false, "mode": "deny"},
+    "network": {"allowed": false, "mode": "deny"},
+    "mcp": {"allowed": false, "mode": "deny"},
+    "provider": {"allowed": false, "mode": "deny"},
+    "credential": {"allowed": false, "mode": "deny"},
+    "credentials": {"allowed": false, "mode": "deny"},
+    "workspace_write": {"allowed": false, "mode": "deny", "delegated_to": "host_preflight"},
+    "secret_policy": "Never read, store, log, or emit secrets."
+  },
+  "budgets": {
+    "context_bytes": 16384,
+    "selected_references_bytes": 65536,
+    "procedures_per_run": 32,
+    "total_seconds": 120,
+    "attempts_per_procedure": 1,
+    "builder_invocations": 2,
+    "verifier_invocations": 2,
+    "composition_repairs": 1,
+    "evidence_records": 256,
+    "report_bytes": 131072,
+    "max_no_progress_rounds": 1,
+    "unbounded_loops": 0
+  },
+  "profiles": "profiles.json",
+  "references": [
+    "references/architecture-boundaries.md",
+    "references/api-data-contract.md",
+    "references/migration-reliability.md",
+    "references/security-handoff.md",
+    "references/implementation-handoff.md",
+    "references/deterministic-boundaries.md",
+    "references/role-boundaries.md"
+  ],
+  "scripts": ["scripts/deterministic-procedures.json"],
+  "evals": ["evals/scenarios.json"],
+  "benchmarks": ["benchmarks/benchmark-fixtures.json"],
+  "quality": {
+    "profile_refs": ["profiles.json"],
+    "composition_contract": "composition-contract.json",
+    "eval_refs": ["evals/scenarios.json"],
+    "benchmark_refs": ["benchmarks/benchmark-fixtures.json"],
+    "last_result": "NOT_RUN",
+    "causal_claim": false
+  },
+  "stop_conditions": [
+    "TASK_COMPLETE",
+    "BLOCKING_TEST_FAILURE",
+    "MISSING_REQUIRED_TOOL",
+    "MISSING_REQUIRED_CONTEXT",
+    "UNSAFE_MIGRATION",
+    "SECURITY_REVIEW_REQUIRED",
+    "NO_PROGRESS",
+    "REPEATED_FAILURE",
+    "OSCILLATION",
+    "BUDGET_EXHAUSTED",
+    "SCOPE_EXPANSION_REQUIRED",
+    "HUMAN_DECISION_REQUIRED"
+  ],
+  "deprecation": {"successor": null, "reason": null}
+}

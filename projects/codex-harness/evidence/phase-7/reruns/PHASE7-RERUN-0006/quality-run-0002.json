@@ -1,0 +1,75 @@
+{
+  "schema_version": "P7-QUALITY-RUN-1",
+  "task_id": "PHASE7-RERUN-0006",
+  "observed_at": "2026-08-30T14:27:14-03:00",
+  "scope": "current project-local Phase 7 implementation plus complete Harness suite",
+  "commands": {
+    "full_suite_line": "PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 .venv/bin/coverage run -m pytest -q",
+    "line_threshold": ".venv/bin/coverage report --fail-under=80",
+    "full_suite_branch": "PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 .venv/bin/coverage run --branch -m pytest -q",
+    "format": ".venv/bin/ruff format --check src tests scripts",
+    "lint": ".venv/bin/ruff check src tests scripts",
+    "types": ".venv/bin/mypy --strict src",
+    "catalog_stability": "PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 .venv/bin/python scripts/run_phase7_evals.py --execute-catalog --repeat 5"
+  },
+  "results": {
+    "tests": {
+      "status": "PASS",
+      "passed": 562,
+      "failed": 0,
+      "skipped": 0,
+      "line_run_duration_seconds": 84.83,
+      "branch_run_duration_seconds": 88.58
+    },
+    "line_coverage": {
+      "status": "PASS",
+      "covered_lines": 15659,
+      "statements": 19440,
+      "percent": 80.55041152263375,
+      "report_digest": "sha256:37d20d06bbcdb586b9e81eec2d289b21844e83e17ba3bd030a8be862a1762ead"
+    },
+    "branch_coverage": {
+      "status": "OBSERVED_BELOW_80",
+      "covered_branches": 4851,
+      "branches": 7402,
+      "partial_branches": 2069,
+      "percent": 65.5363415293164,
+      "report_digest": "sha256:c22f0179b9f16bab51c4caaf3ab47647e1383a25dbfb2b489b2b8201f9de905c",
+      "interpretation": "The repository's operational threshold is line coverage; branch coverage is retained as an explicit limitation rather than presented as green."
+    },
+    "ruff_format": {
+      "status": "PASS",
+      "output": "154 files already formatted"
+    },
+    "ruff_check": {
+      "status": "PASS",
+      "output": "All checks passed!"
+    },
+    "mypy_strict": {
+      "status": "PASS",
+      "source_files": 65,
+      "output": "Success: no issues found in 65 source files"
+    },
+    "dependency_audit": {
+      "status": "UNAVAILABLE",
+      "tool": "pip-audit",
+      "reason": "pip-audit is not installed in the project virtual environment and no approved offline dependency-audit database is present"
+    }
+  },
+  "stability_observations": {
+    "catalog_runs": 5,
+    "catalog_passes": [48, 48, 48, 48, 48],
+    "catalog_failures": 0,
+    "pilot_direct_tests_passed": 28,
+    "sqlite_lock_stress_runs": 50,
+    "sqlite_lock_stress_failures": 0
+  },
+  "claims": {
+    "line_threshold_met": true,
+    "branch_threshold_met": false,
+    "catalog_stability_observed": true,
+    "security_approval": false,
+    "production_ready": false,
+    "aaa_verified": false
+  }
+}

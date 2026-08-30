@@ -1,0 +1,44 @@
+{
+  "attestation_digest": "sha256:ca07697e3985825c8244ba439e7fd9b5ddce2e38d64e4c679a8cc789dae6f424",
+  "blocking_facts": [
+    "P7-23: no current builder artifact after two builder invocations and one repair",
+    "P7-24: verifier semantic stop is BLOCKED/MISSING_REQUIRED_ARTIFACT",
+    "P7-30: exact post-repair independent re-review is not available",
+    "P7-31: no PHASE7-FROZEN marker is authorized for a failed gate"
+  ],
+  "candidate_support": "P7_LEVEL_A_CANDIDATE",
+  "claims_excluded": [
+    "AAA_QUALITY",
+    "HARNESS_AAA_VERIFIED",
+    "production_readiness",
+    "causal_improvement",
+    "security_approval",
+    "release_approval"
+  ],
+  "criteria": {
+    "P7-01": "PASS",
+    "P7-02_to_P7-20": "PASS_WITH_LIMITATIONS",
+    "P7-21": "NOT_CLOSED_CURRENT_RECEIPT_MISSING",
+    "P7-22": "NOT_CLOSED_CURRENT_RECEIPT_MISSING",
+    "P7-23": "FAIL_NO_BUILDER_ARTIFACT",
+    "P7-24": "FAIL_MISSING_BUILDER_HANDOFF",
+    "P7-25": "FAIL_STRICT_REPAIR_ORDER_NOT_ESTABLISHED",
+    "P7-26": "FAIL_NO_REBOUND_ARTIFACT_VERIFICATION",
+    "P7-27": "PASS_WITH_LIMITATIONS",
+    "P7-28": "PASS",
+    "P7-29": "PASS_WITH_LIMITATIONS",
+    "P7-30": "FAIL_EXACT_FINAL_REVIEW_UNRESOLVED",
+    "P7-31": "PASS_WITH_LIMITATIONS"
+  },
+  "decision": "Close Phase 7 as FAIL/NOT_PROMOTED. Preserve the additive package and local pilot as a candidate for a separately authorized host-capability rerun; do not spend a third builder attempt or create a freeze marker.",
+  "gate_id": "PHASE7-FINAL-FAIL-0001",
+  "manifest_digest": "sha256:17b9a30566cb5a23cd55de766393669bd4a0e2d89b103499505103b0d326713f",
+  "observed_at": "2026-08-30T15:15:40.949690Z",
+  "package_fingerprint": "sha256:6a378943a68a8613a008d4947f38bd987f8654234b942ceee75373e8f873e0ef",
+  "promoted_support": null,
+  "promotion": "NOT_PROMOTED",
+  "readiness_digest": "sha256:88094694db75832b6669d3359f9435f6c3dc5e842a4f5114e9bd0162d6da4240",
+  "schema_version": "P7-FINAL-GATE-1",
+  "status": "FAIL",
+  "task_id": "PHASE7-001"
+}

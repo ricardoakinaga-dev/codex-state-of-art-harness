@@ -569,3 +569,39 @@ for raw in sys.stdin:
         assert observations[-1].method == "turn/progress"
     finally:
         client.close()
+
+
+def test_subprocess_client_does_not_read_auth_when_credentials_are_denied(
+    tmp_path: Path, monkeypatch
+) -> None:
+    python_path = Path(sys.executable).resolve()
+    python_digest = "sha256:" + hashlib.sha256(python_path.read_bytes()).hexdigest()
+
+    def fail_if_authentication_is_read(_runtime_codex_home: Path) -> None:
+        raise AssertionError("credential copy must not run for a denied policy")
+
+    monkeypatch.setattr(
+        _SubprocessClient,
+        "_copy_host_transport_authentication",
+        fail_if_authentication_is_read,
+    )
+    client = _SubprocessClient(
+        cwd=tmp_path,
+        command=(str(python_path), "-c", "import sys; sys.stdin.read()"),
+        pinned_files=((str(python_path), python_digest),),
+        host_executable_path=str(python_path),
+        host_executable_digest=python_digest,
+        allow_host_authentication=False,
+    )
+    try:
+        assert client._process.poll() is None
+    finally:
+        client.close()
+
+
+def test_adapter_labels_control_plane_auth_separately_from_capability_credentials() -> None:
+    assert CodexAppServerAdapter().host_authentication_mode == "NONE"
+    assert (
+        CodexAppServerAdapter(host_authentication=True).host_authentication_mode
+        == "HOST_ONLY_CONTROL_PLANE"
+    )

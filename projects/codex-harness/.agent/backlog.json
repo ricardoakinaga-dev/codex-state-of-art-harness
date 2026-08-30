@@ -183,6 +183,36 @@
         ".agent/execution-log.jsonl#EVT-PHASE6-COMPLETE-0001"
       ],
       "next_action": "Keep the exact Phase 6 packet frozen; any source, test, runtime-configuration, evidence, control-plane or scope change requires a new manifest and independent-review cycle."
+    },
+    {
+      "id": "PHASE7-001",
+      "title": "Modernize backend-patterns as a project-local backend-engineering-vNext specialist",
+      "stage": "DONE",
+      "priority": "P0",
+      "status": "PASS_WITH_LIMITATIONS",
+      "support_level": "P7_LEVEL_B_CANDIDATE",
+      "origin": "User-supplied Phase 7 backend engineering modernization pilot specification",
+      "dependencies": ["PHASE6-001"],
+      "owner": "lead",
+      "acceptance_summary": "Inspect current/upstream/native gaps, build and validate a project-local backend specialist with typed contracts, deterministic evals/benchmarks and bounded security/migration stops; run a real isolated backend feature through Phase 3 discovery, Phase 4 preflight, real builder, read-only verification-loop-vNext composition, optional independent criticism and at most one repair; regress Phases 2–6 and close an exact packet without global or installed mutation.",
+      "evidence_refs": [
+        ".agent/plans/PHASE-7-backend-engineering-modernization.md",
+        ".agent/gates/PHASE7-SCOPE-READY-0001.json",
+        ".agent/gates/PHASE7-TECHNICALLY-SPECIFIED-0001.json",
+        "evidence/phase-7/P7-QB-1.md",
+        "../../architecture/docs/adr/ADR-016-backend-engineering-vnext-modernization.md",
+        "evidence/phase-7/current-backend-patterns-snapshot.json",
+        "evidence/phase-7/upstream-analysis.md",
+        "evidence/phase-7/native-capability-gap-analysis.md",
+        "evidence/phase-7/closeout-rerun-0009/README.md",
+        "evidence/phase-7/closeout-rerun-0009/review-manifest.json",
+        "evidence/phase-7/closeout-rerun-0009/review-attestation.json",
+        "evidence/phase-7/closeout-rerun-0009/readiness.json",
+        "evidence/phase-7/closeout-rerun-0009/gate.json",
+        ".agent/gates/PHASE7-FINAL-RERUN-0009.json",
+        ".agent/verification.jsonl#VER-PHASE7-FINAL-RERUN-0007"
+      ],
+      "next_action": "Phase 7 closed as PASS_WITH_LIMITATIONS/NOT_PROMOTED. Keep the additive package as a P7_LEVEL_B_CANDIDATE; human/release authority owns any promotion decision, with branch coverage, pip-audit and host-load limitations retained."
     }
   ]
 }

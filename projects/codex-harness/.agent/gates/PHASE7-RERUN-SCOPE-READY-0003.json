@@ -1,0 +1,38 @@
+{
+  "schema_version": "P7-GATE-1",
+  "gate_id": "PHASE7-RERUN-SCOPE-READY-0003",
+  "task_id": "PHASE7-RERUN-0007",
+  "phase": "PHASE7",
+  "status": "PASS",
+  "observed_at": "2026-08-30T14:45:00-03:00",
+  "authority": "PROJECT_LOCAL_PHASE7_ORCHESTRATOR",
+  "scope": {
+    "capability": ".harness/capabilities/backend-engineering-vnext",
+    "artifact": "pilots/backend-appointment-api",
+    "allowed_write_roots": ["app", "migrations", "tests"],
+    "forbidden_boundaries": [
+      "package",
+      "agent-control-plane",
+      "global-installed-capabilities",
+      "network",
+      "providers",
+      "mcp",
+      "credentials",
+      "arbitrary-shell"
+    ]
+  },
+  "change_reason": "Rebind the real builder, bounded repair and read-only verifier after hardening cross-process SQLite migration initialization.",
+  "budget": {
+    "builder_invocations": 2,
+    "repairs": 1,
+    "host_tool_calls": 64,
+    "write_event_paths": 64
+  },
+  "acceptance": [
+    "cross-process migration initialization is deterministic under concurrent starts",
+    "the fixed test observer requires the supported project virtualenv",
+    "builder and repair event streams are persisted and verifier-auditable",
+    "all artifact changes remain bounded and the verifier remains read-only"
+  ],
+  "historical_boundary": "This gate supersedes neither the failed historical closeout nor the PHASE7-RERUN-0006 chain; it authorizes a fresh bounded chain only."
+}

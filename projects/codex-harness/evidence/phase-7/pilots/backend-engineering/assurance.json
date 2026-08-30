@@ -1,0 +1,11 @@
+{
+  "schema_version": "P7-PILOT-ASSURANCE-1",
+  "decision": "PASS_WITH_LIMITATIONS",
+  "support_level": "P7_LEVEL_B",
+  "basis": ["real bounded builder host execution observed", "fresh pilot tests/static checks/migration evidence", "real read-only verification-loop-vNext composition"],
+  "critical_findings": 0,
+  "high_findings": 0,
+  "repair_count": 1,
+  "level_c_claim": false,
+  "limitations": ["host package load event unobservable", "single disposable fictional pilot", "no production/external state", "strict independent critic-before-repair ordering not established", "final security authority not self-declared"]
+}
