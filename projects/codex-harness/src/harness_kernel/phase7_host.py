@@ -297,6 +297,11 @@ def run_fixed_pytest(test_root: Path) -> HostTestObservation:
         else ""
     )
     rendered = bytes(output).decode("utf-8", errors="ignore") + suffix
+    if len(rendered.encode("utf-8")) > _MAX_HOST_TOOL_OUTPUT_BYTES:
+        # TESTED_BRANCH_FINDING_ID: P7.1-BRANCH-7fa6c1dea2fb
+        rendered = rendered.encode("utf-8")[:_MAX_HOST_TOOL_OUTPUT_BYTES].decode(
+            "utf-8", errors="ignore"
+        )
     exit_code = process.returncode
     if timed_out or output_exceeded or exit_code is None:
         exit_code = 124

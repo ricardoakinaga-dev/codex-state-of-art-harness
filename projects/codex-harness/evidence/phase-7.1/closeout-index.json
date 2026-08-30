@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "attempt_id": "PHASE7.1-001",
+      "authoritative": true,
+      "manifest_digest": "sha256:dd2d363fc233134cff317cdf3296be659784ee9e47c2ffc33ea2ab15eaeb01e9",
+      "reason": "Exact independent review confirmed H-01; H-02 and M-01 were closed, but promotion remains blocked by the material High finding.",
+      "status": "CLOSED_KEEP_CANDIDATE_NOT_PROMOTED",
+      "supersedes": null,
+      "final_exact_audit": {
+        "reviewer_id": "01a05471-4897-79e0-bd43-d33861dff35f",
+        "status": "FAIL",
+        "critical": 0,
+        "high": 1,
+        "medium": 0
+      }
+    }
+  ],
+  "schema_version": "P7.1-CLOSEOUT-INDEX-1"
+}

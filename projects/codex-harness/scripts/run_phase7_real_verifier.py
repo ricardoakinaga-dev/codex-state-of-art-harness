@@ -47,6 +47,17 @@ IGNORED_NAMES = frozenset(
     {"__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache", ".coverage"}
 )
 
+
+def _evidence_label(path: Path) -> str:
+    """Bind verifier receipt labels to the current project namespace."""
+
+    # TESTED_BRANCH_FINDING_ID: P7.1-BRANCH-9d0a9d7cb4b1
+    try:
+        return path.resolve(strict=False).relative_to(PROJECT_ROOT).as_posix()
+    except ValueError as exc:
+        raise RuntimeError(f"evidence path escapes project root: {path}") from exc
+
+
 TASK_ID = "PHASE7-VERIFY-0009"
 RUN_ID = "P7-REAL-VERIFIER-RERUN-0009"
 CRITERIA = (
@@ -309,11 +320,11 @@ def _local_checks(
             source_files.get(path) == v3_files.get(path)
             for path in ("migrations/001_initial.sql", "migrations/002_ownership_triggers.sql")
         ),
-        "repair_only_changed_declared_test": (
+        "repair_only_changed_declared_python": (
             isinstance(repair.get("changed_paths"), list)
             and bool(repair["changed_paths"])
             and all(
-                isinstance(path, str) and path.startswith("tests/")
+                isinstance(path, str) and path in {"app/service.py", "tests/test_pilot.py"}
                 for path in repair["changed_paths"]
             )
         ),
@@ -393,7 +404,7 @@ def _handoff(
         },
         "artifact": {
             "version": "artifact-v3",
-            "root": "evidence/phase-7/reruns/PHASE7-REPAIR-0006/artifact-v3",
+            "root": _evidence_label(ARTIFACT_ROOT),
             "tree_digest": local["tree_digests"]["artifact_v3"],
             "files": [{"path": path, **files[path]} for path in sorted(files)],
         },
@@ -558,12 +569,12 @@ def main() -> int:
             "host_load_observation": snapshot.host_load_observation,
         },
         "builder_receipt": {
-            "path": "evidence/phase-7/reruns/PHASE7-RERUN-0007/builder-receipt.json",
+            "path": _evidence_label(BUILDER_RECEIPT),
             "digest": builder_receipt_digest,
             "status": builder.get("semantic_status"),
         },
         "repair_receipt": {
-            "path": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/repair-receipt.json",
+            "path": _evidence_label(REPAIR_RECEIPT),
             "digest": repair_receipt_digest,
             "status": repair.get("semantic_status"),
         },
@@ -576,7 +587,7 @@ def main() -> int:
             "result_tree_digest": local["tree_digests"]["artifact_v3"],
         },
         "artifact": {
-            "root": "evidence/phase-7/reruns/PHASE7-REPAIR-0007/artifact-v3",
+            "root": _evidence_label(ARTIFACT_ROOT),
             "version": "artifact-v3",
             "tree_digest": local["tree_digests"]["artifact_v3"],
             "files": [{"path": path, **v3_files[path]} for path in sorted(v3_files)],

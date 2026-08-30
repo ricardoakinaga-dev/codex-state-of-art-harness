@@ -35,22 +35,36 @@ IGNORED_NAMES = frozenset(
     {"__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache", ".phase4-ledger-anchor"}
 )
 
+
+def _evidence_label(path: Path) -> str:
+    """Bind a receipt path to this project instead of a historical rerun name."""
+
+    # TESTED_BRANCH_FINDING_ID: P7.1-BRANCH-9d0a9d7cb4b1
+    try:
+        return path.resolve(strict=False).relative_to(PROJECT_ROOT).as_posix()
+    except ValueError as exc:
+        raise RuntimeError(f"evidence path escapes project root: {path}") from exc
+
+
 TASK_ID = "PHASE7-REPAIR-0007"
 RUN_ID = "P7-REAL-BUILDER-REPAIR-0007"
+# TESTED_BRANCH_FINDING_ID: P7.1-BRANCH-9d0a9d7cb4b1
 TASK = (
     "Repair the current bounded backend artifact in this disposable workspace. "
     "Inspect app, migrations and tests through the bounded host list/read tools first. "
     "Preserve the reviewed idempotency-replay hardening and its regression test. "
-    "Fix only the known static-quality defect: format the changed Python test code to the "
-    "project's 100-column Ruff boundary. Do not redesign the API, persistence, migrations, "
-    "acceptance criteria or unrelated files. Run the fixed host test observer and return a "
-    "bounded handoff. Use only host-provided dynamic tools."
+    "Fix only known static-quality defects in the changed Python files: apply the project's "
+    "Ruff rules without changing behavior, including the nested-condition SIM102 in "
+    "app/service.py and the 100-column formatting defect in tests/test_pilot.py. Do not "
+    "redesign the API, persistence, migrations, acceptance criteria or unrelated files. "
+    "Run the fixed host test observer and return a bounded handoff. Use only host-provided "
+    "dynamic tools."
 )
 CRITERIA = (
     "only app, migrations, or tests under the declared roots change",
     "the idempotency replay hardening and focused regression remain present",
     "the fixed host test observer passes",
-    "the repair is limited to the known static-quality defect",
+    "the repair is limited to Ruff defects in the changed Python files",
 )
 
 
@@ -256,7 +270,7 @@ def main() -> int:
             "schema_version": "P7-REPAIR-BUILDER-RECEIPT-1",
             "task_id": TASK_ID,
             "run_id": RUN_ID,
-            "base_artifact": "../PHASE7-RERUN-0007/artifact-v1",
+            "base_artifact": _evidence_label(BASE_ARTIFACT_ROOT),
             "capability": "backend-engineering-vnext",
             "package_fingerprint": package_digest,
             "canonical_preflight": _preflight_receipt(preflight),

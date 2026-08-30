@@ -1,0 +1,99 @@
+{
+  "schema_version": "P7.1-BASELINE-1",
+  "phase": "PHASE7.1",
+  "task_id": "PHASE7.1-001",
+  "captured_at": "2026-08-30T15:40:22-03:00",
+  "feature_freeze": "P7_1_FEATURE_FREEZE",
+  "objective": "Close the meaningful branch-coverage and failure-path assurance gap for the project-local backend-engineering-vnext candidate without redesigning the backend capability or expanding the Harness architecture.",
+  "repository": {
+    "root": "/home/ricardo/Área de trabalho/codex-state-of-art-harness",
+    "project": "projects/codex-harness",
+    "branch": "main",
+    "head": "76be2cbdb2a35534132c77d8f241406157831ba6",
+    "remote": "https://github.com/ricardoakinaga-dev/codex-state-of-art-harness.git",
+    "worktree_clean": true,
+    "diff_empty": true,
+    "untracked_files": 0,
+    "status_observed_by": "git status --porcelain=v1; git diff --stat; git ls-files --others --exclude-standard"
+  },
+  "authoritative_phase7_input": {
+    "status": "PASS_WITH_LIMITATIONS",
+    "promotion": "NOT_PROMOTED",
+    "candidate_support": "P7_LEVEL_B_CANDIDATE",
+    "closeout": "evidence/phase-7/closeout-rerun-0009",
+    "manifest_digest": "sha256:bfba5424f4f0d9d49b026e050969b4c0bc523c0e72ef47580e0bd98ce634bff3",
+    "independent_review": "PASS",
+    "critical_open": 0,
+    "high_open": 0,
+    "medium_actionable_open": 0
+  },
+  "fingerprints": {
+    "backend_engineering_vnext": "sha256:fa8ff9c60f79466ea2b4d2ebbce09b376d6260a40105b344f1da7141fc36437e",
+    "verification_loop_vnext": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "source": {
+      "digest": "sha256:d490683eda37e23b11349097e0641c13392caf7b90abb905e390246533138572",
+      "file_count": 87,
+      "algorithm": "sha256 over sorted project-relative path + NUL + exact file bytes + newline",
+      "scope": ["src/**/*.py", "scripts/**/*.py", "pilots/backend-appointment-api/app/**/*.py", "pilots/backend-appointment-api/migrations/**/*.sql"]
+    },
+    "tests": {
+      "digest": "sha256:df2879824174a3868004db7e5140f3b489608d86bd15316867561a78b1b8d5cc",
+      "file_count": 73,
+      "algorithm": "sha256 over sorted project-relative path + NUL + exact file bytes + newline",
+      "scope": ["tests/**/*.py", "pilots/backend-appointment-api/tests/**/*.py"]
+    },
+    "config": {
+      "digest": "sha256:37e5b8693cac6e53c4311efbee2c9b9a824881d853ff8493acf87c4112109899",
+      "file_count": 5,
+      "algorithm": "sha256 over sorted project-relative path + NUL + exact file bytes + newline",
+      "scope": ["pyproject.toml", "config/*.json"]
+    }
+  },
+  "coverage": {
+    "test_command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/coverage run -m pytest -q",
+    "branch_test_command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/coverage run --branch -m pytest -q",
+    "coverage_version": "7.15.4",
+    "test_count": 563,
+    "line": {
+      "covered_lines": 15659,
+      "statements": 19440,
+      "missing_lines": 3781,
+      "excluded_lines": 97,
+      "percent": 80.55041152263375,
+      "status": "PASS"
+    },
+    "branch": {
+      "covered_branches": 4851,
+      "branches": 7402,
+      "missing_branches": 2551,
+      "partial_branches": 2069,
+      "percent": 65.5363415293164,
+      "status": "BELOW_TARGET",
+      "target_percent": 80.0
+    },
+    "raw_reports": {
+      "line": "evidence/phase-7.1/coverage-baseline-line.json",
+      "branch": "evidence/phase-7.1/coverage-baseline-branch.json"
+    }
+  },
+  "tool_versions": {
+    "python": "3.12.3",
+    "pytest": "8.4.2",
+    "ruff": "0.16.5",
+    "mypy": "1.20.2"
+  },
+  "independent_review_state": {
+    "status": "PASS",
+    "reviewer_id": "01a05394-2607-7a83-b6e0-7e6b9454bae7",
+    "source": "evidence/phase-7/closeout-rerun-0009/review-attestation.json",
+    "limitations_preserved": true
+  },
+  "constraints": [
+    "No frontend modernization",
+    "No backend-engineering-vnext redesign or new engineering domain",
+    "No Phase 2-6 architecture redesign",
+    "No global, installed, provider, MCP, credential or production mutation",
+    "Source changes require a test-proven defect, unsafe branch behavior, dead-code removal or coverage-blocking design flaw",
+    "Do not promote while branch coverage is below 80% or material failure paths remain untested"
+  ]
+}

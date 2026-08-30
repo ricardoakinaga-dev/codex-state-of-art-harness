@@ -1357,7 +1357,14 @@ def validate_backend_evidence_binding(
         ("criteria_digest", criteria_digest),
     ):
         if value and _DIGEST_PATTERN.fullmatch(value) is None:
+            # TESTED_BRANCH_FINDING_ID: P7.1-BRANCH-1f3a3c37ff18
             blockers.append(f"EVIDENCE_{field.upper()}_INVALID")
+            if field == "package_fingerprint":
+                package_fingerprint = _ZERO_DIGEST
+            elif field == "artifact_digest":
+                artifact_digest = _ZERO_DIGEST
+            else:
+                criteria_digest = _ZERO_DIGEST
 
     expected_values = (
         ("task_id", expected_task_id),
