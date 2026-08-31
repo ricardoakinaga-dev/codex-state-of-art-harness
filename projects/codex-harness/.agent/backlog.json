@@ -314,6 +314,34 @@
         "evidence/phase-8/pilots/frontend-engineering/phase4/verifier-final-post-repair-002/invocation-receipts/INV-6ec92339747c562d9d19eb8e.json"
       ],
       "next_action": "Do not promote or freeze Phase 8. Keep the candidate local; next target is PHASE9_BROWSER_OBSERVER_NATIVE_INTEGRATION to obtain safe host-load causality and complete the remaining bounded runtime evidence."
+    },
+    {
+      "id": "PHASE8.1-001",
+      "title": "Close Phase 8.1 frontend runtime, browser and host-composition evidence gaps",
+      "stage": "CLOSEOUT",
+      "priority": "P0",
+      "status": "DONE",
+      "support_level": "VERIFIED_CANDIDATE_WITH_LIMITATIONS",
+      "origin": "User-supplied Phase 8.1 runtime, verifier and host-composition closure specification",
+      "dependencies": ["PHASE8-001"],
+      "owner": "lead",
+      "acceptance_summary": "Preserve Phase 8 and prior frozen packets, freeze the frontend surface, close the URL-state/stale-response/keyboard-focus findings with fresh runtime evidence, classify all 60 evals, obtain a current verifier and a supported host-load or independently reviewed observable alternative causal chain, then publish an exact independently reviewed closure packet without production, release, security-approval or unsupported universal claims.",
+      "evidence_refs": [
+        ".agent/plans/PHASE-8.1-frontend-runtime-host-composition-closure.md",
+        ".agent/gates/PHASE8.1-FINAL-0001.json",
+        "evidence/phase-8.1/README.md",
+        "evidence/phase-8.1/baseline.json",
+        "evidence/phase-8.1/P8.1-QB-1.md",
+        "evidence/phase-8.1/finding-ledger.json",
+        "evidence/phase-8.1/closeout-index.json",
+        "evidence/phase-8.1/review-manifest.json",
+        "evidence/phase-8.1/review-attestation.json",
+        "evidence/phase-8.1/readiness.json",
+        "evidence/phase-8.1/final-report.md",
+        "evidence/phase-8.1/promotion-decision.md",
+        ".agent/execution-log.jsonl#EVT-PHASE8.1-FINAL-CLOSEOUT-0001"
+      ],
+      "next_action": "Commit and push the scoped Phase 8.1 closeout packet; preserve unrelated worktree paths and retain the host-load limitation."
     }
   ]
 }

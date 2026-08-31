@@ -1,0 +1,13 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=empty&capture=p81-portrait-009",
+  "viewport": {
+    "width": 768,
+    "height": 1024
+  },
+  "documentWidth": 768,
+  "bodyWidth": 768,
+  "phase": "success",
+  "items": 0,
+  "stateRows": 1,
+  "overflowX": false
+}

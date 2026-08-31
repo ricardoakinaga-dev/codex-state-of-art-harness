@@ -1,0 +1,16 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=default&urgency=critical&capture=p81-mobile-009",
+  "selected": "critical",
+  "phase": "success",
+  "visiblePatients": [
+    "Miso"
+  ],
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "documentWidth": 390,
+  "bodyWidth": 390,
+  "focused": "patient",
+  "overflowX": false
+}

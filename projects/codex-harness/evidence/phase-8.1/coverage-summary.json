@@ -1,0 +1,14 @@
+{
+  "schema_version": "P8.1-COVERAGE-SUMMARY-1",
+  "command": ".venv/bin/coverage run --branch -m pytest -q",
+  "totals": {
+    "covered_lines": 18260,
+    "num_statements": 19547,
+    "percent_covered": 92.57556091229371,
+    "covered_branches": 6703,
+    "num_branches": 7418,
+    "percent_branches_covered": 90.36128336478835
+  },
+  "status": "PASS",
+  "test_count": 1781
+}

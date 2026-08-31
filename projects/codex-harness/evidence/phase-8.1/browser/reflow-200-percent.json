@@ -1,0 +1,29 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-reflow-009",
+  "viewport": {
+    "width": 195,
+    "height": 844
+  },
+  "documentWidth": 195,
+  "bodyWidth": 195,
+  "overflowX": false,
+  "phase": "success",
+  "items": 4,
+  "navLinks": [
+    {
+      "text": "⌁\nLive intake",
+      "width": 167,
+      "height": 44
+    },
+    {
+      "text": "≡\nQueue\n4",
+      "width": 167,
+      "height": 44.5
+    },
+    {
+      "text": "＋\nNew intake",
+      "width": 167,
+      "height": 44
+    }
+  ]
+}

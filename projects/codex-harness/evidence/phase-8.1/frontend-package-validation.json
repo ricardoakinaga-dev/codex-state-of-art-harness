@@ -1,0 +1,60 @@
+{
+  "schema_version": "P8-CAPABILITY-VALIDATION-1",
+  "capability_id": "frontend-engineering-vnext",
+  "version": "0.1.0",
+  "package_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+  "manifest_digest": "sha256:269373b365b585c5229cdb4a69d46c3c12e355a2215adce2553b0ad82cabcaa4",
+  "skill_bytes": 8593,
+  "reference_count": 7,
+  "procedure_count": 7,
+  "eval_count": 60,
+  "checks": [
+    {
+      "name": "required_package_files",
+      "status": "PASS",
+      "details": "15 declared files checked"
+    },
+    {
+      "name": "native_specialist_identity",
+      "status": "PASS",
+      "details": "project-local candidate specialist identity"
+    },
+    {
+      "name": "execution_boundary",
+      "status": "PASS",
+      "details": "shell/network/provider/credential denial and metadata-only package"
+    },
+    {
+      "name": "security_handoff",
+      "status": "PASS",
+      "details": "security authority remains a separate handoff"
+    },
+    {
+      "name": "declarative_procedures",
+      "status": "PASS",
+      "details": "7 bounded procedure declarations"
+    },
+    {
+      "name": "eval_coverage",
+      "status": "PASS",
+      "details": "60 scenarios; routes=['BLOCKED', 'FALLBACK', 'OMITTED', 'SELECTED']"
+    },
+    {
+      "name": "benchmark_viewports",
+      "status": "PASS",
+      "details": "viewports=[(390, 844), (768, 1024), (1024, 768), (1440, 900)]"
+    },
+    {
+      "name": "claim_boundary",
+      "status": "PASS",
+      "details": "unsupported promotion and certification claims absent from SKILL.md"
+    },
+    {
+      "name": "content_fingerprint",
+      "status": "PASS",
+      "details": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342"
+    }
+  ],
+  "status": "PASS",
+  "failed_checks": []
+}

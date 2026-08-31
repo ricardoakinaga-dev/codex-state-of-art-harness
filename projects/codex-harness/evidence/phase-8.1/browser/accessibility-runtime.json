@@ -1,0 +1,180 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-default-009",
+  "labels": {
+    "urgency-filter": "Filter by urgency\n                      \n                        All urgencies\n                        Critical\n                        Urgent\n                        Soon\n                        Routine",
+    "patient": "Patient name *",
+    "species": "Species *",
+    "urgency": "Urgency *",
+    "notes": "What changed?"
+  },
+  "headings": [
+    "H1",
+    "H2",
+    "H2",
+    "H2"
+  ],
+  "ariaLive": [
+    {
+      "id": "queue-state",
+      "live": "polite",
+      "role": "status"
+    },
+    {
+      "id": "intake-feedback",
+      "live": "polite",
+      "role": "status"
+    }
+  ],
+  "focus": {
+    "id": "patient",
+    "outline": "rgb(29, 111, 117) solid 3px",
+    "borderColor": "rgb(29, 111, 117)"
+  },
+  "contrast": {
+    "placeholderOnSurface": 5.862057176877136,
+    "borderOnSurface": 5.765619639082459,
+    "focusOnSurface": 5.765619639082459,
+    "placeholderColor": "rgb(88, 103, 96)",
+    "borderColor": "rgb(29, 111, 117)",
+    "surface": "#fffdf8"
+  },
+  "reducedMotionRule": true,
+  "targets": [
+    {
+      "id": null,
+      "role": null,
+      "text": "Skip to main content",
+      "ariaLabel": null,
+      "width": 176.96875,
+      "height": 48
+    },
+    {
+      "id": null,
+      "role": null,
+      "text": "⌁\nLive intake",
+      "ariaLabel": null,
+      "width": 362,
+      "height": 44
+    },
+    {
+      "id": null,
+      "role": null,
+      "text": "≡\nQueue\n4",
+      "ariaLabel": null,
+      "width": 362,
+      "height": 44.5
+    },
+    {
+      "id": null,
+      "role": null,
+      "text": "＋\nNew intake",
+      "ariaLabel": null,
+      "width": 362,
+      "height": 44
+    },
+    {
+      "id": null,
+      "role": null,
+      "text": "Start an intake\n↗",
+      "ariaLabel": null,
+      "width": 358,
+      "height": 50
+    },
+    {
+      "id": "summary-retry",
+      "role": null,
+      "text": "Retry queue",
+      "ariaLabel": null,
+      "width": 0,
+      "height": 0
+    },
+    {
+      "id": "urgency-filter",
+      "role": null,
+      "text": "All urgencies\nCritical\nUrgent\nSoon\nRoutine",
+      "ariaLabel": null,
+      "width": 272,
+      "height": 36
+    },
+    {
+      "id": "refresh-queue",
+      "role": null,
+      "text": "↻",
+      "ariaLabel": "Refresh emergency queue",
+      "width": 44,
+      "height": 44
+    },
+    {
+      "id": null,
+      "role": null,
+      "text": "Review",
+      "ariaLabel": "Review Miso",
+      "width": 44.921875,
+      "height": 44
+    },
+    {
+      "id": null,
+      "role": null,
+      "text": "Review",
+      "ariaLabel": "Review Juniper",
+      "width": 44.921875,
+      "height": 44
+    },
+    {
+      "id": null,
+      "role": null,
+      "text": "Review",
+      "ariaLabel": "Review Otis",
+      "width": 44.921875,
+      "height": 44
+    },
+    {
+      "id": null,
+      "role": null,
+      "text": "Review",
+      "ariaLabel": "Review Pip",
+      "width": 44.921875,
+      "height": 44
+    },
+    {
+      "id": "patient",
+      "role": null,
+      "text": "",
+      "ariaLabel": null,
+      "width": 324,
+      "height": 42
+    },
+    {
+      "id": "species",
+      "role": null,
+      "text": "Choose one\nDog\nCat\nRabbit\nBird",
+      "ariaLabel": null,
+      "width": 324,
+      "height": 42
+    },
+    {
+      "id": "urgency",
+      "role": null,
+      "text": "Choose one\nCritical\nUrgent\nSoon\nRoutine",
+      "ariaLabel": null,
+      "width": 324,
+      "height": 42
+    },
+    {
+      "id": "notes",
+      "role": null,
+      "text": "",
+      "ariaLabel": null,
+      "width": 324,
+      "height": 80
+    },
+    {
+      "id": "submit-intake",
+      "role": null,
+      "text": "Send to triage →",
+      "ariaLabel": null,
+      "width": 324,
+      "height": 44
+    }
+  ]
+}

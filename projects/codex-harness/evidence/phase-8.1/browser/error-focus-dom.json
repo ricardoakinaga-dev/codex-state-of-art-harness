@@ -1,0 +1,91 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=error&capture=p81-error-009",
+  "phase": "error",
+  "focusables": [
+    {
+      "id": null,
+      "text": "Skip to main content",
+      "ariaLabel": null,
+      "disabled": false
+    },
+    {
+      "id": null,
+      "text": "⌁\nLive intake",
+      "ariaLabel": null,
+      "disabled": false
+    },
+    {
+      "id": null,
+      "text": "≡\nQueue\n—",
+      "ariaLabel": null,
+      "disabled": false
+    },
+    {
+      "id": null,
+      "text": "＋\nNew intake",
+      "ariaLabel": null,
+      "disabled": false
+    },
+    {
+      "id": null,
+      "text": "Start an intake\n↗",
+      "ariaLabel": null,
+      "disabled": false
+    },
+    {
+      "id": "summary-retry",
+      "text": "Retry queue",
+      "ariaLabel": null,
+      "disabled": false
+    },
+    {
+      "id": "urgency-filter",
+      "text": "All urgencies\nCritical\nUrgent\nSoon\nRoutine",
+      "ariaLabel": null,
+      "disabled": false
+    },
+    {
+      "id": "refresh-queue",
+      "text": "↻",
+      "ariaLabel": "Refresh emergency queue",
+      "disabled": false
+    },
+    {
+      "id": null,
+      "text": "Try again",
+      "ariaLabel": null,
+      "disabled": false
+    },
+    {
+      "id": "patient",
+      "text": "",
+      "ariaLabel": null,
+      "disabled": false
+    },
+    {
+      "id": "species",
+      "text": "Choose one\nDog\nCat\nRabbit\nBird",
+      "ariaLabel": null,
+      "disabled": false
+    },
+    {
+      "id": "urgency",
+      "text": "Choose one\nCritical\nUrgent\nSoon\nRoutine",
+      "ariaLabel": null,
+      "disabled": false
+    },
+    {
+      "id": "notes",
+      "text": "",
+      "ariaLabel": null,
+      "disabled": false
+    },
+    {
+      "id": "submit-intake",
+      "text": "Send to triage →",
+      "ariaLabel": null,
+      "disabled": false
+    }
+  ],
+  "alert": "The queue needs a moment.\nNo case data was changed. Try the local fixture again.\nTry again"
+}

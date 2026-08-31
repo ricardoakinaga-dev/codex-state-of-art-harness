@@ -1,0 +1,19 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=error&capture=p81-error-009",
+  "state": {
+    "phase": "error",
+    "items": [],
+    "selectedUrgency": "all",
+    "error": "The local queue fixture is temporarily unavailable.",
+    "submitting": false,
+    "feedback": "",
+    "feedbackTone": "",
+    "requestNumber": 0
+  },
+  "focused": {
+    "id": "",
+    "tag": "BUTTON",
+    "text": "Try again"
+  },
+  "focusVisible": true
+}

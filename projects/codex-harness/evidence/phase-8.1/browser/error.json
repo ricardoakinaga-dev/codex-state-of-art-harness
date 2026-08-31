@@ -1,0 +1,7 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=error&capture=p81-error-009",
+  "phase": "error",
+  "queueState": "The local queue fixture is temporarily unavailable.",
+  "alert": "The queue needs a moment.\nNo case data was changed. Try the local fixture again.\nTry again",
+  "retry": "Try again"
+}

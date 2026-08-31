@@ -1,0 +1,194 @@
+{
+  "artifacts": [],
+  "assurance": {
+    "decision": "BLOCK",
+    "limitations": [
+      "HOST_INVOCATION_UNSUPPORTED"
+    ],
+    "reason": "preflight blocked the invocation",
+    "verification_digest": null
+  },
+  "blockers": [
+    "HOST_INVOCATION_UNSUPPORTED"
+  ],
+  "capability": "verification-loop-vnext",
+  "host_authentication_mode": "HOST_ONLY_CONTROL_PLANE",
+  "host_invoked": false,
+  "host_result": {
+    "approval_request_count": 0,
+    "cancellation_status": "NOT_REQUESTED",
+    "completed_at": 1788198232,
+    "denied_approvals": 0,
+    "error_code": "HOST_INVOCATION_UNSUPPORTED",
+    "events": [],
+    "execution_observed": false,
+    "final_message": null,
+    "host_command": [],
+    "host_executable_digest": null,
+    "host_executable_path": null,
+    "host_interpreter_digest": null,
+    "host_interpreter_path": null,
+    "host_version": "phase4-policy",
+    "invocation_observed": false,
+    "load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "mcp_event_count": 0,
+    "protocol_message_count": 0,
+    "protocol_messages": [],
+    "session_id": null,
+    "started_at": 1788198232,
+    "status": "BLOCKED",
+    "thread_id": null,
+    "turn_id": null
+  },
+  "limitations": [
+    "HOST_INVOCATION_UNSUPPORTED"
+  ],
+  "mode": "CONTROLLED_REAL",
+  "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "preflight": {
+    "allowed": true,
+    "authorization": {
+      "allowed_side_effects": [],
+      "allowed_tools": [],
+      "artifact_policy": {
+        "max_bytes": 262144,
+        "max_count": 16,
+        "types": [
+          "HOST_RESPONSE"
+        ]
+      },
+      "authorization_id": "AUTH-516d3bb22acc58f99c12ff0a",
+      "capability_id": "verification-loop-vnext",
+      "capability_version": "0.1.0",
+      "constraints": [
+        "no arbitrary shell",
+        "no scripts",
+        "no network",
+        "no MCP",
+        "no providers",
+        "no credentials",
+        "no subagents"
+      ],
+      "context_budget": {
+        "max_bytes": 131072
+      },
+      "credential_policy": "DENY",
+      "evidence_policy": {
+        "max_count": 64,
+        "max_events": 512
+      },
+      "expires_at": 1788198322,
+      "filesystem_policy": {
+        "allowed_roots": [],
+        "artifact_root": "$WORKSPACE/.harness/phase4/artifacts",
+        "credentials": "DENY",
+        "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+        "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+        "max_bytes": 16777216,
+        "max_files": 256,
+        "mcp": "DENY",
+        "mode": "READ_ONLY",
+        "network": "DENY",
+        "package_path": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/verification-loop-vnext",
+        "package_write_allowed": false,
+        "providers": "DENY",
+        "shell": "DENY",
+        "workspace": "$WORKSPACE"
+      },
+      "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+      "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+      "issued_at": 1788198232,
+      "issued_by": "phase4-preflight",
+      "iteration_budget": {
+        "host_calls": 1,
+        "repair_iterations": 0,
+        "tool_calls": 0,
+        "verification_iterations": 1
+      },
+      "mcp_policy": "DENY",
+      "network_policy": "DENY",
+      "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "provider_policy": "DENY",
+      "reason": "exact current read-only verifier; structured evidence handoff remains separate from host causality",
+      "requested_execution_mode": "CONTROLLED_REAL",
+      "requested_loading_level": "L2_INSTRUCTION_KERNEL",
+      "run_id": "RUN-P8-dba0c2bc5c0b",
+      "scope": "PROJECT",
+      "shell_policy": "DENY",
+      "task_id": "TASK-P8-b2db1d8c9580",
+      "timeout_seconds": 90
+    },
+    "blockers": [],
+    "context": {
+      "acceptance_criteria": [
+        "Host execution is observed as SUCCESS.",
+        "Final message is VERIFIER_READY."
+      ],
+      "capability_id": "verification-loop-vnext",
+      "digest": "sha256:d370edc33063614238e49febf7ef947bfe9375d931898dc6a8ccf610a83bc3f4",
+      "estimated_bytes": 6786,
+      "omitted_references": [],
+      "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "selected_references": [
+        "references/deterministic-boundaries.md",
+        "references/evidence-lineage.md",
+        "references/role-boundaries.md"
+      ],
+      "skill_path": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/verification-loop-vnext/SKILL.md",
+      "sources": [
+        "HOST_MANAGED_SKILL"
+      ],
+      "task_digest": "sha256:a4c4a5150340efe387101a376688a5deba30d057cc88fe000fd6adff1e0cfe0f",
+      "task_id": "TASK-P8-b2db1d8c9580"
+    },
+    "digest": "sha256:5d349bfa110d0bffde0e6147d254915b2c24d7d8d3563f11eb2575fa2f56a2da",
+    "mode": "CONTROLLED_REAL",
+    "warnings": [
+      "NETWORK_DENIED",
+      "SHELL_DENIED",
+      "MCP_DENIED",
+      "CREDENTIALS_DENIED"
+    ]
+  },
+  "receipt": {
+    "artifact_refs": [],
+    "authorization_digest": "sha256:b9f74c7fefae1a09c2c3d3745195d0e262880d83d4b2c94f3e73ff4c171266b1",
+    "authorization_id": "AUTH-516d3bb22acc58f99c12ff0a",
+    "capability_id": "verification-loop-vnext",
+    "capability_version": "0.1.0",
+    "closed_at": 1788198232,
+    "context_digest": "sha256:d370edc33063614238e49febf7ef947bfe9375d931898dc6a8ccf610a83bc3f4",
+    "created_at": 1788198232,
+    "host_command": [],
+    "host_event_count": 0,
+    "host_event_digest": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "host_executable_digest": null,
+    "host_executable_path": null,
+    "host_interpreter_digest": null,
+    "host_interpreter_path": null,
+    "host_invoked": false,
+    "host_load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "invocation_id": "INV-3a0642b938e152d0a687079a",
+    "lifecycle": [
+      "DISCOVERED",
+      "BLOCKED",
+      "CLOSED"
+    ],
+    "mode": "CONTROLLED_REAL",
+    "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "receipt_digest": "sha256:a2d354303eb2f3f48cad6278d4a2df01a82531f9c7cb6db59226f52068e3b23f",
+    "request_digest": "sha256:5e4f8e3b5d37c5cb58ff69263afc15b4209d55f9eb93ab9dbdb4f36633d3af28",
+    "result_digest": "sha256:071de7158a8199a3012c3767d97a96a31de19981e3f5f9bdab14ae9d8a7364d7",
+    "status": "BLOCKED",
+    "verification_refs": []
+  },
+  "schema_version": "P4-OUTCOME-1",
+  "status": "BLOCKED",
+  "verification": null,
+  "warnings": [
+    "NETWORK_DENIED",
+    "SHELL_DENIED",
+    "MCP_DENIED",
+    "CREDENTIALS_DENIED"
+  ]
+}

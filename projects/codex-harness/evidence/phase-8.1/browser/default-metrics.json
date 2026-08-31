@@ -1,0 +1,16 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-run-009",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "phase": "success",
+  "items": 4,
+  "selectedUrgency": "all",
+  "overflowX": false,
+  "documentWidth": 390,
+  "bodyWidth": 390,
+  "firstAction": "Review",
+  "firstActionWidth": 44.921875,
+  "refreshWidth": 44
+}

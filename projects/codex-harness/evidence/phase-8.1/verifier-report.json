@@ -1,0 +1,229 @@
+{
+  "schema_version": "P8.1-RUNTIME-REPORT-1",
+  "task_id": "PHASE8.1-001",
+  "status": "PASS_WITH_LIMITATIONS",
+  "run_id": "P81-VERIFY-001",
+  "verified_at": "2026-08-31T18:08:04.371108+00:00",
+  "repository_head": "664858e596537b5d0a33fe1bffbac3c4fec5f953",
+  "frontend_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+  "verifier_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "composition_run": "P81-COMPOSE-009",
+  "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "checks": [
+    {
+      "name": "frontend_package_current",
+      "status": "PASS",
+      "details": "Frontend package validator is PASS with the exact current fingerprint and 60 scenarios.",
+      "evidence": [
+        "frontend-package-validation.json"
+      ]
+    },
+    {
+      "name": "frontend_source_tree_current",
+      "status": "PASS",
+      "details": "Current fixture source and build receipt bind to sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044.",
+      "evidence": [
+        "baseline.json",
+        "runtime-fixture.json",
+        "artifact/frontend-run-001/build-receipt.json"
+      ]
+    },
+    {
+      "name": "composition_exact_artifact",
+      "status": "PASS",
+      "details": "Bridge output matches the current source/build digest and the exact composed files.",
+      "evidence": [
+        "composition-run-009/composition-receipt.json",
+        "composition-run-009/frontend-artifact/"
+      ]
+    },
+    {
+      "name": "composition_canonical_authorization",
+      "status": "PASS",
+      "details": "The canonical receipt is current, authorized read-only, denied external side effects and confined to the evidence root.",
+      "evidence": [
+        "composition-receipt.json",
+        "composition-run-009/composition-receipt.json"
+      ]
+    },
+    {
+      "name": "frontend_host_transport",
+      "status": "PASS",
+      "details": "Fresh frontend app-server handshake observed READY under the exact package fingerprint.",
+      "evidence": [
+        "frontend-real-invocation-short/invocation-receipts/INV-cf9d460266785f78b43e15ac.json"
+      ]
+    },
+    {
+      "name": "verifier_host_transport",
+      "status": "PASS",
+      "details": "Fresh verifier app-server handshake observed VERIFIER_READY under the exact verifier fingerprint.",
+      "evidence": [
+        "verifier-real-invocation-final-after-browser/invocation-receipts/INV-6d639157532552ebaf59b0fd.json"
+      ]
+    },
+    {
+      "name": "alternative_bridge_mutation_boundary",
+      "status": "PASS",
+      "details": "Composition bridge records zero global/capability mutation and no alternate producer.",
+      "evidence": [
+        "composition-run-009/composition-receipt.json",
+        "composition-run-009/composition-scope-audit.json"
+      ]
+    },
+    {
+      "name": "independent_scope_audit",
+      "status": "PASS",
+      "details": "Independent read-only snapshots show no global or capability-file mutation around the exact bridge.",
+      "evidence": [
+        "composition-run-009/composition-scope-audit.json",
+        "composition-run-009/composition-receipt.json"
+      ]
+    },
+    {
+      "name": "structural_catalog_current",
+      "status": "PASS",
+      "details": "Structural evaluator is PASS for all 60 scenarios and preserves its false-pass guard inventory.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "name": "finding_ledger_resolved",
+      "status": "PASS",
+      "details": "No actionable or promotion-blocking Critical/High/Medium finding remains open.",
+      "evidence": [
+        "finding-ledger.json"
+      ]
+    },
+    {
+      "name": "host_limitation_explicit",
+      "status": "PASS",
+      "details": "The unsupported public host skill-load signal remains explicitly bounded.",
+      "evidence": [
+        "host-composition-capability-matrix.json",
+        "host-composition-interpretation.md"
+      ]
+    },
+    {
+      "name": "browser_artifact_binding",
+      "status": "PASS",
+      "details": "Authoritative browser metrics target the loopback server whose process and response header bind the composed artifact.",
+      "evidence": [
+        "browser/default-metrics.json",
+        "browser/reflow-200-percent.json",
+        "browser/error.json",
+        "browser/server-process.json",
+        "browser/server-binding.json"
+      ]
+    },
+    {
+      "name": "browser_state_and_responsive_runtime",
+      "status": "PASS",
+      "details": "Success, empty and 200% reflow states are observed without horizontal overflow.",
+      "evidence": [
+        "browser/default-metrics.json",
+        "browser/portrait-metrics.json",
+        "browser/reflow-200-percent.json"
+      ]
+    },
+    {
+      "name": "browser_finding_repairs",
+      "status": "PASS",
+      "details": "URL history, stale-response ordering and idempotency are fresh and deterministic.",
+      "evidence": [
+        "browser/url-invalid.json",
+        "browser/url-back-critical.json",
+        "browser/stale-response.json",
+        "browser/stale-response-request-a.json",
+        "browser/stale-response-request-b.json",
+        "browser/stale-response-timeline.json",
+        "browser/idempotency.json"
+      ]
+    },
+    {
+      "name": "browser_accessibility_and_keyboard",
+      "status": "PASS",
+      "details": "Visible focus, reduced-motion rule and keyboard submit are observed on the current artifact.",
+      "evidence": [
+        "browser/accessibility-runtime.json",
+        "browser/contrast-observation.json",
+        "browser/keyboard-submit-focused-002.json",
+        "browser/keyboard-submit-result-002.json",
+        "browser/error-keyboard-step-01.json",
+        "browser/error-keyboard-retry.json"
+      ]
+    },
+    {
+      "name": "browser_performance_and_network",
+      "status": "PASS",
+      "details": "Current browser run has recorded sub-2.5s LCP, no external resources and no layout shift.",
+      "evidence": [
+        "browser/performance-runtime.json",
+        "browser/layout-performance.json",
+        "browser/default-final-network.log"
+      ]
+    },
+    {
+      "name": "coverage_threshold",
+      "status": "PASS",
+      "details": "Current coverage summary exceeds the 80% line and branch threshold.",
+      "evidence": [
+        "coverage-summary.json"
+      ]
+    },
+    {
+      "name": "browser_capture_set_complete",
+      "status": "PASS",
+      "details": "The browser packet contains the independent desktop, error-focus, contrast and performance captures required by the review bar.",
+      "evidence": [
+        "browser/accessibility-runtime.json",
+        "browser/contrast-observation.json",
+        "browser/desktop-metrics.json",
+        "browser/desktop-success-metrics.json",
+        "browser/error-focus-dom.json",
+        "browser/layout-performance.json",
+        "browser/performance-runtime.json"
+      ]
+    },
+    {
+      "name": "runtime_eval_classification_complete",
+      "status": "PASS",
+      "details": "All 60 catalog scenarios are classified; all 33 runtime-required scenarios pass.",
+      "evidence": [
+        "runtime-eval-classification.json",
+        "runtime-eval-traceability.json"
+      ]
+    },
+    {
+      "name": "composition_timeline_ordered",
+      "status": "PASS",
+      "details": "Host, build, composition, serving, browser capture and verifier observations are timestamp ordered.",
+      "evidence": [
+        "frontend-real-invocation-short/invocation-receipts/INV-cf9d460266785f78b43e15ac.json",
+        "artifact/frontend-run-001/build-receipt.json",
+        "composition-run-009/composition-receipt.json",
+        "browser/server-process.json",
+        "browser/server-binding.json",
+        "browser/",
+        "verifier-real-invocation-final-after-browser/invocation-receipts/INV-6d639157532552ebaf59b0fd.json",
+        "browser-evidence.json"
+      ]
+    }
+  ],
+  "summary": {
+    "checks_total": 20,
+    "checks_passed": 20,
+    "checks_failed": 0,
+    "runtime_evals_passed": 33,
+    "runtime_evals_required": 33,
+    "promotion_relevant_unresolved": 0
+  },
+  "limitations": [
+    "HOST_LOAD_UNOBSERVABLE",
+    "Alternative harness-observed composition is not full host skill-load causality.",
+    "Browser evidence is Chromium-only and not a full assistive-technology certification.",
+    "The local synthetic fixture does not establish production, release or security approval."
+  ],
+  "verification_digest": "sha256:7b23098ae4914eeb15a192ede7a2d25cb2e8442cb0164cd8c386ce7db2608324"
+}

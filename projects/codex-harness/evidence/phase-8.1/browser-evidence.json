@@ -1,0 +1,231 @@
+{
+  "schema_version": "P8.1-BROWSER-EVIDENCE-1",
+  "task_id": "PHASE8.1-001",
+  "status": "PASS_WITH_LIMITATIONS",
+  "composition_run": "P81-COMPOSE-009",
+  "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "browser": {
+    "engine": "Chromium",
+    "executable": "/usr/bin/google-chrome",
+    "version": "Google Chrome 152.0.7977.64",
+    "executable_digest": "sha256:aea09d69ce7f24d5901f6bfb15dd44d0c856e793e0a498f8d8393ec7d2c308ec"
+  },
+  "captures": [
+    {
+      "path": "browser/desktop-success-1440x900.png",
+      "sha256": "sha256:114d56620954b3bdaf72d67d1476434894d635a6704c4eb2c108986b1ef2f35c",
+      "kind": "screenshot"
+    },
+    {
+      "path": "browser/mobile-critical-focused-390x844.png",
+      "sha256": "sha256:0e373117041fdf294b6ff52a8ce4c34b6645d5b54b892b3f76abf0075ac27379",
+      "kind": "screenshot"
+    },
+    {
+      "path": "browser/portrait-empty-768x1024.png",
+      "sha256": "sha256:f906dafe4027289b63a4ff551077a38c9058a506de890a8d271fc33df675e7ff",
+      "kind": "screenshot"
+    },
+    {
+      "path": "browser/reflow-200-percent-195x844.png",
+      "sha256": "sha256:e4659285e6a2a9e32a92a97e76fd70f4c10da1b7c37feeefccd1e1af303633a5",
+      "kind": "screenshot"
+    },
+    {
+      "path": "browser/tablet-urgent-1024x768.png",
+      "sha256": "sha256:b3d87e29ed553aec817fab0931ab9280138838c902803ae0af341b2e9a250b5d",
+      "kind": "screenshot"
+    },
+    {
+      "path": "browser/accessibility-runtime.json",
+      "sha256": "sha256:26396666502b0cc24ac969b71f14a25f0d609a574bb26b6336e6df3378929fcf",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/contrast-observation.json",
+      "sha256": "sha256:7e8853c1e673fb2b83128a290302300d8ed78979605f72b6870f0f1a081693cc",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/default-metrics.json",
+      "sha256": "sha256:3c8117dd3112a9983e129237b668a3cf23f17ccb55351594f60170db144180e1",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/desktop-metrics.json",
+      "sha256": "sha256:1379dca7ba7fd2a5f7b9c3c529e986f4dd5cfbd9dbe7b45e3070328fa7d84f9b",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/desktop-success-metrics.json",
+      "sha256": "sha256:4e18467baf402e6ccc37ba11af387f86c58f625d2d0fe93805e39476e54dc4a1",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/error-focus-dom.json",
+      "sha256": "sha256:2d0e6984bc7361b7eb65b2fe69c1f96070b6f9bdf159957dba9ec8cd26ac3660",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/error-keyboard-retry.json",
+      "sha256": "sha256:d4b73c123a7186d8a6026312795775b6e86389585ec7a82e77ef6983c5da67ff",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/error-keyboard-step-01.json",
+      "sha256": "sha256:6a1768ab2d7ffc5fd3c0f081caeac429f0b012e367b39ec106310cafaf1bb4f1",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/error-retry.json",
+      "sha256": "sha256:e03ed91574a9c896c3122112551ec847f750b9cee9405ffe74cc4a3cfcc76d20",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/error.json",
+      "sha256": "sha256:72ffadc813acc945932fd1e680bf30971da76af9f29b5b87e197c371e24a4923",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/idempotency.json",
+      "sha256": "sha256:e67a4aba430fafe6d5d793cea4abb85ecfd9590abb36f59894b5af97521bb680",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/interaction-submit-loading.json",
+      "sha256": "sha256:2b390c7986eb55c8e8d12708e0fc6e3fe2cb607a08579268d1250c98c2374072",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/interaction-submit-success.json",
+      "sha256": "sha256:fc4400c43de3f944875a691edda53342aa4aa90a778e46a4926f83ca3b35255d",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/interaction-validation.json",
+      "sha256": "sha256:aa414f0f59d06e2409856232f7de2b4d3d931a5c4cdc3c57f1eec1f9190ce962",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/keyboard-step-00.json",
+      "sha256": "sha256:b9b81ca6dc3c1e8c645acc31855493676d6e8986f199d9928cf73840326c73e1",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/keyboard-submit-focused-002.json",
+      "sha256": "sha256:7641d7a95b488b777a47e98bfaa4ba969d06cfc5ce33ffb2c8d57391b9a5cd83",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/keyboard-submit-result-002.json",
+      "sha256": "sha256:52b8cadfc674ca5db98ea6c9a5ec6989d3cf614725d8f6f5139c7ab355341e82",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/layout-performance.json",
+      "sha256": "sha256:c1bc1a48433b8fc8722175955d3eb0bbf19beda2477e91e4c2baebada047f366",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/loading.json",
+      "sha256": "sha256:6a6e22dc819dbbd54acca74671b9a7a7b4276ae6e808a037f368969badb16021",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/mobile-critical-metrics.json",
+      "sha256": "sha256:13a2907e9d16228e232fd3655a644946bb55ed253ef0faf9f5816878e54eccc1",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/performance-runtime.json",
+      "sha256": "sha256:d55871a1c0131a102469184aa724f067ccca6cd28bf4eb157665f04d2a94e19e",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/portrait-metrics.json",
+      "sha256": "sha256:d88c96da57d022c5563a9a62d3fb66e8a6818b40d572ee45cc98d16dcfccae70",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/reflow-200-percent.json",
+      "sha256": "sha256:1ae7b5b499b73ca89469f5354c99bfb105ae01c0a1d52156c796d109b19bddbe",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/server-binding.json",
+      "sha256": "sha256:31e9801f7c705cddbe03a48459de40346dc7ae4891f2588e93b3bdfa42688b10",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/server-process.json",
+      "sha256": "sha256:20a497be30fcc3b481a90746fe6dd412ac736ff32a3bb85936c93710ceea4b31",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/server-validation.json",
+      "sha256": "sha256:020578a84e8c48dd8580ad8271fe5a3509a6883e29e1623eb3884227157c795b",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/stale-response-initial.json",
+      "sha256": "sha256:d4776852287fe6f34bb506df67177268d52fa5c689797c7df5b17ad98234d8cb",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/stale-response-request-a.json",
+      "sha256": "sha256:d4776852287fe6f34bb506df67177268d52fa5c689797c7df5b17ad98234d8cb",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/stale-response-request-b.json",
+      "sha256": "sha256:2145d994422efc6461834468c4b4fe55df5f3855e8acbf1a51bfa5a2b2647b16",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/stale-response-timeline.json",
+      "sha256": "sha256:b3e659de495cc9419915b438adbd0b6864b353b5bfa3944f02edd4ad67be5b3e",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/stale-response.json",
+      "sha256": "sha256:1c699c8b8e9444743cfad221be8093729c3fc1e7c59947eb077cc3c1c28f6140",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/tablet-metrics.json",
+      "sha256": "sha256:43e9c80c8e368e56c5570790b1f6f450b542d3a4527c54a3678922e602690dd3",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/url-back-critical.json",
+      "sha256": "sha256:9d73163342e447b81bc09615eff49371c82c73f3a28430c81585c5f4b885a454",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/url-critical.json",
+      "sha256": "sha256:9d73163342e447b81bc09615eff49371c82c73f3a28430c81585c5f4b885a454",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/url-invalid.json",
+      "sha256": "sha256:70ecf2098a0bebf178a339a421c55b9340c97a4b6505dc4eedde2210302a1e70",
+      "kind": "runtime-json"
+    },
+    {
+      "path": "browser/url-select-urgent.json",
+      "sha256": "sha256:7aa060df13e386e6b13e27596c2001c0340118d9ed0facbbebe7ea2bda257a2d",
+      "kind": "runtime-json"
+    }
+  ],
+  "network_and_console": [
+    "browser/default-final-network.log",
+    "browser/default-final-console.log",
+    "browser/stale-network.log"
+  ],
+  "limitations": [
+    "HOST_LOAD_UNOBSERVABLE",
+    "Alternative harness-observed composition is not full host skill-load causality.",
+    "Browser evidence is Chromium-only and not a full assistive-technology certification.",
+    "The local synthetic fixture does not establish production, release or security approval."
+  ]
+}

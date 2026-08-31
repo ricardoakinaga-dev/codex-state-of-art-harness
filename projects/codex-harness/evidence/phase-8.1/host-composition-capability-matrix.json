@@ -1,0 +1,130 @@
+{
+  "schema_version": "P8.1-HOST-MATRIX-1",
+  "task_id": "PHASE8.1-001",
+  "observed_at": "2026-08-31T16:55:30-03:00",
+  "composition_binding": {
+    "run_id": "P81-COMPOSE-009",
+    "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+    "receipt": "evidence/phase-8.1/composition-run-009/composition-receipt.json",
+    "scope_audit": "evidence/phase-8.1/composition-run-009/composition-scope-audit.json"
+  },
+  "host": {
+    "executable": "codex",
+    "version": "0.151.0",
+    "executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "platform": "Linux Mint 22.3.0 x86_64",
+    "app_server_transport": ["stdio://", "unix://", "ws://", "off"],
+    "browser": {
+      "executable": "/usr/bin/google-chrome",
+      "version": "Google Chrome 152.0.7977.64",
+      "executable_digest": "sha256:aea09d69ce7f24d5901f6bfb15dd44d0c856e793e0a498f8d8393ec7d2c308ec"
+    }
+  },
+  "classification_legend": {
+    "OFFICIAL_DOCUMENTED": "Declared in the generated app-server schema or CLI help.",
+    "HOST_OBSERVED": "Observed directly in a fresh app-server protocol exchange.",
+    "HARNESS_OBSERVED": "Observed by the project-local harness around the host exchange.",
+    "INFERRED": "Reasoned from bounded evidence but not directly emitted by the host.",
+    "UNSUPPORTED": "The host or public schema explicitly does not provide this surface.",
+    "UNKNOWN": "Not established by the available evidence."
+  },
+  "capabilities": [
+    {
+      "id": "CAP-HOST-INITIALIZE",
+      "surface": "initialize",
+      "classification": "OFFICIAL_DOCUMENTED_AND_HOST_OBSERVED",
+      "status": "PASS",
+      "evidence": "Fresh stdio JSON-RPC probe returned codexHome, platformFamily, platformOs and userAgent.",
+      "limitations": "Initialization identifies the host process but does not identify a loaded project-local skill."
+    },
+    {
+      "id": "CAP-HOST-SKILLS-LIST",
+      "surface": "skills/list",
+      "classification": "OFFICIAL_DOCUMENTED_AND_HOST_OBSERVED",
+      "status": "PASS_WITH_LIMITATIONS",
+      "evidence": "Fresh forceReload request for the bounded project cwd returned enabled user skills and no errors.",
+      "limitations": "The response listed official user skills but did not list .harness/capabilities/frontend-engineering-vnext directly; Phase 8 staging had to copy the package into .agents/skills for host discovery."
+    },
+    {
+      "id": "CAP-HOST-THREAD-START",
+      "surface": "thread/start",
+      "classification": "OFFICIAL_DOCUMENTED_AND_HOST_OBSERVED",
+      "status": "PASS_WITH_LIMITATIONS",
+      "evidence": "A fresh experimentalApi=true request returned an ephemeral thread, readOnly sandbox, approvalPolicy=never and the requested runtime workspace root.",
+      "limitations": "The first request without experimentalApi was rejected because runtimeWorkspaceRoots requires the experimental API capability. Thread creation alone is not a capability-load or artifact-causality signal."
+    },
+    {
+      "id": "CAP-HOST-TURN-START",
+      "surface": "turn/start",
+      "classification": "OFFICIAL_DOCUMENTED",
+      "status": "PASS_WITH_LIMITATIONS",
+      "evidence": "Fresh Phase 8.1 controlled-real app-server handshake completed with execution_observed=true and final_message=READY under the exact staged package fingerprint.",
+      "limitations": "The host receipt records no public skill-load event and the short handshake deliberately requested no tools or file mutation."
+    },
+    {
+      "id": "CAP-HOST-SKILL-LOAD-EVENT",
+      "surface": "skill/loaded or skill/load/completed notification",
+      "classification": "UNSUPPORTED_OR_UNKNOWN",
+      "status": "BLOCKED",
+      "evidence": "The generated current protocol schema contains skills/list and skills/changed but no skill/loaded or skill/load/completed notification; two fresh Phase 8.1 controlled-real handshakes also completed without such an event.",
+      "limitations": "Absence from the public schema is not proof that no private host signal exists, so this packet does not claim universal host internals. The public supported causal signal remains unavailable."
+    },
+    {
+      "id": "CAP-HOST-WRITABLE-WORKSPACE",
+      "surface": "workspace-write sandbox and host-bounded artifact production",
+      "classification": "OFFICIAL_DOCUMENTED_BUT_NOT_AUTHORIZED",
+      "status": "NOT_SELECTED",
+      "evidence": "The current schema documents workspace-write, while this task's policy is read-only for host capability invocation and the historical adapter fail-closes non-read-only filesystem policy.",
+      "limitations": "No write-mode host execution was requested or attempted; a read-only host result cannot be upgraded to causal artifact production."
+    },
+    {
+      "id": "CAP-HOST-BROWSER-OBSERVER",
+      "surface": "native host browser observer / host-emitted browser receipt",
+      "classification": "UNKNOWN",
+      "status": "NOT_OBSERVED",
+      "evidence": "No public app-server schema method or notification was identified for a browser observer; browser observations remain separately recorded by Playwright against exact artifacts.",
+      "limitations": "Browser observations are collected separately by the bounded local Playwright tool and cannot be relabeled as native host observations."
+    },
+    {
+      "id": "CAP-HOST-VERIFIER-CORRELATION",
+      "surface": "host-level causal correlation from frontend capability load to verifier result",
+      "classification": "UNKNOWN",
+      "status": "BLOCKED",
+      "evidence": "The current public protocol exposes host thread/turn events but no load event that binds the selected skill to the produced artifact or verifier input. The Phase 8.1 packet therefore uses an explicitly limited, harness-observed composition bridge.",
+      "limitations": "The bridge is not full host causality; it is acceptable only as an independently reviewed alternative chain with exact IDs, digests, ordering and zero global capability mutation."
+    }
+  ],
+  "fresh_probe_refs": [
+    "command://codex --version",
+    "command://codex app-server --help",
+    "command://codex app-server generate-json-schema --experimental",
+    "runtime://app-server/initialize",
+    "runtime://app-server/skills-list",
+    "runtime://app-server/thread-start-read-only-ephemeral",
+    "runtime://app-server/turn-start-frontend-handshake",
+    "runtime://app-server/turn-start-verifier-handshake",
+    "evidence://phase-8.1/frontend-real-invocation-short/invocation-receipts/INV-cf9d460266785f78b43e15ac.json",
+    "evidence://phase-8.1/verifier-real-invocation-final-after-browser/invocation-receipts/INV-6d639157532552ebaf59b0fd.json"
+  ],
+  "fresh_host_invocations": [
+    {
+      "path": "evidence/phase-8.1/frontend-real-invocation-short/invocation-receipts/INV-cf9d460266785f78b43e15ac.json",
+      "capability": "frontend-engineering-vnext",
+      "fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+      "transport_status": "LIMITED_HOST_SUCCESS",
+      "execution_observed": true,
+      "final_message": "READY",
+      "load_observation": "HOST_LOAD_UNOBSERVABLE"
+    },
+    {
+      "path": "evidence/phase-8.1/verifier-real-invocation-final-after-browser/invocation-receipts/INV-6d639157532552ebaf59b0fd.json",
+      "capability": "verification-loop-vnext",
+      "fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "transport_status": "LIMITED_HOST_SUCCESS",
+      "execution_observed": true,
+      "final_message": "VERIFIER_READY",
+      "load_observation": "HOST_LOAD_UNOBSERVABLE"
+    }
+  ],
+  "conclusion": "Supported host/session APIs are available and two bounded read-only ephemeral turns completed with exact package identities. The public protocol does not expose a verifiable skill-load event or native browser observer. Official full-host composition remains unproven; the Phase 8.1 packet records a separate harness-observed exact-artifact bridge as an alternative causal chain and must keep that limitation explicit."
+}

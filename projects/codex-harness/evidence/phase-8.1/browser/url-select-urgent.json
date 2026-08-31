@@ -1,0 +1,8 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-url-009&urgency=urgent",
+  "selectedUrgency": "urgent",
+  "visiblePatients": [
+    "Juniper"
+  ],
+  "historyLength": 50
+}

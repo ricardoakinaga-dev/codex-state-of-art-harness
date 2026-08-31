@@ -1,0 +1,1 @@
+{"delay_ms": 220, "items": [{"detail": "Delayed response", "patient": "Older A", "species": "Cat", "urgency": "routine", "waiting": "40 min"}], "request_label": "A", "status": "success"}

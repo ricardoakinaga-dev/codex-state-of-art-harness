@@ -1,0 +1,24 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=stale-response&capture=p81-stale-010",
+  "requests": [
+    {
+      "label": "A",
+      "request": "1",
+      "fetchStart": 218.89999999850988,
+      "responseEnd": 445.8999999985099
+    },
+    {
+      "label": "B",
+      "request": "2",
+      "fetchStart": 219.39999999850988,
+      "responseEnd": 228.69999999552965
+    }
+  ],
+  "ordering": {
+    "requestAStartedBeforeB": true,
+    "responseBCompletedBeforeA": true
+  },
+  "finalVisiblePatients": [
+    "Fresh B"
+  ]
+}

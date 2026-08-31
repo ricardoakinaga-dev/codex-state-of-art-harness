@@ -1,0 +1,155 @@
+{
+  "schema_version": "P8.1-FINDINGS-1",
+  "task_id": "PHASE8.1-001",
+  "status": "CURRENT_CLOSURE_CANDIDATE",
+  "severity_semantics": {
+    "HIGH": "Promotion-blocking causal, security, integrity or system-level risk requiring closure or an explicit non-promotion decision.",
+    "MEDIUM": "Actionable behavior or evidence gap that can invalidate the bounded promotion target if not closed.",
+    "LOW": "Bounded limitation that does not independently block the stated candidate outcome."
+  },
+  "findings": [
+    {
+      "id": "P8.1-FINDING-H-HOST-COMPOSITION-001",
+      "severity": "HIGH",
+      "category": "COMPOSITION",
+      "title": "Official host skill-load and causal composition event is not observable",
+      "status": "CLOSED_WITH_ALTERNATIVE",
+      "promotion_blocking": false,
+      "baseline_source": "Phase 8 official Phase 4 receipt and host adapter capability report",
+      "description": "The supported app-server protocol can be invoked, but the current bounded READ_ONLY host path exposes no verifiable skill-load event. A host response or transport success alone does not establish that the frontend capability was loaded or caused the artifact.",
+      "required_closure": [
+        "A supported host-load event bound to the exact capability, or",
+        "An independently reviewed observable alternative causal chain with exact task/run/invocation IDs, authorization, workspace, monotonic timestamps, pre/post digests, changed-file list, source/artifact/browser/verifier/final-verification digests, no alternate producer/manual mutation and global mutation count zero."
+      ],
+      "evidence_refs": [
+        "../phase-8/readiness.json",
+        "../phase-8/composition-review.md",
+        "../phase-8/pilots/frontend-engineering/phase4/frontend-real-post-repair-002/invocation-receipts/INV-75f00a187fb354d3a04141d1.json",
+        "../phase-8/pilots/frontend-engineering/phase4/verifier-final-post-repair-002/invocation-receipts/INV-6ec92339747c562d9d19eb8e.json",
+        "baseline.json",
+        "host-composition-capability-matrix.json"
+      ],
+      "closure_evidence": {
+        "kind": "OBSERVABLE_COMPOSITION_WITHOUT_HOST_LOAD_EVENT",
+        "composition_run": "P81-COMPOSE-009",
+        "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+        "proof": "composition-proof.json",
+        "timeline": "composition-timeline.json",
+        "bridge": "composition-run-009/composition-receipt.json",
+        "scope_audit": "composition-run-009/composition-scope-audit.json",
+        "frontend_host_receipt": "frontend-real-invocation-short/invocation-receipts/INV-cf9d460266785f78b43e15ac.json",
+        "verifier_host_receipt": "verifier-real-invocation-final-after-browser/invocation-receipts/INV-6d639157532552ebaf59b0fd.json",
+        "limitations": [
+          "HOST_LOAD_UNOBSERVABLE",
+          "Not FULL_HOST_LOAD_CAUSALITY",
+          "Exact artifact copy is the only bridge mutation; global mutation count is zero."
+        ]
+      },
+      "owner": "lead",
+      "revalidation_trigger": "Any change to host protocol, workspace policy, invocation adapter or composition-proof inputs."
+    },
+    {
+      "id": "P8.1-FINDING-M-URL-STATE-001",
+      "severity": "MEDIUM",
+      "category": "RUNTIME_STATE",
+      "title": "URL-persisted filter state is not yet runtime-proven",
+      "status": "CLOSED",
+      "promotion_blocking": false,
+      "baseline_source": "Phase 8 pilot source inspection and zero Phase 8.1 runtime evals",
+      "description": "The Phase 8 pilot keeps the urgency filter in memory and has no current evidence for URL persistence, invalid URL fallback or back/forward restoration.",
+      "required_closure": [
+        "Valid URL filter initializes the control and visible rows",
+        "Filter changes update URL state without losing scenario state",
+        "Back/forward restores the prior filter",
+        "Invalid URL state falls back safely and is recorded"
+      ],
+      "evidence_refs": ["baseline.json", "url-state-runtime-report.md", "browser-evidence.json"],
+      "closure_evidence": {
+        "runtime_report": "url-state-runtime-report.md",
+        "browser_evidence": [
+          "browser/url-critical.json",
+          "browser/url-select-urgent.json",
+          "browser/url-back-critical.json",
+          "browser/url-invalid.json"
+        ]
+      },
+      "owner": "lead",
+      "revalidation_trigger": "Any routing, filter, history or query-string change."
+    },
+    {
+      "id": "P8.1-FINDING-M-STALE-RESPONSE-001",
+      "severity": "MEDIUM",
+      "category": "RUNTIME_CONCURRENCY",
+      "title": "Stale response protection is not yet runtime-proven",
+      "status": "CLOSED",
+      "promotion_blocking": false,
+      "baseline_source": "Phase 8 source contains a request-number guard but no deterministic stale-response browser receipt",
+      "description": "The source has a stale-response guard, but the Phase 8 packet contains no fresh browser run that proves an older delayed queue response cannot overwrite a newer response.",
+      "required_closure": [
+        "Deterministic delayed request A and fast request B",
+        "Final UI contains only B data",
+        "Network/timeline evidence binds both requests and the stale discard"
+      ],
+      "evidence_refs": ["baseline.json", "stale-response-runtime-report.md", "browser-evidence.json"],
+      "closure_evidence": {
+        "runtime_report": "stale-response-runtime-report.md",
+        "browser_evidence": [
+          "browser/stale-response.json",
+          "browser/stale-response-initial.json",
+          "browser/stale-response-request-a.json",
+          "browser/stale-response-request-b.json",
+          "browser/stale-response-timeline.json",
+          "browser/stale-network.log"
+        ]
+      },
+      "owner": "lead",
+      "revalidation_trigger": "Any queue loading, request cancellation, retry or state update change."
+    },
+    {
+      "id": "P8.1-FINDING-M-KEYBOARD-FOCUS-001",
+      "severity": "MEDIUM",
+      "category": "ACCESSIBILITY_RUNTIME",
+      "title": "Keyboard and focus behavior is not yet fully runtime-proven",
+      "status": "CLOSED",
+      "promotion_blocking": false,
+      "baseline_source": "Phase 8 static contracts and zero Phase 8.1 runtime evals",
+      "description": "Static labels and focus styles exist, but the Phase 8 packet does not contain a fresh runtime traversal, submit-error focus, retry focus or visible-focus observation bound to the final artifact.",
+      "required_closure": [
+        "Keyboard traversal reaches all actionable controls in a logical order",
+        "Blank/invalid submission focuses the first invalid field",
+        "Retry and row actions remain keyboard reachable",
+        "Visible focus and error association are recorded"
+      ],
+      "evidence_refs": ["baseline.json", "keyboard-runtime-report.md", "accessibility-runtime-report.md", "browser-evidence.json"],
+      "closure_evidence": {
+        "runtime_report": "keyboard-runtime-report.md",
+        "accessibility_report": "accessibility-runtime-report.md",
+        "browser_evidence": [
+          "browser/keyboard-step-00.json",
+          "browser/keyboard-submit-focused-002.json",
+          "browser/interaction-validation.json",
+          "browser/accessibility-runtime.json",
+          "browser/error-keyboard-step-01.json",
+          "browser/error-keyboard-retry.json",
+          "browser/keyboard-submit-result-002.json"
+        ]
+      },
+      "owner": "lead",
+      "revalidation_trigger": "Any DOM order, form validation, focus management or control-state change."
+    }
+  ],
+  "counts": {
+    "classified_critical": 0,
+    "classified_high": 1,
+    "open_actionable_high": 0,
+    "promotion_blocking_high": 0,
+    "classified_medium": 3,
+    "open_actionable_medium": 0,
+    "promotion_blocking_medium": 0,
+    "closed_actionable_high": 1,
+    "closed_actionable_medium": 3,
+    "classified_low": 0
+  },
+  "promotion_rule": "Do not promote while any promotion_blocking finding is OPEN; a waiver is not a PASS.",
+  "updated_at": "2026-08-31T16:55:30-03:00"
+}

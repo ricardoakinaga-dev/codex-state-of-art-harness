@@ -1,0 +1,46 @@
+{
+  "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "attestation_digest": "sha256:57bdd3593ca9e4575c7d567cedc75a5280d52668e47b4aa44bb44cc3cb8c7c2b",
+  "finding_counts": {
+    "classified_critical": 0,
+    "classified_high": 1,
+    "classified_low": 0,
+    "classified_medium": 3,
+    "closed_actionable_high": 1,
+    "closed_actionable_medium": 3,
+    "open_actionable_high": 0,
+    "open_actionable_medium": 0,
+    "promotion_blocking_high": 0,
+    "promotion_blocking_medium": 0
+  },
+  "frontend_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+  "limitations": [
+    "HOST_LOAD_UNOBSERVABLE",
+    "Alternative harness-observed composition is not full host skill-load causality.",
+    "Browser evidence is Chromium-only and not a full assistive-technology certification.",
+    "The local synthetic fixture does not establish production, release or security approval."
+  ],
+  "manifest_digest": "sha256:f6306e8c398d9be8ca92a42af74cceeb6501a1507c0f7e6f8647eb704d0936a4",
+  "quality_bar": "P8_LEVEL_B",
+  "repository_head": "664858e596537b5d0a33fe1bffbac3c4fec5f953",
+  "review_status": "PASS",
+  "reviewer_ids": [
+    "Hubble/01a058f8-5ed3-71e1-88ef-a02d4905e551",
+    "Locke/01a058f8-5fbf-7542-b6d5-364b05834a0d",
+    "P81-RO-REVIEW-20260831-01"
+  ],
+  "runtime_evals": {
+    "future_domain": 1,
+    "not_applicable": 4,
+    "promotion_relevant_unresolved": 0,
+    "runtime_executed": 33,
+    "runtime_required": 33,
+    "structural_sufficient": 22,
+    "total": 60
+  },
+  "schema_version": "P8.1-REVIEW-ATTESTATION-1",
+  "statement": "Independent reviewers found no blocking issue in the exact packet.",
+  "status": "PASS_WITH_LIMITATIONS",
+  "task_id": "PHASE8.1-001",
+  "verification_digest": "sha256:7b23098ae4914eeb15a192ede7a2d25cb2e8442cb0164cd8c386ce7db2608324"
+}

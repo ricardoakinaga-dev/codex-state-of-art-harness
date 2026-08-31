@@ -1,0 +1,14 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-default-009",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "load": 21633,
+  "loadEventEnd": 80.90000000596046,
+  "domContentLoaded": 63.30000000447035,
+  "firstContentfulPaint": 108,
+  "largestContentfulPaint": 108,
+  "layoutShiftValue": 0,
+  "layoutShiftEntries": 0
+}

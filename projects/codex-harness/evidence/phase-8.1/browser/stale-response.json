@@ -1,0 +1,21 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=stale-response&capture=p81-stale-010",
+  "phase": "success",
+  "visiblePatients": [
+    "Fresh B"
+  ],
+  "requests": [
+    {
+      "url": "http://127.0.0.1:4187/api/queue?scenario=stale-response&request=1",
+      "request": "1",
+      "fetchStart": 218.89999999850988,
+      "responseEnd": 445.8999999985099
+    },
+    {
+      "url": "http://127.0.0.1:4187/api/queue?scenario=stale-response&request=2",
+      "request": "2",
+      "fetchStart": 219.39999999850988,
+      "responseEnd": 228.69999999552965
+    }
+  ]
+}

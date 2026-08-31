@@ -1,0 +1,29 @@
+{
+  "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "composition_run": "P81-COMPOSE-009",
+  "decision": "PROMOTE_TO_VERIFIED_CANDIDATE_WITH_LIMITATIONS",
+  "limitations": [
+    "HOST_LOAD_UNOBSERVABLE",
+    "Alternative harness-observed composition is not full host skill-load causality.",
+    "Browser evidence is Chromium-only and not a full assistive-technology certification.",
+    "The local synthetic fixture does not establish production, release or security approval."
+  ],
+  "open_actionable_high": 0,
+  "open_actionable_medium": 0,
+  "quality_bar": "P8_LEVEL_B",
+  "repository_head": "664858e596537b5d0a33fe1bffbac3c4fec5f953",
+  "review_status": "PASS",
+  "runtime_evals": {
+    "future_domain": 1,
+    "not_applicable": 4,
+    "promotion_relevant_unresolved": 0,
+    "runtime_executed": 33,
+    "runtime_required": 33,
+    "structural_sufficient": 22,
+    "total": 60
+  },
+  "schema_version": "P8.1-READINESS-1",
+  "status": "READY_WITH_LIMITATIONS",
+  "task_id": "PHASE8.1-001",
+  "verifier_status": "PASS_WITH_LIMITATIONS"
+}

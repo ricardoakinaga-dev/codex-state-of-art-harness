@@ -1,0 +1,8 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-url-009&urgency=critical",
+  "selectedUrgency": "critical",
+  "visiblePatients": [
+    "Miso"
+  ],
+  "historyLength": 50
+}

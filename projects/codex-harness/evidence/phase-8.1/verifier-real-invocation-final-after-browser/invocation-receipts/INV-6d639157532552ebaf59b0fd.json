@@ -1,0 +1,620 @@
+{
+  "artifacts": [
+    {
+      "artifact_id": "ART-INV-6d639157532552ebaf59b0fd",
+      "artifact_type": "HOST_RESPONSE",
+      "dependencies": [
+        "INV-6d639157532552ebaf59b0fd"
+      ],
+      "digest": "sha256:2fadfd451bed791a82d4dba40d9be81560ea0fcd616a5c16c000fa4167c498a3",
+      "evidence_state": "CAPTURED",
+      "invocation_id": "INV-6d639157532552ebaf59b0fd",
+      "location": "$WORKSPACE/.harness/phase4/artifacts/INV-6d639157532552ebaf59b0fd.host-response.txt",
+      "producer_capability": "verification-loop-vnext",
+      "provenance": "HARNESS_OBSERVED",
+      "size_bytes": 14,
+      "timestamp": 1788198590
+    }
+  ],
+  "assurance": {
+    "decision": "STOP",
+    "limitations": [
+      "HOST_LOAD_UNOBSERVABLE"
+    ],
+    "reason": "result did not satisfy the bounded verification chain",
+    "verification_digest": "sha256:f1950d9788e3e36c8a7967318f668aa3e0dd8d4b48a05868425f898d0677d800"
+  },
+  "blockers": [],
+  "capability": "verification-loop-vnext",
+  "host_authentication_mode": "HOST_ONLY_CONTROL_PLANE",
+  "host_invoked": true,
+  "host_result": {
+    "approval_request_count": 0,
+    "cancellation_status": "NOT_REQUESTED",
+    "completed_at": 1788198590,
+    "denied_approvals": 0,
+    "error_code": null,
+    "events": [
+      {
+        "detail": null,
+        "event_class": "HOST_INVOCATION_ACKNOWLEDGED",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a058f0-fd80-7af3-b26c-73ad91941db4",
+        "item_type": null,
+        "method": "turn/start",
+        "sequence": 0,
+        "status": "started",
+        "thread_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+        "turn_id": "01a058f0-fd80-7af3-b26c-73ad91941db4"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "thread/status/changed",
+        "sequence": 1,
+        "status": null,
+        "thread_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+        "turn_id": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "turn/started",
+        "sequence": 2,
+        "status": "inProgress",
+        "thread_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+        "turn_id": "01a058f0-fd80-7af3-b26c-73ad91941db4"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a058f1-02ec-7182-b06b-3881aff8a67e",
+        "item_type": "userMessage",
+        "method": "item/started",
+        "sequence": 3,
+        "status": null,
+        "thread_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+        "turn_id": "01a058f0-fd80-7af3-b26c-73ad91941db4"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a058f1-02ec-7182-b06b-3881aff8a67e",
+        "item_type": "userMessage",
+        "method": "item/completed",
+        "sequence": 4,
+        "status": null,
+        "thread_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+        "turn_id": "01a058f0-fd80-7af3-b26c-73ad91941db4"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "rs_0021e72c5347cc04016a95bebb028487d296331f87c1434004",
+        "item_type": "reasoning",
+        "method": "item/started",
+        "sequence": 5,
+        "status": null,
+        "thread_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+        "turn_id": "01a058f0-fd80-7af3-b26c-73ad91941db4"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "rs_0021e72c5347cc04016a95bebb028487d296331f87c1434004",
+        "item_type": "reasoning",
+        "method": "item/completed",
+        "sequence": 6,
+        "status": null,
+        "thread_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+        "turn_id": "01a058f0-fd80-7af3-b26c-73ad91941db4"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "msg_0021e72c5347cc04016a95bebe3e2c87d287da53ba0ee92239",
+        "item_type": "agentMessage",
+        "method": "item/started",
+        "sequence": 7,
+        "status": null,
+        "thread_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+        "turn_id": "01a058f0-fd80-7af3-b26c-73ad91941db4"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 8,
+        "status": null,
+        "thread_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+        "turn_id": "01a058f0-fd80-7af3-b26c-73ad91941db4"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 9,
+        "status": null,
+        "thread_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+        "turn_id": "01a058f0-fd80-7af3-b26c-73ad91941db4"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 10,
+        "status": null,
+        "thread_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+        "turn_id": "01a058f0-fd80-7af3-b26c-73ad91941db4"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "msg_0021e72c5347cc04016a95bebe3e2c87d287da53ba0ee92239",
+        "item_type": "agentMessage",
+        "method": "item/completed",
+        "sequence": 11,
+        "status": null,
+        "thread_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+        "turn_id": "01a058f0-fd80-7af3-b26c-73ad91941db4"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "thread/tokenUsage/updated",
+        "sequence": 12,
+        "status": null,
+        "thread_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+        "turn_id": "01a058f0-fd80-7af3-b26c-73ad91941db4"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "account/rateLimits/updated",
+        "sequence": 13,
+        "status": null,
+        "thread_id": null,
+        "turn_id": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "thread/status/changed",
+        "sequence": 14,
+        "status": null,
+        "thread_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+        "turn_id": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "turn/completed",
+        "sequence": 15,
+        "status": "completed",
+        "thread_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+        "turn_id": "01a058f0-fd80-7af3-b26c-73ad91941db4"
+      }
+    ],
+    "execution_observed": true,
+    "final_message": "VERIFIER_READY",
+    "host_command": [
+      "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+      "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "features.apps=false",
+      "app-server",
+      "--listen",
+      "stdio://"
+    ],
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_executable_path": "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+    "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+    "host_interpreter_path": "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+    "host_version": "codex-state-of-art-harness/0.151.0 (Linux Mint 22.3.0; x86_64) dumb (codex-state-of-art-harness; 0.1.0)",
+    "invocation_observed": true,
+    "load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "mcp_event_count": 0,
+    "protocol_message_count": 22,
+    "protocol_messages": [
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 0
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "configWarning",
+        "sequence": 1
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "remoteControl/status/changed",
+        "sequence": 2
+      },
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 3
+      },
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 4
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/started",
+        "sequence": 5
+      },
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 6
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/status/changed",
+        "sequence": 7
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "turn/started",
+        "sequence": 8
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/started",
+        "sequence": 9
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/completed",
+        "sequence": 10
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/started",
+        "sequence": 11
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/completed",
+        "sequence": 12
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/started",
+        "sequence": 13
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 14
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 15
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 16
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/completed",
+        "sequence": 17
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/tokenUsage/updated",
+        "sequence": 18
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "account/rateLimits/updated",
+        "sequence": 19
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/status/changed",
+        "sequence": 20
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "turn/completed",
+        "sequence": 21
+      }
+    ],
+    "session_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+    "started_at": 1788198580,
+    "status": "SUCCESS",
+    "thread_id": "01a058f0-fd65-7af3-ace3-a9d4702a999f",
+    "turn_id": "01a058f0-fd80-7af3-b26c-73ad91941db4"
+  },
+  "limitations": [
+    "HOST_LOAD_UNOBSERVABLE"
+  ],
+  "mode": "CONTROLLED_REAL",
+  "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "preflight": {
+    "allowed": true,
+    "authorization": {
+      "allowed_side_effects": [],
+      "allowed_tools": [],
+      "artifact_policy": {
+        "max_bytes": 262144,
+        "max_count": 16,
+        "types": [
+          "HOST_RESPONSE"
+        ]
+      },
+      "authorization_id": "AUTH-cb3616e1c99752fe8f851013",
+      "capability_id": "verification-loop-vnext",
+      "capability_version": "0.1.0",
+      "constraints": [
+        "no arbitrary shell",
+        "no scripts",
+        "no network",
+        "no MCP",
+        "no providers",
+        "no credentials",
+        "no subagents"
+      ],
+      "context_budget": {
+        "max_bytes": 131072
+      },
+      "credential_policy": "DENY",
+      "evidence_policy": {
+        "max_count": 64,
+        "max_events": 512
+      },
+      "expires_at": 1788198670,
+      "filesystem_policy": {
+        "allowed_roots": [],
+        "artifact_root": "$WORKSPACE/.harness/phase4/artifacts",
+        "credentials": "DENY",
+        "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+        "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+        "max_bytes": 16777216,
+        "max_files": 256,
+        "mcp": "DENY",
+        "mode": "READ_ONLY",
+        "network": "DENY",
+        "package_path": "$WORKSPACE/.agents/skills/verification-loop-vnext",
+        "package_write_allowed": false,
+        "providers": "DENY",
+        "shell": "DENY",
+        "workspace": "$WORKSPACE"
+      },
+      "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+      "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+      "issued_at": 1788198580,
+      "issued_by": "phase4-preflight",
+      "iteration_budget": {
+        "host_calls": 1,
+        "repair_iterations": 0,
+        "tool_calls": 0,
+        "verification_iterations": 1
+      },
+      "mcp_policy": "DENY",
+      "network_policy": "DENY",
+      "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "provider_policy": "DENY",
+      "reason": "exact current read-only verifier; structured evidence handoff remains separate from host causality",
+      "requested_execution_mode": "CONTROLLED_REAL",
+      "requested_loading_level": "L2_INSTRUCTION_KERNEL",
+      "run_id": "RUN-P8-17591a1409e2",
+      "scope": "PROJECT",
+      "shell_policy": "DENY",
+      "task_id": "TASK-P8-0e60dc43866a",
+      "timeout_seconds": 90
+    },
+    "blockers": [],
+    "context": {
+      "acceptance_criteria": [
+        "Host execution is observed as SUCCESS.",
+        "Final message is VERIFIER_READY."
+      ],
+      "capability_id": "verification-loop-vnext",
+      "digest": "sha256:99402b68d9d790bd06cc0f0fe9d89f36d1842a1f7332200d565ee73245b80c56",
+      "estimated_bytes": 6786,
+      "omitted_references": [],
+      "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "selected_references": [
+        "references/deterministic-boundaries.md",
+        "references/evidence-lineage.md",
+        "references/role-boundaries.md"
+      ],
+      "skill_path": "$WORKSPACE/.agents/skills/verification-loop-vnext/SKILL.md",
+      "sources": [
+        "HOST_MANAGED_SKILL"
+      ],
+      "task_digest": "sha256:c92f56325a66520ba3b644dbe4cfca6a0eb4e5b5e81ab19fb31b4da4e75b52dc",
+      "task_id": "TASK-P8-0e60dc43866a"
+    },
+    "digest": "sha256:2a281c9125aa8a28de93a8a6537f5d0e932deed2a8408db18bfd0abfec4c73e3",
+    "mode": "CONTROLLED_REAL",
+    "warnings": [
+      "NETWORK_DENIED",
+      "SHELL_DENIED",
+      "MCP_DENIED",
+      "CREDENTIALS_DENIED"
+    ]
+  },
+  "receipt": {
+    "artifact_refs": [
+      "ART-INV-6d639157532552ebaf59b0fd"
+    ],
+    "authorization_digest": "sha256:2079dc414d1d941935d79f186069cb134b3679e752cf4ffec7d10bcae892f6ca",
+    "authorization_id": "AUTH-cb3616e1c99752fe8f851013",
+    "capability_id": "verification-loop-vnext",
+    "capability_version": "0.1.0",
+    "closed_at": 1788198590,
+    "context_digest": "sha256:99402b68d9d790bd06cc0f0fe9d89f36d1842a1f7332200d565ee73245b80c56",
+    "created_at": 1788198580,
+    "host_command": [
+      "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+      "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "features.apps=false",
+      "app-server",
+      "--listen",
+      "stdio://"
+    ],
+    "host_event_count": 16,
+    "host_event_digest": "sha256:fbced82b7f867a341acea68c807bd9dd30ded3a5c70358dd8f0cceaaaf8681da",
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_executable_path": "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+    "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+    "host_interpreter_path": "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+    "host_invoked": true,
+    "host_load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "invocation_id": "INV-6d639157532552ebaf59b0fd",
+    "lifecycle": [
+      "DISCOVERED",
+      "RESOLVED",
+      "AUTHORIZED",
+      "CONTEXT_PREPARED",
+      "INVOCATION_REQUESTED",
+      "HOST_ACKNOWLEDGED",
+      "EXECUTING",
+      "RESULT_RECEIVED",
+      "VERIFYING",
+      "FAILED",
+      "CLOSED"
+    ],
+    "mode": "CONTROLLED_REAL",
+    "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "receipt_digest": "sha256:51b80597b76cce7f75942aae024f643e64a6e6d7b366965171d0736bcd214a0b",
+    "request_digest": "sha256:65e0a5e91c94ba84edb246e897e4514b7e8a635588fd6b3facdb63a8ab28a00f",
+    "result_digest": "sha256:7893889f45fda68362a5d840d65fe3012209ed50f0dd7b41f82de509088b747f",
+    "status": "FAILURE",
+    "verification_refs": [
+      "sha256:f1950d9788e3e36c8a7967318f668aa3e0dd8d4b48a05868425f898d0677d800"
+    ]
+  },
+  "schema_version": "P4-OUTCOME-1",
+  "status": "FAILURE",
+  "verification": {
+    "acceptance_criteria": [
+      "Host execution is observed as SUCCESS.",
+      "Final message is VERIFIER_READY."
+    ],
+    "artifact_refs": [
+      "ART-INV-6d639157532552ebaf59b0fd"
+    ],
+    "checks": [
+      "REQUEST_DIGEST_BOUND",
+      "HOST_RESULT_COMPLETED",
+      "HOST_EXECUTION_OBSERVED",
+      "HOST_RESPONSE_NON_EMPTY",
+      "ONE_ARTIFACT_CAPTURED",
+      "ARTIFACT_INTEGRITY:ART-INV-6d639157532552ebaf59b0fd",
+      "ARTIFACT_TYPE:HOST_RESPONSE",
+      "HOST_EXECUTABLE_PROVENANCE_BOUND",
+      "HOST_INTERPRETER_PROVENANCE_BOUND",
+      "ACCEPTANCE_NOT_AUTOMATICALLY_EVALUATED:Host execution is observed as SUCCESS.",
+      "ACCEPTANCE_NOT_AUTOMATICALLY_EVALUATED:Final message is VERIFIER_READY.",
+      "RECEIPT_REFERENCE_CORRELATED",
+      "EVIDENCE_REFERENCES_PRESENT"
+    ],
+    "digest": "sha256:f1950d9788e3e36c8a7967318f668aa3e0dd8d4b48a05868425f898d0677d800",
+    "evidence_refs": [
+      "receipt://INV-6d639157532552ebaf59b0fd"
+    ],
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+    "reason": "acceptance requires human or capability review: Host execution is observed as SUCCESS.; acceptance requires human or capability review: Final message is VERIFIER_READY.",
+    "request_digest": "sha256:65e0a5e91c94ba84edb246e897e4514b7e8a635588fd6b3facdb63a8ab28a00f",
+    "status": "FAILED"
+  },
+  "warnings": [
+    "NETWORK_DENIED",
+    "SHELL_DENIED",
+    "MCP_DENIED",
+    "CREDENTIALS_DENIED"
+  ]
+}

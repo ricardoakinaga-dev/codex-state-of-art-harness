@@ -1,0 +1,24 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-idempotency-009",
+  "sameId": true,
+  "acceptedPayloads": 1,
+  "duplicatePayloads": 1,
+  "responses": [
+    {
+      "status": 201,
+      "body": {
+        "intake_id": "INT-50350D49F5",
+        "status": "accepted",
+        "triage": "queued"
+      }
+    },
+    {
+      "status": 200,
+      "body": {
+        "intake_id": "INT-50350D49F5",
+        "status": "duplicate",
+        "triage": "queued"
+      }
+    }
+  ]
+}

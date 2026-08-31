@@ -1,0 +1,16 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-tablet-009&urgency=urgent",
+  "viewport": {
+    "width": 1024,
+    "height": 768
+  },
+  "documentWidth": 1024,
+  "bodyWidth": 1024,
+  "selectedUrgency": "urgent",
+  "stateUrgency": "urgent",
+  "visiblePatients": [
+    "Juniper"
+  ],
+  "visibleCount": 1,
+  "overflowX": false
+}

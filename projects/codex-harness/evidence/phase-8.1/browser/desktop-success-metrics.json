@@ -1,0 +1,15 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-desktop-009",
+  "feedback": "Intake accepted for triage. Reference INT-04FA8E59A6.",
+  "tone": "success",
+  "requestNumber": 1,
+  "formValues": {
+    "patient": "",
+    "species": "",
+    "urgency": ""
+  },
+  "focused": {
+    "id": "patient",
+    "tag": "INPUT"
+  }
+}

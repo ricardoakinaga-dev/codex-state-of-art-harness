@@ -1,0 +1,11 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=error&capture=p81-error-009",
+  "phase": "success",
+  "queueState": "4 active cases · sorted by arrival",
+  "error": null,
+  "itemCount": 4,
+  "focused": {
+    "id": "refresh-queue",
+    "tag": "BUTTON"
+  }
+}

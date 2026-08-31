@@ -1,0 +1,14 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-desktop-009",
+  "phase": "success",
+  "feedback": "Intake accepted for triage. Reference INT-04FA8E59A6.",
+  "tone": "success",
+  "requestNumber": 1,
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "documentWidth": 1440,
+  "bodyWidth": 1440,
+  "scrollY": 420
+}

@@ -1,0 +1,16 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-validation-009",
+  "feedback": "Complete the highlighted fields before sending.",
+  "tone": "error",
+  "focused": "patient",
+  "invalid": [
+    "patient",
+    "species",
+    "urgency"
+  ],
+  "describedBy": {
+    "patient": "patient-hint patient-error",
+    "species": "species-error",
+    "urgency": "urgency-error"
+  }
+}

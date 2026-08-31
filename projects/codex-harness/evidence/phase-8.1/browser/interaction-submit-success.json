@@ -1,0 +1,15 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=submit-loading&capture=p81-submit-loading-009",
+  "feedback": "Intake accepted for triage. Reference INT-45D476C920.",
+  "tone": "success",
+  "requestNumber": 1,
+  "formValues": {
+    "patient": "",
+    "species": "",
+    "urgency": ""
+  },
+  "focused": {
+    "id": "patient",
+    "tag": "INPUT"
+  }
+}

@@ -1,0 +1,521 @@
+{
+  "artifacts": [
+    {
+      "artifact_id": "ART-INV-cf9d460266785f78b43e15ac",
+      "artifact_type": "HOST_RESPONSE",
+      "dependencies": [
+        "INV-cf9d460266785f78b43e15ac"
+      ],
+      "digest": "sha256:c2e3ac47f4a325469c1a2d5f117e463ec943c721986d5d9f09ac4540b7d80526",
+      "evidence_state": "CAPTURED",
+      "invocation_id": "INV-cf9d460266785f78b43e15ac",
+      "location": "$WORKSPACE/.harness/phase4/artifacts/INV-cf9d460266785f78b43e15ac.host-response.txt",
+      "producer_capability": "frontend-engineering-vnext",
+      "provenance": "HARNESS_OBSERVED",
+      "size_bytes": 5,
+      "timestamp": 1788190970
+    }
+  ],
+  "assurance": {
+    "decision": "STOP",
+    "limitations": [
+      "HOST_LOAD_UNOBSERVABLE"
+    ],
+    "reason": "result did not satisfy the bounded verification chain",
+    "verification_digest": "sha256:f94e2c50289085b9288725016c443b8bdeab223e2d449015d0dc1cdb4c2a6437"
+  },
+  "blockers": [],
+  "capability": "frontend-engineering-vnext",
+  "host_authentication_mode": "HOST_ONLY_CONTROL_PLANE",
+  "host_invoked": true,
+  "host_result": {
+    "approval_request_count": 0,
+    "cancellation_status": "NOT_REQUESTED",
+    "completed_at": 1788190970,
+    "denied_approvals": 0,
+    "error_code": null,
+    "events": [
+      {
+        "detail": null,
+        "event_class": "HOST_INVOCATION_ACKNOWLEDGED",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a0587c-c57f-7053-8094-34569dad2f41",
+        "item_type": null,
+        "method": "turn/start",
+        "sequence": 0,
+        "status": "started",
+        "thread_id": "01a0587c-c50c-7e80-8eab-089b79ec167a",
+        "turn_id": "01a0587c-c57f-7053-8094-34569dad2f41"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a0587c-cb5c-78a1-9ea3-e76681ff4f25",
+        "item_type": "userMessage",
+        "method": "item/started",
+        "sequence": 1,
+        "status": null,
+        "thread_id": "01a0587c-c50c-7e80-8eab-089b79ec167a",
+        "turn_id": "01a0587c-c57f-7053-8094-34569dad2f41"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a0587c-cb5c-78a1-9ea3-e76681ff4f25",
+        "item_type": "userMessage",
+        "method": "item/completed",
+        "sequence": 2,
+        "status": null,
+        "thread_id": "01a0587c-c50c-7e80-8eab-089b79ec167a",
+        "turn_id": "01a0587c-c57f-7053-8094-34569dad2f41"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "msg_037fcc5b5d7fab26016a95a0fa492487d28b15c3414bedbddb",
+        "item_type": "agentMessage",
+        "method": "item/started",
+        "sequence": 3,
+        "status": null,
+        "thread_id": "01a0587c-c50c-7e80-8eab-089b79ec167a",
+        "turn_id": "01a0587c-c57f-7053-8094-34569dad2f41"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "item/agentMessage/delta",
+        "sequence": 4,
+        "status": null,
+        "thread_id": "01a0587c-c50c-7e80-8eab-089b79ec167a",
+        "turn_id": "01a0587c-c57f-7053-8094-34569dad2f41"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "msg_037fcc5b5d7fab26016a95a0fa492487d28b15c3414bedbddb",
+        "item_type": "agentMessage",
+        "method": "item/completed",
+        "sequence": 5,
+        "status": null,
+        "thread_id": "01a0587c-c50c-7e80-8eab-089b79ec167a",
+        "turn_id": "01a0587c-c57f-7053-8094-34569dad2f41"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "thread/tokenUsage/updated",
+        "sequence": 6,
+        "status": null,
+        "thread_id": "01a0587c-c50c-7e80-8eab-089b79ec167a",
+        "turn_id": "01a0587c-c57f-7053-8094-34569dad2f41"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "account/rateLimits/updated",
+        "sequence": 7,
+        "status": null,
+        "thread_id": null,
+        "turn_id": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "thread/status/changed",
+        "sequence": 8,
+        "status": null,
+        "thread_id": "01a0587c-c50c-7e80-8eab-089b79ec167a",
+        "turn_id": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "turn/completed",
+        "sequence": 9,
+        "status": "completed",
+        "thread_id": "01a0587c-c50c-7e80-8eab-089b79ec167a",
+        "turn_id": "01a0587c-c57f-7053-8094-34569dad2f41"
+      }
+    ],
+    "execution_observed": true,
+    "final_message": "READY",
+    "host_command": [
+      "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+      "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "features.apps=false",
+      "app-server",
+      "--listen",
+      "stdio://"
+    ],
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_executable_path": "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+    "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+    "host_interpreter_path": "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+    "host_version": "codex-state-of-art-harness/0.151.0 (Linux Mint 22.3.0; x86_64) xterm-256color (codex-state-of-art-harness; 0.1.0)",
+    "invocation_observed": true,
+    "load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "mcp_event_count": 0,
+    "protocol_message_count": 18,
+    "protocol_messages": [
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 0
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "configWarning",
+        "sequence": 1
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "remoteControl/status/changed",
+        "sequence": 2
+      },
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 3
+      },
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 4
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/started",
+        "sequence": 5
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/status/changed",
+        "sequence": 6
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "turn/started",
+        "sequence": 7
+      },
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 8
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/started",
+        "sequence": 9
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/completed",
+        "sequence": 10
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/started",
+        "sequence": 11
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/agentMessage/delta",
+        "sequence": 12
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/completed",
+        "sequence": 13
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/tokenUsage/updated",
+        "sequence": 14
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "account/rateLimits/updated",
+        "sequence": 15
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/status/changed",
+        "sequence": 16
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "turn/completed",
+        "sequence": 17
+      }
+    ],
+    "session_id": "01a0587c-c50c-7e80-8eab-089b79ec167a",
+    "started_at": 1788190964,
+    "status": "SUCCESS",
+    "thread_id": "01a0587c-c50c-7e80-8eab-089b79ec167a",
+    "turn_id": "01a0587c-c57f-7053-8094-34569dad2f41"
+  },
+  "limitations": [
+    "HOST_LOAD_UNOBSERVABLE"
+  ],
+  "mode": "CONTROLLED_REAL",
+  "package_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+  "preflight": {
+    "allowed": true,
+    "authorization": {
+      "allowed_side_effects": [],
+      "allowed_tools": [],
+      "artifact_policy": {
+        "max_bytes": 262144,
+        "max_count": 16,
+        "types": [
+          "HOST_RESPONSE"
+        ]
+      },
+      "authorization_id": "AUTH-c2f0f413e9eb544ca9229e25",
+      "capability_id": "frontend-engineering-vnext",
+      "capability_version": "0.1.0",
+      "constraints": [
+        "no arbitrary shell",
+        "no scripts",
+        "no network",
+        "no MCP",
+        "no providers",
+        "no credentials",
+        "no subagents"
+      ],
+      "context_budget": {
+        "max_bytes": 131072
+      },
+      "credential_policy": "DENY",
+      "evidence_policy": {
+        "max_count": 64,
+        "max_events": 512
+      },
+      "expires_at": 1788191008,
+      "filesystem_policy": {
+        "allowed_roots": [],
+        "artifact_root": "$WORKSPACE/.harness/phase4/artifacts",
+        "credentials": "DENY",
+        "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+        "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+        "max_bytes": 16777216,
+        "max_files": 256,
+        "mcp": "DENY",
+        "mode": "READ_ONLY",
+        "network": "DENY",
+        "package_path": "$WORKSPACE/.agents/skills/frontend-engineering-vnext",
+        "package_write_allowed": false,
+        "providers": "DENY",
+        "shell": "DENY",
+        "workspace": "$WORKSPACE"
+      },
+      "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+      "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+      "issued_at": 1788190963,
+      "issued_by": "phase4-preflight",
+      "iteration_budget": {
+        "host_calls": 1,
+        "repair_iterations": 0,
+        "tool_calls": 0,
+        "verification_iterations": 1
+      },
+      "mcp_policy": "DENY",
+      "network_policy": "DENY",
+      "package_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+      "provider_policy": "DENY",
+      "reason": "exact current project-local frontend specialist; read-only host response only",
+      "requested_execution_mode": "CONTROLLED_REAL",
+      "requested_loading_level": "L2_INSTRUCTION_KERNEL",
+      "run_id": "RUN-P8-296cc7c27789",
+      "scope": "PROJECT",
+      "shell_policy": "DENY",
+      "task_id": "TASK-P8-a4072410c1d0",
+      "timeout_seconds": 45
+    },
+    "blockers": [],
+    "context": {
+      "acceptance_criteria": [
+        "The host response is exactly READY."
+      ],
+      "capability_id": "frontend-engineering-vnext",
+      "digest": "sha256:0090903d4f7a2f9e0d36561a9871bf268f6d8d44ac71a97affcd7733b4ee0f0e",
+      "estimated_bytes": 17876,
+      "omitted_references": [],
+      "package_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+      "selected_references": [
+        "references/architecture-boundaries.md",
+        "references/rendering-evidence.md",
+        "references/responsive-accessibility.md",
+        "references/role-boundaries.md",
+        "references/security-handoff.md",
+        "references/state-and-interaction.md",
+        "references/testing-performance.md"
+      ],
+      "skill_path": "$WORKSPACE/.agents/skills/frontend-engineering-vnext/SKILL.md",
+      "sources": [
+        "HOST_MANAGED_SKILL"
+      ],
+      "task_digest": "sha256:bd88a34531538e6536ba11ac41bb7bc79d8a4d4eb565f9f68a7f43481b4e3c02",
+      "task_id": "TASK-P8-a4072410c1d0"
+    },
+    "digest": "sha256:94fc1e897028d08959f0a1d7407af15ec3c19296fed098c970e668446c5e4547",
+    "mode": "CONTROLLED_REAL",
+    "warnings": [
+      "NETWORK_DENIED",
+      "SHELL_DENIED",
+      "MCP_DENIED",
+      "CREDENTIALS_DENIED"
+    ]
+  },
+  "receipt": {
+    "artifact_refs": [
+      "ART-INV-cf9d460266785f78b43e15ac"
+    ],
+    "authorization_digest": "sha256:26b02972a3afde6e2dd8d3102cbb4b16d2cfa39bb99f82dd1f4955129b00d78b",
+    "authorization_id": "AUTH-c2f0f413e9eb544ca9229e25",
+    "capability_id": "frontend-engineering-vnext",
+    "capability_version": "0.1.0",
+    "closed_at": 1788190970,
+    "context_digest": "sha256:0090903d4f7a2f9e0d36561a9871bf268f6d8d44ac71a97affcd7733b4ee0f0e",
+    "created_at": 1788190963,
+    "host_command": [
+      "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+      "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "features.apps=false",
+      "app-server",
+      "--listen",
+      "stdio://"
+    ],
+    "host_event_count": 10,
+    "host_event_digest": "sha256:3432d654bdbcf4715b569b60417ae4b339de503ec7362491a06c0f43651afc93",
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_executable_path": "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+    "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+    "host_interpreter_path": "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+    "host_invoked": true,
+    "host_load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "invocation_id": "INV-cf9d460266785f78b43e15ac",
+    "lifecycle": [
+      "DISCOVERED",
+      "RESOLVED",
+      "AUTHORIZED",
+      "CONTEXT_PREPARED",
+      "INVOCATION_REQUESTED",
+      "HOST_ACKNOWLEDGED",
+      "EXECUTING",
+      "RESULT_RECEIVED",
+      "VERIFYING",
+      "FAILED",
+      "CLOSED"
+    ],
+    "mode": "CONTROLLED_REAL",
+    "package_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+    "receipt_digest": "sha256:e72df4a93b035560010c586e4c5a7c92f8c6a1a4caa7cbde5d09aab17e13bfd8",
+    "request_digest": "sha256:9ef7e7a56a8be79cddeaf53abe062a08e4c83e3950c172f013ba8d79fe9acfb5",
+    "result_digest": "sha256:21dae43e42592502a51e40d442f7c2759da0fa7cbaddace71d0531e3411db873",
+    "status": "FAILURE",
+    "verification_refs": [
+      "sha256:f94e2c50289085b9288725016c443b8bdeab223e2d449015d0dc1cdb4c2a6437"
+    ]
+  },
+  "schema_version": "P4-OUTCOME-1",
+  "status": "FAILURE",
+  "verification": {
+    "acceptance_criteria": [
+      "The host response is exactly READY."
+    ],
+    "artifact_refs": [
+      "ART-INV-cf9d460266785f78b43e15ac"
+    ],
+    "checks": [
+      "REQUEST_DIGEST_BOUND",
+      "HOST_RESULT_COMPLETED",
+      "HOST_EXECUTION_OBSERVED",
+      "HOST_RESPONSE_NON_EMPTY",
+      "ONE_ARTIFACT_CAPTURED",
+      "ARTIFACT_INTEGRITY:ART-INV-cf9d460266785f78b43e15ac",
+      "ARTIFACT_TYPE:HOST_RESPONSE",
+      "HOST_EXECUTABLE_PROVENANCE_BOUND",
+      "HOST_INTERPRETER_PROVENANCE_BOUND",
+      "ACCEPTANCE_NOT_AUTOMATICALLY_EVALUATED:The host response is exactly READY.",
+      "RECEIPT_REFERENCE_CORRELATED",
+      "EVIDENCE_REFERENCES_PRESENT"
+    ],
+    "digest": "sha256:f94e2c50289085b9288725016c443b8bdeab223e2d449015d0dc1cdb4c2a6437",
+    "evidence_refs": [
+      "receipt://INV-cf9d460266785f78b43e15ac"
+    ],
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+    "reason": "acceptance requires human or capability review: The host response is exactly READY.",
+    "request_digest": "sha256:9ef7e7a56a8be79cddeaf53abe062a08e4c83e3950c172f013ba8d79fe9acfb5",
+    "status": "FAILED"
+  },
+  "warnings": [
+    "NETWORK_DENIED",
+    "SHELL_DENIED",
+    "MCP_DENIED",
+    "CREDENTIALS_DENIED"
+  ]
+}

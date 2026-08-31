@@ -1,0 +1,27 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-default-009",
+  "externalResources": 0,
+  "resources": 3,
+  "resourceUrls": [
+    "http://127.0.0.1:4187/styles.css",
+    "http://127.0.0.1:4187/app.js",
+    "http://127.0.0.1:4187/api/queue?scenario=default"
+  ],
+  "images": 0,
+  "mediaBytes": 0,
+  "largestContentfulPaintMs": 108,
+  "largestContentfulPaintElement": "H1",
+  "paints": [
+    {
+      "name": "first-paint",
+      "startTime": 108
+    },
+    {
+      "name": "first-contentful-paint",
+      "startTime": 108
+    }
+  ],
+  "fontFamily": "ui-sans-serif, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+  "reducedMotionRule": true,
+  "sourceArtifactDigest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044"
+}

@@ -1,0 +1,127 @@
+{
+  "after": [
+    {
+      "digest": "sha256:c62adaf0f0a882e4b5127d75789218e3c9c1deac54f3a5c935650ba61b1a1f9f",
+      "exists": true,
+      "files": 249,
+      "path": "/home/ricardo/.codex/skills"
+    },
+    {
+      "digest": "sha256:1f0f9ff709b53f6f39d696f0e4b76a74da6ba72b2da77a652fc11c1522b0d1db",
+      "exists": true,
+      "files": 172,
+      "path": "/home/ricardo/.agents/skills"
+    },
+    {
+      "digest": "sha256:2c0001ff549ae3a3588fadef7348019f8829fefbd4bba60556bc02914dca89da",
+      "exists": true,
+      "files": 1,
+      "path": "/home/ricardo/.codex/config.toml"
+    },
+    {
+      "digest": "sha256:df8227db3feae61ecbdd7ae0a20797d1207a7b57171522186f849f41f2554c5d",
+      "exists": true,
+      "files": 15,
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/frontend-engineering-vnext"
+    },
+    {
+      "digest": "sha256:94b14dca20e87ad8b7ff4f3f97b0b314b0547c66dd7676a319200f1d111b544c",
+      "exists": true,
+      "files": 13,
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/verification-loop-vnext"
+    }
+  ],
+  "after_digest": "sha256:8027e7688b92da304dcb1f660578249781f1b7fd64ffd2e6a1c86f0497b5b156",
+  "audit_method": "read-only digest snapshots around the exact bridge subprocess boundary",
+  "before": [
+    {
+      "digest": "sha256:c62adaf0f0a882e4b5127d75789218e3c9c1deac54f3a5c935650ba61b1a1f9f",
+      "exists": true,
+      "files": 249,
+      "path": "/home/ricardo/.codex/skills"
+    },
+    {
+      "digest": "sha256:1f0f9ff709b53f6f39d696f0e4b76a74da6ba72b2da77a652fc11c1522b0d1db",
+      "exists": true,
+      "files": 172,
+      "path": "/home/ricardo/.agents/skills"
+    },
+    {
+      "digest": "sha256:2c0001ff549ae3a3588fadef7348019f8829fefbd4bba60556bc02914dca89da",
+      "exists": true,
+      "files": 1,
+      "path": "/home/ricardo/.codex/config.toml"
+    },
+    {
+      "digest": "sha256:df8227db3feae61ecbdd7ae0a20797d1207a7b57171522186f849f41f2554c5d",
+      "exists": true,
+      "files": 15,
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/frontend-engineering-vnext"
+    },
+    {
+      "digest": "sha256:94b14dca20e87ad8b7ff4f3f97b0b314b0547c66dd7676a319200f1d111b544c",
+      "exists": true,
+      "files": 13,
+      "path": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/verification-loop-vnext"
+    }
+  ],
+  "before_digest": "sha256:8027e7688b92da304dcb1f660578249781f1b7fd64ffd2e6a1c86f0497b5b156",
+  "bridge_artifact": {
+    "files": [
+      {
+        "bytes": 11409,
+        "path": "index.html",
+        "sha256": "sha256:80d88c436f13e31a94ab0510241a03dac57f662a063b4a8c50c1a0a2df8035b7"
+      },
+      {
+        "bytes": 20964,
+        "path": "styles.css",
+        "sha256": "sha256:8f2c15dfb1fcfc97a707c40a926cf27e1d095162379aa39d189e9c8d10e5bd44"
+      },
+      {
+        "bytes": 15492,
+        "path": "app.js",
+        "sha256": "sha256:93f1e912b52d371d778f52a0b178716f56705d933ab5b35589d45c7bce6587ef"
+      },
+      {
+        "bytes": 9653,
+        "path": "fixture_server.py",
+        "sha256": "sha256:10861d8f4de5524474b36292106efbe6c131d086c41ecff58e480404e9d8b6d2"
+      }
+    ],
+    "root": "evidence/phase-8.1/composition-run-009/frontend-artifact",
+    "tree_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044"
+  },
+  "bridge_receipt": "evidence/phase-8.1/composition-run-009/composition-receipt.json",
+  "capability_file_mutations": 0,
+  "external_producer": false,
+  "git_status_observation": [
+    " M codex-harness/.agent/backlog.json",
+    " M codex-harness/.agent/execution-log.jsonl",
+    " M codex-harness/.agent/state.json",
+    "?? ../.playwright-mcp/",
+    "?? codex-harness/.agent/plans/PHASE-8.1-frontend-runtime-host-composition-closure.md",
+    "?? codex-harness/evidence/phase-8.1/",
+    "?? codex-harness/scripts/audit_phase81_composition_scope.py",
+    "?? codex-harness/scripts/build_phase81_composition_bridge.py",
+    "?? codex-harness/scripts/build_phase81_frontend.py",
+    "?? codex-harness/scripts/finalize_phase81_packet.py",
+    "?? codex-harness/scripts/run_phase81_verifier.py",
+    "?? codex-harness/scripts/serve_phase81_artifact.py",
+    "?? codex-harness/scripts/stage_phase81_host_workspace.py",
+    "?? codex-harness/tests/evals/phase81/",
+    "?? codex-state-of-art-harness/"
+  ],
+  "global_mutations": 0,
+  "manual_mutation_during_run": false,
+  "run_id": "P81-COMPOSE-009",
+  "schema_version": "P8.1-COMPOSITION-SCOPE-AUDIT-1",
+  "scope_roots": [
+    "/home/ricardo/.codex/skills",
+    "/home/ricardo/.agents/skills",
+    "/home/ricardo/.codex/config.toml",
+    "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/frontend-engineering-vnext",
+    "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/verification-loop-vnext"
+  ],
+  "task_id": "PHASE8.1-001"
+}

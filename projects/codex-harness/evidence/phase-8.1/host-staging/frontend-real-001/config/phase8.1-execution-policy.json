@@ -1,0 +1,49 @@
+{
+  "schema_version": "P4-POLICY-1",
+  "task_id": "PHASE8.1-001",
+  "scope": "phase8.1-host-probe-and-read-only-composition",
+  "rules": [
+    {
+      "capability_id": "frontend-engineering-vnext",
+      "version": "0.1.0",
+      "package_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+      "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+      "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+      "execution_approved": true,
+      "allowed_modes": ["DRY_RUN", "PREPARE_ONLY", "CONTROLLED_REAL"],
+      "allowed_tools": [],
+      "allowed_side_effects": [],
+      "allowed_providers": [],
+      "allow_scripts": false,
+      "allow_network": false,
+      "allow_shell": false,
+      "allow_mcp": false,
+      "allow_credentials": false,
+      "expected_artifact_types": ["HOST_RESPONSE"],
+      "reason": "exact current project-local frontend specialist; read-only host response only",
+      "filesystem_mode": "READ_ONLY",
+      "workspace_write_roots": []
+    },
+    {
+      "capability_id": "verification-loop-vnext",
+      "version": "0.1.0",
+      "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+      "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+      "execution_approved": true,
+      "allowed_modes": ["DRY_RUN", "PREPARE_ONLY", "CONTROLLED_REAL"],
+      "allowed_tools": [],
+      "allowed_side_effects": [],
+      "allowed_providers": [],
+      "allow_scripts": false,
+      "allow_network": false,
+      "allow_shell": false,
+      "allow_mcp": false,
+      "allow_credentials": false,
+      "expected_artifact_types": ["HOST_RESPONSE"],
+      "reason": "exact current read-only verifier; structured evidence handoff remains separate from host causality",
+      "filesystem_mode": "READ_ONLY",
+      "workspace_write_roots": []
+    }
+  ]
+}

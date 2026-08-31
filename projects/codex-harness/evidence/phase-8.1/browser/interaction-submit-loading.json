@@ -1,0 +1,10 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=submit-loading&capture=p81-submit-loading-009",
+  "phase": "success",
+  "submitting": true,
+  "buttonDisabled": true,
+  "buttonText": "Sending to triage…",
+  "feedback": "Sending a single intake to triage…",
+  "feedbackRole": "status",
+  "requestNumber": 0
+}

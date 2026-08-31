@@ -1,0 +1,830 @@
+{
+  "schema_version": "P8.1-RUNTIME-CLASSIFICATION-1",
+  "task_id": "PHASE8.1-001",
+  "status": "PASS",
+  "catalog": ".harness/capabilities/frontend-engineering-vnext/evals/scenarios.json",
+  "catalog_scenario_count": 60,
+  "structural_report": "structural-eval-report.json",
+  "composition_run": "P81-COMPOSE-009",
+  "frontend_artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "records": [
+    {
+      "id": "P8-EVAL-001",
+      "category": "routing",
+      "title": "material existing-stack dashboard",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-002",
+      "category": "routing",
+      "title": "React component flow",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-003",
+      "category": "routing",
+      "title": "visual-only art direction",
+      "classification": "NOT_APPLICABLE",
+      "status": "NOT_APPLICABLE",
+      "validation": "NOT_RUN",
+      "promotion_relevant": false,
+      "reason": "The bounded Phase 8.1 frontend runtime does not exercise this domain.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-004",
+      "category": "routing",
+      "title": "backend-only endpoint",
+      "classification": "NOT_APPLICABLE",
+      "status": "NOT_APPLICABLE",
+      "validation": "NOT_RUN",
+      "promotion_relevant": false,
+      "reason": "The bounded Phase 8.1 frontend runtime does not exercise this domain.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-005",
+      "category": "routing",
+      "title": "frontend route with browser proof",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-006",
+      "category": "routing",
+      "title": "trivial label copy",
+      "classification": "NOT_APPLICABLE",
+      "status": "NOT_APPLICABLE",
+      "validation": "NOT_RUN",
+      "promotion_relevant": false,
+      "reason": "The bounded Phase 8.1 frontend runtime does not exercise this domain.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-007",
+      "category": "routing",
+      "title": "screenshot critique only",
+      "classification": "NOT_APPLICABLE",
+      "status": "NOT_APPLICABLE",
+      "validation": "NOT_RUN",
+      "promotion_relevant": false,
+      "reason": "The bounded Phase 8.1 frontend runtime does not exercise this domain.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-008",
+      "category": "routing",
+      "title": "missing repository context",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-009",
+      "category": "routing",
+      "title": "API and UI mixed change",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-010",
+      "category": "routing",
+      "title": "framework named without evidence",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-011",
+      "category": "state",
+      "title": "initial loading",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Loading phase is captured before the delayed queue response.",
+      "evidence": [
+        "browser/loading.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-012",
+      "category": "state",
+      "title": "success queue",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Default success state, four items and queue landmark are observed.",
+      "evidence": [
+        "browser/default-metrics.json",
+        "browser/default-snapshot.md"
+      ]
+    },
+    {
+      "id": "P8-EVAL-013",
+      "category": "state",
+      "title": "empty queue",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Portrait empty state is observed with one explicit state row.",
+      "evidence": [
+        "browser/portrait-metrics.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-014",
+      "category": "state",
+      "title": "queue error",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Error state exposes an alert and recovery action.",
+      "evidence": [
+        "browser/error.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-015",
+      "category": "state",
+      "title": "retry recovery",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Error recovery succeeds by both captured retry paths.",
+      "evidence": [
+        "browser/error-retry.json",
+        "browser/error-keyboard-retry.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-016",
+      "category": "state",
+      "title": "stale response",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Delayed A and fast B overlap; B completes first and remains authoritative.",
+      "evidence": [
+        "browser/stale-response.json",
+        "browser/stale-response-initial.json",
+        "browser/stale-response-request-a.json",
+        "browser/stale-response-request-b.json",
+        "browser/stale-response-timeline.json",
+        "browser/stale-network.log"
+      ]
+    },
+    {
+      "id": "P8-EVAL-017",
+      "category": "state",
+      "title": "double submit",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Concurrent idempotent submissions yield one accepted and one duplicate.",
+      "evidence": [
+        "browser/idempotency.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-018",
+      "category": "state",
+      "title": "local filter",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Selecting Urgent updates URL state and visible rows.",
+      "evidence": [
+        "browser/url-select-urgent.json",
+        "browser/url-critical.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-019",
+      "category": "state",
+      "title": "URL state",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "URL initialization, history selection, back restoration and invalid fallback pass.",
+      "evidence": [
+        "browser/url-critical.json",
+        "browser/url-select-urgent.json",
+        "browser/url-back-critical.json",
+        "browser/url-invalid.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-020",
+      "category": "state",
+      "title": "server validation error",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Server-side validation returns a bounded 422 envelope for invalid fields.",
+      "evidence": [
+        "browser/server-validation.json",
+        "browser/interaction-validation.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-021",
+      "category": "responsive",
+      "title": "wide grid",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Responsive runtime at 1440px has no horizontal overflow.",
+      "evidence": [
+        "browser/desktop-success-1440x900.png",
+        "browser/desktop-metrics.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-022",
+      "category": "responsive",
+      "title": "intermediate wrap",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Responsive runtime at 1024px has no horizontal overflow.",
+      "evidence": [
+        "browser/tablet-urgent-1024x768.png",
+        "browser/tablet-metrics.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-023",
+      "category": "responsive",
+      "title": "tablet stack",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Responsive runtime at 1024px has no horizontal overflow.",
+      "evidence": [
+        "browser/tablet-metrics.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-024",
+      "category": "responsive",
+      "title": "mobile priority",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Responsive runtime at 390px has no horizontal overflow.",
+      "evidence": [
+        "browser/mobile-critical-focused-390x844.png",
+        "browser/mobile-critical-metrics.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-025",
+      "category": "responsive",
+      "title": "long heading",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Desktop submit success resets the form and reports success.",
+      "evidence": [
+        "browser/desktop-success-1440x900.png",
+        "browser/desktop-success-metrics.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-026",
+      "category": "responsive",
+      "title": "table semantics mobile",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Accessibility snapshot contains the queue table headers.",
+      "evidence": [
+        "browser/default-snapshot.md",
+        "browser/mobile-critical-metrics.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-027",
+      "category": "responsive",
+      "title": "200 percent reflow",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "200% reflow capture is bounded to 195px without horizontal overflow.",
+      "evidence": [
+        "browser/reflow-200-percent.json",
+        "browser/reflow-200-percent-195x844.png"
+      ]
+    },
+    {
+      "id": "P8-EVAL-028",
+      "category": "responsive",
+      "title": "unsupported viewport claim",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-029",
+      "category": "accessibility",
+      "title": "landmarks",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Landmarks, headings and live regions are present in the runtime capture.",
+      "evidence": [
+        "browser/accessibility-runtime.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-030",
+      "category": "accessibility",
+      "title": "heading order",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Heading hierarchy is captured as one H1 followed by H2 sections.",
+      "evidence": [
+        "browser/accessibility-runtime.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-031",
+      "category": "accessibility",
+      "title": "form labels",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Form controls have non-empty associated labels.",
+      "evidence": [
+        "browser/accessibility-runtime.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-032",
+      "category": "accessibility",
+      "title": "focus visible",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Focused patient field exposes a visible three-pixel outline and sampled runtime contrast passes.",
+      "evidence": [
+        "browser/accessibility-runtime.json",
+        "browser/contrast-observation.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-033",
+      "category": "accessibility",
+      "title": "keyboard submit",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Keyboard traversal reaches submit; invalid submit returns focus to patient.",
+      "evidence": [
+        "browser/keyboard-submit-result-002.json",
+        "browser/keyboard-submit-focused-002.json",
+        "browser/keyboard-step-00.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-034",
+      "category": "accessibility",
+      "title": "status live region",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Queue and intake feedback are polite status live regions.",
+      "evidence": [
+        "browser/accessibility-runtime.json",
+        "browser/interaction-submit-loading.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-035",
+      "category": "accessibility",
+      "title": "non color status",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Contextual row actions and triage state labels are exposed to the accessibility tree.",
+      "evidence": [
+        "browser/accessibility-runtime.json",
+        "browser/default-snapshot.md"
+      ]
+    },
+    {
+      "id": "P8-EVAL-036",
+      "category": "accessibility",
+      "title": "reduced motion",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Reduced-motion CSS rule is observed in both accessibility and performance captures.",
+      "evidence": [
+        "browser/accessibility-runtime.json",
+        "browser/performance-runtime.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-037",
+      "category": "accessibility",
+      "title": "touch targets",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Primary row, refresh and submit controls meet the bounded touch-size check.",
+      "evidence": [
+        "browser/accessibility-runtime.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-038",
+      "category": "accessibility",
+      "title": "static a11y as certification",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-039",
+      "category": "performance",
+      "title": "load budget",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Largest Contentful Paint is recorded below the bounded 2.5s target.",
+      "evidence": [
+        "browser/performance-runtime.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-040",
+      "category": "performance",
+      "title": "layout stability",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "No layout shift is recorded in the current capture.",
+      "evidence": [
+        "browser/layout-performance.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-041",
+      "category": "performance",
+      "title": "resource audit",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Runtime resources and network log remain same-origin loopback only.",
+      "evidence": [
+        "browser/performance-runtime.json",
+        "browser/default-final-network.log"
+      ]
+    },
+    {
+      "id": "P8-EVAL-042",
+      "category": "performance",
+      "title": "font fallback",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Runtime font stack begins with the bounded system sans family.",
+      "evidence": [
+        "browser/performance-runtime.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-043",
+      "category": "performance",
+      "title": "oversized media",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "No image or media payload is loaded by the local fixture.",
+      "evidence": [
+        "browser/performance-runtime.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-044",
+      "category": "performance",
+      "title": "virtualization default",
+      "classification": "FUTURE_DOMAIN",
+      "status": "FUTURE_DOMAIN",
+      "validation": "NOT_RUN",
+      "promotion_relevant": false,
+      "reason": "Virtualization is outside the bounded four-row local fixture.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-045",
+      "category": "performance",
+      "title": "perf claim without run",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-046",
+      "category": "performance",
+      "title": "all browsers claim",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-047",
+      "category": "security",
+      "title": "synthetic data",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-048",
+      "category": "security",
+      "title": "external sink",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-049",
+      "category": "security",
+      "title": "unsafe html",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-050",
+      "category": "security",
+      "title": "input validation",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Client and server validation evidence agree on invalid-field handling.",
+      "evidence": [
+        "browser/server-validation.json",
+        "browser/interaction-validation.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-051",
+      "category": "security",
+      "title": "secret in source",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-052",
+      "category": "security",
+      "title": "auth boundary",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-053",
+      "category": "security",
+      "title": "local network",
+      "classification": "RUNTIME_REQUIRED",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Server process and browser network evidence are loopback-bound.",
+      "evidence": [
+        "browser/default-final-network.log",
+        "browser/server-validation.json",
+        "browser/server-process.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-054",
+      "category": "security",
+      "title": "security approval",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-055",
+      "category": "architecture",
+      "title": "existing static stack",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-056",
+      "category": "architecture",
+      "title": "new framework justification",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-057",
+      "category": "architecture",
+      "title": "component extraction",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-058",
+      "category": "architecture",
+      "title": "component soup",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-059",
+      "category": "architecture",
+      "title": "design ownership",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    },
+    {
+      "id": "P8-EVAL-060",
+      "category": "architecture",
+      "title": "verifier ownership",
+      "classification": "STRUCTURAL_SUFFICIENT",
+      "status": "PASS",
+      "validation": "PASS",
+      "promotion_relevant": true,
+      "reason": "Structural routing/negative-guard result is sufficient for this catalog scenario.",
+      "evidence": [
+        "structural-eval-report.json"
+      ]
+    }
+  ],
+  "counts": {
+    "total": 60,
+    "runtime_required": 33,
+    "runtime_executed": 33,
+    "structural_sufficient": 22,
+    "not_applicable": 4,
+    "future_domain": 1,
+    "promotion_relevant_unresolved": 0
+  },
+  "digest": "sha256:19c66887fa0b24b98a3127bb919dd1f3266b61d06af5831fd78d38d9202a5227"
+}

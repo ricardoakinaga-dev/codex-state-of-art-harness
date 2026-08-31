@@ -1,0 +1,99 @@
+{
+  "composed_artifact": {
+    "files": [
+      {
+        "bytes": 11409,
+        "path": "index.html",
+        "sha256": "sha256:80d88c436f13e31a94ab0510241a03dac57f662a063b4a8c50c1a0a2df8035b7"
+      },
+      {
+        "bytes": 20964,
+        "path": "styles.css",
+        "sha256": "sha256:8f2c15dfb1fcfc97a707c40a926cf27e1d095162379aa39d189e9c8d10e5bd44"
+      },
+      {
+        "bytes": 15448,
+        "path": "app.js",
+        "sha256": "sha256:66e073ccce2056546261073f743a37f5828bbecb647f726273595f9d523919d0"
+      },
+      {
+        "bytes": 9653,
+        "path": "fixture_server.py",
+        "sha256": "sha256:10861d8f4de5524474b36292106efbe6c131d086c41ecff58e480404e9d8b6d2"
+      }
+    ],
+    "root": "evidence/phase-8.1/composition-run-007/frontend-artifact",
+    "tree_digest": "sha256:b0916fa579d1776508544f8bc3f0654e64916e9c215ee0df9a28c00098124981"
+  },
+  "generated_at_ns": 1788196988657347496,
+  "host": {
+    "capability": "frontend-engineering-vnext",
+    "execution_observed": true,
+    "final_message": "READY",
+    "host_result_status": "SUCCESS",
+    "invocation_id": "INV-cf9d460266785f78b43e15ac",
+    "load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "package_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+    "receipt_digest": "sha256:391c29daa039e3b22ea7a1bef23415a579440951a70a4667b86e61f339946c78",
+    "receipt_path": "evidence/phase-8.1/frontend-real-invocation-short/invocation-receipts/INV-cf9d460266785f78b43e15ac.json"
+  },
+  "limitations": [
+    "HOST_LOAD_UNOBSERVABLE",
+    "This is an observable harness composition chain, not full host skill-load causality.",
+    "The bridge copies an existing exact artifact and does not generate application code."
+  ],
+  "ordered_chain": [
+    "HOST_RESPONSE_OBSERVED",
+    "EXACT_ARTIFACT_IDENTITY_CHECKED",
+    "COMPOSITION_COPY_CREATED",
+    "COMPOSITION_COPY_RECHECKED",
+    "BROWSER_MAY_SERVE_COMPOSED_ROOT"
+  ],
+  "producer_id": "phase81-harness-composition-bridge",
+  "producer_kind": "AUTHORIZED_EXACT_ARTIFACT_COPY",
+  "run_id": "P81-COMPOSE-007",
+  "schema_version": "P8.1-COMPOSITION-BRIDGE-1",
+  "source": {
+    "build_receipt": "evidence/phase-8.1/artifact/frontend-run-001/build-receipt.json",
+    "build_receipt_digest": "sha256:bf89d4e1c46835eb43990c91ce8968b942e2be051f01b20fa414a852551b4bab",
+    "files": [
+      {
+        "bytes": 11409,
+        "path": "index.html",
+        "sha256": "sha256:80d88c436f13e31a94ab0510241a03dac57f662a063b4a8c50c1a0a2df8035b7"
+      },
+      {
+        "bytes": 20964,
+        "path": "styles.css",
+        "sha256": "sha256:8f2c15dfb1fcfc97a707c40a926cf27e1d095162379aa39d189e9c8d10e5bd44"
+      },
+      {
+        "bytes": 15448,
+        "path": "app.js",
+        "sha256": "sha256:66e073ccce2056546261073f743a37f5828bbecb647f726273595f9d523919d0"
+      },
+      {
+        "bytes": 9653,
+        "path": "fixture_server.py",
+        "sha256": "sha256:10861d8f4de5524474b36292106efbe6c131d086c41ecff58e480404e9d8b6d2"
+      }
+    ],
+    "root": "evidence/phase-8.1/artifact/frontend-run-001",
+    "tree_digest": "sha256:b0916fa579d1776508544f8bc3f0654e64916e9c215ee0df9a28c00098124981"
+  },
+  "task_id": "PHASE8.1-001",
+  "workspace_observation": {
+    "after_snapshot_digest": "sha256:ca7d6ac4c64a2c3e96eb4921f21ef1303249a0568cb28a497d7e462c864c94a1",
+    "before_snapshot_digest": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "capability_file_mutations": 0,
+    "changed_paths": [
+      "app.js",
+      "fixture_server.py",
+      "index.html",
+      "styles.css"
+    ],
+    "external_producer": false,
+    "global_mutations": 0,
+    "manual_mutation_during_run": false
+  }
+}

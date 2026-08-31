@@ -1,0 +1,51 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=error&capture=p81-error-009",
+  "before": {
+    "phase": "error",
+    "focused": "Try again"
+  },
+  "after": {
+    "phase": "success",
+    "items": [
+      {
+        "detail": "Breathing concern",
+        "patient": "Miso",
+        "species": "Cat",
+        "urgency": "critical",
+        "waiting": "08 min"
+      },
+      {
+        "detail": "Acute pain",
+        "patient": "Juniper",
+        "species": "Dog",
+        "urgency": "urgent",
+        "waiting": "14 min"
+      },
+      {
+        "detail": "Not eating",
+        "patient": "Otis",
+        "species": "Rabbit",
+        "urgency": "soon",
+        "waiting": "21 min"
+      },
+      {
+        "detail": "Wing check",
+        "patient": "Pip",
+        "species": "Bird",
+        "urgency": "routine",
+        "waiting": "29 min"
+      }
+    ],
+    "visiblePatients": [
+      "Miso",
+      "Juniper",
+      "Otis",
+      "Pip"
+    ],
+    "queueState": "4 active cases · sorted by arrival",
+    "focused": {
+      "id": "refresh-queue",
+      "tag": "BUTTON"
+    }
+  }
+}

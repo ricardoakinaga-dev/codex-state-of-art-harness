@@ -1,0 +1,32 @@
+{
+  "schema_version": "P8.1-RUNTIME-FIXTURE-1",
+  "task_id": "PHASE8.1-001",
+  "source_kind": "PHASE8_PILOT_COPY_WITH_FINDING_REPAIRS",
+  "source_reference": "../phase-8/pilots/frontend-engineering/app",
+  "scenario": "stale-response",
+  "network": "LOOPBACK_ONLY",
+  "external_producer": false,
+  "manual_mutation_during_run": false,
+  "repairs": [
+    "URL-persisted urgency filter with invalid-state canonicalization and popstate restoration",
+    "deterministic delayed request A / fast request B fixture with per-request URLs for the existing stale-response guard",
+    "body min-width was removed so the 200 percent reflow viewport has no forced horizontal overflow",
+    "singular case label for a one-item urgency-filter result",
+    "contextual row-action labels and 44px refresh/row-action touch targets",
+    "artifact digest response header for the exact served composition",
+    "unique stale-response request query values so delayed A and fast B can overlap"
+  ],
+  "preserved_behavior": [
+    "synthetic queue data",
+    "input validation",
+    "idempotency-key reservation",
+    "loading, success, empty, error and retry states",
+    "dependency-free HTML/CSS/ES2022 architecture"
+  ],
+  "prohibited_claims": [
+    "production readiness",
+    "release approval",
+    "security approval",
+    "all-browser or universal accessibility coverage"
+  ]
+}

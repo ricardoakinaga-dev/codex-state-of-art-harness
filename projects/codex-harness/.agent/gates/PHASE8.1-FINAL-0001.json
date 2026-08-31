@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "gate_id": "PHASE8.1-FINAL-0001",
+  "phase": "PHASE8.1",
+  "task_id": "PHASE8.1-001",
+  "feature_freeze": "P8_1_FEATURE_FREEZE",
+  "status": "PASS_WITH_LIMITATIONS",
+  "support_level": "P8.1_LEVEL_B_CANDIDATE",
+  "decision": "PROMOTE_TO_VERIFIED_CANDIDATE_WITH_LIMITATIONS",
+  "promotion_state": "CANDIDATE_VERIFIED_WITH_LIMITATIONS",
+  "freeze_created": false,
+  "quality_bar": "evidence/phase-8.1/P8.1-QB-1.md",
+  "criteria": {
+    "P81-01_authority_and_baseline": "PASS",
+    "P81-02_feature_freeze": "PASS",
+    "P81-03_current_package_fingerprints": "PASS",
+    "P81-04_finding_ledger": "PASS",
+    "P81-05_host_capability_interpretation": "PASS_WITH_LIMITATIONS",
+    "P81-06_exact_composition_bridge": "PASS_WITH_LIMITATIONS",
+    "P81-07_runtime_browser_packet": "PASS",
+    "P81-08_verifier_packet": "PASS",
+    "P81-09_regression_coverage_static": "PASS",
+    "P81-10_security_and_dependencies": "PASS_WITH_CONDITIONS",
+    "P81-11_independent_reviews": "PASS_WITH_LIMITATIONS",
+    "P81-12_readiness_and_decision": "PASS_WITH_LIMITATIONS"
+  },
+  "identity": {
+    "reviewed_head": "664858e596537b5d0a33fe1bffbac3c4fec5f953",
+    "frontend_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+    "verifier_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "composition_run": "P81-COMPOSE-009",
+    "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044"
+  },
+  "packet": {
+    "closeout_index": "evidence/phase-8.1/closeout-index.json",
+    "review_manifest": "evidence/phase-8.1/review-manifest.json",
+    "review_manifest_digest": "sha256:f6306e8c398d9be8ca92a42af74cceeb6501a1507c0f7e6f8647eb704d0936a4",
+    "review_attestation": "evidence/phase-8.1/review-attestation.json",
+    "review_attestation_digest": "sha256:57bdd3593ca9e4575c7d567cedc75a5280d52668e47b4aa44bb44cc3cb8c7c2b",
+    "composition_proof": "evidence/phase-8.1/composition-proof.json",
+    "composition_proof_file_digest": "sha256:e1b2718edc9a5d43133f4c2ffca37638de637cffc00346a6984bd0af3175836b",
+    "composition_timeline": "evidence/phase-8.1/composition-timeline.json",
+    "composition_timeline_digest": "sha256:a23e4c0cf12a36d53890e2165e97b6076e5ad912202b30055b31fbda6fabf37d",
+    "verifier_report": "evidence/phase-8.1/verifier-report.json",
+    "verification_digest": "sha256:7b23098ae4914eeb15a192ede7a2d25cb2e8442cb0164cd8c386ce7db2608324",
+    "browser_evidence": "evidence/phase-8.1/browser-evidence.json",
+    "browser_evidence_file_digest": "sha256:ddc0ce0feb1c987f8adcb2d7e255bda461b6c498121630f0246d5fd8dd7c72a9"
+  },
+  "verification": {
+    "tests_passed": 1781,
+    "tests_failed": 0,
+    "focused_phase81_tests_passed": 9,
+    "line_coverage_percent": 92.57556091229371,
+    "branch_coverage_percent": 90.36128336478835,
+    "verifier_checks": "20/20",
+    "runtime_evals": "33/33",
+    "ruff": "PASS",
+    "mypy": "PASS",
+    "uv_pip_check": "PASS",
+    "javascript_syntax": "PASS",
+    "security_scan": "PASS_WITH_LIMITATIONS"
+  },
+  "findings": {
+    "critical_open": 0,
+    "open_actionable_high": 0,
+    "promotion_blocking_high": 0,
+    "open_actionable_medium": 0,
+    "promotion_blocking_medium": 0,
+    "global_mutations": 0,
+    "capability_mutations": 0,
+    "alternate_producer": false
+  },
+  "independent_reviews": [
+    {
+      "reviewer": "Hubble/01a058f8-5ed3-71e1-88ef-a02d4905e551",
+      "evidence": "evidence/phase-8.1/independent-frontend-review.md",
+      "verdict": "PASS_WITH_LIMITATIONS"
+    },
+    {
+      "reviewer": "Locke/01a058f8-5fbf-7542-b6d5-364b05834a0d",
+      "evidence": "evidence/phase-8.1/independent-visual-review.md",
+      "verdict": "PASS_WITH_LIMITATIONS"
+    },
+    {
+      "reviewer": "P81-RO-REVIEW-20260831-01",
+      "evidence": "evidence/phase-8.1/independent-capability-review.md",
+      "verdict": "PASS_WITH_LIMITATIONS"
+    }
+  ],
+  "limitations": [
+    "HOST_LOAD_UNOBSERVABLE",
+    "Alternative harness-observed composition is not full host skill-load causality.",
+    "Browser evidence is Chromium-only and not a full assistive-technology certification.",
+    "The local synthetic fixture does not establish production, release or security approval.",
+    "pip-audit is unavailable in the environment; repository-wide pre-existing example secret lines remain documented."
+  ],
+  "next_gate": "PHASE9_BROWSER_OBSERVER_NATIVE_INTEGRATION"
+}

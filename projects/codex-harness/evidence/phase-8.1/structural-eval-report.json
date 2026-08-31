@@ -1,0 +1,454 @@
+{
+  "schema_version": "P8-EVAL-RESULT-1",
+  "source": ".harness/capabilities/frontend-engineering-vnext/evals/scenarios.json",
+  "scenario_count": 60,
+  "category_coverage": [
+    "accessibility",
+    "architecture",
+    "performance",
+    "responsive",
+    "routing",
+    "security",
+    "state"
+  ],
+  "required_categories_present": true,
+  "route_coverage": [
+    "BLOCKED",
+    "FALLBACK",
+    "OMITTED",
+    "SELECTED"
+  ],
+  "negative_count": 18,
+  "false_pass_guard_count": 23,
+  "results": [
+    {
+      "id": "P8-EVAL-001",
+      "category": "routing",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-002",
+      "category": "routing",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-003",
+      "category": "routing",
+      "expected_route": "OMITTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-004",
+      "category": "routing",
+      "expected_route": "OMITTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-005",
+      "category": "routing",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-006",
+      "category": "routing",
+      "expected_route": "FALLBACK",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-007",
+      "category": "routing",
+      "expected_route": "OMITTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-008",
+      "category": "routing",
+      "expected_route": "BLOCKED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-009",
+      "category": "routing",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-010",
+      "category": "routing",
+      "expected_route": "FALLBACK",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-011",
+      "category": "state",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-012",
+      "category": "state",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-013",
+      "category": "state",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-014",
+      "category": "state",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-015",
+      "category": "state",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-016",
+      "category": "state",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-017",
+      "category": "state",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-018",
+      "category": "state",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-019",
+      "category": "state",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-020",
+      "category": "state",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-021",
+      "category": "responsive",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-022",
+      "category": "responsive",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-023",
+      "category": "responsive",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-024",
+      "category": "responsive",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-025",
+      "category": "responsive",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-026",
+      "category": "responsive",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-027",
+      "category": "responsive",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-028",
+      "category": "responsive",
+      "expected_route": "BLOCKED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-029",
+      "category": "accessibility",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-030",
+      "category": "accessibility",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-031",
+      "category": "accessibility",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-032",
+      "category": "accessibility",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-033",
+      "category": "accessibility",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-034",
+      "category": "accessibility",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-035",
+      "category": "accessibility",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-036",
+      "category": "accessibility",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-037",
+      "category": "accessibility",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-038",
+      "category": "accessibility",
+      "expected_route": "BLOCKED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-039",
+      "category": "performance",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-040",
+      "category": "performance",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-041",
+      "category": "performance",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-042",
+      "category": "performance",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-043",
+      "category": "performance",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-044",
+      "category": "performance",
+      "expected_route": "FALLBACK",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-045",
+      "category": "performance",
+      "expected_route": "BLOCKED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-046",
+      "category": "performance",
+      "expected_route": "BLOCKED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-047",
+      "category": "security",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-048",
+      "category": "security",
+      "expected_route": "BLOCKED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-049",
+      "category": "security",
+      "expected_route": "BLOCKED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-050",
+      "category": "security",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-051",
+      "category": "security",
+      "expected_route": "BLOCKED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-052",
+      "category": "security",
+      "expected_route": "BLOCKED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-053",
+      "category": "security",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-054",
+      "category": "security",
+      "expected_route": "BLOCKED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-055",
+      "category": "architecture",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-056",
+      "category": "architecture",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-057",
+      "category": "architecture",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-058",
+      "category": "architecture",
+      "expected_route": "BLOCKED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-059",
+      "category": "architecture",
+      "expected_route": "SELECTED",
+      "status": "PASS",
+      "reasons": []
+    },
+    {
+      "id": "P8-EVAL-060",
+      "category": "architecture",
+      "expected_route": "BLOCKED",
+      "status": "PASS",
+      "reasons": []
+    }
+  ],
+  "status": "PASS",
+  "failures": [],
+  "critical_false_pass": [
+    "P8-EVAL-016",
+    "P8-EVAL-017",
+    "P8-EVAL-020",
+    "P8-EVAL-027",
+    "P8-EVAL-034"
+  ]
+}

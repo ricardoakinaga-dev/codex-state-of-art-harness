@@ -1,0 +1,92 @@
+{
+  "schema_version": "P8.1-BASELINE-1",
+  "captured_at": "2026-08-31T12:18:34-03:00",
+  "capture_status": "CURRENT_AT_CAPTURE",
+  "repository": {
+    "root": "codex-state-of-art-harness",
+    "branch": "main",
+    "head": "664858e596537b5d0a33fe1bffbac3c4fec5f953",
+    "git_diff_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "untracked_preserved": [
+      ".playwright-mcp/",
+      "projects/codex-state-of-art-harness/"
+    ],
+    "tracked_worktree_changes_at_capture": 0,
+    "unrelated_changes_policy": "preserve_untracked_paths_and_keep_them_out_of_phase8.1"
+  },
+  "control_plane": {
+    "prior_active_task": "PHASE8-001",
+    "prior_status": "DONE",
+    "prior_verification_state": "CONDITIONAL_PASS",
+    "prior_next_gate": "PHASE9_BROWSER_OBSERVER_NATIVE_INTEGRATION",
+    "prior_blocker": "HOST_LOAD_UNOBSERVABLE",
+    "phase8_1_task": "PHASE8.1-001",
+    "feature_freeze": "P8_1_FEATURE_FREEZE"
+  },
+  "current_runtime_fixture_reconciliation": {
+    "initial_tree_digest": "sha256:53743c0689f213f333f437efa1bee494f485b7be28adb7a16f445c5f9f543211",
+    "current_tree_digest": "sha256:d5e341fb045ca4d15a03fac493501fe8931b724030cf4f49cbbe4d16234e42b9",
+    "change_reason": "finding-driven reflow, singular-filter-label, contextual-action, artifact-binding-header and concurrent-stale-request repairs in the Phase 8.1 derived fixture",
+    "source_package_fingerprint_unchanged": true,
+    "artifact_rebuilt_after_change": true
+  },
+  "tree_fingerprints": {
+    "harness_source_tree": "sha256:164220a35b2580dba986020e5d063693aee88991fef57d4e094e1c87f65b7a00",
+    "harness_tests_tree": "sha256:6e4e43b59917e8f1606a68e85646b0b59b989780d7940ca3855140c971bdaa75",
+    "harness_config_tree": "sha256:40665f2202d90939ede11aac38ffacde2b39fe4e56a17baa3535adbb7ff2a9d5",
+    "frontend_package_tree": "sha256:53743c0689f213f333f437efa1bee494f485b7be28adb7a16f445c5f9f543211",
+    "verifier_package_tree": "sha256:4389bd9f902d72823597bfedb3e5010271e2c7256513f905e345aeb03712f471"
+  },
+  "capabilities": {
+    "frontend": {
+      "id": "frontend-engineering-vnext",
+      "version": "0.1.0",
+      "phase8_declared_fingerprint": "sha256:d96f162a4400520036a770ece08bd4ace9c3bf3e9e10b3144bdef22b50ea1823",
+      "current_validator_observed_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+      "fingerprint_reconciliation": "REQUIRED_BEFORE_PROMOTION",
+      "package_validation": "PASS",
+      "structural_eval_count": 60
+    },
+    "verifier": {
+      "id": "verification-loop-vnext",
+      "version": "0.1.0",
+      "current_validator_observed_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "package_tree_fingerprint": "sha256:4389bd9f902d72823597bfedb3e5010271e2c7256513f905e345aeb03712f471",
+      "package_validation": "CURRENT_VALIDATION_REQUIRED"
+    }
+  },
+  "quality": {
+    "historical_tests_passed": 1772,
+    "historical_line_coverage_percent": 93.40563769376375,
+    "historical_branch_coverage_percent": 90.36128336478835,
+    "classified_high": 1,
+    "open_actionable_high": 1,
+    "promotion_blocking_high": 1,
+    "classified_medium": 3,
+    "open_actionable_medium": 3,
+    "promotion_blocking_medium": 3,
+    "runtime_evals_executed": 0,
+    "structural_evals_executed": 60
+  },
+  "phase8_evidence": {
+    "pilot_source_digest": "sha256:1a6c39bec94f0fd403c8b0da3d9abf095b69507a85963b6335beddcb3e43289f",
+    "pilot_artifact_digest": "sha256:d3483dc817523c2b8921c1a9956e7a42b5df2bfc0ed89bc6c0c51a8a5f2efae7",
+    "browser_evidence_digest": "sha256:a7677c348e34a3661073d6f2b2963fc8a6a66a8fa6fccf21e3a929032658ab12",
+    "final_verifier_receipt_digest": "sha256:85eacec2f45fb69ebecf515f77291be8d63d5e23cd26350debf684ce2c37eeab",
+    "official_composition": "BLOCKED_HOST_LOAD_UNOBSERVABLE",
+    "phase8_freeze": false
+  },
+  "scope_constraints": [
+    "freeze frontend feature surface",
+    "do not edit installed frontend-patterns",
+    "do not edit global Codex configuration",
+    "do not modernize security-review in Phase 8.1",
+    "do not fake host-load causality",
+    "do not claim production, release, security, accessibility, browser-universality or full-host causality"
+  ],
+  "freshness_notes": [
+    "Phase 8 values above are historical inputs and do not satisfy Phase 8.1 fresh evidence gates.",
+    "The current package validator reports a frontend fingerprint different from the Phase 8 declared fingerprint; this is an evidence/control-plane drift to diagnose before relying on either value.",
+    "No Phase 8.1 source, test, runtime, browser or control-plane implementation mutation occurred before this baseline capture."
+  ]
+}

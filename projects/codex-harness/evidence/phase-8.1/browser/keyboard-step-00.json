@@ -1,0 +1,29 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-keyboard-tabs-009",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "firstFocusable": {
+    "tag": "A",
+    "text": "Skip to main content"
+  },
+  "tabSequence": [
+    "skip-to-main-content",
+    "⌁",
+    "≡",
+    "＋",
+    "start-an-intake",
+    "urgency-filter",
+    "refresh-queue",
+    "Review Miso",
+    "Review Juniper",
+    "Review Otis",
+    "Review Pip",
+    "patient",
+    "species",
+    "urgency",
+    "notes",
+    "submit-intake"
+  ]
+}

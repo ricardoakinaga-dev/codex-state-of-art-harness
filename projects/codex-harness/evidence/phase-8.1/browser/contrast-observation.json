@@ -1,0 +1,34 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-default-009",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "results": [
+    {
+      "selector": "#patient::placeholder",
+      "foreground": "rgb(88, 103, 96)",
+      "background": "rgb(255,253,248)",
+      "ratio": 5.862057176877136,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "#patient border",
+      "foreground": "rgb(29, 111, 117)",
+      "background": "rgb(255,253,248)",
+      "ratio": 5.765619639082459,
+      "minimum": 3,
+      "pass": true
+    },
+    {
+      "selector": "#patient focus",
+      "foreground": "rgb(29, 111, 117)",
+      "background": "rgb(255,253,248)",
+      "ratio": 5.765619639082459,
+      "minimum": 3,
+      "pass": true
+    }
+  ],
+  "pass": true
+}

@@ -1,0 +1,16 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-keyboard-009",
+  "phase": "success",
+  "feedback": "Intake accepted for triage. Reference INT-E3FBAB7595.",
+  "feedbackTone": "success",
+  "formValues": {
+    "patient": "",
+    "species": "",
+    "urgency": "",
+    "notes": ""
+  },
+  "focused": {
+    "id": "patient",
+    "tag": "INPUT"
+  }
+}

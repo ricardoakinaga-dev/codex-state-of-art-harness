@@ -1,0 +1,42 @@
+{
+  "authoritative_packet": [
+    "README.md",
+    "baseline.json",
+    "P8.1-QB-1.md",
+    "finding-ledger.json",
+    "host-composition-capability-matrix.json",
+    "host-composition-interpretation.md",
+    "composition-proof.json",
+    "composition-timeline.json",
+    "browser-evidence.json",
+    "runtime-eval-classification.json",
+    "runtime-eval-traceability.json",
+    "runtime-eval-report.json",
+    "verifier-report.json",
+    "review-manifest.json",
+    "review-attestation.json",
+    "readiness.json",
+    "promotion-decision.md",
+    "final-report.md"
+  ],
+  "current_artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "current_composition_run": "P81-COMPOSE-009",
+  "historical_composition_runs": [
+    "composition-run-004",
+    "composition-run-005",
+    "composition-run-006",
+    "composition-run-007",
+    "composition-run-008",
+    "composition-run-009"
+  ],
+  "repository_head": "664858e596537b5d0a33fe1bffbac3c4fec5f953",
+  "review_status": "PASS",
+  "reviewer_ids": [
+    "Hubble/01a058f8-5ed3-71e1-88ef-a02d4905e551",
+    "Locke/01a058f8-5fbf-7542-b6d5-364b05834a0d",
+    "P81-RO-REVIEW-20260831-01"
+  ],
+  "schema_version": "P8.1-CLOSEOUT-INDEX-1",
+  "status": "PASS_WITH_LIMITATIONS",
+  "task_id": "PHASE8.1-001"
+}

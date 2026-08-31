@@ -1,0 +1,13 @@
+{
+  "url": "http://127.0.0.1:4187/?scenario=stale-response&capture=p81-stale-010",
+  "status": 422,
+  "body": {
+    "errors": {
+      "patient": "Patient name must be 2–60 characters.",
+      "species": "Choose a supported species.",
+      "urgency": "Choose a supported urgency."
+    },
+    "message": "Check the highlighted intake fields.",
+    "status": "error"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "url": "http://127.0.0.1:4187/",
+  "requestedUrl": "http://127.0.0.1:4187/",
+  "responseUrl": "http://127.0.0.1:4187/",
+  "status": 200,
+  "artifactDigest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "contentLength": 11409,
+  "server": "NorthlineFixture/1.0 Python/3.12.3",
+  "observedAt": "2026-08-31T17:43:12.748Z"
+}
