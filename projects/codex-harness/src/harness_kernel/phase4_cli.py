@@ -219,7 +219,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         if arguments.command != "invoke":
             raise ValueError("unsupported Phase 4 command")
         payload = _run_invoke(arguments)
-    except (OSError, ValueError, Phase4PolicyError, EvidenceError) as exc:
+    except (OSError, TypeError, ValueError, Phase4PolicyError, EvidenceError) as exc:
         payload = {
             "schema_version": "P4-OUTCOME-1",
             "mode": "BLOCKED",

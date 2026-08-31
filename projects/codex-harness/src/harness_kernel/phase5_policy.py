@@ -410,7 +410,7 @@ def build_builder_request(
     budget: Phase5Budget | None = None,
     repair_instruction: str | None = None,
 ) -> CapabilityInvocationRequest:
-    if attempt < 1:
+    if not isinstance(attempt, int) or isinstance(attempt, bool) or attempt < 1:
         raise Phase5PolicyError("builder attempt must be positive")
     selected_budget = budget or Phase5Budget()
     prompt = _builder_prompt(task, repair_instruction)

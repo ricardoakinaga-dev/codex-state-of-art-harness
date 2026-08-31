@@ -8,7 +8,7 @@ from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from enum import StrEnum
 
-from .boundary import BoundaryError, ProjectBoundary
+from .boundary import BoundaryCollisionError, BoundaryError, ProjectBoundary
 from .errors import ContractError
 from .models import (
     ArtifactRecord,
@@ -98,21 +98,84 @@ class RunStore:
             raise BoundaryError("run identifier is invalid")
         return f"{self.run_directory}/{run_id}.json"
 
+    def _write_once_json(
+        self,
+        relative: str,
+        value: Mapping[str, object] | list[object],
+        *,
+        corrupt_message: str,
+        collision_message: str,
+    ) -> None:
+        """Create immutable JSON state and resolve a concurrent first-writer race."""
+
+        if self.boundary.resolve(relative, allow_missing=True).exists():
+            try:
+                existing = self.boundary.read_json(relative)
+            except BoundaryError as exc:
+                raise BoundaryError(corrupt_message) from exc
+            if existing == value:
+                return
+            raise BoundaryError(collision_message)
+        try:
+            self.boundary.atomic_create_json(relative, value)
+        except BoundaryCollisionError as exc:
+            if not self.boundary.resolve(relative, allow_missing=True).exists():
+                raise
+            try:
+                existing = self.boundary.read_json(relative)
+            except BoundaryError as read_exc:
+                raise BoundaryError(corrupt_message) from read_exc
+            if existing == value:
+                return
+            raise BoundaryError(collision_message) from exc
+        except BoundaryError:
+            raise
+
+    def _write_once_bytes(
+        self,
+        relative: str,
+        value: bytes,
+        *,
+        corrupt_message: str,
+        collision_message: str,
+    ) -> None:
+        """Create immutable byte state and preserve the first complete writer."""
+
+        if self.boundary.resolve(relative, allow_missing=True).exists():
+            try:
+                existing = self.boundary.read_bytes(relative)
+            except BoundaryError as exc:
+                raise BoundaryError(corrupt_message) from exc
+            if existing == value:
+                return
+            raise BoundaryError(collision_message)
+        try:
+            self.boundary.atomic_create_bytes(relative, value)
+        except BoundaryCollisionError as exc:
+            if not self.boundary.resolve(relative, allow_missing=True).exists():
+                raise
+            try:
+                existing = self.boundary.read_bytes(relative)
+            except BoundaryError as read_exc:
+                raise BoundaryError(corrupt_message) from read_exc
+            if existing == value:
+                return
+            raise BoundaryError(collision_message) from exc
+        except BoundaryError:
+            raise
+
     def write_record(self, run_id: str, record: Mapping[str, object]) -> None:
         if not isinstance(record, Mapping):
             raise BoundaryError("run record must be an object")
         if record.get("run_id") != run_id:
             raise BoundaryError("run record identity does not match its path")
         relative = self._run_path(run_id)
-        if self.boundary.resolve(relative, allow_missing=True).exists():
-            try:
-                existing = self.boundary.read_json(relative)
-            except BoundaryError as exc:
-                raise BoundaryError("existing run record is corrupt") from exc
-            if existing != dict(record):
-                raise BoundaryError("run record collision cannot overwrite existing data")
-            return
-        self.boundary.atomic_write_json(relative, dict(record))
+        self._write_once_json(
+            relative,
+            dict(record),
+            corrupt_message="existing run record is corrupt",
+            collision_message="run record collision cannot overwrite existing data",
+        )
 
     def write_summary(self, summary: object) -> None:
         if not isinstance(summary, RunSummary):
@@ -152,15 +215,12 @@ class RunStore:
                 raise BoundaryError("evidence record identity does not match its run")
         value = {"run_id": run_id, "records": [dict(record) for record in records]}
         relative = f"{self.evidence_directory}/{run_id}.json"
-        if self.boundary.resolve(relative, allow_missing=True).exists():
-            try:
-                existing = self.boundary.read_json(relative)
-            except BoundaryError as exc:
-                raise BoundaryError("existing evidence record is corrupt") from exc
-            if existing != value:
-                raise BoundaryError("evidence record collision cannot overwrite existing data")
-            return
-        self.boundary.atomic_write_json(relative, value)
+        self._write_once_json(
+            relative,
+            value,
+            corrupt_message="existing evidence record is corrupt",
+            collision_message="evidence record collision cannot overwrite existing data",
+        )
 
     def write_artifact(self, artifact: ArtifactRecord, output: object) -> None:
         """Write an artifact body only in its owning run directory."""
@@ -182,16 +242,12 @@ class RunStore:
             raise BoundaryError("artifact digest does not match its content")
         if artifact.content.size_bytes is not None and artifact.content.size_bytes != len(encoded):
             raise BoundaryError("artifact size does not match its content")
-        target = self.boundary.resolve(locator, allow_missing=True)
-        if target.exists():
-            try:
-                existing = self.boundary.read_bytes(locator)
-            except BoundaryError as exc:
-                raise BoundaryError("existing artifact body is corrupt") from exc
-            if existing != encoded:
-                raise BoundaryError("artifact collision cannot overwrite existing data")
-            return
-        self.boundary.atomic_write_bytes(locator, encoded)
+        self._write_once_bytes(
+            locator,
+            encoded,
+            corrupt_message="existing artifact body is corrupt",
+            collision_message="artifact collision cannot overwrite existing data",
+        )
 
     def write_artifact_records(self, run_id: str, records: Sequence[Mapping[str, object]]) -> None:
         """Persist artifact metadata separately from its content body."""
@@ -203,15 +259,12 @@ class RunStore:
                 raise BoundaryError("artifact record identity does not match its run")
         value = {"run_id": run_id, "records": [dict(record) for record in records]}
         relative = f"{self.evidence_directory}/{run_id}-artifacts.json"
-        if self.boundary.resolve(relative, allow_missing=True).exists():
-            try:
-                existing = self.boundary.read_json(relative)
-            except BoundaryError as exc:
-                raise BoundaryError("existing artifact metadata is corrupt") from exc
-            if existing != value:
-                raise BoundaryError("artifact metadata collision cannot overwrite existing data")
-            return
-        self.boundary.atomic_write_json(relative, value)
+        self._write_once_json(
+            relative,
+            value,
+            corrupt_message="existing artifact metadata is corrupt",
+            collision_message="artifact metadata collision cannot overwrite existing data",
+        )
 
     def append_telemetry(self, run_id: str, event: Mapping[str, object]) -> None:
         if not isinstance(run_id, str) or not _ID.fullmatch(run_id):
@@ -226,32 +279,36 @@ class RunStore:
             raise BoundaryError("telemetry record violates its contract") from exc
         normalized_event = to_dict(typed_event)
         relative = f"{self.telemetry_directory}/{run_id}.jsonl"
-        log = TelemetryLog()
-        duplicate: Mapping[str, object] | None = None
-        if self.boundary.resolve(relative, allow_missing=True).exists():
-            raw = self.boundary.read_bytes(relative)
-            for line in raw.splitlines():
-                if not line.strip():
-                    continue
+
+        def validate_append(existing: tuple[Mapping[str, object], ...]) -> bool:
+            log = TelemetryLog()
+            duplicate: Mapping[str, object] | None = None
+            for parsed in existing:
                 try:
-                    parsed_event = from_json(line, TelemetryEvent)
+                    parsed_event = from_dict(parsed, TelemetryEvent)
                     log = log.append(parsed_event)
-                except (ContractError, TypeError, ValueError, json.JSONDecodeError) as exc:
+                except (ContractError, TypeError, ValueError) as exc:
                     raise BoundaryError("existing JSONL log is corrupt") from exc
-                parsed = to_dict(parsed_event)
                 if parsed_event.event_id == typed_event.event_id:
-                    duplicate = parsed
-        if duplicate is not None:
-            if dict(duplicate) == normalized_event:
-                return
-            raise BoundaryError("telemetry event collision cannot overwrite existing data")
-        if len(log.events) >= 1_024:
-            raise BoundaryError("JSONL record limit exceeded")
-        try:
-            log.append(typed_event)
-        except (TypeError, ValueError) as exc:
-            raise BoundaryError("telemetry event cannot be appended to its chain") from exc
-        self.boundary.append_jsonl(relative, normalized_event, max_records=1_024)
+                    duplicate = to_dict(parsed_event)
+            if duplicate is not None:
+                if dict(duplicate) == normalized_event:
+                    return True
+                raise BoundaryError("telemetry event collision cannot overwrite existing data")
+            if len(log.events) >= 1_024:
+                raise BoundaryError("JSONL record limit exceeded")
+            try:
+                log.append(typed_event)
+            except (TypeError, ValueError) as exc:
+                raise BoundaryError("telemetry event cannot be appended to its chain") from exc
+            return False
+
+        self.boundary.append_jsonl(
+            relative,
+            normalized_event,
+            max_records=1_024,
+            append_validator=validate_append,
+        )
 
     def append_lifecycle(self, run_id: str, event: Mapping[str, object]) -> None:
         """Append a bounded, idempotent invocation lifecycle record."""
@@ -264,22 +321,21 @@ class RunStore:
         if not isinstance(event_id, str) or not _ID.fullmatch(event_id):
             raise BoundaryError("lifecycle event identifier is invalid")
         relative = f"{self.lifecycle_directory}/{run_id}.jsonl"
-        if self.boundary.resolve(relative, allow_missing=True).exists():
-            raw = self.boundary.read_bytes(relative)
-            for line in raw.splitlines():
-                if not line.strip():
-                    continue
-                try:
-                    parsed = json.loads(line)
-                except (ValueError, TypeError) as exc:
-                    raise BoundaryError("existing lifecycle log is corrupt") from exc
-                if not isinstance(parsed, Mapping):
-                    raise BoundaryError("existing lifecycle record is not an object")
+
+        def validate_append(existing: tuple[Mapping[str, object], ...]) -> bool:
+            for parsed in existing:
                 if parsed.get("event_id") == event_id:
                     if dict(parsed) == dict(event):
-                        return
+                        return True
                     raise BoundaryError("lifecycle event collision cannot overwrite existing data")
-        self.boundary.append_jsonl(relative, event, max_records=1_024)
+            return False
+
+        self.boundary.append_jsonl(
+            relative,
+            event,
+            max_records=1_024,
+            append_validator=validate_append,
+        )
 
     def write_diagnostic(self, run_id: str, channel: str, code: str) -> None:
         """Record a bounded persistence-channel failure without exposing details."""
@@ -343,8 +399,6 @@ class RunStore:
             expected_locator = f"{self.run_directory}/{run_id}/{artifact.artifact_id}.json"
             if artifact.content.locator != expected_locator:
                 raise BoundaryError("persisted artifact locator is outside its owned run")
-            if artifact.content.locator is None:
-                raise BoundaryError("persisted artifact locator is missing")
             body = self.boundary.read_bytes(artifact.content.locator)
             try:
                 output = from_json(body, dict)
@@ -422,6 +476,8 @@ class RunStore:
                 raise BoundaryError("persisted telemetry references are invalid")
         if not telemetry.verify_chain():
             raise BoundaryError("persisted telemetry chain is invalid")
+        if not telemetry.events:
+            raise BoundaryError("persisted telemetry chain is incomplete")
 
         lifecycle_ids: set[str] = set()
         raw_lifecycle = self.boundary.read_bytes(relatives[3])
@@ -479,7 +535,11 @@ class RunStore:
             state = getattr(summary.lifecycle_state, "value", summary.lifecycle_state)
         else:
             state = record.get("lifecycle_state") or record.get("status")
-            if record.get("run_id") != run_id or state not in _KNOWN_RUN_STATES:
+            if (
+                record.get("run_id") != run_id
+                or not isinstance(state, str)
+                or state not in _KNOWN_RUN_STATES
+            ):
                 return RecoveryResult(
                     run_id, RecoveryStatus.CORRUPT, "legacy run snapshot is invalid"
                 )

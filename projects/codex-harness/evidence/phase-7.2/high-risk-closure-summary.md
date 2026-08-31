@@ -1,0 +1,43 @@
+# Phase 7.2 High-Risk Closure Summary
+
+- initial residual high-risk branches: `509`
+- current residual high-risk branches: `1`
+- current residual total branches: `792`
+- exact high-risk arcs closed as tested pass: `0`
+- exact high-risk arcs closed as fixed: `0`
+- exact high-risk arcs proven unreachable: `1`
+- exact high-risk arcs removed as dead code: `0`
+- material environment blockers: `1`
+- promotion-blocking residual high-risk arcs: `0`
+- source findings fixed: `13`
+
+The 13 fixed source findings are not counted as closure of unrelated residual arcs. The inventory preserves the classified high-risk count (1) while recording 0 promotion-blocking high-risk arc(s); no high-risk branch was downgraded solely to improve a number.
+
+## Category status
+
+- `LEDGER_LOCKING`: `PASS_WITH_LIMITATIONS`
+- `HOST_AUTH`: `PASS_WITH_LIMITATIONS`
+- `AUTHORIZATION`: `NO_CURRENT_RESIDUAL_ARC_PRIOR_EVIDENCE_REQUIRED`
+- `FILESYSTEM`: `PASS_WITH_LIMITATIONS`
+- `PERSISTENCE`: `PASS_WITH_LIMITATIONS`
+- `TRANSACTION`: `NO_CURRENT_RESIDUAL_ARC_PRIOR_EVIDENCE_REQUIRED`
+- `ROLLBACK`: `NO_CURRENT_RESIDUAL_ARC_PRIOR_EVIDENCE_REQUIRED`
+- `CONCURRENCY`: `PASS_WITH_LIMITATIONS`
+- `IDEMPOTENCY`: `PASS_WITH_LIMITATIONS`
+- `MIGRATION`: `NO_CURRENT_RESIDUAL_ARC_PRIOR_EVIDENCE_REQUIRED`
+- `CANCELLATION`: `NO_CURRENT_RESIDUAL_ARC_PRIOR_EVIDENCE_REQUIRED`
+- `PARTIAL_EXECUTION`: `NO_CURRENT_RESIDUAL_ARC_PRIOR_EVIDENCE_REQUIRED`
+- `TIMEOUT`: `NO_CURRENT_RESIDUAL_ARC_PRIOR_EVIDENCE_REQUIRED`
+- `RETRY`: `PASS_WITH_LIMITATIONS`
+- `FAILURE_ROUTING`: `PASS_WITH_LIMITATIONS`
+- `EVIDENCE_STALENESS`: `PASS_WITH_LIMITATIONS`
+- `ARTIFACT_INTEGRITY`: `NO_CURRENT_RESIDUAL_ARC_PRIOR_EVIDENCE_REQUIRED`
+- `RECOVERY`: `NO_CURRENT_RESIDUAL_ARC_PRIOR_EVIDENCE_REQUIRED`
+- `STATE_TRANSITION`: `PASS_WITH_LIMITATIONS`
+- `SECURITY_BOUNDARY`: `PASS_WITH_LIMITATIONS`
+- `SCOPE_CONTROL`: `PASS_WITH_LIMITATIONS`
+- `NO_PROGRESS`: `PASS_WITH_LIMITATIONS`
+- `OSCILLATION`: `PASS_WITH_LIMITATIONS`
+- `DEPENDENCY_FAILURE`: `NO_CURRENT_RESIDUAL_ARC_PRIOR_EVIDENCE_REQUIRED`
+- `TELEMETRY_INTEGRITY`: `PASS_WITH_LIMITATIONS`
+- `OTHER_HIGH_RISK`: `NO_CURRENT_RESIDUAL_ARC_PRIOR_EVIDENCE_REQUIRED`

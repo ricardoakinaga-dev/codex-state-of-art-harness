@@ -593,7 +593,11 @@ def _repair(root: Path, arguments: argparse.Namespace) -> dict[str, object]:
         raise Phase5CliError("artifact_v1 builder receipt is required before repair")
     v1_receipt = cast(dict[str, object], dict(read_json_mapping(v1_receipt_path)))
     v1_attempt_count = v1_receipt.get("attempt_count")
-    if not isinstance(v1_attempt_count, int) or v1_attempt_count < 1:
+    if (
+        not isinstance(v1_attempt_count, int)
+        or isinstance(v1_attempt_count, bool)
+        or v1_attempt_count < 1
+    ):
         raise Phase5CliError("artifact_v1 builder receipt has no successful attempt budget")
     if v1_attempt_count >= Phase5Budget().max_builder_invocations:
         raise Phase5CliError("builder invocation budget is exhausted before repair")
@@ -838,6 +842,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         OSError,
         Phase5CliError,
         Phase5PilotInputError,
+        TypeError,
         ValueError,
     ) as exc:
         payload = {

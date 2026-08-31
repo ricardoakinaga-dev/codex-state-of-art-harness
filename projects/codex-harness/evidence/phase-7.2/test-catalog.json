@@ -1,0 +1,537 @@
+{
+  "feature_freeze": "P7_2_FEATURE_FREEZE",
+  "focused_module_count": 19,
+  "full_suite_test_count": 1658,
+  "phase": "PHASE7.2",
+  "schema_version": "P7.2-TEST-CATALOG-1",
+  "tests": [
+    {
+      "categories": [
+        "REGRESSION"
+      ],
+      "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/pytest -q -p no:cacheprovider",
+      "id": "P72-FULL",
+      "invariant": "The complete project test suite passes from a fresh process.",
+      "path": "tests",
+      "result": "PASS",
+      "test_count": 1658
+    },
+    {
+      "categories": [
+        "PERSISTENCE",
+        "RECOVERY",
+        "ARTIFACT_INTEGRITY"
+      ],
+      "id": "P72-R01",
+      "invariant": "Existing persistence bundle, recovery and integrity invariants remain green.",
+      "path": "tests/unit/test_phase71_persistence_hardening.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "LEDGER_LOCKING",
+        "TRANSACTION",
+        "ROLLBACK",
+        "CANCELLATION"
+      ],
+      "id": "P72-R02",
+      "invariant": "Phase 4 execution and replay behavior remains compatible with the prior packet.",
+      "path": "tests/unit/test_phase4_execution.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "FILESYSTEM",
+        "SCOPE_CONTROL"
+      ],
+      "id": "P72-R03",
+      "invariant": "Prior descriptor-relative path, link and bound checks remain green.",
+      "path": "tests/unit/test_phase3_paths.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "HOST_AUTH",
+        "AUTHORIZATION",
+        "TIMEOUT",
+        "CANCELLATION"
+      ],
+      "id": "P72-R04",
+      "invariant": "Prior host protocol, authorization and bounded transport checks remain green.",
+      "path": "tests/unit/test_phase4_host.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "HOST_AUTH",
+        "AUTHORIZATION",
+        "FILESYSTEM",
+        "SCOPE_CONTROL"
+      ],
+      "id": "P72-R05",
+      "invariant": "Prior builder/verifier host policy and workspace confinement checks remain green.",
+      "path": "tests/unit/test_phase7_host.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "HOST_AUTH",
+        "LEDGER_LOCKING",
+        "ARTIFACT_INTEGRITY"
+      ],
+      "id": "P72-R06",
+      "invariant": "Phase 7.1 hardening regressions remain green.",
+      "path": "tests/unit/test_phase71_phase4_hardening.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "FAILURE_ROUTING",
+        "CANCELLATION",
+        "PARTIAL_EXECUTION",
+        "TIMEOUT"
+      ],
+      "id": "P72-R07",
+      "invariant": "Phase 7.1 pipeline failure and terminal-state regressions remain green.",
+      "path": "tests/unit/test_phase71_phase4_pipeline_hardening.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "AUTHORIZATION",
+        "SECURITY_BOUNDARY",
+        "TELEMETRY_INTEGRITY"
+      ],
+      "id": "P72-R08",
+      "invariant": "Core authority, provider admission and contract-boundary regressions remain green.",
+      "path": "tests/unit/test_phase71_core_boundaries_hardening.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "TRANSACTION",
+        "CANCELLATION",
+        "TIMEOUT",
+        "RETRY"
+      ],
+      "id": "P72-R09",
+      "invariant": "The frozen Phase 2 deterministic execution contract remains green.",
+      "path": "tests/unit/test_phase2_kernel.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "HOST_AUTH",
+        "SECURITY_BOUNDARY"
+      ],
+      "id": "P72-T01",
+      "invariant": "Only the explicitly brokered transport auth file is copied into an ephemeral runtime with restrictive permissions.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_transport_authentication_copy_is_projected_into_ephemeral_home",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "HOST_AUTH",
+        "FILESYSTEM",
+        "SECURITY_BOUNDARY"
+      ],
+      "id": "P72-T02",
+      "invariant": "Symlink and non-absolute auth sources are denied without copying credentials.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_transport_authentication_rejects_symlink_and_relative_source",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "HOST_AUTH",
+        "FILESYSTEM",
+        "ARTIFACT_INTEGRITY"
+      ],
+      "id": "P72-T03",
+      "invariant": "Non-regular and changed-during-copy authentication sources fail closed.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_transport_authentication_rejects_nonregular_and_changed_source",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "HOST_AUTH",
+        "PERSISTENCE",
+        "ROLLBACK"
+      ],
+      "id": "P72-T04",
+      "invariant": "A transport-auth copy failure leaves no partial destination behind.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_transport_authentication_fsync_failure_removes_partial_destination",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "HOST_AUTH",
+        "NO_PROGRESS",
+        "PERSISTENCE"
+      ],
+      "id": "P72-T05",
+      "invariant": "A zero-byte write is treated as failure and cannot spin or leave a partial auth file.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_transport_authentication_zero_byte_write_fails_closed",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "FILESYSTEM",
+        "DEPENDENCY_FAILURE",
+        "FAILURE_ROUTING"
+      ],
+      "id": "P72-T06",
+      "invariant": "A failed descriptor metadata read is represented as unsafe and does not admit the file.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_bounded_walk_fails_closed_when_file_fstat_is_unavailable",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "FILESYSTEM",
+        "SECURITY_BOUNDARY",
+        "DEPENDENCY_FAILURE"
+      ],
+      "id": "P72-T07",
+      "invariant": "Missing secure traversal primitives and non-directory roots produce typed denial.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_secure_filesystem_guards_reject_unavailable_platform_and_non_directory",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "FILESYSTEM",
+        "ARTIFACT_INTEGRITY",
+        "SCOPE_CONTROL"
+      ],
+      "id": "P72-T08",
+      "invariant": "Descriptor-relative reads reject a base directory whose identity differs from the claimed identity.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_secure_relative_read_rejects_a_changed_base_identity",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "CONCURRENCY",
+        "PERSISTENCE",
+        "IDEMPOTENCY"
+      ],
+      "id": "P72-T09",
+      "invariant": "An exclusive first writer wins and a concurrent conflicting writer cannot replace it.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_atomic_create_preserves_first_conflicting_record_under_race",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "CONCURRENCY",
+        "PERSISTENCE",
+        "IDEMPOTENCY"
+      ],
+      "id": "P72-T10",
+      "invariant": "RunStore preserves the complete first record when existence checks race.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_run_store_does_not_overwrite_conflicting_first_writer_under_race",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "LEDGER_LOCKING",
+        "DEPENDENCY_FAILURE",
+        "FAILURE_ROUTING"
+      ],
+      "id": "P72-T11",
+      "invariant": "Replay-ledger locking is mandatory; unavailable locking cannot enter the critical section.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_ledger_locking_unavailable_is_a_typed_fail_closed_error",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "LEDGER_LOCKING",
+        "MIGRATION",
+        "RECOVERY",
+        "IDEMPOTENCY"
+      ],
+      "id": "P72-T12",
+      "invariant": "Legacy replay entries survive token migration and the anchor becomes bound to the upgraded ledger.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_legacy_ledger_is_upgraded_atomically_and_entries_are_preserved",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "CANCELLATION",
+        "STATE_TRANSITION",
+        "FAILURE_ROUTING"
+      ],
+      "id": "P72-T13",
+      "invariant": "Cancellation without an active session reports a typed non-active outcome and performs no host action.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_cancel_without_active_session_is_explicitly_not_active",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "HOST_AUTH",
+        "ARTIFACT_INTEGRITY",
+        "SECURITY_BOUNDARY"
+      ],
+      "id": "P72-T14",
+      "invariant": "Pinned host execution is bound to the exact regular file digest and rejects post-pin mutation.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_pinned_executable_digest_is_bound_to_the_exact_regular_file",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "DEPENDENCY_FAILURE",
+        "SECURITY_BOUNDARY",
+        "SCOPE_CONTROL",
+        "TIMEOUT"
+      ],
+      "id": "P72-T15",
+      "invariant": "The Phase 2 execution seam admits only built-in deterministic fixture provider types; unadmitted code cannot execute through the registry.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_provider_registry_rejects_side_effecting_provider_types",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "HOST_AUTH",
+        "DEPENDENCY_FAILURE",
+        "FAILURE_ROUTING"
+      ],
+      "id": "P72-T16",
+      "invariant": "An authentication-source open failure is denied without creating a destination file.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_transport_authentication_source_open_error_is_fail_closed",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "HOST_AUTH",
+        "PERSISTENCE",
+        "ROLLBACK"
+      ],
+      "id": "P72-T17",
+      "invariant": "A destination-open failure is typed and leaves no destination artifact.",
+      "nodeid": "test_phase72_high_risk_boundaries.py::test_transport_authentication_destination_open_error_is_typed_and_clean",
+      "path": "tests/unit/test_phase72_high_risk_boundaries.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "FAILURE_ROUTING",
+        "FILESYSTEM"
+      ],
+      "id": "P72-T18",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_backend_artifacts_assurance.py::*",
+      "path": "tests/unit/test_phase72_backend_artifacts_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "FAILURE_ROUTING"
+      ],
+      "id": "P72-T19",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_cli_routing_assurance.py::*",
+      "path": "tests/unit/test_phase72_cli_routing_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "FAILURE_ROUTING",
+        "PERSISTENCE"
+      ],
+      "id": "P72-T20",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_execution_assurance.py::*",
+      "path": "tests/unit/test_phase72_execution_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "FAILURE_ROUTING",
+        "PERSISTENCE"
+      ],
+      "id": "P72-T21",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_execution_legacy_assurance.py::*",
+      "path": "tests/unit/test_phase72_execution_legacy_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "FAILURE_ROUTING",
+        "FILESYSTEM"
+      ],
+      "id": "P72-T22",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_filesystem_assurance.py::*",
+      "path": "tests/unit/test_phase72_filesystem_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "FAILURE_ROUTING"
+      ],
+      "id": "P72-T23",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_foundation_assurance.py::*",
+      "path": "tests/unit/test_phase72_foundation_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "FAILURE_ROUTING"
+      ],
+      "id": "P72-T24",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_foundation_remaining_assurance.py::*",
+      "path": "tests/unit/test_phase72_foundation_remaining_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "FAILURE_ROUTING",
+        "FILESYSTEM"
+      ],
+      "id": "P72-T25",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_host_assurance.py::*",
+      "path": "tests/unit/test_phase72_host_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "FAILURE_ROUTING"
+      ],
+      "id": "P72-T26",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_models_assurance.py::*",
+      "path": "tests/unit/test_phase72_models_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "FAILURE_ROUTING",
+        "PERSISTENCE"
+      ],
+      "id": "P72-T27",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_persistence_assurance.py::*",
+      "path": "tests/unit/test_phase72_persistence_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "FAILURE_ROUTING",
+        "SCOPE_CONTROL"
+      ],
+      "id": "P72-T28",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_phase3_discovery_policy_assurance.py::*",
+      "path": "tests/unit/test_phase72_phase3_discovery_policy_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "FAILURE_ROUTING",
+        "SCOPE_CONTROL"
+      ],
+      "id": "P72-T29",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_phase3_remaining_assurance.py::*",
+      "path": "tests/unit/test_phase72_phase3_remaining_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "FAILURE_ROUTING",
+        "PERSISTENCE"
+      ],
+      "id": "P72-T30",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_phase4_execution_assurance.py::*",
+      "path": "tests/unit/test_phase72_phase4_execution_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "FAILURE_ROUTING"
+      ],
+      "id": "P72-T31",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_phase5_finalization_assurance.py::*",
+      "path": "tests/unit/test_phase72_phase5_finalization_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "FAILURE_ROUTING"
+      ],
+      "id": "P72-T32",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_phase5_models_assurance.py::*",
+      "path": "tests/unit/test_phase72_phase5_models_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "FAILURE_ROUTING"
+      ],
+      "id": "P72-T33",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_phase5_remaining_assurance.py::*",
+      "path": "tests/unit/test_phase72_phase5_remaining_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "EVIDENCE_STALENESS",
+        "FAILURE_ROUTING"
+      ],
+      "id": "P72-T34",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_phase6_assurance.py::*",
+      "path": "tests/unit/test_phase72_phase6_assurance.py",
+      "result": "PASS"
+    },
+    {
+      "categories": [
+        "ARTIFACT_INTEGRITY",
+        "EVIDENCE_STALENESS",
+        "FAILURE_ROUTING"
+      ],
+      "id": "P72-T35",
+      "invariant": "Focused Phase 7.2 behavioral assurance module passes in the final suite.",
+      "nodeid": "test_phase72_verification_assurance.py::*",
+      "path": "tests/unit/test_phase72_verification_assurance.py",
+      "result": "PASS"
+    }
+  ]
+}

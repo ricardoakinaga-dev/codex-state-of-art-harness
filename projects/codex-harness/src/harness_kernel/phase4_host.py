@@ -309,26 +309,43 @@ class _SubprocessClient:
                 after.st_mtime_ns,
             ):
                 raise HostProtocolError("host authentication file changed during safe copy")
+        except (FileNotFoundError, OSError):
+            return
         finally:
             if auth_fd is not None:
-                os.close(auth_fd)
+                with suppress(OSError):
+                    os.close(auth_fd)
             if home_fd is not None:
-                os.close(home_fd)
+                with suppress(OSError):
+                    os.close(home_fd)
         copied_auth = runtime_codex_home / "auth.json"
+        copied = False
         try:
             copied_fd = os.open(
                 copied_auth,
                 os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_CLOEXEC | os.O_NOFOLLOW,
                 0o600,
             )
+            copied = True
             try:
                 offset = 0
                 while offset < len(content):
-                    offset += os.write(copied_fd, content[offset:])
+                    written = os.write(copied_fd, content[offset:])
+                    if written <= 0:
+                        raise HostProtocolError("host authentication file cannot be copied safely")
+                    offset += written
                 os.fsync(copied_fd)
             finally:
                 os.close(copied_fd)
+        except HostProtocolError:
+            if copied:
+                with suppress(OSError):
+                    copied_auth.unlink()
+            raise
         except OSError as exc:
+            if copied:
+                with suppress(OSError):
+                    copied_auth.unlink()
             raise HostProtocolError("host authentication file cannot be copied safely") from exc
 
     @staticmethod

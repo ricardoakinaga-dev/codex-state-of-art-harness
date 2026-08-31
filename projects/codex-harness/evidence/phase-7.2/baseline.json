@@ -1,0 +1,81 @@
+{
+  "schema_version": "P7.2-BASELINE-1",
+  "phase": "PHASE7.2",
+  "task_id": "PHASE7.2-001",
+  "captured_at": "2026-08-30T18:18:00-03:00",
+  "repository": {
+    "branch": "main",
+    "head": "5c99952",
+    "head_full": "5c99952 (test: harden phase 7.1 branches and closeout)",
+    "worktree_state": "CLEAN",
+    "status_command": "git status --short --branch",
+    "status_observation": "## main...origin/main"
+  },
+  "source_fingerprint": {
+    "file_count": 89,
+    "sha256": "sha256:ecd90b07d016a1435ba234fc4bac9c76b57d22c076f4a30bfad3c03ab3405417"
+  },
+  "tests_fingerprint": {
+    "file_count": 86,
+    "sha256": "sha256:ac2e67ab6e1608752c9c53da8fef52b32a83480608ea335b7892a2542e3b9132"
+  },
+  "config_fingerprint": {
+    "file_count": 5,
+    "sha256": "sha256:74c7a9ccc03727e085c18ad1c26e39e8078eca974d2072fe352dcca0998f7580"
+  },
+  "backend_engineering_vnext_fingerprint": "sha256:fa8ff9c60f79466ea2b4d2ebbce09b376d6260a40105b344f1da7141fc36437e",
+  "verification_loop_vnext_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "verification": {
+    "full_suite_command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/pytest -q -p no:cacheprovider",
+    "full_suite_result": "1283 passed in 91.66s",
+    "coverage_command": "COVERAGE_FILE=<temporary> PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/coverage run --branch --source=src/harness_kernel -m pytest -q -p no:cacheprovider",
+    "coverage_report_command": ".venv/bin/coverage report --fail-under=80",
+    "coverage_artifact": "/tmp/codex-harness-p72-baseline.EaI0FX/coverage.json",
+    "test_count": 1283,
+    "line_coverage": 89.12942870365609,
+    "branch_coverage": 81.41198704103672,
+    "covered_branches": 6031,
+    "total_branches": 7408,
+    "residual_branches": 1377,
+    "residual_high_risk_branches": 509,
+    "residual_medium_risk_branches": 203,
+    "residual_low_risk_branches": 665,
+    "baseline_reproduced_from_current_source": true
+  },
+  "h01": {
+    "status": "OPEN",
+    "exact_wording": "1.377 branches residuais, incluindo 509 classificados como high em caminhos materiais de host/auth, filesystem/persistence, ledger lock, timeout/cancel/partial e failure routing; o percentual agregado de branches não demonstra esses caminhos individualmente.",
+    "source": "evidence/phase-7.1/promotion-decision.md",
+    "primary_reviewer_id": "01a0545f-4429-71b1-a497-27935c876d36",
+    "final_exact_audit_reviewer_id": "01a05471-4897-79e0-bd43-d33861dff35f"
+  },
+  "promotion": {
+    "current_state": "KEEP_CANDIDATE_NOT_PROMOTED",
+    "phase_7_1_status": "PASS_WITH_LIMITATIONS",
+    "phase_7_1_independent_review": "FAIL",
+    "critical": 0,
+    "high": 1,
+    "medium": 0
+  },
+  "control_plane_drift": {
+    "state_head": "c325ff60a50c3502dab19ab7dd3685045e4bce8c",
+    "actual_head": "5c99952",
+    "classification": "STATE_DRIFT",
+    "resolution": "Preserve historical state; Phase 7.2 records are bound to current HEAD and fresh evidence."
+  },
+  "authoritative_inputs": [
+    "evidence/phase-7.1/readiness.json",
+    "evidence/phase-7.1/independent-review.md",
+    "evidence/phase-7.1/branch-inventory.json",
+    "evidence/phase-7.1/branch-inventory.md",
+    "evidence/phase-7.1/branch-risk-map.md",
+    "evidence/phase-7.1/error-path-matrix.md",
+    "evidence/phase-7.1/P7.1-QB-1.md",
+    "evidence/phase-7.1/final-report.md",
+    "evidence/phase-7.1/review-manifest.json",
+    "evidence/phase-7.1/review-attestation.json",
+    "evidence/phase-7/README.md",
+    "evidence/phase-7/closeout-rerun-0009/"
+  ],
+  "feature_freeze": "P7_2_FEATURE_FREEZE_PENDING_AFTER_BASELINE"
+}

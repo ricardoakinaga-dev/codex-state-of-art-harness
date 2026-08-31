@@ -1241,7 +1241,7 @@ class InvocationEngine:
             try:
                 if Path(request.workspace).resolve() != Path(authorized_workspace).resolve():
                     errors.append("REQUEST_WORKSPACE_MISMATCH")
-            except (OSError, RuntimeError):
+            except (OSError, RuntimeError, TypeError, ValueError):
                 errors.append("REQUEST_WORKSPACE_INVALID")
         authorized_types = authorization.artifact_policy.get("types")
         if (
@@ -1580,17 +1580,22 @@ class InvocationEngine:
         if closed_at < created_at:
             closed_at = created_at
         authorization_id = authorization.authorization_id if authorization else None
-        authorization_digest = (
-            stable_digest_payload(authorization, workspace=request.workspace)
-            if authorization and request is not None
-            else None
-        )
+        authorization_digest = None
+        if authorization and request is not None:
+            try:
+                authorization_digest = stable_digest_payload(
+                    authorization,
+                    workspace=request.workspace,
+                )
+            except (OSError, RuntimeError, TypeError, ValueError):
+                authorization_digest = None
         context_digest = context.digest if context else None
-        request_digest = (
-            stable_digest_payload(request, workspace=request.workspace)
-            if request is not None
-            else None
-        )
+        request_digest = None
+        if request is not None:
+            try:
+                request_digest = stable_digest_payload(request, workspace=request.workspace)
+            except (OSError, RuntimeError, TypeError, ValueError):
+                request_digest = None
         host_event_digest = digest_payload(host_result.events)
         result_digest = digest_payload(host_result)
         host_executable_path = host_result.host_executable_path

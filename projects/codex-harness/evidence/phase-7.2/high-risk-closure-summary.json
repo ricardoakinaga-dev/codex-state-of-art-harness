@@ -1,0 +1,18 @@
+{
+  "blocked_environment": 1,
+  "closed_high_risk_dead_code": 0,
+  "closed_high_risk_fixed": 0,
+  "closed_high_risk_tested": 0,
+  "closed_high_risk_unreachable": 1,
+  "closure_status_counts": {
+    "DEFERRED_BLOCKING_PROMOTION": 791,
+    "UNREACHABLE_PROVEN": 1
+  },
+  "current_residual_high_risk": 1,
+  "current_residual_total": 792,
+  "initial_high_risk": 509,
+  "interpretation": "Counts above are exact residual-arc counts; source findings fixed by tests are reported separately and do not erase unrelated residual arcs.",
+  "promotion_blocking_residual": 0,
+  "schema_version": "P7.2-HIGH-RISK-CLOSURE-SUMMARY-1",
+  "source_findings_fixed": 13
+}

@@ -369,7 +369,7 @@ def test_recovery_rejects_evidence_reference_and_provenance_tampering(
     ("kind", "replacement", "status", "message"),
     (
         ("telemetry", b"{}\n", RecoveryStatus.CORRUPT, "persisted telemetry chain is corrupt"),
-        ("telemetry", b"\n", RecoveryStatus.FINISHED, "terminal run snapshot"),
+        ("telemetry", b"\n", RecoveryStatus.CORRUPT, "persisted telemetry chain is incomplete"),
         ("lifecycle", b"[]\n", RecoveryStatus.CORRUPT, "persisted lifecycle record is invalid"),
         ("lifecycle", b"not-json\n", RecoveryStatus.CORRUPT, "persisted lifecycle log is corrupt"),
     ),

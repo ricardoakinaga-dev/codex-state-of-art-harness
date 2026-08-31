@@ -171,7 +171,7 @@ def _has_symlink_component(path: Path) -> bool:
             metadata = current.lstat()
         except FileNotFoundError:
             continue
-        except OSError:
+        except (OSError, ValueError):
             return True
         if stat.S_ISLNK(metadata.st_mode):
             return True

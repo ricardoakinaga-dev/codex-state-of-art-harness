@@ -1,0 +1,37 @@
+{
+  "attestation": "The listed bytes and observations are bounded to this worktree. Residual high-risk branches and unavailable checks remain explicit.",
+  "attestation_type": "NON_CRYPTOGRAPHIC_EVIDENCE_ATTESTATION",
+  "attestor": "PHASE7.2_CLOSEOUT_INTEGRATOR",
+  "claims_excluded": [
+    "PRODUCTION_READY",
+    "AAA_VERIFIED",
+    "SECURITY_APPROVED",
+    "RELEASE_APPROVED",
+    "CAUSAL_SUPERIORITY",
+    "ALL_BRANCHES_COVERED",
+    "ALL_FAILURES_EXHAUSTIVELY_TESTED",
+    "SYSCALL_LEVEL_ISOLATION"
+  ],
+  "h01_status": "CLOSED",
+  "independent_review": {
+    "note": "Fresh independent read-only reviewer accepted H-01 closure and the exact packet; promotion remains withheld for explicit environment/scanner/medium-risk limitations.",
+    "reviewer_id": "01a05531-41f2-7173-9e93-941de3eaaa48",
+    "status": "PASS"
+  },
+  "manifest_digest": "sha256:a2c24cf068a08c9417e7dc528be290eac435bbd2a81307061003e822e07331ac",
+  "manifest_path": "evidence/phase-7.2/review-manifest.json",
+  "observations": {
+    "backend_pilot": "PASS_WITH_LIMITATIONS",
+    "full_suite": "PASS",
+    "mypy": "PASS",
+    "phase2_to_phase7_1_regressions": "PASS_WITH_LIMITATIONS",
+    "real_verifier": "BLOCKED_ENVIRONMENT",
+    "ruff": "PASS",
+    "security": "LIMITED_UNAVAILABLE_SCANNERS"
+  },
+  "promotion": "KEEP_CANDIDATE_NOT_PROMOTED",
+  "reviewed_head": "5c999527d31e0e2dca5d2b13bb174c5a93451a49",
+  "schema_version": "P7.2-REVIEW-ATTESTATION-1",
+  "status": "PASS_WITH_LIMITATIONS",
+  "task_id": "PHASE7.2-001"
+}

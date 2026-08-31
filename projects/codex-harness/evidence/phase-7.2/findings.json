@@ -1,0 +1,199 @@
+{
+  "schema_version": "P7.2-FINDINGS-1",
+  "phase": "PHASE7.2",
+  "feature_freeze": "P7_2_FEATURE_FREEZE",
+  "findings": [
+    {
+      "id": "P7.2-FINDING-001",
+      "category": "HOST_AUTH",
+      "severity": "HIGH",
+      "status": "TESTED_FAIL_FIXED",
+      "observation": "The transport-auth copy path did not normalize source-open errors and could accept a zero-byte write without a typed failure or cleanup proof.",
+      "fix": "Treat source inspection errors as fail-closed, reject non-progress writes, fsync the destination, and remove a partial destination on failure.",
+      "source_refs": ["src/harness_kernel/phase4_host.py:266-347"],
+      "test_refs": ["P72-T01", "P72-T02", "P72-T03", "P72-T04", "P72-T05"],
+      "closure_evidence": "Focused Phase 7.2 boundary tests pass; exact unrelated host-load arcs remain in the residual inventory."
+    },
+    {
+      "id": "P7.2-FINDING-002",
+      "category": "FILESYSTEM",
+      "severity": "HIGH",
+      "status": "TESTED_FAIL_FIXED",
+      "observation": "The bounded filesystem walker used descriptor metadata after a failed fstat path without a direct fault-injection assertion.",
+      "fix": "Handle descriptor fstat failure as an unsafe entry and keep descriptor cleanup bounded.",
+      "source_refs": ["src/harness_kernel/phase3_paths.py:436-454"],
+      "test_refs": ["P72-T06", "P72-T07", "P72-T08"],
+      "closure_evidence": "Focused fstat, platform-guard and base-identity tests pass; residual filesystem arcs remain listed rather than excluded."
+    },
+    {
+      "id": "P7.2-FINDING-003",
+      "category": "PERSISTENCE",
+      "severity": "HIGH",
+      "status": "TESTED_FAIL_FIXED",
+      "observation": "Persistence existence-check-then-replace writes could overwrite a conflicting first writer under a concurrent race.",
+      "fix": "Use exclusive atomic creation and reconcile an existing identical record while rejecting conflicting content.",
+      "source_refs": ["src/harness_kernel/boundary.py:156-200", "src/harness_kernel/persistence.py:101-161"],
+      "test_refs": ["P72-T09", "P72-T10", "P72-R01"],
+      "closure_evidence": "Boundary and RunStore race tests pass; the first complete writer is preserved."
+    },
+    {
+      "id": "P7.2-FINDING-004",
+      "category": "LEDGER_LOCKING",
+      "severity": "HIGH",
+      "status": "TESTED_PASS",
+      "observation": "Ledger locking availability and legacy pre-token migration were previously called out without direct Phase 7.2 evidence.",
+      "fix": "No source change was required for these cases; add typed unavailability and legacy-entry-preservation tests.",
+      "source_refs": ["src/harness_kernel/phase4_execution.py:627-705"],
+      "test_refs": ["P72-T11", "P72-T12", "P72-R02", "P72-R06"],
+      "closure_evidence": "Focused tests pass, including preserved entries, shared token binding and fail-closed unavailable locking."
+    },
+    {
+      "id": "P7.2-FINDING-005",
+      "category": "TIMEOUT",
+      "severity": "HIGH",
+      "status": "NOT_HIGH_RISK_RECLASSIFIED_WITH_EVIDENCE",
+      "observation": "A hostile arbitrary provider could outlive the coordinator's daemon-thread timeout in a broader execution surface.",
+      "fix": "Keep the Phase 2 admission boundary explicit: ProviderRegistry accepts only built-in deterministic fixture provider types and those fixtures are side-effect-free by contract.",
+      "source_refs": ["src/harness_kernel/providers.py:509-598", "src/harness_kernel/execution.py:760-805"],
+      "test_refs": ["P72-T15", "P72-R09"],
+      "closure_evidence": "The registry rejects a side-effecting provider type before descriptor inspection; arbitrary-provider isolation remains a deferred requirement if the admission boundary expands."
+    },
+    {
+      "id": "P7.2-FINDING-006",
+      "category": "DEPENDENCY_FAILURE",
+      "severity": "HIGH",
+      "status": "BLOCKED_ENVIRONMENT",
+      "observation": "The Phase 7.2 real builder/repair/verifier cycle could not start because the safe fixed host path cannot resolve a regular pinned `codex` executable in this environment.",
+      "fix": "No workaround or unpinned executable was used; preserve the blocked result and do not claim a real host receipt.",
+      "source_refs": ["scripts/run_phase72_real_cycle.py"],
+      "test_refs": [],
+      "closure_evidence": "evidence/phase-7.2/real-cycle-report.json records the typed environment block."
+    },
+    {
+      "id": "P7.2-FINDING-007",
+      "category": "PERSISTENCE",
+      "severity": "HIGH",
+      "status": "TESTED_FAIL_FIXED",
+      "observation": "A durability failure during exclusive persistence creation could be confused with a first-writer collision and reconciled as if the record already existed.",
+      "fix": "Raise a distinct BoundaryCollisionError only for the exclusive-create race and propagate directory/file durability failures without masking them.",
+      "source_refs": ["src/harness_kernel/boundary.py", "src/harness_kernel/persistence.py"],
+      "test_refs": ["P72-T09", "P72-T10", "P72-T23", "P72-T24", "P72-T27"],
+      "closure_evidence": "Focused persistence, boundary and foundation assurance tests pass, including directory fsync failure propagation and conflicting first-writer preservation."
+    },
+    {
+      "id": "P7.2-FINDING-008",
+      "category": "TELEMETRY_INTEGRITY",
+      "severity": "HIGH",
+      "status": "TESTED_FAIL_FIXED",
+      "observation": "Recovery could treat a structurally valid but empty persisted telemetry log as a complete run, and legacy state validation could operate on a non-string status.",
+      "fix": "Reject empty telemetry chains and validate legacy lifecycle state types before membership checks.",
+      "source_refs": ["src/harness_kernel/persistence.py"],
+      "test_refs": ["P72-T27", "P72-R01"],
+      "closure_evidence": "Focused recovery and persistence assurance tests pass; blank telemetry and invalid legacy state remain fail-closed."
+    },
+    {
+      "id": "P7.2-FINDING-009",
+      "category": "LEDGER_LOCKING",
+      "severity": "HIGH",
+      "status": "TESTED_FAIL_FIXED",
+      "observation": "Telemetry and lifecycle append idempotency was validated outside the same critical section as log inspection, leaving a concurrent duplicate race unproven.",
+      "fix": "Perform JSONL parsing, duplicate validation and the append under one directory lock, with typed lock-unavailability failure.",
+      "source_refs": ["src/harness_kernel/boundary.py", "src/harness_kernel/persistence.py"],
+      "test_refs": ["P72-T09", "P72-T10", "P72-T27", "P72-R01"],
+      "closure_evidence": "Focused boundary and persistence tests pass for lock availability, malformed logs, duplicate replay and lifecycle/telemetry collision handling."
+    },
+    {
+      "id": "P7.2-FINDING-010",
+      "category": "ARTIFACT_INTEGRITY",
+      "severity": "HIGH",
+      "status": "TESTED_FAIL_FIXED",
+      "observation": "Artifact and backend path inspection translated only operating-system failures, allowing invalid path values to escape as untyped ValueError failures.",
+      "fix": "Translate ValueError from lstat, resolve and symlink-component inspection into bounded artifact or backend rejection errors.",
+      "source_refs": ["src/harness_kernel/phase4_artifacts.py", "src/harness_kernel/phase7_backend.py"],
+      "test_refs": ["P72-T18", "P72-T33"],
+      "closure_evidence": "Focused backend/artifact and Phase 5 remaining assurance tests pass for NUL/invalid paths, descriptor cleanup and symlink-boundary failures."
+    },
+    {
+      "id": "P7.2-FINDING-011",
+      "category": "RETRY",
+      "severity": "HIGH",
+      "status": "TESTED_FAIL_FIXED",
+      "observation": "The explicit repair loop's stop budget counted the initial provider attempt while the repair range counted only repair calls, so terminal repair checks could be cut off before the declared repair budget was evaluated.",
+      "fix": "Reserve two additional stop-budget slots for the initial attempt and terminal checks while retaining the explicit max-repair call cap.",
+      "source_refs": ["src/harness_kernel/execution.py"],
+      "test_refs": ["P72-T20", "P72-T21"],
+      "closure_evidence": "Focused execution and legacy execution assurance tests pass for bounded repair, terminal routing, no-progress and cancellation outcomes."
+    },
+    {
+      "id": "P7.2-FINDING-012",
+      "category": "FAILURE_ROUTING",
+      "severity": "HIGH",
+      "status": "TESTED_FAIL_FIXED",
+      "observation": "CLI and policy boundaries did not consistently normalize TypeError or reject boolean values masquerading as integer retry attempts.",
+      "fix": "Reject bool/non-integer attempt values explicitly and route TypeError through the typed blocked envelopes at Phase 4 and Phase 5 CLI boundaries.",
+      "source_refs": ["src/harness_kernel/phase4_cli.py", "src/harness_kernel/phase5_cli.py", "src/harness_kernel/phase5_policy.py"],
+      "test_refs": ["P72-T19", "P72-T33"],
+      "closure_evidence": "Focused CLI-routing and Phase 5 remaining assurance tests pass for invalid types, boolean attempts and stable blocked output envelopes."
+    },
+    {
+      "id": "P7.2-FINDING-013",
+      "category": "STATE_TRANSITION",
+      "severity": "HIGH",
+      "status": "TESTED_FAIL_FIXED",
+      "observation": "StopDecision accepted arbitrary non-null condition objects after string normalization, weakening the typed terminal-state boundary.",
+      "fix": "Reject every non-null condition that is not a StopCondition after normalization.",
+      "source_refs": ["src/harness_kernel/phase6_stop.py"],
+      "test_refs": ["P72-T34"],
+      "closure_evidence": "Focused Phase 6 assurance tests pass for valid normalization and invalid condition rejection."
+    },
+    {
+      "id": "P7.2-FINDING-014",
+      "category": "HOST_AUTH",
+      "severity": "HIGH",
+      "status": "TESTED_FAIL_FIXED",
+      "observation": "The bounded host builder write loop did not reject a zero-progress os.write result, risking an unbounded loop or false completion.",
+      "fix": "Treat non-positive write progress as a typed FILE_WRITE_REJECTED failure and preserve cleanup behavior.",
+      "source_refs": ["src/harness_kernel/phase7_host.py"],
+      "test_refs": ["P72-T25", "P72-R05", "P72-R07"],
+      "closure_evidence": "Focused host assurance tests pass for zero-byte write progress, temporary-file cleanup and typed failure projection."
+    },
+    {
+      "id": "P7.2-FINDING-015",
+      "category": "FAILURE_ROUTING",
+      "severity": "HIGH",
+      "status": "TESTED_FAIL_FIXED",
+      "observation": "Workspace validation and receipt digest construction could leak invalid path/type exceptions instead of preserving a bounded failure or optional evidence result.",
+      "fix": "Translate invalid workspace path values into REQUEST_WORKSPACE_INVALID and make optional digest evidence fail closed to None on supported boundary failures.",
+      "source_refs": ["src/harness_kernel/phase4_execution.py"],
+      "test_refs": ["P72-T20", "P72-T30"],
+      "closure_evidence": "Focused execution and Phase 4 execution assurance tests pass for invalid workspace inputs, digest failure and truthful receipt construction."
+    },
+    {
+      "id": "P7.2-FINDING-016",
+      "category": "FILESYSTEM",
+      "severity": "HIGH",
+      "status": "TESTED_FAIL_FIXED",
+      "observation": "Descriptor-based walking retained a dead missing-descriptor guard and did not make descriptor cleanup unconditional across the open/fstat path.",
+      "fix": "Close every successfully opened descriptor in a single finally block and remove the unreachable guard after successful open.",
+      "source_refs": ["src/harness_kernel/phase3_paths.py", "src/harness_kernel/persistence.py"],
+      "test_refs": ["P72-T22", "P72-T27"],
+      "closure_evidence": "Focused filesystem and persistence assurance tests pass for open/fstat failure cleanup and mandatory artifact locator validation."
+    },
+    {
+      "id": "P7.2-FINDING-017",
+      "category": "RETRY",
+      "severity": "HIGH",
+      "status": "UNREACHABLE_PROVEN",
+      "observation": "The natural exhaustion edge after the bounded Phase 5 builder loop was conservatively classified as high risk because it is not directly covered by branch execution.",
+      "fix": "No source change is required: a valid immutable Phase5Budget guarantees that invalid artifact extraction either succeeds and breaks or reaches the final invocation and breaks; no iteration exists after the final attempt.",
+      "source_refs": ["src/harness_kernel/phase5_cli.py:400-415"],
+      "test_refs": ["P72-T33"],
+      "closure_evidence": "evidence/phase-7.2/phase5-cli-loop-proof.md and test_phase72_phase5_remaining_assurance.py::test_phase5_cli_builder_records_bounded_exhaustion_after_invalid_artifacts establish the bounded final-attempt behavior."
+    }
+  ],
+  "policy": {
+    "fixed_findings_are_not_equivalent_to_zero_residual_arcs": true,
+    "blocked_environment_is_not_a_promotion_pass": true,
+    "unresolved_material_branches_remain_promotion_blockers": true
+  }
+}

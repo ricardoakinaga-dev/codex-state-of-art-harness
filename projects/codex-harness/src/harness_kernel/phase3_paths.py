@@ -433,17 +433,20 @@ def bounded_walk(root: CapabilityRoot | str | Path, limits: Phase3Limits) -> Wal
                     descriptor: int | None = None
                     try:
                         descriptor = os.open(entry_name, file_flags, dir_fd=directory_fd)
+                    except OSError:
+                        unsafe.append(relative)
+                        continue
+                    try:
                         opened = os.fstat(descriptor)
-                        if not stat.S_ISREG(opened.st_mode):
-                            errors.append(f"{relative}: non-regular entry")
-                            continue
                     except OSError:
                         unsafe.append(relative)
                         continue
                     finally:
-                        if descriptor is not None:
-                            with suppress(OSError):
-                                os.close(descriptor)
+                        with suppress(OSError):
+                            os.close(descriptor)
+                    if not stat.S_ISREG(opened.st_mode):
+                        errors.append(f"{relative}: non-regular entry")
+                        continue
                     file_inode = (opened.st_dev, opened.st_ino)
                     if file_inode in seen_file_inodes:
                         unsafe.append(relative)

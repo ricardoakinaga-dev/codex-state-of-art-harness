@@ -560,7 +560,10 @@ class BoundedBuilderHostTools:
                 return _tool_error("TEMPORARY_FILE_UNAVAILABLE")
             offset = 0
             while offset < len(encoded):
-                offset += os.write(temporary_fd, encoded[offset:])
+                written = os.write(temporary_fd, encoded[offset:])
+                if written <= 0:
+                    return _tool_error("FILE_WRITE_REJECTED")
+                offset += written
             os.fsync(temporary_fd)
             os.close(temporary_fd)
             temporary_fd = None

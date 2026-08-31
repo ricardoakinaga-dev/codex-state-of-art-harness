@@ -5,16 +5,30 @@ from __future__ import annotations
 import os
 import stat
 import tempfile
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
+from contextlib import suppress
 from dataclasses import dataclass
 from pathlib import Path
+from threading import RLock
+
+try:
+    import fcntl
+except ImportError:  # pragma: no cover - supported runtimes are POSIX
+    fcntl = None  # type: ignore[assignment]
+
 
 from .errors import ContractError
 from .serialization import MAX_JSON_BYTES, from_json, to_json
 
+_JSONL_APPEND_LOCK = RLock()
+
 
 class BoundaryError(ValueError):
     """Raised when an input or output would cross the project boundary."""
+
+
+class BoundaryCollisionError(BoundaryError):
+    """Raised when an exclusive create loses a first-writer race."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -149,11 +163,54 @@ class ProjectBoundary:
             raise BoundaryError("project output could not be committed atomically") from exc
         finally:
             if temporary is not None:
-                temporary.unlink(missing_ok=True)
+                with suppress(OSError):
+                    temporary.unlink(missing_ok=True)
+
+    def atomic_create_bytes(self, relative: str, data: bytes) -> Path:
+        """Atomically create one project-local file without replacing an existing inode."""
+
+        if not isinstance(data, bytes):
+            raise BoundaryError("atomic bytes writes require bytes")
+        if len(data) > self.max_file_bytes:
+            raise BoundaryError("project output exceeds its size limit")
+        target = self._target_for_write(relative)
+        temporary: Path | None = None
+        try:
+            with tempfile.NamedTemporaryFile(
+                mode="wb", dir=target.parent, prefix=f".{target.name}.", delete=False
+            ) as handle:
+                temporary = Path(handle.name)
+                handle.write(data)
+                handle.flush()
+                os.fsync(handle.fileno())
+            try:
+                os.link(temporary, target, follow_symlinks=False)
+            except FileExistsError as exc:
+                raise BoundaryCollisionError("project output already exists") from exc
+            temporary.unlink(missing_ok=True)
+            temporary = None
+            directory_fd = os.open(str(target.parent), os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+            try:
+                os.fsync(directory_fd)
+            finally:
+                os.close(directory_fd)
+            return target
+        except BoundaryError:
+            raise
+        except (OSError, ValueError) as exc:
+            raise BoundaryError("project output could not be created atomically") from exc
+        finally:
+            if temporary is not None:
+                with suppress(OSError):
+                    temporary.unlink(missing_ok=True)
 
     def atomic_write_json(self, relative: str, value: Mapping[str, object] | list[object]) -> Path:
         payload = to_json(value).encode("utf-8")
         return self.atomic_write_bytes(relative, payload)
+
+    def atomic_create_json(self, relative: str, value: Mapping[str, object] | list[object]) -> Path:
+        payload = to_json(value).encode("utf-8")
+        return self.atomic_create_bytes(relative, payload)
 
     def append_jsonl(
         self,
@@ -161,6 +218,7 @@ class ProjectBoundary:
         value: Mapping[str, object],
         *,
         max_records: int = 1_024,
+        append_validator: Callable[[tuple[Mapping[str, object], ...]], bool] | None = None,
     ) -> Path:
         """Append one bounded JSON object by atomically replacing the local log."""
 
@@ -168,19 +226,42 @@ class ProjectBoundary:
             raise BoundaryError("JSONL records must be objects")
         if not isinstance(max_records, int) or isinstance(max_records, bool) or max_records < 1:
             raise BoundaryError("JSONL record limit must be positive")
+        if fcntl is None:
+            raise BoundaryError("JSONL append locking is unavailable")
         target = self._target_for_write(relative)
-        existing = b""
-        if target.exists():
-            existing = self.read_bytes(relative)
-        lines = [line for line in existing.splitlines() if line.strip()]
-        if len(lines) >= max_records:
-            raise BoundaryError("JSONL record limit exceeded")
-        for line in lines:
+        with _JSONL_APPEND_LOCK:
             try:
-                parsed = from_json(line, dict)
-            except (ContractError, TypeError, ValueError) as exc:
-                raise BoundaryError("existing JSONL log is corrupt") from exc
-            if not isinstance(parsed, Mapping):
-                raise BoundaryError("existing JSONL record is not an object")
-        encoded = to_json(value).encode("utf-8") + b"\n"
-        return self.atomic_write_bytes(relative, existing + encoded)
+                directory_fd = os.open(
+                    str(target.parent), os.O_RDONLY | getattr(os, "O_DIRECTORY", 0)
+                )
+            except OSError as exc:
+                raise BoundaryError("JSONL append lock is unavailable") from exc
+            try:
+                try:
+                    fcntl.flock(directory_fd, fcntl.LOCK_EX)
+                except OSError as exc:
+                    raise BoundaryError("JSONL append lock is unavailable") from exc
+                existing = b""
+                if target.exists():
+                    existing = self.read_bytes(relative)
+                lines = [line for line in existing.splitlines() if line.strip()]
+                if len(lines) >= max_records:
+                    raise BoundaryError("JSONL record limit exceeded")
+                parsed_records: list[Mapping[str, object]] = []
+                for line in lines:
+                    try:
+                        parsed = from_json(line, dict)
+                    except (ContractError, TypeError, ValueError) as exc:
+                        raise BoundaryError("existing JSONL log is corrupt") from exc
+                    if not isinstance(parsed, Mapping):
+                        raise BoundaryError("existing JSONL record is not an object")
+                    parsed_records.append(parsed)
+                if append_validator is not None and append_validator(tuple(parsed_records)):
+                    return target
+                encoded = to_json(value).encode("utf-8") + b"\n"
+                return self.atomic_write_bytes(relative, existing + encoded)
+            finally:
+                with suppress(OSError):
+                    fcntl.flock(directory_fd, fcntl.LOCK_UN)
+                with suppress(OSError):
+                    os.close(directory_fd)

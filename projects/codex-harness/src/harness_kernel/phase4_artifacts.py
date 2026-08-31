@@ -38,6 +38,8 @@ def _assert_directory_tree(root: Path, target: Path) -> None:
             metadata = current.lstat()
         except FileNotFoundError:
             continue
+        except ValueError as exc:
+            raise ArtifactCaptureError("artifact path cannot be inspected") from exc
         if stat.S_ISLNK(metadata.st_mode):
             raise ArtifactCaptureError("artifact path contains a symlink")
         if current != target and not stat.S_ISDIR(metadata.st_mode):
@@ -54,13 +56,13 @@ def validate_artifact_path(location: str | Path, workspace: str | Path) -> Path:
         metadata = location_path.lstat()
     except FileNotFoundError:
         metadata = None
-    except OSError as exc:
+    except (OSError, ValueError) as exc:
         raise ArtifactCaptureError("artifact cannot be inspected") from exc
     if metadata is not None and stat.S_ISLNK(metadata.st_mode):
         raise ArtifactCaptureError("artifact path is a symlink")
     try:
         resolved = location_path.resolve(strict=False)
-    except (OSError, RuntimeError) as exc:
+    except (OSError, RuntimeError, ValueError) as exc:
         raise ArtifactCaptureError("artifact cannot be resolved") from exc
     if not resolved.is_relative_to(workspace_path):
         raise ArtifactCaptureError("artifact path escapes workspace")
@@ -72,7 +74,7 @@ def _validated_workspace(workspace: Path) -> Path:
         raise ArtifactCaptureError("workspace must be an absolute canonical path")
     try:
         metadata = workspace.lstat()
-    except (FileNotFoundError, OSError) as exc:
+    except (FileNotFoundError, OSError, ValueError) as exc:
         raise ArtifactCaptureError("workspace cannot be resolved") from exc
     if stat.S_ISLNK(metadata.st_mode) or _has_symlink_component(workspace):
         raise ArtifactCaptureError("workspace contains a symlink")
@@ -95,7 +97,7 @@ def _has_symlink_component(path: Path) -> bool:
             metadata = current.lstat()
         except FileNotFoundError:
             return False
-        except OSError:
+        except (OSError, ValueError):
             return True
         if stat.S_ISLNK(metadata.st_mode):
             return True

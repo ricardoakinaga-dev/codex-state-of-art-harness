@@ -1,0 +1,31 @@
+{
+  "checked_at": "2026-08-30T21:33:59.549911-03:00",
+  "results": {
+    "bandit": {
+      "note": "Not installed in the current environment; no PASS claim is made.",
+      "path": null,
+      "status": "UNAVAILABLE"
+    },
+    "pip-audit": {
+      "note": "Not installed in the current environment; no PASS claim is made.",
+      "path": null,
+      "status": "UNAVAILABLE"
+    },
+    "semgrep": {
+      "note": "Not installed in the current environment; no PASS claim is made.",
+      "path": null,
+      "status": "UNAVAILABLE"
+    },
+    "trivy": {
+      "note": "Not installed in the current environment; no PASS claim is made.",
+      "path": null,
+      "status": "UNAVAILABLE"
+    }
+  },
+  "schema_version": "P7.2-SECURITY-COMMANDS-1",
+  "static_controls": {
+    "mypy": "PASS",
+    "ruff": "PASS",
+    "secret_scan": "MANUAL_DIFF_REVIEW_REQUIRED"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "evidence_roots": {
+    "builder": "evidence/phase-7.2/real-cycle-final/builder",
+    "repair": "evidence/phase-7.2/real-cycle-final/repair",
+    "verifier": "evidence/phase-7.2/real-cycle-final/verifier"
+  },
+  "feature_freeze": "P7_2_FEATURE_FREEZE",
+  "generated_at": "2026-08-30T21:17:43.237275-03:00",
+  "limitations": [
+    "A real host receipt proves only this bounded disposable cycle.",
+    "Host skill-load observability remains a declared limitation when the host does not expose it.",
+    "No production, release, security-approval or universal-quality claim is made."
+  ],
+  "phase": "PHASE7.2",
+  "schema_version": "P7.2-REAL-CYCLE-1",
+  "scope": {
+    "installed_or_global_state_mutated": false,
+    "package_mutated": false,
+    "pilot_source": "pilots/backend-appointment-api",
+    "workspace": "temporary disposable copy"
+  },
+  "status": "BLOCKED_ENVIRONMENT",
+  "steps": [
+    {
+      "error": "host executable codex is unavailable",
+      "error_type": "HostProtocolError",
+      "exit_code": null,
+      "status": "BLOCKED_ENVIRONMENT",
+      "step": "builder"
+    }
+  ]
+}

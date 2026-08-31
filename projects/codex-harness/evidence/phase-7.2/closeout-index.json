@@ -1,0 +1,55 @@
+{
+  "schema_version": "P7.2-CLOSEOUT-INDEX-1",
+  "task_id": "PHASE7.2-001",
+  "phase": "PHASE7.2",
+  "authoritative_attempt_id": "P7.2-CLOSEOUT-002",
+  "captured_at": "2026-08-30T21:34:08-03:00",
+  "attempts": [
+    {
+      "attempt_id": "P7.2-CLOSEOUT-001",
+      "authoritative": false,
+      "status": "PASS_WITH_LIMITATIONS",
+      "promotion": "KEEP_CANDIDATE_NOT_PROMOTED",
+      "h01_status": "OPEN",
+      "review_status": "FAIL",
+      "reviewer_id": "01a05486-ef52-7833-986a-a6e767fb52ab",
+      "review_decision": "REJECT",
+      "reviewed_head": "5c999527d31e0e2dca5d2b13bb174c5a93451a49",
+      "manifest_path": "evidence/phase-7.2/review-manifest.json",
+      "manifest_digest": "sha256:822a97195e46a561bc7be532de83af4ebde705d0c5e264f2a73b5890c0f576b5",
+      "attestation_path": "evidence/phase-7.2/review-attestation.json",
+      "readiness_path": "evidence/phase-7.2/readiness.json",
+      "final_report_path": "evidence/phase-7.2/final-report.md",
+      "reason": "Historical Phase 7.2 attempt retained for audit continuity; its independent rejection and earlier 493-branch materiality assessment were superseded by the regenerated packet."
+    },
+    {
+      "attempt_id": "P7.2-CLOSEOUT-002",
+      "authoritative": true,
+      "status": "PASS_WITH_LIMITATIONS",
+      "promotion": "KEEP_CANDIDATE_NOT_PROMOTED",
+      "h01_status": "CLOSED",
+      "review_status": "PASS",
+      "reviewer_id": "01a05531-41f2-7173-9e93-941de3eaaa48",
+      "review_decision": "ACCEPT_H01_CLOSURE",
+      "reviewed_head": "5c999527d31e0e2dca5d2b13bb174c5a93451a49",
+      "manifest_path": "evidence/phase-7.2/review-manifest.json",
+      "manifest_digest": "sha256:a2c24cf068a08c9417e7dc528be290eac435bbd2a81307061003e822e07331ac",
+      "attestation_path": "evidence/phase-7.2/review-attestation.json",
+      "readiness_path": "evidence/phase-7.2/readiness.json",
+      "final_report_path": "evidence/phase-7.2/final-report.md",
+      "reason": "H-01 is closed after independent acceptance of the complete 792-branch inventory and the sole classified high-risk branch's UNREACHABLE_PROVEN bounded-loop proof. Promotion remains withheld for the BLOCKED_ENVIRONMENT real cycle, unavailable security scanners and 186 medium-risk residual arcs."
+    }
+  ],
+  "historical_inputs": [
+    "evidence/phase-7.1/readiness.json",
+    "evidence/phase-7.1/independent-review.md",
+    "evidence/phase-7.1/branch-inventory.json",
+    "evidence/phase-7.1/branch-risk-map.md",
+    "evidence/phase-7.1/error-path-matrix.md",
+    "evidence/phase-7.1/final-report.md",
+    "evidence/phase-7/closeout-rerun-0009/"
+  ],
+  "supersedes": "P7.2-CLOSEOUT-001",
+  "recursion_note": "This index is intentionally excluded from review-manifest.json so the manifest and index do not hash each other recursively.",
+  "promotion_rule": "Do not promote until H-01 is closed with zero material high-risk residual branches and all required real-host, security and independent-review gates are satisfied."
+}

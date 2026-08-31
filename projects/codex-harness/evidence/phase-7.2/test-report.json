@@ -1,0 +1,12 @@
+{
+  "catalog_scenarios": 48,
+  "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/pytest -q -p no:cacheprovider",
+  "duration": "217.49s (0:03:37)",
+  "failed": 0,
+  "focused_phase72_tests": 19,
+  "passed": 1658,
+  "phase": "PHASE7.2",
+  "schema_version": "P7.2-TEST-REPORT-1",
+  "skipped": 0,
+  "status": "PASS"
+}

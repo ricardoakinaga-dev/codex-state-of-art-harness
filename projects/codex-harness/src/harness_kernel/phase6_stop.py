@@ -34,6 +34,8 @@ class StopDecision:
     def __post_init__(self) -> None:
         if isinstance(self.condition, str) and not isinstance(self.condition, StopCondition):
             object.__setattr__(self, "condition", StopCondition(self.condition))
+        if self.condition is not None and not isinstance(self.condition, StopCondition):
+            raise ValueError("stop condition is invalid")
         if not isinstance(self.reason, str) or not self.reason:
             raise ValueError("stop reason is required")
         object.__setattr__(self, "unresolved_criteria", tuple(self.unresolved_criteria))

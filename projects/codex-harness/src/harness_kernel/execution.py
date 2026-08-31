@@ -2941,7 +2941,12 @@ class ExecutionKernel:
                         if not repair_stop.should_stop:
                             repair_stop = evaluate_stop(
                                 budget=StopBudget(
-                                    max_iterations=limits.max_repairs,
+                                    # ``progress_history`` includes the initial
+                                    # provider attempt.  Leave one additional
+                                    # slot so the explicit repair range, and
+                                    # its terminal-boundary checks, can run to
+                                    # the declared repair budget.
+                                    max_iterations=limits.max_repairs + 2,
                                     max_duration_ms=limits.max_duration_ms,
                                     max_tool_calls=limits.max_invocations,
                                 ),
