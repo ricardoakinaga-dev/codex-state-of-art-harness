@@ -1,0 +1,558 @@
+{
+  "capabilities": [
+    {
+      "capability_id": "api-design",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "article-writing",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "backend-engineering-vnext",
+      "missing_features": [],
+      "portability_debt": [
+        "unverified host requirement: Python >= 3.12 project runtime is the pilot reference",
+        "unverified host requirement: No external runtime assumption"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "backend-patterns",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "bun-runtime",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "claude-api",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "coding-standards",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "content-engine",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "crosspost",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "deep-research",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "design-director",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "dmux-workflows",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "documentation-lookup",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "e2e-testing",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "elevenlabs-api",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "engineering-framework",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "engineering-framework",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "eval-harness",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven",
+        "tool availability is not execution authorization"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "everything-claude-code-conventions",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "exa-search",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "fal-ai-media",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "frontend-engineering-vnext",
+      "missing_features": [],
+      "portability_debt": [
+        "unverified host requirement: Existing repository stack is preferred",
+        "unverified host requirement: Native browser observer may be required for render claims",
+        "unverified host requirement: Framework/compiler evidence is conditional on repository support"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "frontend-patterns",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "frontend-slides",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "gauntlet-loop",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "graphic-creation",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "harness-kernel",
+      "missing_features": [],
+      "portability_debt": [],
+      "reasons": [
+        "declared platform limits match observed local runtime"
+      ],
+      "status": "COMPATIBLE",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "imagegen",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "investor-materials",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "investor-outreach",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "market-research",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "nextjs-turbopack",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "openai-docs",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "orchestrate",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "plugin-creator",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "review-agent",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "security-review",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "skill-creator",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "skill-installer",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "strategic-compact",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "tdd-workflow",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "verification-loop",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "verification-loop-vnext",
+      "missing_features": [],
+      "portability_debt": [],
+      "reasons": [
+        "declared platform limits match observed local runtime"
+      ],
+      "status": "COMPATIBLE",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "video-editing",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "vps-truth-source",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    },
+    {
+      "capability_id": "x-api",
+      "missing_features": [],
+      "portability_debt": [
+        "manifest was synthesized or legacy; native host contract is not proven"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "status": "PARTIAL",
+      "version": "0.1.0"
+    }
+  ],
+  "command_returncode": 0,
+  "schema_version": "P3-COMPATIBILITY-1"
+}

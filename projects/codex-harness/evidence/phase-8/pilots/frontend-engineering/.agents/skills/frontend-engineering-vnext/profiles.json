@@ -1,0 +1,14 @@
+{
+  "schema_version": "P8-PROFILES-1",
+  "capability_id": "frontend-engineering-vnext",
+  "profile_ids": ["FOCUSED", "SURFACE", "FLOW", "RESPONSIVE_A11Y", "COMPOSITION"],
+  "default_profile": "SURFACE",
+  "profiles": [
+    {"id": "FOCUSED", "purpose": "One bounded UI change with direct state/evidence checks.", "gates": ["identity", "scope", "tests"], "max_criteria": 8, "max_procedures": 8, "visual_claim": false},
+    {"id": "SURFACE", "purpose": "One route or surface with stack, semantics, state and interaction evidence.", "gates": ["identity", "scope", "stack", "state", "semantics", "tests"], "max_criteria": 16, "max_procedures": 16, "visual_claim": true},
+    {"id": "FLOW", "purpose": "A form or multi-state user flow with local/API behavior and recovery.", "gates": ["identity", "scope", "stack", "state", "api", "interaction", "security", "tests"], "max_criteria": 24, "max_procedures": 24, "visual_claim": true},
+    {"id": "RESPONSIVE_A11Y", "purpose": "A surface whose acceptance depends on native viewport and accessibility evidence.", "gates": ["identity", "scope", "responsive", "keyboard", "focus", "semantics", "contrast", "render"], "max_criteria": 32, "max_procedures": 32, "visual_claim": true},
+    {"id": "COMPOSITION", "purpose": "Final builder-to-verifier handoff after a bounded repair cycle.", "gates": ["identity", "role", "criteria", "artifact", "render", "freshness", "budget", "finality"], "max_criteria": 32, "max_procedures": 32, "visual_claim": true}
+  ],
+  "selection_rule": "Select the smallest profile covering the frozen surface, state, interaction and evidence contract; never widen scope implicitly."
+}

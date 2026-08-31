@@ -1,0 +1,25 @@
+{
+  "observed_at": "2026-08-31T14:30:24.696Z",
+  "key_reused": true,
+  "responses": [
+    {
+      "status": 201,
+      "body": {
+        "intake_id": "INT-F0F4D4ADFD",
+        "status": "accepted",
+        "triage": "queued"
+      }
+    },
+    {
+      "status": 200,
+      "body": {
+        "intake_id": "INT-F0F4D4ADFD",
+        "status": "duplicate",
+        "triage": "queued"
+      }
+    }
+  ],
+  "same_intake_id": true,
+  "exactly_one_created": true,
+  "duplicate_replay": true
+}

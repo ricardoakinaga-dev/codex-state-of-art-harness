@@ -1,0 +1,45 @@
+{
+  "attestation_digest": "sha256:9f222ed2fe4ff7aed94ec545afc30426038b7e4038100a4bbb9f765a66d0901c",
+  "claims_excluded": [
+    "production readiness",
+    "release approval",
+    "security approval",
+    "accessibility certification",
+    "pixel-perfect rendering",
+    "all-browser or universal compatibility",
+    "full host causality"
+  ],
+  "entry_tree_digest": "sha256:30903402aa186aa6a108a14df8b1e3aadceefbe93d0827328c0b887259527b93",
+  "generated_at": "2026-08-31T14:43:09.601182+00:00",
+  "manifest_digest": "sha256:45080cfc5c2214f5a081dd18dbf6c2e522ae564907f65f0ec60a3eb263954c9c",
+  "manifest_path": "projects/codex-harness/evidence/phase-8/phase8-final-manifest.json",
+  "reviewed_facts": {
+    "artifact_tree_digest": "sha256:d3483dc817523c2b8921c1a9956e7a42b5df2bfc0ed89bc6c0c51a8a5f2efae7",
+    "browser_evidence_digest": "sha256:a7677c348e34a3661073d6f2b2963fc8a6a66a8fa6fccf21e3a929032658ab12",
+    "official_host_limitation": "HOST_LOAD_UNOBSERVABLE",
+    "package_fingerprint": "sha256:d96f162a4400520036a770ece08bd4ace9c3bf3e9e10b3144bdef22b50ea1823"
+  },
+  "reviewers": [
+    {
+      "critical": 0,
+      "decision": "FINDINGS",
+      "name": "Noether",
+      "role": "independent capability reviewer"
+    },
+    {
+      "critical": 0,
+      "decision": "FINDINGS",
+      "name": "Galileo",
+      "role": "independent frontend reviewer"
+    },
+    {
+      "capture_id": "P8-FINAL-REPAIR-002",
+      "decision": "PASS",
+      "name": "Einstein",
+      "role": "independent visual critic"
+    }
+  ],
+  "schema_version": "P8-REVIEW-ATTESTATION-1",
+  "status": "CONDITIONAL_PASS",
+  "support_level": "P8_LEVEL_A_CANDIDATE"
+}

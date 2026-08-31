@@ -1,0 +1,61 @@
+{
+  "schema_version": "P8-READINESS-1",
+  "phase": 8,
+  "status": "CONDITIONAL_PASS",
+  "support_level": "P8_LEVEL_A_CANDIDATE",
+  "promotion_state": "CANDIDATE_ONLY_NOT_PROMOTED",
+  "phase8_freeze": false,
+  "capability": {
+    "id": "frontend-engineering-vnext",
+    "version": "0.1.0",
+    "fingerprint": "sha256:d96f162a4400520036a770ece08bd4ace9c3bf3e9e10b3144bdef22b50ea1823",
+    "validation": "PASS",
+    "eval_count": 60,
+    "skill_bytes": 8593
+  },
+  "pilot": {
+    "stack": "dependency-free existing HTML/CSS/ES2022 plus Python stdlib loopback fixture",
+    "capture_id": "P8-FINAL-REPAIR-002",
+    "source_tree_digest": "sha256:1a6c39bec94f0fd403c8b0da3d9abf095b69507a85963b6335beddcb3e43289f",
+    "artifact_tree_digest": "sha256:d3483dc817523c2b8921c1a9956e7a42b5df2bfc0ed89bc6c0c51a8a5f2efae7",
+    "browser_evidence_digest": "sha256:a7677c348e34a3661073d6f2b2963fc8a6a66a8fa6fccf21e3a929032658ab12",
+    "final_verifier_receipt_digest": "sha256:85eacec2f45fb69ebecf515f77291be8d63d5e23cd26350debf684ce2c37eeab"
+  },
+  "quality": {
+    "critical_open": 0,
+    "high_open": 1,
+    "medium_actionable_open": 3,
+    "visual_review": "PASS",
+    "static_accessibility": "PASS",
+    "contrast_observation": "PASS",
+    "idempotency_observation": "PASS",
+    "official_phase4_composition": "BLOCKED_HOST_LOAD_UNOBSERVABLE"
+  },
+  "regression": {
+    "tests_passed": 1772,
+    "line_coverage_percent": 93.40563769376375,
+    "branch_coverage_percent": 90.36128336478835,
+    "ruff": "PASS",
+    "mypy": "PASS",
+    "javascript_syntax": "PASS"
+  },
+  "remaining_limits": [
+    "Official Phase 4 host is read-only and cannot observe workspace load, browser, filesystem or build causality.",
+    "Eval results are structural oracle checks, not execution of every scenario.",
+    "Browser evidence is one local Chromium observation; full keyboard, AT, reduced-motion, touch, zoom, cross-browser and broad security matrices remain out of scope.",
+    "No production, release, security approval, accessibility certification, pixel-perfect or universal compatibility claim is made."
+  ],
+  "evidence": [
+    "final-report.md",
+    "promotion-decision.md",
+    "composition-review.md",
+    "independent-capability-review.md",
+    "independent-frontend-review.md",
+    "independent-visual-review.md",
+    "security-report.md",
+    "interaction-observation.md",
+    "pilots/frontend-engineering/browser-evidence.json",
+    "pilots/frontend-engineering/phase4/frontend-real-post-repair-002/invocation-receipts/INV-75f00a187fb354d3a04141d1.json",
+    "pilots/frontend-engineering/phase4/verifier-final-post-repair-002/invocation-receipts/INV-6ec92339747c562d9d19eb8e.json"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "observed_at": "2026-08-31T14:29:50.990Z",
+  "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+  "device_pixel_ratio": 1,
+  "viewport": [
+    390,
+    844
+  ],
+  "fcp_ms": 100,
+  "lcp_ms": 100,
+  "lcp_element": "H1",
+  "cls": 0,
+  "resource_count": 3,
+  "external_resources": 0,
+  "scroll_width": 390,
+  "client_width": 390,
+  "horizontal_overflow": false,
+  "headings": [
+    "H1",
+    "H2",
+    "H2",
+    "H2"
+  ]
+}

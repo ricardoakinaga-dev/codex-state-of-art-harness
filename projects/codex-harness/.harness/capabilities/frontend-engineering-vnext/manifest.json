@@ -1,0 +1,170 @@
+{
+  "schema_version": "CM-1",
+  "capability_id": "frontend-engineering-vnext",
+  "display_name": "Frontend Engineering vNext",
+  "description": "A bounded project-local frontend specialist for architecture-preserving UI implementation, stateful browser behavior, responsive evidence and accessible handoff.",
+  "version": "0.1.0",
+  "type": "SPECIALIST",
+  "role": "SPECIALIST",
+  "primary_type": "SPECIALIST",
+  "status": "CANDIDATE",
+  "registry_bridge": false,
+  "scope": {
+    "scope": "PROJECT",
+    "installation_scope": "PROJECT",
+    "project_scope": "codex-state-of-art-harness",
+    "domains": ["FRONTEND_ENGINEERING", "ENGINEERING"],
+    "activates_when": [
+      "A material frontend surface or user flow must be implemented within an identified project boundary",
+      "Responsive layout, browser interaction, component/state behavior, forms, accessibility or frontend performance is part of acceptance",
+      "A stack decision and evidence-backed frontend handoff are required"
+    ],
+    "do_not_activate_when": [
+      "The task is only visual strategy, art direction, image generation or subjective critique",
+      "The task is backend-only, API-only, infrastructure-only, research-only or a trivial copy/edit",
+      "Factual verification, final security assurance, orchestration, release approval or global architecture authority is requested",
+      "The repository stack, bounded workspace or required observer is missing and no safe degraded route preserves the goal"
+    ],
+    "minimum_task_class": "SMALL",
+    "task_scale_policy": "TRIVIAL_DIRECT_SMALL_NARROW_MEDIUM_FULL_LARGE_COMPOSED_CRITICAL_ESCALATED"
+  },
+  "contracts": {
+    "inputs": [
+      "FrontendEngineeringInput",
+      "TaskProfile",
+      "FrozenAcceptanceCriteria",
+      "RepositoryContext",
+      "BoundedWorkspacePolicy",
+      "BrowserEvidenceProfile",
+      "SecurityProfile",
+      "PerformanceBudget"
+    ],
+    "outputs": [
+      "FrontendImplementationPlan",
+      "FrontendArtifact",
+      "StateInteractionContract",
+      "ResponsiveAccessibilityRecord",
+      "RenderEvidencePacket",
+      "PerformanceObservation",
+      "SecurityHandoff",
+      "VerifierHandoff"
+    ],
+    "gates": [
+      "P8_SCOPE_BOUND",
+      "P8_STACK_BOUND",
+      "P8_STATE_CONTRACT_BOUND",
+      "P8_RESPONSIVE_ACCESSIBILITY_BOUND",
+      "P8_EVIDENCE_BOUND",
+      "P8_SECURITY_ROUTE_BOUND",
+      "P8_BUDGET_BOUND"
+    ],
+    "stop_conditions": [
+      "TASK_COMPLETE",
+      "BLOCKING_TEST_FAILURE",
+      "MISSING_REQUIRED_CONTEXT",
+      "MISSING_REQUIRED_TOOL",
+      "UNSAFE_INPUT",
+      "SECURITY_REVIEW_REQUIRED",
+      "MISSING_RENDER",
+      "MISSING_INTERACTION_EVIDENCE",
+      "SCOPE_EXPANSION_REQUIRED",
+      "NO_PROGRESS",
+      "REPEATED_FAILURE",
+      "OSCILLATION",
+      "BUDGET_EXHAUSTED",
+      "HUMAN_DECISION_REQUIRED"
+    ]
+  },
+  "composition": {
+    "can_call": [],
+    "can_be_called_by": ["ROUTER", "ORCHESTRATOR", "ENGINEERING_DIRECTOR"],
+    "must_run_before": ["INTEGRATOR", "VERIFIER", "REVIEWER", "ASSURANCE"],
+    "must_run_after": ["CLASSIFICATION", "ACCEPTANCE"],
+    "conflicts_with": ["DESIGN_DIRECTOR", "VERIFIER", "REVIEWER", "ASSURANCE", "SECURITY_AUTHORITY", "RELEASE_AUTHORITY"],
+    "conflicts": ["DESIGN_DIRECTOR", "VERIFIER", "REVIEWER", "ASSURANCE", "SECURITY_AUTHORITY", "RELEASE_AUTHORITY"],
+    "optional": ["design-director", "e2e-testing", "tdd-workflow", "coding-standards", "security-review", "documentation-lookup"],
+    "do_not_combine": ["VERIFIER", "REVIEWER", "ASSURANCE", "RELEASE_AUTHORITY"],
+    "same_invocation_role": "SPECIALIST_ONLY",
+    "fresh_final_verification_required": true,
+    "repair_limit": 1
+  },
+  "dependencies": {
+    "capabilities": [],
+    "tools": [],
+    "providers": [],
+    "references": [
+      "references/architecture-boundaries.md",
+      "references/state-and-interaction.md",
+      "references/responsive-accessibility.md",
+      "references/rendering-evidence.md",
+      "references/testing-performance.md",
+      "references/security-handoff.md",
+      "references/role-boundaries.md"
+    ]
+  },
+  "compatibility": {
+    "host_features": ["phase3-native-manifest", "phase3-bounded-loader", "phase4-exact-byte-preflight", "bounded-project-workspace", "browser-evidence-boundary"],
+    "platform_limits": ["Existing repository stack is preferred", "Native browser observer may be required for render claims", "Framework/compiler evidence is conditional on repository support"],
+    "required_tools": ["A project test runner and a declared browser/render observer for visual claims"],
+    "optional_tools": ["TypeScript compiler", "Playwright", "axe-compatible browser audit"],
+    "support_level": "P8_LEVEL_B_CANDIDATE"
+  },
+  "provenance": {
+    "source_type": "PROJECT_LOCAL_NATIVE",
+    "source_refs": [
+      "evidence/phase-8/current-frontend-patterns-snapshot.json",
+      "evidence/phase-8/current-capability-analysis.md",
+      "evidence/phase-8/upstream-analysis.md",
+      "evidence/phase-8/codex-native-gap-analysis.md"
+    ],
+    "current_source_refs": ["evidence/phase-8/current-frontend-patterns-snapshot.json", "evidence/phase-8/current-capability-analysis.md"],
+    "upstream_source_refs": ["evidence/phase-8/upstream-analysis.md"],
+    "native_source_refs": ["evidence/phase-8/codex-native-gap-analysis.md", "../../architecture/docs/adr/ADR-017-frontend-engineering-vnext-modernization.md"],
+    "inspected_at": "2026-08-31T00:00:00-03:00",
+    "source_repository": "project-local",
+    "source_hash_scope": "phase-8-current-baseline-observation",
+    "origin": "PROJECT",
+    "precedence": 200,
+    "installation_scope": "PROJECT",
+    "project_scope": "codex-state-of-art-harness",
+    "forked_from": "frontend-patterns-current-baseline",
+    "authority_status": "PROJECT_LOCAL_CANDIDATE",
+    "confidence": "HIGH"
+  },
+  "security": {
+    "read_only": false,
+    "allowed_tools": ["host-bounded-local-test-runner", "host-bounded-browser-observer"],
+    "permissions": ["read_project_context", "write_only_host_granted_workspace", "emit_bounded_handoff_metadata"],
+    "data_classes": ["PROJECT_LOCAL_CODE", "SYNTHETIC_FIXTURE_DATA", "RENDER_EVIDENCE"],
+    "shell": {"allowed": false, "mode": "host_bounded_only"},
+    "network": {"allowed": false, "mode": "local_fixture_only"},
+    "mcp": {"allowed": false, "mode": "host_granted_observer_only"},
+    "provider": {"allowed": false, "mode": "deny"},
+    "credential": {"allowed": false, "mode": "deny"},
+    "credentials": {"allowed": false, "mode": "deny"},
+    "workspace_write": {"allowed": true, "mode": "host_bounded", "default": "deny_until_preflight"},
+    "secret_policy": "Never read, store, log or emit secrets."
+  },
+  "execution_policy": {
+    "allowed_tools": ["host-bounded-local-test-runner", "host-bounded-browser-observer"],
+    "shell": "deny",
+    "network": "deny",
+    "network_scope": "same_origin_local_fixture_only",
+    "mcp": "host_observer_only",
+    "providers": "deny",
+    "credentials": "deny",
+    "workspace_write": "host_bounded",
+    "arbitrary_interpolation": "deny",
+    "subagents": "host_orchestrator_only"
+  },
+  "metadata_only": true,
+  "execution": "HOST_BOUNDED_IMPLEMENTATION",
+  "read_only": false,
+  "identity_binding": ["manifest_digest", "package_fingerprint", "task_identity", "criteria_digest", "artifact_digest", "render_digests"],
+  "promotion_limit": "CANDIDATE_ONLY_UNTIL_CURRENT_EVAL_BENCHMARK_AND_INDEPENDENT_REVIEW",
+  "claims_excluded": ["production_ready", "aaa_quality", "stable", "security_approval", "accessibility_certification", "pixel_perfect", "all_browsers_verified", "all_viewports_verified", "universal_frontend_superiority", "causal_improvement", "full_host_causality"],
+  "profiles": "profiles.json",
+  "scripts": ["scripts/deterministic-procedures.json"],
+  "evals": ["evals/scenarios.json"],
+  "benchmarks": ["benchmarks/benchmark-fixtures.json"]
+}

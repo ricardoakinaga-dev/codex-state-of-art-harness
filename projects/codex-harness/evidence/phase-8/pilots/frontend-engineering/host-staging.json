@@ -1,0 +1,17 @@
+{
+  "schema_version": "P8-HOST-STAGING-1",
+  "source_package": ".harness/capabilities/frontend-engineering-vnext",
+  "staged_package": ".agents/skills/frontend-engineering-vnext",
+  "source_fingerprint": "sha256:d96f162a4400520036a770ece08bd4ace9c3bf3e9e10b3144bdef22b50ea1823",
+  "staged_fingerprint": "sha256:d96f162a4400520036a770ece08bd4ace9c3bf3e9e10b3144bdef22b50ea1823",
+  "exact_copy": true,
+  "verifier_source_package": ".harness/capabilities/verification-loop-vnext",
+  "verifier_staged_package": ".agents/skills/verification-loop-vnext",
+  "verifier_source_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "verifier_staged_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "verifier_exact_copy": true,
+  "policy": "config/phase8-execution-policy.json",
+  "host_skill_root": ".agents/skills",
+  "network": "DENY",
+  "filesystem": "READ_ONLY"
+}

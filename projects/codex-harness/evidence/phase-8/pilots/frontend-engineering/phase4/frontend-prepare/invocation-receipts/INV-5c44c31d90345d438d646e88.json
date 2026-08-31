@@ -1,0 +1,213 @@
+{
+  "artifacts": [],
+  "assurance": null,
+  "blockers": [],
+  "capability": "frontend-engineering-vnext",
+  "explain": {
+    "host_boundary": "official Codex app-server; no shell, scripts, tools, network, MCP, providers, credentials, or subagents",
+    "preflight": {
+      "allowed": true,
+      "blockers": [],
+      "digest": "sha256:255e243207bfac958e188d860c55bd8c94ee4518ce54691de9c909fd47d92eac",
+      "warnings": [
+        "SCRIPTS_PRESENT_NOT_EXECUTED",
+        "SCRIPTS_METADATA_ONLY",
+        "NETWORK_DENIED",
+        "SHELL_DENIED",
+        "MCP_DENIED",
+        "CREDENTIALS_DENIED"
+      ]
+    },
+    "resolution_blockers": [],
+    "resolution_status": "RESOLVED"
+  },
+  "host_invoked": false,
+  "host_result": {
+    "approval_request_count": 0,
+    "cancellation_status": "NOT_REQUESTED",
+    "completed_at": 1788182740,
+    "denied_approvals": 0,
+    "error_code": "NO_HOST_INVOCATION",
+    "events": [],
+    "execution_observed": false,
+    "final_message": null,
+    "host_command": [],
+    "host_executable_digest": null,
+    "host_executable_path": null,
+    "host_interpreter_digest": null,
+    "host_interpreter_path": null,
+    "host_version": "phase4-policy",
+    "invocation_observed": false,
+    "load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "mcp_event_count": 0,
+    "protocol_message_count": 0,
+    "protocol_messages": [],
+    "session_id": null,
+    "started_at": 1788182740,
+    "status": "PREPARED",
+    "thread_id": null,
+    "turn_id": null
+  },
+  "limitations": [
+    "NO_HOST_INVOCATION"
+  ],
+  "mode": "PREPARE_ONLY",
+  "package_fingerprint": "sha256:fa04139d1d12ec050be01a344f4b62207278cd0b0455bbf2f41d2651b32aec7b",
+  "preflight": {
+    "allowed": true,
+    "authorization": {
+      "allowed_side_effects": [],
+      "allowed_tools": [],
+      "artifact_policy": {
+        "max_bytes": 262144,
+        "max_count": 16,
+        "types": [
+          "HOST_RESPONSE"
+        ]
+      },
+      "authorization_id": "AUTH-3d7172b49eb45c1ba0d8d11d",
+      "capability_id": "frontend-engineering-vnext",
+      "capability_version": "0.1.0",
+      "constraints": [
+        "no arbitrary shell",
+        "no scripts",
+        "no network",
+        "no MCP",
+        "no providers",
+        "no credentials",
+        "no subagents"
+      ],
+      "context_budget": {
+        "max_bytes": 131072
+      },
+      "credential_policy": "DENY",
+      "evidence_policy": {
+        "max_count": 64,
+        "max_events": 512
+      },
+      "expires_at": 1788182800,
+      "filesystem_policy": {
+        "allowed_roots": [],
+        "artifact_root": "$WORKSPACE/.harness/phase4/artifacts",
+        "credentials": "DENY",
+        "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+        "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+        "max_bytes": 16777216,
+        "max_files": 256,
+        "mcp": "DENY",
+        "mode": "READ_ONLY",
+        "network": "DENY",
+        "package_path": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/frontend-engineering-vnext",
+        "package_write_allowed": false,
+        "providers": "DENY",
+        "shell": "DENY",
+        "workspace": "$WORKSPACE"
+      },
+      "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+      "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+      "issued_at": 1788182740,
+      "issued_by": "phase4-preflight",
+      "iteration_budget": {
+        "host_calls": 1,
+        "repair_iterations": 0,
+        "tool_calls": 0,
+        "verification_iterations": 1
+      },
+      "mcp_policy": "DENY",
+      "network_policy": "DENY",
+      "package_fingerprint": "sha256:fa04139d1d12ec050be01a344f4b62207278cd0b0455bbf2f41d2651b32aec7b",
+      "provider_policy": "DENY",
+      "reason": "exact project-local frontend specialist; host invocation is response-only and browser/file observers remain separately bounded",
+      "requested_execution_mode": "PREPARE_ONLY",
+      "requested_loading_level": "L2_INSTRUCTION_KERNEL",
+      "run_id": "RUN-P4-307b74e942d8",
+      "scope": "PROJECT",
+      "shell_policy": "DENY",
+      "task_id": "TASK-P4-a91e8edcafdb",
+      "timeout_seconds": 60
+    },
+    "blockers": [],
+    "context": {
+      "acceptance_criteria": [
+        "The response identifies the existing stack and preserves it.",
+        "The response covers loading, success, empty, error, retry, form validation and double-submit behavior.",
+        "The response requires browser render and accessibility evidence before promotion."
+      ],
+      "capability_id": "frontend-engineering-vnext",
+      "digest": "sha256:fa2f9cf098d521ba4facebb26122d90b47cc06b2abdab114668bd16edc0215fa",
+      "estimated_bytes": 17876,
+      "omitted_references": [],
+      "package_fingerprint": "sha256:fa04139d1d12ec050be01a344f4b62207278cd0b0455bbf2f41d2651b32aec7b",
+      "selected_references": [
+        "references/architecture-boundaries.md",
+        "references/rendering-evidence.md",
+        "references/responsive-accessibility.md",
+        "references/role-boundaries.md",
+        "references/security-handoff.md",
+        "references/state-and-interaction.md",
+        "references/testing-performance.md"
+      ],
+      "skill_path": "$HOME/\u00c1rea de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/frontend-engineering-vnext/SKILL.md",
+      "sources": [
+        "HOST_MANAGED_SKILL"
+      ],
+      "task_digest": "sha256:488a5adb9e108d1b50727f5e87d26210bf018cf8224bb13c6854449ba8d8938c",
+      "task_id": "TASK-P4-a91e8edcafdb"
+    },
+    "digest": "sha256:255e243207bfac958e188d860c55bd8c94ee4518ce54691de9c909fd47d92eac",
+    "mode": "PREPARE_ONLY",
+    "warnings": [
+      "SCRIPTS_PRESENT_NOT_EXECUTED",
+      "SCRIPTS_METADATA_ONLY",
+      "NETWORK_DENIED",
+      "SHELL_DENIED",
+      "MCP_DENIED",
+      "CREDENTIALS_DENIED"
+    ]
+  },
+  "receipt": {
+    "artifact_refs": [],
+    "authorization_digest": "sha256:246d3536acf7ce6d81abd9e6732521da1974df0ab16fc38e02a9342ff9b15fe1",
+    "authorization_id": "AUTH-3d7172b49eb45c1ba0d8d11d",
+    "capability_id": "frontend-engineering-vnext",
+    "capability_version": "0.1.0",
+    "closed_at": 1788182740,
+    "context_digest": "sha256:fa2f9cf098d521ba4facebb26122d90b47cc06b2abdab114668bd16edc0215fa",
+    "created_at": 1788182740,
+    "host_command": [],
+    "host_event_count": 0,
+    "host_event_digest": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "host_executable_digest": null,
+    "host_executable_path": null,
+    "host_interpreter_digest": null,
+    "host_interpreter_path": null,
+    "host_invoked": false,
+    "host_load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "invocation_id": "INV-5c44c31d90345d438d646e88",
+    "lifecycle": [
+      "DISCOVERED",
+      "RESOLVED",
+      "AUTHORIZED",
+      "CONTEXT_PREPARED",
+      "CLOSED"
+    ],
+    "mode": "PREPARE_ONLY",
+    "package_fingerprint": "sha256:fa04139d1d12ec050be01a344f4b62207278cd0b0455bbf2f41d2651b32aec7b",
+    "receipt_digest": "sha256:c227294dff275e6b51ea6709da73e94a96dc218ba8cb1cb9c77bea11e6dadb37",
+    "request_digest": "sha256:3ede9314afab45e562ad20fe3dd1e3bcea4108010422dbd4e9bc72def16b1239",
+    "result_digest": "sha256:e1ab9a70327f6ecda649d8011aedb8ad7f9f0b8a9d38205a7cfb0832132570e6",
+    "status": "PREPARED",
+    "verification_refs": []
+  },
+  "schema_version": "P4-OUTCOME-1",
+  "status": "PREPARED",
+  "verification": null,
+  "warnings": [
+    "SCRIPTS_PRESENT_NOT_EXECUTED",
+    "SCRIPTS_METADATA_ONLY",
+    "NETWORK_DENIED",
+    "SHELL_DENIED",
+    "MCP_DENIED",
+    "CREDENTIALS_DENIED"
+  ]
+}

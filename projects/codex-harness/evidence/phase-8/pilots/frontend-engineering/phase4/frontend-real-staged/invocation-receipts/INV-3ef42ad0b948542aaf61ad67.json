@@ -1,0 +1,654 @@
+{
+  "artifacts": [],
+  "assurance": {
+    "decision": "STOP",
+    "limitations": [
+      "HOST_LOAD_UNOBSERVABLE"
+    ],
+    "reason": "result did not satisfy the bounded verification chain",
+    "verification_digest": "sha256:52bf8b2cdef4c17c980c8fbcdc654811c0307cdf6f851605291e018e39d82654"
+  },
+  "blockers": [],
+  "capability": "frontend-engineering-vnext",
+  "explain": {
+    "host_boundary": "official Codex app-server; no shell, scripts, tools, network, MCP, providers, credentials, or subagents",
+    "preflight": {
+      "allowed": true,
+      "blockers": [],
+      "digest": "sha256:2f1b60c47a8b416b950ffd9d36e7f1dadca8d2d650e27a9cf620f072a12ff443",
+      "warnings": [
+        "NETWORK_DENIED",
+        "SHELL_DENIED",
+        "MCP_DENIED",
+        "CREDENTIALS_DENIED"
+      ]
+    },
+    "resolution_blockers": [],
+    "resolution_status": "RESOLVED"
+  },
+  "host_invoked": true,
+  "host_result": {
+    "approval_request_count": 0,
+    "cancellation_status": "NOT_REQUESTED",
+    "completed_at": 1788182893,
+    "denied_approvals": 0,
+    "error_code": "HOST_TURN_NOT_COMPLETED",
+    "events": [
+      {
+        "detail": null,
+        "event_class": "HOST_INVOCATION_ACKNOWLEDGED",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a05801-4699-7622-962c-368538a62946",
+        "item_type": null,
+        "method": "turn/start",
+        "sequence": 0,
+        "status": "started",
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": "01a05801-4699-7622-962c-368538a62946"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "thread/status/changed",
+        "sequence": 1,
+        "status": null,
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "turn/started",
+        "sequence": 2,
+        "status": "inProgress",
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": "01a05801-4699-7622-962c-368538a62946"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a05801-4a43-7fe3-ae2b-f21daf64eb76",
+        "item_type": "userMessage",
+        "method": "item/started",
+        "sequence": 3,
+        "status": null,
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": "01a05801-4699-7622-962c-368538a62946"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": "01a05801-4a43-7fe3-ae2b-f21daf64eb76",
+        "item_type": "userMessage",
+        "method": "item/completed",
+        "sequence": 4,
+        "status": null,
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": "01a05801-4699-7622-962c-368538a62946"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "error",
+        "sequence": 5,
+        "status": null,
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": "01a05801-4699-7622-962c-368538a62946"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "error",
+        "sequence": 6,
+        "status": null,
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": "01a05801-4699-7622-962c-368538a62946"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "error",
+        "sequence": 7,
+        "status": null,
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": "01a05801-4699-7622-962c-368538a62946"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "error",
+        "sequence": 8,
+        "status": null,
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": "01a05801-4699-7622-962c-368538a62946"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "warning",
+        "sequence": 9,
+        "status": null,
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "error",
+        "sequence": 10,
+        "status": null,
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": "01a05801-4699-7622-962c-368538a62946"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "error",
+        "sequence": 11,
+        "status": null,
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": "01a05801-4699-7622-962c-368538a62946"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "error",
+        "sequence": 12,
+        "status": null,
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": "01a05801-4699-7622-962c-368538a62946"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "error",
+        "sequence": 13,
+        "status": null,
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": "01a05801-4699-7622-962c-368538a62946"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "error",
+        "sequence": 14,
+        "status": null,
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": "01a05801-4699-7622-962c-368538a62946"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "thread/status/changed",
+        "sequence": 15,
+        "status": null,
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": null
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "error",
+        "sequence": 16,
+        "status": null,
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": "01a05801-4699-7622-962c-368538a62946"
+      },
+      {
+        "detail": null,
+        "event_class": "HOST_EVENT",
+        "fact_status": "HOST_OBSERVED",
+        "item_id": null,
+        "item_type": null,
+        "method": "turn/completed",
+        "sequence": 17,
+        "status": "failed",
+        "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+        "turn_id": "01a05801-4699-7622-962c-368538a62946"
+      }
+    ],
+    "execution_observed": true,
+    "final_message": null,
+    "host_command": [
+      "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+      "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "features.apps=false",
+      "app-server",
+      "--listen",
+      "stdio://"
+    ],
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_executable_path": "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+    "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+    "host_interpreter_path": "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+    "host_version": "codex-state-of-art-harness/0.151.0 (Linux Mint 22.3.0; x86_64) dumb (codex-state-of-art-harness; 0.1.0)",
+    "invocation_observed": true,
+    "load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "mcp_event_count": 0,
+    "protocol_message_count": 24,
+    "protocol_messages": [
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 0
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "configWarning",
+        "sequence": 1
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "remoteControl/status/changed",
+        "sequence": 2
+      },
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 3
+      },
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 4
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/started",
+        "sequence": 5
+      },
+      {
+        "has_error": false,
+        "has_id": true,
+        "message_kind": "response",
+        "method": null,
+        "sequence": 6
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/status/changed",
+        "sequence": 7
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "turn/started",
+        "sequence": 8
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/started",
+        "sequence": 9
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "item/completed",
+        "sequence": 10
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 11
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 12
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 13
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 14
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "warning",
+        "sequence": 15
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 16
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 17
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 18
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 19
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 20
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "thread/status/changed",
+        "sequence": 21
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "error",
+        "sequence": 22
+      },
+      {
+        "has_error": false,
+        "has_id": false,
+        "message_kind": "notification",
+        "method": "turn/completed",
+        "sequence": 23
+      }
+    ],
+    "session_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+    "started_at": 1788182871,
+    "status": "FAILURE",
+    "thread_id": "01a05801-45f9-70b2-a1cf-5be22cd493d1",
+    "turn_id": "01a05801-4699-7622-962c-368538a62946"
+  },
+  "limitations": [
+    "HOST_LOAD_UNOBSERVABLE"
+  ],
+  "mode": "CONTROLLED_REAL",
+  "package_fingerprint": "sha256:fa04139d1d12ec050be01a344f4b62207278cd0b0455bbf2f41d2651b32aec7b",
+  "preflight": {
+    "allowed": true,
+    "authorization": {
+      "allowed_side_effects": [],
+      "allowed_tools": [],
+      "artifact_policy": {
+        "max_bytes": 262144,
+        "max_count": 16,
+        "types": [
+          "HOST_RESPONSE"
+        ]
+      },
+      "authorization_id": "AUTH-f16bf6aba4e0501bad74468c",
+      "capability_id": "frontend-engineering-vnext",
+      "capability_version": "0.1.0",
+      "constraints": [
+        "no arbitrary shell",
+        "no scripts",
+        "no network",
+        "no MCP",
+        "no providers",
+        "no credentials",
+        "no subagents"
+      ],
+      "context_budget": {
+        "max_bytes": 131072
+      },
+      "credential_policy": "DENY",
+      "evidence_policy": {
+        "max_count": 64,
+        "max_events": 512
+      },
+      "expires_at": 1788182961,
+      "filesystem_policy": {
+        "allowed_roots": [],
+        "artifact_root": "$WORKSPACE/.harness/phase4/artifacts",
+        "credentials": "DENY",
+        "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+        "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+        "max_bytes": 16777216,
+        "max_files": 256,
+        "mcp": "DENY",
+        "mode": "READ_ONLY",
+        "network": "DENY",
+        "package_path": "$WORKSPACE/.agents/skills/frontend-engineering-vnext",
+        "package_write_allowed": false,
+        "providers": "DENY",
+        "shell": "DENY",
+        "workspace": "$WORKSPACE"
+      },
+      "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+      "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+      "issued_at": 1788182871,
+      "issued_by": "phase4-preflight",
+      "iteration_budget": {
+        "host_calls": 1,
+        "repair_iterations": 0,
+        "tool_calls": 0,
+        "verification_iterations": 1
+      },
+      "mcp_policy": "DENY",
+      "network_policy": "DENY",
+      "package_fingerprint": "sha256:fa04139d1d12ec050be01a344f4b62207278cd0b0455bbf2f41d2651b32aec7b",
+      "provider_policy": "DENY",
+      "reason": "exact project-local frontend specialist; host invocation is response-only and browser/file observers remain separately bounded",
+      "requested_execution_mode": "CONTROLLED_REAL",
+      "requested_loading_level": "L2_INSTRUCTION_KERNEL",
+      "run_id": "RUN-P4-d73c87a9ac5f",
+      "scope": "PROJECT",
+      "shell_policy": "DENY",
+      "task_id": "TASK-P4-f0d63c3bd654",
+      "timeout_seconds": 90
+    },
+    "blockers": [],
+    "context": {
+      "acceptance_criteria": [
+        "The response names the existing stack and does not propose an unbounded framework migration.",
+        "The response covers all required state and interaction branches.",
+        "The response explicitly hands off security and final verification."
+      ],
+      "capability_id": "frontend-engineering-vnext",
+      "digest": "sha256:986656efcb6178749ec405e1a9c140626b61edfda05aebb91699911479f8ef97",
+      "estimated_bytes": 17876,
+      "omitted_references": [],
+      "package_fingerprint": "sha256:fa04139d1d12ec050be01a344f4b62207278cd0b0455bbf2f41d2651b32aec7b",
+      "selected_references": [
+        "references/architecture-boundaries.md",
+        "references/rendering-evidence.md",
+        "references/responsive-accessibility.md",
+        "references/role-boundaries.md",
+        "references/security-handoff.md",
+        "references/state-and-interaction.md",
+        "references/testing-performance.md"
+      ],
+      "skill_path": "$WORKSPACE/.agents/skills/frontend-engineering-vnext/SKILL.md",
+      "sources": [
+        "HOST_MANAGED_SKILL"
+      ],
+      "task_digest": "sha256:4052e3389908af1edbcd698a3393bb736116d91ee0878a9c61821c2343816c0c",
+      "task_id": "TASK-P4-f0d63c3bd654"
+    },
+    "digest": "sha256:2f1b60c47a8b416b950ffd9d36e7f1dadca8d2d650e27a9cf620f072a12ff443",
+    "mode": "CONTROLLED_REAL",
+    "warnings": [
+      "NETWORK_DENIED",
+      "SHELL_DENIED",
+      "MCP_DENIED",
+      "CREDENTIALS_DENIED"
+    ]
+  },
+  "receipt": {
+    "artifact_refs": [],
+    "authorization_digest": "sha256:a32113436b3e7ad11c7cbdf22c6cbbbae70ab3e7c31a064d88c7a5e7c191ce7d",
+    "authorization_id": "AUTH-f16bf6aba4e0501bad74468c",
+    "capability_id": "frontend-engineering-vnext",
+    "capability_version": "0.1.0",
+    "closed_at": 1788182894,
+    "context_digest": "sha256:986656efcb6178749ec405e1a9c140626b61edfda05aebb91699911479f8ef97",
+    "created_at": 1788182871,
+    "host_command": [
+      "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+      "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "features.apps=false",
+      "app-server",
+      "--listen",
+      "stdio://"
+    ],
+    "host_event_count": 18,
+    "host_event_digest": "sha256:448c7a439eb4dc51d17240e25dbc9c580e96c06fedad126fd3731a323053d34f",
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_executable_path": "$HOME/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+    "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+    "host_interpreter_path": "$HOME/.nvm/versions/node/v22.22.2/bin/node",
+    "host_invoked": true,
+    "host_load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "invocation_id": "INV-3ef42ad0b948542aaf61ad67",
+    "lifecycle": [
+      "DISCOVERED",
+      "RESOLVED",
+      "AUTHORIZED",
+      "CONTEXT_PREPARED",
+      "INVOCATION_REQUESTED",
+      "HOST_ACKNOWLEDGED",
+      "EXECUTING",
+      "RESULT_RECEIVED",
+      "VERIFYING",
+      "FAILED",
+      "CLOSED"
+    ],
+    "mode": "CONTROLLED_REAL",
+    "package_fingerprint": "sha256:fa04139d1d12ec050be01a344f4b62207278cd0b0455bbf2f41d2651b32aec7b",
+    "receipt_digest": "sha256:9080c935131fbd90ef5476883f6a93378cd890cadb12762952eb648dc616f2fe",
+    "request_digest": "sha256:75a210a90982d8d50730148220adfebb623d17e9defe5daf69e4a7d4792a556b",
+    "result_digest": "sha256:0bc4ef3d8200242edae2ccbb779f3a379a566ce762359e3935c4fb92e8e2a642",
+    "status": "FAILURE",
+    "verification_refs": [
+      "sha256:52bf8b2cdef4c17c980c8fbcdc654811c0307cdf6f851605291e018e39d82654"
+    ]
+  },
+  "schema_version": "P4-OUTCOME-1",
+  "status": "FAILURE",
+  "verification": {
+    "acceptance_criteria": [
+      "The response names the existing stack and does not propose an unbounded framework migration.",
+      "The response covers all required state and interaction branches.",
+      "The response explicitly hands off security and final verification."
+    ],
+    "artifact_refs": [],
+    "checks": [
+      "REQUEST_DIGEST_BOUND",
+      "HOST_EXECUTABLE_PROVENANCE_BOUND",
+      "HOST_INTERPRETER_PROVENANCE_BOUND",
+      "ACCEPTANCE_NOT_AUTOMATICALLY_EVALUATED:The response names the existing stack and does not propose an unbounded framework migration.",
+      "ACCEPTANCE_NOT_AUTOMATICALLY_EVALUATED:The response covers all required state and interaction branches.",
+      "ACCEPTANCE_NOT_AUTOMATICALLY_EVALUATED:The response explicitly hands off security and final verification.",
+      "RECEIPT_REFERENCE_CORRELATED",
+      "EVIDENCE_REFERENCES_PRESENT"
+    ],
+    "digest": "sha256:52bf8b2cdef4c17c980c8fbcdc654811c0307cdf6f851605291e018e39d82654",
+    "evidence_refs": [
+      "receipt://INV-3ef42ad0b948542aaf61ad67"
+    ],
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+    "reason": "host result status is FAILURE; host response is empty; exactly one host-response artifact is required; acceptance requires human or capability review: The response names the existing stack and does not propose an unbounded framework migration.; acceptance requires human or capability review: The response covers all required state and interaction branches.; acceptance requires human or capability review: The response explicitly hands off security and final verification.",
+    "request_digest": "sha256:75a210a90982d8d50730148220adfebb623d17e9defe5daf69e4a7d4792a556b",
+    "status": "FAILED"
+  },
+  "warnings": [
+    "NETWORK_DENIED",
+    "SHELL_DENIED",
+    "MCP_DENIED",
+    "CREDENTIALS_DENIED"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "gate_id": "PHASE8-FINAL-0001",
+  "phase": 8,
+  "task_id": "PHASE8-001",
+  "status": "CONDITIONAL_PASS",
+  "support_level": "P8_LEVEL_A_CANDIDATE",
+  "promotion_state": "CANDIDATE_ONLY_NOT_PROMOTED",
+  "freeze_created": false,
+  "package": {
+    "capability_id": "frontend-engineering-vnext",
+    "version": "0.1.0",
+    "fingerprint": "sha256:d96f162a4400520036a770ece08bd4ace9c3bf3e9e10b3144bdef22b50ea1823",
+    "validation": "PASS"
+  },
+  "packet": {
+    "manifest_path": "evidence/phase-8/phase8-final-manifest.json",
+    "manifest_digest": "sha256:45080cfc5c2214f5a081dd18dbf6c2e522ae564907f65f0ec60a3eb263954c9c",
+    "attestation_path": "evidence/phase-8/review-attestation.json",
+    "attestation_digest": "sha256:9f222ed2fe4ff7aed94ec545afc30426038b7e4038100a4bbb9f765a66d0901c",
+    "entry_tree_digest": "sha256:30903402aa186aa6a108a14df8b1e3aadceefbe93d0827328c0b887259527b93",
+    "source_tree_digest": "sha256:1a6c39bec94f0fd403c8b0da3d9abf095b69507a85963b6335beddcb3e43289f",
+    "artifact_tree_digest": "sha256:d3483dc817523c2b8921c1a9956e7a42b5df2bfc0ed89bc6c0c51a8a5f2efae7",
+    "browser_evidence_digest": "sha256:a7677c348e34a3661073d6f2b2963fc8a6a66a8fa6fccf21e3a929032658ab12",
+    "final_verification_digest": "sha256:03702a5c7884580ec1a0d8d678da80f3da1a6398ab834f72c5c4381d12c975ac",
+    "final_verifier_receipt_digest": "sha256:85eacec2f45fb69ebecf515f77291be8d63d5e23cd26350debf684ce2c37eeab"
+  },
+  "verification": {
+    "tests_passed": 1772,
+    "focused_phase8_tests_passed": 14,
+    "line_coverage_percent": 93.40563769376375,
+    "branch_coverage_percent": 90.36128336478835,
+    "ruff": "PASS",
+    "mypy": "PASS",
+    "javascript_syntax": "PASS",
+    "static_accessibility": "PASS",
+    "visual_review": "PASS",
+    "official_composition": "BLOCKED_HOST_LOAD_UNOBSERVABLE"
+  },
+  "open_findings": {
+    "critical": 0,
+    "high": 1,
+    "medium_actionable": 3
+  },
+  "limitations": [
+    "The official Phase 4 host is enforced read-only and cannot observe package load, filesystem, browser or verifier causality.",
+    "The 60 evals are structural oracles, not execution of every browser scenario.",
+    "Runtime evidence is one local Chromium observation and does not certify all keyboard, AT, reduced-motion, touch, zoom, cross-browser or security behavior.",
+    "No production, release, security approval, accessibility certification, pixel-perfect or universal claim is made."
+  ],
+  "next_gate": "PHASE9_BROWSER_OBSERVER_NATIVE_INTEGRATION"
+}

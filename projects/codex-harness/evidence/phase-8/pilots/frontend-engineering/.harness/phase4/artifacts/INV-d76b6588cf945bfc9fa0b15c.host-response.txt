@@ -1,0 +1,13 @@
+Verification result: PASS — supplied-fact handoff only.
+
+- Identity binding: final artifact tree `sha256:cf522d70…82ecc6` is bound to browser evidence `sha256:0b02e2…0489b`; package fingerprint is `sha256:d96f162…a1823`.
+- Build receipt: index 11,257 B; styles 20,521 B; app 13,079 B; fixture 7,261 B.
+- Rendering: zero horizontal overflow at 1440×900, 1024×768, 768×1024, and 390×844.
+- Accessibility evidence: PASS; one `h1`, hierarchical headings, landmarks, nine labelled controls, and two live regions.
+- Interaction evidence covers loading, success, empty, error, Retry recovery, validation focus, Review filtering focus, one-POST double-submit guard, and submission-error recovery.
+- Observations: FCP/LCP 140 ms, CLS 0, zero external resources, and zero default-console errors.
+- Policy: shell, network, MCP, providers, and credentials remained denied.
+
+Limitations: This report verifies only the supplied immutable facts; it does not independently execute or inspect artifacts. Evidence is from a single Chromium environment. Host-load causality is unobservable. No production, security, accessibility-certification, pixel-perfect, or all-browser claim is made.
+
+Stop decision: `ALL_REQUIRED_CRITERIA_RESOLVED`. This is a factual handoff, not release or security approval.

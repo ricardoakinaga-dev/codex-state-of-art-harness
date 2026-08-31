@@ -1,0 +1,80 @@
+{
+  "schema_version": "P6-PROFILES-1",
+  "capability_id": "verification-loop-vnext",
+  "profile_ids": [
+    "FOCUSED",
+    "DOMAIN",
+    "FULL",
+    "VISUAL",
+    "STRUCTURAL",
+    "SECURITY_AWARE",
+    "COMPOSITION"
+  ],
+  "default_profile": "FOCUSED",
+  "profiles": [
+    {
+      "id": "FOCUSED",
+      "purpose": "Check a small frozen criterion set with direct evidence.",
+      "gates": ["identity", "criteria", "freshness"],
+      "max_criteria": 8,
+      "max_procedures": 8,
+      "max_reference_bytes": 16384,
+      "visual_quality_authority": "EXCLUDED"
+    },
+    {
+      "id": "DOMAIN",
+      "purpose": "Check one declared engineering domain with bounded evidence.",
+      "gates": ["identity", "criteria", "domain_scope", "freshness"],
+      "max_criteria": 16,
+      "max_procedures": 16,
+      "max_reference_bytes": 32768,
+      "visual_quality_authority": "EXCLUDED"
+    },
+    {
+      "id": "FULL",
+      "purpose": "Check all supplied required criteria within the run budget.",
+      "gates": ["identity", "criteria", "role", "freshness", "budget"],
+      "max_criteria": 64,
+      "max_procedures": 32,
+      "max_reference_bytes": 65536,
+      "visual_quality_authority": "EXCLUDED"
+    },
+    {
+      "id": "VISUAL",
+      "purpose": "Check visual artifact identity and structural metadata only.",
+      "gates": ["identity", "artifact_metadata", "freshness", "role"],
+      "max_criteria": 16,
+      "max_procedures": 16,
+      "max_reference_bytes": 32768,
+      "visual_quality_authority": "EXCLUDED"
+    },
+    {
+      "id": "STRUCTURAL",
+      "purpose": "Check files, schemas, links, ownership and deterministic structure.",
+      "gates": ["identity", "structure", "path_safety", "freshness"],
+      "max_criteria": 32,
+      "max_procedures": 24,
+      "max_reference_bytes": 49152,
+      "visual_quality_authority": "EXCLUDED"
+    },
+    {
+      "id": "SECURITY_AWARE",
+      "purpose": "Check read-only boundaries, unsafe input handling and role escalation.",
+      "gates": ["identity", "path_safety", "tool_policy", "role", "freshness"],
+      "max_criteria": 32,
+      "max_procedures": 32,
+      "max_reference_bytes": 65536,
+      "visual_quality_authority": "EXCLUDED"
+    },
+    {
+      "id": "COMPOSITION",
+      "purpose": "Check verifier inputs and fresh reports at a declared composition boundary.",
+      "gates": ["identity", "role", "criteria", "freshness", "budget", "finality"],
+      "max_criteria": 32,
+      "max_procedures": 32,
+      "max_reference_bytes": 65536,
+      "visual_quality_authority": "EXCLUDED"
+    }
+  ],
+  "selection_rule": "Select the smallest profile whose gates cover the frozen input; never widen scope implicitly."
+}

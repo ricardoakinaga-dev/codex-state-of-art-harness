@@ -1,0 +1,59 @@
+{
+  "schema_version": "P4-POLICY-1",
+  "rules": [
+    {
+      "capability_id": "frontend-engineering-vnext",
+      "version": "0.1.0",
+      "package_fingerprint": "sha256:d96f162a4400520036a770ece08bd4ace9c3bf3e9e10b3144bdef22b50ea1823",
+      "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+      "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+      "execution_approved": true,
+      "allowed_modes": [
+        "DRY_RUN",
+        "PREPARE_ONLY",
+        "CONTROLLED_REAL"
+      ],
+      "allowed_tools": [],
+      "allowed_side_effects": [],
+      "allowed_providers": [],
+      "allow_scripts": false,
+      "allow_network": false,
+      "allow_shell": false,
+      "allow_mcp": false,
+      "allow_credentials": false,
+      "expected_artifact_types": [
+        "HOST_RESPONSE"
+      ],
+      "reason": "exact project-local frontend specialist; host invocation is response-only and browser/file observers remain separately bounded",
+      "filesystem_mode": "READ_ONLY",
+      "workspace_write_roots": []
+    },
+    {
+      "capability_id": "verification-loop-vnext",
+      "version": "0.1.0",
+      "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+      "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+      "host_interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+      "execution_approved": true,
+      "allowed_modes": [
+        "DRY_RUN",
+        "PREPARE_ONLY",
+        "CONTROLLED_REAL"
+      ],
+      "allowed_tools": [],
+      "allowed_side_effects": [],
+      "allowed_providers": [],
+      "allow_scripts": false,
+      "allow_network": false,
+      "allow_shell": false,
+      "allow_mcp": false,
+      "allow_credentials": false,
+      "expected_artifact_types": [
+        "HOST_RESPONSE"
+      ],
+      "reason": "exact project-local read-only vNext verifier; final artifact evidence is supplied as bounded context",
+      "filesystem_mode": "READ_ONLY",
+      "workspace_write_roots": []
+    }
+  ]
+}

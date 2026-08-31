@@ -1,0 +1,12 @@
+Verification status: `BLOCKED`
+
+Stop decision: `HOST_LOAD_UNOBSERVABLE`
+
+- Supplied artifact identity: `sha256:d3483dc817523c2b8921c1a9956e7a42b5df2bfc0ed89bc6c0c51a8a5f2efae7`
+- Supplied browser-evidence identity: `sha256:a7677c348e34a3661073d6f2b2963fc8a6a66a8fa6fccf21e3a929032658ab12`
+- Binding: `UNKNOWN` — the supplied identities are recorded, but their relationship could not be observed.
+- Capture `P8-FINAL-REPAIR-002`: `NOT_RUN`
+- `POST_BUILD` records at 1440×900, 1024×768, 768×1024, and 390×844: `NOT_RUN`
+- Accessibility interaction and performance observations: `UNKNOWN`; no claims extend beyond the referenced local Chromium evidence.
+
+No production, security, accessibility-conformance, pixel-perfect, universal-browser, release, or approval claim is made.

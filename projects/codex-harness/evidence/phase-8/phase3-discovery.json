@@ -1,0 +1,651 @@
+{
+  "activates_when": [
+    "A material frontend surface or user flow must be implemented within an identified project boundary",
+    "Responsive layout, browser interaction, component/state behavior, forms, accessibility or frontend performance is part of acceptance",
+    "A stack decision and evidence-backed frontend handoff are required"
+  ],
+  "agents": [],
+  "assets": [],
+  "benchmarks": [
+    "benchmarks/benchmark-fixtures.json"
+  ],
+  "capability_id": "frontend-engineering-vnext",
+  "command_returncode": 0,
+  "compatibility": {
+    "confidence": "INFERRED",
+    "missing_features": [],
+    "platform_limits": [
+      "Existing repository stack is preferred",
+      "Native browser observer may be required for render claims",
+      "Framework/compiler evidence is conditional on repository support"
+    ],
+    "portability_debt": [
+      "unverified host requirement: Existing repository stack is preferred",
+      "unverified host requirement: Native browser observer may be required for render claims",
+      "unverified host requirement: Framework/compiler evidence is conditional on repository support"
+    ],
+    "reasons": [
+      "requirements not represented by a verified host capability contract"
+    ],
+    "required_features": [
+      "Existing repository stack is preferred",
+      "Native browser observer may be required for render claims",
+      "Framework/compiler evidence is conditional on repository support"
+    ],
+    "status": "PARTIAL"
+  },
+  "conflicts": [
+    "DESIGN_DIRECTOR",
+    "VERIFIER",
+    "REVIEWER",
+    "ASSURANCE",
+    "SECURITY_AUTHORITY",
+    "RELEASE_AUTHORITY"
+  ],
+  "content_hash": "sha256:d96f162a4400520036a770ece08bd4ace9c3bf3e9e10b3144bdef22b50ea1823",
+  "dependencies": [],
+  "description": "A bounded project-local frontend specialist for architecture-preserving UI implementation, stateful browser behavior, responsive evidence and accessible handoff.",
+  "directories": [
+    "benchmarks",
+    "evals",
+    "references",
+    "scripts"
+  ],
+  "display_name": "Frontend Engineering vNext",
+  "do_not_activate_when": [
+    "The task is only visual strategy, art direction, image generation or subjective critique",
+    "The task is backend-only, API-only, infrastructure-only, research-only or a trivial copy/edit",
+    "Factual verification, final security assurance, orchestration, release approval or global architecture authority is requested",
+    "The repository stack, bounded workspace or required observer is missing and no safe degraded route preserves the goal"
+  ],
+  "evals": [
+    "evals/scenarios.json"
+  ],
+  "examples": [],
+  "explanation": {
+    "compatibility": {
+      "confidence": "INFERRED",
+      "missing_features": [],
+      "platform_limits": [
+        "Existing repository stack is preferred",
+        "Native browser observer may be required for render claims",
+        "Framework/compiler evidence is conditional on repository support"
+      ],
+      "portability_debt": [
+        "unverified host requirement: Existing repository stack is preferred",
+        "unverified host requirement: Native browser observer may be required for render claims",
+        "unverified host requirement: Framework/compiler evidence is conditional on repository support"
+      ],
+      "reasons": [
+        "requirements not represented by a verified host capability contract"
+      ],
+      "required_features": [
+        "Existing repository stack is preferred",
+        "Native browser observer may be required for render claims",
+        "Framework/compiler evidence is conditional on repository support"
+      ],
+      "status": "PARTIAL"
+    },
+    "execution": {
+      "host_loaded": false,
+      "providers": "METADATA_ONLY",
+      "scripts": "DISABLED_PHASE3"
+    },
+    "load_eligibility": "ELIGIBLE_DECLARATIVE_METADATA_ONLY",
+    "routing": {
+      "activation_guarded": true,
+      "estimated_context_tokens": 40,
+      "load_eligibility": "ELIGIBLE_DECLARATIVE_METADATA_ONLY"
+    },
+    "selection": {
+      "precedence": "explicit pin > project > workspace > approved shared > global > system > external",
+      "scope": "PROJECT",
+      "version": "0.1.0"
+    },
+    "source": {
+      "content_hash": "sha256:d96f162a4400520036a770ece08bd4ace9c3bf3e9e10b3144bdef22b50ea1823",
+      "kind": "NATIVE",
+      "provenance_confidence": "OBSERVED",
+      "root_id": "project.harness"
+    },
+    "trust": {
+      "confidence": "OBSERVED",
+      "evidence": [
+        "project-local ownership boundary"
+      ],
+      "level": "PROJECT_TRUSTED",
+      "owner_claim": "local://project.harness",
+      "reason": "project ownership is trusted for local selection, not proof of safety"
+    }
+  },
+  "files": [
+    {
+      "executable": false,
+      "kind": "text",
+      "observation": "OBSERVED",
+      "relative_path": "SKILL.md",
+      "sha256": "sha256:f284dfd05d7696d4335b1b4aae7920fa36885b6a06ac2339d1c41c2ccc371620",
+      "size_bytes": 8593
+    },
+    {
+      "executable": false,
+      "kind": "text",
+      "observation": "OBSERVED",
+      "relative_path": "benchmarks/benchmark-fixtures.json",
+      "sha256": "sha256:da6d36b1e8c25baef13923d1217f3a2978eef61644a8b5c3ba422cb35ee917e1",
+      "size_bytes": 1331
+    },
+    {
+      "executable": false,
+      "kind": "text",
+      "observation": "OBSERVED",
+      "relative_path": "composition-contract.json",
+      "sha256": "sha256:d4fcfb999f4f65845d1cdbce4a8412e0e55f01c7a827c4ea63ac4b323a76d67e",
+      "size_bytes": 1215
+    },
+    {
+      "executable": false,
+      "kind": "text",
+      "observation": "OBSERVED",
+      "relative_path": "evals/scenarios.json",
+      "sha256": "sha256:fc863881fcadc8025b18f219f67f752a105cba896696a89c76f7aba84707fbec",
+      "size_bytes": 37627
+    },
+    {
+      "executable": false,
+      "kind": "text",
+      "observation": "OBSERVED",
+      "relative_path": "manifest.json",
+      "sha256": "sha256:269373b365b585c5229cdb4a69d46c3c12e355a2215adce2553b0ad82cabcaa4",
+      "size_bytes": 7879
+    },
+    {
+      "executable": false,
+      "kind": "text",
+      "observation": "OBSERVED",
+      "relative_path": "package-metadata.json",
+      "sha256": "sha256:224ab155c557a352d0958068573eba52aaa004f218b20ef58d516975571ba95a",
+      "size_bytes": 1549
+    },
+    {
+      "executable": false,
+      "kind": "text",
+      "observation": "OBSERVED",
+      "relative_path": "profiles.json",
+      "sha256": "sha256:0a01aab2501ae243997320a058885a92352b31a56c10d3b03fd8784f29a13469",
+      "size_bytes": 1646
+    },
+    {
+      "executable": false,
+      "kind": "text",
+      "observation": "OBSERVED",
+      "relative_path": "references/architecture-boundaries.md",
+      "sha256": "sha256:aa5015ba92b50d30a9773b18f9e83a85409d26bd4d67eccca0fbe309af159dab",
+      "size_bytes": 1869
+    },
+    {
+      "executable": false,
+      "kind": "text",
+      "observation": "OBSERVED",
+      "relative_path": "references/rendering-evidence.md",
+      "sha256": "sha256:e227b538736c11d5bde820bccdee3b3c219d86df06d9aae3614b5e8b464a557d",
+      "size_bytes": 1318
+    },
+    {
+      "executable": false,
+      "kind": "text",
+      "observation": "OBSERVED",
+      "relative_path": "references/responsive-accessibility.md",
+      "sha256": "sha256:3d44ae526c2f57b4607ceca6d36e5a7851eab6071c073b9847f7dd35791fb43f",
+      "size_bytes": 1379
+    },
+    {
+      "executable": false,
+      "kind": "text",
+      "observation": "OBSERVED",
+      "relative_path": "references/role-boundaries.md",
+      "sha256": "sha256:a7222d7e3be9d45e882712de2dbb088ee538b9657264ce00bd1fb9026c2930da",
+      "size_bytes": 1135
+    },
+    {
+      "executable": false,
+      "kind": "text",
+      "observation": "OBSERVED",
+      "relative_path": "references/security-handoff.md",
+      "sha256": "sha256:8802060d6962f314ab1097fe3b6f67d1316382578cf867b2dc653a96204cbb6e",
+      "size_bytes": 1000
+    },
+    {
+      "executable": false,
+      "kind": "text",
+      "observation": "OBSERVED",
+      "relative_path": "references/state-and-interaction.md",
+      "sha256": "sha256:4a0c5a1b17a404d83c6513776fd9bf2ab4d9a43a04510232da7602983e0407a9",
+      "size_bytes": 1422
+    },
+    {
+      "executable": false,
+      "kind": "text",
+      "observation": "OBSERVED",
+      "relative_path": "references/testing-performance.md",
+      "sha256": "sha256:b2014d6a6a5e91b154713f7bb0ed0483de1665b4bcb5db8448aec3799f8acfcb",
+      "size_bytes": 1160
+    },
+    {
+      "executable": false,
+      "kind": "metadata_only",
+      "observation": "UNAVAILABLE",
+      "relative_path": "scripts/deterministic-procedures.json",
+      "sha256": "sha256:03438e85aaad0d776c0de8b8d3e0e86bd476f68bec8aeb0d4aeae9c24f23f757",
+      "size_bytes": 2363
+    }
+  ],
+  "gates": [
+    "P8_SCOPE_BOUND",
+    "P8_STACK_BOUND",
+    "P8_STATE_CONTRACT_BOUND",
+    "P8_RESPONSIVE_ACCESSIBILITY_BOUND",
+    "P8_EVIDENCE_BOUND",
+    "P8_SECURITY_ROUTE_BOUND",
+    "P8_BUDGET_BOUND"
+  ],
+  "kind": "NATIVE",
+  "load_eligibility": "ELIGIBLE_DECLARATIVE_METADATA_ONLY",
+  "manifest": {
+    "activates_when": [
+      "A material frontend surface or user flow must be implemented within an identified project boundary",
+      "Responsive layout, browser interaction, component/state behavior, forms, accessibility or frontend performance is part of acceptance",
+      "A stack decision and evidence-backed frontend handoff are required"
+    ],
+    "capability_id": "frontend-engineering-vnext",
+    "conflicts": [
+      "DESIGN_DIRECTOR",
+      "VERIFIER",
+      "REVIEWER",
+      "ASSURANCE",
+      "SECURITY_AUTHORITY",
+      "RELEASE_AUTHORITY"
+    ],
+    "dependencies": [],
+    "description": "A bounded project-local frontend specialist for architecture-preserving UI implementation, stateful browser behavior, responsive evidence and accessible handoff.",
+    "display_name": "Frontend Engineering vNext",
+    "do_not_activate_when": [
+      "The task is only visual strategy, art direction, image generation or subjective critique",
+      "The task is backend-only, API-only, infrastructure-only, research-only or a trivial copy/edit",
+      "Factual verification, final security assurance, orchestration, release approval or global architecture authority is requested",
+      "The repository stack, bounded workspace or required observer is missing and no safe degraded route preserves the goal"
+    ],
+    "domains": [
+      "FRONTEND_ENGINEERING",
+      "ENGINEERING"
+    ],
+    "field_provenance": {
+      "benchmarks": "UNKNOWN",
+      "capability_id": "DECLARED",
+      "claims_excluded": "UNKNOWN",
+      "compatibility": "DECLARED",
+      "composition": "DECLARED",
+      "contracts": "DECLARED",
+      "dependencies": "DECLARED",
+      "description": "DECLARED",
+      "display_name": "DECLARED",
+      "evals": "UNKNOWN",
+      "execution": "UNKNOWN",
+      "execution_policy": "UNKNOWN",
+      "identity_binding": "UNKNOWN",
+      "metadata_only": "UNKNOWN",
+      "primary_type": "DECLARED",
+      "profiles": "UNKNOWN",
+      "promotion_limit": "UNKNOWN",
+      "provenance": "DECLARED",
+      "read_only": "UNKNOWN",
+      "registry_bridge": "UNKNOWN",
+      "role": "UNKNOWN",
+      "schema_version": "DECLARED",
+      "scope": "DECLARED",
+      "scripts": "UNKNOWN",
+      "security": "DECLARED",
+      "status": "DECLARED",
+      "type": "UNKNOWN",
+      "version": "DECLARED"
+    },
+    "gates": [
+      "P8_SCOPE_BOUND",
+      "P8_STACK_BOUND",
+      "P8_STATE_CONTRACT_BOUND",
+      "P8_RESPONSIVE_ACCESSIBILITY_BOUND",
+      "P8_EVIDENCE_BOUND",
+      "P8_SECURITY_ROUTE_BOUND",
+      "P8_BUDGET_BOUND"
+    ],
+    "kind": "NATIVE",
+    "platform_limits": [
+      "Existing repository stack is preferred",
+      "Native browser observer may be required for render claims",
+      "Framework/compiler evidence is conditional on repository support"
+    ],
+    "primary_type": "SPECIALIST",
+    "provenance_details": [
+      {
+        "confidence": "UNKNOWN",
+        "evidence": "manifest.json",
+        "field": "benchmarks",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "DECLARED",
+        "evidence": "manifest.json",
+        "field": "capability_id",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "UNKNOWN",
+        "evidence": "manifest.json",
+        "field": "claims_excluded",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "DECLARED",
+        "evidence": "manifest.json",
+        "field": "compatibility",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "DECLARED",
+        "evidence": "manifest.json",
+        "field": "composition",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "DECLARED",
+        "evidence": "manifest.json",
+        "field": "contracts",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "DECLARED",
+        "evidence": "manifest.json",
+        "field": "dependencies",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "DECLARED",
+        "evidence": "manifest.json",
+        "field": "description",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "DECLARED",
+        "evidence": "manifest.json",
+        "field": "display_name",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "UNKNOWN",
+        "evidence": "manifest.json",
+        "field": "evals",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "UNKNOWN",
+        "evidence": "manifest.json",
+        "field": "execution",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "UNKNOWN",
+        "evidence": "manifest.json",
+        "field": "execution_policy",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "UNKNOWN",
+        "evidence": "manifest.json",
+        "field": "identity_binding",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "UNKNOWN",
+        "evidence": "manifest.json",
+        "field": "metadata_only",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "DECLARED",
+        "evidence": "manifest.json",
+        "field": "primary_type",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "UNKNOWN",
+        "evidence": "manifest.json",
+        "field": "profiles",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "UNKNOWN",
+        "evidence": "manifest.json",
+        "field": "promotion_limit",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "DECLARED",
+        "evidence": "manifest.json",
+        "field": "provenance",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "UNKNOWN",
+        "evidence": "manifest.json",
+        "field": "read_only",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "UNKNOWN",
+        "evidence": "manifest.json",
+        "field": "registry_bridge",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "UNKNOWN",
+        "evidence": "manifest.json",
+        "field": "role",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "DECLARED",
+        "evidence": "manifest.json",
+        "field": "schema_version",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "DECLARED",
+        "evidence": "manifest.json",
+        "field": "scope",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "UNKNOWN",
+        "evidence": "manifest.json",
+        "field": "scripts",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "DECLARED",
+        "evidence": "manifest.json",
+        "field": "security",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "DECLARED",
+        "evidence": "manifest.json",
+        "field": "status",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "UNKNOWN",
+        "evidence": "manifest.json",
+        "field": "type",
+        "source": "manifest.json"
+      },
+      {
+        "confidence": "DECLARED",
+        "evidence": "manifest.json",
+        "field": "version",
+        "source": "manifest.json"
+      }
+    ],
+    "providers": [],
+    "references": [
+      "references/architecture-boundaries.md",
+      "references/state-and-interaction.md",
+      "references/responsive-accessibility.md",
+      "references/rendering-evidence.md",
+      "references/testing-performance.md",
+      "references/security-handoff.md",
+      "references/role-boundaries.md"
+    ],
+    "schema_version": "P3-CM-1",
+    "stop_conditions": [
+      "TASK_COMPLETE",
+      "BLOCKING_TEST_FAILURE",
+      "MISSING_REQUIRED_CONTEXT",
+      "MISSING_REQUIRED_TOOL",
+      "UNSAFE_INPUT",
+      "SECURITY_REVIEW_REQUIRED",
+      "MISSING_RENDER",
+      "MISSING_INTERACTION_EVIDENCE",
+      "SCOPE_EXPANSION_REQUIRED",
+      "NO_PROGRESS",
+      "REPEATED_FAILURE",
+      "OSCILLATION",
+      "BUDGET_EXHAUSTED",
+      "HUMAN_DECISION_REQUIRED"
+    ],
+    "tools": [],
+    "unknown_fields": [
+      [
+        "type",
+        "SPECIALIST"
+      ],
+      [
+        "role",
+        "SPECIALIST"
+      ],
+      [
+        "registry_bridge",
+        "False"
+      ],
+      [
+        "execution_policy",
+        "<UNTRUSTED_METADATA>"
+      ],
+      [
+        "metadata_only",
+        "True"
+      ],
+      [
+        "execution",
+        "HOST_BOUNDED_IMPLEMENTATION"
+      ],
+      [
+        "read_only",
+        "False"
+      ],
+      [
+        "identity_binding",
+        "<UNTRUSTED_METADATA>"
+      ],
+      [
+        "promotion_limit",
+        "CANDIDATE_ONLY_UNTIL_CURRENT_EVAL_BENCHMARK_AND_INDEPENDENT_REVIEW"
+      ],
+      [
+        "claims_excluded",
+        "<UNTRUSTED_METADATA>"
+      ],
+      [
+        "profiles",
+        "profiles.json"
+      ],
+      [
+        "scripts",
+        "<UNTRUSTED_METADATA>"
+      ],
+      [
+        "evals",
+        "<UNTRUSTED_METADATA>"
+      ],
+      [
+        "benchmarks",
+        "<UNTRUSTED_METADATA>"
+      ]
+    ],
+    "version": "0.1.0"
+  },
+  "manifest_path": "manifest.json",
+  "path": "$WORKSPACE/.harness/capabilities/frontend-engineering-vnext",
+  "provenance": {
+    "aliases": [],
+    "authority": "READ_ONLY",
+    "commit": null,
+    "confidence": "OBSERVED",
+    "content_hash": "sha256:d96f162a4400520036a770ece08bd4ace9c3bf3e9e10b3144bdef22b50ea1823",
+    "forked_from": "frontend-patterns-current-baseline",
+    "license": null,
+    "local_modifications": false,
+    "observed_at": "2026-08-31T13:45:50+00:00",
+    "scope": "PROJECT",
+    "source_refs": [
+      "SKILL.md"
+    ],
+    "source_repository": "root://project.harness",
+    "source_type": "LOCAL",
+    "tag": null,
+    "upstream": null
+  },
+  "references": [
+    "references/architecture-boundaries.md",
+    "references/rendering-evidence.md",
+    "references/responsive-accessibility.md",
+    "references/role-boundaries.md",
+    "references/security-handoff.md",
+    "references/state-and-interaction.md",
+    "references/testing-performance.md"
+  ],
+  "root_id": "project.harness",
+  "rubrics": [],
+  "scope": "PROJECT",
+  "scripts": [
+    "scripts/deterministic-procedures.json"
+  ],
+  "skill_md": "SKILL.md",
+  "status": "INSPECTED",
+  "stop_conditions": [
+    "TASK_COMPLETE",
+    "BLOCKING_TEST_FAILURE",
+    "MISSING_REQUIRED_CONTEXT",
+    "MISSING_REQUIRED_TOOL",
+    "UNSAFE_INPUT",
+    "SECURITY_REVIEW_REQUIRED",
+    "MISSING_RENDER",
+    "MISSING_INTERACTION_EVIDENCE",
+    "SCOPE_EXPANSION_REQUIRED",
+    "NO_PROGRESS",
+    "REPEATED_FAILURE",
+    "OSCILLATION",
+    "BUDGET_EXHAUSTED",
+    "HUMAN_DECISION_REQUIRED"
+  ],
+  "templates": [],
+  "trust": {
+    "confidence": "OBSERVED",
+    "evidence": [
+      "project-local ownership boundary"
+    ],
+    "level": "PROJECT_TRUSTED",
+    "owner_claim": "local://project.harness",
+    "reason": "project ownership is trusted for local selection, not proof of safety"
+  },
+  "version": "0.1.0"
+}

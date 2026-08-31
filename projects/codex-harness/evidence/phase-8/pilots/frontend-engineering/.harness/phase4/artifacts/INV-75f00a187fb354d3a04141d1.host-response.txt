@@ -1,0 +1,3 @@
+BLOCKED — the pilot could not be completed or verified in this run because the Harness policy prohibits filesystem access, file changes, shell commands, browser observers, and verification tools.
+
+No source or build artifacts were modified. Build/source binding, viewport and state renders, accessibility interactions, console/network behavior, and performance observations remain `NOT_RUN`. No production, universal, or accessibility-conformance claims are made.

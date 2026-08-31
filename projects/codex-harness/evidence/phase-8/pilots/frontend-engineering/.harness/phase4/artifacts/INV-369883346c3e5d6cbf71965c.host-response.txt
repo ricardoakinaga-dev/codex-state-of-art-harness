@@ -1,0 +1,10 @@
+Verification handoff — `BLOCKED`
+
+- Artifact identity: `sha256:d0a375309ec74a3f03b98ca6082ad16dcd5552c86ff472d7f491e4e7d775e1da`
+- Evidence packet: `browser-evidence.json`
+- Policy/scope: read-only, frozen acceptance criteria, no mutation performed.
+- Stop decision: `MISSING_REQUIRED_ARTIFACT`
+
+The invocation identifies the evidence packet but does not supply its contents or digest. Under the declared no-tool policy, it cannot be inspected. Therefore, build, syntax, lint, targeted tests, four viewport screenshots, overflow metrics, UI-state evidence (loading/success/empty/error/retry/validation/double-submit), accessibility observations, console/network observations, and Chromium performance measurements remain `UNKNOWN`.
+
+Limitations: artifact-to-evidence freshness and lineage cannot be established; no cross-browser, production, security, accessibility, release-readiness, or generalizable performance claim is supported. This report is factual handoff only, not certification or approval.

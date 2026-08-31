@@ -1,0 +1,458 @@
+{
+  "artifact_tree_digest": "sha256:d3483dc817523c2b8921c1a9956e7a42b5df2bfc0ed89bc6c0c51a8a5f2efae7",
+  "browser_evidence_digest": "sha256:a7677c348e34a3661073d6f2b2963fc8a6a66a8fa6fccf21e3a929032658ab12",
+  "closure": "repository-relative entries; manifest, attestation, gate and mutable agent state are excluded to avoid self-reference",
+  "entries": [
+    {
+      "bytes": 4990,
+      "path": "architecture/docs/adr/ADR-017-frontend-engineering-vnext-modernization.md",
+      "sha256": "sha256:5ad3694bc096e2f2f2a578ba37cc3f4972fbe431a8f38e1c4efaac80569e2b16"
+    },
+    {
+      "bytes": 4947,
+      "path": "projects/codex-harness/.agent/plans/PHASE-8-frontend-engineering-modernization.md",
+      "sha256": "sha256:e7d59864ca11a5aa3108e63338786e077ba2802eef7955317b202dc7c63bf8f4"
+    },
+    {
+      "bytes": 1628,
+      "path": "projects/codex-harness/.agent/plans/PHASE-8-frontend-repair-001.md",
+      "sha256": "sha256:63b498738283d8cc836000deaf2af8c7288d5eb689e3774e5ddc93a50aa81d98"
+    },
+    {
+      "bytes": 1432,
+      "path": "projects/codex-harness/.agent/plans/PHASE-8-frontend-repair-002.md",
+      "sha256": "sha256:0b83df6ae43e24abb83031246e58ea3a9bff633e652657d6fd2bdfe363a9632c"
+    },
+    {
+      "bytes": 8593,
+      "path": "projects/codex-harness/.harness/capabilities/frontend-engineering-vnext/SKILL.md",
+      "sha256": "sha256:f284dfd05d7696d4335b1b4aae7920fa36885b6a06ac2339d1c41c2ccc371620"
+    },
+    {
+      "bytes": 1331,
+      "path": "projects/codex-harness/.harness/capabilities/frontend-engineering-vnext/benchmarks/benchmark-fixtures.json",
+      "sha256": "sha256:da6d36b1e8c25baef13923d1217f3a2978eef61644a8b5c3ba422cb35ee917e1"
+    },
+    {
+      "bytes": 1215,
+      "path": "projects/codex-harness/.harness/capabilities/frontend-engineering-vnext/composition-contract.json",
+      "sha256": "sha256:d4fcfb999f4f65845d1cdbce4a8412e0e55f01c7a827c4ea63ac4b323a76d67e"
+    },
+    {
+      "bytes": 37627,
+      "path": "projects/codex-harness/.harness/capabilities/frontend-engineering-vnext/evals/scenarios.json",
+      "sha256": "sha256:fc863881fcadc8025b18f219f67f752a105cba896696a89c76f7aba84707fbec"
+    },
+    {
+      "bytes": 7879,
+      "path": "projects/codex-harness/.harness/capabilities/frontend-engineering-vnext/manifest.json",
+      "sha256": "sha256:269373b365b585c5229cdb4a69d46c3c12e355a2215adce2553b0ad82cabcaa4"
+    },
+    {
+      "bytes": 1549,
+      "path": "projects/codex-harness/.harness/capabilities/frontend-engineering-vnext/package-metadata.json",
+      "sha256": "sha256:224ab155c557a352d0958068573eba52aaa004f218b20ef58d516975571ba95a"
+    },
+    {
+      "bytes": 1646,
+      "path": "projects/codex-harness/.harness/capabilities/frontend-engineering-vnext/profiles.json",
+      "sha256": "sha256:0a01aab2501ae243997320a058885a92352b31a56c10d3b03fd8784f29a13469"
+    },
+    {
+      "bytes": 1869,
+      "path": "projects/codex-harness/.harness/capabilities/frontend-engineering-vnext/references/architecture-boundaries.md",
+      "sha256": "sha256:aa5015ba92b50d30a9773b18f9e83a85409d26bd4d67eccca0fbe309af159dab"
+    },
+    {
+      "bytes": 1318,
+      "path": "projects/codex-harness/.harness/capabilities/frontend-engineering-vnext/references/rendering-evidence.md",
+      "sha256": "sha256:e227b538736c11d5bde820bccdee3b3c219d86df06d9aae3614b5e8b464a557d"
+    },
+    {
+      "bytes": 1379,
+      "path": "projects/codex-harness/.harness/capabilities/frontend-engineering-vnext/references/responsive-accessibility.md",
+      "sha256": "sha256:3d44ae526c2f57b4607ceca6d36e5a7851eab6071c073b9847f7dd35791fb43f"
+    },
+    {
+      "bytes": 1135,
+      "path": "projects/codex-harness/.harness/capabilities/frontend-engineering-vnext/references/role-boundaries.md",
+      "sha256": "sha256:a7222d7e3be9d45e882712de2dbb088ee538b9657264ce00bd1fb9026c2930da"
+    },
+    {
+      "bytes": 1000,
+      "path": "projects/codex-harness/.harness/capabilities/frontend-engineering-vnext/references/security-handoff.md",
+      "sha256": "sha256:8802060d6962f314ab1097fe3b6f67d1316382578cf867b2dc653a96204cbb6e"
+    },
+    {
+      "bytes": 1422,
+      "path": "projects/codex-harness/.harness/capabilities/frontend-engineering-vnext/references/state-and-interaction.md",
+      "sha256": "sha256:4a0c5a1b17a404d83c6513776fd9bf2ab4d9a43a04510232da7602983e0407a9"
+    },
+    {
+      "bytes": 1160,
+      "path": "projects/codex-harness/.harness/capabilities/frontend-engineering-vnext/references/testing-performance.md",
+      "sha256": "sha256:b2014d6a6a5e91b154713f7bb0ed0483de1665b4bcb5db8448aec3799f8acfcb"
+    },
+    {
+      "bytes": 2363,
+      "path": "projects/codex-harness/.harness/capabilities/frontend-engineering-vnext/scripts/deterministic-procedures.json",
+      "sha256": "sha256:03438e85aaad0d776c0de8b8d3e0e86bd476f68bec8aeb0d4aeae9c24f23f757"
+    },
+    {
+      "bytes": 2174,
+      "path": "projects/codex-harness/config/phase8-execution-policy.json",
+      "sha256": "sha256:6771982323af4dfae8af2d81b4c5920ea8ea52e129b7f029a700844531b4933b"
+    },
+    {
+      "bytes": 3730,
+      "path": "projects/codex-harness/evidence/phase-8/P8-QB-1.md",
+      "sha256": "sha256:59c88276bd03117a3cbc2ccb917d000239189c48a7b6b23d7cce3f3f6d3eb5f2"
+    },
+    {
+      "bytes": 1950,
+      "path": "projects/codex-harness/evidence/phase-8/codex-native-gap-analysis.md",
+      "sha256": "sha256:989c411af8f423d544ca5d7a89cfe30c1867dcee8bc012a56879805d2bc1136d"
+    },
+    {
+      "bytes": 1827,
+      "path": "projects/codex-harness/evidence/phase-8/composition-review.md",
+      "sha256": "sha256:3b5637de35519dac1979d3392fb96ef75bd0d2d048d891409602fd2da376895f"
+    },
+    {
+      "bytes": 1551399,
+      "path": "projects/codex-harness/evidence/phase-8/coverage.json",
+      "sha256": "sha256:274e71d003abb069f7acc72d912423d955af797a82e1df84c58816f17be72033"
+    },
+    {
+      "bytes": 2431,
+      "path": "projects/codex-harness/evidence/phase-8/current-capability-analysis.md",
+      "sha256": "sha256:6c1ed37f04aac0e95b51f0efd462a75129335f9efbde559c615c1f2354bb35f7"
+    },
+    {
+      "bytes": 3004,
+      "path": "projects/codex-harness/evidence/phase-8/current-frontend-patterns-snapshot.json",
+      "sha256": "sha256:3675bd32b7336a81f5132ca22629ee34e89d8603add54e92e085eeb6cffee533"
+    },
+    {
+      "bytes": 1793,
+      "path": "projects/codex-harness/evidence/phase-8/current-upstream-vnext-comparison.md",
+      "sha256": "sha256:110f3edf649669d765957b23ac6dce480ef1f54279c2b68da287ec92ced3d965"
+    },
+    {
+      "bytes": 9728,
+      "path": "projects/codex-harness/evidence/phase-8/eval-report.json",
+      "sha256": "sha256:79ef26d0f431c5faa5f1b4cac85a35190c929dfb88c1f8a694ea04924b0cd1da"
+    },
+    {
+      "bytes": 14243,
+      "path": "projects/codex-harness/evidence/phase-8/final-report.md",
+      "sha256": "sha256:0cfbdbb897517581bdad6723641bdce034ae9fd4756288aa098c8f9c11d9104d"
+    },
+    {
+      "bytes": 2155,
+      "path": "projects/codex-harness/evidence/phase-8/independent-capability-review.md",
+      "sha256": "sha256:620f66899f23e45e21de14a074bee98ebbe34f91801c7801c5a6ab4d7a0dfce0"
+    },
+    {
+      "bytes": 1551,
+      "path": "projects/codex-harness/evidence/phase-8/independent-frontend-review.md",
+      "sha256": "sha256:c4d08cb2526e152393d9d5eceac1a9480deb2a167a9d5f6b699ffc78887d40d3"
+    },
+    {
+      "bytes": 1286,
+      "path": "projects/codex-harness/evidence/phase-8/independent-visual-review.md",
+      "sha256": "sha256:e1baa95ea08f1858aa1bd03d4f17a70e55d56dbf2fe47e0e0d467a1d73d37845"
+    },
+    {
+      "bytes": 1678,
+      "path": "projects/codex-harness/evidence/phase-8/interaction-observation.md",
+      "sha256": "sha256:6910b7b5df66fa3b93c4ec1f3c50295d1e5f88025cfdd37e88e564435090d70f"
+    },
+    {
+      "bytes": 1793,
+      "path": "projects/codex-harness/evidence/phase-8/package-validation.json",
+      "sha256": "sha256:ba0e1154efccf747dc668560dce12c5b855628b52bce1d0dd6b79372e7f7f23c"
+    },
+    {
+      "bytes": 16849,
+      "path": "projects/codex-harness/evidence/phase-8/phase3-compatibility.json",
+      "sha256": "sha256:4f729eb35076a48eae417d48a7ff382adc47c425528829f9216c86e8d9ce358f"
+    },
+    {
+      "bytes": 19871,
+      "path": "projects/codex-harness/evidence/phase-8/phase3-discovery.json",
+      "sha256": "sha256:336f222d49b17c9438f7e8f4495148531a266c336fca0d164239febf44d77a11"
+    },
+    {
+      "bytes": 4652,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/.agents/skills/verification-loop-vnext/SKILL.md",
+      "sha256": "sha256:8f4045de1e3019c619a6ffdfb2d1182c19af449a79e3a07d6ed830e5d3572db0"
+    },
+    {
+      "bytes": 847,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/.agents/skills/verification-loop-vnext/benchmark-metadata.json",
+      "sha256": "sha256:140dca64773dbe93174aefedf3aca8e609ee1d39714d42ad12a2d3113b64bf83"
+    },
+    {
+      "bytes": 3083,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/.agents/skills/verification-loop-vnext/benchmarks/benchmark-fixtures.json",
+      "sha256": "sha256:d35a8ed9ac57b3e6aadd3f2f20d108e1f2adfea213b855710b8a1b102a5923bb"
+    },
+    {
+      "bytes": 1169,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/.agents/skills/verification-loop-vnext/composition-contract.json",
+      "sha256": "sha256:037dc07cf7d9a7a70a03477b1bcc0702e5ad1114e931aea39aee749779f02e5c"
+    },
+    {
+      "bytes": 876,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/.agents/skills/verification-loop-vnext/eval-metadata.json",
+      "sha256": "sha256:91343f7d82cb2288457078edb8859c5bfd4268eb3b695c0fcb8bb3d1f01360cf"
+    },
+    {
+      "bytes": 26978,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/.agents/skills/verification-loop-vnext/evals/scenarios.json",
+      "sha256": "sha256:c9d997f190804b3bec553ceb3d1a0a8c82f895785ff75ec5b4a06204e6f48413"
+    },
+    {
+      "bytes": 7111,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/.agents/skills/verification-loop-vnext/manifest.json",
+      "sha256": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c"
+    },
+    {
+      "bytes": 1098,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/.agents/skills/verification-loop-vnext/package-metadata.json",
+      "sha256": "sha256:fc2c76bbbec81b8c05528ba03a4b28417d37d0fdd2661118f0c19f6ab143f7a3"
+    },
+    {
+      "bytes": 2691,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/.agents/skills/verification-loop-vnext/profiles.json",
+      "sha256": "sha256:a02f4777347e65f83ce864688b8288f7e2fe512e15bd90b7e9e708d018463c39"
+    },
+    {
+      "bytes": 675,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/.agents/skills/verification-loop-vnext/references/deterministic-boundaries.md",
+      "sha256": "sha256:645c1a58e1fb582ba6b5abba82dfd2e7ecadbdbe745e6e283fb89d2f1b984ca2"
+    },
+    {
+      "bytes": 742,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/.agents/skills/verification-loop-vnext/references/evidence-lineage.md",
+      "sha256": "sha256:a947c7d88a6f0115bfc2025fc559c335a034043f99ee4eddf64f6190083f1c7e"
+    },
+    {
+      "bytes": 717,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/.agents/skills/verification-loop-vnext/references/role-boundaries.md",
+      "sha256": "sha256:43cb959090bb0e104667132a7601ffd8307967ea81a19f2c0bc0dc5fef86fe0b"
+    },
+    {
+      "bytes": 1852,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/.agents/skills/verification-loop-vnext/scripts/deterministic-procedures.json",
+      "sha256": "sha256:8466a554daf2d4b80ddde71722b040de9d1b1826390a6489574234e92f32d622"
+    },
+    {
+      "bytes": 779,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/.harness/phase4/artifacts/INV-6ec92339747c562d9d19eb8e.host-response.txt",
+      "sha256": "sha256:489e83978212b07ec298507a44b2ebf49e4112af9d9a16860348abc000f30971"
+    },
+    {
+      "bytes": 465,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/.harness/phase4/artifacts/INV-75f00a187fb354d3a04141d1.host-response.txt",
+      "sha256": "sha256:0285fffee0d0dcfe1144f076ae6675a3e8e8399cf5c38e9d403f211476dd1ebf"
+    },
+    {
+      "bytes": 13401,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/app/app.js",
+      "sha256": "sha256:cd68764eeb341cff458bac178e8d21ef86d857b951f212b33a8c597f3eb70bce"
+    },
+    {
+      "bytes": 7718,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/app/fixture_server.py",
+      "sha256": "sha256:b515243bd501feaf4a140b276fbab9179f956cddc8923089e3eb598a3d60e3cc"
+    },
+    {
+      "bytes": 11409,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/app/index.html",
+      "sha256": "sha256:80d88c436f13e31a94ab0510241a03dac57f662a063b4a8c50c1a0a2df8035b7"
+    },
+    {
+      "bytes": 20691,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/app/styles.css",
+      "sha256": "sha256:a4285ac6020f3c56dc851e0437b9872780ea8aafd1cb167b98a693eb966be9c2"
+    },
+    {
+      "bytes": 1092,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser-contrast-observation.json",
+      "sha256": "sha256:ecb6fb34bb125645cdc94ff8723e59f2bc1992628040e5b91aeb1fdd95b16e95"
+    },
+    {
+      "bytes": 43,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser-default-console-clean.log",
+      "sha256": "sha256:8244bba88be0b62a7e4395f5ad8839ee394e16c040dcd709e31a5bdd12a704a7"
+    },
+    {
+      "bytes": 365,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser-default-network.log",
+      "sha256": "sha256:e843148512864b1fca55db661b7d1c8bddcdb97b941e5b624a9f3b780fa62666"
+    },
+    {
+      "bytes": 11076,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser-evidence.json",
+      "sha256": "sha256:a7677c348e34a3661073d6f2b2963fc8a6a66a8fa6fccf21e3a929032658ab12"
+    },
+    {
+      "bytes": 495,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser-final-performance-and-dom.json",
+      "sha256": "sha256:21acb6217c7d0d2b2054885c4170cb08b8240718e9461ed8b7a4470730e2f5dd"
+    },
+    {
+      "bytes": 484,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser-idempotency-observation.json",
+      "sha256": "sha256:04eb218b94e0eec9fd98e995eece8865a06ac4adeaa4dea02223aeaa6cfd1b20"
+    },
+    {
+      "bytes": 126737,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser/desktop-success.png",
+      "sha256": "sha256:20b5eec4c31c345b019b58c29847ec9ff6ba184b16f64b89a833972a4ae811d1"
+    },
+    {
+      "bytes": 107355,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser/intermediate-success.png",
+      "sha256": "sha256:0ebdb7a97583a44cb3f4a48ab156339d6ab59290347849db7a154de1b38a97b4"
+    },
+    {
+      "bytes": 49711,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser/mobile-empty.png",
+      "sha256": "sha256:ea782df52ed8a6eb8eee80cbbe2eceafe96decf42135be45789a9420b9f301db"
+    },
+    {
+      "bytes": 49392,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser/mobile-error.png",
+      "sha256": "sha256:b87f1ab6d31fc2132e65d654b45aad290c4de7dbb5fa9d0ef0eb4d74b1991a18"
+    },
+    {
+      "bytes": 45208,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser/mobile-filtered-focus.png",
+      "sha256": "sha256:d370104a79967e53703b046a164e38a074fa8f699961f4e12040ca260981b5f4"
+    },
+    {
+      "bytes": 45748,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser/mobile-intake-success.png",
+      "sha256": "sha256:f529255d47d33f466b4e75e778241cc475c6e7799954edc68474c4f0762b04b1"
+    },
+    {
+      "bytes": 48740,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser/mobile-loading.png",
+      "sha256": "sha256:885e6b84d79ba271c80811bb8ecedfca8a428b144ca9813e72acacbcac6ccb8f"
+    },
+    {
+      "bytes": 37280,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser/mobile-retry-success.png",
+      "sha256": "sha256:53f87288285c2fbc448aca03d2df98288a038b594d83e682e084b5bebb77da62"
+    },
+    {
+      "bytes": 42957,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser/mobile-submit-error.png",
+      "sha256": "sha256:1a87acf0d71e2ab50739dce2d2030fadd3accd4876d45fcc2f9e7b3bc04d84d0"
+    },
+    {
+      "bytes": 50579,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser/mobile-success.png",
+      "sha256": "sha256:2f5ff2eadf9983aa37aba702e2cf9dde433f07819d9c7ee9c0ae2a1a25fb6968"
+    },
+    {
+      "bytes": 48999,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser/mobile-validation.png",
+      "sha256": "sha256:21e6c3db53dd779de987abb04c30441eabbb22b70bb2b7efa37da3a6e1556f4a"
+    },
+    {
+      "bytes": 89206,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/browser/tablet-success.png",
+      "sha256": "sha256:9aba0e17d61398a18f6a6c3206d32c3223b05cc4381b45e0c3577504caaa7d65"
+    },
+    {
+      "bytes": 13401,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/build/final/app.js",
+      "sha256": "sha256:cd68764eeb341cff458bac178e8d21ef86d857b951f212b33a8c597f3eb70bce"
+    },
+    {
+      "bytes": 915,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/build/final/build-receipt.json",
+      "sha256": "sha256:64d4d898d596455e2fee64e91ed12bac83e998c8df500cd4bfc79ea17cae20d6"
+    },
+    {
+      "bytes": 7718,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/build/final/fixture_server.py",
+      "sha256": "sha256:b515243bd501feaf4a140b276fbab9179f956cddc8923089e3eb598a3d60e3cc"
+    },
+    {
+      "bytes": 11409,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/build/final/index.html",
+      "sha256": "sha256:80d88c436f13e31a94ab0510241a03dac57f662a063b4a8c50c1a0a2df8035b7"
+    },
+    {
+      "bytes": 20691,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/build/final/styles.css",
+      "sha256": "sha256:a4285ac6020f3c56dc851e0437b9872780ea8aafd1cb167b98a693eb966be9c2"
+    },
+    {
+      "bytes": 937,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/host-staging.json",
+      "sha256": "sha256:3a70c54b43076962d42b60c4da719d4610073a36aea3ce237a4e267bba34e47c"
+    },
+    {
+      "bytes": 7703,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/phase4/frontend-prepare-final/invocation-receipts/INV-7fe24b5ae8fc5cb484088ce9.json",
+      "sha256": "sha256:b400599465d7ce4f389bfeb98c14f11dc94d91eb27bbb7acc967f00bba739c4b"
+    },
+    {
+      "bytes": 64987,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/phase4/frontend-real-post-repair-002/invocation-receipts/INV-75f00a187fb354d3a04141d1.json",
+      "sha256": "sha256:c0b43ddd1184a6a51f2a51ebc3f0a1411cb769a36453414461b91046d1a1737b"
+    },
+    {
+      "bytes": 155810,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/phase4/verifier-final-post-repair-002/invocation-receipts/INV-6ec92339747c562d9d19eb8e.json",
+      "sha256": "sha256:d4b12bab4d28f2ecea27b1a8876145f9c9e8ff6fc06c7eb0f211dc342a305fd6"
+    },
+    {
+      "bytes": 7476,
+      "path": "projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/phase4/verifier-prepare-final/invocation-receipts/INV-4ca8c829d2e65076a49e9261.json",
+      "sha256": "sha256:eeeacf40117279e39bba1f34d9714b6b1e6675816b4eedc21d00340cc74428b7"
+    },
+    {
+      "bytes": 1706,
+      "path": "projects/codex-harness/evidence/phase-8/promotion-decision.md",
+      "sha256": "sha256:fa8143baf90ab653c7a512a3ba68f7550cfc577c4bf56529708dd2e796bb0bcd"
+    },
+    {
+      "bytes": 2676,
+      "path": "projects/codex-harness/evidence/phase-8/readiness.json",
+      "sha256": "sha256:53fecc1d18b0536fa6e6329b3301c6d484113a76df3510571007ff6cf15201f6"
+    },
+    {
+      "bytes": 1465,
+      "path": "projects/codex-harness/evidence/phase-8/security-report.md",
+      "sha256": "sha256:a9745a555e08f0c69a6d6c61b30bacaba68027dc8aa7dcb5aaac7c06d69f8b40"
+    },
+    {
+      "bytes": 578,
+      "path": "projects/codex-harness/evidence/phase-8/static-accessibility.json",
+      "sha256": "sha256:6f6b007dffa33c9cd87fbad0083bf4c9dc8bdadad962802e185f0450cfe358e9"
+    },
+    {
+      "bytes": 1919,
+      "path": "projects/codex-harness/evidence/phase-8/upstream-analysis.md",
+      "sha256": "sha256:cb6ac325dbb8a79ae573ef175b1c8a5486915de0cb211acf90cc7fde6524a2f2"
+    }
+  ],
+  "entry_count": 88,
+  "entry_tree_digest": "sha256:30903402aa186aa6a108a14df8b1e3aadceefbe93d0827328c0b887259527b93",
+  "final_verification_digest": "sha256:03702a5c7884580ec1a0d8d678da80f3da1a6398ab834f72c5c4381d12c975ac",
+  "final_verifier_receipt_digest": "sha256:85eacec2f45fb69ebecf515f77291be8d63d5e23cd26350debf684ce2c37eeab",
+  "generated_at": "2026-08-31T14:43:09.601182+00:00",
+  "manifest_digest": "sha256:45080cfc5c2214f5a081dd18dbf6c2e522ae564907f65f0ec60a3eb263954c9c",
+  "package_fingerprint": "sha256:d96f162a4400520036a770ece08bd4ace9c3bf3e9e10b3144bdef22b50ea1823",
+  "promotion_state": "CANDIDATE_ONLY_NOT_PROMOTED",
+  "schema_version": "P8-FINAL-MANIFEST-1",
+  "status": "CONDITIONAL_PASS",
+  "support_level": "P8_LEVEL_A_CANDIDATE"
+}

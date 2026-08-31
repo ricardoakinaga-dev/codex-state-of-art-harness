@@ -1,0 +1,70 @@
+{
+  "schema_version": "P8-CURRENT-SNAPSHOT-1",
+  "observed_at": "2026-08-31T00:00:00-03:00",
+  "capability_id": "frontend-patterns",
+  "version": null,
+  "canonical_path": "/home/ricardo/.agents/skills/frontend-patterns",
+  "scope": "GLOBAL",
+  "package_kind": "LEGACY_SKILL_WITH_AGENT_METADATA",
+  "load_eligibility": "DECLARATIVE_INPUT_ONLY",
+  "compatibility": "PARTIAL",
+  "trust": "THIRD_PARTY",
+  "package_fingerprint": "sha256:2c1a02f93a09551d24b015f665dd02fd7bd2e0f2de3c28cde26a9d659f99f155",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 14773,
+      "lines": 642,
+      "sha256": "sha256:dd04a1c02503036ee7f4d649c9b7b75d2e6954a94d6f464faedfa992701d1978"
+    },
+    {
+      "path": "agents/openai.yaml",
+      "bytes": 251,
+      "lines": 7,
+      "sha256": "sha256:8b21415748f7b5cb0f289f1f2c4cad934ef4cee1cdaa6306dbf2d7754b1ca8ec"
+    }
+  ],
+  "metadata": {
+    "name": "frontend-patterns",
+    "origin": "ECC",
+    "description": "Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices.",
+    "agent_metadata_present": true,
+    "native_manifest_present": false,
+    "typed_contract_present": false,
+    "deterministic_procedures_present": false,
+    "evidence_contract_present": false,
+    "browser_render_contract_present": false,
+    "security_handoff_present": false
+  },
+  "source_provenance": {
+    "local_install": "observed directly",
+    "fork_snapshot": "references/skill-audit/data/provenance-evidence/raw/frontend_patterns__ricardo_fork_current.md",
+    "upstream_snapshot": "references/skill-audit/data/provenance-evidence/raw/frontend_patterns__upstream_current.md",
+    "upstream_observed_at": "2026-08-28T04:13:12.381635+00:00",
+    "local_fork_commit": "8bdf88e5ad8877bcd00a4aba7ccbfb50f235f10f",
+    "upstream_repository": "https://github.com/affaan-m/ECC",
+    "upstream_revision": "not available in the local provenance snapshot"
+  },
+  "strengths": [
+    "Concrete React composition, hooks, forms, error and accessibility examples",
+    "Useful state, performance and responsive implementation vocabulary",
+    "Small enough to route as domain guidance despite broad activation wording"
+  ],
+  "weaknesses": [
+    "No package identity/version or native manifest",
+    "No executable tests, evidence lineage, browser/render matrix or stop contract",
+    "Illustrative fetch/error examples omit cancellation, schema validation and retry policy",
+    "Broad React/Next trigger can load before stack and boundary are known"
+  ],
+  "portability_debt": [
+    "Coupled to React/TypeScript and DOM semantics",
+    "No guidance for existing non-React web stacks",
+    "No dependency, browser, SSR/hydration or runtime support matrix",
+    "No explicit separation from design direction, verification or final security authority"
+  ],
+  "mutation_observation": {
+    "installed_skill_mutated": false,
+    "global_configuration_mutated": false,
+    "evidence": "Phase 8 initial git/global-state checks"
+  }
+}

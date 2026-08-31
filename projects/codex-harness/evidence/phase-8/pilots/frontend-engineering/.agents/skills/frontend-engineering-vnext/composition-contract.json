@@ -1,0 +1,16 @@
+{
+  "schema_version": "P8-COMPOSITION-1",
+  "capability_id": "frontend-engineering-vnext",
+  "role": "SPECIALIST",
+  "authority": "BOUNDED_FRONTEND_IMPLEMENTATION",
+  "can_call": [],
+  "can_be_called_by": ["ROUTER", "ORCHESTRATOR", "ENGINEERING_DIRECTOR"],
+  "must_run_after": ["ROUTER", "ACCEPTANCE"],
+  "must_run_before": ["VERIFIER", "REVIEWER", "ASSURANCE"],
+  "conflicts": ["DESIGN_DIRECTOR", "VERIFIER", "REVIEWER", "ASSURANCE", "SECURITY_AUTHORITY", "RELEASE_AUTHORITY"],
+  "optional": ["design-director", "e2e-testing", "tdd-workflow", "coding-standards", "security-review", "documentation-lookup"],
+  "pipeline": ["ROUTER", "FRONTEND_ENGINEERING_VNEXT", "DESIGN_DIRECTOR?", "VERIFICATION_LOOP_VNEXT", "INDEPENDENT_VISUAL_REVIEW", "REPAIR?", "VERIFICATION_LOOP_VNEXT", "ASSURANCE"],
+  "repair": {"max_invocations": 1, "requires_fresh_render": true, "requires_fresh_verification": true},
+  "authority_exclusions": ["cannot define user goal", "cannot own visual strategy", "cannot verify its own artifact", "cannot judge visual quality", "cannot approve security", "cannot authorize release", "cannot orchestrate unrelated capabilities"],
+  "host_observability": "conditional_and_must_be_reported_honestly"
+}

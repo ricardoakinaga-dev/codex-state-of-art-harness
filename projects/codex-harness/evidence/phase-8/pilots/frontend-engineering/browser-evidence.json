@@ -1,0 +1,342 @@
+{
+  "artifact": {
+    "artifact_root": "evidence/phase-8/pilots/frontend-engineering/build/final",
+    "artifact_tree_digest": "sha256:d3483dc817523c2b8921c1a9956e7a42b5df2bfc0ed89bc6c0c51a8a5f2efae7",
+    "build_receipt": {
+      "build": "dependency-free-existing-web-stack",
+      "external_requests": 0,
+      "files": [
+        {
+          "bytes": 11409,
+          "path": "index.html",
+          "sha256": "sha256:80d88c436f13e31a94ab0510241a03dac57f662a063b4a8c50c1a0a2df8035b7"
+        },
+        {
+          "bytes": 20691,
+          "path": "styles.css",
+          "sha256": "sha256:a4285ac6020f3c56dc851e0437b9872780ea8aafd1cb167b98a693eb966be9c2"
+        },
+        {
+          "bytes": 13401,
+          "path": "app.js",
+          "sha256": "sha256:cd68764eeb341cff458bac178e8d21ef86d857b951f212b33a8c597f3eb70bce"
+        },
+        {
+          "bytes": 7718,
+          "path": "fixture_server.py",
+          "sha256": "sha256:b515243bd501feaf4a140b276fbab9179f956cddc8923089e3eb598a3d60e3cc"
+        }
+      ],
+      "generated_assets": [],
+      "output_root": "evidence/phase-8/pilots/frontend-engineering/build/final",
+      "schema_version": "P8-BUILD-1",
+      "source_root": "evidence/phase-8/pilots/frontend-engineering/app"
+    },
+    "schema_version": "P8-ARTIFACT-MANIFEST-1",
+    "source_files": [
+      {
+        "bytes": 11409,
+        "path": "evidence/phase-8/pilots/frontend-engineering/app/index.html",
+        "sha256": "sha256:80d88c436f13e31a94ab0510241a03dac57f662a063b4a8c50c1a0a2df8035b7"
+      },
+      {
+        "bytes": 20691,
+        "path": "evidence/phase-8/pilots/frontend-engineering/app/styles.css",
+        "sha256": "sha256:a4285ac6020f3c56dc851e0437b9872780ea8aafd1cb167b98a693eb966be9c2"
+      },
+      {
+        "bytes": 13401,
+        "path": "evidence/phase-8/pilots/frontend-engineering/app/app.js",
+        "sha256": "sha256:cd68764eeb341cff458bac178e8d21ef86d857b951f212b33a8c597f3eb70bce"
+      },
+      {
+        "bytes": 7718,
+        "path": "evidence/phase-8/pilots/frontend-engineering/app/fixture_server.py",
+        "sha256": "sha256:b515243bd501feaf4a140b276fbab9179f956cddc8923089e3eb598a3d60e3cc"
+      }
+    ]
+  },
+  "browser_accessibility_observation": {
+    "focus_outline_observed": true,
+    "headings": [
+      "h1",
+      "h2",
+      "h2",
+      "h2"
+    ],
+    "landmarks_include": [
+      "main",
+      "nav",
+      "header",
+      "aside",
+      "footer",
+      "form"
+    ],
+    "live_regions": 2,
+    "table_headers": 5,
+    "unlabeled_controls": 0
+  },
+  "capture_binding": {
+    "artifact_tree_digest": "sha256:d3483dc817523c2b8921c1a9956e7a42b5df2bfc0ed89bc6c0c51a8a5f2efae7",
+    "browser": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
+    "build_completed_at": "2026-08-31T14:28:11.599712+00:00",
+    "capture_id": "P8-FINAL-REPAIR-002",
+    "device_pixel_ratio": 1,
+    "observed_at": "2026-08-31T14:29:50.990Z",
+    "performance_observation_path": "evidence/phase-8/pilots/frontend-engineering/browser-final-performance-and-dom.json",
+    "source_tree_digest": "sha256:1a6c39bec94f0fd403c8b0da3d9abf095b69507a85963b6335beddcb3e43289f"
+  },
+  "external_network": "DENY",
+  "fixture_origin": "http://127.0.0.1:4173",
+  "interaction_results": {
+    "double_submit": {
+      "button_disabled_while_in_flight": true,
+      "button_feedback": "Sending to triage…",
+      "final_feedback_tone": "success",
+      "post_requests": 1
+    },
+    "empty_state": "success with 0 items -> Refresh queue action",
+    "filter_and_review": {
+      "filter": "critical",
+      "focus_target": "patient",
+      "reviewed_patient": "Miso",
+      "visible_rows": 1
+    },
+    "queue_error_retry": "error -> Retry queue -> success with 4 items",
+    "submit_error": {
+      "button_reenabled": true,
+      "feedback": "Triage is temporarily unavailable. You can safely try again."
+    },
+    "validation": {
+      "feedback": "Complete the highlighted fields before sending.",
+      "first_focus": "patient",
+      "invalid_fields": [
+        "patient",
+        "species",
+        "urgency"
+      ]
+    }
+  },
+  "observed_default_console_errors": 0,
+  "observed_default_dynamic_requests": [
+    "GET /api/queue?scenario=default -> 200"
+  ],
+  "observer": "Playwright MCP browser observer",
+  "performance_observation": {
+    "budget_comparison": {
+      "max_cls": 0.1,
+      "max_lcp_ms": 2500,
+      "within_observed_budget": true
+    },
+    "cumulative_layout_shift": 0,
+    "external_resources": 0,
+    "first_contentful_paint_ms": 100,
+    "horizontal_overflow": false,
+    "largest_contentful_paint_element": "H1",
+    "largest_contentful_paint_ms": 100,
+    "observer": "PerformanceObserver in Chromium browser context",
+    "resource_count": 3,
+    "scope": "single local Chromium observation; not a cross-browser performance guarantee",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "render_records": [
+    {
+      "bytes": 126737,
+      "capture_id": "P8-FINAL-REPAIR-002",
+      "captured_at": "2026-08-31T14:29:07.534583+00:00",
+      "device_pixel_ratio": 1,
+      "document_metrics": {
+        "client_width": 1440,
+        "horizontal_overflow": false,
+        "scroll_height": 1282,
+        "scroll_width": 1440
+      },
+      "freshness": "POST_BUILD",
+      "image_dimensions": [
+        1440,
+        900
+      ],
+      "name": "desktop",
+      "path": "evidence/phase-8/pilots/frontend-engineering/browser/desktop-success.png",
+      "sha256": "sha256:20b5eec4c31c345b019b58c29847ec9ff6ba184b16f64b89a833972a4ae811d1",
+      "viewport": [
+        1440,
+        900
+      ]
+    },
+    {
+      "bytes": 107355,
+      "capture_id": "P8-FINAL-REPAIR-002",
+      "captured_at": "2026-08-31T14:29:07.763585+00:00",
+      "device_pixel_ratio": 1,
+      "document_metrics": {
+        "client_width": 1024,
+        "horizontal_overflow": false,
+        "scroll_height": 1275,
+        "scroll_width": 1024
+      },
+      "freshness": "POST_BUILD",
+      "image_dimensions": [
+        1024,
+        768
+      ],
+      "name": "intermediate",
+      "path": "evidence/phase-8/pilots/frontend-engineering/browser/intermediate-success.png",
+      "sha256": "sha256:0ebdb7a97583a44cb3f4a48ab156339d6ab59290347849db7a154de1b38a97b4",
+      "viewport": [
+        1024,
+        768
+      ]
+    },
+    {
+      "bytes": 89206,
+      "capture_id": "P8-FINAL-REPAIR-002",
+      "captured_at": "2026-08-31T14:29:08.001588+00:00",
+      "device_pixel_ratio": 1,
+      "document_metrics": {
+        "client_width": 768,
+        "horizontal_overflow": false,
+        "scroll_height": 1985,
+        "scroll_width": 768
+      },
+      "freshness": "POST_BUILD",
+      "image_dimensions": [
+        768,
+        1024
+      ],
+      "name": "tablet",
+      "path": "evidence/phase-8/pilots/frontend-engineering/browser/tablet-success.png",
+      "sha256": "sha256:9aba0e17d61398a18f6a6c3206d32c3223b05cc4381b45e0c3577504caaa7d65",
+      "viewport": [
+        768,
+        1024
+      ]
+    },
+    {
+      "bytes": 50579,
+      "capture_id": "P8-FINAL-REPAIR-002",
+      "captured_at": "2026-08-31T14:29:42.472935+00:00",
+      "device_pixel_ratio": 1,
+      "document_metrics": {
+        "client_width": 390,
+        "horizontal_overflow": false,
+        "scroll_height": 3027,
+        "scroll_width": 390
+      },
+      "freshness": "POST_BUILD",
+      "image_dimensions": [
+        390,
+        844
+      ],
+      "name": "mobile",
+      "path": "evidence/phase-8/pilots/frontend-engineering/browser/mobile-success.png",
+      "sha256": "sha256:2f5ff2eadf9983aa37aba702e2cf9dde433f07819d9c7ee9c0ae2a1a25fb6968",
+      "viewport": [
+        390,
+        844
+      ]
+    }
+  ],
+  "schema_version": "P8-BROWSER-EVIDENCE-1",
+  "state_captures": [
+    {
+      "bytes": 48740,
+      "capture_id": "P8-FINAL-REPAIR-002",
+      "captured_at": "2026-08-31T14:29:08.202590+00:00",
+      "freshness": "POST_BUILD",
+      "image_dimensions": [
+        390,
+        844
+      ],
+      "path": "evidence/phase-8/pilots/frontend-engineering/browser/mobile-loading.png",
+      "sha256": "sha256:885e6b84d79ba271c80811bb8ecedfca8a428b144ca9813e72acacbcac6ccb8f"
+    },
+    {
+      "bytes": 49711,
+      "capture_id": "P8-FINAL-REPAIR-002",
+      "captured_at": "2026-08-31T14:29:08.485592+00:00",
+      "freshness": "POST_BUILD",
+      "image_dimensions": [
+        390,
+        844
+      ],
+      "path": "evidence/phase-8/pilots/frontend-engineering/browser/mobile-empty.png",
+      "sha256": "sha256:ea782df52ed8a6eb8eee80cbbe2eceafe96decf42135be45789a9420b9f301db"
+    },
+    {
+      "bytes": 49392,
+      "capture_id": "P8-FINAL-REPAIR-002",
+      "captured_at": "2026-08-31T14:29:08.778595+00:00",
+      "freshness": "POST_BUILD",
+      "image_dimensions": [
+        390,
+        844
+      ],
+      "path": "evidence/phase-8/pilots/frontend-engineering/browser/mobile-error.png",
+      "sha256": "sha256:b87f1ab6d31fc2132e65d654b45aad290c4de7dbb5fa9d0ef0eb4d74b1991a18"
+    },
+    {
+      "bytes": 37280,
+      "capture_id": "P8-FINAL-REPAIR-002",
+      "captured_at": "2026-08-31T14:29:08.996598+00:00",
+      "freshness": "POST_BUILD",
+      "image_dimensions": [
+        390,
+        844
+      ],
+      "path": "evidence/phase-8/pilots/frontend-engineering/browser/mobile-retry-success.png",
+      "sha256": "sha256:53f87288285c2fbc448aca03d2df98288a038b594d83e682e084b5bebb77da62"
+    },
+    {
+      "bytes": 48999,
+      "capture_id": "P8-FINAL-REPAIR-002",
+      "captured_at": "2026-08-31T14:29:09.280601+00:00",
+      "freshness": "POST_BUILD",
+      "image_dimensions": [
+        390,
+        844
+      ],
+      "path": "evidence/phase-8/pilots/frontend-engineering/browser/mobile-validation.png",
+      "sha256": "sha256:21e6c3db53dd779de987abb04c30441eabbb22b70bb2b7efa37da3a6e1556f4a"
+    },
+    {
+      "bytes": 45748,
+      "capture_id": "P8-FINAL-REPAIR-002",
+      "captured_at": "2026-08-31T14:29:09.840606+00:00",
+      "freshness": "POST_BUILD",
+      "image_dimensions": [
+        390,
+        844
+      ],
+      "path": "evidence/phase-8/pilots/frontend-engineering/browser/mobile-intake-success.png",
+      "sha256": "sha256:f529255d47d33f466b4e75e778241cc475c6e7799954edc68474c4f0762b04b1"
+    },
+    {
+      "bytes": 45208,
+      "capture_id": "P8-FINAL-REPAIR-002",
+      "captured_at": "2026-08-31T14:29:10.172610+00:00",
+      "freshness": "POST_BUILD",
+      "image_dimensions": [
+        390,
+        844
+      ],
+      "path": "evidence/phase-8/pilots/frontend-engineering/browser/mobile-filtered-focus.png",
+      "sha256": "sha256:d370104a79967e53703b046a164e38a074fa8f699961f4e12040ca260981b5f4"
+    },
+    {
+      "bytes": 42957,
+      "capture_id": "P8-FINAL-REPAIR-002",
+      "captured_at": "2026-08-31T14:29:10.680615+00:00",
+      "freshness": "POST_BUILD",
+      "image_dimensions": [
+        390,
+        844
+      ],
+      "path": "evidence/phase-8/pilots/frontend-engineering/browser/mobile-submit-error.png",
+      "sha256": "sha256:1a87acf0d71e2ab50739dce2d2030fadd3accd4876d45fcc2f9e7b3bc04d84d0"
+    }
+  ]
+}

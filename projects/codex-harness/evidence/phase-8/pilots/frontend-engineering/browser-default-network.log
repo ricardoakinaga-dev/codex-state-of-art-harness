@@ -1,0 +1,6 @@
+4. [GET] http://127.0.0.1:4173/api/queue?scenario=default => [200] OK
+8. [GET] http://127.0.0.1:4173/api/queue?scenario=default => [200] OK
+9. [POST] http://127.0.0.1:4173/api/intakes?scenario=default => [201] Created
+10. [POST] http://127.0.0.1:4173/api/intakes?scenario=default => [200] OK
+
+Note: 6 static requests not shown, run with "static" option to see them.

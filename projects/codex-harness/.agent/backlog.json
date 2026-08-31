@@ -280,6 +280,40 @@
         "evidence/phase-7.3/final-report.md"
       ],
       "next_action": "Phase 7.3 is frozen as VERIFIED_CANDIDATE_WITH_LIMITATIONS; evaluate Phase 8 only under a separate scope and quality bar. Maintain the scanner, host-observability and lockfile limitations, and do not infer production, release or security approval."
+    },
+    {
+      "id": "PHASE8-001",
+      "title": "Modernize frontend-patterns as a project-local frontend-engineering-vNext specialist",
+      "stage": "VERIFY",
+      "priority": "P0",
+      "status": "CONDITIONAL_PASS",
+      "support_level": "P8_LEVEL_A_CANDIDATE",
+      "origin": "User-supplied Phase 8 frontend engineering modernization specification",
+      "dependencies": ["PHASE7.3-001"],
+      "owner": "lead",
+      "acceptance_summary": "Build and verify an additive project-local frontend-engineering-vNext package and real dependency-free Veterinary Emergency Intake Dashboard pilot with source/artifact/browser evidence, bounded accessibility/security/performance handoff, independent capability/frontend/visual review and honest A/B/C support without changing installed/global skills or frozen prior phases.",
+      "evidence_refs": [
+        ".agent/plans/PHASE-8-frontend-engineering-modernization.md",
+        ".agent/plans/PHASE-8-frontend-repair-001.md",
+        ".agent/plans/PHASE-8-frontend-repair-002.md",
+        ".agent/gates/PHASE8-FINAL-0001.json",
+        "../../architecture/docs/adr/ADR-017-frontend-engineering-vnext-modernization.md",
+        "evidence/phase-8/P8-QB-1.md",
+        "evidence/phase-8/final-report.md",
+        "evidence/phase-8/phase8-final-manifest.json",
+        "evidence/phase-8/review-attestation.json",
+        "evidence/phase-8/readiness.json",
+        "evidence/phase-8/promotion-decision.md",
+        "evidence/phase-8/independent-capability-review.md",
+        "evidence/phase-8/independent-frontend-review.md",
+        "evidence/phase-8/independent-visual-review.md",
+        "evidence/phase-8/composition-review.md",
+        "evidence/phase-8/security-report.md",
+        "evidence/phase-8/pilots/frontend-engineering/browser-evidence.json",
+        "evidence/phase-8/pilots/frontend-engineering/phase4/frontend-real-post-repair-002/invocation-receipts/INV-75f00a187fb354d3a04141d1.json",
+        "evidence/phase-8/pilots/frontend-engineering/phase4/verifier-final-post-repair-002/invocation-receipts/INV-6ec92339747c562d9d19eb8e.json"
+      ],
+      "next_action": "Do not promote or freeze Phase 8. Keep the candidate local; next target is PHASE9_BROWSER_OBSERVER_NATIVE_INTEGRATION to obtain safe host-load causality and complete the remaining bounded runtime evidence."
     }
   ]
 }

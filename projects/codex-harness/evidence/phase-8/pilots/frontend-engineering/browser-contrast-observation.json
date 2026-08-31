@@ -1,0 +1,50 @@
+{
+  "observed_at": "2026-08-31T14:30:46.138Z",
+  "viewport": [
+    390,
+    844
+  ],
+  "results": [
+    {
+      "selector": ".lede",
+      "foreground": "rgb(93, 105, 101)",
+      "background": "rgb(243, 240, 233)",
+      "ratio": 5.02,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "selector": ".summary-heading",
+      "foreground": "rgb(93, 105, 101)",
+      "background": "rgb(246, 227, 218)",
+      "ratio": 4.6,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "selector": ".button--primary",
+      "foreground": "rgb(255, 250, 245)",
+      "background": "rgb(169, 75, 52)",
+      "ratio": 5.41,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "selector": ".triage-label[data-level=\"urgent\"]",
+      "foreground": "rgb(134, 91, 22)",
+      "background": "rgb(255, 253, 248)",
+      "ratio": 5.87,
+      "minimum": 4.5,
+      "pass": true
+    },
+    {
+      "selector": "h1 em",
+      "foreground": "rgb(197, 95, 67)",
+      "background": "rgb(243, 240, 233)",
+      "ratio": 3.62,
+      "minimum": 3,
+      "pass": true
+    }
+  ],
+  "pass": true
+}

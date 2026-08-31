@@ -1,0 +1,29 @@
+{
+  "schema_version": "P8-A11Y-STATIC-1",
+  "source": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-8/pilots/frontend-engineering/app/index.html",
+  "status": "PASS",
+  "checks": {
+    "h1_count": 1,
+    "heading_levels": [
+      1,
+      2,
+      2,
+      2
+    ],
+    "landmarks": [
+      "alert",
+      "aside",
+      "footer",
+      "form",
+      "header",
+      "img",
+      "main",
+      "nav",
+      "status"
+    ],
+    "control_count": 8,
+    "live_region_count": 2,
+    "control_failures": []
+  },
+  "failures": []
+}
