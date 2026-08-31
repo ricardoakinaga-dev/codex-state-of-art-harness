@@ -1,0 +1,37 @@
+{
+  "schema_version": "P7.3-MUTATION-CHECK-1",
+  "phase": "PHASE7.3",
+  "observed_at": "2026-08-31",
+  "method": "read-only before/after identity comparison",
+  "scope": {
+    "original_backend_patterns": "/home/ricardo/.agents/skills/backend-patterns",
+    "verification_loop_vnext": ".harness/capabilities/verification-loop-vnext",
+    "backend_engineering_vnext": ".harness/capabilities/backend-engineering-vnext",
+    "global_codex_config": "/home/ricardo/.codex/config.toml"
+  },
+  "identities": {
+    "original_backend_patterns": {
+      "package_fingerprint": "sha256:2e5efd41b7c89432bdd31cebea429dbc6c49a743a558b33040f55be7f7cde165",
+      "skill_sha256": "sha256:952e95fd7e8d0b17f13835dde8067d7dd2abd019e6e17821d5ebf913113c589e",
+      "metadata_sha256": "sha256:6a56b16e6ea055931bc38979c12279e7cd3ac7d3440bdd8fa1dc3152d003d36b"
+    },
+    "backend_engineering_vnext": "sha256:fa8ff9c60f79466ea2b4d2ebbce09b376d6260a40105b344f1da7141fc36437e",
+    "verification_loop_vnext": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "global_codex_config_sha256": "sha256:2c0001ff549ae3a3588fadef7348019f8829fefbd4bba60556bc02914dca89da"
+  },
+  "before_after": {
+    "original_backend_patterns": "EQUAL",
+    "backend_engineering_vnext": "EQUAL",
+    "verification_loop_vnext": "EQUAL",
+    "global_codex_config": "EQUAL"
+  },
+  "counts": {
+    "original_backend_patterns_mutations": 0,
+    "installed_package_mutations": 0,
+    "verification_loop_vnext_mutations": 0,
+    "global_mutations": 0,
+    "production_or_external_mutations": 0
+  },
+  "status": "PASS_WITH_LIMITATIONS",
+  "limitation": "Metadata comparison does not claim syscall-level monitoring."
+}

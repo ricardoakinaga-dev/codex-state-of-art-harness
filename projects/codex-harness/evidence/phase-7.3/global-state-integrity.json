@@ -1,0 +1,32 @@
+{
+  "schema_version": "P7.3-GLOBAL-STATE-INTEGRITY-1",
+  "phase": "PHASE7.3",
+  "observed_at": "2026-08-31",
+  "status": "UNCHANGED_OBSERVED",
+  "global_config": {
+    "path": "/home/ricardo/.codex/config.toml",
+    "before_sha256": "sha256:2c0001ff549ae3a3588fadef7348019f8829fefbd4bba60556bc02914dca89da",
+    "after_sha256": "sha256:2c0001ff549ae3a3588fadef7348019f8829fefbd4bba60556bc02914dca89da",
+    "comparison": "equal"
+  },
+  "installed_packages": {
+    "mutation": false,
+    "check": "/home/ricardo/.local/bin/uv pip check --python .venv/bin/python",
+    "result": "All installed packages are compatible"
+  },
+  "cycle_scope": {
+    "package_mutated": false,
+    "installed_or_global_state_mutated": false
+  },
+  "original_backend_patterns": {
+    "before_package_fingerprint": "sha256:2e5efd41b7c89432bdd31cebea429dbc6c49a743a558b33040f55be7f7cde165",
+    "after_package_fingerprint": "sha256:2e5efd41b7c89432bdd31cebea429dbc6c49a743a558b33040f55be7f7cde165",
+    "mutation_count": 0
+  },
+  "verification_loop_vnext": {
+    "before_package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "after_package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "mutation_count": 0
+  },
+  "limitation": "The before hash is the read-only pre-task observation recorded by the Phase 7.3 scout; this artifact does not claim syscall-level monitoring."
+}

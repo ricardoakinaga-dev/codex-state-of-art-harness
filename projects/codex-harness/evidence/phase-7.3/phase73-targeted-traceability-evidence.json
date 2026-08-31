@@ -1,0 +1,71 @@
+{
+  "schema_version": "P7.3-TARGETED-TRACEABILITY-EVIDENCE-1",
+  "phase": "PHASE7.3",
+  "policy": {
+    "purpose": "Bind each remaining material Medium residual to passing behavioral evidence without changing the fresh coverage result.",
+    "coverage_claim": "No record in this overlay claims direct execution of the residual source-to-target arc.",
+    "scope": "Only exact current material Medium branch IDs may be listed."
+  },
+  "records": [
+    {
+      "branch_id": "P7.2-BRANCH-45ccec59dacda321",
+      "mapping_strength": "BEHAVIORAL_TARGETED_OR_REGRESSION",
+      "test_result": "PASS",
+      "evidence_note": "The targeted verifier test binds a declared criterion and asserts the resulting claim identity.",
+      "tests": [
+        {
+          "test_id": "P73-TARGET-45CCEC",
+          "path": "tests/unit/test_phase73_material_assurance.py",
+          "nodeid": "tests/unit/test_phase73_material_assurance.py::test_phase6_verifier_claims_declared_visual_criterion",
+          "result": "PASS",
+          "relation": "targeted behavioral evidence for the declared-claim branch"
+        }
+      ]
+    },
+    {
+      "branch_id": "P7.2-BRANCH-6f6ed3fa970af6d1",
+      "mapping_strength": "BEHAVIORAL_TARGETED_OR_REGRESSION",
+      "test_result": "PASS",
+      "evidence_note": "The Phase 5 regression asserts that a missing verifier never becomes an assurance success and records the pending browser verification limitation.",
+      "tests": [
+        {
+          "test_id": "P73-TARGET-6F6ED3",
+          "path": "tests/unit/test_phase71_phase5_hardening.py",
+          "nodeid": "tests/unit/test_phase71_phase5_hardening.py::test_composition_handles_none_verifier_result_and_records_pending_browser_verification",
+          "result": "PASS",
+          "relation": "prior contract regression for verifier-gated assurance"
+        }
+      ]
+    },
+    {
+      "branch_id": "P7.2-BRANCH-ed72f1fd56a3eb36",
+      "mapping_strength": "BEHAVIORAL_TARGETED_OR_REGRESSION",
+      "test_result": "PASS",
+      "evidence_note": "The targeted deterministic-check test asserts a BLOCKED result when a declared text target is unavailable.",
+      "tests": [
+        {
+          "test_id": "P73-TARGET-ED72F1",
+          "path": "tests/unit/test_phase73_material_assurance.py",
+          "nodeid": "tests/unit/test_phase73_material_assurance.py::test_phase6_checks_return_blocked_for_missing_declared_artifacts",
+          "result": "PASS",
+          "relation": "targeted fail-closed artifact-boundary evidence"
+        }
+      ]
+    },
+    {
+      "branch_id": "P7.2-BRANCH-f0517046b4c6e173",
+      "mapping_strength": "BEHAVIORAL_TARGETED_OR_REGRESSION",
+      "test_result": "PASS",
+      "evidence_note": "The routing regression asserts that a selected provider still receives an independent verification capability when the profile requires it.",
+      "tests": [
+        {
+          "test_id": "P73-TARGET-F05170",
+          "path": "tests/unit/test_phase71_core_boundaries_hardening.py",
+          "nodeid": "tests/unit/test_phase71_core_boundaries_hardening.py::test_route_selects_specialist_verifier_provider_and_visual_optional_paths",
+          "result": "PASS",
+          "relation": "prior routing contract regression for independent verification"
+        }
+      ]
+    }
+  ]
+}

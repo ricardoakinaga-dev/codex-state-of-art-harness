@@ -1,0 +1,105 @@
+{
+  "schema_version": "P7.3-BASELINE-1",
+  "phase": "PHASE7.3",
+  "task_id": "PHASE7.3-001",
+  "captured_at": "2026-08-30T22:31:53-03:00",
+  "repository": {
+    "branch": "main",
+    "head": "f69b350f23ff0cd9ad5d22192f3ae7febdd8fa5e",
+    "head_subject": "fix: close phase 7.2 high-risk branches",
+    "worktree_state": "CLEAN_AT_BASELINE",
+    "status_command": "git status --short --branch",
+    "status_observation": "## main...origin/main"
+  },
+  "authoritative_inputs": [
+    "evidence/phase-7.2/README.md",
+    "evidence/phase-7.2/readiness.json",
+    "evidence/phase-7.2/independent-review.md",
+    "evidence/phase-7.2/P7.2-QB-1.md",
+    "evidence/phase-7.2/high-risk-branch-inventory.json",
+    "evidence/phase-7.2/branch-test-traceability.json",
+    "evidence/phase-7.2/residual-risk-review.md",
+    "evidence/phase-7.2/review-manifest.json",
+    "evidence/phase-7.2/review-attestation.json",
+    "evidence/phase-7.2/final-report.md",
+    "evidence/phase-7.1/",
+    "evidence/phase-7/README.md",
+    "evidence/phase-7/closeout-rerun-0009/"
+  ],
+  "source_fingerprint": {
+    "file_count": 95,
+    "sha256": "sha256:aebd379371fc89b88326c59504358f13823f855e3a2f4ccfb4ae183612884a4a"
+  },
+  "tests_fingerprint": {
+    "file_count": 105,
+    "sha256": "sha256:f61f434a54d0ea8c797872ab0197a1750c9ab543023db5b4a337b1047fe77ff1"
+  },
+  "config_fingerprint": {
+    "file_count": 5,
+    "sha256": "sha256:37e5b8693cac6e53c4311efbee2c9b9a824881d853ff8493acf87c4112109899"
+  },
+  "candidate_fingerprints": {
+    "backend_engineering_vnext": "sha256:fa8ff9c60f79466ea2b4d2ebbce09b376d6260a40105b344f1da7141fc36437e",
+    "verification_loop_vnext": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "installed_backend_patterns_tree": "sha256:1a47379ef4ba9564f44cf2c69b33e09ef600565de88da7c34054cabb57b317bb",
+    "installed_verification_loop_tree": "sha256:1c427ea75e1cc60a70ef0b3a6bc194455c4b4f367ca230f3f4054eae6c479a4f",
+    "global_codex_config_sha256": "sha256:2c0001ff549ae3a3588fadef7348019f8829fefbd4bba60556bc02914dca89da"
+  },
+  "verification": {
+    "full_suite_command": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/coverage run --branch --data-file=<temporary> -m pytest -q -p no:cacheprovider",
+    "full_suite_result": "1658 passed in 508.68s (0:08:28)",
+    "coverage_artifact": "evidence/phase-7.3/baseline-coverage.json",
+    "covered_lines": 18171,
+    "num_statements": 19547,
+    "missing_lines": 1376,
+    "excluded_lines": 99,
+    "line_coverage": 92.96055660715199,
+    "covered_branches": 6627,
+    "num_branches": 7418,
+    "missing_branches": 791,
+    "branch_coverage": 89.33674844971691,
+    "residual_branches": 791,
+    "residual_high_risk_branches": 1,
+    "residual_medium_risk_branches": 185,
+    "residual_low_risk_branches": 605,
+    "baseline_reproduced_from_current_source": true
+  },
+  "risk_semantics": {
+    "source": "Phase 7.2 generator baseline; explicit Phase 7.3 semantic normalization not yet applied",
+    "classified_high": 1,
+    "classified_medium": 185,
+    "classified_low": 605,
+    "promotion_blocking_high_from_prior_packet": 0,
+    "open_actionable_high": "UNKNOWN_PENDING_PHASE7.3_CLASSIFICATION",
+    "open_actionable_medium": "UNKNOWN_PENDING_PHASE7.3_CLASSIFICATION",
+    "promotion_blocking_medium": "UNKNOWN_PENDING_PHASE7.3_CLASSIFICATION"
+  },
+  "host": {
+    "current_path": "/home/ricardo/.nvm/versions/node/v22.22.2/bin/codex",
+    "current_version": "codex-cli 0.151.0",
+    "adapter_version": "UNKNOWN",
+    "prior_phase72_failure": "host executable codex is unavailable",
+    "prior_failure_classification": "HOST_PATH_UNRESOLVED_OR_ENVIRONMENT_CONFIG",
+    "current_resolution": "RESOLVED_READ_ONLY_VERSION_PROBE",
+    "current_cycle_status": "NOT_RUN_AT_BASELINE"
+  },
+  "security_scanners": {
+    "pip-audit": "UNAVAILABLE",
+    "bandit": "UNAVAILABLE",
+    "semgrep": "UNAVAILABLE",
+    "trivy": "UNAVAILABLE",
+    "safety": "UNAVAILABLE",
+    "osv-scanner": "UNAVAILABLE"
+  },
+  "prior_packet": {
+    "phase7_2_status": "PASS_WITH_LIMITATIONS",
+    "phase7_2_promotion": "KEEP_CANDIDATE_NOT_PROMOTED",
+    "phase7_2_h01": "CLOSED",
+    "phase7_2_independent_review": "PASS",
+    "phase7_2_real_cycle": "BLOCKED_ENVIRONMENT",
+    "phase7_2_manifest": "evidence/phase-7.2/review-manifest.json",
+    "phase7_2_manifest_digest": "sha256:a2c24cf068a08c9417e7dc528be290eac435bbd2a81307061003e822e07331ac",
+    "historical_phase7_1_real_cycle": "evidence/phase-7.1/real-rerun-final-2/"
+  },
+  "feature_freeze": "P7_3_FEATURE_FREEZE"
+}

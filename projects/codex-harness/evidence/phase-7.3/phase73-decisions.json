@@ -1,0 +1,1163 @@
+{
+  "decision_policy": {
+    "material_categories": [
+      "CONCURRENCY",
+      "EVIDENCE_STALENESS",
+      "FAILURE_ROUTING",
+      "FILESYSTEM",
+      "HOST_AUTH",
+      "LEDGER_LOCKING",
+      "NO_PROGRESS",
+      "PERSISTENCE",
+      "SCOPE_CONTROL",
+      "SECURITY_BOUNDARY",
+      "STATE_TRANSITION",
+      "TELEMETRY_INTEGRITY"
+    ],
+    "material_files": [
+      "boundary.py",
+      "classification.py",
+      "execution.py",
+      "graph.py",
+      "persistence.py",
+      "phase3_discovery.py",
+      "phase3_resolution.py",
+      "phase3_telemetry.py",
+      "phase4_execution.py",
+      "phase4_host.py",
+      "phase4_models.py",
+      "phase5_execution.py",
+      "phase5_verification.py",
+      "phase6_checks.py",
+      "phase6_host.py",
+      "phase6_models.py",
+      "phase6_telemetry.py",
+      "phase6_verifier.py",
+      "phase7_backend.py",
+      "phase7_host.py",
+      "registry.py",
+      "routing.py"
+    ],
+    "non_material_rule": "Only parser/model/registry/CLI defensive validation branches with no side effect, authority, persistence, filesystem, or evidence-integrity impact may be accepted as non-material."
+  },
+  "decisions": {
+    "P7.2-BRANCH-00fdf1c4330495a1": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-00fdf1c4330495a1 at src/harness_kernel/phase3_parser.py:_scalar_metadata:107->108 ('if \"\\\\x00\" in clean:' => 'raise _MetadataStructureError(\"front matter metadata contains NUL\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-037cdb723783aa3d": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-037cdb723783aa3d at src/harness_kernel/phase4_execution.py:_set_ledger_anchor_state:422->423 ('if descriptor is not None:' => 'with suppress(OSError):') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-050c6379469b20e6": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-050c6379469b20e6 at src/harness_kernel/phase7_host.py:BackendBuilderAppServerAdapter._with_instruction_kernel:1400->1402 ('if kernel is None or not isinstance(raw_input, list):' => 'instruction = (') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-058da4b0fe41749c": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-058da4b0fe41749c at src/harness_kernel/phase7_host.py:BackendBuilderAppServerAdapter._client:1653->1654 ('if policy is None:' => 'return client') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-086761c2b5e2127e": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-086761c2b5e2127e at src/harness_kernel/phase4_host.py:CodexAppServerAdapter.request_invocation:1131->1134 ('if client is not None:' => 'if mcp_event_count:') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-0aad4a176d8bea4f": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-0aad4a176d8bea4f at src/harness_kernel/phase4_execution.py:_write_ledger:621->622 ('if temporary_name is not None:' => 'with suppress(OSError):') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-0b20e966b2308310": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-0b20e966b2308310 at src/harness_kernel/phase4_execution.py:_open_ledger_parent:240->241 ('if descriptor is not None:' => 'with suppress(OSError):') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-0d0b6bd817582a9b": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-0d0b6bd817582a9b at src/harness_kernel/phase4_execution.py:_set_ledger_anchor_state:400->401 ('if descriptor is None or temporary_name is None:' => 'raise ReplayLedgerError(\"replay ledger anchor temporary file could not be created\")') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-0e6b0d8ab0c4fdfa": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-0e6b0d8ab0c4fdfa at src/harness_kernel/serialization.py:_convert:235->239 ('if annotation is type(None):' => 'return value') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-116fac858e80f593": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-116fac858e80f593 at src/harness_kernel/validation.py:_enum:192->193 ('if not isinstance(value, str) or not value.strip():' => '_add(') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-1469f5fdf2528f87": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-1469f5fdf2528f87 at src/harness_kernel/phase3_parser.py:parse_skill_text:347->348 ('if not capability_id or not _ID.fullmatch(capability_id):' => 'errors.append(\"front matter name is missing or invalid\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-1668a47ddcd9586e": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-1668a47ddcd9586e at src/harness_kernel/phase4_host.py:CodexAppServerAdapter.request_invocation:1139->1140 ('if status is InvocationResultStatus.UNKNOWN and error_code is None:' => 'error_code = \"HOST_RESULT_UNAVAILABLE\"') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-187dfa725fccfa19": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-187dfa725fccfa19 at src/harness_kernel/execution.py:ExecutionKernel._profile:863->864 ('if task_id is not None and task_id != objective.task_id:' => 'raise ValueError(\"task id does not match the supplied profile\")') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-1ac98838024442ce": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-1ac98838024442ce at src/harness_kernel/phase7_host.py:_bound_policy:845->846 ('if project_root is not None and not _under(workspace, project_root):' => 'raise ValueError(\"request workspace is outside the configured project\")') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-1c294b042115cc67": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-1c294b042115cc67 at src/harness_kernel/phase3_parser.py:_parse_front_matter:186->190 ('for index, line in enumerate(lines[1 : _MAX_FRONT_LINES + 1], start=1):' => 'if end is None:') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-1f3534c705ab446c": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-1f3534c705ab446c at src/harness_kernel/phase3_parser.py:_scalar_metadata:96->97 ('if not clean:' => 'return \"\"') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-21e0b28c17311b06": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-21e0b28c17311b06 at src/harness_kernel/phase4_execution.py:_open_ledger_parent:245->248 ('if descriptor is not None:' => 'raise ReplayLedgerError(\"replay ledger parent cannot be opened safely\") from exc') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-2346e39eedb0ba49": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-2346e39eedb0ba49 at src/harness_kernel/phase3_parser.py:_has_mapping_separator:89->90 ('elif character == \":\" and (index + 1 == len(value) or value[index + 1].isspace()):' => 'return True') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-27aaca73a85e9d12": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-27aaca73a85e9d12 at src/harness_kernel/phase3_parser.py:_array_nesting_exceeds:53->54 ('elif character == \"\\\\\\\\\":' => 'escaped = True') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-28166862d0d2919b": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-28166862d0d2919b at src/harness_kernel/phase4_execution.py:_load_ledger_anchor:288->291 ('if descriptor is not None:' => 'if not isinstance(value, Mapping) or value.get(\"schema_version\") != _LEDGER_ANCHOR_SCHEMA:') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-2974dea9bc7e64ef": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-2974dea9bc7e64ef at src/harness_kernel/cli.py:_config_result:421->422 ('if not isinstance(item, str) or _IDENTIFIER.fullmatch(item) is None:' => 'findings.append(') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-29cb2d4e71a73fcb": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-29cb2d4e71a73fcb at src/harness_kernel/phase4_execution.py:_open_ledger_parent:240->243 ('if descriptor is not None:' => 'raise') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-2a1474c5317a9c13": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-2a1474c5317a9c13 at src/harness_kernel/execution.py:ExecutionKernel._run_graph:2295->2296 ('if fallback_invocation is None:' => 'selected_capability = (') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-2e7e053d8c4ed8bc": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-2e7e053d8c4ed8bc at src/harness_kernel/phase7_host.py:VerificationLoopVNextAppServerAdapter.validate_invocation:2081->2082 ('if self._configured_project_root is not None:' => 'try:') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-33582e85fea902c8": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-33582e85fea902c8 at src/harness_kernel/phase3_parser.py:_parse_front_matter:195->196 ('if not line.strip() or line.lstrip().startswith(\"#\"):' => 'continue') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-340fd64b3a7b1b84": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-340fd64b3a7b1b84 at src/harness_kernel/phase7_backend.py:_validate_procedure_catalog:1192->1193 ('if str(catalog.get(field, \"deny\")).casefold() not in {\"deny\", \"denied\", \"none\"}:' => 'errors.append(f\"procedure catalog {field} boundary is not denied\")') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_backend_artifacts_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-346f50743729f47a": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-346f50743729f47a at src/harness_kernel/phase3_parser.py:_has_mapping_separator:82->83 ('elif in_quote == \\'\"\\' and character == \"\\\\\\\\\":' => 'escaped = True') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-34a6bd2f71ffb44e": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-34a6bd2f71ffb44e at src/harness_kernel/phase4_host.py:_SubprocessClient.close:521->526 ('if process.pid is not None:' => 'with suppress(subprocess.TimeoutExpired):') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-3978024177b57dc2": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-3978024177b57dc2 at src/harness_kernel/phase3_parser.py:_section_values:172->171 ('if line not in result:' => 'for line in section.lines:') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-3a6d84625d69eeb6": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-3a6d84625d69eeb6 at src/harness_kernel/validation.py:_specific:503->504 ('if value.repair_of is not None:' => '_nonempty(value.repair_of, \"$.repair_of\", findings, identifier=True)') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-3aeeadcf83d8efe0": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-3aeeadcf83d8efe0 at src/harness_kernel/execution.py:ExecutionKernel._persist:1993->1991 ('if producer_id is not None and producer_id in output_by_invocation:' => 'for artifact in result.artifacts:') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-3f965afacb370036": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-3f965afacb370036 at src/harness_kernel/cli.py:main:1056->1057 ('if args.run_id is not None and _IDENTIFIER.fullmatch(args.run_id) is None:' => 'raise CliError(\"INVALID_INPUT\", \"run id is invalid\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-40b01ca4858cba8b": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-40b01ca4858cba8b at src/harness_kernel/phase3_models.py:public_data:751->753 ('if isinstance(value, (str, int, float, bool)) or value is None:' => 'return str(value)') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-41a65bb60a4ef9e4": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-41a65bb60a4ef9e4 at src/harness_kernel/phase7_host.py:BoundedBuilderHostTools._write:579->585 ('if parent_fd is not None:' => 'return _tool_ok({\"path\": relative, \"bytes\": len(encoded)})') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-4211a904b313161a": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-4211a904b313161a at src/harness_kernel/phase4_execution.py:_create_ledger_anchor:350->-311 ('if descriptor is not None:' => '<exit>') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-4274bcaf91f5cd0c": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-4274bcaf91f5cd0c at src/harness_kernel/phase4_execution.py:_open_workspace_descriptor:194->197 ('if descriptor is not None:' => 'raise ReplayLedgerError(\"workspace cannot be opened safely\") from exc') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-434b8c0db1f0f435": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-434b8c0db1f0f435 at src/harness_kernel/phase4_execution.py:_set_ledger_anchor_state:425->426 ('if temporary_name is not None:' => 'with suppress(OSError):') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-45ccec59dacda321": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-45ccec59dacda321 at src/harness_kernel/phase6_verifier.py:_claim:68->81 ('if declared is not None:' => 'return Claim(') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase6_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-4996278505be6ce5": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-4996278505be6ce5 at src/harness_kernel/phase5_models.py:_strings:86->87 ('if not isinstance(value, str) or (not value and not allow_empty) or \"\\\\x00\" in value:' => 'raise ValueError(f\"{name} contains an invalid string\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-4b19ebeca10a65d7": {
+      "closure_status": "UNREACHABLE_PROVEN",
+      "decision_reason": "P7.2-BRANCH-4b19ebeca10a65d7 at src/harness_kernel/phase5_execution.py:CompositionRunner.run:497->500 ('if verifier is not None:' => 'packet = make_blind_packet(task, artifact, tuple(renders))') is unreachable under the CompositionRunner contract: the verifier guard at line 402 returns before this later condition is reached when no verifier exists, and the verifier is not reassigned.",
+      "existing_evidence": [
+        "tests/unit/test_phase5_execution.py",
+        "tests/unit/test_phase71_phase5_hardening.py"
+      ],
+      "materiality": "UNREACHABLE_BY_CONTRACT"
+    },
+    "P7.2-BRANCH-4ca1fc62f69ab6df": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-4ca1fc62f69ab6df at src/harness_kernel/cli.py:main:1054->1055 ('if _IDENTIFIER.fullmatch(args.task_id) is None:' => 'raise CliError(\"INVALID_INPUT\", \"task id is invalid\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-5020ce346518bbab": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-5020ce346518bbab at src/harness_kernel/phase5_models.py:AssuranceReport.__post_init__:714->715 ('if self.support_level not in {\"A\", \"B\", \"C\", \"NONE\"}:' => 'raise ValueError(\"support level is invalid\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-5286152c1a9011a4": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-5286152c1a9011a4 at src/harness_kernel/phase4_execution.py:_open_ledger_parent:245->246 ('if descriptor is not None:' => 'with suppress(OSError):') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-531d3d1fd1656f5f": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-531d3d1fd1656f5f at src/harness_kernel/phase4_host.py:_SubprocessClient._send:377->378 ('if self._process.stdin is None:' => 'raise HostProtocolError(\"app-server stdin is unavailable\")') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-537d146f4d4006fc": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-537d146f4d4006fc at src/harness_kernel/phase4_execution.py:_open_workspace_descriptor:194->195 ('if descriptor is not None:' => 'with suppress(OSError):') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-55bc73ac0b4c6192": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-55bc73ac0b4c6192 at src/harness_kernel/cli.py:main:1199->1200 ('if _IDENTIFIER.fullmatch(args.run_id) is None:' => 'raise CliError(\"INVALID_INPUT\", \"run id is invalid\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-5a3323cf7498e4e0": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-5a3323cf7498e4e0 at src/harness_kernel/phase3_parser.py:_items:135->136 ('elif raw.startswith(\"[\"):' => 'raise _MetadataStructureError(\"front matter structured list is malformed\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-5c522f0ede03d764": {
+      "closure_status": "UNREACHABLE_PROVEN",
+      "decision_reason": "P7.2-BRANCH-5c522f0ede03d764 at src/harness_kernel/phase5_execution.py:CompositionRunner.run:442->445 ('if verifier is not None:' => 'events.append(\"VISUAL_CRITIQUE\")') is unreachable under the CompositionRunner contract: the verifier guard at line 402 returns before this later condition is reached when no verifier exists, and the verifier is not reassigned.",
+      "existing_evidence": [
+        "tests/unit/test_phase5_execution.py",
+        "tests/unit/test_phase71_phase5_hardening.py"
+      ],
+      "materiality": "UNREACHABLE_BY_CONTRACT"
+    },
+    "P7.2-BRANCH-5f0aef35035696f1": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-5f0aef35035696f1 at src/harness_kernel/phase5_models.py:VisualCritique.__post_init__:644->645 ('if self.overall_score is not None and not 0 <= self.overall_score <= 100:' => 'raise ValueError(\"overall_score is outside 0..100\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-668f987b12ea299c": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-668f987b12ea299c at src/harness_kernel/phase3_parser.py:_unquote:70->72 ('if len(value) >= 2 and value[0] == value[-1] and value[0] in {\"\\'\", \\'\"\\'}:' => 'return value') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-68e57b8f3536fe17": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-68e57b8f3536fe17 at src/harness_kernel/phase4_host.py:CodexAppServerAdapter.request_invocation:883->884 ('if binding is not None:' => '(') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-6ec232f013799d0a": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-6ec232f013799d0a at src/harness_kernel/validation.py:validate:701->702 ('if expected is None:' => '_add(findings, ValidationCode.INVALID_TYPE, \"$\", \"value is not a supported contract record\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-6f6ed3fa970af6d1": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-6f6ed3fa970af6d1 at src/harness_kernel/phase5_execution.py:CompositionRunner.run:509->511 ('if verifier is not None and structural is not None:' => 'events.append(\"ASSURANCE\")') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase5_finalization_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-710e268a34ab07cc": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-710e268a34ab07cc at src/harness_kernel/phase3_parser.py:_array_nesting_exceeds:51->52 ('if escaped:' => 'escaped = False') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-72ea0c64819cfba4": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-72ea0c64819cfba4 at src/harness_kernel/phase4_execution.py:_open_workspace_descriptor:189->192 ('if descriptor is not None:' => 'raise') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-7366be3caa7bb144": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-7366be3caa7bb144 at src/harness_kernel/phase3_parser.py:parse_skill_text:306->307 ('if not text.strip():' => 'return SkillDocument(') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-74670393ad21c560": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-74670393ad21c560 at src/harness_kernel/boundary.py:ProjectBoundary.append_jsonl:229->230 ('if fcntl is None:' => 'raise BoundaryError(\"JSONL append locking is unavailable\")') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_filesystem_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-780ac49024cb02f2": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-780ac49024cb02f2 at src/harness_kernel/validation.py:_specific:616->615 ('if dimension.score is not None:' => 'for index, dimension in enumerate(value.dimensions):') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-784a54b8ec39095a": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-784a54b8ec39095a at src/harness_kernel/phase7_host.py:BackendVerifierAppServerAdapter._skill_is_discovered:1884->1885 ('if package_value is None:' => 'return False') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-78c40bd9254dbf5c": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-78c40bd9254dbf5c at src/harness_kernel/cli.py:main:1197->1198 ('if _IDENTIFIER.fullmatch(args.task_id) is None:' => 'raise CliError(\"INVALID_INPUT\", \"task id is invalid\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-82e701e895cf98fe": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-82e701e895cf98fe at src/harness_kernel/validation.py:ValidationResult.raise_for_error:148->-147 ('if not self.is_valid:' => '<exit>') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-85756ac0f904a37a": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-85756ac0f904a37a at src/harness_kernel/phase7_host.py:BackendBuilderAppServerAdapter._with_instruction_kernel:1409->1410 ('if isinstance(item, Mapping) and item.get(\"type\") == \"skill\":' => 'continue') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-869675de46e5aaec": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-869675de46e5aaec at src/harness_kernel/execution.py:_id:203->204 ('if not isinstance(value, str) or _IDENTIFIER.fullmatch(value) is None:' => 'raise ValueError(f\"{label} is invalid\")') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-89dc4d1ab77e904f": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-89dc4d1ab77e904f at src/harness_kernel/execution.py:ExecutionKernel._run_graph.invoke:2482->2484 ('if graph_node.budget.duration_ms is not None:' => 'outcome = self._execute_one(') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-8d9de4d455a9f1c5": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-8d9de4d455a9f1c5 at src/harness_kernel/phase3_parser.py:_parse_front_matter:208->209 ('if \":\" not in stripped:' => 'errors.append(\"front matter line has no key separator\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-8ed7f3e8bc5607a7": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-8ed7f3e8bc5607a7 at src/harness_kernel/phase3_parser.py:parse_skill_text:253->254 ('if not isinstance(text, str) or \"\\\\x00\" in text:' => 'raise SkillParseError(\"skill text must be a NUL-free string\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-8f445d6b7f619d3a": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-8f445d6b7f619d3a at src/harness_kernel/phase7_host.py:BoundedBuilderHostTools._read:516->519 ('if parent_fd is not None:' => 'return _tool_ok({\"path\": relative, \"content\": text, \"bytes\": len(content)})') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-9a6ef797c23f707d": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-9a6ef797c23f707d at src/harness_kernel/execution.py:ExecutionKernel._run_graph:2157->2158 ('if reference_invocation is None:' => 'selected_capability = (') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-9a7b25c60ee25672": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-9a7b25c60ee25672 at src/harness_kernel/phase4_execution.py:_load_ledger:533->534 ('if ledger_token is not None and not _is_ledger_token(ledger_token):' => 'raise ReplayLedgerError(\"replay ledger token is invalid\")') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-9abfc2537b5b7d32": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-9abfc2537b5b7d32 at src/harness_kernel/execution.py:ExecutionKernel._run_graph:2121->2123 ('if graph.graph_budget is not None and graph.graph_budget.duration_ms is not None:' => 'graph_deadline = graph_started + graph_duration_ms / 1000') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-a0b0a31a69ebaefe": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-a0b0a31a69ebaefe at src/harness_kernel/phase3_parser.py:_parse_front_matter:213->214 ('if not _KEY.fullmatch(key):' => 'errors.append(f\"invalid front matter key: {key[:80]}\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-a0fcdd0683508261": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-a0fcdd0683508261 at src/harness_kernel/phase3_parser.py:parse_skill_text:284->285 ('if errors and front_end == 0 and lines and lines[0].strip() == \"---\":' => 'return SkillDocument(') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-a314146bb207e4a9": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-a314146bb207e4a9 at src/harness_kernel/phase4_host.py:_SubprocessClient.close:521->522 ('if process.pid is not None:' => 'try:') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-a59a45989beba51a": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-a59a45989beba51a at src/harness_kernel/phase4_execution.py:_write_ledger:596->597 ('if temporary_descriptor is None or temporary_name is None:' => 'raise ReplayLedgerError(\"replay ledger temporary file could not be created\")') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-a67a77f5c2fd8aed": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-a67a77f5c2fd8aed at src/harness_kernel/phase7_backend.py:_limits_for_package:209->210 ('if limits is not None:' => 'return limits') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_backend_artifacts_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-a96e3638978ff832": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-a96e3638978ff832 at src/harness_kernel/persistence.py:RunStore.append_lifecycle.validate_append:327->326 ('if parsed.get(\"event_id\") == event_id:' => 'for parsed in existing:') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_persistence_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-aed60be2d8987667": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-aed60be2d8987667 at src/harness_kernel/phase4_execution.py:_load_ledger_anchor:306->307 ('if ledger_token is not None and not _is_ledger_token(ledger_token):' => 'raise ReplayLedgerError(\"replay ledger anchor token is invalid\")') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-b1d10822ff055338": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-b1d10822ff055338 at src/harness_kernel/phase7_host.py:BackendBuilderAppServerAdapter._handle_host_request:1595->1596 ('if host_tools is None:' => 'write_error = \"HOST_TOOL_CONTEXT_MISSING\"') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-b5e302fe7b993885": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-b5e302fe7b993885 at src/harness_kernel/persistence.py:RunStore._write_once_json:122->123 ('if not self.boundary.resolve(relative, allow_missing=True).exists():' => 'raise') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_persistence_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-b81c8ca5a42904f4": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-b81c8ca5a42904f4 at src/harness_kernel/phase4_host.py:CodexAppServerAdapter.request_invocation:1067->1129 ('if client is not None:' => 'with self._active_lock:') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-b87914f5fad02540": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-b87914f5fad02540 at src/harness_kernel/serialization.py:from_json:307->308 ('if isinstance(payload, type):' => 'payload, model_type = model_type, payload') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-bba95d14a7c5043f": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-bba95d14a7c5043f at src/harness_kernel/validation.py:_enum:192->199 ('if not isinstance(value, str) or not value.strip():' => 'return') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-bbac59fa1005461a": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-bbac59fa1005461a at src/harness_kernel/phase7_host.py:VerificationLoopVNextAppServerAdapter.validate_invocation:2081->2089 ('if self._configured_project_root is not None:' => 'return tuple(dict.fromkeys(errors))') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-be4c06295d107c5b": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-be4c06295d107c5b at src/harness_kernel/persistence.py:RunStore._write_once_bytes:155->157 ('if not self.boundary.resolve(relative, allow_missing=True).exists():' => 'try:') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_persistence_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-c1f5f138ec9e711e": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-c1f5f138ec9e711e at src/harness_kernel/validation.py:_enum:191->192 ('if not issubclass(enum_type, Enum):' => 'if not isinstance(value, str) or not value.strip():') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-c2babec4af622c84": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-c2babec4af622c84 at src/harness_kernel/phase3_parser.py:_has_mapping_separator:80->81 ('if in_quote == \\'\"\\' and escaped:' => 'escaped = False') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-c35191bf82a949e3": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-c35191bf82a949e3 at src/harness_kernel/cli.py:main:1219->1220 ('if args.objective is not None and len(args.objective) > MAX_TEXT_CHARS:' => 'raise CliError(\"SIZE_LIMIT_EXCEEDED\", \"objective exceeds the supported size limit\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-c4fe94403d558ad7": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-c4fe94403d558ad7 at src/harness_kernel/phase7_host.py:BackendVerifierAppServerAdapter._skill_is_discovered:1882->1883 ('if package_value is None and policy is not None:' => 'package_value = policy.package_path') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-c69c6c5cf0a119f6": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-c69c6c5cf0a119f6 at src/harness_kernel/phase4_execution.py:_load_ledger_anchor:303->304 ('if type(ledger_initialized) is not bool:' => 'raise ReplayLedgerError(\"replay ledger anchor initialization state is invalid\")') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-c6f47e9b16e68205": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-c6f47e9b16e68205 at src/harness_kernel/phase7_host.py:BackendBuilderAppServerAdapter._with_instruction_kernel:1409->1411 ('if isinstance(item, Mapping) and item.get(\"type\") == \"skill\":' => 'filtered.append(item)') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-c9999f77f2a92759": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-c9999f77f2a92759 at src/harness_kernel/execution.py:ExecutionKernel._profile:865->866 ('if run_id is not None and run_id != objective.run_id:' => 'raise ValueError(\"run id does not match the supplied profile\")') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-cb35c195d7947478": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-cb35c195d7947478 at src/harness_kernel/phase7_host.py:_filesystem_policy_matches:806->807 ('if roots is None:' => 'return False') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-ccb7ecf6b87c2c9e": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-ccb7ecf6b87c2c9e at src/harness_kernel/phase4_execution.py:_write_ledger:618->619 ('if temporary_descriptor is not None:' => 'with suppress(OSError):') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-d0f1c76495957750": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-d0f1c76495957750 at src/harness_kernel/phase3_parser.py:_parse_front_matter:190->191 ('if end is None:' => 'return values, lists, 0, [\"front matter closing delimiter is missing\"]') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-d43743b01b8d2f5d": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-d43743b01b8d2f5d at src/harness_kernel/phase3_parser.py:parse_skill_bytes:437->438 ('if not isinstance(payload, bytes):' => 'raise SkillParseError(\"skill payload must be bytes\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-dd2a25247bf92cb1": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-dd2a25247bf92cb1 at src/harness_kernel/boundary.py:ProjectBoundary.append_jsonl:256->257 ('if not isinstance(parsed, Mapping):' => 'raise BoundaryError(\"existing JSONL record is not an object\")') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_filesystem_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-e269fb74035996b4": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-e269fb74035996b4 at src/harness_kernel/phase3_parser.py:parse_skill_text:255->256 ('if len(text.encode(\"utf-8\")) > _MAX_TEXT_BYTES:' => 'return SkillDocument(') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-e41b73baf50c28e0": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-e41b73baf50c28e0 at src/harness_kernel/phase7_host.py:BoundedBuilderHostTools._read:513->516 ('if file_fd is not None:' => 'if parent_fd is not None:') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-e490a5fa17798622": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-e490a5fa17798622 at src/harness_kernel/phase4_execution.py:_open_workspace_descriptor:189->190 ('if descriptor is not None:' => 'with suppress(OSError):') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-e4b7bece9b93b8b4": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-e4b7bece9b93b8b4 at src/harness_kernel/phase4_execution.py:_load_ledger:527->530 ('if descriptor is not None:' => 'if not isinstance(payload, Mapping) or payload.get(\"schema_version\") != \"P4-LEDGER-1\":') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-e7db7fb71c6b8fd8": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-e7db7fb71c6b8fd8 at src/harness_kernel/phase4_execution.py:_write_ledger:581->586 ('if metadata is not None and (' => 'raise ReplayLedgerError(\"replay ledger is not a unique regular file\")') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-e8831ddeb10329a1": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-e8831ddeb10329a1 at src/harness_kernel/cli.py:_load_contract:567->568 ('if model_type is None:' => 'raise CliError(\"INVALID_VERSION\", \"unsupported contract schema\")') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-ed72f1fd56a3eb36": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-ed72f1fd56a3eb36 at src/harness_kernel/phase6_checks.py:run_deterministic_procedure:408->415 ('if target_and_content is None:' => 'target, content = target_and_content') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_phase6_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-f0517046b4c6e173": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-f0517046b4c6e173 at src/harness_kernel/routing.py:minimum_route.add:495->496 ('if verifier is not None:' => 'add(verifier, \"provider output still needs independent contract verification\")') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_cli_routing_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-f07295d8ac9ab7c5": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-f07295d8ac9ab7c5 at src/harness_kernel/persistence.py:RunStore._write_once_bytes:155->156 ('if not self.boundary.resolve(relative, allow_missing=True).exists():' => 'raise') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_persistence_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-f11f4b263b32d81d": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-f11f4b263b32d81d at src/harness_kernel/serialization.py:to_primitive:111->112 ('if isinstance(value, Enum):' => 'return to_primitive(value.value, path=path)') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-f2e9d9298c4f3336": {
+      "closure_status": "UNREACHABLE_PROVEN",
+      "decision_reason": "P7.2-BRANCH-f2e9d9298c4f3336 at src/harness_kernel/phase5_cli.py:_run_builder:400->415 ('for attempt in range(1, budget.max_builder_invocations + 1):' => 'request_for_evidence = requests[-1] if requests else None') is unreachable under the bounded contract; the Phase 7.2 loop proof establishes the closure.",
+      "existing_evidence": [
+        "evidence/phase-7.2/phase5-cli-loop-proof.md"
+      ],
+      "materiality": "UNREACHABLE_BY_CONTRACT"
+    },
+    "P7.2-BRANCH-f548dbed5622a8c7": {
+      "closure_status": "UNREACHABLE_PROVEN",
+      "decision_reason": "P7.2-BRANCH-f548dbed5622a8c7 at src/harness_kernel/registry.py:SemVer.parse.identifiers:113->114 ('if not item or not re.fullmatch(r\"[0-9A-Za-z-]+\", item):' => 'raise SemVerError(f\"invalid semver identifier: {item!r}\")') is unreachable under the registry parser contract: the strict wildcard/semver syntax checks return before this defensive guard can receive the impossible input shape.",
+      "existing_evidence": [
+        "tests/unit/test_phase71_persistence_hardening.py",
+        "evidence/phase-7.2/residual-risk-review.md"
+      ],
+      "materiality": "UNREACHABLE_BY_CONTRACT"
+    },
+    "P7.2-BRANCH-f63e9fdd57bbd76c": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-f63e9fdd57bbd76c at src/harness_kernel/phase4_host.py:CodexAppServerAdapter._client:745->747 ('if binding is None:' => '(') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-f7b719dacb595af6": {
+      "closure_status": "TESTED_PASS",
+      "decision_reason": "P7.2-BRANCH-f7b719dacb595af6 at src/harness_kernel/phase4_host.py:_SubprocessClient.close:516->529 ('if process.poll() is None:' => 'self._runtime_directory.cleanup()') is in a material boundary; the prior Phase 7.2 contract assurance and regression evidence passes. The exact coverage arc remains visible and is not treated as 100% coverage.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE"
+    },
+    "P7.2-BRANCH-face3bde83100aa4": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-face3bde83100aa4 at src/harness_kernel/phase3_parser.py:_unquote:70->71 ('if len(value) >= 2 and value[0] == value[-1] and value[0] in {\"\\'\", \\'\"\\'}:' => 'return value[1:-1]') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    },
+    "P7.2-BRANCH-fceff0970443383a": {
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "decision_reason": "P7.2-BRANCH-fceff0970443383a at src/harness_kernel/phase3_parser.py:parse_skill_bytes:439->440 ('if len(payload) > _MAX_TEXT_BYTES:' => 'return SkillDocument(') is a defensive validation branch with no side effect, authority, persistence, filesystem, or evidence-integrity impact.",
+      "existing_evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "materiality": "NON_MATERIAL_DEFENSIVE"
+    }
+  },
+  "phase": "PHASE7.3",
+  "schema_version": "P7.3-RISK-DECISIONS-1",
+  "source_inventory": "evidence/phase-7.3/phase73-current/inventory/high-risk-branch-inventory.json"
+}

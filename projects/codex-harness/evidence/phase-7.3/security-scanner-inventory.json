@@ -1,0 +1,62 @@
+{
+  "available_count": 0,
+  "captured_at": "2026-08-31T02:03:16.013167-03:00",
+  "phase": "PHASE7.3",
+  "policy": {
+    "installation_allowed": false,
+    "network_allowed": false,
+    "unavailable_is_pass": false
+  },
+  "scanners": {
+    "bandit": {
+      "path": null,
+      "status": "UNAVAILABLE"
+    },
+    "cargo-audit": {
+      "path": null,
+      "status": "UNAVAILABLE"
+    },
+    "detect-secrets": {
+      "path": null,
+      "status": "UNAVAILABLE"
+    },
+    "gitleaks": {
+      "path": null,
+      "status": "UNAVAILABLE"
+    },
+    "grype": {
+      "path": null,
+      "status": "UNAVAILABLE"
+    },
+    "osv-scanner": {
+      "path": null,
+      "status": "UNAVAILABLE"
+    },
+    "pip-audit": {
+      "path": null,
+      "status": "UNAVAILABLE"
+    },
+    "safety": {
+      "path": null,
+      "status": "UNAVAILABLE"
+    },
+    "semgrep": {
+      "path": null,
+      "status": "UNAVAILABLE"
+    },
+    "snyk": {
+      "path": null,
+      "status": "UNAVAILABLE"
+    },
+    "syft": {
+      "path": null,
+      "status": "UNAVAILABLE"
+    },
+    "trivy": {
+      "path": null,
+      "status": "UNAVAILABLE"
+    }
+  },
+  "schema_version": "P7.3-SECURITY-SCANNER-INVENTORY-1",
+  "unavailable_count": 12
+}

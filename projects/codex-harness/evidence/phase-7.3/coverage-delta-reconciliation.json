@@ -1,0 +1,1029 @@
+{
+  "added_to_authoritative": [],
+  "authoritative_inventory": "evidence/phase-7.2/high-risk-branch-inventory.json",
+  "counts": {
+    "added": 0,
+    "authoritative": {
+      "high": 1,
+      "low": 605,
+      "medium": 186,
+      "total": 792
+    },
+    "current": {
+      "high": 1,
+      "low": 603,
+      "medium": 111,
+      "total": 715
+    },
+    "removed": 77
+  },
+  "final_coverage": "evidence/phase-7.3/coverage-final.json",
+  "final_inventory": "evidence/phase-7.3/medium-risk-inventory.json",
+  "phase": "PHASE7.3",
+  "reconciliation_rule": "The current inventory is regenerated from the final fresh branch-aware coverage artifact. Removed and added records are listed by exact branch identity; no branch is silently renamed, dropped, or inferred from prose.",
+  "removed_from_authoritative": [
+    {
+      "branch_id": "P7.2-BRANCH-02937b0f68a2e439",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/validation.py",
+        "_timestamp",
+        219,
+        "_add("
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-0b6dc054daacf524",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase3_host.py",
+        "CodexHostAdapter._existing_dir",
+        95,
+        "raise HostAdapterError(f\"{label} is unavailable\") from None"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-0e499287f043f791",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_models.py",
+        "VerificationOutput.__post_init__",
+        1213,
+        "object.__setattr__(self, \"criterion_results\", results)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-166fbddec5e6fa6b",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_checks.py",
+        "run_deterministic_procedure",
+        470,
+        "return _result("
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-16a66a02d81cd056",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/graph.py",
+        "validate_execution_graph",
+        149,
+        "findings.append("
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-199541371d3533f8",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase4_host.py",
+        "CodexAppServerAdapter._event_from_message",
+        1323,
+        "load_values = tuple("
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-1ac45c4927a73a23",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/classification.py",
+        "_overall_confidence",
+        1246,
+        "return _enum(Confidence, explicit)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-1c74ce7f7a72bc75",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_models.py",
+        "_output_status",
+        835,
+        "return VerificationStatus.NOT_RUN"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-1de738c1966d3628",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_models.py",
+        "_optional_text",
+        114,
+        "return _text(value, name, maximum=maximum)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-20e51d428093ac96",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/classification.py",
+        "_tuple_strings",
+        100,
+        "return ()"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-2273d37094632fed",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase4_policy.py",
+        "PilotRule.__post_init__",
+        158,
+        "raise Phase4PolicyError(\"capability_id is invalid\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-242c4f38ac79356e",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/classification.py",
+        "_complexity_assessment",
+        526,
+        "value = _enum(Complexity, explicit)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-2ceff6432d136908",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_models.py",
+        "VerificationOutput.__post_init__",
+        1359,
+        "raise ValueError(\"PASS output requires a bound verification input\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-2dff379d249d734b",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_checks.py",
+        "run_deterministic_procedure",
+        374,
+        "return _result("
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-2e8bc22f6e32232f",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/classification.py",
+        "_data_assessment",
+        819,
+        "value = _enum(DataImpact, explicit)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-326f0b0383d54683",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/classification.py",
+        "_enum",
+        115,
+        "raise TypeError(f\"expected {enum_type.__name__} or string\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-34ee33bbc3057c36",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase3_resolution.py",
+        "ResolutionEngine.resolve",
+        273,
+        "raise ResolutionError(\"explicit version pin is invalid\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-366031303295ea96",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_models.py",
+        "VerificationOutput.__post_init__",
+        1368,
+        "claims = tuple(self.claims)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-40a15c05b84f3063",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase4_host.py",
+        "CodexAppServerAdapter._client",
+        745,
+        "raise HostProtocolError(self._host_binding_error or \"HOST_EXECUTABLE_UNAVAILABLE\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-40d53fb73cbf4a2a",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase4_host.py",
+        "CodexAppServerAdapter._client",
+        742,
+        "binding = self._resolved_host_binding()"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-423b8a346e5eeb1f",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase3_resolution.py",
+        "ResolutionEngine._parse_request",
+        94,
+        "raise ResolutionError(\"capability request is invalid\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-45491e55c6a50b56",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_models.py",
+        "ProcedureResult.as_criterion_result",
+        713,
+        "raise ValueError(\"procedure result is missing its spec\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-454d5fca77d6a8ea",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/registry.py",
+        "_caret_bounds",
+        252,
+        "return lower, SemVer(1, 0, 0)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-48755d92f7883f60",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase5_verification.py",
+        "parse_blind_critique",
+        666,
+        "return VisualCritique("
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-4c5e84528d093feb",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_checks.py",
+        "run_deterministic_procedure",
+        443,
+        "return _result("
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-51252b8f2124d3fc",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase4_models.py",
+        "HostInvocationResult.__post_init__",
+        615,
+        "raise ValueError(\"completed_at cannot precede started_at\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-5146102e44e877ab",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase3_resolution.py",
+        "ResolutionEngine._parse_request",
+        87,
+        "raise ResolutionError(\"capability request is invalid\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-516d01223ffaaeec",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase3_discovery.py",
+        "CapabilityDiscovery._inspect_package",
+        529,
+        "kind = CapabilityKind.LEGACY"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-5898a76e63942c34",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_telemetry.py",
+        "Phase6TelemetryEvent.__post_init__",
+        61,
+        "raise Phase6TelemetryError(\"telemetry event_type is invalid\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-5b63a644f8442968",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/classification.py",
+        "_reversibility_assessment",
+        1076,
+        "value = _enum(Reversibility, explicit)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-5c3b90331426310d",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/classification.py",
+        "_assessment_value",
+        130,
+        "raise TypeError("
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-623a02afc20b5a8e",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_models.py",
+        "_output_freshness",
+        882,
+        "return FreshnessStatus.UNKNOWN"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-623e0a0f4b251294",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase7_host.py",
+        "VerificationLoopVNextAppServerAdapter._turn_params",
+        2050,
+        "return params"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-6412f54ed55c15a7",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/validation.py",
+        "_nonnegative",
+        286,
+        "_add("
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-6bd1dd4cf1ce0a21",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/graph.py",
+        "execute_graph",
+        277,
+        "raise ValueError(\"max_invocations must be a non-negative integer or null\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-6c41bebcd73fec16",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/graph.py",
+        "execute_graph",
+        283,
+        "raise ValueError(\"max_duration_ms must be a non-negative integer or null\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-71c776e507350d4c",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_checks.py",
+        "run_deterministic_procedure",
+        525,
+        "return _result("
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-7429e3e4b068a7fd",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase3_models.py",
+        "_as_tuple",
+        142,
+        "return ()"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-77741988eb1af662",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/registry.py",
+        "parse_version_range",
+        306,
+        "raw = \"*\""
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-7ec6ee8f3c872b03",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_verifier.py",
+        "verify_input",
+        367,
+        "raise Phase6VerificationError(\"procedure result is missing its spec\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-88a71d1b17f4d34e",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase4_models.py",
+        "_as_tuple",
+        115,
+        "return ()"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-8c21492bcf878882",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/registry.py",
+        "_next_bound",
+        245,
+        "return SemVer(major, minor, patch + 1)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-8c8615143cae2bb8",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/classification.py",
+        "_parallel_assessment",
+        1026,
+        "value = _enum(ParallelismPotential, explicit)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-8fde3405f31a587c",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_models.py",
+        "CriterionResult.__post_init__",
+        750,
+        "raise ValueError(\"criterion result procedure result is not bound\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-96c061644cdfe9f3",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_host.py",
+        "discover_vnext_package",
+        344,
+        "blockers.append(\"INSTRUCTION_KERNEL_UNAVAILABLE\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-97273df745cc88a4",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_models.py",
+        "CriterionResult.observed",
+        806,
+        "return \"not observed\""
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-995e56ddec8f6011",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_checks.py",
+        "run_deterministic_procedure",
+        506,
+        "return _result("
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-9e5f883c0cb827d2",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/graph.py",
+        "validate_execution_graph",
+        110,
+        "findings.append("
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-9e72ce149e2c1d68",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase3_telemetry.py",
+        "Phase3Telemetry.record_event",
+        156,
+        "raise TelemetryError(\"host stage event type is invalid\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-9f34eb8877e3e2a0",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_models.py",
+        "_public",
+        254,
+        "return str(value)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-9fd0f959c4a05f5f",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_models.py",
+        "VerificationOutput.__post_init__",
+        1257,
+        "expected_passed = tuple("
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-b3a71b167d28a036",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/graph.py",
+        "execute_graph",
+        375,
+        "outcomes[node_id] = GraphNodeResult("
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-b6f7292bcfae4516",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_models.py",
+        "_optional_text",
+        114,
+        "return None"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-b9aaee749c2236e8",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/classification.py",
+        "_security_assessment",
+        741,
+        "value = _enum(SecurityImpact, explicit)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-bd0b31162c405c9d",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_telemetry.py",
+        "Phase6Telemetry.record",
+        126,
+        "raise Phase6TelemetryError(\"telemetry event_type is invalid\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-bfc40aa9b2848178",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase4_models.py",
+        "_freeze_mapping",
+        104,
+        "return MappingProxyType({})"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-bffa11c05d796883",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/graph.py",
+        "validate_execution_graph",
+        108,
+        "findings.append(_finding(\"$.nodes[].budget.tokens\", \"node tokens must be non-negative\"))"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-c1ba27019ca199ed",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_models.py",
+        "VerificationOutput.__post_init__",
+        1372,
+        "object.__setattr__(self, \"claims\", claims)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-c4ccb3d27094e956",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/graph.py",
+        "validate_execution_graph",
+        81,
+        "findings.append(_finding(\"$.nodes\", \"max_nodes must be a positive integer or null\"))"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-c5ea8750d2a273dd",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_checks.py",
+        "run_deterministic_procedure",
+        602,
+        "valid = False"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-c778bb0cdbd9827b",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/classification.py",
+        "_visual_assessment",
+        901,
+        "value = _enum(VisualImportance, explicit)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-c7cf8ded3d494863",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/classification.py",
+        "_user_assessment",
+        1206,
+        "value = _enum(UserImpact, explicit)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-c8c37464f8a8c7a1",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase3_models.py",
+        "_map_proxy",
+        154,
+        "return MappingProxyType({})"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-d0fab05b4fb45a96",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/classification.py",
+        "_research_assessment",
+        983,
+        "value = _enum(ResearchNeed, explicit)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-d22fdc1a09d97905",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/registry.py",
+        "_next_bound",
+        241,
+        "raise SemVerError(\"wildcard range has no upper bound\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-d462751dba2bd69d",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase4_host.py",
+        "_SubprocessClient._read",
+        389,
+        "raise HostProtocolError(\"app-server stdout is unavailable\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-d752e7c0f3e581e2",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_models.py",
+        "VerificationOutput.__post_init__",
+        1500,
+        "raise ValueError(\"verification output exceeds the report byte budget\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-d7673e58a980b2a1",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/graph.py",
+        "validate_execution_graph",
+        147,
+        "findings.append(_finding(\"$.graph_budget.tokens\", \"graph tokens must be non-negative\"))"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-e2b340a93d498138",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_models.py",
+        "VerificationOutput.__post_init__",
+        1486,
+        "raise ValueError(\"reviewer cannot be the artifact producer\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-e3918221cd9d41d2",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase7_host.py",
+        "BackendVerifierAppServerAdapter._policy_for_request",
+        1860,
+        "raise ValueError(\"filesystem policy is not host-bound\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-e3a758b76baea6b6",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_models.py",
+        "VerificationOutput.__post_init__",
+        1482,
+        "raise ValueError(\"reviewer must be an identified REVIEWER\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-e705a93f93db0625",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase6_verifier.py",
+        "_result_for",
+        228,
+        "raise Phase6VerificationError(\"procedure result is missing its spec\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-e81d8593e5b265d5",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase4_host.py",
+        "_SubprocessClient._read",
+        397,
+        "raise HostProtocolError(\"app-server exited before returning a response\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-ea37bf1b2683e20b",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase3_discovery.py",
+        "_load_json.pairs",
+        147,
+        "return None, \"manifest JSON must be an object\""
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-ec4cf6d5e65e3e19",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/registry.py",
+        "_tilde_bounds",
+        263,
+        "return lower, SemVer(1, 0, 0)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-f802bcc4983d1240",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/phase7_host.py",
+        "run_fixed_pytest",
+        288,
+        "_terminate_process(process)"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    },
+    {
+      "branch_id": "P7.2-BRANCH-fd530224fec77343",
+      "evidence": [
+        "evidence/phase-7.3/coverage-final.json"
+      ],
+      "identity": [
+        "src/harness_kernel/registry.py",
+        "SemVer.parse",
+        100,
+        "raise SemVerError(\"version must be a string\")"
+      ],
+      "status": "COVERED_BY_FINAL_FRESH_COVERAGE"
+    }
+  ],
+  "schema_version": "P7.3-COVERAGE-DELTA-RECONCILIATION-1",
+  "status": "RECONCILED"
+}

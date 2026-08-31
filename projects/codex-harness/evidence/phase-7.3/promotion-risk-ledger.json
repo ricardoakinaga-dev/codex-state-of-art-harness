@@ -1,0 +1,1937 @@
+{
+  "entries": [
+    {
+      "detail": "Absolute host pins resolved and the bounded real cycle passed.",
+      "evidence": [
+        "host-bootstrap-manifest.json",
+        "real-cycle-report.md"
+      ],
+      "kind": "ENVIRONMENT",
+      "promotion_impact": "LIMITATION",
+      "risk_id": "ENV-HOST-REAL-CYCLE",
+      "status": "CLOSED_WITH_LIMITATIONS"
+    },
+    {
+      "detail": "Optional scanner unavailable; no PASS claim was made.",
+      "evidence": [
+        "security-scanner-inventory.json",
+        "security-scanner-report.md",
+        "waivers/WAIVER-SECURITY-SCANNERS.md"
+      ],
+      "kind": "SECURITY_SCANNER",
+      "promotion_impact": "LIMITATION",
+      "risk_id": "ENV-SCANNER-BANDIT",
+      "scanner": "bandit",
+      "status": "CLOSED_BY_FORMAL_WAIVER"
+    },
+    {
+      "detail": "Optional scanner unavailable; no PASS claim was made.",
+      "evidence": [
+        "security-scanner-inventory.json",
+        "security-scanner-report.md",
+        "waivers/WAIVER-SECURITY-SCANNERS.md"
+      ],
+      "kind": "SECURITY_SCANNER",
+      "promotion_impact": "LIMITATION",
+      "risk_id": "ENV-SCANNER-CARGO_AUDIT",
+      "scanner": "cargo-audit",
+      "status": "CLOSED_BY_FORMAL_WAIVER"
+    },
+    {
+      "detail": "Optional scanner unavailable; no PASS claim was made.",
+      "evidence": [
+        "security-scanner-inventory.json",
+        "security-scanner-report.md",
+        "waivers/WAIVER-SECURITY-SCANNERS.md"
+      ],
+      "kind": "SECURITY_SCANNER",
+      "promotion_impact": "LIMITATION",
+      "risk_id": "ENV-SCANNER-DETECT_SECRETS",
+      "scanner": "detect-secrets",
+      "status": "CLOSED_BY_FORMAL_WAIVER"
+    },
+    {
+      "detail": "Optional scanner unavailable; no PASS claim was made.",
+      "evidence": [
+        "security-scanner-inventory.json",
+        "security-scanner-report.md",
+        "waivers/WAIVER-SECURITY-SCANNERS.md"
+      ],
+      "kind": "SECURITY_SCANNER",
+      "promotion_impact": "LIMITATION",
+      "risk_id": "ENV-SCANNER-GITLEAKS",
+      "scanner": "gitleaks",
+      "status": "CLOSED_BY_FORMAL_WAIVER"
+    },
+    {
+      "detail": "Optional scanner unavailable; no PASS claim was made.",
+      "evidence": [
+        "security-scanner-inventory.json",
+        "security-scanner-report.md",
+        "waivers/WAIVER-SECURITY-SCANNERS.md"
+      ],
+      "kind": "SECURITY_SCANNER",
+      "promotion_impact": "LIMITATION",
+      "risk_id": "ENV-SCANNER-GRYPE",
+      "scanner": "grype",
+      "status": "CLOSED_BY_FORMAL_WAIVER"
+    },
+    {
+      "detail": "Optional scanner unavailable; no PASS claim was made.",
+      "evidence": [
+        "security-scanner-inventory.json",
+        "security-scanner-report.md",
+        "waivers/WAIVER-SECURITY-SCANNERS.md"
+      ],
+      "kind": "SECURITY_SCANNER",
+      "promotion_impact": "LIMITATION",
+      "risk_id": "ENV-SCANNER-OSV_SCANNER",
+      "scanner": "osv-scanner",
+      "status": "CLOSED_BY_FORMAL_WAIVER"
+    },
+    {
+      "detail": "Optional scanner unavailable; no PASS claim was made.",
+      "evidence": [
+        "security-scanner-inventory.json",
+        "security-scanner-report.md",
+        "waivers/WAIVER-SECURITY-SCANNERS.md"
+      ],
+      "kind": "SECURITY_SCANNER",
+      "promotion_impact": "LIMITATION",
+      "risk_id": "ENV-SCANNER-PIP_AUDIT",
+      "scanner": "pip-audit",
+      "status": "CLOSED_BY_FORMAL_WAIVER"
+    },
+    {
+      "detail": "Optional scanner unavailable; no PASS claim was made.",
+      "evidence": [
+        "security-scanner-inventory.json",
+        "security-scanner-report.md",
+        "waivers/WAIVER-SECURITY-SCANNERS.md"
+      ],
+      "kind": "SECURITY_SCANNER",
+      "promotion_impact": "LIMITATION",
+      "risk_id": "ENV-SCANNER-SAFETY",
+      "scanner": "safety",
+      "status": "CLOSED_BY_FORMAL_WAIVER"
+    },
+    {
+      "detail": "Optional scanner unavailable; no PASS claim was made.",
+      "evidence": [
+        "security-scanner-inventory.json",
+        "security-scanner-report.md",
+        "waivers/WAIVER-SECURITY-SCANNERS.md"
+      ],
+      "kind": "SECURITY_SCANNER",
+      "promotion_impact": "LIMITATION",
+      "risk_id": "ENV-SCANNER-SEMGREP",
+      "scanner": "semgrep",
+      "status": "CLOSED_BY_FORMAL_WAIVER"
+    },
+    {
+      "detail": "Optional scanner unavailable; no PASS claim was made.",
+      "evidence": [
+        "security-scanner-inventory.json",
+        "security-scanner-report.md",
+        "waivers/WAIVER-SECURITY-SCANNERS.md"
+      ],
+      "kind": "SECURITY_SCANNER",
+      "promotion_impact": "LIMITATION",
+      "risk_id": "ENV-SCANNER-SNYK",
+      "scanner": "snyk",
+      "status": "CLOSED_BY_FORMAL_WAIVER"
+    },
+    {
+      "detail": "Optional scanner unavailable; no PASS claim was made.",
+      "evidence": [
+        "security-scanner-inventory.json",
+        "security-scanner-report.md",
+        "waivers/WAIVER-SECURITY-SCANNERS.md"
+      ],
+      "kind": "SECURITY_SCANNER",
+      "promotion_impact": "LIMITATION",
+      "risk_id": "ENV-SCANNER-SYFT",
+      "scanner": "syft",
+      "status": "CLOSED_BY_FORMAL_WAIVER"
+    },
+    {
+      "detail": "Optional scanner unavailable; no PASS claim was made.",
+      "evidence": [
+        "security-scanner-inventory.json",
+        "security-scanner-report.md",
+        "waivers/WAIVER-SECURITY-SCANNERS.md"
+      ],
+      "kind": "SECURITY_SCANNER",
+      "promotion_impact": "LIMITATION",
+      "risk_id": "ENV-SCANNER-TRIVY",
+      "scanner": "trivy",
+      "status": "CLOSED_BY_FORMAL_WAIVER"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-00fdf1c4330495a1",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-037cdb723783aa3d",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-050c6379469b20e6",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-058da4b0fe41749c",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-086761c2b5e2127e",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-0aad4a176d8bea4f",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-0b20e966b2308310",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-0d0b6bd817582a9b",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-0e6b0d8ab0c4fdfa",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-116fac858e80f593",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-1469f5fdf2528f87",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-1668a47ddcd9586e",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "FILESYSTEM",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-187dfa725fccfa19",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-1ac98838024442ce",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-1c294b042115cc67",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-1f3534c705ab446c",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-21e0b28c17311b06",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-2346e39eedb0ba49",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-27aaca73a85e9d12",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-28166862d0d2919b",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-2974dea9bc7e64ef",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-29cb2d4e71a73fcb",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "FAILURE_ROUTING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-2a1474c5317a9c13",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-2e7e053d8c4ed8bc",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-33582e85fea902c8",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_backend_artifacts_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-340fd64b3a7b1b84",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-346f50743729f47a",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-34a6bd2f71ffb44e",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-3978024177b57dc2",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-3a6d84625d69eeb6",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "PERSISTENCE",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-3aeeadcf83d8efe0",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-3f965afacb370036",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-40b01ca4858cba8b",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-41a65bb60a4ef9e4",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-4211a904b313161a",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-4274bcaf91f5cd0c",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-434b8c0db1f0f435",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase6_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-45ccec59dacda321",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-4996278505be6ce5",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "UNREACHABLE_PROVEN",
+      "evidence": [
+        "tests/unit/test_phase5_execution.py",
+        "tests/unit/test_phase71_phase5_hardening.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "UNREACHABLE_BY_CONTRACT",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-4b19ebeca10a65d7",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-4ca1fc62f69ab6df",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-5020ce346518bbab",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-5286152c1a9011a4",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-531d3d1fd1656f5f",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-537d146f4d4006fc",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-55bc73ac0b4c6192",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-5a3323cf7498e4e0",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "UNREACHABLE_PROVEN",
+      "evidence": [
+        "tests/unit/test_phase5_execution.py",
+        "tests/unit/test_phase71_phase5_hardening.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "UNREACHABLE_BY_CONTRACT",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-5c522f0ede03d764",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-5f0aef35035696f1",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-668f987b12ea299c",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-68e57b8f3536fe17",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-6ec232f013799d0a",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase5_finalization_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-6f6ed3fa970af6d1",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-710e268a34ab07cc",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-72ea0c64819cfba4",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-7366be3caa7bb144",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_filesystem_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-74670393ad21c560",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-780ac49024cb02f2",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-784a54b8ec39095a",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-78c40bd9254dbf5c",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-82e701e895cf98fe",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-85756ac0f904a37a",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-869675de46e5aaec",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "NO_PROGRESS",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-89dc4d1ab77e904f",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-8d9de4d455a9f1c5",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-8ed7f3e8bc5607a7",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-8f445d6b7f619d3a",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-9a6ef797c23f707d",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-9a7b25c60ee25672",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "NO_PROGRESS",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-9abfc2537b5b7d32",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-a0b0a31a69ebaefe",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-a0fcdd0683508261",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-a314146bb207e4a9",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-a59a45989beba51a",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_backend_artifacts_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-a67a77f5c2fd8aed",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "PERSISTENCE",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_persistence_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-a96e3638978ff832",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-aed60be2d8987667",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-b1d10822ff055338",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "PERSISTENCE",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_persistence_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-b5e302fe7b993885",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-b81c8ca5a42904f4",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-b87914f5fad02540",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-bba95d14a7c5043f",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-bbac59fa1005461a",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "PERSISTENCE",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_persistence_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-be4c06295d107c5b",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-c1f5f138ec9e711e",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-c2babec4af622c84",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-c35191bf82a949e3",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-c4fe94403d558ad7",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-c69c6c5cf0a119f6",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-c6f47e9b16e68205",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "FILESYSTEM",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-c9999f77f2a92759",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-cb35c195d7947478",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-ccb7ecf6b87c2c9e",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-d0f1c76495957750",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-d43743b01b8d2f5d",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_filesystem_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-dd2a25247bf92cb1",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-e269fb74035996b4",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-e41b73baf50c28e0",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-e490a5fa17798622",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-e4b7bece9b93b8b4",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "LEDGER_LOCKING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase4_execution_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-e7db7fb71c6b8fd8",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-e8831ddeb10329a1",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_phase6_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-ed72f1fd56a3eb36",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "FAILURE_ROUTING",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_cli_routing_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-f0517046b4c6e173",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "PERSISTENCE",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_persistence_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-f07295d8ac9ab7c5",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-f11f4b263b32d81d",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "RETRY",
+      "closure_status": "UNREACHABLE_PROVEN",
+      "evidence": [
+        "evidence/phase-7.2/phase5-cli-loop-proof.md"
+      ],
+      "kind": "BRANCH",
+      "materiality": "UNREACHABLE_BY_CONTRACT",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-f2e9d9298c4f3336",
+      "risk_level": "high",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "UNREACHABLE_PROVEN",
+      "evidence": [
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase71_persistence_hardening.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "UNREACHABLE_BY_CONTRACT",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-f548dbed5622a8c7",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-f63e9fdd57bbd76c",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "HOST_AUTH",
+      "closure_status": "TESTED_PASS",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "material-medium-proof.json",
+        "tests/unit/test_phase72_host_assurance.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "MATERIAL_BUT_ALREADY_COVERED_BY_PRIOR_CONTRACT_EVIDENCE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-f7b719dacb595af6",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-face3bde83100aa4",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    },
+    {
+      "category": "OTHER",
+      "closure_status": "ACCEPTED_NON_MATERIAL",
+      "evidence": [
+        "evidence/phase-7.2/README.md",
+        "evidence/phase-7.2/residual-risk-review.md",
+        "tests/unit/test_phase72_high_risk_boundaries.py"
+      ],
+      "kind": "BRANCH",
+      "materiality": "NON_MATERIAL_DEFENSIVE",
+      "promotion_impact": "NO_BLOCK",
+      "risk_id": "P7.2-BRANCH-fceff0970443383a",
+      "risk_level": "medium",
+      "status": "CLOSED"
+    }
+  ],
+  "phase": "PHASE7.3",
+  "promotion_gate": {
+    "open_actionable_high": 0,
+    "open_actionable_medium": 0,
+    "promotion_blocking_high": 0,
+    "promotion_blocking_medium": 0
+  },
+  "schema_version": "P7.3-PROMOTION-RISK-LEDGER-1",
+  "semantic_counts": {
+    "accepted_residual_medium": 44,
+    "blocked_medium": 0,
+    "classified_high": 1,
+    "classified_low": 603,
+    "classified_medium": 111,
+    "closed_high": 1,
+    "closed_medium": 111,
+    "high": 1,
+    "low": 603,
+    "material_medium": 64,
+    "medium": 111,
+    "open_actionable_high": 0,
+    "open_actionable_medium": 0,
+    "promotion_blocking_high": 0,
+    "promotion_blocking_medium": 0,
+    "total": 715
+  },
+  "status": "CLOSED_WITH_LIMITATIONS"
+}

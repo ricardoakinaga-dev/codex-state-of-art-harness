@@ -309,7 +309,7 @@ def test_direct_max_duration_is_a_real_provider_deadline(tmp_path: Path) -> None
         "Apply the direct duration budget to a slow local fixture",
         run_id="RUN-DIRECT-DURATION",
         provider_id="local.sleeping",
-        limits=ExecutionLimits(timeout_ms=1000, max_duration_ms=15),
+        limits=ExecutionLimits(timeout_ms=1000, max_duration_ms=100),
     )
 
     assert result.status is ExecutionStatus.TIMED_OUT

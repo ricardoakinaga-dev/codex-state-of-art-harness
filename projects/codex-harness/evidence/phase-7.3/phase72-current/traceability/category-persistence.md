@@ -1,0 +1,74 @@
+# Phase 7.2 Category: PERSISTENCE
+
+- residual branches: `63`
+- high-risk branches: `0`
+- unresolved/deferred branches: `63`
+- result: `BLOCKED_BY_RESIDUAL_ARCS`
+
+A neighboring test result is not treated as direct branch closure. The exact branch records and current coverage relation are authoritative in `branch-test-traceability.json`.
+
+## Deferred branch IDs
+
+- `P7.2-BRANCH-03147ccbc9bc9156`
+- `P7.2-BRANCH-05ab4984fddcff09`
+- `P7.2-BRANCH-241d534cd38323c7`
+- `P7.2-BRANCH-2564f77680fe8720`
+- `P7.2-BRANCH-301589d8ab35db76`
+- `P7.2-BRANCH-3395789a3a94f885`
+- `P7.2-BRANCH-3aeeadcf83d8efe0`
+- `P7.2-BRANCH-3d8c7402097aa1e3`
+- `P7.2-BRANCH-4218d123b75bb1df`
+- `P7.2-BRANCH-513476a9b269759a`
+- `P7.2-BRANCH-51b8b558b7c4c14d`
+- `P7.2-BRANCH-545f7d10eab0e8a3`
+- `P7.2-BRANCH-569573191be7af7e`
+- `P7.2-BRANCH-57034800adac81d8`
+- `P7.2-BRANCH-57e128d2f086c398`
+- `P7.2-BRANCH-5e1928aa749951c9`
+- `P7.2-BRANCH-638b27839ac26394`
+- `P7.2-BRANCH-69d53fd09a67c217`
+- `P7.2-BRANCH-73bfd545a202ea64`
+- `P7.2-BRANCH-76686d1a9082b662`
+- `P7.2-BRANCH-7790114d177d8fa3`
+- `P7.2-BRANCH-795f2b56f451b9e9`
+- `P7.2-BRANCH-82534f7a92842bd8`
+- `P7.2-BRANCH-82f246af2ab17097`
+- `P7.2-BRANCH-84a3f2285b0bc2e5`
+- `P7.2-BRANCH-87b2fd9c3c1541af`
+- `P7.2-BRANCH-93a76f97a1926d91`
+- `P7.2-BRANCH-961c5865d30037f9`
+- `P7.2-BRANCH-9b4b5e8fd20a7f1b`
+- `P7.2-BRANCH-9c327354f72791c0`
+- `P7.2-BRANCH-9e72ce149e2c1d68`
+- `P7.2-BRANCH-9e919839e91981a2`
+- `P7.2-BRANCH-a1a15733364eea9e`
+- `P7.2-BRANCH-a96e3638978ff832`
+- `P7.2-BRANCH-afae27163da23a2f`
+- `P7.2-BRANCH-b45a8e5418777d61`
+- `P7.2-BRANCH-b5e302fe7b993885`
+- `P7.2-BRANCH-b73fa8d23917e2ab`
+- `P7.2-BRANCH-bd0b31162c405c9d`
+- `P7.2-BRANCH-be4c06295d107c5b`
+- `P7.2-BRANCH-bf6d43f41b3b8e0e`
+- `P7.2-BRANCH-c233ee3f2bd2d987`
+- `P7.2-BRANCH-c4bd80560599b540`
+- `P7.2-BRANCH-c60da6ab9f342daa`
+- `P7.2-BRANCH-c6269b3ab2d2e34b`
+- `P7.2-BRANCH-cb8f6ec8d56c45b8`
+- `P7.2-BRANCH-cc02683f7f70476b`
+- `P7.2-BRANCH-cde8af5d5228a28e`
+- `P7.2-BRANCH-ce3dbb84550b6210`
+- `P7.2-BRANCH-cebe84ec72796c27`
+- `P7.2-BRANCH-d573b801c42561fb`
+- `P7.2-BRANCH-d8d8686f9de76ea1`
+- `P7.2-BRANCH-dbc8bfbe0639d3aa`
+- `P7.2-BRANCH-e18edbb5c6d3a09b`
+- `P7.2-BRANCH-e509ef11fec543fd`
+- `P7.2-BRANCH-eb5c1d7ebd1fa356`
+- `P7.2-BRANCH-ed42ac14fb79e860`
+- `P7.2-BRANCH-edfde412561e8bd1`
+- `P7.2-BRANCH-f07295d8ac9ab7c5`
+- `P7.2-BRANCH-f2a9aec1ae73de70`
+- `P7.2-BRANCH-f4bf175f1dfe9b72`
+- `P7.2-BRANCH-f704140d11932cd9`
+- `P7.2-BRANCH-ff1a3dda5d646ebc`

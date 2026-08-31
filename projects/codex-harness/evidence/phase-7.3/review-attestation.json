@@ -1,0 +1,40 @@
+{
+  "actionable_high": 0,
+  "actionable_medium": 0,
+  "attestation": "The listed bytes and observations are bounded to this worktree. Unavailable checks and host observability remain explicit limitations.",
+  "attestation_type": "NON_CRYPTOGRAPHIC_EVIDENCE_ATTESTATION",
+  "attestor": "PHASE7.3_CLOSEOUT_INTEGRATOR",
+  "backend_engineering_vnext_fingerprint": "sha256:fa8ff9c60f79466ea2b4d2ebbce09b376d6260a40105b344f1da7141fc36437e",
+  "claims_excluded": [
+    "PRODUCTION_READY",
+    "AAA_VERIFIED",
+    "SECURITY_APPROVED",
+    "RELEASE_APPROVED",
+    "CAUSAL_SUPERIORITY",
+    "ALL_BRANCHES_COVERED",
+    "ALL_FAILURES_EXHAUSTIVELY_TESTED",
+    "SYSCALL_LEVEL_ISOLATION"
+  ],
+  "critical_open": 0,
+  "host_environment_waiver_accepted": false,
+  "independent_review": {
+    "note": "Cicero final exact read-only audit target: post-freeze 415-entry packet; prior Plato PASS covers the corrected 414-entry pre-freeze packet, and the current audit verifies the freeze marker, all bound bytes, documentation provenance and attestation without subsequent writes.",
+    "reviewer_id": "01a0568a-0dc6-7003-8353-bae9e51e10b5",
+    "status": "PASS"
+  },
+  "manifest_digest": "sha256:f2346e8446ef5756a6ffa639c9c35b8335b5d69874b99085ec05aa337cff98c4",
+  "manifest_path": "evidence/phase-7.3/review-manifest.json",
+  "promotion": "VERIFIED_CANDIDATE_WITH_LIMITATIONS",
+  "promotion_blocking_high": 0,
+  "promotion_blocking_medium": 0,
+  "promotion_recommendation": "VERIFIED_CANDIDATE_WITH_LIMITATIONS",
+  "review_mode": "FRESH_READ_ONLY_EXACT_PACKET",
+  "reviewed_head": "f69b350f23ff0cd9ad5d22192f3ae7febdd8fa5e",
+  "reviewer": "01a0568a-0dc6-7003-8353-bae9e51e10b5",
+  "scanner_waiver_accepted": true,
+  "schema_version": "P7.3-REVIEW-ATTESTATION-1",
+  "status": "PASS_WITH_LIMITATIONS",
+  "task_id": "PHASE7.3-001",
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "verification_loop_vnext_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b"
+}

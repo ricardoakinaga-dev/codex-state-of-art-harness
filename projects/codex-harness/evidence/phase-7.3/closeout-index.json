@@ -1,0 +1,39 @@
+{
+  "schema_version": "P7.3-CLOSEOUT-INDEX-1",
+  "phase": "PHASE7.3",
+  "status": "PASS_WITH_LIMITATIONS",
+  "authoritative_attempt": "real-cycle-report-005.json",
+  "attempts": [
+    {
+      "attempt": "real-cycle-final-001",
+      "report": "real-cycle-report.json",
+      "status": "SUPERSEDED_DIAGNOSTIC",
+      "reason": "Host invocation reached an out-of-root temporary project reference during serialization."
+    },
+    {
+      "attempt": "real-cycle-final-002",
+      "report": "real-cycle-report-002.json",
+      "status": "SUPERSEDED_DIAGNOSTIC",
+      "reason": "Verifier rejected a known formatter defect in the disposable artifact."
+    },
+    {
+      "attempt": "real-cycle-final-003",
+      "report": "real-cycle-report-003.json",
+      "status": "SUPERSEDED_DIAGNOSTIC",
+      "reason": "Verifier rejected one remaining formatter finding."
+    },
+    {
+      "attempt": "real-cycle-final-004",
+      "report": "real-cycle-report-004.json",
+      "status": "SUPERSEDED_DIAGNOSTIC",
+      "reason": "Cycle passed after disposable normalization but was superseded by the final pinned rerun."
+    },
+    {
+      "attempt": "real-cycle-final-005",
+      "report": "real-cycle-report-005.json",
+      "status": "AUTHORITATIVE_PASS_WITH_LIMITATIONS",
+      "reason": "Final pinned disposable cycle completed with builder, repair and verifier receipts passing with explicit limitations."
+    }
+  ],
+  "supersession_rule": "Only the authoritative attempt feeds the Phase 7.3 ledger; diagnostics remain immutable history and cannot be used as current pass evidence."
+}

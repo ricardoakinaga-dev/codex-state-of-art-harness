@@ -1,0 +1,22 @@
+{
+  "schema_version": "P7.3-TEST-REPORT-1",
+  "phase": "PHASE7.3",
+  "status": "PASS",
+  "full_suite": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/coverage run --branch --data-file=<temporary> -m pytest -q -p no:cacheprovider",
+    "result": "1758 passed in 301.91s (0:05:01)",
+    "passed": 1758,
+    "failed": 0,
+    "skipped": 0,
+    "coverage_artifact": "evidence/phase-7.3/coverage-final.json"
+  },
+  "phase73_focused": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src .venv/bin/pytest -q -p no:cacheprovider tests/unit/test_phase73_*.py",
+    "result": "100 passed in 8.06s",
+    "passed": 100,
+    "failed": 0,
+    "skipped": 0
+  },
+  "minimum_baseline": 1658,
+  "regression_policy": "All Phase 2 through Phase 7.2 regression reports are required to remain PASS."
+}

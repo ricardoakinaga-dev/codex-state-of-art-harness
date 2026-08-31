@@ -1,0 +1,72 @@
+{
+  "schema_version": "P7.3-FINAL-GATE-1",
+  "gate_id": "PHASE7.3-FINAL-0001",
+  "phase": "PHASE7.3",
+  "task_id": "PHASE7.3-001",
+  "feature_freeze": "P7_3_FEATURE_FREEZE",
+  "status": "PASS_WITH_LIMITATIONS",
+  "decision": "VERIFIED_CANDIDATE_WITH_LIMITATIONS",
+  "quality_bar": "evidence/phase-7.3/P7.3-QB-1.md",
+  "criteria": {
+    "P73-01_authority": "PASS",
+    "P73-02_feature_freeze": "PASS",
+    "P73-03_semantics": "PASS",
+    "P73-04_current_inventory": "PASS",
+    "P73-05_medium_closure": "PASS",
+    "P73-06_count_consistency": "PASS",
+    "P73-07_high_gate": "PASS",
+    "P73-08_host_and_cycle": "PASS_WITH_LIMITATIONS",
+    "P73-09_security": "PASS_WITH_CONDITIONS",
+    "P73-10_integrity_and_mutations": "PASS_WITH_LIMITATIONS",
+    "P73-11_regression_quality": "PASS",
+    "P73-12_cross_phase": "PASS",
+    "P73-13_independent_review": "PASS",
+    "P73-14_decision": "PASS_WITH_LIMITATIONS"
+  },
+  "metrics": {
+    "tests_passed": 1758,
+    "tests_failed": 0,
+    "line_coverage_percent": 93.40563769376375,
+    "branch_coverage_percent": 90.36128336478835,
+    "residual_branches": 715,
+    "classified_high": 1,
+    "classified_medium": 111,
+    "classified_low": 603,
+    "material_medium": 64,
+    "accepted_non_material_medium": 44,
+    "unreachable_medium": 3,
+    "open_actionable_high": 0,
+    "promotion_blocking_high": 0,
+    "open_actionable_medium": 0,
+    "promotion_blocking_medium": 0,
+    "critical_open": 0
+  },
+  "identity": {
+    "reviewed_head": "f69b350f23ff0cd9ad5d22192f3ae7febdd8fa5e",
+    "backend_engineering_vnext_fingerprint": "sha256:fa8ff9c60f79466ea2b4d2ebbce09b376d6260a40105b344f1da7141fc36437e",
+    "verification_loop_vnext_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b"
+  },
+  "evidence": [
+    "evidence/phase-7.3/risk-count-consistency.json",
+    "evidence/phase-7.3/promotion-risk-ledger.json",
+    "evidence/phase-7.3/coverage-final.json",
+    "evidence/phase-7.3/medium-risk-inventory.json",
+    "evidence/phase-7.3/materiality-review.json",
+    "evidence/phase-7.3/material-medium-proof.json",
+    "evidence/phase-7.3/coverage-delta-reconciliation.json",
+    "evidence/phase-7.3/host-bootstrap-manifest.json",
+    "evidence/phase-7.3/real-cycle-report-005.json",
+    "evidence/phase-7.3/security-scanner-inventory.json",
+    "evidence/phase-7.3/mutation-check.json",
+    "evidence/phase-7.3/review-manifest.json",
+    "evidence/phase-7.3/review-attestation.json",
+    "evidence/phase-7.3/independent-review.md",
+    "evidence/phase-7.3/PHASE7.3-FROZEN.md"
+  ],
+  "limitations": [
+    "Third-party scanner binaries are unavailable under an expiring formal waiver.",
+    "Host skill-load event causality is unsupported by the host receipt.",
+    "No lockfile is present; reproducibility is bounded by captured fingerprints.",
+    "This bounded candidate state is not production, release or security approval; any broader promotion requires the applicable human authority and a separate policy decision."
+  ]
+}

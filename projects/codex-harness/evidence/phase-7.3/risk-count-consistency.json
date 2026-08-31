@@ -1,0 +1,52 @@
+{
+  "authority_reconciliation": {
+    "added_to_authoritative": 0,
+    "authoritative": 792,
+    "current": 715,
+    "removed_from_authoritative": 77
+  },
+  "branch_counts": {
+    "phase72_inventory": 715,
+    "phase72_traceability": 715,
+    "phase73_inventory": 715
+  },
+  "branch_set_consistent": true,
+  "count_surfaces_consistent": true,
+  "material_proof": {
+    "required": 64,
+    "reviewable": 64
+  },
+  "materiality_review": {
+    "accepted_nonmaterial": 44,
+    "high": 1,
+    "medium": 111,
+    "promotion_relevant": 64,
+    "records": 112
+  },
+  "phase": "PHASE7.3",
+  "risk_counts": {
+    "high": 1,
+    "low": 603,
+    "medium": 111
+  },
+  "schema_version": "P7.3-RISK-COUNT-CONSISTENCY-1",
+  "semantic_counts": {
+    "accepted_residual_medium": 44,
+    "blocked_medium": 0,
+    "classified_high": 1,
+    "classified_low": 603,
+    "classified_medium": 111,
+    "closed_high": 1,
+    "closed_medium": 111,
+    "high": 1,
+    "low": 603,
+    "material_medium": 64,
+    "medium": 111,
+    "open_actionable_high": 0,
+    "open_actionable_medium": 0,
+    "promotion_blocking_high": 0,
+    "promotion_blocking_medium": 0,
+    "total": 715
+  },
+  "status": "PASS"
+}

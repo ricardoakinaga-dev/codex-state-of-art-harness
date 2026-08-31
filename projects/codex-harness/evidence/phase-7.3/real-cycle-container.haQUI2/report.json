@@ -1,0 +1,42 @@
+{
+  "evidence_roots": {
+    "builder": "evidence/phase-7.3/real-cycle-container.haQUI2/cycle/builder",
+    "repair": "evidence/phase-7.3/real-cycle-container.haQUI2/cycle/repair",
+    "verifier": "evidence/phase-7.3/real-cycle-container.haQUI2/cycle/verifier"
+  },
+  "feature_freeze": "P7_2_FEATURE_FREEZE",
+  "generated_at": "2026-08-30T22:46:06.874502-03:00",
+  "limitations": [
+    "A real host receipt proves only this bounded disposable cycle.",
+    "Host skill-load observability remains a declared limitation when the host does not expose it.",
+    "No production, release, security-approval or universal-quality claim is made."
+  ],
+  "phase": "PHASE7.2",
+  "schema_version": "P7.2-REAL-CYCLE-1",
+  "scope": {
+    "installed_or_global_state_mutated": false,
+    "package_mutated": false,
+    "pilot_source": "pilots/backend-appointment-api",
+    "workspace": "temporary disposable copy"
+  },
+  "status": "BLOCKED_ENVIRONMENT",
+  "steps": [
+    {
+      "exit_code": 0,
+      "status": "PASS_WITH_LIMITATIONS",
+      "step": "builder"
+    },
+    {
+      "exit_code": 0,
+      "status": "PASS_WITH_LIMITATIONS",
+      "step": "repair"
+    },
+    {
+      "error": "required Phase 7 artifact roots are unavailable",
+      "error_type": "RuntimeError",
+      "exit_code": null,
+      "status": "BLOCKED_ENVIRONMENT",
+      "step": "verifier"
+    }
+  ]
+}

@@ -242,6 +242,44 @@
         "evidence/phase-7.2/closeout-index.json"
       ],
       "next_action": "Keep the exact Phase 7.2 packet as PASS_WITH_LIMITATIONS/KEEP_CANDIDATE_NOT_PROMOTED. Do not promote or create PHASE7.2-FROZEN.md; reopen only with new evidence that closes the 493 material residual branches and removes the fixed-host/scanner limitations."
+    },
+    {
+      "id": "PHASE7.3-001",
+      "title": "Close the final Phase 7.3 promotion risks and freeze the verified candidate packet",
+      "stage": "VERIFY",
+      "priority": "P0",
+      "status": "DONE",
+      "support_level": "VERIFIED_CANDIDATE_WITH_LIMITATIONS",
+      "origin": "User-supplied Phase 7.3 final promotion-closure specification",
+      "dependencies": ["PHASE7.2-001"],
+      "owner": "lead",
+      "acceptance_summary": "Preserve the authoritative Phase 7.2 packet, freeze the feature surface, capture a fresh branch-aware baseline and final coverage, normalize High/Medium semantics, close all actionable promotion risks, pin the host, execute a real builder-repair-verifier cycle, record security/dependency limitations, regress all prior phases, obtain a fresh independent review and create the exact final packet without migration, production, release or global-state claims.",
+      "evidence_refs": [
+        ".agent/plans/PHASE-7.3-final-promotion-closure.md",
+        "evidence/phase-7.3/README.md",
+        "evidence/phase-7.3/P7.3-QB-1.md",
+        "evidence/phase-7.3/baseline.json",
+        "evidence/phase-7.3/coverage-final.json",
+        "evidence/phase-7.3/phase73-current/inventory/high-risk-branch-inventory.json",
+        "evidence/phase-7.3/phase73-current/traceability/branch-test-traceability.json",
+        "evidence/phase-7.3/medium-risk-inventory.json",
+        "evidence/phase-7.3/materiality-review.json",
+        "evidence/phase-7.3/material-medium-proof.json",
+        "evidence/phase-7.3/coverage-delta-reconciliation.json",
+        "evidence/phase-7.3/risk-semantics-spec.md",
+        "evidence/phase-7.3/risk-count-consistency.json",
+        "evidence/phase-7.3/promotion-risk-ledger.json",
+        "evidence/phase-7.3/host-bootstrap-manifest.json",
+        "evidence/phase-7.3/real-cycle-report-005.json",
+        "evidence/phase-7.3/backend-pilot-evaluation.json",
+        "evidence/phase-7.3/mutation-check.json",
+        "evidence/phase-7.3/security-command-results.json",
+        "evidence/phase-7.3/waivers/WAIVER-SECURITY-SCANNERS.md",
+        "evidence/phase-7.3/review-manifest.json",
+        "evidence/phase-7.3/readiness.json",
+        "evidence/phase-7.3/final-report.md"
+      ],
+      "next_action": "Phase 7.3 is frozen as VERIFIED_CANDIDATE_WITH_LIMITATIONS; evaluate Phase 8 only under a separate scope and quality bar. Maintain the scanner, host-observability and lockfile limitations, and do not infer production, release or security approval."
     }
   ]
 }

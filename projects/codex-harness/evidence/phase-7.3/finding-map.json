@@ -1,0 +1,26 @@
+{
+  "schema_version": "P7.3-FINDING-MAP-1",
+  "phase": "PHASE7.3",
+  "feature_freeze": "P7_3_FEATURE_FREEZE",
+  "application_source_changed": false,
+  "pilot_source_changed": false,
+  "migration_changed": false,
+  "installed_or_global_state_changed": false,
+  "findings": [
+    {"id":"P7.3-FINDING-RISK-SEMANTICS","paths":["scripts/phase73_risk_semantics.py"],"criteria":["P73-03"]},
+    {"id":"P7.3-FINDING-INVENTORY","paths":["scripts/generate_phase73_inventory.py"],"criteria":["P73-04","P73-05"]},
+    {"id":"P7.3-FINDING-MEDIUM-CLOSURE","paths":["scripts/generate_phase73_decisions.py"],"criteria":["P73-05"]},
+    {"id":"P7.3-FINDING-COUNT-CONSISTENCY","paths":["scripts/validate_phase73_consistency.py"],"criteria":["P73-06"]},
+    {"id":"P7.3-FINDING-PROMOTION-LEDGER","paths":["scripts/generate_phase73_ledger.py"],"criteria":["P73-07","P73-09"]},
+    {"id":"P7.3-FINDING-HOST-SCANNER-EVIDENCE","paths":["scripts/capture_phase73_environment.py"],"criteria":["P73-08","P73-09"]},
+    {"id":"P7.3-FINDING-REAL-CYCLE","paths":["scripts/run_phase73_real_cycle.py"],"criteria":["P73-08","P73-12"]},
+    {"id":"P7.3-FINDING-EXACT-PACKET","paths":["scripts/generate_phase73_manifest.py"],"criteria":["P73-10","P73-13"]},
+    {"id":"P7.3-FINDING-CONTRACT-TESTS","paths":["tests/unit/test_phase73_*.py"],"criteria":["P73-03","P73-04","P73-05","P73-06","P73-08","P73-09","P73-10","P73-13"]},
+    {"id":"P7.3-FINDING-TEST-STABILITY","paths":["tests/unit/test_phase2_execution_paths.py"],"criteria":["P73-11","P73-12"],"reason":"Widen the scheduler-sensitive local sleep fixture deadline from 15ms to 100ms without changing the production timeout contract or the expected TIMED_OUT assertion."}
+  ],
+  "disposable_normalization": {
+    "path": "tests/test_pilot.py",
+    "scope": "real-cycle-final-005/verifier/artifact-v3 only",
+    "repository_changed": false
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "evidence_roots": {
+    "builder": "evidence/phase-7.3/real-cycle-final-005/builder",
+    "repair": "evidence/phase-7.3/real-cycle-final-005/repair",
+    "verifier": "evidence/phase-7.3/real-cycle-final-005/verifier"
+  },
+  "feature_freeze": "P7_3_FEATURE_FREEZE",
+  "generated_at": "2026-08-31T02:06:34.470374-03:00",
+  "host": {
+    "absolute_pins_supplied": true,
+    "codex_executable": "/home/ricardo/.nvm/versions/node/v22.22.2/bin/codex",
+    "node_executable": "/home/ricardo/.nvm/versions/node/v22.22.2/bin/node"
+  },
+  "limitations": [
+    "The receipt proves only this bounded disposable pilot cycle.",
+    "Host skill-load observability remains limited to the host event stream.",
+    "No production, release, security-approval, or universal-quality claim is made."
+  ],
+  "phase": "PHASE7.3",
+  "schema_version": "P7.3-REAL-CYCLE-1",
+  "scope": {
+    "artifact_v3_seed": "repair/artifact-v2 copied into verifier/artifact-v3",
+    "installed_or_global_state_mutated": false,
+    "package_mutated": false,
+    "pilot_source": "pilots/backend-appointment-api",
+    "workspace": "temporary disposable copy"
+  },
+  "status": "PASS_WITH_LIMITATIONS",
+  "steps": [
+    {
+      "exit_code": 0,
+      "status": "PASS_WITH_LIMITATIONS",
+      "step": "builder"
+    },
+    {
+      "exit_code": 0,
+      "status": "PASS_WITH_LIMITATIONS",
+      "step": "repair"
+    },
+    {
+      "exit_code": 0,
+      "status": "PASS_WITH_LIMITATIONS",
+      "step": "verifier"
+    }
+  ],
+  "verifier_preparation": {
+    "normalization": {
+      "command": "ruff format app tests",
+      "exit_code": 0,
+      "output": "1 file reformatted, 9 files left unchanged\n",
+      "scope": "disposable verifier artifact only",
+      "status": "PASS"
+    }
+  }
+}

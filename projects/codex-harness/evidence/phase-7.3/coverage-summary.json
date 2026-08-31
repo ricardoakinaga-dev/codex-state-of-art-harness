@@ -1,0 +1,53 @@
+{
+  "schema_version": "P7.3-COVERAGE-SUMMARY-1",
+  "phase": "PHASE7.3",
+  "coverage_artifact": "evidence/phase-7.3/coverage-final.json",
+  "coverage_definition": {
+    "line_metric": "percent_statements_covered",
+    "branch_metric": "percent_branches_covered",
+    "excluded_lines_remain_visible": true,
+    "residuals_are_missing_branches": true
+  },
+  "initial": {
+    "test_count": 1658,
+    "full_suite_result": "1658 passed in 508.68s (0:08:28)",
+    "coverage_artifact": "evidence/phase-7.3/baseline-coverage.json",
+    "line_coverage": 92.96055660715199,
+    "branch_coverage": 89.33674844971691,
+    "covered_lines": 18171,
+    "num_statements": 19547,
+    "covered_branches": 6627,
+    "num_branches": 7418,
+    "residual_branches": 791,
+    "residual_high_risk_branches": 1,
+    "residual_medium_risk_branches": 185,
+    "residual_low_risk_branches": 605
+  },
+  "final": {
+    "test_count": 1758,
+    "full_suite_result": "1758 passed in 301.91s (0:05:01)",
+    "covered_lines": 18258,
+    "num_statements": 19547,
+    "percent_covered": 92.56814389022807,
+    "percent_statements_covered": 93.40563769376375,
+    "missing_lines": 1288,
+    "excluded_lines": 99,
+    "covered_branches": 6703,
+    "num_branches": 7418,
+    "percent_branches_covered": 90.36128336478835,
+    "missing_branches": 715,
+    "num_partial_branches": 637,
+    "residual_branches": 715,
+    "residual_high_risk_branches": 1,
+    "residual_medium_risk_branches": 111,
+    "residual_low_risk_branches": 603
+  },
+  "delta": {
+    "covered_lines": 87,
+    "covered_branches": 76,
+    "residual_branches": -76,
+    "removed_from_authoritative_inventory": 77,
+    "added_to_authoritative_inventory": 0,
+    "note": "The branch inventory delta is reconciled separately; 75 Medium and 2 Low historical residual IDs are absent from fresh coverage."
+  }
+}

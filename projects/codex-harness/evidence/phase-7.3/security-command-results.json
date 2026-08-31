@@ -1,0 +1,28 @@
+{
+  "schema_version": "P7.3-SECURITY-COMMAND-RESULTS-1",
+  "phase": "PHASE7.3",
+  "status": "PASS_WITH_LIMITATIONS",
+  "third_party_scanners": {
+    "available": 0,
+    "executed": 0,
+    "unavailable": 12,
+    "unavailable_is_pass": false,
+    "waiver": "WAIVER-P7.3-SECURITY-SCANNERS-001"
+  },
+  "local_controls": {
+    "ruff_check": "PASS",
+    "ruff_format": "PASS",
+    "ruff_format_file_count": 218,
+    "mypy_strict": "PASS",
+    "uv_pip_check": "PASS",
+    "secret_pattern_scan": "PASS_NO_MATCHES",
+    "full_branch_aware_tests": "PASS",
+    "full_branch_aware_test_count": 1758
+  },
+  "dependency_result": "PASS_WITH_LIMITATIONS_NO_LOCKFILE",
+  "claims_excluded": [
+    "SECURITY_APPROVED",
+    "PRODUCTION_READY",
+    "RELEASE_APPROVED"
+  ]
+}

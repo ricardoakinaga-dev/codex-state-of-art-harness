@@ -1,0 +1,79 @@
+{
+  "capability_roots": {
+    "backend_package": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/backend-engineering-vnext",
+    "pilot": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/pilots/backend-appointment-api",
+    "project": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness",
+    "source": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/src",
+    "tests": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/tests",
+    "verifier_package": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/verification-loop-vnext"
+  },
+  "captured_at": "2026-08-31T02:03:15.212311-03:00",
+  "environment_class": "LOCAL_DEVELOPMENT",
+  "environment_overrides": {
+    "CODEX_EXECUTABLE": "/home/ricardo/.nvm/versions/node/v22.22.2/bin/codex",
+    "NODE_EXECUTABLE": "/home/ricardo/.nvm/versions/node/v22.22.2/bin/node"
+  },
+  "execution_policy": {
+    "config": "config/phase7-execution-policy.json",
+    "credentials": "DENY",
+    "installed_or_global_mutation": false,
+    "mcp": "DENY",
+    "mode": "CONTROLLED_REAL",
+    "network": "DENY",
+    "providers": "DENY",
+    "shell": "DENY",
+    "workspace": "disposable pilot copy"
+  },
+  "host": {
+    "command": [
+      "/home/ricardo/.nvm/versions/node/v22.22.2/bin/node",
+      "/home/ricardo/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+      "-c",
+      "mcp_servers={}",
+      "-c",
+      "features.apps=false",
+      "app-server",
+      "--listen",
+      "stdio://"
+    ],
+    "executable": "/home/ricardo/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+    "executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "interpreter": "/home/ricardo/.nvm/versions/node/v22.22.2/bin/node",
+    "interpreter_digest": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90",
+    "pinned_files": [
+      {
+        "path": "/home/ricardo/.nvm/versions/node/v22.22.2/lib/node_modules/@openai/codex/bin/codex.js",
+        "sha256": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477"
+      },
+      {
+        "path": "/home/ricardo/.nvm/versions/node/v22.22.2/bin/node",
+        "sha256": "sha256:81925c0995b5c1427b5d538e6a90ca2fdc4daffb786b09af749beaf7369d4e90"
+      }
+    ],
+    "version_probes": {
+      "codex": {
+        "exit_code": 0,
+        "output": "codex-cli 0.151.0",
+        "status": "PASS"
+      },
+      "node": {
+        "exit_code": 0,
+        "output": "v22.22.2",
+        "status": "PASS"
+      }
+    }
+  },
+  "package_fingerprints": {
+    "backend-engineering-vnext": "sha256:fa8ff9c60f79466ea2b4d2ebbce09b376d6260a40105b344f1da7141fc36437e",
+    "verification-loop-vnext": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b"
+  },
+  "phase": "PHASE7.3",
+  "preflight": {
+    "classification": "HOST_PATH_RESOLVED",
+    "full_cycle": "scripts/run_phase73_real_cycle.py",
+    "status": "RESOLVED_READ_ONLY_VERSION_PROBE"
+  },
+  "safe_path": "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+  "schema_version": "P7.3-HOST-BOOTSTRAP-MANIFEST-1",
+  "working_directory": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness"
+}
