@@ -1,17 +1,27 @@
 {
-  "url": "http://127.0.0.1:4187/?scenario=stale-response&capture=p81-stale-010",
+  "capture_id": "P81-BROWSER-010",
+  "run_id": "P81-COMPOSE-011",
+  "server_run_id": "P81-SERVER-012",
+  "observer": "Playwright MCP Chromium browser observer",
+  "captured_at": "2026-09-02T10:31:27.619Z",
+  "captured_at_ns": 1788345087619000000,
+  "source_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "url": "http://127.0.0.1:4188/?scenario=stale-response&capture=p81-stale-010",
   "requests": [
     {
       "label": "A",
       "request": "1",
-      "fetchStart": 218.89999999850988,
-      "responseEnd": 445.8999999985099
+      "url": "http://127.0.0.1:4188/api/queue?scenario=stale-response&request=1",
+      "fetchStart": 14185.40000000596,
+      "responseEnd": 14407.5
     },
     {
       "label": "B",
       "request": "2",
-      "fetchStart": 219.39999999850988,
-      "responseEnd": 228.69999999552965
+      "url": "http://127.0.0.1:4188/api/queue?scenario=stale-response&request=2",
+      "fetchStart": 14196.10000000894,
+      "responseEnd": 14198.300000011921
     }
   ],
   "ordering": {

@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import shutil
+import time
 from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).parents[1]
@@ -36,6 +37,7 @@ def _safe_output(path: Path) -> Path:
 
 def build(output: Path = DEFAULT_OUTPUT) -> dict[str, object]:
     target = _safe_output(output)
+    built_at_ns = time.time_ns()
     target.mkdir(parents=True, exist_ok=True)
     copied: list[dict[str, object]] = []
     for name in SOURCE_FILES:
@@ -53,6 +55,7 @@ def build(output: Path = DEFAULT_OUTPUT) -> dict[str, object]:
         "source_root": "evidence/phase-8.1/fixture/frontend/app",
         "output_root": str(target.relative_to(PROJECT_ROOT)),
         "source_tree_digest": tree_digest(SOURCE_ROOT),
+        "built_at_ns": built_at_ns,
         "files": copied,
         "external_requests": 0,
         "generated_assets": [],

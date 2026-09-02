@@ -1,1 +1,32 @@
-{"delay_ms": 220, "items": [{"detail": "Delayed response", "patient": "Older A", "species": "Cat", "urgency": "routine", "waiting": "40 min"}], "request_label": "A", "status": "success"}
+{
+  "capture_id": "P81-BROWSER-010",
+  "run_id": "P81-COMPOSE-011",
+  "observer": "Playwright MCP Chromium browser observer",
+  "captured_at": "2026-09-02T10:29:19.885Z",
+  "captured_at_ns": 1788344959885000000,
+  "source_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "url": "http://127.0.0.1:4188/?scenario=stale-response&capture=p81-stale-initial-010",
+  "request_label": "A",
+  "delay_ms": 220,
+  "status": "in_flight",
+  "state": {
+    "phase": "success",
+    "items": [
+      {
+        "detail": "Latest response",
+        "patient": "Fresh B",
+        "species": "Dog",
+        "urgency": "critical",
+        "waiting": "02 min"
+      }
+    ],
+    "selectedUrgency": "all",
+    "error": "",
+    "submitting": false,
+    "feedback": "",
+    "feedbackTone": "",
+    "requestNumber": 0
+  },
+  "phase": "success"
+}

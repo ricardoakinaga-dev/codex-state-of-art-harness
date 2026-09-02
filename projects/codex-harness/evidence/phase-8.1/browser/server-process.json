@@ -1,20 +1,20 @@
 {
   "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
-  "artifact_root": "evidence/phase-8.1/composition-run-009/frontend-artifact",
-  "base_url": "http://127.0.0.1:4187/",
+  "artifact_root": "evidence/phase-8.1/composition-run-011/frontend-artifact",
+  "base_url": "http://127.0.0.1:4188/",
   "binding_header": "X-Phase81-Artifact-Digest",
   "command": [
     "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/.venv/bin/python",
-    "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-8.1/composition-run-009/frontend-artifact/fixture_server.py",
+    "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-8.1/composition-run-011/frontend-artifact/fixture_server.py",
     "--port",
-    "4187"
+    "4188"
   ],
   "network": "LOOPBACK_ONLY",
-  "pid": 2706344,
-  "port": 4187,
+  "pid": 1035202,
+  "port": 4188,
   "process_started": true,
-  "run_id": "P81-SERVER-010",
+  "run_id": "P81-SERVER-012",
   "schema_version": "P8.1-SERVER-BINDING-1",
-  "started_at_ns": 1788198143804560231,
+  "started_at_ns": 1788345016559796928,
   "task_id": "PHASE8.1-001"
 }

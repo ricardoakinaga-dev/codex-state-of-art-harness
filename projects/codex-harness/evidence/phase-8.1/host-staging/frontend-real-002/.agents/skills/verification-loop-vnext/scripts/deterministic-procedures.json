@@ -1,0 +1,60 @@
+{
+  "schema_version": "P6-PROCEDURES-1",
+  "package_id": "verification-loop-vnext",
+  "metadata_only": true,
+  "execution": "none",
+  "allowed_tools": [],
+  "shell": "deny",
+  "network": "deny",
+  "mcp": "deny",
+  "provider": "deny",
+  "credentials": "deny",
+  "arbitrary_interpolation": "deny",
+  "workspace_write": "deny",
+  "subagents": "deny",
+  "read_only": true,
+  "procedures": [
+    {
+      "id": "P6-CHECK-IDENTITY",
+      "purpose": "Compare declared artifact and evidence digests.",
+      "inputs": ["artifact_identity", "evidence_refs"],
+      "outputs": ["identity_status"],
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P6-CHECK-CRITERIA",
+      "purpose": "Compare the frozen criterion digest with the report input.",
+      "inputs": ["criteria_digest", "required_criterion_ids"],
+      "outputs": ["criteria_status"],
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P6-CHECK-EVIDENCE",
+      "purpose": "Check evidence existence, freshness and lineage fields.",
+      "inputs": ["evidence_refs", "freshness_receipts"],
+      "outputs": ["evidence_status"],
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P6-CHECK-ROLE",
+      "purpose": "Check that the actor and output authority remain VERIFIER-only.",
+      "inputs": ["role", "requested_authority"],
+      "outputs": ["role_status"],
+      "max_attempts": 1,
+      "mutation": "none"
+    },
+    {
+      "id": "P6-CHECK-BOUNDS",
+      "purpose": "Check counters against declared context, procedure and report limits.",
+      "inputs": ["budget_receipt", "profile"],
+      "outputs": ["budget_status"],
+      "max_attempts": 1,
+      "mutation": "none"
+    }
+  ],
+  "selection": "metadata_only_allowlist_intersection",
+  "loop_policy": {"max_iterations": 1, "on_no_progress": "STOP_NO_PROGRESS"}
+}

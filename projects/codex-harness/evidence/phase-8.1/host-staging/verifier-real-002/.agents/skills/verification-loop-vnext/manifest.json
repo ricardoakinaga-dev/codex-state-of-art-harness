@@ -1,0 +1,211 @@
+{
+  "schema_version": "CM-1",
+  "capability_id": "verification-loop-vnext",
+  "display_name": "Verification Loop vNext",
+  "description": "Project-local factual verification with bounded, read-only evidence lineage.",
+  "version": "0.1.0",
+  "type": "VERIFIER",
+  "role": "VERIFIER",
+  "primary_type": "VERIFIER",
+  "status": "CANDIDATE",
+  "registry_bridge": false,
+  "record": {
+    "status": "CURRENT",
+    "provenance": {
+      "source_type": "PROJECT_LOCAL_NATIVE",
+      "source_refs": [
+        "evidence/phase-6/current-verification-loop-snapshot.json",
+        "evidence/phase-6/current-ineligibility-analysis.md",
+        "evidence/phase-6/upstream-analysis.md"
+      ],
+      "created_at": "2026-08-29T00:00:00Z"
+    },
+    "evidence_refs": ["P6-04", "P6-05", "P6-09", "P6-14", "P6-15"]
+  },
+  "owner": "VERIFIER",
+  "scope": {
+    "scope": "PROJECT",
+    "installation_scope": "PROJECT",
+    "project_scope": "codex-state-of-art-harness",
+    "domains": ["VERIFICATION", "ENGINEERING"],
+    "activates_when": [
+      "A bounded factual verification report is requested for identified project artifacts and criteria",
+      "Claim, Procedure, Evidence and Status lineage must be checked",
+      "Freshness, identity, role and stop conditions require deterministic inspection"
+    ],
+    "do_not_activate_when": [
+      "An artifact must be built, repaired, designed or art-directed",
+      "Visual quality, acceptance, assurance or release authority is requested",
+      "Arbitrary shell, network, MCP, provider, credential or workspace mutation is required",
+      "Criteria are missing, ambiguous or being changed by the verifier"
+    ],
+    "minimum_task_class": "SMALL"
+  },
+  "contracts": {
+    "inputs": [
+      "VerificationInput",
+      "ArtifactIdentity",
+      "CriterionSet",
+      "EvidenceLedger",
+      "ToolPolicy",
+      "FreshnessReceipt"
+    ],
+    "outputs": [
+      "VerificationOutput",
+      "CriterionLineage",
+      "BoundedStopDecision",
+      "Limitations",
+      "TelemetryLedger"
+    ],
+    "gates": [
+      "P6_IDENTITY_BOUND",
+      "P6_CRITERIA_FROZEN",
+      "P6_ROLE_SEPARATED",
+      "P6_EVIDENCE_FRESH",
+      "P6_BUDGET_BOUND"
+    ],
+    "stop_conditions": [
+      "ALL_REQUIRED_CRITERIA_RESOLVED",
+      "BLOCKING_FAILURE_FOUND",
+      "MISSING_REQUIRED_TOOL",
+      "MISSING_REQUIRED_ARTIFACT",
+      "STALE_INPUT",
+      "BUDGET_EXHAUSTED",
+      "NO_PROGRESS",
+      "REPEATED_PROCEDURE_FAILURE",
+      "HUMAN_OVERRIDE"
+    ]
+  },
+  "composition": {
+    "can_call": [],
+    "can_be_called_by": ["ROUTER", "ORCHESTRATOR"],
+    "must_run_before": ["REVIEWER", "ASSURANCE"],
+    "must_run_after": ["BUILDER"],
+    "conflicts_with": ["BUILDER", "DESIGN_DIRECTOR", "REVIEWER", "ASSURANCE"],
+    "conflicts": ["BUILDER", "DESIGN_DIRECTOR", "REVIEWER", "ASSURANCE"],
+    "optional": ["INDEPENDENT_REVIEWER", "SECURITY_AWARE_PROFILE"],
+    "do_not_combine": [
+      "BUILDER",
+      "DESIGN_DIRECTOR",
+      "REVIEWER",
+      "ASSURANCE",
+      "ORCHESTRATOR",
+      "RELEASE_AUTHORITY"
+    ],
+    "fresh_final_verification_required": true,
+    "same_invocation_role": "VERIFIER_ONLY"
+  },
+  "dependencies": {
+    "capabilities": [],
+    "tools": [],
+    "providers": [],
+    "references": [
+      "references/evidence-lineage.md",
+      "references/role-boundaries.md",
+      "references/deterministic-boundaries.md"
+    ]
+  },
+  "allowed_tools": [],
+  "read_only": true,
+  "execution_policy": {
+    "allowed_tools": [],
+    "shell": "deny",
+    "network": "deny",
+    "mcp": "deny",
+    "provider": "deny",
+    "credential": "deny",
+    "credentials": "deny",
+    "workspace_write": "deny",
+    "arbitrary_interpolation": "deny"
+  },
+  "compatibility": {
+    "host_features": ["phase3-native-manifest", "bounded-metadata-loader"],
+    "platform_limits": ["Python >= 3.12"],
+    "required_tools": [],
+    "optional_tools": [],
+    "support_level": "P6_LEVEL_B"
+  },
+  "provenance": {
+    "source_type": "PROJECT_LOCAL_NATIVE",
+    "source_refs": [
+      "evidence/phase-6/current-verification-loop-snapshot.json",
+      "evidence/phase-6/current-ineligibility-analysis.md",
+      "evidence/phase-6/upstream-analysis.md",
+      ".harness/capabilities/verification-loop-vnext/manifest.json"
+    ],
+    "current_source_refs": [
+      "evidence/phase-6/current-verification-loop-snapshot.json",
+      "evidence/phase-6/current-ineligibility-analysis.md"
+    ],
+    "upstream_source_refs": ["evidence/phase-6/upstream-analysis.md"],
+    "source_repository": "local://codex-state-of-art-harness",
+    "source_hash": "sha256:01a9ae310ad4426bb05660dda6cefdeaac9513417585c09c8bb1b94738649a78",
+    "source_hashes": {
+      "current": "sha256:01a9ae310ad4426bb05660dda6cefdeaac9513417585c09c8bb1b94738649a78",
+      "upstream": "sha256:f0d56107f79e607d4de6c5543b8edfb1b58ab9ae4019b39831689cd91116543e",
+      "fork": "sha256:abe40a95fc1fe7d5ff47ed2bab27600f160871e487fb1698546b0c80e45b1fbb"
+    },
+    "inspected_at": "2026-08-29T00:00:00Z",
+    "origin": "PROJECT",
+    "precedence": 300,
+    "installation_scope": "PROJECT",
+    "project_scope": "codex-state-of-art-harness",
+    "forked_from": "verification-loop-current-baseline",
+    "authority_status": "PROJECT_LOCAL_CANDIDATE"
+  },
+  "security": {
+    "read_only": true,
+    "allowed_tools": [],
+    "permissions": ["read_project_local_data"],
+    "data_classes": ["PROJECT_LOCAL_ARTIFACTS", "PROJECT_LOCAL_EVIDENCE"],
+    "shell": {"allowed": false, "mode": "deny"},
+    "network": {"allowed": false, "mode": "deny"},
+    "mcp": {"allowed": false, "mode": "deny"},
+    "provider": {"allowed": false, "mode": "deny"},
+    "credential": {"allowed": false, "mode": "deny"},
+    "credentials": {"allowed": false, "mode": "deny"},
+    "workspace_write": {"allowed": false, "mode": "deny"},
+    "secret_policy": "Never read, store or emit secrets."
+  },
+  "budgets": {
+    "context_bytes": 16384,
+    "selected_references_bytes": 65536,
+    "procedures_per_run": 32,
+    "total_seconds": 120,
+    "attempts_per_procedure": 1,
+    "verifier_invocations": 2,
+    "composition_repairs": 1,
+    "evidence_records": 256,
+    "report_bytes": 131072,
+    "max_no_progress_rounds": 1,
+    "unbounded_loops": 0
+  },
+  "profiles": "profiles.json",
+  "references": [
+    "references/evidence-lineage.md",
+    "references/role-boundaries.md",
+    "references/deterministic-boundaries.md"
+  ],
+  "scripts": ["scripts/deterministic-procedures.json"],
+  "evals": ["evals/scenarios.json"],
+  "benchmarks": ["benchmarks/benchmark-fixtures.json"],
+  "quality": {
+    "profile_refs": ["profiles.json"],
+    "composition_contract": "composition-contract.json",
+    "eval_refs": ["evals/scenarios.json"],
+    "benchmark_refs": ["benchmarks/benchmark-fixtures.json"],
+    "last_result": "REAL_COMPOSITION_PASS"
+  },
+  "stop_conditions": [
+    "ALL_REQUIRED_CRITERIA_RESOLVED",
+    "BLOCKING_FAILURE_FOUND",
+    "MISSING_REQUIRED_TOOL",
+    "MISSING_REQUIRED_ARTIFACT",
+    "STALE_INPUT",
+    "BUDGET_EXHAUSTED",
+    "NO_PROGRESS",
+    "REPEATED_PROCEDURE_FAILURE",
+    "HUMAN_OVERRIDE"
+  ],
+  "deprecation": {"successor": null, "reason": null}
+}

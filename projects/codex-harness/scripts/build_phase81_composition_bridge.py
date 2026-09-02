@@ -72,13 +72,14 @@ def _resolve_inside(path: Path, root: Path, label: str) -> Path:
 def compose(
     *,
     host_receipt_path: Path,
+    source_root: Path,
     output_root: Path,
     receipt_path: Path,
     expected_fingerprint: str,
     run_id: str,
 ) -> dict[str, Any]:
     host_receipt_path = _resolve_inside(host_receipt_path, EVIDENCE_ROOT, "host receipt")
-    source_root = _resolve_inside(SOURCE_ROOT, EVIDENCE_ROOT, "source artifact")
+    source_root = _resolve_inside(source_root, EVIDENCE_ROOT, "source artifact")
     output_root = output_root.resolve()
     receipt_path = receipt_path.resolve()
     if not output_root.is_relative_to(EVIDENCE_ROOT.resolve()):
@@ -158,7 +159,7 @@ def compose(
     report = {
         "schema_version": "P8.1-COMPOSITION-BRIDGE-1",
         "task_id": "PHASE8.1-001",
-        "status": "PASS_WITH_LIMITATIONS",
+        "status": "PARTIAL",
         "run_id": run_id,
         "producer_id": "phase81-harness-composition-bridge",
         "producer_kind": "AUTHORIZED_EXACT_ARTIFACT_COPY",
@@ -241,6 +242,7 @@ def compose(
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--host-receipt", type=Path, required=True)
+    parser.add_argument("--source-root", type=Path, default=SOURCE_ROOT)
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT)
     parser.add_argument("--receipt", type=Path, default=DEFAULT_RECEIPT)
     parser.add_argument("--fingerprint", required=True)
@@ -248,6 +250,7 @@ def main() -> int:
     arguments = parser.parse_args()
     report = compose(
         host_receipt_path=arguments.host_receipt,
+        source_root=arguments.source_root,
         output_root=arguments.output_root,
         receipt_path=arguments.receipt,
         expected_fingerprint=arguments.fingerprint,

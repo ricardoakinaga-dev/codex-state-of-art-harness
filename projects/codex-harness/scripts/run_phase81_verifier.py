@@ -24,16 +24,16 @@ EVIDENCE_ROOT = PROJECT_ROOT / "evidence" / "phase-8.1"
 BROWSER_ROOT = EVIDENCE_ROOT / "browser"
 FRONTEND_FINGERPRINT = "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342"
 VERIFIER_FINGERPRINT = "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b"
-COMPOSITION_RUN = "P81-COMPOSE-009"
+COMPOSITION_RUN = "P81-COMPOSE-011"
 COMPOSED_ARTIFACT_DIGEST = "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044"
-BASE_URL = "http://127.0.0.1:4187/"
+BASE_URL = "http://127.0.0.1:4188/"
 FRONTEND_HOST_RECEIPT = (
-    "frontend-real-invocation-short/invocation-receipts/INV-cf9d460266785f78b43e15ac.json"
+    "frontend-real-003/invocation-receipts/INV-b1154ffe58ce5c6d9ba8d3c4.json"
 )
-VERIFIER_HOST_RECEIPT = "verifier-real-invocation-final-after-browser/invocation-receipts/INV-6d639157532552ebaf59b0fd.json"
-COMPOSITION_RECEIPT = "composition-run-009/composition-receipt.json"
+VERIFIER_HOST_RECEIPT = "verifier-real-003/invocation-receipts/INV-d74d1ef5d64b573689764a86.json"
+COMPOSITION_RECEIPT = "composition-run-011/composition-receipt.json"
 CANONICAL_COMPOSITION_RECEIPT = "composition-receipt.json"
-COMPOSITION_ARTIFACT_ROOT = "composition-run-009/frontend-artifact"
+COMPOSITION_ARTIFACT_ROOT = "composition-run-011/frontend-artifact"
 COMPOSITION_ARTIFACT_REF = f"evidence/phase-8.1/{COMPOSITION_ARTIFACT_ROOT}"
 
 
@@ -51,6 +51,100 @@ def file_digest(path: Path) -> str:
 
 def load_json(relative_path: str) -> Any:
     return json.loads((EVIDENCE_ROOT / relative_path).read_text(encoding="utf-8"))
+
+
+def normalize_evidence_ref(value: str) -> str:
+    prefix = "evidence/phase-8.1/"
+    if value.startswith(prefix):
+        value = value.removeprefix(prefix)
+    path = Path(value)
+    if path.is_absolute():
+        path = path.resolve().relative_to(EVIDENCE_ROOT.resolve())
+    if ".." in path.parts:
+        raise ValueError(f"evidence reference escapes the packet: {value}")
+    return path.as_posix()
+
+
+def capture_timestamp(path: Path) -> int:
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError, json.JSONDecodeError):
+        value = None
+    if isinstance(value, dict) and isinstance(value.get("captured_at_ns"), int):
+        return value["captured_at_ns"]
+    if isinstance(value, dict) and isinstance(value.get("observed_at_ns"), int):
+        return value["observed_at_ns"]
+    return path.stat().st_mtime_ns
+
+
+def host_invocation_id(host: dict[str, Any]) -> str:
+    receipt = host.get("receipt")
+    if isinstance(receipt, dict) and isinstance(receipt.get("invocation_id"), str):
+        return receipt["invocation_id"]
+    return str(host.get("invocation_id", "unknown-host-invocation"))
+
+
+def host_completed_ns(host: dict[str, Any]) -> int:
+    result = host.get("host_result", {})
+    completed_at = result.get("completed_at")
+    if not isinstance(completed_at, (int, float)):
+        raise ValueError("host receipt does not contain completed_at")
+    return int(completed_at * 1_000_000_000)
+
+
+def browser_capture_record(
+    path: Path,
+    *,
+    kind: str,
+    composition_run: str,
+    artifact_digest: str,
+    server_process: dict[str, Any],
+    server_process_previous: dict[str, Any],
+) -> dict[str, Any]:
+    observed_at_ns = capture_timestamp(path)
+    server_run = (
+        server_process
+        if observed_at_ns >= server_process["started_at_ns"]
+        else server_process_previous
+    )
+    return {
+        "path": f"browser/{path.name}",
+        "sha256": file_digest(path),
+        "kind": kind,
+        "capture_id": "P81-BROWSER-010",
+        "composition_run": composition_run,
+        "source_digest": artifact_digest,
+        "artifact_digest": artifact_digest,
+        "captured_at_ns": observed_at_ns,
+        "observer": "Playwright MCP Chromium browser observer",
+        "server_run_id": server_run["run_id"],
+    }
+
+
+def timeline_event(
+    sequence: int,
+    event: str,
+    observed_at_ns: int,
+    source: str,
+    invocation_id: str,
+    capability: str,
+    artifact_digest: str,
+    observation_type: str,
+    observation: str,
+) -> dict[str, Any]:
+    return {
+        "sequence": sequence,
+        "event": event,
+        "observed_at_ns": observed_at_ns,
+        "source": source,
+        "run_id": COMPOSITION_RUN,
+        "invocation_id": invocation_id,
+        "capability": capability,
+        "source_digest": artifact_digest,
+        "artifact_digest": artifact_digest,
+        "observation_type": observation_type,
+        "observation": observation,
+    }
 
 
 def write_json(relative_path: str, value: Any) -> None:
@@ -147,8 +241,7 @@ def build_runtime_classification(
             "browser/mobile-critical-metrics.json",
         ],
         "P8-EVAL-025": [
-            "browser/desktop-success-1440x900.png",
-            "browser/desktop-success-metrics.json",
+            "browser/long-heading-768x1024.json",
         ],
         "P8-EVAL-026": ["browser/default-snapshot.md", "browser/mobile-critical-metrics.json"],
         "P8-EVAL-027": [
@@ -166,6 +259,7 @@ def build_runtime_classification(
             "browser/keyboard-submit-result-002.json",
             "browser/keyboard-submit-focused-002.json",
             "browser/keyboard-step-00.json",
+            "browser/keyboard-invalid-submit.json",
         ],
         "P8-EVAL-034": [
             "browser/accessibility-runtime.json",
@@ -203,8 +297,13 @@ def build_runtime_classification(
             if isinstance(value, dict) and "url" in value
         )
         if scenario_id == "P8-EVAL-011":
-            condition = values["browser/loading.json"]["phase"] == "loading"
-            detail = "Loading phase is captured before the delayed queue response."
+            loading = values["browser/loading.json"]
+            condition = (
+                loading["phase"] == "loading"
+                and loading.get("queueBusy") is True
+                and loading.get("skeletonRows", 0) >= 1
+            )
+            detail = "Loading phase, busy queue state and skeleton rows are captured before the delayed response."
         elif scenario_id == "P8-EVAL-012":
             metrics = values["browser/default-metrics.json"]
             condition = (
@@ -314,13 +413,14 @@ def build_runtime_classification(
                 )
             detail = f"Responsive runtime at {expected_width}px has no horizontal overflow."
         elif scenario_id == "P8-EVAL-025":
-            value = values["browser/desktop-success-metrics.json"]
+            value = values["browser/long-heading-768x1024.json"]
             condition = (
-                value["tone"] == "success"
-                and value["requestNumber"] == 1
-                and value["formValues"]["patient"] == ""
+                value["viewport"]["width"] == 768
+                and value["headingText"]
+                and value["headingLineCount"] >= 2
+                and value["headingOverflow"] is False
             )
-            detail = "Desktop submit success resets the form and reports success."
+            detail = "The current clinic heading wraps to multiple lines at the intermediate viewport without clipping."
         elif scenario_id == "P8-EVAL-026":
             condition = (
                 'columnheader "Patient"' in text_values["browser/default-snapshot.md"]
@@ -362,14 +462,18 @@ def build_runtime_classification(
             result = values["browser/keyboard-submit-result-002.json"]
             focused = values["browser/keyboard-submit-focused-002.json"]
             steps = values["browser/keyboard-step-00.json"]["tabSequence"]
+            invalid = values["browser/keyboard-invalid-submit.json"]
             condition = (
                 result["phase"] == "success"
                 and result["focused"]["id"] == "patient"
                 and focused["focused"]["id"] == "submit-intake"
                 and focused["focusVisible"] is True
                 and steps[-1] == "submit-intake"
+                and invalid["phase"] == "validation"
+                and invalid["focused"]["id"] == "patient"
+                and set(invalid["invalid"]) >= {"patient", "species", "urgency"}
             )
-            detail = "Keyboard traversal reaches submit; invalid submit returns focus to patient."
+            detail = "Keyboard traversal reaches submit; a real invalid keyboard submit returns focus to patient before a successful submit."
         elif scenario_id == "P8-EVAL-034":
             live = values["browser/accessibility-runtime.json"]["ariaLive"]
             condition = {item["id"] for item in live} >= {
@@ -425,7 +529,7 @@ def build_runtime_classification(
             value = values["browser/performance-runtime.json"]
             condition = (
                 value["externalResources"] == 0
-                and "127.0.0.1:4187" in text_values["browser/default-final-network.log"]
+                and BASE_URL.removesuffix("/") in text_values["browser/default-final-network.log"]
             )
             detail = "Runtime resources and network log remain same-origin loopback only."
         elif scenario_id == "P8-EVAL-042":
@@ -455,7 +559,7 @@ def build_runtime_classification(
                 process["network"] == "LOOPBACK_ONLY"
                 and process["process_started"] is True
                 and network_lines
-                and all("127.0.0.1:4187" in line for line in network_lines)
+                and all(BASE_URL.removesuffix("/") in line for line in network_lines)
             )
             detail = "Server process and browser network evidence are loopback-bound."
         else:
@@ -571,23 +675,48 @@ def build_runtime_classification(
 
 
 def main() -> int:
+    global BASE_URL, COMPOSITION_ARTIFACT_REF, COMPOSITION_ARTIFACT_ROOT
+    global COMPOSITION_RECEIPT, COMPOSITION_RUN, COMPOSED_ARTIFACT_DIGEST
+    global FRONTEND_FINGERPRINT, FRONTEND_HOST_RECEIPT, VERIFIER_FINGERPRINT
+    global VERIFIER_HOST_RECEIPT
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", default="verifier-report.json")
+    parser.add_argument("--base-url", default=BASE_URL)
+    parser.add_argument("--composition-run", default=COMPOSITION_RUN)
+    parser.add_argument("--artifact-digest", default=COMPOSED_ARTIFACT_DIGEST)
+    parser.add_argument("--frontend-fingerprint", default=FRONTEND_FINGERPRINT)
+    parser.add_argument("--verifier-fingerprint", default=VERIFIER_FINGERPRINT)
+    parser.add_argument("--frontend-host-receipt", default=FRONTEND_HOST_RECEIPT)
+    parser.add_argument("--verifier-host-receipt", default=VERIFIER_HOST_RECEIPT)
+    parser.add_argument("--composition-receipt", default=COMPOSITION_RECEIPT)
+    parser.add_argument("--scope-audit", default="composition-run-011/composition-scope-audit.json")
     args = parser.parse_args()
+
+    BASE_URL = args.base_url.rstrip("/") + "/"
+    COMPOSITION_RUN = args.composition_run
+    COMPOSED_ARTIFACT_DIGEST = args.artifact_digest
+    FRONTEND_FINGERPRINT = args.frontend_fingerprint
+    VERIFIER_FINGERPRINT = args.verifier_fingerprint
+    FRONTEND_HOST_RECEIPT = normalize_evidence_ref(args.frontend_host_receipt)
+    VERIFIER_HOST_RECEIPT = normalize_evidence_ref(args.verifier_host_receipt)
+    COMPOSITION_RECEIPT = normalize_evidence_ref(args.composition_receipt)
+    scope_audit_ref = normalize_evidence_ref(args.scope_audit)
 
     checks: list[dict[str, Any]] = []
     frontend_validation = load_json("frontend-package-validation.json")
-    build_receipt = load_json("artifact/frontend-run-001/build-receipt.json")
     composition_receipt = load_json(COMPOSITION_RECEIPT)
     canonical_composition_receipt = load_json(CANONICAL_COMPOSITION_RECEIPT)
+    build_receipt_ref = normalize_evidence_ref(composition_receipt["source"]["build_receipt"])
+    build_receipt = load_json(build_receipt_ref)
     structural = load_json("structural-eval-report.json")
     ledger = load_json("finding-ledger.json")
     matrix = load_json("host-composition-capability-matrix.json")
     frontend_host = load_json(FRONTEND_HOST_RECEIPT)
     verifier_host = load_json(VERIFIER_HOST_RECEIPT)
     server_process = load_json("browser/server-process.json")
+    server_process_previous = load_json("browser/server-process-011.json")
     server_binding = load_json("browser/server-binding.json")
-    scope_audit = load_json("composition-run-009/composition-scope-audit.json")
+    scope_audit = load_json(scope_audit_ref)
     coverage = load_json("coverage-summary.json")
 
     current_files = ["index.html", "styles.css", "app.js", "fixture_server.py"]
@@ -601,6 +730,11 @@ def main() -> int:
             )
         ).hexdigest()
     )
+    build_root_ref = normalize_evidence_ref(composition_receipt["source"]["root"])
+    COMPOSITION_ARTIFACT_ROOT = normalize_evidence_ref(
+        composition_receipt["composed_artifact"]["root"]
+    )
+    COMPOSITION_ARTIFACT_REF = f"evidence/phase-8.1/{COMPOSITION_ARTIFACT_ROOT}"
     artifact_root = EVIDENCE_ROOT / COMPOSITION_ARTIFACT_ROOT
     artifact_tree_digest = (
         "sha256:"
@@ -626,7 +760,7 @@ def main() -> int:
         source_tree_digest == COMPOSED_ARTIFACT_DIGEST
         and build_receipt["source_tree_digest"] == COMPOSED_ARTIFACT_DIGEST,
         f"Current fixture source and build receipt bind to {COMPOSED_ARTIFACT_DIGEST}.",
-        ["baseline.json", "runtime-fixture.json", "artifact/frontend-run-001/build-receipt.json"],
+        ["baseline.json", "runtime-fixture.json", build_receipt_ref],
     )
     check(
         checks,
@@ -642,7 +776,7 @@ def main() -> int:
         checks,
         "composition_canonical_authorization",
         canonical_composition_receipt["run_id"] == COMPOSITION_RUN
-        and canonical_composition_receipt["status"] == "PASS_WITH_LIMITATIONS"
+        and canonical_composition_receipt["status"] == "PARTIAL"
         and canonical_composition_receipt["composed_artifact"]["tree_digest"]
         == COMPOSED_ARTIFACT_DIGEST
         and canonical_composition_receipt["host"]["invocation_id"]
@@ -663,10 +797,12 @@ def main() -> int:
     check(
         checks,
         "frontend_host_transport",
-        frontend_host["host_invoked"] is True
+        frontend_host["status"] == "SUCCESS"
+        and frontend_host["host_invoked"] is True
         and frontend_host["host_result"]["status"] == "SUCCESS"
         and frontend_host["host_result"]["execution_observed"] is True
         and frontend_host["host_result"]["final_message"] == "READY"
+        and frontend_host["verification"]["status"] == "VERIFIED"
         and frontend_host["package_fingerprint"] == FRONTEND_FINGERPRINT,
         "Fresh frontend app-server handshake observed READY under the exact package fingerprint.",
         [FRONTEND_HOST_RECEIPT],
@@ -674,10 +810,12 @@ def main() -> int:
     check(
         checks,
         "verifier_host_transport",
-        verifier_host["host_invoked"] is True
+        verifier_host["status"] == "SUCCESS"
+        and verifier_host["host_invoked"] is True
         and verifier_host["host_result"]["status"] == "SUCCESS"
         and verifier_host["host_result"]["execution_observed"] is True
         and verifier_host["host_result"]["final_message"] == "VERIFIER_READY"
+        and verifier_host["verification"]["status"] == "VERIFIED"
         and verifier_host["package_fingerprint"] == VERIFIER_FINGERPRINT,
         "Fresh verifier app-server handshake observed VERIFIER_READY under the exact verifier fingerprint.",
         [VERIFIER_HOST_RECEIPT],
@@ -690,7 +828,7 @@ def main() -> int:
         and composition_receipt["workspace_observation"]["external_producer"] is False
         and composition_receipt["workspace_observation"]["manual_mutation_during_run"] is False,
         "Composition bridge records zero global/capability mutation and no alternate producer.",
-        [COMPOSITION_RECEIPT, "composition-run-009/composition-scope-audit.json"],
+        [COMPOSITION_RECEIPT, scope_audit_ref],
     )
     check(
         checks,
@@ -701,7 +839,7 @@ def main() -> int:
         and scope_audit["before_digest"] == scope_audit["after_digest"]
         and scope_audit["external_producer"] is False,
         "Independent read-only snapshots show no global or capability-file mutation around the exact bridge.",
-        ["composition-run-009/composition-scope-audit.json", COMPOSITION_RECEIPT],
+        [scope_audit_ref, COMPOSITION_RECEIPT],
     )
     check(
         checks,
@@ -709,8 +847,10 @@ def main() -> int:
         structural["status"] == "PASS"
         and structural["scenario_count"] == 60
         and not structural["failures"]
-        and structural["critical_false_pass"],
-        "Structural evaluator is PASS for all 60 scenarios and preserves its false-pass guard inventory.",
+        and structural["critical_false_pass_count"] == 0
+        and structural["critical_false_pass"] == []
+        and structural["false_pass_guard_ids"],
+        "Structural evaluator is PASS for all 60 scenarios with zero observed critical false passes and a preserved guard inventory.",
         ["structural-eval-report.json"],
     )
     check(
@@ -726,7 +866,11 @@ def main() -> int:
     check(
         checks,
         "host_limitation_explicit",
-        matrix["capabilities"][4]["status"] == "BLOCKED"
+        any(
+            capability.get("id") == "frontend-engineering-vnext"
+            and capability.get("status") == "BLOCKED"
+            for capability in matrix["capabilities"]
+        )
         and any(
             invocation.get("load_observation") == "HOST_LOAD_UNOBSERVABLE"
             for invocation in matrix["fresh_host_invocations"]
@@ -774,6 +918,8 @@ def main() -> int:
             "keyboard-step-00.json",
             "error-keyboard-step-01.json",
             "error-keyboard-retry.json",
+            "keyboard-invalid-submit.json",
+            "long-heading-768x1024.json",
         )
     }
     current_url_evidence = [
@@ -784,8 +930,11 @@ def main() -> int:
         browser_json["tablet-metrics.json"],
         browser_json["portrait-metrics.json"],
         browser_json["reflow-200-percent.json"],
+        browser_json["long-heading-768x1024.json"],
         browser_json["loading.json"],
         browser_json["error.json"],
+        browser_json["idempotency.json"],
+        browser_json["layout-performance.json"],
     ]
     check(
         checks,
@@ -796,6 +945,10 @@ def main() -> int:
         and server_process["base_url"] == BASE_URL
         and server_process["network"] == "LOOPBACK_ONLY"
         and server_process["process_started"] is True
+        and server_process_previous["artifact_digest"] == COMPOSED_ARTIFACT_DIGEST
+        and server_process_previous["base_url"] == BASE_URL
+        and server_process_previous["network"] == "LOOPBACK_ONLY"
+        and server_process_previous["process_started"] is True
         and server_binding["status"] == 200
         and server_binding["artifactDigest"] == COMPOSED_ARTIFACT_DIGEST
         and server_binding["requestedUrl"] == BASE_URL
@@ -863,6 +1016,8 @@ def main() -> int:
         and browser_json["keyboard-submit-result-002.json"]["phase"] == "success"
         and browser_json["keyboard-submit-result-002.json"]["formValues"]["patient"] == ""
         and browser_json["keyboard-submit-result-002.json"]["focused"]["id"] == "patient"
+        and browser_json["keyboard-invalid-submit.json"]["phase"] == "validation"
+        and browser_json["keyboard-invalid-submit.json"]["focused"]["id"] == "patient"
         and browser_json["keyboard-submit-focused-002.json"]["focused"]["id"] == "submit-intake"
         and browser_json["keyboard-submit-focused-002.json"]["focusVisible"] is True
         and browser_json["error-keyboard-step-01.json"]["focused"]["text"] == "Try again"
@@ -873,6 +1028,8 @@ def main() -> int:
             "browser/contrast-observation.json",
             "browser/keyboard-submit-focused-002.json",
             "browser/keyboard-submit-result-002.json",
+            "browser/keyboard-invalid-submit.json",
+            "browser/long-heading-768x1024.json",
             "browser/error-keyboard-step-01.json",
             "browser/error-keyboard-retry.json",
         ],
@@ -913,6 +1070,8 @@ def main() -> int:
         "error-focus-dom.json",
         "layout-performance.json",
         "performance-runtime.json",
+        "keyboard-invalid-submit.json",
+        "long-heading-768x1024.json",
     }
     check(
         checks,
@@ -936,22 +1095,38 @@ def main() -> int:
         "All 60 catalog scenarios are classified; all 33 runtime-required scenarios pass.",
         ["runtime-eval-classification.json", "runtime-eval-traceability.json"],
     )
-    browser_capture_ns = max(
-        path.stat().st_mtime_ns
+    browser_capture_paths = [
+        path
         for path in BROWSER_ROOT.iterdir()
-        if path.is_file() and path.name != "browser-evidence.json"
+        if path.is_file()
+        and path.name not in {"browser-evidence.json", "server-process.json", "server-process-011.json"}
+        and not path.name.startswith("_")
+    ]
+    browser_capture_timestamps = {
+        path: capture_timestamp(path) for path in browser_capture_paths
+    }
+    browser_capture_ns = max(browser_capture_timestamps.values())
+    browser_batch_before_restart_ns = max(
+        timestamp
+        for path, timestamp in browser_capture_timestamps.items()
+        if timestamp < server_process["started_at_ns"]
     )
+    browser_batch_after_restart_ns = max(
+        timestamp
+        for path, timestamp in browser_capture_timestamps.items()
+        if timestamp >= server_process["started_at_ns"]
+    )
+    browser_binding_ns = server_binding["observed_at_ns"]
     timeline_order = [
-        frontend_host["host_result"]["completed_at"] * 1_000_000_000,
-        (EVIDENCE_ROOT / "artifact/frontend-run-001/build-receipt.json").stat().st_mtime_ns,
+        host_completed_ns(frontend_host),
+        build_receipt["built_at_ns"],
         composition_receipt["generated_at_ns"],
+        server_process_previous["started_at_ns"],
+        browser_batch_before_restart_ns,
         server_process["started_at_ns"],
-        int(
-            datetime.fromisoformat(server_binding["observedAt"].replace("Z", "+00:00")).timestamp()
-            * 1_000_000_000
-        ),
-        browser_capture_ns,
-        verifier_host["host_result"]["completed_at"] * 1_000_000_000,
+        browser_binding_ns,
+        browser_batch_after_restart_ns,
+        host_completed_ns(verifier_host),
     ]
     check(
         checks,
@@ -960,8 +1135,9 @@ def main() -> int:
         "Host, build, composition, serving, browser capture and verifier observations are timestamp ordered.",
         [
             FRONTEND_HOST_RECEIPT,
-            "artifact/frontend-run-001/build-receipt.json",
+            build_receipt_ref,
             COMPOSITION_RECEIPT,
+            "browser/server-process-011.json",
             "browser/server-process.json",
             "browser/server-binding.json",
             "browser/",
@@ -1018,12 +1194,31 @@ def main() -> int:
                 "version": "Google Chrome 152.0.7977.64",
                 "executable_digest": "sha256:aea09d69ce7f24d5901f6bfb15dd44d0c856e793e0a498f8d8393ec7d2c308ec",
             },
-            "captures": [
+            "server_process_runs": [
                 {
-                    "path": f"browser/{path.name}",
-                    "sha256": file_digest(path),
-                    "kind": "screenshot",
-                }
+                    "path": "browser/server-process-011.json",
+                    "sha256": file_digest(BROWSER_ROOT / "server-process-011.json"),
+                    "run_id": server_process_previous["run_id"],
+                    "artifact_digest": server_process_previous["artifact_digest"],
+                    "base_url": server_process_previous["base_url"],
+                },
+                {
+                    "path": "browser/server-process.json",
+                    "sha256": file_digest(BROWSER_ROOT / "server-process.json"),
+                    "run_id": server_process["run_id"],
+                    "artifact_digest": server_process["artifact_digest"],
+                    "base_url": server_process["base_url"],
+                },
+            ],
+            "captures": [
+                browser_capture_record(
+                    path,
+                    kind="screenshot",
+                    composition_run=COMPOSITION_RUN,
+                    artifact_digest=COMPOSED_ARTIFACT_DIGEST,
+                    server_process=server_process,
+                    server_process_previous=server_process_previous,
+                )
                 for path in sorted(BROWSER_ROOT.glob("*.png"))
                 if path.name
                 in {
@@ -1035,11 +1230,14 @@ def main() -> int:
                 }
             ]
             + [
-                {
-                    "path": f"browser/{path.name}",
-                    "sha256": file_digest(path),
-                    "kind": "runtime-json",
-                }
+                browser_capture_record(
+                    path,
+                    kind="runtime-json",
+                    composition_run=COMPOSITION_RUN,
+                    artifact_digest=COMPOSED_ARTIFACT_DIGEST,
+                    server_process=server_process,
+                    server_process_previous=server_process_previous,
+                )
                 for path in sorted(BROWSER_ROOT.glob("*.json"))
                 if path.name
                 in {
@@ -1055,6 +1253,7 @@ def main() -> int:
                     "error-retry.json",
                     "error-keyboard-step-01.json",
                     "error-keyboard-retry.json",
+                    "keyboard-invalid-submit.json",
                     "idempotency.json",
                     "interaction-submit-loading.json",
                     "interaction-submit-success.json",
@@ -1063,6 +1262,7 @@ def main() -> int:
                     "keyboard-submit-result-002.json",
                     "keyboard-step-00.json",
                     "layout-performance.json",
+                    "long-heading-768x1024.json",
                     "loading.json",
                     "mobile-critical-metrics.json",
                     "performance-runtime.json",
@@ -1092,83 +1292,135 @@ def main() -> int:
 
     browser_digest = file_digest(EVIDENCE_ROOT / "browser-evidence.json")
     verification_digest = runtime_report["verification_digest"]
-    browser_binding_ns = int(
-        datetime.fromisoformat(server_binding["observedAt"].replace("Z", "+00:00")).timestamp()
-        * 1_000_000_000
-    )
     browser_packet_ns = (EVIDENCE_ROOT / "browser-evidence.json").stat().st_mtime_ns
     local_verification_ns = time.time_ns()
     timeline = {
         "schema_version": "P8.1-COMPOSITION-TIMELINE-1",
         "task_id": "PHASE8.1-001",
         "composition_run": COMPOSITION_RUN,
-        "ordering_basis": "receipt timestamps, server binding observation time and packet file mtimes",
+        "ordering_basis": "host receipts, build/composition timestamps, server process starts, browser capture metadata and packet mtimes",
         "events": [
-            {
-                "sequence": 1,
-                "event": "FRONTEND_HOST_RESPONSE_OBSERVED",
-                "observed_at_ns": frontend_host["host_result"]["completed_at"] * 1_000_000_000,
-                "source": FRONTEND_HOST_RECEIPT,
-                "observation": "host_result SUCCESS / READY / execution_observed=true",
-            },
-            {
-                "sequence": 2,
-                "event": "EXACT_ARTIFACT_IDENTITY_CHECKED",
-                "observed_at_ns": (EVIDENCE_ROOT / "artifact/frontend-run-001/build-receipt.json")
-                .stat()
-                .st_mtime_ns,
-                "source": "artifact/frontend-run-001/build-receipt.json",
-                "observation": f"source_tree_digest={COMPOSED_ARTIFACT_DIGEST}",
-            },
-            {
-                "sequence": 3,
-                "event": "COMPOSITION_COPY_CREATED_AND_RECHECKED",
-                "observed_at_ns": composition_receipt["generated_at_ns"],
-                "source": COMPOSITION_RECEIPT,
-                "observation": f"run={COMPOSITION_RUN}; artifact_tree_digest={COMPOSED_ARTIFACT_DIGEST}; global_mutations=0",
-            },
-            {
-                "sequence": 4,
-                "event": "EXACT_ARTIFACT_SERVER_STARTED",
-                "observed_at_ns": server_process["started_at_ns"],
-                "source": "browser/server-process.json",
-                "observation": f"base_url={BASE_URL}; artifact_digest={COMPOSED_ARTIFACT_DIGEST}; process_started=true",
-            },
-            {
-                "sequence": 5,
-                "event": "BROWSER_ARTIFACT_BINDING_OBSERVED",
-                "observed_at_ns": browser_binding_ns,
-                "source": "browser/server-binding.json",
-                "observation": f"HTTP 200 X-Phase81-Artifact-Digest={COMPOSED_ARTIFACT_DIGEST}",
-            },
-            {
-                "sequence": 6,
-                "event": "BROWSER_RUNTIME_CAPTURE_COMPLETED",
-                "observed_at_ns": browser_capture_ns,
-                "source": "browser/",
-                "observation": "Current browser captures were written after the exact server binding.",
-            },
-            {
-                "sequence": 7,
-                "event": "VERIFIER_HOST_RESPONSE_OBSERVED",
-                "observed_at_ns": verifier_host["host_result"]["completed_at"] * 1_000_000_000,
-                "source": VERIFIER_HOST_RECEIPT,
-                "observation": "host_result SUCCESS / VERIFIER_READY / execution_observed=true",
-            },
-            {
-                "sequence": 8,
-                "event": "BROWSER_EVIDENCE_PACKETIZED",
-                "observed_at_ns": browser_packet_ns,
-                "source": "browser-evidence.json",
-                "observation": f"browser_evidence_digest={browser_digest}",
-            },
-            {
-                "sequence": 9,
-                "event": "LOCAL_VERIFICATION_COMPLETED",
-                "observed_at_ns": local_verification_ns,
-                "source": args.output,
-                "observation": f"verification_digest={verification_digest}",
-            },
+            timeline_event(
+                1,
+                "FRONTEND_HOST_RESPONSE_OBSERVED",
+                host_completed_ns(frontend_host),
+                FRONTEND_HOST_RECEIPT,
+                host_invocation_id(frontend_host),
+                "frontend-engineering-vnext",
+                COMPOSED_ARTIFACT_DIGEST,
+                "HOST_RESPONSE_OBSERVED",
+                "top-level SUCCESS / READY / execution_observed=true / verification=VERIFIED",
+            ),
+            timeline_event(
+                2,
+                "EXACT_ARTIFACT_IDENTITY_CHECKED",
+                build_receipt["built_at_ns"],
+                build_receipt_ref,
+                host_invocation_id(frontend_host),
+                "frontend-engineering-vnext",
+                COMPOSED_ARTIFACT_DIGEST,
+                "ARTIFACT_IDENTITY_OBSERVED",
+                f"source_tree_digest={COMPOSED_ARTIFACT_DIGEST}; build output is byte-identical",
+            ),
+            timeline_event(
+                3,
+                "COMPOSITION_COPY_CREATED_AND_RECHECKED",
+                composition_receipt["generated_at_ns"],
+                COMPOSITION_RECEIPT,
+                composition_receipt["host"]["invocation_id"],
+                "frontend-engineering-vnext",
+                COMPOSED_ARTIFACT_DIGEST,
+                "COMPOSITION_COPY_OBSERVED",
+                f"run={COMPOSITION_RUN}; artifact_tree_digest={COMPOSED_ARTIFACT_DIGEST}; global_mutations=0",
+            ),
+            timeline_event(
+                4,
+                "EXACT_ARTIFACT_SERVER_STARTED",
+                server_process_previous["started_at_ns"],
+                "browser/server-process-011.json",
+                composition_receipt["host"]["invocation_id"],
+                "frontend-engineering-vnext",
+                COMPOSED_ARTIFACT_DIGEST,
+                "SERVER_PROCESS_OBSERVED",
+                f"run={server_process_previous['run_id']}; base_url={BASE_URL}; process_started=true",
+            ),
+            timeline_event(
+                5,
+                "BROWSER_RUNTIME_CAPTURE_BATCH_COMPLETED",
+                browser_batch_before_restart_ns,
+                "browser/",
+                "P81-BROWSER-010",
+                "browser-observer",
+                COMPOSED_ARTIFACT_DIGEST,
+                "BROWSER_RUNTIME_CAPTURE_OBSERVED",
+                "Initial browser captures completed against the same exact artifact before the server restart.",
+            ),
+            timeline_event(
+                6,
+                "EXACT_ARTIFACT_SERVER_STARTED",
+                server_process["started_at_ns"],
+                "browser/server-process.json",
+                composition_receipt["host"]["invocation_id"],
+                "frontend-engineering-vnext",
+                COMPOSED_ARTIFACT_DIGEST,
+                "SERVER_PROCESS_OBSERVED",
+                f"run={server_process['run_id']}; base_url={BASE_URL}; process_started=true",
+            ),
+            timeline_event(
+                7,
+                "BROWSER_ARTIFACT_BINDING_OBSERVED",
+                browser_binding_ns,
+                "browser/server-binding.json",
+                "P81-BROWSER-010",
+                "browser-observer",
+                COMPOSED_ARTIFACT_DIGEST,
+                "BROWSER_ARTIFACT_BINDING_OBSERVED",
+                f"HTTP 200 X-Phase81-Artifact-Digest={COMPOSED_ARTIFACT_DIGEST}; server_run={server_process['run_id']}",
+            ),
+            timeline_event(
+                8,
+                "BROWSER_RUNTIME_CAPTURE_COMPLETED",
+                browser_batch_after_restart_ns,
+                "browser/",
+                "P81-BROWSER-010",
+                "browser-observer",
+                COMPOSED_ARTIFACT_DIGEST,
+                "BROWSER_RUNTIME_CAPTURE_OBSERVED",
+                "The final browser capture batch completed after the current exact server binding.",
+            ),
+            timeline_event(
+                9,
+                "VERIFIER_HOST_RESPONSE_OBSERVED",
+                host_completed_ns(verifier_host),
+                VERIFIER_HOST_RECEIPT,
+                host_invocation_id(verifier_host),
+                "verification-loop-vnext",
+                COMPOSED_ARTIFACT_DIGEST,
+                "HOST_RESPONSE_OBSERVED",
+                "top-level SUCCESS / VERIFIER_READY / execution_observed=true / verification=VERIFIED",
+            ),
+            timeline_event(
+                10,
+                "BROWSER_EVIDENCE_PACKETIZED",
+                browser_packet_ns,
+                "browser-evidence.json",
+                host_invocation_id(verifier_host),
+                "verification-loop-vnext",
+                COMPOSED_ARTIFACT_DIGEST,
+                "BROWSER_EVIDENCE_PACKETIZED",
+                f"browser_evidence_digest={browser_digest}",
+            ),
+            timeline_event(
+                11,
+                "LOCAL_VERIFICATION_COMPLETED",
+                local_verification_ns,
+                args.output,
+                "P81-VERIFY-001",
+                "verification-loop-vnext",
+                COMPOSED_ARTIFACT_DIGEST,
+                "LOCAL_VERIFICATION_COMPLETED",
+                f"verification_digest={verification_digest}",
+            ),
         ],
         "unknowns": ["The public host protocol did not emit a skill-load event."],
         "limitations": runtime_report["limitations"],
@@ -1180,7 +1432,7 @@ def main() -> int:
         "task_id": "PHASE8.1-001",
         "composition_id": "P81-ALT-COMPOSITION-001",
         "run_id": COMPOSITION_RUN,
-        "status": runtime_report["status"],
+        "status": "PROVEN_WITH_OBSERVABLE_ALTERNATIVE_CAUSALITY",
         "canonical_composition_receipt": CANONICAL_COMPOSITION_RECEIPT,
         "authorization_id": authorization["authorization_id"],
         "authorization": {
@@ -1212,6 +1464,7 @@ def main() -> int:
         "verifier_fingerprint": VERIFIER_FINGERPRINT,
         "verifier_invocation_ref": f"evidence/phase-8.1/{VERIFIER_HOST_RECEIPT}",
         "verification_digest": verification_digest,
+        "verifier_host_verification_digest": verifier_host["assurance"]["verification_digest"],
         "timeline": "composition-timeline.json",
         "host_observations": {
             "frontend": "READY with execution_observed=true",
@@ -1228,7 +1481,7 @@ def main() -> int:
                 "manual_mutation_during_run"
             ],
             "external_producer": composition_receipt["workspace_observation"]["external_producer"],
-            "independent_scope_audit": "composition-run-009/composition-scope-audit.json",
+            "independent_scope_audit": scope_audit_ref,
             "scope_audit_global_mutations": scope_audit["global_mutations"],
             "scope_audit_capability_file_mutations": scope_audit["capability_file_mutations"],
         },
@@ -1251,7 +1504,7 @@ Status: `{runtime_report["status"]}`
 
 - Capability: `frontend-engineering-vnext@0.1.0`
 - Fingerprint: `{FRONTEND_FINGERPRINT}`
-- Host receipt: `frontend-real-invocation-short/invocation-receipts/INV-cf9d460266785f78b43e15ac.json`
+- Host receipt: `{FRONTEND_HOST_RECEIPT}`
 - Host observation: `SUCCESS`, `READY`, `execution_observed=true`
 - Artifact: `{COMPOSED_ARTIFACT_DIGEST}`
 

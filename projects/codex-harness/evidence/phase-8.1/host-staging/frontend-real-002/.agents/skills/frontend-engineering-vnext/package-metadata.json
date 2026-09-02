@@ -1,0 +1,37 @@
+{
+  "schema_version": "P8-PACKAGE-1",
+  "package_id": "frontend-engineering-vnext",
+  "native": true,
+  "kind": "PROJECT_LOCAL_NATIVE",
+  "scope": "PROJECT",
+  "version": "0.1.0",
+  "status": "CANDIDATE",
+  "type": "SPECIALIST",
+  "role": "SPECIALIST",
+  "host_load_claim": false,
+  "host_load_observation": "NOT_ASSERTED",
+  "global_state_mutation": false,
+  "installed_source_mutation": false,
+  "external_state_mutation": false,
+  "files": {
+    "manifest": "manifest.json",
+    "router": "SKILL.md",
+    "profiles": "profiles.json",
+    "composition": "composition-contract.json",
+    "references": [
+      "references/architecture-boundaries.md",
+      "references/state-and-interaction.md",
+      "references/responsive-accessibility.md",
+      "references/rendering-evidence.md",
+      "references/testing-performance.md",
+      "references/security-handoff.md",
+      "references/role-boundaries.md"
+    ],
+    "scripts": ["scripts/deterministic-procedures.json"],
+    "evals": ["evals/scenarios.json"],
+    "benchmarks": ["benchmarks/benchmark-fixtures.json"]
+  },
+  "identity_binding": ["manifest_digest", "package_fingerprint", "task_identity", "criteria_digest", "artifact_digest", "render_digests"],
+  "promotion_limit": "CANDIDATE_ONLY_UNTIL_CURRENT_EVAL_BENCHMARK_AND_INDEPENDENT_REVIEW",
+  "claims_excluded": ["production_ready", "aaa_quality", "stable", "security_approval", "accessibility_certification", "pixel_perfect", "all_browsers_verified", "all_viewports_verified", "universal_frontend_superiority", "causal_improvement"]
+}

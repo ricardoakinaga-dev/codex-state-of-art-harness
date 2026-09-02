@@ -1,11 +1,18 @@
 {
-  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-default-009",
+  "capture_id": "P81-BROWSER-010",
+  "run_id": "P81-COMPOSE-011",
+  "observer": "Playwright MCP Chromium browser observer",
+  "captured_at": "2026-09-02T10:21:29.053Z",
+  "captured_at_ns": 1788344489053000000,
+  "source_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "url": "http://127.0.0.1:4188/?scenario=default&capture=p81-run-010",
   "labels": {
-    "urgency-filter": "Filter by urgency\n                      \n                        All urgencies\n                        Critical\n                        Urgent\n                        Soon\n                        Routine",
     "patient": "Patient name *",
     "species": "Species *",
     "urgency": "Urgency *",
-    "notes": "What changed?"
+    "notes": "What changed?",
+    "urgency-filter": "Filter by urgency\n                      \n                        All urgencies\n                        Critical\n                        Urgent\n                        Soon\n                        Routine"
   },
   "headings": [
     "H1",
@@ -31,12 +38,30 @@
     "borderColor": "rgb(29, 111, 117)"
   },
   "contrast": {
-    "placeholderOnSurface": 5.862057176877136,
+    "placeholderOnSurface": 14.503355930912104,
     "borderOnSurface": 5.765619639082459,
     "focusOnSurface": 5.765619639082459,
-    "placeholderColor": "rgb(88, 103, 96)",
+    "placeholderColor": "rgb(31, 42, 43)",
     "borderColor": "rgb(29, 111, 117)",
-    "surface": "#fffdf8"
+    "surface": "rgb(255, 253, 248)",
+    "results": [
+      {
+        "name": "placeholderOnSurface",
+        "value": 14.503355930912104,
+        "pass": true
+      },
+      {
+        "name": "borderOnSurface",
+        "value": 5.765619639082459,
+        "pass": true
+      },
+      {
+        "name": "focusOnSurface",
+        "value": 5.765619639082459,
+        "pass": true
+      }
+    ],
+    "pass": true
   },
   "reducedMotionRule": true,
   "targets": [
@@ -53,31 +78,31 @@
       "role": null,
       "text": "⌁\nLive intake",
       "ariaLabel": null,
-      "width": 362,
-      "height": 44
+      "width": 208,
+      "height": 43
     },
     {
       "id": null,
       "role": null,
       "text": "≡\nQueue\n4",
       "ariaLabel": null,
-      "width": 362,
-      "height": 44.5
+      "width": 208,
+      "height": 43
     },
     {
       "id": null,
       "role": null,
       "text": "＋\nNew intake",
       "ariaLabel": null,
-      "width": 362,
-      "height": 44
+      "width": 208,
+      "height": 43
     },
     {
       "id": null,
       "role": null,
       "text": "Start an intake\n↗",
       "ariaLabel": null,
-      "width": 358,
+      "width": 153.65625,
       "height": 50
     },
     {
@@ -93,7 +118,7 @@
       "role": null,
       "text": "All urgencies\nCritical\nUrgent\nSoon\nRoutine",
       "ariaLabel": null,
-      "width": 272,
+      "width": 134,
       "height": 36
     },
     {
@@ -109,7 +134,7 @@
       "role": null,
       "text": "Review",
       "ariaLabel": "Review Miso",
-      "width": 44.921875,
+      "width": 51.921875,
       "height": 44
     },
     {
@@ -117,7 +142,7 @@
       "role": null,
       "text": "Review",
       "ariaLabel": "Review Juniper",
-      "width": 44.921875,
+      "width": 51.921875,
       "height": 44
     },
     {
@@ -125,7 +150,7 @@
       "role": null,
       "text": "Review",
       "ariaLabel": "Review Otis",
-      "width": 44.921875,
+      "width": 51.921875,
       "height": 44
     },
     {
@@ -133,7 +158,7 @@
       "role": null,
       "text": "Review",
       "ariaLabel": "Review Pip",
-      "width": 44.921875,
+      "width": 51.921875,
       "height": 44
     },
     {
@@ -141,7 +166,7 @@
       "role": null,
       "text": "",
       "ariaLabel": null,
-      "width": 324,
+      "width": 310.28125,
       "height": 42
     },
     {
@@ -149,7 +174,7 @@
       "role": null,
       "text": "Choose one\nDog\nCat\nRabbit\nBird",
       "ariaLabel": null,
-      "width": 324,
+      "width": 150.140625,
       "height": 42
     },
     {
@@ -157,7 +182,7 @@
       "role": null,
       "text": "Choose one\nCritical\nUrgent\nSoon\nRoutine",
       "ariaLabel": null,
-      "width": 324,
+      "width": 150.140625,
       "height": 42
     },
     {
@@ -165,7 +190,7 @@
       "role": null,
       "text": "",
       "ariaLabel": null,
-      "width": 324,
+      "width": 310.28125,
       "height": 80
     },
     {
@@ -173,7 +198,7 @@
       "role": null,
       "text": "Send to triage →",
       "ariaLabel": null,
-      "width": 324,
+      "width": 223.28125,
       "height": 44
     }
   ]

@@ -1,198 +1,188 @@
-- generic [active] [ref=f111e1] [box=0,0,390,3173]:
-  - link "Skip to main content" [ref=f111e2] [cursor=pointer] [box=12,-74,177,48]:
+- generic [active] [ref=e1] [box=0,0,1440,1299]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer] [box=12,-74,177,48]:
     - /url: "#main-content"
-  - generic [ref=f111e3] [box=0,0,390,3173]:
-    - complementary "Primary navigation" [ref=f111e4] [box=0,0,390,211]:
-      - generic [ref=f111e10] [box=59,12,114,37]:
-        - strong [ref=f111e11] [box=59,12,114,21]: northline
-        - generic [ref=f111e12] [box=59,34,114,15]: emergency care
-      - navigation "Clinic workspace" [ref=f111e13] [box=14,60,362,139]:
-        - link "Live intake" [ref=f111e15] [cursor=pointer] [box=14,60,362,44]:
+  - generic [ref=e3] [box=0,0,1440,1299]:
+    - complementary "Primary navigation" [ref=e4] [box=0,0,244,1299]:
+      - generic [ref=e10] [box=79,30,114,39]:
+        - strong [ref=e11] [box=79,30,114,23]: northline
+        - generic [ref=e12] [box=79,54,114,15]: emergency care
+      - navigation "Clinic workspace" [ref=e13] [box=18,113,208,171]:
+        - paragraph [ref=e173] [box=30,113,184,15]: Workspace
+        - link "Live intake" [ref=e14] [cursor=pointer] [box=18,145,208,43]:
           - /url: "#overview"
-          - generic [ref=f111e16] [box=25,74,23,17]: ⌁
-        - link "Queue 4" [ref=f111e18] [cursor=pointer] [box=14,107,362,45]:
+          - generic [aria-hidden] [ref=e15] [box=31,156,23,20]: ⌁
+        - link "Queue 4" [ref=e17] [cursor=pointer] [box=18,193,208,43]:
           - /url: "#queue"
-          - generic [ref=f111e19] [box=25,108,23,17]: ≡
-          - generic [ref=f111e20] [box=53,108,312,17]: Queue
-          - generic [ref=f111e21] [box=25,130,24,21]: "4"
-        - link "New intake" [ref=f111e22] [cursor=pointer] [box=14,155,362,44]:
+          - generic [aria-hidden] [ref=e18] [box=31,204,23,20]: ≡
+          - generic [ref=e19] [box=62,204,119,20]: Queue
+          - generic [ref=e20] [box=189,204,24,21]: "4"
+        - link "New intake" [ref=e21] [cursor=pointer] [box=18,241,208,43]:
           - /url: "#intake"
-          - generic [ref=f111e23] [box=25,168,23,17]: ＋
-    - generic [ref=f111e30] [box=0,211,390,2963]:
-      - banner [ref=f111e31] [box=0,211,390,55]:
-        - generic "Breadcrumb" [ref=f111e32] [box=16,230,107,15]:
-          - generic [ref=f111e33] [box=16,230,40,15]: Northline
-          - generic [ref=f111e34] [box=62,230,3,15]: /
-          - strong [ref=f111e35] [box=71,230,52,15]: Live intake
-        - generic [ref=f111e36] [box=340,221,34,34]: ND
-      - main [ref=f111e40] [box=0,266,390,2843]:
-        - region [ref=f111e41] [box=16,299,358,316]:
-          - generic [ref=f111e42] [box=16,299,358,213]:
-            - paragraph [ref=f111e43] [box=16,299,358,12]: Monday · 02:14 local time
-            - heading [level=1] [ref=f111e44] [box=16,320,358,138]:
+          - generic [aria-hidden] [ref=e22] [box=31,252,23,20]: ＋
+      - generic [ref=e176] [box=57,1227,108,32]:
+        - strong [ref=e177] [box=57,1227,108,17]: Night desk online
+        - generic [ref=e178] [box=57,1246,108,14]: Response team is ready
+    - generic [ref=e24] [box=244,0,1196,1299]:
+      - banner [ref=e25] [box=244,0,1196,76]:
+        - generic "Breadcrumb" [ref=e26] [box=302,29,135,18]:
+          - generic [ref=e27] [box=302,29,48,18]: Northline
+          - generic [aria-hidden] [ref=e28] [box=361,29,3,18]: /
+          - strong [ref=e29] [box=375,29,62,18]: Live intake
+        - generic [ref=e30] [box=1219,21,163,34]:
+          - generic [ref=e31] [box=1219,29,113,18]: Intake desk · 24/7
+          - generic [aria-hidden] [ref=e33] [box=1348,21,34,34]: ND
+      - main [ref=e34] [box=244,76,1196,1180]:
+        - region [ref=e35] [box=302,124,1081,274]:
+          - generic [ref=e36] [box=302,124,680,226]:
+            - paragraph [ref=e37] [box=302,124,680,12]: Monday · 02:14 local time
+            - heading [level=1] [ref=e38] [box=302,145,680,139]:
               - text: Make room for the next
-              - emphasis [ref=f111e45] [box=16,407,266,52]: urgent arrival.
-            - paragraph [ref=f111e46] [box=16,471,358,40]: A calm view of every case moving through the emergency desk, with the next intake always one clear action away.
-          - link "Start an intake" [ref=f111e47] [cursor=pointer] [box=16,534,358,50]:
+              - emphasis [ref=e39] [box=302,210,404,79]: urgent arrival.
+            - paragraph [ref=e40] [box=302,300,540,50]: A calm view of every case moving through the emergency desk, with the next intake always one clear action away.
+          - link "Start an intake" [ref=e41] [cursor=pointer] [box=1229,300,154,50]:
             - /url: "#intake"
             - text: Start an intake
-            - generic [ref=f111e48] [box=239,550,10,18]: ↗
-        - generic [ref=f111e49] [box=16,614,358,2334]:
-          - generic [ref=f111e50] [box=16,614,358,1564]:
-            - region "Queue summary" [ref=f111e51] [box=16,614,358,358]:
-              - article [ref=f111e52] [box=17,615,356,118]:
-                - generic [ref=f111e53] [box=35,631,320,18]:
-                  - generic [ref=f111e54] [box=35,632,68,17]: Active queue
-                  - generic [ref=f111e55] [box=344,631,11,18]: ◌
-                - strong [ref=f111e56] [box=35,659,320,32]: "04"
+            - generic [aria-hidden] [ref=e42] [box=1349,316,10,18]: ↗
+        - generic [ref=e43] [box=302,398,1081,694]:
+          - generic [ref=e44] [box=302,398,697,694]:
+            - region "Queue summary" [ref=e45] [box=302,398,697,144]:
+              - article [ref=e46] [box=303,399,231,142]:
+                - generic [ref=e47] [box=322,417,193,18]:
+                  - generic [ref=e48] [box=322,417,68,17]: Active queue
+                  - generic [aria-hidden] [ref=e49] [box=504,417,11,18]: ◌
+                - strong [ref=e50] [box=322,449,193,37]: "04"
                 - text: Cases awaiting a room
-              - article [ref=f111e57] [box=17,734,356,118]:
-                - generic [ref=f111e58] [box=35,750,320,18]:
-                  - generic [ref=f111e59] [box=35,751,73,17]: Needs a room
-                  - generic [ref=f111e60] [box=349,750,6,18]: "!"
-                - strong [ref=f111e61] [box=35,778,320,32]: "02"
+              - article [ref=e51] [box=534,399,231,142]:
+                - generic [ref=e52] [box=553,417,193,18]:
+                  - generic [ref=e53] [box=553,417,73,17]: Needs a room
+                  - generic [aria-hidden] [ref=e54] [box=740,417,6,18]: "!"
+                - strong [ref=e55] [box=553,449,193,37]: "02"
                 - text: Critical or urgent triage
-              - article [ref=f111e62] [box=17,853,356,118]:
-                - generic [ref=f111e63] [box=35,869,320,18]:
-                  - generic [ref=f111e64] [box=35,870,90,17]: Median response
-                  - generic [ref=f111e65] [box=340,869,15,18]: ↗
-                - strong [ref=f111e66] [box=35,897,320,32]: 12 min
+              - article [ref=e56] [box=766,399,231,142]:
+                - generic [ref=e57] [box=785,417,193,18]:
+                  - generic [ref=e58] [box=785,417,90,17]: Median response
+                  - generic [aria-hidden] [ref=e59] [box=963,417,15,18]: ↗
+                - strong [ref=e60] [box=785,449,193,37]: 12 min
                 - text: Across the last 8 arrivals
-            - region [ref=f111e67] [box=16,996,358,1182]:
-              - generic [ref=f111e68] [box=33,1017,324,104]:
-                - generic [ref=f111e69] [box=33,1017,324,46]:
-                  - paragraph [ref=f111e70] [box=33,1017,324,12]: Live view
-                  - heading "Emergency queue" [level=2] [ref=f111e71] [box=33,1038,324,25]
-                - generic [ref=f111e72] [box=33,1078,324,44]:
-                  - generic [ref=f111e73] [box=33,1082,272,36]:
-                    - generic [ref=f111e74] [box=32,1081,1,1]: Filter by urgency
-                    - combobox "Filter by urgency" [ref=f111e75] [box=33,1082,272,36]:
+            - region [ref=e61] [box=302,566,697,526]:
+              - generic [ref=e62] [box=327,591,647,46]:
+                - generic [ref=e63] [box=327,591,183,46]:
+                  - paragraph [ref=e64] [box=327,591,183,12]: Live view
+                  - heading "Emergency queue" [level=2] [ref=e65] [box=327,612,183,25]
+                - generic [ref=e66] [box=787,593,186,44]:
+                  - generic [ref=e67] [box=787,597,134,36]:
+                    - generic [ref=e68] [box=786,596,1,1]: Filter by urgency
+                    - combobox "Filter by urgency" [ref=e69] [box=787,597,134,36]:
                       - option "All urgencies" [selected] [box=0,0,0,0]
                       - option "Critical" [box=0,0,0,0]
                       - option "Urgent" [box=0,0,0,0]
                       - option "Soon" [box=0,0,0,0]
                       - option "Routine" [box=0,0,0,0]
-                  - button "Refresh emergency queue" [ref=f111e76] [cursor=pointer] [box=313,1078,44,44]: ↻
-              - status [ref=f111e77] [box=33,1140,324,20]: 4 active cases · sorted by arrival
-              - table [ref=f111e79] [box=33,1167,324,951]:
-                - caption [ref=f111e80] [box=32,1166,1,1]: Current synthetic emergency cases
-                - rowgroup [ref=f111e81] [box=33,1167,1,1]:
-                  - row [ref=f111e82] [box=33,1167,1,65]:
-                    - columnheader "Patient" [ref=f111e83] [box=33,1180,56,38]
-                    - columnheader "Species" [ref=f111e84] [box=89,1180,66,38]
-                    - columnheader "Triage" [ref=f111e85] [box=156,1180,60,38]
-                    - columnheader "Waiting" [ref=f111e86] [box=215,1180,66,38]
-                    - columnheader "Action" [ref=f111e87] [box=281,1180,8,38]
-                - rowgroup [ref=f111e89] [box=33,1167,324,951]:
-                  - row [ref=f111e179] [box=33,1167,324,238]:
-                    - cell "Patient Miso Breathing concern" [ref=f111e180] [box=33,1180,324,81]:
-                      - text: Patient
-                      - generic [ref=f111e92] [box=135,1184,30,30]: M
-                      - generic [ref=f111e93] [box=33,1222,94,35]:
-                        - strong [ref=f111e94] [box=33,1222,94,18]: Miso
-                        - generic [ref=f111e95] [box=33,1242,94,15]: Breathing concern
-                    - cell "Species Cat" [ref=f111e181] [box=33,1261,324,26]
-                    - cell "Triage Critical" [ref=f111e182] [box=33,1287,324,26]:
-                      - text: Triage
-                      - generic [ref=f111e98] [box=135,1291,222,18]: Critical
-                    - cell "Waiting 08 min" [ref=f111e183] [box=33,1313,324,26]
-                    - cell [ref=f111e184] [box=33,1339,324,52]:
-                      - text: Action
-                      - button "Review Miso" [ref=f111e101] [cursor=pointer] [box=135,1343,45,44]: Review
-                  - row [ref=f111e185] [box=33,1405,324,238]:
-                    - cell "Patient Juniper Acute pain" [ref=f111e186] [box=33,1418,324,81]:
-                      - text: Patient
-                      - generic [ref=f111e104] [box=135,1422,30,30]: J
-                      - generic [ref=f111e105] [box=33,1460,94,35]:
-                        - strong [ref=f111e106] [box=33,1460,94,18]: Juniper
-                        - generic [ref=f111e107] [box=33,1480,94,15]: Acute pain
-                    - cell "Species Dog" [ref=f111e187] [box=33,1499,324,26]
-                    - cell "Triage Urgent" [ref=f111e188] [box=33,1525,324,26]:
-                      - text: Triage
-                      - generic [ref=f111e110] [box=135,1529,222,18]: Urgent
-                    - cell "Waiting 14 min" [ref=f111e189] [box=33,1551,324,26]
-                    - cell [ref=f111e190] [box=33,1577,324,52]:
-                      - text: Action
-                      - button "Review Juniper" [ref=f111e113] [cursor=pointer] [box=135,1581,45,44]: Review
-                  - row [ref=f111e191] [box=33,1643,324,238]:
-                    - cell "Patient Otis Not eating" [ref=f111e192] [box=33,1656,324,81]:
-                      - text: Patient
-                      - generic [ref=f111e116] [box=135,1660,30,30]: O
-                      - generic [ref=f111e117] [box=33,1698,94,35]:
-                        - strong [ref=f111e118] [box=33,1698,94,18]: Otis
-                        - generic [ref=f111e119] [box=33,1718,94,15]: Not eating
-                    - cell "Species Rabbit" [ref=f111e193] [box=33,1737,324,26]
-                    - cell "Triage Soon" [ref=f111e194] [box=33,1763,324,26]:
-                      - text: Triage
-                      - generic [ref=f111e122] [box=135,1767,222,18]: Soon
-                    - cell "Waiting 21 min" [ref=f111e195] [box=33,1789,324,26]
-                    - cell [ref=f111e196] [box=33,1815,324,52]:
-                      - text: Action
-                      - button "Review Otis" [ref=f111e125] [cursor=pointer] [box=135,1819,45,44]: Review
-                  - row [ref=f111e197] [box=33,1881,324,237]:
-                    - cell "Patient Pip Wing check" [ref=f111e198] [box=33,1894,324,81]:
-                      - text: Patient
-                      - generic [ref=f111e128] [box=135,1898,30,30]: P
-                      - generic [ref=f111e129] [box=33,1936,94,35]:
-                        - strong [ref=f111e130] [box=33,1936,94,18]: Pip
-                        - generic [ref=f111e131] [box=33,1956,94,15]: Wing check
-                    - cell "Species Bird" [ref=f111e199] [box=33,1975,324,26]
-                    - cell "Triage Routine" [ref=f111e200] [box=33,2001,324,26]:
-                      - text: Triage
-                      - generic [ref=f111e134] [box=135,2005,222,18]: Routine
-                    - cell "Waiting 29 min" [ref=f111e201] [box=33,2027,324,26]
-                    - cell [ref=f111e202] [box=33,2053,324,52]:
-                      - text: Action
-                      - button "Review Pip" [ref=f111e137] [cursor=pointer] [box=135,2057,45,44]: Review
-              - paragraph [ref=f111e138] [box=33,2132,324,30]: Updates are local to this pilot fixture
-          - complementary [ref=f111e140] [box=16,2203,358,745]:
-            - generic [ref=f111e141] [box=17,2204,356,37]:
-              - generic [ref=f111e142] [box=33,2214,17,17]: +
+                  - button "Refresh emergency queue" [ref=e70] [cursor=pointer] [box=929,593,44,44]: ↻
+              - status [ref=e71] [box=327,658,647,20]: 4 active cases · sorted by arrival
+              - table [ref=e73] [box=327,685,647,345]:
+                - caption [ref=e74] [box=326,722,1,1]: Current synthetic emergency cases
+                - rowgroup [ref=e75] [box=327,685,647,38]:
+                  - row [ref=e76] [box=327,685,647,38]:
+                    - columnheader "Patient" [ref=e77] [box=327,685,226,38]
+                    - columnheader "Species" [ref=e78] [box=553,685,116,38]
+                    - columnheader "Triage" [ref=e79] [box=669,685,136,38]
+                    - columnheader "Waiting" [ref=e80] [box=805,685,103,38]
+                    - columnheader "Action" [ref=e81] [box=908,685,65,38]
+                - rowgroup [ref=e83] [box=327,723,647,307]:
+                  - row [ref=e84] [box=327,723,647,77]:
+                    - cell "Miso Breathing concern" [ref=e85] [box=327,723,226,68]:
+                      - generic [aria-hidden] [ref=e86] [box=327,741,30,30]: M
+                      - generic [ref=e87] [box=367,739,81,35]:
+                        - strong [ref=e88] [box=367,739,81,18]: Miso
+                        - generic [ref=e89] [box=367,759,81,15]: Breathing concern
+                    - cell "Cat" [ref=e90] [box=553,723,116,77]
+                    - cell "Critical" [ref=e91] [box=669,723,136,77]
+                    - cell "08 min" [ref=e93] [box=805,723,103,77]
+                    - cell [ref=e94] [box=908,723,65,77]:
+                      - button "Review Miso" [ref=e95] [cursor=pointer] [box=921,739,52,44]: Review
+                  - row [ref=e96] [box=327,799,647,77]:
+                    - cell "Juniper Acute pain" [ref=e97] [box=327,799,226,68]:
+                      - generic [aria-hidden] [ref=e98] [box=327,818,30,30]: J
+                      - generic [ref=e99] [box=367,815,47,35]:
+                        - strong [ref=e100] [box=367,815,47,18]: Juniper
+                        - generic [ref=e101] [box=367,835,47,15]: Acute pain
+                    - cell "Dog" [ref=e102] [box=553,799,116,77]
+                    - cell "Urgent" [ref=e103] [box=669,799,136,77]
+                    - cell "14 min" [ref=e105] [box=805,799,103,77]
+                    - cell [ref=e106] [box=908,799,65,77]:
+                      - button "Review Juniper" [ref=e107] [cursor=pointer] [box=921,816,52,44]: Review
+                  - row [ref=e108] [box=327,876,647,77]:
+                    - cell "Otis Not eating" [ref=e109] [box=327,876,226,68]:
+                      - generic [aria-hidden] [ref=e110] [box=327,895,30,30]: O
+                      - generic [ref=e111] [box=367,892,46,35]:
+                        - strong [ref=e112] [box=367,892,46,18]: Otis
+                        - generic [ref=e113] [box=367,912,46,15]: Not eating
+                    - cell "Rabbit" [ref=e114] [box=553,876,116,77]
+                    - cell "Soon" [ref=e115] [box=669,876,136,77]
+                    - cell "21 min" [ref=e117] [box=805,876,103,77]
+                    - cell [ref=e118] [box=908,876,65,77]:
+                      - button "Review Otis" [ref=e119] [cursor=pointer] [box=921,893,52,44]: Review
+                  - row [ref=e120] [box=327,953,647,77]:
+                    - cell "Pip Wing check" [ref=e121] [box=327,953,226,67]:
+                      - generic [aria-hidden] [ref=e122] [box=327,972,30,30]: P
+                      - generic [ref=e123] [box=367,969,52,35]:
+                        - strong [ref=e124] [box=367,969,52,18]: Pip
+                        - generic [ref=e125] [box=367,989,52,15]: Wing check
+                    - cell "Bird" [ref=e126] [box=553,953,116,77]
+                    - cell "Routine" [ref=e127] [box=669,953,136,77]
+                    - cell "29 min" [ref=e129] [box=805,953,103,77]
+                    - cell [ref=e130] [box=908,953,65,77]:
+                      - button "Review Pip" [ref=e131] [cursor=pointer] [box=921,970,52,44]: Review
+              - paragraph [ref=e132] [box=327,1044,647,30]: Updates are local to this pilot fixture
+          - complementary [ref=e134] [box=1022,398,360,645]:
+            - generic [ref=e135] [box=1023,399,358,39]:
+              - generic [aria-hidden] [ref=e136] [box=1047,410,17,17]: +
               - text: New arrival
-            - generic [ref=f111e143] [box=33,2264,324,93]:
-              - paragraph [ref=f111e144] [box=33,2264,324,12]: Fast, focused, human
-              - heading "Start an intake" [level=2] [ref=f111e145] [box=33,2285,324,25]
-              - paragraph [ref=f111e146] [box=33,2320,324,37]: Capture the essentials now. The clinical team can add detail when the patient is safe.
-            - generic [ref=f111e147] [box=33,2375,324,556]:
-              - generic [ref=f111e148] [box=33,2375,324,102]:
-                - generic [ref=f111e149] [box=33,2375,324,17]: Patient name *
-                - textbox "Patient name" [ref=f111e150] [box=33,2399,324,42]:
+            - generic [ref=e137] [box=1047,465,310,93]:
+              - paragraph [ref=e138] [box=1047,465,310,12]: Fast, focused, human
+              - heading "Start an intake" [level=2] [ref=e139] [box=1047,486,310,25]
+              - paragraph [ref=e140] [box=1047,521,270,37]: Capture the essentials now. The clinical team can add detail when the patient is safe.
+            - generic [ref=e141] [box=1047,583,310,435]:
+              - generic [ref=e142] [box=1047,583,310,102]:
+                - generic [ref=e143] [box=1047,583,310,17]: Patient name *
+                - textbox "Patient name" [ref=e144] [box=1047,607,310,42]:
                   - /placeholder: e.g. Miso
-                - generic [ref=f111e151] [box=33,2446,324,13]: Use the name the care team will call.
-                - alert [ref=f111e152] [box=33,2464,324,13]
-              - generic [ref=f111e153] [box=33,2494,324,201]:
-                - generic [ref=f111e154] [box=33,2494,324,84]:
-                  - generic [ref=f111e155] [box=33,2494,324,17]: Species *
-                  - combobox "Species" [ref=f111e156] [box=33,2517,324,42]:
+                - generic [ref=e145] [box=1047,654,310,13]: Use the name the care team will call.
+                - alert [ref=e146] [box=1047,672,310,13]
+              - generic [ref=e147] [box=1047,702,310,101]:
+                - generic [ref=e148] [box=1047,702,150,84]:
+                  - generic [ref=e149] [box=1047,702,150,17]: Species *
+                  - combobox "Species" [ref=e150] [box=1047,725,150,42]:
                     - option "Choose one" [selected] [box=0,0,0,0]
                     - option "Dog" [box=0,0,0,0]
                     - option "Cat" [box=0,0,0,0]
                     - option "Rabbit" [box=0,0,0,0]
                     - option "Bird" [box=0,0,0,0]
-                  - alert [ref=f111e157] [box=33,2564,324,13]
-                - generic [ref=f111e158] [box=33,2594,324,84]:
-                  - generic [ref=f111e159] [box=33,2594,324,17]: Urgency *
-                  - combobox "Urgency" [ref=f111e160] [box=33,2618,324,42]:
+                  - alert [ref=e151] [box=1047,772,150,13]
+                - generic [ref=e152] [box=1207,702,150,84]:
+                  - generic [ref=e153] [box=1207,702,150,17]: Urgency *
+                  - combobox "Urgency" [ref=e154] [box=1207,725,150,42]:
                     - option "Choose one" [selected] [box=0,0,0,0]
                     - option "Critical" [box=0,0,0,0]
                     - option "Urgent" [box=0,0,0,0]
                     - option "Soon" [box=0,0,0,0]
                     - option "Routine" [box=0,0,0,0]
-                  - alert [ref=f111e161] [box=33,2665,324,13]
-              - generic [ref=f111e162] [box=33,2695,324,147]:
-                - generic [ref=f111e163] [box=33,2695,324,17]: What changed?
-                - textbox "What changed?" [ref=f111e164] [box=33,2718,324,80]:
+                  - alert [ref=e155] [box=1207,772,150,13]
+              - generic [ref=e156] [box=1047,802,310,147]:
+                - generic [ref=e157] [box=1047,802,310,17]: What changed?
+                - textbox "What changed?" [ref=e158] [box=1047,826,310,80]:
                   - /placeholder: A short handoff for triage (optional)
-                - generic [ref=f111e165] [box=33,2810,324,13]: No owner contact details in this intake view.
-                - alert [ref=f111e166] [box=33,2828,324,13]
-              - generic [ref=f111e167] [box=33,2866,324,65]:
-                - button "Send to triage →" [ref=f111e168] [cursor=pointer] [box=33,2866,324,44]
-                - generic [ref=f111e169] [box=33,2918,324,13]: Usually under 30 seconds
-        - region [ref=f111e170] [box=16,2978,358,94]:
-          - generic [ref=f111e171] [box=16,2997,34,34]: ✦
-          - generic [ref=f111e172] [box=67,2997,307,56]:
-            - heading "A good handoff is a clinical tool." [level=2] [ref=f111e173] [box=67,2997,307,21]
-            - paragraph [ref=f111e174] [box=67,3021,307,32]: "Keep the first signal clear: who needs help, how fast, and what the next person should know."
-      - contentinfo [ref=f111e176] [box=0,3108,390,65]:
-        - generic [ref=f111e177] [box=16,3108,358,14]: Northline emergency desk · Synthetic pilot data
-        - generic [ref=f111e178] [box=16,3138,358,14]: Local fixture · No external services
+                - generic [ref=e159] [box=1047,918,310,13]: No owner contact details in this intake view.
+                - alert [ref=e160] [box=1047,936,310,13]
+              - generic [ref=e161] [box=1047,974,310,44]:
+                - button "Send to triage →" [ref=e162] [cursor=pointer] [box=1047,974,223,44]
+                - generic [ref=e163] [box=1282,983,75,26]: Usually under 30 seconds
+        - region [ref=e164] [box=302,1132,1081,85]:
+          - generic [aria-hidden] [ref=e165] [box=324,1157,34,34]: ✦
+          - generic [ref=e166] [box=375,1154,450,41]:
+            - heading "A good handoff is a clinical tool." [level=2] [ref=e167] [box=375,1154,450,21]
+            - paragraph [ref=e168] [box=375,1178,450,17]: "Keep the first signal clear: who needs help, how fast, and what the next person should know."
+      - contentinfo [ref=e170] [box=244,1256,1196,43]:
+        - generic [ref=e171] [box=302,1256,210,15]: Northline emergency desk · Synthetic pilot data
+        - generic [ref=e172] [box=1229,1256,153,15]: Local fixture · No external services

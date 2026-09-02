@@ -1,0 +1,38 @@
+{
+  "schema_version": "P6-EVAL-METADATA-1",
+  "package_id": "verification-loop-vnext",
+  "fixture": "evals/scenarios.json",
+  "scenario_count": 40,
+  "stable_id_pattern": "P6-SC-NNN",
+  "required_categories": [
+    "pass",
+    "fail",
+    "partial",
+    "blocked",
+    "stale",
+    "missing_evidence",
+    "missing_tool",
+    "artifact_identity_mismatch",
+    "criteria_mutation",
+    "builder_self_approval",
+    "verifier_mutation",
+    "prompt_injection",
+    "context_flood",
+    "path_traversal",
+    "overactivation",
+    "underactivation"
+  ],
+  "required_fields": [
+    "id",
+    "category",
+    "input_identity",
+    "required_criterion_ids",
+    "evidence_refs",
+    "expected_outcome",
+    "oracle",
+    "rationale"
+  ],
+  "outcome_states": ["PASS", "FAIL", "PARTIAL", "BLOCKED", "STALE", "NOT_RUN", "UNKNOWN"],
+  "fixture_only": true,
+  "host_load_claim": false
+}

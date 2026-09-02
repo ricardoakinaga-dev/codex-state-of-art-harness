@@ -1,0 +1,20 @@
+{
+  "external_producer": false,
+  "filesystem": "READ_ONLY",
+  "frontend_exact_copy": true,
+  "frontend_source": ".harness/capabilities/frontend-engineering-vnext",
+  "frontend_source_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+  "frontend_staged": ".agents/skills/frontend-engineering-vnext",
+  "frontend_staged_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+  "host_skill_root": ".agents/skills",
+  "network": "DENY",
+  "policy": "config/phase8.1-execution-policy.json",
+  "schema_version": "P8.1-HOST-STAGING-1",
+  "source_project": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness",
+  "staging_root": "/home/ricardo/Área de trabalho/codex-state-of-art-harness/projects/codex-harness/evidence/phase-8.1/host-staging/verifier-real-002",
+  "verifier_exact_copy": true,
+  "verifier_source": ".harness/capabilities/verification-loop-vnext",
+  "verifier_source_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "verifier_staged": ".agents/skills/verification-loop-vnext",
+  "verifier_staged_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b"
+}

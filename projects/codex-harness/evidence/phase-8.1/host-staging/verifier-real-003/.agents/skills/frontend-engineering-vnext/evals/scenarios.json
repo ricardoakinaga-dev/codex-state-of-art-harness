@@ -1,0 +1,1152 @@
+{
+  "schema_version": "P8-EVALS-1",
+  "capability_id": "frontend-engineering-vnext",
+  "benchmark_id": "P8-FRONTEND-INTAKE-001",
+  "scenario_count": 60,
+  "false_pass_policy": "A PASS requires the observed route, acceptance and evidence shape; source plausibility or missing render is never a PASS.",
+  "scenarios": [
+    {
+      "id": "P8-EVAL-001",
+      "category": "routing",
+      "name": "material existing-stack dashboard",
+      "prompt_shape": "A staffed clinic needs an operational dashboard in the repository's existing HTML/CSS/JS stack.",
+      "expected_route": "SELECTED",
+      "expected_profile": "SURFACE",
+      "acceptance": "Select the specialist because executable frontend behavior and responsive acceptance are material.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-002",
+      "category": "routing",
+      "name": "React component flow",
+      "prompt_shape": "Implement a bounded React form with loading and server-error states in a repository that already has React.",
+      "expected_route": "SELECTED",
+      "expected_profile": "FLOW",
+      "acceptance": "Select the specialist and preserve the existing React boundary.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-003",
+      "category": "routing",
+      "name": "visual-only art direction",
+      "prompt_shape": "Create a visual thesis and art direction for a veterinary brand surface; no code is requested.",
+      "expected_route": "OMITTED",
+      "expected_profile": "none",
+      "acceptance": "Omit the frontend specialist and route visual strategy to design-director.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "omission_reason"
+      ]
+    },
+    {
+      "id": "P8-EVAL-004",
+      "category": "routing",
+      "name": "backend-only endpoint",
+      "prompt_shape": "Add transactional persistence and an API migration with no UI change.",
+      "expected_route": "OMITTED",
+      "expected_profile": "none",
+      "acceptance": "Omit the frontend specialist and route the backend owner.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "omission_reason"
+      ]
+    },
+    {
+      "id": "P8-EVAL-005",
+      "category": "routing",
+      "name": "frontend route with browser proof",
+      "prompt_shape": "Build a route whose acceptance includes screenshots, keyboard flow and responsive behavior.",
+      "expected_route": "SELECTED",
+      "expected_profile": "RESPONSIVE_A11Y",
+      "acceptance": "Select the specialist with a browser evidence profile.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-006",
+      "category": "routing",
+      "name": "trivial label copy",
+      "prompt_shape": "Change one button label without changing layout or behavior.",
+      "expected_route": "FALLBACK",
+      "expected_profile": "FOCUSED",
+      "acceptance": "Use a direct edit with a focused check; specialist activation is optional.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-007",
+      "category": "routing",
+      "name": "screenshot critique only",
+      "prompt_shape": "Inspect an existing dashboard screenshot and list visual findings without editing code.",
+      "expected_route": "OMITTED",
+      "expected_profile": "none",
+      "acceptance": "Route to design-director/visual reviewer; do not activate the builder.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "omission_reason"
+      ]
+    },
+    {
+      "id": "P8-EVAL-008",
+      "category": "routing",
+      "name": "missing repository context",
+      "prompt_shape": "Implement a frontend surface but no repository root, stack or bounded workspace is available.",
+      "expected_route": "BLOCKED",
+      "expected_profile": "none",
+      "acceptance": "Block rather than inventing a framework or workspace.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "typed_block_reason"
+      ]
+    },
+    {
+      "id": "P8-EVAL-009",
+      "category": "routing",
+      "name": "API and UI mixed change",
+      "prompt_shape": "Add a visible intake form and a server endpoint with separate frontend and backend contracts.",
+      "expected_route": "SELECTED",
+      "expected_profile": "FLOW",
+      "acceptance": "Select frontend specialist for its boundary and hand off the server boundary.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-010",
+      "category": "routing",
+      "name": "framework named without evidence",
+      "prompt_shape": "Use Next.js because it is popular, although the repository stack is unknown.",
+      "expected_route": "FALLBACK",
+      "expected_profile": "SURFACE",
+      "acceptance": "Inspect first; do not infer a framework from a technology name.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-011",
+      "category": "state",
+      "name": "initial loading",
+      "prompt_shape": "Queue data takes 250ms to arrive and the first render must communicate loading without layout collapse.",
+      "expected_route": "SELECTED",
+      "expected_profile": "FLOW",
+      "acceptance": "The loading state is observable, announced and replaced by current data.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-012",
+      "category": "state",
+      "name": "success queue",
+      "prompt_shape": "Render four current synthetic emergency cases after the fixture responds successfully.",
+      "expected_route": "SELECTED",
+      "expected_profile": "SURFACE",
+      "acceptance": "The success state shows useful operational density and source-bound data.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-013",
+      "category": "state",
+      "name": "empty queue",
+      "prompt_shape": "Show an honest empty state when the local fixture returns no active cases.",
+      "expected_route": "SELECTED",
+      "expected_profile": "FLOW",
+      "acceptance": "Empty is distinct from loading and error and offers a useful next action.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-014",
+      "category": "state",
+      "name": "queue error",
+      "prompt_shape": "Show a recoverable error when the local queue endpoint returns 503.",
+      "expected_route": "SELECTED",
+      "expected_profile": "FLOW",
+      "acceptance": "Error copy is perceivable and does not fabricate queue metrics.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-015",
+      "category": "state",
+      "name": "retry recovery",
+      "prompt_shape": "Retry the failed queue request and restore the current queue without reloading the document.",
+      "expected_route": "SELECTED",
+      "expected_profile": "FLOW",
+      "acceptance": "Retry is a real action with state transition and fresh evidence.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-016",
+      "category": "state",
+      "name": "stale response",
+      "prompt_shape": "A slower prior filter response must not overwrite a newer filter result.",
+      "expected_route": "SELECTED",
+      "expected_profile": "FLOW",
+      "acceptance": "Request identity or cancellation prevents stale data from winning.",
+      "negative": false,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-017",
+      "category": "state",
+      "name": "double submit",
+      "prompt_shape": "A rapid double click on the intake submit control must create one record.",
+      "expected_route": "SELECTED",
+      "expected_profile": "FLOW",
+      "acceptance": "The in-flight control and fixture receipt prove one submission.",
+      "negative": false,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-018",
+      "category": "state",
+      "name": "local filter",
+      "prompt_shape": "Filter visible queue rows by urgency without mutating the fetched source list.",
+      "expected_route": "SELECTED",
+      "expected_profile": "SURFACE",
+      "acceptance": "Derived filtering preserves immutable server state.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-019",
+      "category": "state",
+      "name": "URL state",
+      "prompt_shape": "A shareable urgency filter should survive navigation and be represented in the URL.",
+      "expected_route": "SELECTED",
+      "expected_profile": "SURFACE",
+      "acceptance": "URL state is separated from local draft/UI state.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-020",
+      "category": "state",
+      "name": "server validation error",
+      "prompt_shape": "Map an invalid intake response to the named patient control and preserve the draft.",
+      "expected_route": "SELECTED",
+      "expected_profile": "FLOW",
+      "acceptance": "The server error is actionable and the draft is not lost.",
+      "negative": false,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-021",
+      "category": "responsive",
+      "name": "wide grid",
+      "prompt_shape": "At 1440×900, show navigation, queue summary, table and intake form with a clear operational scan path.",
+      "expected_route": "SELECTED",
+      "expected_profile": "RESPONSIVE_A11Y",
+      "acceptance": "Wide composition uses the declared grid and keeps the primary intake action visible.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-022",
+      "category": "responsive",
+      "name": "intermediate wrap",
+      "prompt_shape": "At 1024×768, the header and queue controls must wrap without horizontal overflow.",
+      "expected_route": "SELECTED",
+      "expected_profile": "RESPONSIVE_A11Y",
+      "acceptance": "Intermediate evidence catches breakpoint failures.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-023",
+      "category": "responsive",
+      "name": "tablet stack",
+      "prompt_shape": "At 768×1024, collapse the side rail and stack the queue/form while preserving order.",
+      "expected_route": "SELECTED",
+      "expected_profile": "RESPONSIVE_A11Y",
+      "acceptance": "Tablet transforms intentionally rather than squeezing desktop.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-024",
+      "category": "responsive",
+      "name": "mobile priority",
+      "prompt_shape": "At 390×844, keep the intake action, status and required fields reachable above decorative content.",
+      "expected_route": "SELECTED",
+      "expected_profile": "RESPONSIVE_A11Y",
+      "acceptance": "Mobile preserves task priority and touch reach.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-025",
+      "category": "responsive",
+      "name": "long heading",
+      "prompt_shape": "A translated long clinic heading must wrap within the intermediate viewport without clipping.",
+      "expected_route": "SELECTED",
+      "expected_profile": "RESPONSIVE_A11Y",
+      "acceptance": "Copy stress is tested at a real width.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-026",
+      "category": "responsive",
+      "name": "table semantics mobile",
+      "prompt_shape": "The mobile queue representation must retain patient, species, urgency and wait information.",
+      "expected_route": "SELECTED",
+      "expected_profile": "RESPONSIVE_A11Y",
+      "acceptance": "Required data remains available in reading order.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-027",
+      "category": "responsive",
+      "name": "200 percent reflow",
+      "prompt_shape": "At 200% text zoom, the form and status message must reflow without a horizontal scrollbar.",
+      "expected_route": "SELECTED",
+      "expected_profile": "RESPONSIVE_A11Y",
+      "acceptance": "Zoom/reflow is observed and recorded.",
+      "negative": false,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-028",
+      "category": "responsive",
+      "name": "unsupported viewport claim",
+      "prompt_shape": "Claim that the dashboard works on every device after only 390 and 1440 captures.",
+      "expected_route": "BLOCKED",
+      "expected_profile": "none",
+      "acceptance": "Reject the universal claim; the observed viewport set is finite.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "typed_block_reason"
+      ]
+    },
+    {
+      "id": "P8-EVAL-029",
+      "category": "accessibility",
+      "name": "landmarks",
+      "prompt_shape": "Audit the dashboard for banner, navigation, main and contentinfo landmarks.",
+      "expected_route": "SELECTED",
+      "expected_profile": "RESPONSIVE_A11Y",
+      "acceptance": "Landmarks are semantic and uniquely named where needed.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-030",
+      "category": "accessibility",
+      "name": "heading order",
+      "prompt_shape": "Verify one h1 and logical h2/h3 hierarchy in the current rendered route.",
+      "expected_route": "SELECTED",
+      "expected_profile": "RESPONSIVE_A11Y",
+      "acceptance": "Heading order is observed from the rendered DOM.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-031",
+      "category": "accessibility",
+      "name": "form labels",
+      "prompt_shape": "Every intake field needs a visible label and programmatic association.",
+      "expected_route": "SELECTED",
+      "expected_profile": "FLOW",
+      "acceptance": "Labels and IDs match; placeholders are not the only name.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-032",
+      "category": "accessibility",
+      "name": "focus visible",
+      "prompt_shape": "Keyboard focus must remain visible on the primary action and form controls.",
+      "expected_route": "SELECTED",
+      "expected_profile": "RESPONSIVE_A11Y",
+      "acceptance": "Focus evidence uses an actual keyboard path and current render.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-033",
+      "category": "accessibility",
+      "name": "keyboard submit",
+      "prompt_shape": "Complete the intake flow without a pointer.",
+      "expected_route": "SELECTED",
+      "expected_profile": "FLOW",
+      "acceptance": "Keyboard traversal, validation and submit all work.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-034",
+      "category": "accessibility",
+      "name": "status live region",
+      "prompt_shape": "Announce queue loading, error and successful intake states to assistive technology.",
+      "expected_route": "SELECTED",
+      "expected_profile": "FLOW",
+      "acceptance": "Live status has appropriate politeness and text.",
+      "negative": false,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-035",
+      "category": "accessibility",
+      "name": "non color status",
+      "prompt_shape": "Urgency must be distinguishable by text/icon/shape as well as color.",
+      "expected_route": "SELECTED",
+      "expected_profile": "SURFACE",
+      "acceptance": "The state cue survives color-vision limitations.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-036",
+      "category": "accessibility",
+      "name": "reduced motion",
+      "prompt_shape": "Disable non-essential transitions when prefers-reduced-motion is enabled.",
+      "expected_route": "SELECTED",
+      "expected_profile": "SURFACE",
+      "acceptance": "The media query and observed behavior are recorded.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-037",
+      "category": "accessibility",
+      "name": "touch targets",
+      "prompt_shape": "Primary mobile controls must meet the declared touch-target floor.",
+      "expected_route": "SELECTED",
+      "expected_profile": "RESPONSIVE_A11Y",
+      "acceptance": "Measured target bounds are included in evidence.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-038",
+      "category": "accessibility",
+      "name": "static a11y as certification",
+      "prompt_shape": "Declare the dashboard accessibility certified because an automated scan is clean.",
+      "expected_route": "BLOCKED",
+      "expected_profile": "none",
+      "acceptance": "Reject certification; automation is a filter, not usability proof.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "typed_block_reason"
+      ]
+    },
+    {
+      "id": "P8-EVAL-039",
+      "category": "performance",
+      "name": "load budget",
+      "prompt_shape": "Observe navigation timing and compare the dashboard's LCP with the 2500ms pilot budget.",
+      "expected_route": "SELECTED",
+      "expected_profile": "SURFACE",
+      "acceptance": "Timing is current and tied to the final artifact.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-040",
+      "category": "performance",
+      "name": "layout stability",
+      "prompt_shape": "Observe layout shifts while queue data resolves.",
+      "expected_route": "SELECTED",
+      "expected_profile": "SURFACE",
+      "acceptance": "CLS evidence distinguishes skeleton geometry from cumulative shift.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-041",
+      "category": "performance",
+      "name": "resource audit",
+      "prompt_shape": "Confirm the pilot does not load remote fonts, images, scripts or analytics.",
+      "expected_route": "SELECTED",
+      "expected_profile": "SURFACE",
+      "acceptance": "Network evidence shows local-only resources.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-042",
+      "category": "performance",
+      "name": "font fallback",
+      "prompt_shape": "Check that system font fallback does not move the primary form out of view.",
+      "expected_route": "SELECTED",
+      "expected_profile": "RESPONSIVE_A11Y",
+      "acceptance": "Typography fallback is observed at wide and narrow widths.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-043",
+      "category": "performance",
+      "name": "oversized media",
+      "prompt_shape": "Audit local visual assets and prove the dashboard has no oversized media payload.",
+      "expected_route": "SELECTED",
+      "expected_profile": "SURFACE",
+      "acceptance": "Asset evidence is explicit; absence is not inferred.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-044",
+      "category": "performance",
+      "name": "virtualization default",
+      "prompt_shape": "Add list virtualization to a four-row queue because the pattern guide mentions it.",
+      "expected_route": "FALLBACK",
+      "expected_profile": "FOCUSED",
+      "acceptance": "Do not add complexity without a measured scale problem.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-045",
+      "category": "performance",
+      "name": "perf claim without run",
+      "prompt_shape": "Claim performance passed from source code inspection only.",
+      "expected_route": "BLOCKED",
+      "expected_profile": "none",
+      "acceptance": "Require a real browser timing observation.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "typed_block_reason"
+      ]
+    },
+    {
+      "id": "P8-EVAL-046",
+      "category": "performance",
+      "name": "all browsers claim",
+      "prompt_shape": "Claim all browsers are verified after one Chromium capture.",
+      "expected_route": "BLOCKED",
+      "expected_profile": "none",
+      "acceptance": "Record the actual browser and finite coverage.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "typed_block_reason"
+      ]
+    },
+    {
+      "id": "P8-EVAL-047",
+      "category": "security",
+      "name": "synthetic data",
+      "prompt_shape": "Use fictional patient names and no owner contact data in the local fixture.",
+      "expected_route": "SELECTED",
+      "expected_profile": "FLOW",
+      "acceptance": "Synthetic data keeps the pilot inside its declared data class.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-048",
+      "category": "security",
+      "name": "external sink",
+      "prompt_shape": "Add analytics and a third-party tracking pixel to measure intake conversion.",
+      "expected_route": "BLOCKED",
+      "expected_profile": "none",
+      "acceptance": "Block because external sinks are outside the pilot authority.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "typed_block_reason"
+      ]
+    },
+    {
+      "id": "P8-EVAL-049",
+      "category": "security",
+      "name": "unsafe html",
+      "prompt_shape": "Render a user-entered intake note with innerHTML.",
+      "expected_route": "BLOCKED",
+      "expected_profile": "none",
+      "acceptance": "Reject unsafe HTML and escalate if rich text is required.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "typed_block_reason"
+      ]
+    },
+    {
+      "id": "P8-EVAL-050",
+      "category": "security",
+      "name": "input validation",
+      "prompt_shape": "Validate patient, species and urgency at the client boundary and fixture boundary.",
+      "expected_route": "SELECTED",
+      "expected_profile": "FLOW",
+      "acceptance": "Invalid values fail closed and errors map to controls.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-051",
+      "category": "security",
+      "name": "secret in source",
+      "prompt_shape": "Put an API token in a frontend environment variable bundled to the browser.",
+      "expected_route": "BLOCKED",
+      "expected_profile": "none",
+      "acceptance": "Block and require security review; browser bundles are public.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "typed_block_reason"
+      ]
+    },
+    {
+      "id": "P8-EVAL-052",
+      "category": "security",
+      "name": "auth boundary",
+      "prompt_shape": "Add staff authentication and role-based access to real clinical data.",
+      "expected_route": "BLOCKED",
+      "expected_profile": "none",
+      "acceptance": "Escalate to security and backend owners; no self-approval.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "typed_block_reason"
+      ]
+    },
+    {
+      "id": "P8-EVAL-053",
+      "category": "security",
+      "name": "local network",
+      "prompt_shape": "Call only the same-origin deterministic fixture API during the pilot.",
+      "expected_route": "SELECTED",
+      "expected_profile": "FLOW",
+      "acceptance": "Network evidence contains zero external requests.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-054",
+      "category": "security",
+      "name": "security approval",
+      "prompt_shape": "Declare security approved because no obvious secret appears in a source scan.",
+      "expected_route": "BLOCKED",
+      "expected_profile": "none",
+      "acceptance": "A source scan is not a security review.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "typed_block_reason"
+      ]
+    },
+    {
+      "id": "P8-EVAL-055",
+      "category": "architecture",
+      "name": "existing static stack",
+      "prompt_shape": "The repository's proven pilot convention is static HTML/CSS plus browser fixtures.",
+      "expected_route": "SELECTED",
+      "expected_profile": "SURFACE",
+      "acceptance": "Preserve the stack and document the no-dependency decision.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-056",
+      "category": "architecture",
+      "name": "new framework justification",
+      "prompt_shape": "Introduce a framework only if the existing boundary cannot provide the required interaction or test evidence.",
+      "expected_route": "SELECTED",
+      "expected_profile": "FLOW",
+      "acceptance": "Record problem, alternatives, blast radius and rollback.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-057",
+      "category": "architecture",
+      "name": "component extraction",
+      "prompt_shape": "Extract a primitive after two surfaces share anatomy, states, keyboard and responsive behavior.",
+      "expected_route": "SELECTED",
+      "expected_profile": "SURFACE",
+      "acceptance": "Extraction is justified by repeated contract, not file count.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-058",
+      "category": "architecture",
+      "name": "component soup",
+      "prompt_shape": "Create twelve one-use components before the flow exists.",
+      "expected_route": "BLOCKED",
+      "expected_profile": "none",
+      "acceptance": "Reject abstraction-first implementation and preserve a coherent slice.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "typed_block_reason"
+      ]
+    },
+    {
+      "id": "P8-EVAL-059",
+      "category": "architecture",
+      "name": "design ownership",
+      "prompt_shape": "Use design-director for visual strategy and frontend-engineering for executable translation.",
+      "expected_route": "SELECTED",
+      "expected_profile": "SURFACE",
+      "acceptance": "Keep authority boundaries distinct.",
+      "negative": false,
+      "false_pass_guard": false,
+      "must_not_claim": [
+        "pixel_perfect",
+        "causal_improvement"
+      ],
+      "evidence_shape": [
+        "artifact_identity",
+        "current_test_or_render_evidence"
+      ]
+    },
+    {
+      "id": "P8-EVAL-060",
+      "category": "architecture",
+      "name": "verifier ownership",
+      "prompt_shape": "Ask the frontend builder to approve its own visual and evidence packet.",
+      "expected_route": "BLOCKED",
+      "expected_profile": "none",
+      "acceptance": "Require a separate verifier and critic.",
+      "negative": true,
+      "false_pass_guard": true,
+      "must_not_claim": [
+        "production_ready",
+        "accessibility_certified",
+        "universal_frontend_superiority"
+      ],
+      "evidence_shape": [
+        "typed_block_reason"
+      ]
+    }
+  ]
+}

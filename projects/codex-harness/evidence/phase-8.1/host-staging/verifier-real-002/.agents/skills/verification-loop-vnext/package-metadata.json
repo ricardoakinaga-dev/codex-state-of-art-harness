@@ -1,0 +1,30 @@
+{
+  "schema_version": "P6-PACKAGE-1",
+  "package_id": "verification-loop-vnext",
+  "native": true,
+  "kind": "PROJECT_LOCAL_NATIVE",
+  "scope": "PROJECT",
+  "version": "0.1.0",
+  "status": "CANDIDATE",
+  "host_load_claim": false,
+  "host_load_observation": "NOT_ASSERTED",
+  "global_state_mutation": false,
+  "installed_source_mutation": false,
+  "files": {
+    "manifest": "manifest.json",
+    "router": "SKILL.md",
+    "profiles": "profiles.json",
+    "composition": "composition-contract.json",
+    "references": [
+      "references/evidence-lineage.md",
+      "references/role-boundaries.md",
+      "references/deterministic-boundaries.md"
+    ],
+    "scripts": ["scripts/deterministic-procedures.json"],
+    "evals": ["evals/scenarios.json"],
+    "benchmarks": ["benchmarks/benchmark-fixtures.json"]
+  },
+  "identity_binding": ["manifest_digest", "package_fingerprint", "artifact_identity", "criteria_digest"],
+  "promotion_limit": "CANDIDATE_ONLY_UNTIL_INDEPENDENT_EVIDENCE",
+  "claims_excluded": ["host_loaded", "production_ready", "aaa_quality", "causal_improvement", "release_approval"]
+}

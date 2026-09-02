@@ -1,12 +1,20 @@
 {
-  "url": "http://127.0.0.1:4187/?scenario=submit-loading&capture=p81-submit-loading-009",
-  "feedback": "Intake accepted for triage. Reference INT-45D476C920.",
+  "capture_id": "P81-BROWSER-010",
+  "run_id": "P81-COMPOSE-011",
+  "observer": "Playwright MCP Chromium browser observer",
+  "captured_at": "2026-09-02T10:28:19.589Z",
+  "captured_at_ns": 1788344899589000000,
+  "source_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "url": "http://127.0.0.1:4188/?scenario=submit-loading&capture=p81-submit-loading-010",
+  "feedback": "Intake accepted for triage. Reference INT-07ED264A89.",
   "tone": "success",
   "requestNumber": 1,
   "formValues": {
     "patient": "",
     "species": "",
-    "urgency": ""
+    "urgency": "",
+    "notes": ""
   },
   "focused": {
     "id": "patient",

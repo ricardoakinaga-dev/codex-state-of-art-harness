@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1f2a2b">
+    <title>Northline Veterinary Emergency Intake</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%231f2a2b%22%2F%3E%3Cpath d=%22M16 6v20M6 16h20%22 stroke=%22%23d9f0e4%22 stroke-width=%223%22 stroke-linecap=%22round%22%2F%3E%3C%2Fsvg%3E">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="app-shell">
+      <aside class="app-rail" aria-label="Primary navigation">
+        <div class="brand-lockup">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="img"><path d="M24 5c4.2 0 7.6 3.3 7.6 7.4 0 1.9-.8 3.7-2 5 4.3 1.5 7.4 5.7 7.4 10.7C35 34.2 30.1 39 24 39s-11-4.8-11-10.9c0-5 3.1-9.2 7.4-10.7a7.4 7.4 0 0 1-2-5C18.4 8.3 21.8 5 24 5Z" fill="none" stroke="currentColor" stroke-width="2.7"/><path d="M14 20.5 8.5 17M34 20.5l5.5-3M24 5V1.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.7"/></svg>
+          </span>
+          <span>
+            <strong>northline</strong>
+            <small>emergency care</small>
+          </span>
+        </div>
+
+        <nav class="rail-nav" aria-label="Clinic workspace">
+          <p class="nav-kicker">Workspace</p>
+          <a class="nav-link is-active" href="#overview" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">⌁</span>
+            <span>Live intake</span>
+          </a>
+          <a class="nav-link" href="#queue">
+            <span class="nav-icon" aria-hidden="true">≡</span>
+            <span>Queue</span>
+            <span class="nav-count" id="nav-queue-count">—</span>
+          </a>
+          <a class="nav-link" href="#intake">
+            <span class="nav-icon" aria-hidden="true">＋</span>
+            <span>New intake</span>
+          </a>
+        </nav>
+
+        <div class="rail-note">
+          <span class="status-dot status-dot--live" aria-hidden="true"></span>
+          <div>
+            <strong>Night desk online</strong>
+            <span>Response team is ready</span>
+          </div>
+        </div>
+      </aside>
+
+      <div class="app-frame">
+        <header class="topbar">
+          <div class="breadcrumb" aria-label="Breadcrumb">
+            <span class="breadcrumb-muted">Northline</span>
+            <span aria-hidden="true">/</span>
+            <strong>Live intake</strong>
+          </div>
+          <div class="topbar-actions">
+            <span class="shift-label"><span class="status-dot status-dot--live" aria-hidden="true"></span> Intake desk · 24/7</span>
+            <span class="avatar-mark" aria-hidden="true">ND</span>
+          </div>
+        </header>
+
+        <main id="main-content" class="main-content">
+          <section id="overview" class="page-intro" aria-labelledby="page-title">
+            <div>
+              <p class="eyebrow">Monday · 02:14 local time</p>
+              <h1 id="page-title">Make room for the next<br><em>urgent arrival.</em></h1>
+              <p class="lede">A calm view of every case moving through the emergency desk, with the next intake always one clear action away.</p>
+            </div>
+            <a class="button button--primary button--large" href="#intake">Start an intake <span aria-hidden="true">↗</span></a>
+          </section>
+
+          <div class="workspace-grid">
+            <div class="primary-column">
+              <section class="summary-strip" aria-label="Queue summary">
+                <article class="summary-item summary-item--accent">
+                  <div class="summary-heading"><span>Active queue</span><span class="summary-mark" aria-hidden="true">◌</span></div>
+                  <strong id="active-count">—</strong>
+                  <span id="active-caption">Loading current cases…</span>
+                  <button class="summary-retry" id="summary-retry" type="button" hidden>Retry queue</button>
+                </article>
+                <article class="summary-item">
+                  <div class="summary-heading"><span>Needs a room</span><span class="summary-mark summary-mark--amber" aria-hidden="true">!</span></div>
+                  <strong id="urgent-count">—</strong>
+                  <span id="urgent-caption">Triage still in progress</span>
+                </article>
+                <article class="summary-item">
+                  <div class="summary-heading"><span>Median response</span><span class="summary-mark summary-mark--teal" aria-hidden="true">↗</span></div>
+                  <strong>12 <small>min</small></strong>
+                  <span>Across the last 8 arrivals</span>
+                </article>
+              </section>
+
+              <section id="queue" class="panel queue-panel" aria-labelledby="queue-title" aria-busy="true">
+                <div class="panel-header">
+                  <div>
+                    <p class="eyebrow">Live view</p>
+                    <h2 id="queue-title">Emergency queue</h2>
+                  </div>
+                  <div class="panel-actions">
+                    <label class="filter-control" for="urgency-filter">
+                      <span class="sr-only">Filter by urgency</span>
+                      <select id="urgency-filter" name="urgency-filter">
+                        <option value="all">All urgencies</option>
+                        <option value="critical">Critical</option>
+                        <option value="urgent">Urgent</option>
+                        <option value="soon">Soon</option>
+                        <option value="routine">Routine</option>
+                      </select>
+                    </label>
+                    <button class="icon-button" id="refresh-queue" type="button" aria-label="Refresh emergency queue" title="Refresh queue">↻</button>
+                  </div>
+                </div>
+
+                <div id="queue-state" class="queue-state" role="status" aria-live="polite">Loading current queue…</div>
+                <div class="table-wrap">
+                  <table class="queue-table">
+                    <caption class="sr-only">Current synthetic emergency cases</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">Patient</th>
+                        <th scope="col">Species</th>
+                        <th scope="col">Triage</th>
+                        <th scope="col">Waiting</th>
+                        <th scope="col"><span class="sr-only">Action</span></th>
+                      </tr>
+                    </thead>
+                    <tbody id="queue-body"></tbody>
+                  </table>
+                </div>
+                <p class="panel-footnote"><span class="status-dot status-dot--live" aria-hidden="true"></span> Updates are local to this pilot fixture</p>
+              </section>
+            </div>
+
+            <aside id="intake" class="panel intake-panel" aria-labelledby="intake-title">
+              <div class="intake-ribbon"><span aria-hidden="true">+</span> New arrival</div>
+              <div class="panel-header panel-header--stacked">
+                <p class="eyebrow">Fast, focused, human</p>
+                <h2 id="intake-title">Start an intake</h2>
+                <p class="panel-description">Capture the essentials now. The clinical team can add detail when the patient is safe.</p>
+              </div>
+
+              <form id="intake-form" novalidate>
+                <div id="intake-feedback" class="form-feedback" role="status" aria-live="polite"></div>
+                <div class="form-field">
+                  <label for="patient">Patient name <span aria-hidden="true">*</span></label>
+                  <input id="patient" name="patient" type="text" autocomplete="off" maxlength="60" placeholder="e.g. Miso" aria-describedby="patient-hint patient-error" required aria-required="true">
+                  <span class="field-hint" id="patient-hint">Use the name the care team will call.</span>
+                  <span class="field-error" id="patient-error" role="alert"></span>
+                </div>
+                <div class="form-row">
+                  <div class="form-field">
+                    <label for="species">Species <span aria-hidden="true">*</span></label>
+                    <select id="species" name="species" aria-describedby="species-error" required aria-required="true">
+                      <option value="">Choose one</option>
+                      <option value="dog">Dog</option>
+                      <option value="cat">Cat</option>
+                      <option value="rabbit">Rabbit</option>
+                      <option value="bird">Bird</option>
+                    </select>
+                    <span class="field-error" id="species-error" role="alert"></span>
+                  </div>
+                  <div class="form-field">
+                    <label for="urgency">Urgency <span aria-hidden="true">*</span></label>
+                    <select id="urgency" name="urgency" aria-describedby="urgency-error" required aria-required="true">
+                      <option value="">Choose one</option>
+                      <option value="critical">Critical</option>
+                      <option value="urgent">Urgent</option>
+                      <option value="soon">Soon</option>
+                      <option value="routine">Routine</option>
+                    </select>
+                    <span class="field-error" id="urgency-error" role="alert"></span>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="notes">What changed?</label>
+                  <textarea id="notes" name="notes" rows="3" maxlength="180" placeholder="A short handoff for triage (optional)" aria-describedby="notes-hint notes-error"></textarea>
+                  <span class="field-hint" id="notes-hint">No owner contact details in this intake view.</span>
+                  <span class="field-error" id="notes-error" role="alert"></span>
+                </div>
+                <div class="submit-row">
+                  <button class="button button--primary" id="submit-intake" type="submit">Send to triage <span aria-hidden="true">→</span></button>
+                  <span class="submit-note">Usually under 30 seconds</span>
+                </div>
+              </form>
+            </aside>
+          </div>
+
+          <section class="operating-note" aria-labelledby="operating-note-title">
+            <div class="note-icon" aria-hidden="true">✦</div>
+            <div>
+              <h2 id="operating-note-title">A good handoff is a clinical tool.</h2>
+              <p>Keep the first signal clear: who needs help, how fast, and what the next person should know.</p>
+            </div>
+            <span class="note-rule" aria-hidden="true"></span>
+          </section>
+        </main>
+
+        <footer class="page-footer">
+          <span>Northline emergency desk · Synthetic pilot data</span>
+          <span>Local fixture · No external services</span>
+        </footer>
+      </div>
+    </div>
+    <script src="app.js" defer></script>
+  </body>
+</html>

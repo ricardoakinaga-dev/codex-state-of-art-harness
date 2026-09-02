@@ -1,0 +1,33 @@
+{
+  "build": "dependency-free-existing-web-stack-phase8.1-fixture",
+  "built_at_ns": 1788344257695731261,
+  "external_requests": 0,
+  "feature_freeze": "P8_1_FEATURE_FREEZE",
+  "files": [
+    {
+      "bytes": 11409,
+      "path": "index.html",
+      "sha256": "sha256:80d88c436f13e31a94ab0510241a03dac57f662a063b4a8c50c1a0a2df8035b7"
+    },
+    {
+      "bytes": 20964,
+      "path": "styles.css",
+      "sha256": "sha256:8f2c15dfb1fcfc97a707c40a926cf27e1d095162379aa39d189e9c8d10e5bd44"
+    },
+    {
+      "bytes": 15492,
+      "path": "app.js",
+      "sha256": "sha256:93f1e912b52d371d778f52a0b178716f56705d933ab5b35589d45c7bce6587ef"
+    },
+    {
+      "bytes": 9653,
+      "path": "fixture_server.py",
+      "sha256": "sha256:10861d8f4de5524474b36292106efbe6c131d086c41ecff58e480404e9d8b6d2"
+    }
+  ],
+  "generated_assets": [],
+  "output_root": "evidence/phase-8.1/artifact/frontend-run-002",
+  "schema_version": "P8.1-BUILD-1",
+  "source_root": "evidence/phase-8.1/fixture/frontend/app",
+  "source_tree_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044"
+}

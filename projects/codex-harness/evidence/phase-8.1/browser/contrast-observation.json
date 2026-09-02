@@ -1,34 +1,28 @@
 {
-  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-default-009",
-  "viewport": {
-    "width": 390,
-    "height": 844
-  },
+  "capture_id": "P81-BROWSER-010",
+  "run_id": "P81-COMPOSE-011",
+  "observer": "Playwright MCP Chromium browser observer",
+  "captured_at": "2026-09-02T10:21:38.698Z",
+  "captured_at_ns": 1788344498698000000,
+  "source_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "url": "http://127.0.0.1:4188/?scenario=default&capture=p81-run-010",
   "results": [
     {
-      "selector": "#patient::placeholder",
-      "foreground": "rgb(88, 103, 96)",
-      "background": "rgb(255,253,248)",
-      "ratio": 5.862057176877136,
-      "minimum": 4.5,
-      "pass": true
+      "name": "placeholderOnSurface",
+      "value": 1,
+      "pass": false
     },
     {
-      "selector": "#patient border",
-      "foreground": "rgb(29, 111, 117)",
-      "background": "rgb(255,253,248)",
-      "ratio": 5.765619639082459,
-      "minimum": 3,
-      "pass": true
+      "name": "borderOnSurface",
+      "value": 1,
+      "pass": false
     },
     {
-      "selector": "#patient focus",
-      "foreground": "rgb(29, 111, 117)",
-      "background": "rgb(255,253,248)",
-      "ratio": 5.765619639082459,
-      "minimum": 3,
-      "pass": true
+      "name": "focusOnSurface",
+      "value": 1,
+      "pass": false
     }
   ],
-  "pass": true
+  "pass": false
 }

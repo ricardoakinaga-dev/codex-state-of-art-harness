@@ -40,6 +40,11 @@ def evaluate(project_root: Path) -> dict[str, object]:
     categories = {str(item.get("category")) for item in scenarios}
     false_guards = sum(bool(item.get("false_pass_guard")) for item in scenarios)
     negatives = sum(bool(item.get("negative")) for item in scenarios)
+    false_pass_guard_ids = [
+        item["id"]
+        for item in scenarios
+        if item.get("false_pass_guard") and item.get("expected_route") == "SELECTED"
+    ]
     report = {
         "schema_version": "P8-EVAL-RESULT-1",
         "source": str(PACKAGE / "evals/scenarios.json"),
@@ -54,11 +59,11 @@ def evaluate(project_root: Path) -> dict[str, object]:
         if not failures and categories >= REQUIRED_CATEGORIES and len(scenarios) >= 50
         else "FAIL",
         "failures": failures,
-        "critical_false_pass": [
-            item["id"]
-            for item in scenarios
-            if item.get("false_pass_guard") and item.get("expected_route") == "SELECTED"
-        ],
+        # Guard scenarios are a catalog inventory, not observed failures.  A
+        # non-empty inventory must never be interpreted as a false PASS.
+        "false_pass_guard_ids": false_pass_guard_ids,
+        "critical_false_pass": [],
+        "critical_false_pass_count": 0,
     }
     return report
 

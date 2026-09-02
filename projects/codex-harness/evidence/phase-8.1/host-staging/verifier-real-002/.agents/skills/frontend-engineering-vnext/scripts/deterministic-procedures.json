@@ -1,0 +1,25 @@
+{
+  "schema_version": "P8-PROCEDURES-1",
+  "package_id": "frontend-engineering-vnext",
+  "metadata_only": true,
+  "execution": "host_bounded_observers_only",
+  "allowed_tools": ["local_test_runner", "browser_mcp_or_playwright"],
+  "shell": "deny",
+  "network": "deny",
+  "mcp": "host_observer_only",
+  "providers": "deny",
+  "credentials": "deny",
+  "workspace_write": "host_bounded",
+  "subagents": "orchestrator_only",
+  "read_only": true,
+  "procedures": [
+    {"id": "P8-CHECK-IDENTITY", "purpose": "Compare manifest, package, artifact and render digests.", "inputs": ["package_identity", "artifact_identity", "render_records"], "outputs": ["identity_status"], "max_attempts": 1, "mutation": "none"},
+    {"id": "P8-CHECK-SCOPE-STACK", "purpose": "Confirm task boundary and repository-supported stack decision.", "inputs": ["task_profile", "repository_context", "stack_decision"], "outputs": ["scope_stack_status"], "max_attempts": 1, "mutation": "none"},
+    {"id": "P8-CHECK-STATE", "purpose": "Check local/server/URL/derived state separation and required lifecycle states.", "inputs": ["state_contract", "interaction_receipts"], "outputs": ["state_status"], "max_attempts": 1, "mutation": "none"},
+    {"id": "P8-CHECK-RESPONSIVE-A11Y", "purpose": "Bind native viewport captures to responsive and accessibility observations.", "inputs": ["viewport_matrix", "browser_snapshots", "keyboard_receipts", "a11y_report"], "outputs": ["responsive_a11y_status"], "max_attempts": 1, "mutation": "none"},
+    {"id": "P8-CHECK-SOURCE-SAFETY", "purpose": "Reject external sinks, unsafe HTML, secret-like values and uncontrolled scripts.", "inputs": ["source_files", "security_handoff"], "outputs": ["source_safety_status"], "max_attempts": 1, "mutation": "none"},
+    {"id": "P8-CHECK-PERFORMANCE", "purpose": "Compare bounded load/layout/media/font observations with declared budgets.", "inputs": ["performance_budget", "performance_receipt"], "outputs": ["performance_status"], "max_attempts": 1, "mutation": "none"},
+    {"id": "P8-CHECK-HANDOFF", "purpose": "Check complete fresh builder-to-verifier handoff and limitations.", "inputs": ["handoff", "verification_receipt", "review_receipt"], "outputs": ["handoff_status"], "max_attempts": 1, "mutation": "none"}
+  ],
+  "loop_policy": {"max_iterations": 2, "on_no_progress": "STOP_NO_PROGRESS", "repair_limit": 1}
+}

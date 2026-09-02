@@ -1,3 +1,4 @@
-4. [GET] http://127.0.0.1:4187/api/queue?scenario=default => [200] OK
-
-Note: 3 static requests not shown, run with "static" option to see them.
+1. [GET] http://127.0.0.1:4188/?scenario=default&capture=p81-default-final-010 => [200] OK
+2. [GET] http://127.0.0.1:4188/styles.css => [200] OK
+3. [GET] http://127.0.0.1:4188/app.js => [200] OK
+4. [GET] http://127.0.0.1:4188/api/queue?scenario=default => [200] OK

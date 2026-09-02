@@ -1,0 +1,117 @@
+{
+  "composed_artifact": {
+    "files": [
+      {
+        "bytes": 11409,
+        "path": "index.html",
+        "sha256": "sha256:80d88c436f13e31a94ab0510241a03dac57f662a063b4a8c50c1a0a2df8035b7"
+      },
+      {
+        "bytes": 20964,
+        "path": "styles.css",
+        "sha256": "sha256:8f2c15dfb1fcfc97a707c40a926cf27e1d095162379aa39d189e9c8d10e5bd44"
+      },
+      {
+        "bytes": 15492,
+        "path": "app.js",
+        "sha256": "sha256:93f1e912b52d371d778f52a0b178716f56705d933ab5b35589d45c7bce6587ef"
+      },
+      {
+        "bytes": 9653,
+        "path": "fixture_server.py",
+        "sha256": "sha256:10861d8f4de5524474b36292106efbe6c131d086c41ecff58e480404e9d8b6d2"
+      }
+    ],
+    "root": "evidence/phase-8.1/composition-run-010/frontend-artifact",
+    "tree_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044"
+  },
+  "generated_at_ns": 1788344288441070639,
+  "host": {
+    "authorization": {
+      "allowed_roots": [],
+      "authorization_id": "AUTH-26267f09948d599c9aa78523",
+      "capability_id": "frontend-engineering-vnext",
+      "credentials": "DENY",
+      "filesystem_mode": "READ_ONLY",
+      "mcp": "DENY",
+      "network": "DENY",
+      "package_write_allowed": false,
+      "providers": "DENY",
+      "shell": "DENY",
+      "workspace": "$WORKSPACE"
+    },
+    "capability": "frontend-engineering-vnext",
+    "execution_observed": true,
+    "final_message": "READY",
+    "host_result_status": "SUCCESS",
+    "invocation_id": "INV-b1154ffe58ce5c6d9ba8d3c4",
+    "load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "package_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+    "receipt_digest": "sha256:4e6bd6b873082e1e1feb6e02d82a76349d5c902b8c2b56af5cfe5775b20a43fe",
+    "receipt_path": "evidence/phase-8.1/frontend-real-003/invocation-receipts/INV-b1154ffe58ce5c6d9ba8d3c4.json"
+  },
+  "limitations": [
+    "HOST_LOAD_UNOBSERVABLE",
+    "This is an observable harness composition chain, not full host skill-load causality.",
+    "The bridge copies an existing exact artifact and does not generate application code."
+  ],
+  "ordered_chain": [
+    "HOST_RESPONSE_OBSERVED",
+    "EXACT_ARTIFACT_IDENTITY_CHECKED",
+    "COMPOSITION_COPY_CREATED",
+    "COMPOSITION_COPY_RECHECKED",
+    "BROWSER_MAY_SERVE_COMPOSED_ROOT"
+  ],
+  "producer_id": "phase81-harness-composition-bridge",
+  "producer_kind": "AUTHORIZED_EXACT_ARTIFACT_COPY",
+  "run_id": "P81-COMPOSE-010",
+  "schema_version": "P8.1-COMPOSITION-BRIDGE-1",
+  "source": {
+    "build_receipt": "evidence/phase-8.1/artifact/frontend-run-002/build-receipt.json",
+    "build_receipt_digest": "sha256:8277df3bafd82d632b849ac5fcba46b0b863a7a5fa500b2341ebc1c737f08c73",
+    "files": [
+      {
+        "bytes": 11409,
+        "path": "index.html",
+        "sha256": "sha256:80d88c436f13e31a94ab0510241a03dac57f662a063b4a8c50c1a0a2df8035b7"
+      },
+      {
+        "bytes": 20964,
+        "path": "styles.css",
+        "sha256": "sha256:8f2c15dfb1fcfc97a707c40a926cf27e1d095162379aa39d189e9c8d10e5bd44"
+      },
+      {
+        "bytes": 15492,
+        "path": "app.js",
+        "sha256": "sha256:93f1e912b52d371d778f52a0b178716f56705d933ab5b35589d45c7bce6587ef"
+      },
+      {
+        "bytes": 9653,
+        "path": "fixture_server.py",
+        "sha256": "sha256:10861d8f4de5524474b36292106efbe6c131d086c41ecff58e480404e9d8b6d2"
+      }
+    ],
+    "root": "evidence/phase-8.1/artifact/frontend-run-002",
+    "tree_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044"
+  },
+  "status": "PARTIAL",
+  "task_id": "PHASE8.1-001",
+  "workspace_observation": {
+    "after_snapshot_digest": "sha256:399bfda48494e4904443ae60b9687d228545af19a560a1f460e9ac4d3148619b",
+    "authorization_id": "AUTH-26267f09948d599c9aa78523",
+    "authorized_host_workspace": "$WORKSPACE",
+    "before_snapshot_digest": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "capability_file_mutations": 0,
+    "changed_paths": [
+      "app.js",
+      "fixture_server.py",
+      "index.html",
+      "styles.css"
+    ],
+    "composition_output_confined_to_evidence": true,
+    "external_producer": false,
+    "global_mutations": 0,
+    "manual_mutation_during_run": false,
+    "source_read_only": true
+  }
+}

@@ -1,29 +1,19 @@
 {
-  "url": "http://127.0.0.1:4187/?scenario=default&capture=p81-reflow-009",
+  "capture_id": "P81-BROWSER-010",
+  "run_id": "P81-COMPOSE-011",
+  "observer": "Playwright MCP Chromium browser observer",
+  "captured_at": "2026-09-02T10:22:35.829Z",
+  "captured_at_ns": 1788344555829000000,
+  "source_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "url": "http://127.0.0.1:4188/?scenario=default&capture=p81-reflow-010",
   "viewport": {
     "width": 195,
     "height": 844
   },
+  "overflowX": false,
   "documentWidth": 195,
   "bodyWidth": 195,
-  "overflowX": false,
-  "phase": "success",
-  "items": 4,
-  "navLinks": [
-    {
-      "text": "⌁\nLive intake",
-      "width": 167,
-      "height": 44
-    },
-    {
-      "text": "≡\nQueue\n4",
-      "width": 167,
-      "height": 44.5
-    },
-    {
-      "text": "＋\nNew intake",
-      "width": 167,
-      "height": 44
-    }
-  ]
+  "scrollWidth": 195,
+  "bodyScrollWidth": 195
 }

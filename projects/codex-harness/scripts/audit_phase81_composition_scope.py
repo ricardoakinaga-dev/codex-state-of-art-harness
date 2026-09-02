@@ -55,6 +55,7 @@ def snapshot_digest(items: list[dict[str, Any]]) -> str:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--host-receipt", type=Path, required=True)
+    parser.add_argument("--source-root", type=Path, required=True)
     parser.add_argument("--output-root", type=Path, required=True)
     parser.add_argument("--receipt", type=Path, required=True)
     parser.add_argument("--audit", type=Path, required=True)
@@ -65,6 +66,7 @@ def main() -> int:
     before = [snapshot(path) for path in SCOPE_ROOTS]
     bridge = compose(
         host_receipt_path=args.host_receipt,
+        source_root=args.source_root,
         output_root=args.output_root,
         receipt_path=args.receipt,
         expected_fingerprint=args.fingerprint,

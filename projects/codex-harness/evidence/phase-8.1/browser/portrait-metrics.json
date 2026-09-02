@@ -1,13 +1,19 @@
 {
-  "url": "http://127.0.0.1:4187/?scenario=empty&capture=p81-portrait-009",
+  "capture_id": "P81-BROWSER-010",
+  "run_id": "P81-COMPOSE-011",
+  "observer": "Playwright MCP Chromium browser observer",
+  "captured_at": "2026-09-02T10:24:02.566Z",
+  "captured_at_ns": 1788344642566000000,
+  "source_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
+  "url": "http://127.0.0.1:4188/?scenario=empty&capture=p81-portrait-empty-010",
   "viewport": {
     "width": 768,
     "height": 1024
   },
-  "documentWidth": 768,
-  "bodyWidth": 768,
   "phase": "success",
   "items": 0,
-  "stateRows": 1,
-  "overflowX": false
+  "overflowX": false,
+  "documentWidth": 768,
+  "bodyWidth": 768
 }

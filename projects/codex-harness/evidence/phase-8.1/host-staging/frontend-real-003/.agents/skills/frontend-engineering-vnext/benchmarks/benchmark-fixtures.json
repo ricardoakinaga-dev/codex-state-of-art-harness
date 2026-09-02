@@ -1,0 +1,18 @@
+{
+  "schema_version": "P8-BENCHMARK-1",
+  "benchmark_id": "P8-FRONTEND-INTAKE-001",
+  "capability_id": "frontend-engineering-vnext",
+  "target": "Veterinary Emergency Intake Dashboard",
+  "artifact_type": "STATIC_WEB_APP_WITH_LOCAL_FIXTURE_API",
+  "reference": {"type": "product_brief", "provenance": "phase-8-user-specification", "native_reference": false},
+  "viewports": [
+    {"id": "desktop", "width": 1440, "height": 900, "dpr": 1, "required": true},
+    {"id": "intermediate", "width": 1024, "height": 768, "dpr": 1, "required": true},
+    {"id": "tablet", "width": 768, "height": 1024, "dpr": 1, "required": true},
+    {"id": "mobile", "width": 390, "height": 844, "dpr": 1, "required": true}
+  ],
+  "states": ["default", "loading", "success", "empty", "error", "retry", "validation", "double_submit"],
+  "regions": ["navigation", "header", "queue-summary", "queue-table", "intake-form", "status-feedback", "responsive-priority"],
+  "required_checks": ["build", "syntax", "lint", "tests", "console", "network", "overflow", "keyboard", "focus", "heading-order", "labels-and-names", "contrast", "reduced-motion", "touch-targets", "performance", "security-handoff"],
+  "budgets": {"max_iterations": 2, "max_console_errors": 0, "max_external_requests": 0, "max_horizontal_overflow_px": 0, "max_lcp_ms": 2500, "max_cls": 0.1}
+}
