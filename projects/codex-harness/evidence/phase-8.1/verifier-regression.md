@@ -1,5 +1,3 @@
-# verifier Regression
+# Verifier Regression
 
-Status: `PASS_WITH_LIMITATIONS`
-
-Full current suite passed with 1781 tests. Tracked changes under frozen Phase 2–8 evidence: `none`. This is a regression-preservation check; it does not re-run every historical external host or browser claim.
+Status: `PASS`. Fresh focused selection: 76 passed. The real verifier turn returned five passing factual criteria after reading or hashing all 50 staged files, with zero writes, approvals, MCP events, or unresolved criteria.

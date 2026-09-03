@@ -1,0 +1,69 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "capture_id": "P81-BROWSER-015",
+  "captured_at_ns": 1788405254174245918,
+  "console": [],
+  "initial": {
+    "announced": "Loading current queue…",
+    "busy": "true",
+    "panelHeight": 344.296875,
+    "skeletons": 3,
+    "state": {
+      "error": "",
+      "feedback": "",
+      "feedbackTone": "",
+      "items": [],
+      "phase": "loading",
+      "requestNumber": 0,
+      "selectedUrgency": "all",
+      "submitting": false
+    }
+  },
+  "replaced": {
+    "announced": "4 active cases · sorted by arrival",
+    "busy": "false",
+    "panelHeight": 526.296875,
+    "rows": 4,
+    "state": {
+      "error": "",
+      "feedback": "",
+      "feedbackTone": "",
+      "items": [
+        {
+          "detail": "Breathing concern",
+          "patient": "Miso",
+          "species": "Cat",
+          "urgency": "critical",
+          "waiting": "08 min"
+        },
+        {
+          "detail": "Acute pain",
+          "patient": "Juniper",
+          "species": "Dog",
+          "urgency": "urgent",
+          "waiting": "14 min"
+        },
+        {
+          "detail": "Not eating",
+          "patient": "Otis",
+          "species": "Rabbit",
+          "urgency": "soon",
+          "waiting": "21 min"
+        },
+        {
+          "detail": "Wing check",
+          "patient": "Pip",
+          "species": "Bird",
+          "urgency": "routine",
+          "waiting": "29 min"
+        }
+      ],
+      "phase": "success",
+      "requestNumber": 0,
+      "selectedUrgency": "all",
+      "submitting": false
+    }
+  },
+  "run_id": "P81-COMPOSE-013",
+  "url": "http://127.0.0.1:4193/?scenario=loading"
+}

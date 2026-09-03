@@ -1,0 +1,107 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "capture_id": "P81-BROWSER-016",
+  "captured_at_ns": 1788405287110466182,
+  "console": [
+    {
+      "text": "Failed to load resource: net::ERR_FAILED",
+      "type": "error"
+    }
+  ],
+  "finalState": {
+    "error": "",
+    "feedback": "Intake accepted for triage. Reference INT-5927287816.",
+    "feedbackTone": "success",
+    "items": [
+      {
+        "detail": "Breathing concern",
+        "patient": "Miso",
+        "species": "Cat",
+        "urgency": "critical",
+        "waiting": "08 min"
+      },
+      {
+        "detail": "Acute pain",
+        "patient": "Juniper",
+        "species": "Dog",
+        "urgency": "urgent",
+        "waiting": "14 min"
+      },
+      {
+        "detail": "Not eating",
+        "patient": "Otis",
+        "species": "Rabbit",
+        "urgency": "soon",
+        "waiting": "21 min"
+      },
+      {
+        "detail": "Wing check",
+        "patient": "Pip",
+        "species": "Bird",
+        "urgency": "routine",
+        "waiting": "29 min"
+      }
+    ],
+    "phase": "success",
+    "requestNumber": 1,
+    "selectedUrgency": "all",
+    "submitting": false
+  },
+  "firstFailure": "The intake could not be sent. You can safely try again.",
+  "receiptsAfter": {
+    "attempt_receipts": [
+      {
+        "idempotency_key": "07b88098-dee9-41ff-a467-7b92edd90d1a",
+        "outcome": "created",
+        "payload_digest": "sha256:82a2c894563f1b69ff7399e87fdd023cdfd08a4102d6196d918b271efb01f494"
+      },
+      {
+        "idempotency_key": "43efb4dc-e4fd-4eb0-84cb-8eb52e29cf8c",
+        "outcome": "created",
+        "payload_digest": "sha256:755421524909a96a12218a091bd3f35a99f77329982391a8875355d2d396ab22"
+      },
+      {
+        "idempotency_key": "43efb4dc-e4fd-4eb0-84cb-8eb52e29cf8c",
+        "outcome": "duplicate",
+        "payload_digest": "sha256:755421524909a96a12218a091bd3f35a99f77329982391a8875355d2d396ab22"
+      }
+    ],
+    "status": "success",
+    "stored_creation_count": 2
+  },
+  "receiptsBefore": {
+    "attempt_receipts": [
+      {
+        "idempotency_key": "07b88098-dee9-41ff-a467-7b92edd90d1a",
+        "outcome": "created",
+        "payload_digest": "sha256:82a2c894563f1b69ff7399e87fdd023cdfd08a4102d6196d918b271efb01f494"
+      }
+    ],
+    "status": "success",
+    "stored_creation_count": 1
+  },
+  "requests": [
+    {
+      "body": {
+        "intake_id": "INT-5927287816",
+        "status": "accepted",
+        "triage": "queued"
+      },
+      "key": "43efb4dc-e4fd-4eb0-84cb-8eb52e29cf8c",
+      "status": 201
+    },
+    {
+      "body": {
+        "intake_id": "INT-5927287816",
+        "status": "duplicate",
+        "triage": "queued"
+      },
+      "key": "43efb4dc-e4fd-4eb0-84cb-8eb52e29cf8c",
+      "status": 200
+    }
+  ],
+  "run_id": "P81-COMPOSE-013",
+  "sameIntake": true,
+  "sameKey": true,
+  "url": "http://127.0.0.1:4194/"
+}

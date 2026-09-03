@@ -1,14 +1,29 @@
 {
-  "schema_version": "P8.1-COVERAGE-SUMMARY-1",
+  "branch_coverage": 90.11254019292605,
   "command": ".venv/bin/coverage run --branch -m pytest -q",
-  "totals": {
-    "covered_lines": 18260,
-    "num_statements": 19547,
-    "percent_covered": 92.57556091229371,
-    "covered_branches": 6703,
-    "num_branches": 7418,
-    "percent_branches_covered": 90.36128336478835
-  },
+  "line_coverage": 93.28255902513328,
+  "schema_version": "P8.1-COVERAGE-SUMMARY-2",
+  "source": "coverage.json",
   "status": "PASS",
-  "test_count": 1781
+  "task_id": "PHASE8.1-001",
+  "tests_failed": 0,
+  "tests_passed": 1818,
+  "tests_skipped": 2,
+  "threshold": 80,
+  "totals": {
+    "covered_branches": 6726,
+    "covered_lines": 18372,
+    "excluded_lines": 99,
+    "missing_branches": 738,
+    "missing_lines": 1323,
+    "num_branches": 7464,
+    "num_partial_branches": 656,
+    "num_statements": 19695,
+    "percent_branches_covered": 90.11254019292605,
+    "percent_branches_covered_display": "90",
+    "percent_covered": 92.41135535181708,
+    "percent_covered_display": "92",
+    "percent_statements_covered": 93.28255902513328,
+    "percent_statements_covered_display": "93"
+  }
 }

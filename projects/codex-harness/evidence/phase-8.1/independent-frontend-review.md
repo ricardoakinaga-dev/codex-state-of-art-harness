@@ -1,42 +1,29 @@
-# Independent Frontend Runtime Review
+# Fresh Independent Frontend Engineering Review
 
-Reviewer: `Hubble` (`01a058f8-5ed3-71e1-88ef-a02d4905e551`)
+Reviewer: `/root/phase81_frontend_review` (read-only, no implementation role)
 
-Scope: read-only inspection of the Phase 8.1 runtime packet and the exact
-`P81-COMPOSE-009` artifact. No files were edited and Git was not executed.
+Scope: `P81-COMPOSE-013`, `P81-BROWSER-018`, and `P81-VERIFY-010`
 
-## Verdict
+Verdict: `PASS_WITH_LIMITATIONS`
 
-`PASS_WITH_LIMITATIONS`
+## Blockers
 
-No functional blocker was found for the bounded runtime target. The exact
-artifact is bound to `P81-COMPOSE-009` and
-`sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044`
-through `composition-receipt.json`, `composition-proof.json`,
-`browser-evidence.json` and `verifier-report.json`.
+- Critical: none.
+- High: none.
+- Medium: none.
 
-## Evidence reviewed
+All 33 runtime-required catalog IDs now map directly to scenario-specific browser receipts. Loading, success, empty, 503 error, keyboard retry, stale suppression, URL initialization/refresh/history/invalid normalization, immutable filtering, double submit, real 422 mapping and draft preservation have dedicated observations.
 
-- Submit loading, success, validation and focus recovery receipts.
-- Keyboard traversal, visible focus, URL/history state and invalid-query fallback.
-- Deterministic stale-response A/B ordering and final `Fresh B` state.
-- Idempotency, responsive viewports, 200% reflow, accessibility, contrast,
-  LCP/CLS and zero console errors.
-- Scoped secret scan report and the bounded local fixture/server policy.
+An unchanged ambiguous retry reuses the same key and intake; an edited draft gets a new key; forced same-key/different-payload reuse returns 409. Source and server bind idempotency to serialized/canonical payloads. Browser/network exceptions are no longer displayed raw: queue failures use bounded static copy, intake messages are length-bounded, and dynamic copy is rendered with `textContent`.
 
-## Limitations
+Keyboard evidence uses actual Tab traversal, keyboard data entry, validation and Enter submission. Landmark, heading, label, live-region, non-color cue, reduced-motion, mobile-target, long-heading, table-semantics, font-fallback, LCP, CLS, resource/media and same-origin checks are specific runtime observations. LCP is 160 ms and CLS is 0.0019016847. All 40 capture hashes verify. Verifier-010 inspected or hashed all 50 indexed inputs, passed five criteria and left its workspace unchanged.
 
-- Loading evidence records the loading phase, but does not fully expose
-  skeleton-row and `aria-busy` details in its serialized receipt.
-- Touch-target evidence is bounded: primary buttons and row actions meet the
-  target, while the filter/input measurements do not establish a universal
-  44px claim for every interactive control.
-- Host receipts preserve an explicit distinction between host result success
-  and the top-level acceptance status; this is part of the documented
-  `HOST_LOAD_UNOBSERVABLE` limitation.
-- The packet is Chromium-only and does not certify every browser or assistive
-  technology. The synthetic fixture is not production, release or security
-  approval.
+## Evidence identities
 
-These limitations do not block the stated verified-candidate-with-limitations
-outcome.
+- Artifact: `sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a`
+- Browser manifest: `sha256:becf97cb77e4c9d13d1dd9735a0f5974451117496230cb120d6f5cc006e277e3`
+- Verifier receipt: `sha256:5a837184aaddbf512d49be8df6670b30e057d4b0b578521fc3c516c36f1466a8`
+
+## Nonblocking limitations
+
+Evidence is Chromium-only; 200% reflow uses a 195 CSS-pixel layout viewport with CDP page scale; accessibility is not certified; performance is a single loopback observation; intentional error scenarios can produce expected console errors while the default path is clean; and the synthetic fixture is not production, release or security approval. Host Skill-load remains unobservable.

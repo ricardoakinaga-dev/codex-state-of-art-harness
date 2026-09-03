@@ -1,7 +1,3 @@
-# Accessibility runtime
+# Accessibility Runtime Report
 
-Status: `PASS_WITH_LIMITATIONS`
-
-Labels, heading structure, live regions, focus styling, keyboard traversal, reduced-motion CSS and touch-target measurements are recorded for Chromium.
-
-Primary packet references: `browser-evidence.json`, `runtime-eval-traceability.json`, `composition-proof.json`.
+Status: `PASS_WITH_LIMITATIONS`. Labels, H1/H2 order, polite live regions, visible focus, control targets, 14.74:1 text contrast, 5.86:1 boundary contrast, and reduced-motion CSS were observed. This is not AT or WCAG certification.

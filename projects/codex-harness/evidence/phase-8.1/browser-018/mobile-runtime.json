@@ -1,0 +1,104 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "bodyWidth": 390,
+  "capture_id": "P81-BROWSER-018",
+  "captured_at_ns": 1788405406313379101,
+  "console": [],
+  "critical": [
+    {
+      "clipped": false,
+      "height": 44,
+      "id": "refresh-queue",
+      "width": 44
+    },
+    {
+      "clipped": false,
+      "height": 42,
+      "id": "patient",
+      "width": 324
+    },
+    {
+      "clipped": false,
+      "height": 42,
+      "id": "species",
+      "width": 324
+    },
+    {
+      "clipped": false,
+      "height": 42,
+      "id": "urgency",
+      "width": 324
+    },
+    {
+      "clipped": false,
+      "height": 80,
+      "id": "notes",
+      "width": 324
+    },
+    {
+      "clipped": false,
+      "height": 44,
+      "id": "submit-intake",
+      "width": 324
+    }
+  ],
+  "ctaBox": {
+    "bottom": -1031.140625,
+    "height": 50,
+    "left": 16,
+    "right": 374,
+    "top": -1081.140625,
+    "width": 358,
+    "x": 16,
+    "y": -1081.140625
+  },
+  "ctaPresent": true,
+  "documentWidth": 390,
+  "focusOutline": "rgb(29, 111, 117) solid 3px",
+  "focused": "submit-intake",
+  "labels": [
+    {
+      "height": 16.5,
+      "text": "Patient name *",
+      "width": 324
+    },
+    {
+      "height": 16.5,
+      "text": "Species *",
+      "width": 324
+    },
+    {
+      "height": 16.5,
+      "text": "Urgency *",
+      "width": 324
+    },
+    {
+      "height": 16.5,
+      "text": "What changed?",
+      "width": 324
+    }
+  ],
+  "marker": "P81-COMPOSE-013",
+  "navigationUsable": true,
+  "overflowX": false,
+  "pageScaleFactor": null,
+  "panelOverlap": false,
+  "run_id": "P81-COMPOSE-013",
+  "stateVisible": true,
+  "submitBox": {
+    "bottom": 580.640625,
+    "height": 44,
+    "left": 33,
+    "right": 357,
+    "top": 536.640625,
+    "width": 324,
+    "x": 33,
+    "y": 536.640625
+  },
+  "submitPresent": true,
+  "url": "http://127.0.0.1:4196/?scenario=default&urgency=critical",
+  "viewport": {
+    "height": 844,
+    "width": 390
+  }
+}

@@ -1,42 +1,21 @@
 {
-  "authoritative_packet": [
-    "README.md",
-    "baseline.json",
-    "P8.1-QB-1.md",
-    "finding-ledger.json",
-    "host-composition-capability-matrix.json",
-    "host-composition-interpretation.md",
-    "composition-proof.json",
-    "composition-timeline.json",
-    "browser-evidence.json",
-    "runtime-eval-classification.json",
-    "runtime-eval-traceability.json",
-    "runtime-eval-report.json",
-    "verifier-report.json",
-    "review-manifest.json",
-    "review-attestation.json",
-    "readiness.json",
-    "promotion-decision.md",
-    "final-report.md"
-  ],
-  "current_artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
-  "current_composition_run": "P81-COMPOSE-009",
-  "historical_composition_runs": [
-    "composition-run-004",
-    "composition-run-005",
-    "composition-run-006",
-    "composition-run-007",
-    "composition-run-008",
-    "composition-run-009"
-  ],
-  "repository_head": "664858e596537b5d0a33fe1bffbac3c4fec5f953",
-  "review_status": "PASS",
+  "attestation_digest": "sha256:9ff8011f0fc6c3c503d6ccbaec5a122d7318af61ec1c886d78a4f9f66784cc4e",
+  "authoritative_browser_capture": "P81-BROWSER-018",
+  "authoritative_composition_run": "P81-COMPOSE-013",
+  "authoritative_verifier_run": "P81-VERIFY-010",
+  "current_artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "historical_attempt_index": "closeout-index-pre-review.json",
+  "manifest_digest": "sha256:e6ad5c911e067617aeead815fd439ca4035c1fc858d8c4b43a3c50cc9c20f34a",
+  "repository_head": "01fe5446e23455b9566717d2b7ecfae7d3e00534",
+  "review_status": "PASS_WITH_LIMITATIONS",
+  "reviewed_head": "01fe5446e23455b9566717d2b7ecfae7d3e00534",
   "reviewer_ids": [
-    "Hubble/01a058f8-5ed3-71e1-88ef-a02d4905e551",
-    "Locke/01a058f8-5fbf-7542-b6d5-364b05834a0d",
-    "P81-RO-REVIEW-20260831-01"
+    "/root/phase81_capability_review",
+    "/root/phase81_frontend_review",
+    "/root/phase81_visual_review",
+    "/root/phase81_exact_packet_review"
   ],
-  "schema_version": "P8.1-CLOSEOUT-INDEX-1",
+  "schema_version": "P8.1-CLOSEOUT-INDEX-3",
   "status": "PASS_WITH_LIMITATIONS",
   "task_id": "PHASE8.1-001"
 }

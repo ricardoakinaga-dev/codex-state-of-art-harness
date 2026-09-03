@@ -1,70 +1,79 @@
 {
-  "schema_version": "P8.1-COMPOSITION-PROOF-1",
-  "task_id": "PHASE8.1-001",
-  "composition_id": "P81-ALT-COMPOSITION-001",
-  "run_id": "P81-COMPOSE-009",
-  "status": "PASS_WITH_LIMITATIONS",
-  "canonical_composition_receipt": "composition-receipt.json",
-  "authorization_id": "AUTH-c2f0f413e9eb544ca9229e25",
-  "authorization": {
-    "capability_id": "frontend-engineering-vnext",
-    "filesystem_mode": "READ_ONLY",
-    "workspace": "$WORKSPACE",
-    "package_write_allowed": false,
-    "network": "DENY",
-    "mcp": "DENY",
-    "providers": "DENY",
-    "shell": "DENY",
-    "credentials": "DENY"
-  },
-  "frontend_capability_ref": "frontend-engineering-vnext@0.1.0",
-  "frontend_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
-  "frontend_invocation_ref": "evidence/phase-8.1/frontend-real-invocation-short/invocation-receipts/INV-cf9d460266785f78b43e15ac.json",
-  "workspace_ref": "evidence/phase-8.1/composition-run-009/frontend-artifact",
-  "workspace_pre_digest": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-  "workspace_post_digest": "sha256:399bfda48494e4904443ae60b9687d228545af19a560a1f460e9ac4d3148619b",
-  "changed_files": [
-    "app.js",
-    "fixture_server.py",
-    "index.html",
-    "styles.css"
-  ],
-  "source_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
-  "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
-  "browser_evidence_digest": "sha256:ddc0ce0feb1c987f8adcb2d7e255bda461b6c498121630f0246d5fd8dd7c72a9",
-  "verifier_capability_ref": "verification-loop-vnext@0.1.0",
-  "verifier_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
-  "verifier_invocation_ref": "evidence/phase-8.1/verifier-real-invocation-final-after-browser/invocation-receipts/INV-6d639157532552ebaf59b0fd.json",
-  "verification_digest": "sha256:7b23098ae4914eeb15a192ede7a2d25cb2e8442cb0164cd8c386ce7db2608324",
-  "timeline": "composition-timeline.json",
-  "host_observations": {
-    "frontend": "READY with execution_observed=true",
-    "verifier": "VERIFIER_READY with execution_observed=true",
-    "skill_load": "HOST_LOAD_UNOBSERVABLE"
-  },
   "Harness_observations": {
-    "producer_kind": "AUTHORIZED_EXACT_ARTIFACT_COPY",
+    "alternate_producer": false,
+    "changed_files": [
+      "app/app.js",
+      "app/fixture_server.py",
+      "app/index.html",
+      "app/styles.css"
+    ],
     "global_mutations": 0,
-    "capability_file_mutations": 0,
+    "installed_frontend_patterns_mutations": 0,
     "manual_mutation_during_run": false,
-    "external_producer": false,
-    "independent_scope_audit": "composition-run-009/composition-scope-audit.json",
-    "scope_audit_global_mutations": 0,
-    "scope_audit_capability_file_mutations": 0
+    "source_build_artifact_browser_identity_equal": true,
+    "verifier_workspace_unchanged": true
   },
-  "inferences": [
-    "The exact artifact copied by the bridge is the artifact served to the browser captures.",
-    "The current verifier checks the same package identities, digests and fresh runtime evidence.",
-    "The server process and HTTP response header independently bind browser traffic to the composed artifact digest."
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "attack_test": "tests/evals/phase81/test_phase81_packet_integrity.py",
+  "browser_evidence_digest": "sha256:becf97cb77e4c9d13d1dd9735a0f5974451117496230cb120d6f5cc006e277e3",
+  "composition_id": "P81-ALT-COMPOSITION-013",
+  "composition_receipt": "composition-receipt.json",
+  "composition_receipt_digest": "sha256:5a68da86cb818985bb5fdec2325087cc451a9db44c042145109f051837d6a0bf",
+  "excluded_claims": [
+    "PRODUCTION_READY",
+    "SECURITY_APPROVED",
+    "RELEASE_APPROVED",
+    "STABLE",
+    "AAA_VERIFIED",
+    "ACCESSIBILITY_CERTIFIED",
+    "WCAG_CERTIFIED",
+    "PIXEL_PERFECT",
+    "ALL_BROWSERS_VERIFIED",
+    "ALL_VIEWPORTS_VERIFIED",
+    "FULL_HOST_CAUSALITY",
+    "HOST_SKILL_LOAD_OBSERVED",
+    "UNIVERSAL_FRONTEND_SUPERIORITY",
+    "CAUSAL_SUPERIORITY"
   ],
-  "unknowns": [
-    "No public host skill-load or native browser-observer event was available."
-  ],
+  "frontend_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+  "frontend_host_events": "frontend-real-005/host-events.json",
+  "frontend_host_events_digest": "sha256:6bc37d4d72de346a6548f03b24ebab845693d5f8315c8622c511f631949dd741",
+  "frontend_invocation_id": "INV-33bdb675aa0b5612b85eac20",
+  "frontend_receipt": "frontend-real-005/invocation-receipt.json",
+  "frontend_receipt_digest": "sha256:7de739a073f9705cbf61afdf9712cf8717a71714a13f9bac32939c49049a7bd2",
+  "host_observations": {
+    "bounded_write_event_sequences": [
+      167,
+      173,
+      183,
+      193,
+      203
+    ],
+    "frontend_execution": "SUCCESS",
+    "skill_load": "HOST_LOAD_UNOBSERVABLE",
+    "typed_frontend_skill_input": true,
+    "typed_verifier_skill_input": true,
+    "verifier_execution": "SUCCESS"
+  },
   "limitations": [
-    "HOST_LOAD_UNOBSERVABLE",
-    "Alternative harness-observed composition is not full host skill-load causality.",
-    "Browser evidence is Chromium-only and not a full assistive-technology certification.",
-    "The local synthetic fixture does not establish production, release or security approval."
+    "HOST_LOAD_UNOBSERVABLE: the public App Server emits no separate Skill-loaded event.",
+    "Runtime evidence is Chromium-only and is not a cross-browser claim.",
+    "The accessibility baseline is not assistive-technology or WCAG certification.",
+    "Third-party vulnerability scanners are unavailable under an expiring waiver through 2026-09-30.",
+    "The synthetic loopback fixture is not production, release or security approval."
   ],
-  "proof_digest": "sha256:7dfac04ca942b0f67242b5a92d0f56d93abbe572d928a5bdd274bf57fed9f1c5"
+  "proof_digest": "sha256:4a6d7ca1f66b76560d472270ea428adcc785d5fa32224e57936b08443b85e10a",
+  "run_id": "P81-COMPOSE-013",
+  "schema_version": "P8.1-COMPOSITION-PROOF-2",
+  "source_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "status": "PROVEN_WITH_OBSERVABLE_ALTERNATIVE_CAUSALITY",
+  "task_id": "PHASE8.1-001",
+  "timeline": "composition-timeline.json",
+  "verification_digest": "sha256:4fdcf391244e6f5a294897943be9e65933ec736781720395410d97ad58b08b7f",
+  "verifier_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "verifier_host_events": "verifier-real-010/host-events.json",
+  "verifier_host_events_digest": "sha256:12c2d9251d276286f5a180a0e2c5b54e5a4ac26208d6f40bbd2058de8c21553a",
+  "verifier_invocation_id": "INV-a5d5f1c817335f03892a0fd1",
+  "verifier_receipt_digest": "sha256:5a837184aaddbf512d49be8df6670b30e057d4b0b578521fc3c516c36f1466a8",
+  "workspace_ref": "frontend-real-005/workspace-post/app"
 }

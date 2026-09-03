@@ -1,0 +1,8 @@
+# Phase 8.1 Frozen
+
+Status: `PASS_WITH_LIMITATIONS`
+
+Manifest: `sha256:e6ad5c911e067617aeead815fd439ca4035c1fc858d8c4b43a3c50cc9c20f34a`
+Attestation: `sha256:9ff8011f0fc6c3c503d6ccbaec5a122d7318af61ec1c886d78a4f9f66784cc4e`
+Reviewed HEAD: `01fe5446e23455b9566717d2b7ecfae7d3e00534`
+Promotion: `VERIFIED_CANDIDATE_WITH_LIMITATIONS`

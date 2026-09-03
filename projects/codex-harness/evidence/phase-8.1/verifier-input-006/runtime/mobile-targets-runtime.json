@@ -1,0 +1,40 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "capture_id": "P81-BROWSER-018",
+  "captured_at_ns": 1788405415208078899,
+  "console": [],
+  "run_id": "P81-COMPOSE-013",
+  "targets": [
+    {
+      "height": 44,
+      "name": "#overview",
+      "width": 362
+    },
+    {
+      "height": 44,
+      "name": "#queue",
+      "width": 362
+    },
+    {
+      "height": 44,
+      "name": "#intake",
+      "width": 362
+    },
+    {
+      "height": 50,
+      "name": "#intake",
+      "width": 358
+    },
+    {
+      "height": 44,
+      "name": "refresh-queue",
+      "width": 44
+    },
+    {
+      "height": 44,
+      "name": "submit-intake",
+      "width": 324
+    }
+  ],
+  "url": "http://127.0.0.1:4196/"
+}

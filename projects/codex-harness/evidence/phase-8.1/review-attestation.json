@@ -1,46 +1,36 @@
 {
-  "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
-  "attestation_digest": "sha256:57bdd3593ca9e4575c7d567cedc75a5280d52668e47b4aa44bb44cc3cb8c7c2b",
-  "finding_counts": {
-    "classified_critical": 0,
-    "classified_high": 1,
-    "classified_low": 0,
-    "classified_medium": 3,
-    "closed_actionable_high": 1,
-    "closed_actionable_medium": 3,
-    "open_actionable_high": 0,
-    "open_actionable_medium": 0,
-    "promotion_blocking_high": 0,
-    "promotion_blocking_medium": 0
-  },
+  "actionable_high": 0,
+  "actionable_medium": 0,
+  "attestation_digest": "sha256:9ff8011f0fc6c3c503d6ccbaec5a122d7318af61ec1c886d78a4f9f66784cc4e",
+  "attested_at": "2026-09-03T04:20:34.776908+00:00",
+  "composition_proof_status": "PROVEN_WITH_OBSERVABLE_ALTERNATIVE_CAUSALITY",
+  "critical": 0,
   "frontend_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
-  "limitations": [
-    "HOST_LOAD_UNOBSERVABLE",
-    "Alternative harness-observed composition is not full host skill-load causality.",
-    "Browser evidence is Chromium-only and not a full assistive-technology certification.",
-    "The local synthetic fixture does not establish production, release or security approval."
-  ],
-  "manifest_digest": "sha256:f6306e8c398d9be8ca92a42af74cceeb6501a1507c0f7e6f8647eb704d0936a4",
-  "quality_bar": "P8_LEVEL_B",
-  "repository_head": "664858e596537b5d0a33fe1bffbac3c4fec5f953",
-  "review_status": "PASS",
-  "reviewer_ids": [
-    "Hubble/01a058f8-5ed3-71e1-88ef-a02d4905e551",
-    "Locke/01a058f8-5fbf-7542-b6d5-364b05834a0d",
-    "P81-RO-REVIEW-20260831-01"
-  ],
-  "runtime_evals": {
-    "future_domain": 1,
-    "not_applicable": 4,
-    "promotion_relevant_unresolved": 0,
-    "runtime_executed": 33,
-    "runtime_required": 33,
-    "structural_sufficient": 22,
-    "total": 60
+  "host_load_observability": "HOST_LOAD_UNOBSERVABLE",
+  "manifest_digest": "sha256:e6ad5c911e067617aeead815fd439ca4035c1fc858d8c4b43a3c50cc9c20f34a",
+  "promotion_blocking_high": 0,
+  "promotion_blocking_medium": 0,
+  "promotion_recommendation": "PROMOTE_TO_VERIFIED_CANDIDATE_WITH_LIMITATIONS",
+  "repository_head": "01fe5446e23455b9566717d2b7ecfae7d3e00534",
+  "review_files": {
+    "independent-capability-review.md": "sha256:a33d2d092bf0c130e0a3abb1b82a26452370a8709eb50c8a93e7dc1193381ac0",
+    "independent-exact-packet-review.md": "sha256:3997d55c36929c8cdb45074c73c2a995b9e73db2b9f70b005b4d79efd31f76ea",
+    "independent-frontend-review.md": "sha256:1ba9d39280ca4182110b295f2e277c8b5368d8c82aa7c8027594e72191011fc8",
+    "independent-visual-review.md": "sha256:9b8ff77f3338e4d31610dd5e183824e4283732a12bf62957bf6bdfc43d4cda77"
   },
-  "schema_version": "P8.1-REVIEW-ATTESTATION-1",
-  "statement": "Independent reviewers found no blocking issue in the exact packet.",
+  "review_mode": "FRESH_INDEPENDENT_EXACT_PACKET_READ_ONLY",
+  "reviewed_head": "01fe5446e23455b9566717d2b7ecfae7d3e00534",
+  "reviewer": "/root/phase81_exact_packet_review",
+  "reviewer_ids": [
+    "/root/phase81_capability_review",
+    "/root/phase81_frontend_review",
+    "/root/phase81_visual_review",
+    "/root/phase81_exact_packet_review"
+  ],
+  "runtime_eval_unresolved_count": 0,
+  "schema_version": "P8.1-REVIEW-ATTESTATION-2",
   "status": "PASS_WITH_LIMITATIONS",
   "task_id": "PHASE8.1-001",
-  "verification_digest": "sha256:7b23098ae4914eeb15a192ede7a2d25cb2e8442cb0164cd8c386ce7db2608324"
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "verifier_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b"
 }

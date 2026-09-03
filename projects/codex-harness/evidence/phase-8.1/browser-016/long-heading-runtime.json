@@ -1,0 +1,25 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "box": {
+    "bottom": 337.6875,
+    "height": 200.6875,
+    "left": 250.953125,
+    "right": 809.390625,
+    "top": 137,
+    "width": 558.4375,
+    "x": 250.953125,
+    "y": 137
+  },
+  "capture_id": "P81-BROWSER-016",
+  "captured_at_ns": 1788405290023025354,
+  "clientHeight": 201,
+  "clientWidth": 558,
+  "console": [],
+  "documentWidth": 1024,
+  "run_id": "P81-COMPOSE-013",
+  "scrollHeight": 204,
+  "scrollWidth": 558,
+  "text": "Prepare the emergency reception space for the next urgently arriving patient",
+  "url": "http://127.0.0.1:4194/",
+  "viewportWidth": 1024
+}

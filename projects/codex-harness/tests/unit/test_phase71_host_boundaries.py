@@ -10,6 +10,7 @@ from test_phase7_host import PACKAGE_ROOT, _builder_request  # noqa: E402
 
 import harness_kernel.phase7_host as host
 from harness_kernel.phase7_host import (
+    HOST_HASH_FILE_TOOL,
     HOST_LIST_FILES_TOOL,
     HOST_READ_FILE_TOOL,
     HOST_RUN_TESTS_TOOL,
@@ -168,6 +169,10 @@ def test_bounded_tool_constructor_and_schema_branches(tmp_path: Path) -> None:
         BoundedBuilderHostTools(policy, test_runner=lambda _root: None)
     tools = BoundedBuilderHostTools(policy)
     assert HOST_RUN_TESTS_TOOL not in [item["name"] for item in tools.specs()]
+    read_only_tools = BoundedBuilderHostTools(_policy(tmp_path / "read-only", write=False))
+    read_only_names = [item["name"] for item in read_only_tools.specs()]
+    assert HOST_HASH_FILE_TOOL in read_only_names
+    assert HOST_WRITE_FILE_TOOL not in read_only_names
     runner_tools = BoundedBuilderHostTools(
         policy, test_root=tmp_path / "app", test_runner=lambda _root: HostTestObservation(0, "ok")
     )

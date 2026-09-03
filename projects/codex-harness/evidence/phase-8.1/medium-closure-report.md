@@ -1,7 +1,10 @@
-# Three Medium runtime findings
+# Medium Finding Closure
 
-Status: `PASS_WITH_LIMITATIONS`
+All three baseline actionable Medium findings and the review-discovered error-copy finding are closed:
 
-URL history, stale-response ordering, idempotency and keyboard/focus behavior have fresh current-artifact runtime receipts.
+1. URL state: initialization, reload, history, and invalid-state normalization passed in Chromium.
+2. Stale response: delayed A completed after fast B, while only B remained visible.
+3. Keyboard/focus: sequential traversal, visible focus, invalid-field focus, retry focus, and Enter submission passed.
+4. Error copy: raw fetch text was replaced by bounded product messaging and exercised through error/recovery runtime paths.
 
-Primary packet references: `browser-evidence.json`, `runtime-eval-traceability.json`, `composition-proof.json`.
+Finding-linked repairs also closed the Critical runtime-ID traceability defect and the High causal, verifier-independence, 200%-reflow and payload-bound idempotency defects. No actionable Medium remains.

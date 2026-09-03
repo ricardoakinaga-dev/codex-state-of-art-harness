@@ -1,0 +1,161 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "capture_id": "P81-BROWSER-018",
+  "captured_at_ns": 1788405404375371448,
+  "console": [],
+  "layout": {
+    "bodyWidth": 1440,
+    "critical": [
+      {
+        "clipped": false,
+        "height": 44,
+        "id": "refresh-queue",
+        "width": 44
+      },
+      {
+        "clipped": false,
+        "height": 42,
+        "id": "patient",
+        "width": 310.28125
+      },
+      {
+        "clipped": false,
+        "height": 42,
+        "id": "species",
+        "width": 150.140625
+      },
+      {
+        "clipped": false,
+        "height": 42,
+        "id": "urgency",
+        "width": 150.140625
+      },
+      {
+        "clipped": false,
+        "height": 80,
+        "id": "notes",
+        "width": 310.28125
+      },
+      {
+        "clipped": false,
+        "height": 44,
+        "id": "submit-intake",
+        "width": 223.28125
+      }
+    ],
+    "ctaBox": {
+      "bottom": 349.65625,
+      "height": 50,
+      "left": 1228.75,
+      "right": 1382.40625,
+      "top": 299.65625,
+      "width": 153.65625,
+      "x": 1228.75,
+      "y": 299.65625
+    },
+    "ctaPresent": true,
+    "documentWidth": 1440,
+    "labels": [
+      {
+        "height": 16.5,
+        "text": "Patient name *",
+        "width": 310.28125
+      },
+      {
+        "height": 16.5,
+        "text": "Species *",
+        "width": 150.140625
+      },
+      {
+        "height": 16.5,
+        "text": "Urgency *",
+        "width": 150.140625
+      },
+      {
+        "height": 16.5,
+        "text": "What changed?",
+        "width": 310.28125
+      }
+    ],
+    "marker": "P81-COMPOSE-013",
+    "navigationUsable": true,
+    "overflowX": false,
+    "panelOverlap": false,
+    "stateVisible": true,
+    "submitBox": {
+      "bottom": 1017.640625,
+      "height": 44,
+      "left": 1047.125,
+      "right": 1270.40625,
+      "top": 973.640625,
+      "width": 223.28125,
+      "x": 1047.125,
+      "y": 973.640625
+    },
+    "submitPresent": true,
+    "viewport": {
+      "height": 900,
+      "width": 1440
+    }
+  },
+  "performance": {
+    "domContentLoadedMs": 22.799999999813735,
+    "loadMs": 73.79999999981374,
+    "paints": [
+      {
+        "name": "first-paint",
+        "startTime": 120
+      },
+      {
+        "name": "first-contentful-paint",
+        "startTime": 120
+      }
+    ],
+    "resources": [
+      "http://127.0.0.1:4196/styles.css",
+      "http://127.0.0.1:4196/app.js",
+      "http://127.0.0.1:4196/api/queue?scenario=default"
+    ],
+    "state": {
+      "error": "",
+      "feedback": "",
+      "feedbackTone": "",
+      "items": [
+        {
+          "detail": "Breathing concern",
+          "patient": "Miso",
+          "species": "Cat",
+          "urgency": "critical",
+          "waiting": "08 min"
+        },
+        {
+          "detail": "Acute pain",
+          "patient": "Juniper",
+          "species": "Dog",
+          "urgency": "urgent",
+          "waiting": "14 min"
+        },
+        {
+          "detail": "Not eating",
+          "patient": "Otis",
+          "species": "Rabbit",
+          "urgency": "soon",
+          "waiting": "21 min"
+        },
+        {
+          "detail": "Wing check",
+          "patient": "Pip",
+          "species": "Bird",
+          "urgency": "routine",
+          "waiting": "29 min"
+        }
+      ],
+      "phase": "success",
+      "requestNumber": 0,
+      "selectedUrgency": "all",
+      "submitting": false
+    }
+  },
+  "run_id": "P81-COMPOSE-013",
+  "url": "http://127.0.0.1:4196/?scenario=default&capture=p81-013"
+}

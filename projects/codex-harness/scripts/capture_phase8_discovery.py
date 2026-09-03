@@ -84,8 +84,7 @@ def main() -> int:
         )
     )
     successful = (
-        inspection.get("command_returncode") == 0
-        and compatibility.get("command_returncode") == 0
+        inspection.get("command_returncode") == 0 and compatibility.get("command_returncode") == 0
     )
     return 0 if successful else 1
 

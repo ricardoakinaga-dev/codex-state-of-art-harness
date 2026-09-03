@@ -1,0 +1,98 @@
+{
+  "artifact_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+  "capture_id": "P81-BROWSER-012",
+  "captured_at_ns": 1788402635988838263,
+  "console": [],
+  "layout": {
+    "bodyWidth": 1440,
+    "ctaBox": {
+      "bottom": 349.65625,
+      "height": 50,
+      "left": 1228.75,
+      "right": 1382.40625,
+      "top": 299.65625,
+      "width": 153.65625,
+      "x": 1228.75,
+      "y": 299.65625
+    },
+    "ctaPresent": true,
+    "documentWidth": 1440,
+    "marker": "P81-COMPOSE-012",
+    "overflowX": false,
+    "submitBox": {
+      "bottom": 1017.640625,
+      "height": 44,
+      "left": 1047.125,
+      "right": 1270.40625,
+      "top": 973.640625,
+      "width": 223.28125,
+      "x": 1047.125,
+      "y": 973.640625
+    },
+    "submitPresent": true,
+    "viewport": {
+      "height": 900,
+      "width": 1440
+    }
+  },
+  "performance": {
+    "domContentLoadedMs": 159.20000000018626,
+    "loadMs": 617.7000000001863,
+    "paints": [
+      {
+        "name": "first-paint",
+        "startTime": 724
+      },
+      {
+        "name": "first-contentful-paint",
+        "startTime": 724
+      }
+    ],
+    "resources": [
+      "http://127.0.0.1:4192/styles.css",
+      "http://127.0.0.1:4192/app.js",
+      "http://127.0.0.1:4192/api/queue?scenario=default"
+    ],
+    "state": {
+      "error": "",
+      "feedback": "",
+      "feedbackTone": "",
+      "items": [
+        {
+          "detail": "Breathing concern",
+          "patient": "Miso",
+          "species": "Cat",
+          "urgency": "critical",
+          "waiting": "08 min"
+        },
+        {
+          "detail": "Acute pain",
+          "patient": "Juniper",
+          "species": "Dog",
+          "urgency": "urgent",
+          "waiting": "14 min"
+        },
+        {
+          "detail": "Not eating",
+          "patient": "Otis",
+          "species": "Rabbit",
+          "urgency": "soon",
+          "waiting": "21 min"
+        },
+        {
+          "detail": "Wing check",
+          "patient": "Pip",
+          "species": "Bird",
+          "urgency": "routine",
+          "waiting": "29 min"
+        }
+      ],
+      "phase": "success",
+      "requestNumber": 0,
+      "selectedUrgency": "all",
+      "submitting": false
+    }
+  },
+  "run_id": "P81-COMPOSE-012",
+  "url": "http://127.0.0.1:4192/?scenario=default&capture=p81-012"
+}

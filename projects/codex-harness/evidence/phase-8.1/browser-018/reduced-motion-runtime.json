@@ -1,0 +1,38 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "capture_id": "P81-BROWSER-018",
+  "captured_at_ns": 1788405414865568613,
+  "console": [],
+  "matches": true,
+  "run_id": "P81-COMPOSE-013",
+  "targets": [
+    {
+      "animationMs": [
+        0.01
+      ],
+      "selector": ".button",
+      "transitionMs": [
+        0.01
+      ]
+    },
+    {
+      "animationMs": [
+        0.01
+      ],
+      "selector": ".nav-link",
+      "transitionMs": [
+        0.01
+      ]
+    },
+    {
+      "animationMs": [
+        0.01
+      ],
+      "selector": "#patient",
+      "transitionMs": [
+        0.01
+      ]
+    }
+  ],
+  "url": "http://127.0.0.1:4196/"
+}

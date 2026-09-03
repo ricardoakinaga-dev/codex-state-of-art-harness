@@ -101,7 +101,11 @@ def capture_host() -> dict[str, object]:
         "command": list(command),
         "pinned_files": [{"path": path, "sha256": digest} for path, digest in pinned_files],
         "version_probes": {
-            "codex": _version_probe(Path(executable), ("--version",)),
+            "codex": (
+                _version_probe(Path(interpreter), (executable, "--version"))
+                if interpreter is not None
+                else _version_probe(Path(executable), ("--version",))
+            ),
             "node": _version_probe(Path(interpreter), ("--version",))
             if interpreter is not None
             else {"status": "NOT_APPLICABLE"},

@@ -1,155 +1,176 @@
 {
-  "schema_version": "P8.1-FINDINGS-1",
-  "task_id": "PHASE8.1-001",
-  "status": "CURRENT_CLOSURE_CANDIDATE",
-  "severity_semantics": {
-    "HIGH": "Promotion-blocking causal, security, integrity or system-level risk requiring closure or an explicit non-promotion decision.",
-    "MEDIUM": "Actionable behavior or evidence gap that can invalidate the bounded promotion target if not closed.",
-    "LOW": "Bounded limitation that does not independently block the stated candidate outcome."
+  "counts": {
+    "accepted_limitation_high": 0,
+    "accepted_non_material_medium": 0,
+    "classified_critical": 1,
+    "classified_high": 5,
+    "classified_medium": 4,
+    "closed_critical": 1,
+    "closed_high": 5,
+    "closed_medium": 4,
+    "environment_limited_medium": 0,
+    "open_actionable_high": 0,
+    "open_actionable_medium": 0,
+    "open_critical": 0,
+    "promotion_blocking_high": 0,
+    "promotion_blocking_medium": 0
   },
   "findings": [
     {
-      "id": "P8.1-FINDING-H-HOST-COMPOSITION-001",
+      "closure_evidence": [
+        "composition-receipt.json",
+        "composition-proof.json",
+        "frontend-real-005/host-events.json",
+        "verifier-real-010/invocation-receipt.json"
+      ],
+      "closure_status": "CLOSED_WITH_OBSERVABLE_ALTERNATIVE_CAUSALITY",
+      "description": "Literal host Skill-load causality was unobservable and the prior read-only handshake did not cause an artifact.",
+      "finding_id": "P8.1-FINDING-H-HOST-COMPOSITION-001",
+      "materiality": "Promotion blocking until a real observable composition exists.",
+      "promotion_impact": "CLOSED_BY_FRESH_OBSERVABLE_COMPOSITION",
+      "required_evidence": "Exact capability authorization, host-caused bounded mutation, artifact/browser/verifier digest chain, ordering and no conflicting producer.",
       "severity": "HIGH",
-      "category": "COMPOSITION",
-      "title": "Official host skill-load and causal composition event is not observable",
-      "status": "CLOSED_WITH_ALTERNATIVE",
-      "promotion_blocking": false,
-      "baseline_source": "Phase 8 official Phase 4 receipt and host adapter capability report",
-      "description": "The supported app-server protocol can be invoked, but the current bounded READ_ONLY host path exposes no verifiable skill-load event. A host response or transport success alone does not establish that the frontend capability was loaded or caused the artifact.",
-      "required_closure": [
-        "A supported host-load event bound to the exact capability, or",
-        "An independently reviewed observable alternative causal chain with exact task/run/invocation IDs, authorization, workspace, monotonic timestamps, pre/post digests, changed-file list, source/artifact/browser/verifier/final-verification digests, no alternate producer/manual mutation and global mutation count zero."
-      ],
-      "evidence_refs": [
-        "../phase-8/readiness.json",
-        "../phase-8/composition-review.md",
-        "../phase-8/pilots/frontend-engineering/phase4/frontend-real-post-repair-002/invocation-receipts/INV-75f00a187fb354d3a04141d1.json",
-        "../phase-8/pilots/frontend-engineering/phase4/verifier-final-post-repair-002/invocation-receipts/INV-6ec92339747c562d9d19eb8e.json",
-        "baseline.json",
-        "host-composition-capability-matrix.json"
-      ],
-      "closure_evidence": {
-        "kind": "OBSERVABLE_COMPOSITION_WITHOUT_HOST_LOAD_EVENT",
-        "composition_run": "P81-COMPOSE-009",
-        "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
-        "proof": "composition-proof.json",
-        "timeline": "composition-timeline.json",
-        "bridge": "composition-run-009/composition-receipt.json",
-        "scope_audit": "composition-run-009/composition-scope-audit.json",
-        "frontend_host_receipt": "frontend-real-invocation-short/invocation-receipts/INV-cf9d460266785f78b43e15ac.json",
-        "verifier_host_receipt": "verifier-real-invocation-final-after-browser/invocation-receipts/INV-6d639157532552ebaf59b0fd.json",
-        "limitations": [
-          "HOST_LOAD_UNOBSERVABLE",
-          "Not FULL_HOST_LOAD_CAUSALITY",
-          "Exact artifact copy is the only bridge mutation; global mutation count is zero."
-        ]
-      },
-      "owner": "lead",
-      "revalidation_trigger": "Any change to host protocol, workspace policy, invocation adapter or composition-proof inputs."
+      "source": "Phase 8 official composition review"
     },
     {
-      "id": "P8.1-FINDING-M-URL-STATE-001",
-      "severity": "MEDIUM",
-      "category": "RUNTIME_STATE",
-      "title": "URL-persisted filter state is not yet runtime-proven",
-      "status": "CLOSED",
-      "promotion_blocking": false,
-      "baseline_source": "Phase 8 pilot source inspection and zero Phase 8.1 runtime evals",
-      "description": "The Phase 8 pilot keeps the urgency filter in memory and has no current evidence for URL persistence, invalid URL fallback or back/forward restoration.",
-      "required_closure": [
-        "Valid URL filter initializes the control and visible rows",
-        "Filter changes update URL state without losing scenario state",
-        "Back/forward restores the prior filter",
-        "Invalid URL state falls back safely and is recorded"
+      "closure_evidence": [
+        "browser-evidence.json",
+        "runtime-eval-traceability.json",
+        "verifier-real-010/invocation-receipt.json",
+        "tests/evals/phase81/test_phase81_packet_integrity.py"
       ],
-      "evidence_refs": ["baseline.json", "url-state-runtime-report.md", "browser-evidence.json"],
-      "closure_evidence": {
-        "runtime_report": "url-state-runtime-report.md",
-        "browser_evidence": [
-          "browser/url-critical.json",
-          "browser/url-select-urgent.json",
-          "browser/url-back-critical.json",
-          "browser/url-invalid.json"
-        ]
-      },
-      "owner": "lead",
-      "revalidation_trigger": "Any routing, filter, history or query-string change."
+      "closure_status": "CLOSED_BY_DIRECT_RUNTIME_EXECUTION_AND_ATTACK_TESTS",
+      "description": "The pre-review packet mapped 33 catalog IDs to unrelated generic browser checks, allowing runtime requirements to false-pass without executing their stated behaviors.",
+      "finding_id": "P8.1-FINDING-C-RUNTIME-ID-LAUNDERING-001",
+      "materiality": "A false promotion decision was possible despite absent long-heading, performance, motion, validation and other required observations.",
+      "promotion_impact": "CLOSED",
+      "required_evidence": "One unique matching browser check per runtime-required catalog ID, catalog-specific runtime records, and rejection tests for aliasing or omission.",
+      "severity": "CRITICAL",
+      "source": "Initial independent capability and frontend reviews"
     },
     {
-      "id": "P8.1-FINDING-M-STALE-RESPONSE-001",
-      "severity": "MEDIUM",
-      "category": "RUNTIME_CONCURRENCY",
-      "title": "Stale response protection is not yet runtime-proven",
-      "status": "CLOSED",
-      "promotion_blocking": false,
-      "baseline_source": "Phase 8 source contains a request-number guard but no deterministic stale-response browser receipt",
-      "description": "The source has a stale-response guard, but the Phase 8 packet contains no fresh browser run that proves an older delayed queue response cannot overwrite a newer response.",
-      "required_closure": [
-        "Deterministic delayed request A and fast request B",
-        "Final UI contains only B data",
-        "Network/timeline evidence binds both requests and the stale discard"
+      "closure_evidence": [
+        "frontend-real-005/host-events.json",
+        "frontend-real-005/invocation-receipt.json",
+        "composition-receipt.json"
       ],
-      "evidence_refs": ["baseline.json", "stale-response-runtime-report.md", "browser-evidence.json"],
-      "closure_evidence": {
-        "runtime_report": "stale-response-runtime-report.md",
-        "browser_evidence": [
-          "browser/stale-response.json",
-          "browser/stale-response-initial.json",
-          "browser/stale-response-request-a.json",
-          "browser/stale-response-request-b.json",
-          "browser/stale-response-timeline.json",
-          "browser/stale-network.log"
-        ]
-      },
-      "owner": "lead",
-      "revalidation_trigger": "Any queue loading, request cancellation, retry or state update change."
+      "closure_status": "CLOSED_BY_PATH_BEARING_HOST_EVENTS",
+      "description": "The pre-review receipt asserted a write path that was absent from the raw host event, and its host_event_paths set was empty.",
+      "finding_id": "P8.1-FINDING-H-RAW-WRITE-LINEAGE-001",
+      "materiality": "The claimed producer-to-delta causal binding could not be independently reconstructed.",
+      "promotion_impact": "CLOSED",
+      "required_evidence": "Raw host events containing path and byte observations that exactly cover the independently observed changed-file set.",
+      "severity": "HIGH",
+      "source": "Initial independent capability review"
     },
     {
-      "id": "P8.1-FINDING-M-KEYBOARD-FOCUS-001",
-      "severity": "MEDIUM",
-      "category": "ACCESSIBILITY_RUNTIME",
-      "title": "Keyboard and focus behavior is not yet fully runtime-proven",
-      "status": "CLOSED",
-      "promotion_blocking": false,
-      "baseline_source": "Phase 8 static contracts and zero Phase 8.1 runtime evals",
-      "description": "Static labels and focus styles exist, but the Phase 8 packet does not contain a fresh runtime traversal, submit-error focus, retry focus or visible-focus observation bound to the final artifact.",
-      "required_closure": [
-        "Keyboard traversal reaches all actionable controls in a logical order",
-        "Blank/invalid submission focuses the first invalid field",
-        "Retry and row actions remain keyboard reachable",
-        "Visible focus and error association are recorded"
+      "closure_evidence": [
+        "verifier-real-010/invocation-receipt.json",
+        "verifier-real-010/host-events.json",
+        "verifier-input-010/input-index.json"
       ],
-      "evidence_refs": ["baseline.json", "keyboard-runtime-report.md", "accessibility-runtime-report.md", "browser-evidence.json"],
-      "closure_evidence": {
-        "runtime_report": "keyboard-runtime-report.md",
-        "accessibility_report": "accessibility-runtime-report.md",
-        "browser_evidence": [
-          "browser/keyboard-step-00.json",
-          "browser/keyboard-submit-focused-002.json",
-          "browser/interaction-validation.json",
-          "browser/accessibility-runtime.json",
-          "browser/error-keyboard-step-01.json",
-          "browser/error-keyboard-retry.json",
-          "browser/keyboard-submit-result-002.json"
-        ]
-      },
-      "owner": "lead",
-      "revalidation_trigger": "Any DOM order, form validation, focus management or control-state change."
+      "closure_status": "CLOSED_BY_NEUTRAL_READ_ONLY_VERIFIER",
+      "description": "The pre-review verifier was given precomputed observations and an expected PASS instead of a neutral evidence-reading surface.",
+      "finding_id": "P8.1-FINDING-H-VERIFIER-INDEPENDENCE-001",
+      "materiality": "Its report was a schema echo rather than independent verification and could not contradict the builder.",
+      "promotion_impact": "CLOSED",
+      "required_evidence": "A read-only host adapter, neutral criteria, raw evidence reads or hashes, zero mutation, and criterion-level findings.",
+      "severity": "HIGH",
+      "source": "Initial independent capability review"
+    },
+    {
+      "closure_evidence": [
+        "browser-018/reflow-runtime.json",
+        "browser-018/reflow-200-percent-195x844.png",
+        "frontend-real-005/invocation-receipt.json"
+      ],
+      "closure_status": "CLOSED_BY_HOST_REPAIR_AND_BROWSER_REFLOW_EVIDENCE",
+      "description": "At 200 percent-equivalent 195px CSS width, urgency, species and action values clipped and the navigation count wrapped incorrectly.",
+      "finding_id": "P8.1-FINDING-H-REFLOW-200-001",
+      "materiality": "Required reflow lost material patient information and interaction affordances.",
+      "promotion_impact": "CLOSED",
+      "required_evidence": "Finding-linked CSS repair plus a clean 195x844 Chromium capture with page scale factor 2 and full values.",
+      "severity": "HIGH",
+      "source": "Initial independent visual review"
+    },
+    {
+      "closure_evidence": [
+        "browser-018/idempotency-payload-binding-runtime.json",
+        "browser-018/idempotent-retry-runtime.json",
+        "frontend-real-005/invocation-receipt.json"
+      ],
+      "closure_status": "CLOSED_BY_HOST_REPAIR_AND_BROWSER_RUNTIME",
+      "description": "A retained idempotency key could be reused after the draft changed, while the fixture did not bind the key to a canonical payload.",
+      "finding_id": "P8.1-FINDING-H-IDEMPOTENCY-PAYLOAD-001",
+      "materiality": "A changed intake could receive the earlier record, violating idempotency semantics.",
+      "promotion_impact": "CLOSED",
+      "required_evidence": "Client payload-bound key retention, server payload binding and 409 conflict behavior, plus browser receipts for same and changed drafts.",
+      "severity": "HIGH",
+      "source": "Initial independent frontend review"
+    },
+    {
+      "closure_evidence": [
+        "browser-018/url-complete-runtime.json",
+        "browser-018/url-invalid-runtime.json",
+        "url-state-runtime-report.md"
+      ],
+      "closure_status": "CLOSED_BY_BROWSER_RUNTIME",
+      "description": "URL filter initialization, refresh, history and invalid state lacked current runtime proof.",
+      "finding_id": "P8.1-FINDING-M-URL-STATE-001",
+      "materiality": "State could diverge from navigable URL behavior.",
+      "promotion_impact": "CLOSED",
+      "required_evidence": "Real Chromium URL initialization, reload, pushState/popstate and invalid-state normalization.",
+      "severity": "MEDIUM",
+      "source": "Phase 8 runtime gap"
+    },
+    {
+      "closure_evidence": [
+        "browser-018/stale-response-runtime.json",
+        "stale-response-runtime-report.md"
+      ],
+      "closure_status": "CLOSED_BY_BROWSER_RUNTIME",
+      "description": "The request-number guard lacked an overlapping-response browser test.",
+      "finding_id": "P8.1-FINDING-M-STALE-RESPONSE-001",
+      "materiality": "Older data could overwrite the current queue.",
+      "promotion_impact": "CLOSED",
+      "required_evidence": "Delayed request A, fast request B, B visible after A completes.",
+      "severity": "MEDIUM",
+      "source": "Phase 8 runtime gap"
+    },
+    {
+      "closure_evidence": [
+        "browser-018/focus-keyboard-runtime.json",
+        "browser-018/keyboard-submit-runtime.json",
+        "browser-018/queue-recovery-runtime.json",
+        "keyboard-runtime-report.md"
+      ],
+      "closure_status": "CLOSED_BY_BROWSER_RUNTIME",
+      "description": "Keyboard order, error focus, retry focus and visible focus lacked current runtime proof.",
+      "finding_id": "P8.1-FINDING-M-KEYBOARD-FOCUS-001",
+      "materiality": "Static semantics cannot establish operable keyboard behavior.",
+      "promotion_impact": "CLOSED",
+      "required_evidence": "Real focus traversal, Enter submission, error/retry focus and focus-style observations.",
+      "severity": "MEDIUM",
+      "source": "Phase 8 runtime gap"
+    },
+    {
+      "closure_evidence": [
+        "browser-018/queue-error-runtime.json",
+        "browser-018/queue-recovery-runtime.json",
+        "frontend-real-005/invocation-receipt.json"
+      ],
+      "closure_status": "CLOSED_BY_HOST_REPAIR_AND_BROWSER_RUNTIME",
+      "description": "Raw fetch failures could be exposed directly as user-visible product copy.",
+      "finding_id": "P8.1-FINDING-M-RAW-ERROR-COPY-001",
+      "materiality": "Implementation details could leak and error messaging was not stable or actionable.",
+      "promotion_impact": "CLOSED",
+      "required_evidence": "Bounded user-facing copy and runtime error/recovery observations.",
+      "severity": "MEDIUM",
+      "source": "Initial independent frontend review"
     }
   ],
-  "counts": {
-    "classified_critical": 0,
-    "classified_high": 1,
-    "open_actionable_high": 0,
-    "promotion_blocking_high": 0,
-    "classified_medium": 3,
-    "open_actionable_medium": 0,
-    "promotion_blocking_medium": 0,
-    "closed_actionable_high": 1,
-    "closed_actionable_medium": 3,
-    "classified_low": 0
-  },
-  "promotion_rule": "Do not promote while any promotion_blocking finding is OPEN; a waiver is not a PASS.",
-  "updated_at": "2026-08-31T16:55:30-03:00"
+  "schema_version": "P8.1-FINDINGS-2",
+  "status": "CURRENT_CLOSURE_CANDIDATE",
+  "task_id": "PHASE8.1-001",
+  "updated_at": "2026-09-03T04:06:23.849138+00:00"
 }

@@ -1,0 +1,104 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "bodyWidth": 1024,
+  "capture_id": "P81-BROWSER-015",
+  "captured_at_ns": 1788405251331412949,
+  "console": [],
+  "critical": [
+    {
+      "clipped": false,
+      "height": 44,
+      "id": "refresh-queue",
+      "width": 44
+    },
+    {
+      "clipped": false,
+      "height": 42,
+      "id": "patient",
+      "width": 250.953125
+    },
+    {
+      "clipped": false,
+      "height": 42,
+      "id": "species",
+      "width": 120.46875
+    },
+    {
+      "clipped": false,
+      "height": 42,
+      "id": "urgency",
+      "width": 120.484375
+    },
+    {
+      "clipped": false,
+      "height": 80,
+      "id": "notes",
+      "width": 250.953125
+    },
+    {
+      "clipped": false,
+      "height": 44,
+      "id": "submit-intake",
+      "width": 163.953125
+    }
+  ],
+  "ctaBox": {
+    "bottom": -132.15625,
+    "height": 50,
+    "left": 829.390625,
+    "right": 983.046875,
+    "top": -182.15625,
+    "width": 153.65625,
+    "x": 829.390625,
+    "y": -182.15625
+  },
+  "ctaPresent": true,
+  "documentWidth": 1024,
+  "focusOutline": "rgb(29, 111, 117) solid 3px",
+  "focused": "submit-intake",
+  "labels": [
+    {
+      "height": 16.5,
+      "text": "Patient name *",
+      "width": 250.953125
+    },
+    {
+      "height": 16.5,
+      "text": "Species *",
+      "width": 120.46875
+    },
+    {
+      "height": 16.5,
+      "text": "Urgency *",
+      "width": 120.484375
+    },
+    {
+      "height": 16.5,
+      "text": "What changed?",
+      "width": 250.953125
+    }
+  ],
+  "marker": "P81-COMPOSE-013",
+  "navigationUsable": false,
+  "overflowX": false,
+  "pageScaleFactor": null,
+  "panelOverlap": false,
+  "run_id": "P81-COMPOSE-013",
+  "stateVisible": true,
+  "submitBox": {
+    "bottom": 535.828125,
+    "height": 44,
+    "left": 707.09375,
+    "right": 871.046875,
+    "top": 491.828125,
+    "width": 163.953125,
+    "x": 707.09375,
+    "y": 491.828125
+  },
+  "submitPresent": true,
+  "url": "http://127.0.0.1:4193/?scenario=default&urgency=urgent",
+  "viewport": {
+    "height": 768,
+    "width": 1024
+  }
+}

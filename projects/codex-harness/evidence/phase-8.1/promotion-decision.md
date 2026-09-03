@@ -1,8 +1,5 @@
 # Promotion Decision
 
-Decision: `PROMOTE_TO_VERIFIED_CANDIDATE_WITH_LIMITATIONS`
+Decision: `PROMOTE_TO_VERIFIED_CANDIDATE_WITH_LIMITATIONS`.
 
-Quality bar: `P8_LEVEL_B`
-Review status: `PASS`
-
-The candidate may be treated as a bounded verified evidence packet only within the stated synthetic fixture, exact artifact, Chromium and host-protocol limitations. This decision is not production readiness, release approval, security approval, universal accessibility, cross-browser certification or full host skill-load causality.
+The exact candidate is promoted to `VERIFIED_CANDIDATE_WITH_LIMITATIONS` under manifest `sha256:e6ad5c911e067617aeead815fd439ca4035c1fc858d8c4b43a3c50cc9c20f34a`. Literal host Skill-load remains unobservable, browser evidence is Chromium-only, accessibility is not certified, scanners remain environment-limited under the expiring waiver, and the synthetic fixture is not a production/release/security approval.

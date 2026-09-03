@@ -1,25 +1,7 @@
 # Host Composition Interpretation
 
-The fresh probe confirms a usable, supported Codex app-server boundary:
-`initialize`, `skills/list` and experimental `thread/start` are documented and
-responded successfully under a read-only ephemeral session. The generated
-current schema also documents `turn/start`, `skills/changed` and the
-`workspace-write` sandbox enum.
+The official current host supports the path needed for this bounded pilot: `thread/start` with workspace-write, typed Skill input on `turn/start`, dynamic host-tool events, a read-only verifier sandbox, stable thread/turn IDs, and final results. Run `P81-COMPOSE-013` used those public surfaces.
 
-The fresh controlled-real handshakes complete with exact frontend and verifier
-fingerprints, but they do not provide the missing causal link. The public
-protocol does not list a `skill/loaded` or `skill/load/completed` notification,
-and the host's `skills/list` response does not directly expose the project-local
-`.harness/capabilities` package. Phase 8.1 stages exact copies into
-`.agents/skills` and records the host response as limited transport evidence;
-discovery, thread creation, transport success and a model response are not
-equivalent to an observable load event or artifact causality.
+The host did not emit a distinct Skill-loaded event, so `HOST_SKILL_LOAD_OBSERVED` and `FULL_HOST_CAUSALITY` remain excluded. Alternative causality is supported by the exact frontend fingerprint and authorization, typed Skill input, raw path-bearing `harness_write_file` events, an independently measured four-file delta, identical source/build/artifact/browser digest `sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a`, strictly ordered browser and verifier receipts, neutral read-only evidence inspection, and zero manual, alternate, global, or installed-pattern mutation.
 
-Accordingly, full official host composition remains unproven. The packet's
-alternative proof is the post-handshake composition bridge: it validates the
-host receipt and exact package identity, creates only a byte-identical copy of
-the already-built artifact, rechecks source/artifact digests and changed paths,
-then serves that copy to the browser. The bridge reports zero capability/global
-mutation and no external/manual producer. It is eligible only as a limited,
-independently-reviewed harness causal chain; it is not full host causality and
-does not prove production or release readiness.
+That evidence is sufficient for candidate promotion with limitations if independent exact-packet review accepts it; it is not sufficient for production, release, or universal-host claims.

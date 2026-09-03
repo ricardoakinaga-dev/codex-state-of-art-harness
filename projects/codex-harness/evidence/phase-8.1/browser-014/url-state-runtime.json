@@ -1,0 +1,27 @@
+{
+  "artifact_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+  "backed": {
+    "search": "?urgency=critical",
+    "selected": "critical"
+  },
+  "capture_id": "P81-BROWSER-014",
+  "captured_at_ns": 1788402810095393556,
+  "console": [],
+  "initialized": {
+    "patients": [
+      "Miso"
+    ],
+    "search": "?urgency=critical",
+    "selected": "critical"
+  },
+  "refreshed": {
+    "search": "?urgency=critical",
+    "selected": "critical"
+  },
+  "run_id": "P81-COMPOSE-012",
+  "urgent": {
+    "search": "?urgency=urgent",
+    "selected": "urgent"
+  },
+  "url": "http://127.0.0.1:4192/?urgency=critical"
+}

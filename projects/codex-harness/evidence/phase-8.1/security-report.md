@@ -1,10 +1,5 @@
 # Security Report
 
-Status: `BOUNDED_PASS_WITH_LIMITATIONS`
+Status: `BOUNDED_PASS_WITH_LIMITATIONS`.
 
-- Phase 8.1 scoped secret-pattern scan: no credential-shaped match in the new fixture, packet or Phase 8.1 scripts/tests.
-- Repository-wide scan: two pre-existing redacted/example `Authorization: Bearer` lines remain under `references/skill-audit/data/provenance-evidence/raw/`; no credential was added by this task.
-- The fixture uses synthetic data, loopback-only HTTP and no external service or credential.
-- Input validation and server-side 422 behavior are recorded in `browser/server-validation.json`.
-
-This is a bounded engineering check, not a security approval, penetration test or release authorization.
+Fresh artifact search found no `eval`, `new Function`, HTML injection sink, client secret/token storage, authorization header, open redirect assignment, or external target pattern. Dynamic content is constructed with `createElement`/`textContent`; URL filter values are allowlisted; the server confines static paths, bounds bodies to 64 KiB, validates species/urgency, requires idempotency keys, binds only `127.0.0.1`, and has no external dependency. This is not `SECURITY_APPROVED`.

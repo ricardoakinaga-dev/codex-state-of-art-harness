@@ -1,0 +1,54 @@
+{
+  "artifact_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+  "capture_id": "P81-BROWSER-014",
+  "captured_at_ns": 1788402808821428032,
+  "console": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "type": "error"
+    }
+  ],
+  "focused": "refresh-queue",
+  "queueState": "4 active cases · sorted by arrival",
+  "run_id": "P81-COMPOSE-012",
+  "state": {
+    "error": "",
+    "feedback": "",
+    "feedbackTone": "",
+    "items": [
+      {
+        "detail": "Breathing concern",
+        "patient": "Miso",
+        "species": "Cat",
+        "urgency": "critical",
+        "waiting": "08 min"
+      },
+      {
+        "detail": "Acute pain",
+        "patient": "Juniper",
+        "species": "Dog",
+        "urgency": "urgent",
+        "waiting": "14 min"
+      },
+      {
+        "detail": "Not eating",
+        "patient": "Otis",
+        "species": "Rabbit",
+        "urgency": "soon",
+        "waiting": "21 min"
+      },
+      {
+        "detail": "Wing check",
+        "patient": "Pip",
+        "species": "Bird",
+        "urgency": "routine",
+        "waiting": "29 min"
+      }
+    ],
+    "phase": "success",
+    "requestNumber": 0,
+    "selectedUrgency": "all",
+    "submitting": false
+  },
+  "url": "http://127.0.0.1:4192/?scenario=error"
+}

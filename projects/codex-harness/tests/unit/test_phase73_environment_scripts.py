@@ -8,6 +8,8 @@ from pathlib import Path
 
 import pytest
 
+from harness_kernel.phase4_host import _resolve_host_binding
+
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 SCRIPT_ROOT = PROJECT_ROOT / "scripts"
 if str(SCRIPT_ROOT) not in sys.path:
@@ -44,14 +46,10 @@ def test_cycle_status_distinguishes_failure_and_environment_blocking() -> None:
 
 
 def test_host_capture_records_explicit_pins(monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setenv(
-        "CODEX_EXECUTABLE",
-        "/home/ricardo/.nvm/versions/node/v22.22.2/bin/codex",
-    )
-    monkeypatch.setenv(
-        "NODE_EXECUTABLE",
-        "/home/ricardo/.nvm/versions/node/v22.22.2/bin/node",
-    )
+    binding = _resolve_host_binding()
+    monkeypatch.setenv("CODEX_EXECUTABLE", binding[1])
+    assert binding[4] is not None
+    monkeypatch.setenv("NODE_EXECUTABLE", binding[4])
 
     manifest = capture_host()
 

@@ -57,14 +57,19 @@ def emit(project_root: Path) -> dict[str, object]:
     build_root = pilot / "build/final"
     source_root = pilot / "app"
     source_files = tuple(
-        source_root / name
-        for name in ("index.html", "styles.css", "app.js", "fixture_server.py")
+        source_root / name for name in ("index.html", "styles.css", "app.js", "fixture_server.py")
     )
-    source_tree_digest = "sha256:" + hashlib.sha256(
-        ("\n".join(
-            f"{path.name}\t{_digest(path)}\t{path.stat().st_size}" for path in source_files
-        ) + "\n").encode()
-    ).hexdigest()
+    source_tree_digest = (
+        "sha256:"
+        + hashlib.sha256(
+            (
+                "\n".join(
+                    f"{path.name}\t{_digest(path)}\t{path.stat().st_size}" for path in source_files
+                )
+                + "\n"
+            ).encode()
+        ).hexdigest()
+    )
     build_mtime_ns = max(path.stat().st_mtime_ns for path in build_root.iterdir() if path.is_file())
     performance_path = pilot / "browser-final-performance-and-dom.json"
     performance = (
@@ -142,9 +147,7 @@ def emit(project_root: Path) -> dict[str, object]:
         "render_records": render_records,
         "state_captures": states,
         "observed_default_console_errors": 0,
-        "observed_default_dynamic_requests": [
-            "GET /api/queue?scenario=default -> 200"
-        ],
+        "observed_default_dynamic_requests": ["GET /api/queue?scenario=default -> 200"],
         "capture_binding": {
             "capture_id": capture_id,
             "source_tree_digest": source_tree_digest,

@@ -1,0 +1,113 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "capture_id": "P81-BROWSER-016",
+  "captured_at_ns": 1788405287513876152,
+  "console": [
+    {
+      "text": "Failed to load resource: net::ERR_FAILED",
+      "type": "error"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+      "type": "error"
+    }
+  ],
+  "forcedConflict": {
+    "body": {
+      "message": "This idempotency key is already bound to a different intake payload.",
+      "status": "error"
+    },
+    "status": 409
+  },
+  "receiptsAfter": {
+    "attempt_receipts": [
+      {
+        "idempotency_key": "07b88098-dee9-41ff-a467-7b92edd90d1a",
+        "outcome": "created",
+        "payload_digest": "sha256:82a2c894563f1b69ff7399e87fdd023cdfd08a4102d6196d918b271efb01f494"
+      },
+      {
+        "idempotency_key": "43efb4dc-e4fd-4eb0-84cb-8eb52e29cf8c",
+        "outcome": "created",
+        "payload_digest": "sha256:755421524909a96a12218a091bd3f35a99f77329982391a8875355d2d396ab22"
+      },
+      {
+        "idempotency_key": "43efb4dc-e4fd-4eb0-84cb-8eb52e29cf8c",
+        "outcome": "duplicate",
+        "payload_digest": "sha256:755421524909a96a12218a091bd3f35a99f77329982391a8875355d2d396ab22"
+      },
+      {
+        "idempotency_key": "2cddbbab-1b58-4d71-96d2-ebbcc4c08c37",
+        "outcome": "created",
+        "payload_digest": "sha256:3f27f9602a27186afdeb5de18599d64ead5a0a72e8a9628966b7c25ff5b53fff"
+      },
+      {
+        "idempotency_key": "1965eea9-b5f8-42bc-95d2-efe71df86500",
+        "outcome": "created",
+        "payload_digest": "sha256:f1fc60c03c6c4da78a1bcc20ae7f1d00e0b01a354f64b054510c88e068a4e9d2"
+      },
+      {
+        "idempotency_key": "2cddbbab-1b58-4d71-96d2-ebbcc4c08c37",
+        "outcome": "conflict",
+        "payload_digest": "sha256:2a45d0c85e37a96a9a8b23bfee4cbce1f08cfe2aa2588729b2f5f1a570172c04"
+      }
+    ],
+    "status": "success",
+    "stored_creation_count": 4
+  },
+  "receiptsBefore": {
+    "attempt_receipts": [
+      {
+        "idempotency_key": "07b88098-dee9-41ff-a467-7b92edd90d1a",
+        "outcome": "created",
+        "payload_digest": "sha256:82a2c894563f1b69ff7399e87fdd023cdfd08a4102d6196d918b271efb01f494"
+      },
+      {
+        "idempotency_key": "43efb4dc-e4fd-4eb0-84cb-8eb52e29cf8c",
+        "outcome": "created",
+        "payload_digest": "sha256:755421524909a96a12218a091bd3f35a99f77329982391a8875355d2d396ab22"
+      },
+      {
+        "idempotency_key": "43efb4dc-e4fd-4eb0-84cb-8eb52e29cf8c",
+        "outcome": "duplicate",
+        "payload_digest": "sha256:755421524909a96a12218a091bd3f35a99f77329982391a8875355d2d396ab22"
+      }
+    ],
+    "status": "success",
+    "stored_creation_count": 2
+  },
+  "requests": [
+    {
+      "key": "2cddbbab-1b58-4d71-96d2-ebbcc4c08c37",
+      "request": {
+        "notes": "",
+        "patient": "Before edit",
+        "species": "dog",
+        "urgency": "urgent"
+      },
+      "response": {
+        "intake_id": "INT-D13E19062D",
+        "status": "accepted",
+        "triage": "queued"
+      },
+      "status": 201
+    },
+    {
+      "key": "1965eea9-b5f8-42bc-95d2-efe71df86500",
+      "request": {
+        "notes": "",
+        "patient": "After edit",
+        "species": "dog",
+        "urgency": "urgent"
+      },
+      "response": {
+        "intake_id": "INT-292AD94037",
+        "status": "accepted",
+        "triage": "queued"
+      },
+      "status": 201
+    }
+  ],
+  "run_id": "P81-COMPOSE-013",
+  "url": "http://127.0.0.1:4194/"
+}

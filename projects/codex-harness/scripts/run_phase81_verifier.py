@@ -27,9 +27,7 @@ VERIFIER_FINGERPRINT = "sha256:dc380396cdc489976b5d120a964321032907f0101431786cd
 COMPOSITION_RUN = "P81-COMPOSE-011"
 COMPOSED_ARTIFACT_DIGEST = "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044"
 BASE_URL = "http://127.0.0.1:4188/"
-FRONTEND_HOST_RECEIPT = (
-    "frontend-real-003/invocation-receipts/INV-b1154ffe58ce5c6d9ba8d3c4.json"
-)
+FRONTEND_HOST_RECEIPT = "frontend-real-003/invocation-receipts/INV-b1154ffe58ce5c6d9ba8d3c4.json"
 VERIFIER_HOST_RECEIPT = "verifier-real-003/invocation-receipts/INV-d74d1ef5d64b573689764a86.json"
 COMPOSITION_RECEIPT = "composition-run-011/composition-receipt.json"
 CANONICAL_COMPOSITION_RECEIPT = "composition-receipt.json"
@@ -730,7 +728,6 @@ def main() -> int:
             )
         ).hexdigest()
     )
-    build_root_ref = normalize_evidence_ref(composition_receipt["source"]["root"])
     COMPOSITION_ARTIFACT_ROOT = normalize_evidence_ref(
         composition_receipt["composed_artifact"]["root"]
     )
@@ -1099,13 +1096,11 @@ def main() -> int:
         path
         for path in BROWSER_ROOT.iterdir()
         if path.is_file()
-        and path.name not in {"browser-evidence.json", "server-process.json", "server-process-011.json"}
+        and path.name
+        not in {"browser-evidence.json", "server-process.json", "server-process-011.json"}
         and not path.name.startswith("_")
     ]
-    browser_capture_timestamps = {
-        path: capture_timestamp(path) for path in browser_capture_paths
-    }
-    browser_capture_ns = max(browser_capture_timestamps.values())
+    browser_capture_timestamps = {path: capture_timestamp(path) for path in browser_capture_paths}
     browser_batch_before_restart_ns = max(
         timestamp
         for path, timestamp in browser_capture_timestamps.items()

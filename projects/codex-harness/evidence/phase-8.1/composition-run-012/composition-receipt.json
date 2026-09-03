@@ -1,0 +1,46 @@
+{
+  "alternate_producer_detected": false,
+  "artifact_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+  "authorization_id": "AUTH-fcac2b2562f651bf918e95e8",
+  "browser_evidence_digest": "sha256:2feb6beeb4056b60f68be46f2c1b9703640caa355c08a92fbef5328904776f5a",
+  "build_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+  "causality_class": "ALTERNATIVE_OBSERVABLE_CAUSALITY",
+  "changed_files": [
+    "app/index.html"
+  ],
+  "composition_artifact_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+  "frontend_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+  "frontend_invocation_id": "INV-2e7f31a26d1f5b9898c2ea28",
+  "global_mutations": 0,
+  "host_load_observability": "HOST_LOAD_UNOBSERVABLE",
+  "host_workspace_mutation_observed": true,
+  "host_write_event": {
+    "path": "app/index.html",
+    "sequence": 107,
+    "tool": "harness_write_file"
+  },
+  "installed_frontend_patterns_mutations": 0,
+  "limitations": [
+    "HOST_LOAD_UNOBSERVABLE: the public App Server emits no separate Skill-loaded event.",
+    "Runtime evidence is Chromium-only and is not a cross-browser claim.",
+    "The accessibility baseline is not assistive-technology or WCAG certification.",
+    "Third-party vulnerability scanners are unavailable under an expiring waiver through 2026-09-30.",
+    "The synthetic loopback fixture is not production, release or security approval."
+  ],
+  "manual_mutation_detected": false,
+  "reason": "Exact typed frontend Skill input, bounded host write, one-file workspace delta, identical source/build/artifact/server/browser identities, fresh typed verifier turn, strict ordering, and zero conflicting mutation establish the strongest supported public-host causal chain.",
+  "run_id": "P81-COMPOSE-012",
+  "schema_version": "P8.1-COMPOSITION-RECEIPT-3",
+  "source_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+  "status": "PROVEN_WITH_OBSERVABLE_ALTERNATIVE_CAUSALITY",
+  "task_id": "PHASE8.1-001",
+  "timeline": "composition-timeline.json",
+  "typed_skill_input_observed": true,
+  "verification_digest": "sha256:a2b89844c2b84d1fdc6c1e8686968d88412c3e34e268ff946db79d09af2a8834",
+  "verifier_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+  "verifier_invocation_id": "INV-88011e2293d0588ba04296d5",
+  "verifier_receipt_digest": "sha256:5deac01d1e324eb0aa32a58d35580e89fe47a5634ba286f7c06f8c4dd32c4e72",
+  "workspace_post_digest": "sha256:e302487c54e967bee3b7ae8f823da378a87cf16a65e5482fea91a74cc04f8e78",
+  "workspace_pre_digest": "sha256:634ff4c035c1c5a0e35fd8defaf03971b287ed573257786d4a53be986de99f24",
+  "workspace_ref": "frontend-real-004/workspace-post/app"
+}

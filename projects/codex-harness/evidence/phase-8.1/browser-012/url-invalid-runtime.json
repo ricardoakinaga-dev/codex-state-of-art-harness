@@ -1,0 +1,10 @@
+{
+  "artifact_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+  "capture_id": "P81-BROWSER-012",
+  "captured_at_ns": 1788402655816557502,
+  "console": [],
+  "run_id": "P81-COMPOSE-012",
+  "search": "",
+  "selected": "all",
+  "url": "http://127.0.0.1:4192/"
+}

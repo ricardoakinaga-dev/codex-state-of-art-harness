@@ -1,0 +1,23 @@
+{
+  "schema_version": "P8.1-ARTIFACT-DIGEST-RECONCILIATION-1",
+  "task_id": "PHASE8.1-001",
+  "run_id": "P81-COMPOSE-012",
+  "status": "RECONCILED",
+  "legacy_digest": "sha256:7425585befd80c34dbe92d32c7e7c381fb156d78d0e11f3b3eb239660a38fa14",
+  "legacy_algorithm": "sha256(canonical-json({relative_path:{bytes,sha256}}))",
+  "canonical_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+  "canonical_algorithm": "sha256(join-newline(relative_path:sha256:file_digest) in fixture SOURCE_FILES order)",
+  "canonical_source_files": [
+    "index.html",
+    "styles.css",
+    "app.js",
+    "fixture_server.py"
+  ],
+  "reason": "The real-run producer initially used a different deterministic tree formula from the fixture server. The underlying file map did not change. The canonical formula is now the same one emitted by the served X-Phase81-Artifact-Digest header and used by prior Phase 8.1 artifacts.",
+  "underlying_bytes_changed": false,
+  "affected_receipts": [
+    "frontend-real-004/invocation-receipt.json",
+    "frontend-real-004/build-receipt.json",
+    "composition-run-012/composition-receipt.json"
+  ]
+}

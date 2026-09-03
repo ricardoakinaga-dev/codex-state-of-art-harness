@@ -1,7 +1,3 @@
-# Keyboard runtime
+# Keyboard Runtime Report
 
-Status: `PASS_WITH_LIMITATIONS`
-
-The current composed page reaches the submit action by keyboard and submits successfully; invalid focus and visible-focus receipts are also present.
-
-Primary packet references: `browser-evidence.json`, `runtime-eval-traceability.json`, `composition-proof.json`.
+Status: `PASS`. Focus traversed patient → species → urgency → notes → submit; focus outlines were visible; Enter submitted; invalid submit focused patient; keyboard retry recovered and focused refresh.

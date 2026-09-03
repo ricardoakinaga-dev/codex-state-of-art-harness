@@ -20,6 +20,7 @@ from harness_kernel.phase4_models import (
 )
 from harness_kernel.phase7_backend import package_fingerprint
 from harness_kernel.phase7_host import (
+    HOST_HASH_FILE_TOOL,
     HOST_LIST_FILES_TOOL,
     HOST_READ_FILE_TOOL,
     HOST_RUN_TESTS_TOOL,
@@ -423,6 +424,7 @@ def test_bounded_builder_tools_expose_only_host_owned_operations(tmp_path: Path)
     assert [item["name"] for item in tools.specs()] == [
         HOST_LIST_FILES_TOOL,
         HOST_READ_FILE_TOOL,
+        HOST_HASH_FILE_TOOL,
         HOST_WRITE_FILE_TOOL,
         HOST_RUN_TESTS_TOOL,
     ]
@@ -430,6 +432,14 @@ def test_bounded_builder_tools_expose_only_host_owned_operations(tmp_path: Path)
     assert read.success is True
     assert read.payload["path"] == "app/existing.py"
     assert read.payload["content"] == "answer = 41\n"
+    assert (
+        read.payload["sha256"]
+        == "sha256:37c34e9349b1c8fbf58d311b2b9c16b5dd2eca0112a22c691c9ac91551281bfa"
+    )
+
+    hashed = tools.dispatch(HOST_HASH_FILE_TOOL, {"path": "app/existing.py"})
+    assert hashed.success is True
+    assert hashed.payload["sha256"] == read.payload["sha256"]
 
     write = tools.dispatch(
         HOST_WRITE_FILE_TOOL,

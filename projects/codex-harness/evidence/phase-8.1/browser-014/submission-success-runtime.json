@@ -1,0 +1,54 @@
+{
+  "artifact_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+  "capture_id": "P81-BROWSER-014",
+  "captured_at_ns": 1788402809521134522,
+  "console": [],
+  "focused": "patient",
+  "run_id": "P81-COMPOSE-012",
+  "state": {
+    "error": "",
+    "feedback": "Intake accepted for triage. Reference INT-5890BCCDB4.",
+    "feedbackTone": "success",
+    "items": [
+      {
+        "detail": "Breathing concern",
+        "patient": "Miso",
+        "species": "Cat",
+        "urgency": "critical",
+        "waiting": "08 min"
+      },
+      {
+        "detail": "Acute pain",
+        "patient": "Juniper",
+        "species": "Dog",
+        "urgency": "urgent",
+        "waiting": "14 min"
+      },
+      {
+        "detail": "Not eating",
+        "patient": "Otis",
+        "species": "Rabbit",
+        "urgency": "soon",
+        "waiting": "21 min"
+      },
+      {
+        "detail": "Wing check",
+        "patient": "Pip",
+        "species": "Bird",
+        "urgency": "routine",
+        "waiting": "29 min"
+      }
+    ],
+    "phase": "success",
+    "requestNumber": 1,
+    "selectedUrgency": "all",
+    "submitting": false
+  },
+  "url": "http://127.0.0.1:4192/?scenario=submit-loading",
+  "values": {
+    "notes": "",
+    "patient": "",
+    "species": "",
+    "urgency": ""
+  }
+}

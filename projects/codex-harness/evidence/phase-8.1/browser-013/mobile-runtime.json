@@ -1,0 +1,40 @@
+{
+  "artifact_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+  "bodyWidth": 390,
+  "capture_id": "P81-BROWSER-013",
+  "captured_at_ns": 1788402691865973825,
+  "console": [],
+  "ctaBox": {
+    "bottom": -1030.640625,
+    "height": 50,
+    "left": 16,
+    "right": 374,
+    "top": -1080.640625,
+    "width": 358,
+    "x": 16,
+    "y": -1080.640625
+  },
+  "ctaPresent": true,
+  "documentWidth": 390,
+  "focusOutline": "rgb(29, 111, 117) solid 3px",
+  "focused": "submit-intake",
+  "marker": "P81-COMPOSE-012",
+  "overflowX": false,
+  "run_id": "P81-COMPOSE-012",
+  "submitBox": {
+    "bottom": 581.140625,
+    "height": 44,
+    "left": 33,
+    "right": 357,
+    "top": 537.140625,
+    "width": 324,
+    "x": 33,
+    "y": 537.140625
+  },
+  "submitPresent": true,
+  "url": "http://127.0.0.1:4192/?scenario=default&urgency=critical",
+  "viewport": {
+    "height": 844,
+    "width": 390
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "capture_id": "P81-BROWSER-018",
+  "captured_at_ns": 1788405417265399915,
+  "console": [],
+  "links": [
+    {
+      "href": "data:image/svg+xml,%3Csvg xmlns=%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%231f2a2b%22%2F%3E%3Cpath d=%22M16 6v20M6 16h20%22 stroke=%22%23d9f0e4%22 stroke-width=%223%22 stroke-linecap=%22round%22%2F%3E%3C%2Fsvg%3E",
+      "rel": "icon"
+    },
+    {
+      "href": "http://127.0.0.1:4196/styles.css",
+      "rel": "stylesheet"
+    }
+  ],
+  "mediaElements": [],
+  "requests": [
+    {
+      "method": "GET",
+      "resourceType": "document",
+      "url": "http://127.0.0.1:4196/"
+    },
+    {
+      "method": "GET",
+      "resourceType": "stylesheet",
+      "url": "http://127.0.0.1:4196/styles.css"
+    },
+    {
+      "method": "GET",
+      "resourceType": "script",
+      "url": "http://127.0.0.1:4196/app.js"
+    },
+    {
+      "method": "GET",
+      "resourceType": "fetch",
+      "url": "http://127.0.0.1:4196/api/queue?scenario=default"
+    }
+  ],
+  "resources": [
+    {
+      "decodedBodySize": 21664,
+      "initiatorType": "link",
+      "name": "http://127.0.0.1:4196/styles.css",
+      "transferSize": 21964
+    },
+    {
+      "decodedBodySize": 15659,
+      "initiatorType": "script",
+      "name": "http://127.0.0.1:4196/app.js",
+      "transferSize": 15959
+    },
+    {
+      "decodedBodySize": 466,
+      "initiatorType": "fetch",
+      "name": "http://127.0.0.1:4196/api/queue?scenario=default",
+      "transferSize": 766
+    }
+  ],
+  "run_id": "P81-COMPOSE-013",
+  "scripts": [
+    "http://127.0.0.1:4196/app.js"
+  ],
+  "sourceFiles": [
+    {
+      "bytes": 11452,
+      "name": "index.html"
+    },
+    {
+      "bytes": 21664,
+      "name": "styles.css"
+    },
+    {
+      "bytes": 15659,
+      "name": "app.js"
+    },
+    {
+      "bytes": 11349,
+      "name": "fixture_server.py"
+    }
+  ],
+  "url": "http://127.0.0.1:4196/"
+}

@@ -58,9 +58,7 @@ def test_fixture_idempotency_reservation_is_atomic() -> None:
 
     with ThreadPoolExecutor(max_workers=8) as executor:
         results = list(
-            executor.map(
-                lambda _: server.reserve_submission(payload, "stable-retry-key"), range(8)
-            )
+            executor.map(lambda _: server.reserve_submission(payload, "stable-retry-key"), range(8))
         )
 
     assert sum(created for _, created in results) == 1
@@ -87,12 +85,10 @@ def test_pilot_binds_retry_idempotency_and_server_errors_to_controls() -> None:
         'required aria-required="true"'
     ) in html
     assert (
-        'id="species" name="species" aria-describedby="species-error" '
-        'required aria-required="true"'
+        'id="species" name="species" aria-describedby="species-error" required aria-required="true"'
     ) in html
     assert (
-        'id="urgency" name="urgency" aria-describedby="urgency-error" '
-        'required aria-required="true"'
+        'id="urgency" name="urgency" aria-describedby="urgency-error" required aria-required="true"'
     ) in html
     assert 'id="notes-error" role="alert"' in html
     assert 'aria-describedby="notes-hint notes-error"' in html
@@ -112,9 +108,7 @@ def test_benchmark_declares_required_viewports_and_states() -> None:
         (
             PROJECT_ROOT
             / ".harness/capabilities/frontend-engineering-vnext/benchmarks/benchmark-fixtures.json"
-        ).read_text(
-            encoding="utf-8"
-        )
+        ).read_text(encoding="utf-8")
     )
     viewports = {(item["width"], item["height"]) for item in benchmark["viewports"]}
     states = set(benchmark["states"])

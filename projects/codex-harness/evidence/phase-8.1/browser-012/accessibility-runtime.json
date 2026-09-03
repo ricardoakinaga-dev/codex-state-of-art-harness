@@ -1,0 +1,195 @@
+{
+  "artifact_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+  "capture_id": "P81-BROWSER-012",
+  "captured_at_ns": 1788402659885655415,
+  "colors": {
+    "border": "rgb(29, 111, 117)",
+    "surface": "rgb(255, 255, 255)",
+    "text": "rgb(31, 42, 43)"
+  },
+  "console": [],
+  "contrast": {
+    "border": 5.8611922216252035,
+    "text": 14.743767763225499
+  },
+  "controls": [
+    {
+      "height": 50,
+      "id": null,
+      "name": "Start an intake\n↗",
+      "width": 153.65625
+    },
+    {
+      "height": 36,
+      "id": "urgency-filter",
+      "name": "All urgencies\nCritical\nUrgent\nSoon\nRoutine",
+      "width": 134
+    },
+    {
+      "height": 44,
+      "id": "refresh-queue",
+      "name": "Refresh emergency queue",
+      "width": 44
+    },
+    {
+      "height": 44,
+      "id": null,
+      "name": "Review Miso",
+      "width": 51.921875
+    },
+    {
+      "height": 44,
+      "id": null,
+      "name": "Review Juniper",
+      "width": 51.921875
+    },
+    {
+      "height": 44,
+      "id": null,
+      "name": "Review Otis",
+      "width": 51.921875
+    },
+    {
+      "height": 44,
+      "id": null,
+      "name": "Review Pip",
+      "width": 51.921875
+    },
+    {
+      "height": 42,
+      "id": "patient",
+      "name": "",
+      "width": 310.28125
+    },
+    {
+      "height": 42,
+      "id": "species",
+      "name": "Choose one\nDog\nCat\nRabbit\nBird",
+      "width": 150.140625
+    },
+    {
+      "height": 42,
+      "id": "urgency",
+      "name": "Choose one\nCritical\nUrgent\nSoon\nRoutine",
+      "width": 150.140625
+    },
+    {
+      "height": 80,
+      "id": "notes",
+      "name": "",
+      "width": 310.28125
+    },
+    {
+      "height": 44,
+      "id": "submit-intake",
+      "name": "Send to triage →",
+      "width": 223.28125
+    }
+  ],
+  "finalState": {
+    "error": "",
+    "feedback": "Intake accepted for triage. Reference INT-883F012DAA.",
+    "feedbackTone": "success",
+    "items": [
+      {
+        "detail": "Breathing concern",
+        "patient": "Miso",
+        "species": "Cat",
+        "urgency": "critical",
+        "waiting": "08 min"
+      },
+      {
+        "detail": "Acute pain",
+        "patient": "Juniper",
+        "species": "Dog",
+        "urgency": "urgent",
+        "waiting": "14 min"
+      },
+      {
+        "detail": "Not eating",
+        "patient": "Otis",
+        "species": "Rabbit",
+        "urgency": "soon",
+        "waiting": "21 min"
+      },
+      {
+        "detail": "Wing check",
+        "patient": "Pip",
+        "species": "Bird",
+        "urgency": "routine",
+        "waiting": "29 min"
+      }
+    ],
+    "phase": "success",
+    "requestNumber": 1,
+    "selectedUrgency": "all",
+    "submitting": false
+  },
+  "focus": {
+    "patient": "rgb(29, 111, 117) solid 3px",
+    "submit": "rgb(29, 111, 117) solid 3px",
+    "tabOrder": [
+      "patient",
+      "species",
+      "urgency",
+      "notes",
+      "submit-intake"
+    ]
+  },
+  "focused": "patient",
+  "headings": [
+    {
+      "level": "H1",
+      "text": "Make room for the next\nurgent arrival."
+    },
+    {
+      "level": "H2",
+      "text": "Emergency queue"
+    },
+    {
+      "level": "H2",
+      "text": "Start an intake"
+    },
+    {
+      "level": "H2",
+      "text": "A good handoff is a clinical tool."
+    }
+  ],
+  "labels": [
+    {
+      "id": "patient",
+      "label": "Patient name *"
+    },
+    {
+      "id": "species",
+      "label": "Species *"
+    },
+    {
+      "id": "urgency",
+      "label": "Urgency *"
+    },
+    {
+      "id": "notes",
+      "label": "What changed?"
+    },
+    {
+      "id": "urgency-filter",
+      "label": "Filter by urgency\nAll urgencies\nCritical\nUrgent\nSoon\nRoutine"
+    }
+  ],
+  "live": [
+    {
+      "id": "queue-state",
+      "live": "polite",
+      "role": "status"
+    },
+    {
+      "id": "intake-feedback",
+      "live": "polite",
+      "role": "status"
+    }
+  ],
+  "reducedMotionRule": true,
+  "run_id": "P81-COMPOSE-012",
+  "url": "http://127.0.0.1:4192/"
+}

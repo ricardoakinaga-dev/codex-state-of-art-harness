@@ -1,0 +1,50 @@
+{
+  "artifact_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+  "capture_id": "P81-BROWSER-012",
+  "captured_at_ns": 1788402650687005085,
+  "console": [],
+  "disabled": true,
+  "feedback": "Sending a single intake to triage…",
+  "run_id": "P81-COMPOSE-012",
+  "state": {
+    "error": "",
+    "feedback": "Sending a single intake to triage…",
+    "feedbackTone": "",
+    "items": [
+      {
+        "detail": "Breathing concern",
+        "patient": "Miso",
+        "species": "Cat",
+        "urgency": "critical",
+        "waiting": "08 min"
+      },
+      {
+        "detail": "Acute pain",
+        "patient": "Juniper",
+        "species": "Dog",
+        "urgency": "urgent",
+        "waiting": "14 min"
+      },
+      {
+        "detail": "Not eating",
+        "patient": "Otis",
+        "species": "Rabbit",
+        "urgency": "soon",
+        "waiting": "21 min"
+      },
+      {
+        "detail": "Wing check",
+        "patient": "Pip",
+        "species": "Bird",
+        "urgency": "routine",
+        "waiting": "29 min"
+      }
+    ],
+    "phase": "success",
+    "requestNumber": 0,
+    "selectedUrgency": "all",
+    "submitting": true
+  },
+  "text": "Sending to triage…",
+  "url": "http://127.0.0.1:4192/?scenario=submit-loading"
+}

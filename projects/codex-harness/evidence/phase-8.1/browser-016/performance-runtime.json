@@ -1,0 +1,41 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "capture_id": "P81-BROWSER-016",
+  "captured_at_ns": 1788405292593316881,
+  "cls": 0.0019016846707818928,
+  "console": [],
+  "lcp": [
+    {
+      "element": "H1",
+      "size": 102065,
+      "startTime": 72
+    }
+  ],
+  "loadedGeometry": {
+    "height": 526.296875,
+    "width": 696.53125,
+    "x": 301.59375,
+    "y": 565.65625
+  },
+  "navigation": [
+    {
+      "domContentLoaded": 16.799999999813735,
+      "load": 52.59999999962747,
+      "startTime": 0
+    }
+  ],
+  "run_id": "P81-COMPOSE-013",
+  "shifts": [
+    {
+      "hadRecentInput": false,
+      "value": 0.0019016846707818928
+    }
+  ],
+  "skeletonGeometry": {
+    "height": 344.296875,
+    "width": 696.53125,
+    "x": 301.59375,
+    "y": 565.65625
+  },
+  "url": "http://127.0.0.1:4194/?scenario=loading"
+}

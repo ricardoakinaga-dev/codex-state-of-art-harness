@@ -1,0 +1,25 @@
+{
+  "alert": "The queue needs a moment.\nNo case data was changed. Try the local fixture again.\nTry again",
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "capture_id": "P81-BROWSER-018",
+  "captured_at_ns": 1788405407972377809,
+  "console": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+      "type": "error"
+    }
+  ],
+  "retry": "Try again",
+  "run_id": "P81-COMPOSE-013",
+  "state": {
+    "error": "The queue could not be loaded. Try again.",
+    "feedback": "",
+    "feedbackTone": "",
+    "items": [],
+    "phase": "error",
+    "requestNumber": 0,
+    "selectedUrgency": "all",
+    "submitting": false
+  },
+  "url": "http://127.0.0.1:4196/?scenario=error"
+}

@@ -1,0 +1,273 @@
+{
+  "artifact": {
+    "build_kind": "dependency-free exact copy after host mutation",
+    "copied_exactly": true,
+    "digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+    "files": {
+      "app.js": {
+        "bytes": 15492,
+        "sha256": "sha256:93f1e912b52d371d778f52a0b178716f56705d933ab5b35589d45c7bce6587ef"
+      },
+      "fixture_server.py": {
+        "bytes": 9653,
+        "sha256": "sha256:10861d8f4de5524474b36292106efbe6c131d086c41ecff58e480404e9d8b6d2"
+      },
+      "index.html": {
+        "bytes": 11452,
+        "sha256": "sha256:b155552164302727f006d22d743dce4cd170686f6119ccf7581085e5973ad6a9"
+      },
+      "styles.css": {
+        "bytes": 20964,
+        "sha256": "sha256:8f2c15dfb1fcfc97a707c40a926cf27e1d095162379aa39d189e9c8d10e5bd44"
+      }
+    },
+    "root": "artifact/frontend-run-003"
+  },
+  "authorization": {
+    "allowed_side_effects": [],
+    "allowed_tools": [],
+    "artifact_policy": {
+      "max_bytes": 131072,
+      "max_count": 16,
+      "types": [
+        "HOST_RESPONSE",
+        "FILE"
+      ]
+    },
+    "authorization_id": "AUTH-fcac2b2562f651bf918e95e8",
+    "capability_id": "frontend-engineering-vnext",
+    "capability_version": "0.1.0",
+    "constraints": [
+      "no arbitrary shell",
+      "no scripts",
+      "no network",
+      "no MCP",
+      "no providers",
+      "no credentials",
+      "no subagents"
+    ],
+    "context_budget": {
+      "max_bytes": 64000
+    },
+    "credential_policy": "DENY",
+    "evidence_policy": {
+      "max_count": 64,
+      "max_events": 512
+    },
+    "expires_at": 1788402372,
+    "filesystem_policy": {
+      "allowed_roots": [
+        "$WORKSPACE/app"
+      ],
+      "artifact_root": "$WORKSPACE/.harness/phase4/artifacts",
+      "credentials": "DENY",
+      "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+      "host_interpreter_digest": "sha256:89af8424dd53e560b1933f87ba650d8bf57c83ca5a04600eefb31f416aabbae7",
+      "max_bytes": 16777216,
+      "max_files": 256,
+      "mcp": "DENY",
+      "mode": "WORKSPACE_WRITE",
+      "network": "DENY",
+      "package_path": "$PROJECT/.harness/capabilities/frontend-engineering-vnext",
+      "package_write_allowed": false,
+      "providers": "DENY",
+      "shell": "DENY",
+      "workspace": "$WORKSPACE"
+    },
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_interpreter_digest": "sha256:89af8424dd53e560b1933f87ba650d8bf57c83ca5a04600eefb31f416aabbae7",
+    "issued_at": 1788402192,
+    "issued_by": "phase4-preflight",
+    "iteration_budget": {
+      "host_calls": 1,
+      "repair_iterations": 0,
+      "tool_calls": 0,
+      "verification_iterations": 1
+    },
+    "mcp_policy": "DENY",
+    "network_policy": "DENY",
+    "package_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+    "provider_policy": "DENY",
+    "reason": "P8.1-FINDING-H-HOST-COMPOSITION-001: exact frontend Skill may add only the nonvisual composition marker inside the disposable app root",
+    "requested_execution_mode": "CONTROLLED_REAL",
+    "requested_loading_level": "L2_INSTRUCTION_KERNEL",
+    "run_id": "P81-COMPOSE-012",
+    "scope": "PROJECT",
+    "shell_policy": "DENY",
+    "task_id": "PHASE8.1-001",
+    "timeout_seconds": 180
+  },
+  "authorization_id": "AUTH-fcac2b2562f651bf918e95e8",
+  "capability": "frontend-engineering-vnext",
+  "composition_marker": {
+    "count": 1,
+    "name": "data-phase81-composition",
+    "source_file": "app/index.html",
+    "value": "P81-COMPOSE-012"
+  },
+  "finding_id": "P8.1-FINDING-H-HOST-COMPOSITION-001",
+  "host": {
+    "approval_request_count": 0,
+    "error_code": null,
+    "executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "execution_observed": true,
+    "final_message": "Updated only `app/index.html`: the opening `<body>` now contains exactly one `data-phase81-composition=\"P81-COMPOSE-012\"` attribute. No other files or content were changed.",
+    "interpreter_digest": "sha256:89af8424dd53e560b1933f87ba650d8bf57c83ca5a04600eefb31f416aabbae7",
+    "invocation_observed": true,
+    "load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "mcp_event_count": 0,
+    "protocol_message_count": 170,
+    "session_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+    "status": "SUCCESS",
+    "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+    "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c",
+    "version": "codex-state-of-art-harness/0.152.1 (Linux Mint 22.3.0; x86_64) dumb (codex-state-of-art-harness; 0.1.0)"
+  },
+  "invocation_id": "INV-2e7f31a26d1f5b9898c2ea28",
+  "limitations": [
+    "The public App Server emits no separate skill-loaded event.",
+    "The typed Skill input, bounded write event and exact workspace delta establish alternative observable causality, not FULL_HOST_CAUSALITY."
+  ],
+  "package_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+  "preflight": {
+    "allowed": true,
+    "blockers": [],
+    "digest": "sha256:a1bb3f5517032b7ec1ee5bc984ad8c1c2e698846cf89548f044f7f8837a7c513",
+    "harness_load_observation": "UNAVAILABLE",
+    "instruction_loaded": true,
+    "warnings": [
+      "NETWORK_DENIED",
+      "SHELL_DENIED",
+      "MCP_DENIED",
+      "CREDENTIALS_DENIED"
+    ]
+  },
+  "protected_state": {
+    "after": [
+      {
+        "digest": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "files": 0,
+        "kind": "directory",
+        "path": "/home/ricardo/.codex/skills"
+      },
+      {
+        "digest": null,
+        "files": 0,
+        "kind": "missing",
+        "path": "/home/ricardo/.agents/skills"
+      },
+      {
+        "digest": "sha256:ee60270847be75023d55fe45feac4fde1595872a7c1e2aa6fd7a2cfb0c0a1e31",
+        "files": 1,
+        "kind": "file",
+        "path": "/home/ricardo/.codex/config.toml"
+      },
+      {
+        "digest": "sha256:11150e3d68dc2efe8afcc10d6111a06ecd71d2e87245a1b5a3660dfdb8799921",
+        "files": 15,
+        "kind": "directory",
+        "path": "/home/ricardo/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/frontend-engineering-vnext"
+      },
+      {
+        "digest": "sha256:80835f4d264f9cd5e04507c2aba464f7b869f4f0b69025dfe82c3975c580b72e",
+        "files": 13,
+        "kind": "directory",
+        "path": "/home/ricardo/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/verification-loop-vnext"
+      }
+    ],
+    "before": [
+      {
+        "digest": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "files": 0,
+        "kind": "directory",
+        "path": "/home/ricardo/.codex/skills"
+      },
+      {
+        "digest": null,
+        "files": 0,
+        "kind": "missing",
+        "path": "/home/ricardo/.agents/skills"
+      },
+      {
+        "digest": "sha256:ee60270847be75023d55fe45feac4fde1595872a7c1e2aa6fd7a2cfb0c0a1e31",
+        "files": 1,
+        "kind": "file",
+        "path": "/home/ricardo/.codex/config.toml"
+      },
+      {
+        "digest": "sha256:11150e3d68dc2efe8afcc10d6111a06ecd71d2e87245a1b5a3660dfdb8799921",
+        "files": 15,
+        "kind": "directory",
+        "path": "/home/ricardo/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/frontend-engineering-vnext"
+      },
+      {
+        "digest": "sha256:80835f4d264f9cd5e04507c2aba464f7b869f4f0b69025dfe82c3975c580b72e",
+        "files": 13,
+        "kind": "directory",
+        "path": "/home/ricardo/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/verification-loop-vnext"
+      }
+    ],
+    "global_mutations": 0,
+    "installed_frontend_patterns_mutations": 0,
+    "unchanged": true
+  },
+  "run_id": "P81-COMPOSE-012",
+  "schema_version": "P8.1-REAL-FRONTEND-HOST-1",
+  "source": {
+    "digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+    "files": {
+      "app.js": {
+        "bytes": 15492,
+        "sha256": "sha256:93f1e912b52d371d778f52a0b178716f56705d933ab5b35589d45c7bce6587ef"
+      },
+      "fixture_server.py": {
+        "bytes": 9653,
+        "sha256": "sha256:10861d8f4de5524474b36292106efbe6c131d086c41ecff58e480404e9d8b6d2"
+      },
+      "index.html": {
+        "bytes": 11452,
+        "sha256": "sha256:b155552164302727f006d22d743dce4cd170686f6119ccf7581085e5973ad6a9"
+      },
+      "styles.css": {
+        "bytes": 20964,
+        "sha256": "sha256:8f2c15dfb1fcfc97a707c40a926cf27e1d095162379aa39d189e9c8d10e5bd44"
+      }
+    },
+    "root": "frontend-real-004/workspace-post/app"
+  },
+  "status": "PASS",
+  "task_id": "PHASE8.1-001",
+  "timeline": {
+    "completed_monotonic_ns": 4129574635232,
+    "completed_wall_ns": 1788402230397224567,
+    "started_monotonic_ns": 4091134135667,
+    "started_wall_ns": 1788402191956722919
+  },
+  "typed_skill_input": {
+    "name": "frontend-engineering-vnext",
+    "path": "$PROJECT/.harness/capabilities/frontend-engineering-vnext/SKILL.md",
+    "type": "skill"
+  },
+  "workspace": {
+    "alternate_producer_detected": false,
+    "changed_files": [
+      "app/index.html"
+    ],
+    "delta": {
+      "added_paths": [],
+      "changed_paths": [
+        "app/index.html"
+      ],
+      "digest": "sha256:fdb4c4eb1a7a47ea8142d5f2e54d411285c316fb4d4adb7b0db50cbdb2a9b58f",
+      "errors": [],
+      "ok": true,
+      "removed_paths": [],
+      "unauthorized_paths": []
+    },
+    "host_event_paths": [],
+    "manual_mutation_detected": false,
+    "post_digest": "sha256:e302487c54e967bee3b7ae8f823da378a87cf16a65e5482fea91a74cc04f8e78",
+    "pre_digest": "sha256:634ff4c035c1c5a0e35fd8defaf03971b287ed573257786d4a53be986de99f24",
+    "ref": "$WORKSPACE"
+  }
+}

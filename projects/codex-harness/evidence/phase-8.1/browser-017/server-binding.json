@@ -1,0 +1,12 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "artifact_root": "evidence/phase-8.1/composition-run-013/frontend-artifact",
+  "base_url": "http://127.0.0.1:4195/",
+  "binding_header": "X-Phase81-Artifact-Digest",
+  "completed_at_ns": 1788405346079818908,
+  "composition_run": "P81-COMPOSE-013",
+  "network": "LOOPBACK_ONLY",
+  "run_id": "P81-SERVER-018",
+  "schema_version": "P8.1-SERVER-BINDING-2",
+  "started_at_ns": 1788405333706105250
+}

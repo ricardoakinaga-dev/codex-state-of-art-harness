@@ -1,0 +1,65 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "capture_id": "P81-BROWSER-016",
+  "captured_at_ns": 1788405293674040744,
+  "console": [],
+  "results": [
+    {
+      "font": "Arial, sans-serif",
+      "formBox": {
+        "bottom": 1042.640625,
+        "height": 644.984375,
+        "left": 1022.125,
+        "right": 1382.40625,
+        "top": 397.65625,
+        "width": 360.28125,
+        "x": 1022.125,
+        "y": 397.65625
+      },
+      "overflowX": false,
+      "submitBox": {
+        "bottom": 1017.640625,
+        "height": 44,
+        "left": 1047.125,
+        "right": 1270.40625,
+        "top": 973.640625,
+        "width": 223.28125,
+        "x": 1047.125,
+        "y": 973.640625
+      },
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      }
+    },
+    {
+      "font": "Arial, sans-serif",
+      "formBox": {
+        "bottom": 745.640625,
+        "height": 745.484375,
+        "left": 16,
+        "right": 374,
+        "top": 0.15625,
+        "width": 358,
+        "x": 16,
+        "y": 0.15625
+      },
+      "overflowX": false,
+      "submitBox": {
+        "bottom": 707.640625,
+        "height": 44,
+        "left": 33,
+        "right": 357,
+        "top": 663.640625,
+        "width": 324,
+        "x": 33,
+        "y": 663.640625
+      },
+      "viewport": {
+        "height": 844,
+        "width": 390
+      }
+    }
+  ],
+  "run_id": "P81-COMPOSE-013"
+}

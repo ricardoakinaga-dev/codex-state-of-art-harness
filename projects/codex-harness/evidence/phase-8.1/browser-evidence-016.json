@@ -1,0 +1,531 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "browser": {
+    "engine": "Chromium",
+    "executable": "/usr/bin/google-chrome",
+    "executable_digest": "sha256:aea09d69ce7f24d5901f6bfb15dd44d0c856e793e0a498f8d8393ec7d2c308ec",
+    "version": "152.0.7977.75"
+  },
+  "capture_id": "P81-BROWSER-016",
+  "captures": [
+    {
+      "kind": "screenshot",
+      "path": "browser-016/desktop-success-1440x900.png",
+      "sha256": "sha256:db50554bbed03962938a91c68dc69e9537f0d1ab9e31362d7365361f09b03988"
+    },
+    {
+      "kind": "screenshot",
+      "path": "browser-016/intermediate-urgent-1024x768.png",
+      "sha256": "sha256:9d9a3b9f80e8ed534cfed553cca6d89af933312d3267fdf10f608f9b4e624cc7"
+    },
+    {
+      "kind": "screenshot",
+      "path": "browser-016/portrait-empty-768x1024.png",
+      "sha256": "sha256:b7159c81b64de4a6293d677c9cd132c1842a6fa48fcee42f27ad463d792b5ed9"
+    },
+    {
+      "kind": "screenshot",
+      "path": "browser-016/mobile-critical-390x844.png",
+      "sha256": "sha256:5c1922516da2917f28173d9c3ca0c272e470a0c8e2137ca8e57cbeb9e60bde99"
+    },
+    {
+      "kind": "screenshot",
+      "path": "browser-016/reflow-200-percent-195x844.png",
+      "sha256": "sha256:a7f91567dfcf32606a76f8843a6bcb0cacde4b8c527c74cc6328deed3a23ea5b"
+    },
+    {
+      "kind": "screenshot",
+      "path": "browser-016/intermediate-long-heading-1024x768.png",
+      "sha256": "sha256:c6da538072b508f10dcaacd16f1fb436cb533403edf1ca5a40cc2b3624a345d4"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/accessibility-runtime.json",
+      "sha256": "sha256:bbcbaf3060546f32fd59c88bfa130d8f9c2e4ac58b97655050ad17d96cd636d1"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/default-runtime.json",
+      "sha256": "sha256:a83602c4cbf7dcf138f5b705865713fe6fcc5bd0c32384f9263d218ffa3f67a6"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/double-submit-runtime.json",
+      "sha256": "sha256:e754a9940e73e01f7d5644a4fe5b8d5902ccf6d3697069c468c2a604eefd8226"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/empty-runtime.json",
+      "sha256": "sha256:d950ff516f0852cb0e75350f97a0a2dd813260926d7ce5fb0796b93c91f5c42d"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/focus-keyboard-runtime.json",
+      "sha256": "sha256:afd4a999da91a4e2ea80ab970b2a841868f1c9f99a0fb86d0026c9939df56261"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/font-fallback-runtime.json",
+      "sha256": "sha256:cd0059bf50820e92152a5854d3917bb1f89c53c053d68a9bc7d93168b35bc1ee"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/idempotency-payload-binding-runtime.json",
+      "sha256": "sha256:1c711de13957845c15c22119c7c59ffa2bcdd6a10f1aa792576f30bcd20fe0c1"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/idempotent-retry-runtime.json",
+      "sha256": "sha256:e9dffa2ffbb6c2b34a12aad888e110d71a1ae4d9671069cc6054cb7c8475bcc6"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/input-boundary-validation-runtime.json",
+      "sha256": "sha256:cbd4be4b03eb49af63a61e02a072dadb820b3ac80b62467d2777694fbdf49c7e"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/intermediate-runtime.json",
+      "sha256": "sha256:fc643318cd2bb53ebaaf0660efce0a87107d03f37b128597ed723a0605275305"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/keyboard-submit-runtime.json",
+      "sha256": "sha256:81c0a452beadaf42ecfda1d6a559ad6518a325518500c5aa621aca8aa2d603cd"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/live-region-states-runtime.json",
+      "sha256": "sha256:d25cc0be3125eb520fa1e82d7dab131bbbc1303be68de747fe225c3c6393e475"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/loading-runtime.json",
+      "sha256": "sha256:8e948910cea5a1649bc0117071f20971cfd152e25ce0fefa9292d74a4dcf663d"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/local-filter-runtime.json",
+      "sha256": "sha256:63ded10508b5d26be56b999e8868467c6d25ee53bcf0c269ab0d38112c137301"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/long-heading-runtime.json",
+      "sha256": "sha256:03ab775781fb4558e072a75d377b60f3b65f8fc9450784665eadce00b71dd276"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/mobile-runtime.json",
+      "sha256": "sha256:f8b4d6723542299a9bcf89f298169b7ff45491a8bc6c79af00161c731621138d"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/mobile-table-semantics-runtime.json",
+      "sha256": "sha256:b13daaad464982fad6b9894a37e575d139f563f2cfa23282c101b315133f8ba3"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/mobile-targets-runtime.json",
+      "sha256": "sha256:59070a484ba0af6f7ff086a3997090d7d7f12af1b6da7f74e6a1c04f7a7922f1"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/performance-runtime.json",
+      "sha256": "sha256:5eef836dce8fe895ebe9764a7b7f1c0520ab86fce607be443f71091169dd2de5"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/portrait-runtime.json",
+      "sha256": "sha256:c4cb1afe40d3ceeb870f44ad8b3b7672e557f750c2dc30c416ec82c60378c995"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/queue-error-runtime.json",
+      "sha256": "sha256:2a91c53d8f01e264194aab5dd3c178949df0ce86988404fd10de41a2b4a66e2c"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/queue-recovery-runtime.json",
+      "sha256": "sha256:1cd82205cd49f22ad3710ad434acbd03b27a80e82b9dd0d6e634146947ac8f2f"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/reduced-motion-runtime.json",
+      "sha256": "sha256:2b3fc17abe6023170290756feb98d11fba9fca307159b598d8162cf03ab85cdb"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/reflow-runtime.json",
+      "sha256": "sha256:85b4dc41b5e0ce2321639d98886857bc89cb9127c3777851bd681c9bb8493cc7"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/resource-network-media-runtime.json",
+      "sha256": "sha256:ce463d54d9ecf279c05d3a5968f231790e86b009c3be5bdf34d09bdbdaf54506"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/server-binding.json",
+      "sha256": "sha256:fe4b85d65cd7462fbb0c2cb018f55e5481ae3570cab9442a4ee52ff8f33508a3"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/server-validation-runtime.json",
+      "sha256": "sha256:97ed1844d254844e40e45a4f97ea926565486578b8d4c98565144de6e5ab96e4"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/stale-response-runtime.json",
+      "sha256": "sha256:21c468f64f30abe758d0ab74353fafa9cff2f12c9133fcd4f50f7a9f9bda7bee"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/submission-loading-runtime.json",
+      "sha256": "sha256:3b590016de5c08d74b4e6dceba37b4d7103ab272daacaaa09e4519ab68979da1"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/submission-success-runtime.json",
+      "sha256": "sha256:32cb4aa5ce4d69a7e1669fae39f7770e6e45128674334346bfe8d72205239e0a"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/url-complete-runtime.json",
+      "sha256": "sha256:abf315424ea25ef148a6fcc407c985190ceb807cb94f5201b5532dad65421203"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/url-invalid-runtime.json",
+      "sha256": "sha256:d2b0114cabe0ae5de66e79a33dd697e02698ee7dfdb438db011507076530c90d"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/url-state-runtime.json",
+      "sha256": "sha256:c46e044bf940c075ad7a692b7ffe67a0d9a57d27ce1b5a32c6ca1f08dd5348ad"
+    },
+    {
+      "kind": "runtime-json",
+      "path": "browser-016/validation-runtime.json",
+      "sha256": "sha256:9ad1d2bf67626fff1108576884e0128ed54b3fa7d739dd9705825c5a7c6414c3"
+    }
+  ],
+  "checks": [
+    {
+      "detail": "default queue rendered four cases",
+      "evidence": "browser-016/default-runtime.json",
+      "id": "P8-EVAL-012",
+      "passed": true
+    },
+    {
+      "detail": "1440x900 has no horizontal overflow and CTA exists",
+      "evidence": "browser-016/default-runtime.json",
+      "id": "P8-EVAL-021",
+      "passed": true
+    },
+    {
+      "detail": "host-written body marker is present",
+      "evidence": "browser-016/default-runtime.json",
+      "id": "provenance.dom_marker",
+      "passed": true
+    },
+    {
+      "detail": "document response binds the canonical artifact digest",
+      "evidence": "browser-016/default-runtime.json",
+      "id": "provenance.server_header",
+      "passed": true
+    },
+    {
+      "detail": "all runtime resources are local and bounded",
+      "evidence": "browser-016/default-runtime.json",
+      "id": "supplemental.local_resources",
+      "passed": true
+    },
+    {
+      "detail": "default scenario emitted no console errors or warnings",
+      "evidence": "browser-016/default-runtime.json",
+      "id": "supplemental.clean_console",
+      "passed": true
+    },
+    {
+      "detail": "1024x768 has no overflow and the submit action is reachable",
+      "evidence": "browser-016/intermediate-runtime.json",
+      "id": "P8-EVAL-022",
+      "passed": false
+    },
+    {
+      "detail": "768x1024 has no overflow and the submit action is reachable",
+      "evidence": "browser-016/portrait-runtime.json",
+      "id": "P8-EVAL-023",
+      "passed": true
+    },
+    {
+      "detail": "390x844 has no overflow and the submit action is reachable",
+      "evidence": "browser-016/mobile-runtime.json",
+      "id": "P8-EVAL-024",
+      "passed": true
+    },
+    {
+      "detail": "195x844 has no overflow and the submit action is reachable",
+      "evidence": "browser-016/reflow-runtime.json",
+      "id": "P8-EVAL-027",
+      "passed": true
+    },
+    {
+      "detail": "loading is announced with stable geometry and is replaced by four current rows",
+      "evidence": "browser-016/loading-runtime.json",
+      "id": "P8-EVAL-011",
+      "passed": true
+    },
+    {
+      "detail": "empty queue renders an actionable empty state",
+      "evidence": "browser-016/empty-runtime.json",
+      "id": "P8-EVAL-013",
+      "passed": true
+    },
+    {
+      "detail": "queue failure exposes a recovery action",
+      "evidence": "browser-016/queue-error-runtime.json",
+      "id": "P8-EVAL-014",
+      "passed": true
+    },
+    {
+      "detail": "keyboard retry recovers and moves focus predictably",
+      "evidence": "browser-016/queue-recovery-runtime.json",
+      "id": "P8-EVAL-015",
+      "passed": true
+    },
+    {
+      "detail": "blank submit marks required fields and focuses the first error",
+      "evidence": "browser-016/validation-runtime.json",
+      "id": "supplemental.blank_submit",
+      "passed": true
+    },
+    {
+      "detail": "submission disables the action and announces progress",
+      "evidence": "browser-016/submission-loading-runtime.json",
+      "id": "supplemental.submitting",
+      "passed": true
+    },
+    {
+      "detail": "successful intake resets the form, reports a reference and focuses the first field",
+      "evidence": "browser-016/submission-success-runtime.json",
+      "id": "supplemental.submission_success",
+      "passed": true
+    },
+    {
+      "detail": "lost response produces actionable retry feedback",
+      "evidence": "browser-016/idempotent-retry-runtime.json",
+      "id": "supplemental.submission_failure",
+      "passed": true
+    },
+    {
+      "detail": "retry reuses the key and server record instead of duplicating intake",
+      "evidence": "browser-016/idempotent-retry-runtime.json",
+      "id": "supplemental.idempotent_retry",
+      "passed": true
+    },
+    {
+      "detail": "edited retry uses a new key; explicit same-key/different-payload reuse returns 409",
+      "evidence": "browser-016/idempotency-payload-binding-runtime.json",
+      "id": "supplemental.idempotency_payload_binding",
+      "passed": false
+    },
+    {
+      "detail": "URL filter initializes, survives refresh/history, and normalizes invalid state",
+      "evidence": "browser-016/url-complete-runtime.json",
+      "id": "P8-EVAL-019",
+      "passed": true
+    },
+    {
+      "detail": "later request B remains visible after delayed response A completes",
+      "evidence": "browser-016/stale-response-runtime.json",
+      "id": "P8-EVAL-016",
+      "passed": true
+    },
+    {
+      "detail": "rendered route has one banner, named navigation, main and contentinfo",
+      "evidence": "browser-016/accessibility-runtime.json",
+      "id": "P8-EVAL-029",
+      "passed": true
+    },
+    {
+      "detail": "rendered headings form one H1 followed by logical H2 sections",
+      "evidence": "browser-016/accessibility-runtime.json",
+      "id": "P8-EVAL-030",
+      "passed": true
+    },
+    {
+      "detail": "every intake/filter control has visible or programmatically associated label text",
+      "evidence": "browser-016/accessibility-runtime.json",
+      "id": "P8-EVAL-031",
+      "passed": true
+    },
+    {
+      "detail": "urgency is conveyed by explicit text plus a persistent circular marker",
+      "evidence": "browser-016/accessibility-runtime.json",
+      "id": "P8-EVAL-035",
+      "passed": true
+    },
+    {
+      "detail": "text and control boundary contrast pass bounded WCAG-oriented thresholds",
+      "evidence": "browser-016/accessibility-runtime.json",
+      "id": "supplemental.contrast",
+      "passed": true
+    },
+    {
+      "detail": "two synchronous clicks produce one POST receipt and one stored creation",
+      "evidence": "browser-016/double-submit-runtime.json",
+      "id": "P8-EVAL-017",
+      "passed": true
+    },
+    {
+      "detail": "urgency filtering derives one visible row without mutating four source records",
+      "evidence": "browser-016/local-filter-runtime.json",
+      "id": "P8-EVAL-018",
+      "passed": true
+    },
+    {
+      "detail": "fixture 422 maps to patient and preserves every browser draft value",
+      "evidence": "browser-016/server-validation-runtime.json",
+      "id": "P8-EVAL-020",
+      "passed": true
+    },
+    {
+      "detail": "translated-length heading wraps at 1024px without horizontal or internal clipping",
+      "evidence": "browser-016/long-heading-runtime.json",
+      "id": "P8-EVAL-025",
+      "passed": false
+    },
+    {
+      "detail": "mobile rows retain full patient, species, urgency, wait and action values",
+      "evidence": "browser-016/mobile-table-semantics-runtime.json",
+      "id": "P8-EVAL-026",
+      "passed": true
+    },
+    {
+      "detail": "real Tab traversal reaches form controls in order with a visible outline",
+      "evidence": "browser-016/focus-keyboard-runtime.json",
+      "id": "P8-EVAL-032",
+      "passed": true
+    },
+    {
+      "detail": "keyboard-only path validates, enters every required value and submits with Enter",
+      "evidence": "browser-016/keyboard-submit-runtime.json",
+      "id": "P8-EVAL-033",
+      "passed": true
+    },
+    {
+      "detail": "polite status regions carry actual loading, error and intake-success text",
+      "evidence": "browser-016/live-region-states-runtime.json",
+      "id": "P8-EVAL-034",
+      "passed": true
+    },
+    {
+      "detail": "Chromium reduce emulation yields <=0.01ms computed motion durations",
+      "evidence": "browser-016/reduced-motion-runtime.json",
+      "id": "P8-EVAL-036",
+      "passed": true
+    },
+    {
+      "detail": "measured primary mobile links and actions meet the declared 44px floor",
+      "evidence": "browser-016/mobile-targets-runtime.json",
+      "id": "P8-EVAL-037",
+      "passed": true
+    },
+    {
+      "detail": "current-artifact Chromium LCP 72.00ms is within the 2500ms pilot budget",
+      "evidence": "browser-016/performance-runtime.json",
+      "id": "P8-EVAL-039",
+      "passed": true
+    },
+    {
+      "detail": "buffered layout-shift observer records CLS 0.001902",
+      "evidence": "browser-016/performance-runtime.json",
+      "id": "P8-EVAL-040",
+      "passed": true
+    },
+    {
+      "detail": "network inventory contains no remote fonts, images, scripts or analytics",
+      "evidence": "browser-016/resource-network-media-runtime.json",
+      "id": "P8-EVAL-041",
+      "passed": true
+    },
+    {
+      "detail": "explicit DOM, source-file and transfer inventory contains no oversized media",
+      "evidence": "browser-016/resource-network-media-runtime.json",
+      "id": "P8-EVAL-043",
+      "passed": true
+    },
+    {
+      "detail": "all observed HTTP requests target the same 127.0.0.1 fixture origin",
+      "evidence": "browser-016/resource-network-media-runtime.json",
+      "id": "P8-EVAL-053",
+      "passed": true
+    },
+    {
+      "detail": "forced system Arial fallback preserves form/action layout at 1440px and 390px",
+      "evidence": "browser-016/font-fallback-runtime.json",
+      "id": "P8-EVAL-042",
+      "passed": true
+    },
+    {
+      "detail": "client blocks blank create; fixture rejects invalid patient/species/urgency with 422",
+      "evidence": "browser-016/input-boundary-validation-runtime.json",
+      "id": "P8-EVAL-050",
+      "passed": false
+    }
+  ],
+  "composition_run": "P81-COMPOSE-013",
+  "limitations": [
+    "Chromium-only runtime evidence is not a full assistive-technology certification.",
+    "The local deterministic fixture does not establish production or release approval."
+  ],
+  "observations": {
+    "accessibility": "browser-016/accessibility-runtime.json",
+    "default": "browser-016/default-runtime.json",
+    "double_submit": "browser-016/double-submit-runtime.json",
+    "empty": "browser-016/empty-runtime.json",
+    "focus": "browser-016/focus-keyboard-runtime.json",
+    "font_fallback": "browser-016/font-fallback-runtime.json",
+    "idempotency": "browser-016/idempotent-retry-runtime.json",
+    "idempotency_payload": "browser-016/idempotency-payload-binding-runtime.json",
+    "input_validation": "browser-016/input-boundary-validation-runtime.json",
+    "intermediate": "browser-016/intermediate-runtime.json",
+    "keyboard": "browser-016/keyboard-submit-runtime.json",
+    "live_regions": "browser-016/live-region-states-runtime.json",
+    "loading": "browser-016/loading-runtime.json",
+    "local_filter": "browser-016/local-filter-runtime.json",
+    "long_heading": "browser-016/long-heading-runtime.json",
+    "mobile": "browser-016/mobile-runtime.json",
+    "mobile_table_semantics": "browser-016/mobile-table-semantics-runtime.json",
+    "performance": "browser-016/performance-runtime.json",
+    "portrait": "browser-016/portrait-runtime.json",
+    "queue_error": "browser-016/queue-error-runtime.json",
+    "queue_recovery": "browser-016/queue-recovery-runtime.json",
+    "reduced_motion": "browser-016/reduced-motion-runtime.json",
+    "reflow": "browser-016/reflow-runtime.json",
+    "resources": "browser-016/resource-network-media-runtime.json",
+    "server": "browser-016/server-binding.json",
+    "server_validation": "browser-016/server-validation-runtime.json",
+    "stale": "browser-016/stale-response-runtime.json",
+    "submission_loading": "browser-016/submission-loading-runtime.json",
+    "submission_success": "browser-016/submission-success-runtime.json",
+    "targets": "browser-016/mobile-targets-runtime.json",
+    "url_complete": "browser-016/url-complete-runtime.json",
+    "url_invalid": "browser-016/url-invalid-runtime.json",
+    "url_state": "browser-016/url-state-runtime.json",
+    "validation": "browser-016/validation-runtime.json"
+  },
+  "schema_version": "P8.1-BROWSER-EVIDENCE-2",
+  "status": "FAIL",
+  "summary": {
+    "failed": 4,
+    "passed": 40,
+    "total": 44
+  },
+  "task_id": "PHASE8.1-001",
+  "timeline": {
+    "completed_at_ns": 1788405294014121538,
+    "started_at_ns": 1788405281777710823
+  }
+}

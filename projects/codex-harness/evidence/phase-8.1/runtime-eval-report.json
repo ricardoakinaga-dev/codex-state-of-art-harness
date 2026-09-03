@@ -1,229 +1,587 @@
 {
-  "schema_version": "P8.1-RUNTIME-REPORT-1",
-  "task_id": "PHASE8.1-001",
-  "status": "PASS_WITH_LIMITATIONS",
-  "run_id": "P81-VERIFY-001",
-  "verified_at": "2026-08-31T18:08:04.371108+00:00",
-  "repository_head": "664858e596537b5d0a33fe1bffbac3c4fec5f953",
-  "frontend_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
-  "verifier_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
-  "composition_run": "P81-COMPOSE-009",
-  "artifact_digest": "sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044",
-  "checks": [
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "browser_evidence_digest": "sha256:becf97cb77e4c9d13d1dd9735a0f5974451117496230cb120d6f5cc006e277e3",
+  "composition_run": "P81-COMPOSE-013",
+  "critical_false_pass": 0,
+  "future_domain": 1,
+  "not_applicable": 4,
+  "promotion_relevant_unresolved": 0,
+  "records": [
     {
-      "name": "frontend_package_current",
-      "status": "PASS",
-      "details": "Frontend package validator is PASS with the exact current fingerprint and 60 scenarios.",
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "state",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "loading is announced with stable geometry and is replaced by four current rows",
       "evidence": [
-        "frontend-package-validation.json"
-      ]
-    },
-    {
-      "name": "frontend_source_tree_current",
-      "status": "PASS",
-      "details": "Current fixture source and build receipt bind to sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044.",
-      "evidence": [
-        "baseline.json",
-        "runtime-fixture.json",
-        "artifact/frontend-run-001/build-receipt.json"
-      ]
-    },
-    {
-      "name": "composition_exact_artifact",
-      "status": "PASS",
-      "details": "Bridge output matches the current source/build digest and the exact composed files.",
-      "evidence": [
-        "composition-run-009/composition-receipt.json",
-        "composition-run-009/frontend-artifact/"
-      ]
-    },
-    {
-      "name": "composition_canonical_authorization",
-      "status": "PASS",
-      "details": "The canonical receipt is current, authorized read-only, denied external side effects and confined to the evidence root.",
-      "evidence": [
-        "composition-receipt.json",
-        "composition-run-009/composition-receipt.json"
-      ]
-    },
-    {
-      "name": "frontend_host_transport",
-      "status": "PASS",
-      "details": "Fresh frontend app-server handshake observed READY under the exact package fingerprint.",
-      "evidence": [
-        "frontend-real-invocation-short/invocation-receipts/INV-cf9d460266785f78b43e15ac.json"
-      ]
-    },
-    {
-      "name": "verifier_host_transport",
-      "status": "PASS",
-      "details": "Fresh verifier app-server handshake observed VERIFIER_READY under the exact verifier fingerprint.",
-      "evidence": [
-        "verifier-real-invocation-final-after-browser/invocation-receipts/INV-6d639157532552ebaf59b0fd.json"
-      ]
-    },
-    {
-      "name": "alternative_bridge_mutation_boundary",
-      "status": "PASS",
-      "details": "Composition bridge records zero global/capability mutation and no alternate producer.",
-      "evidence": [
-        "composition-run-009/composition-receipt.json",
-        "composition-run-009/composition-scope-audit.json"
-      ]
-    },
-    {
-      "name": "independent_scope_audit",
-      "status": "PASS",
-      "details": "Independent read-only snapshots show no global or capability-file mutation around the exact bridge.",
-      "evidence": [
-        "composition-run-009/composition-scope-audit.json",
-        "composition-run-009/composition-receipt.json"
-      ]
-    },
-    {
-      "name": "structural_catalog_current",
-      "status": "PASS",
-      "details": "Structural evaluator is PASS for all 60 scenarios and preserves its false-pass guard inventory.",
-      "evidence": [
-        "structural-eval-report.json"
-      ]
-    },
-    {
-      "name": "finding_ledger_resolved",
-      "status": "PASS",
-      "details": "No actionable or promotion-blocking Critical/High/Medium finding remains open.",
-      "evidence": [
-        "finding-ledger.json"
-      ]
-    },
-    {
-      "name": "host_limitation_explicit",
-      "status": "PASS",
-      "details": "The unsupported public host skill-load signal remains explicitly bounded.",
-      "evidence": [
-        "host-composition-capability-matrix.json",
-        "host-composition-interpretation.md"
-      ]
-    },
-    {
-      "name": "browser_artifact_binding",
-      "status": "PASS",
-      "details": "Authoritative browser metrics target the loopback server whose process and response header bind the composed artifact.",
-      "evidence": [
-        "browser/default-metrics.json",
-        "browser/reflow-200-percent.json",
-        "browser/error.json",
-        "browser/server-process.json",
-        "browser/server-binding.json"
-      ]
-    },
-    {
-      "name": "browser_state_and_responsive_runtime",
-      "status": "PASS",
-      "details": "Success, empty and 200% reflow states are observed without horizontal overflow.",
-      "evidence": [
-        "browser/default-metrics.json",
-        "browser/portrait-metrics.json",
-        "browser/reflow-200-percent.json"
-      ]
-    },
-    {
-      "name": "browser_finding_repairs",
-      "status": "PASS",
-      "details": "URL history, stale-response ordering and idempotency are fresh and deterministic.",
-      "evidence": [
-        "browser/url-invalid.json",
-        "browser/url-back-critical.json",
-        "browser/stale-response.json",
-        "browser/stale-response-request-a.json",
-        "browser/stale-response-request-b.json",
-        "browser/stale-response-timeline.json",
-        "browser/idempotency.json"
-      ]
-    },
-    {
-      "name": "browser_accessibility_and_keyboard",
-      "status": "PASS",
-      "details": "Visible focus, reduced-motion rule and keyboard submit are observed on the current artifact.",
-      "evidence": [
-        "browser/accessibility-runtime.json",
-        "browser/contrast-observation.json",
-        "browser/keyboard-submit-focused-002.json",
-        "browser/keyboard-submit-result-002.json",
-        "browser/error-keyboard-step-01.json",
-        "browser/error-keyboard-retry.json"
-      ]
-    },
-    {
-      "name": "browser_performance_and_network",
-      "status": "PASS",
-      "details": "Current browser run has recorded sub-2.5s LCP, no external resources and no layout shift.",
-      "evidence": [
-        "browser/performance-runtime.json",
-        "browser/layout-performance.json",
-        "browser/default-final-network.log"
-      ]
-    },
-    {
-      "name": "coverage_threshold",
-      "status": "PASS",
-      "details": "Current coverage summary exceeds the 80% line and branch threshold.",
-      "evidence": [
-        "coverage-summary.json"
-      ]
-    },
-    {
-      "name": "browser_capture_set_complete",
-      "status": "PASS",
-      "details": "The browser packet contains the independent desktop, error-focus, contrast and performance captures required by the review bar.",
-      "evidence": [
-        "browser/accessibility-runtime.json",
-        "browser/contrast-observation.json",
-        "browser/desktop-metrics.json",
-        "browser/desktop-success-metrics.json",
-        "browser/error-focus-dom.json",
-        "browser/layout-performance.json",
-        "browser/performance-runtime.json"
-      ]
-    },
-    {
-      "name": "runtime_eval_classification_complete",
-      "status": "PASS",
-      "details": "All 60 catalog scenarios are classified; all 33 runtime-required scenarios pass.",
-      "evidence": [
-        "runtime-eval-classification.json",
-        "runtime-eval-traceability.json"
-      ]
-    },
-    {
-      "name": "composition_timeline_ordered",
-      "status": "PASS",
-      "details": "Host, build, composition, serving, browser capture and verifier observations are timestamp ordered.",
-      "evidence": [
-        "frontend-real-invocation-short/invocation-receipts/INV-cf9d460266785f78b43e15ac.json",
-        "artifact/frontend-run-001/build-receipt.json",
-        "composition-run-009/composition-receipt.json",
-        "browser/server-process.json",
-        "browser/server-binding.json",
-        "browser/",
-        "verifier-real-invocation-final-after-browser/invocation-receipts/INV-6d639157532552ebaf59b0fd.json",
+        "browser-018/loading-runtime.json",
         "browser-evidence.json"
-      ]
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-011",
+      "procedure": "P8-EVAL-011",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "initial loading"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "state",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "default queue rendered four cases",
+      "evidence": [
+        "browser-018/default-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-012",
+      "procedure": "P8-EVAL-012",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "success queue"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "state",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "empty queue renders an actionable empty state",
+      "evidence": [
+        "browser-018/empty-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-013",
+      "procedure": "P8-EVAL-013",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "empty queue"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "state",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "queue failure exposes a recovery action",
+      "evidence": [
+        "browser-018/queue-error-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-014",
+      "procedure": "P8-EVAL-014",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "queue error"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "state",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "keyboard retry recovers and moves focus predictably",
+      "evidence": [
+        "browser-018/queue-recovery-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-015",
+      "procedure": "P8-EVAL-015",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "retry recovery"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "state",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "later request B remains visible after delayed response A completes",
+      "evidence": [
+        "browser-018/stale-response-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-016",
+      "procedure": "P8-EVAL-016",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "stale response"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "state",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "two synchronous clicks produce one POST receipt and one stored creation",
+      "evidence": [
+        "browser-018/double-submit-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-017",
+      "procedure": "P8-EVAL-017",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "double submit"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "state",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "urgency filtering derives one visible row without mutating four source records",
+      "evidence": [
+        "browser-018/local-filter-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-018",
+      "procedure": "P8-EVAL-018",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "local filter"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "state",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "URL filter initializes, survives refresh/history, and normalizes invalid state",
+      "evidence": [
+        "browser-018/url-complete-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-019",
+      "procedure": "P8-EVAL-019",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "URL state"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "state",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "fixture 422 maps to patient and preserves every browser draft value",
+      "evidence": [
+        "browser-018/server-validation-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-020",
+      "procedure": "P8-EVAL-020",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "server validation error"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "responsive",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "1440x900 has no horizontal overflow and CTA exists",
+      "evidence": [
+        "browser-018/default-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-021",
+      "procedure": "P8-EVAL-021",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "wide grid"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "responsive",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "1024x768 has no overflow and the submit action is reachable",
+      "evidence": [
+        "browser-018/intermediate-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-022",
+      "procedure": "P8-EVAL-022",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "intermediate wrap"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "responsive",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "768x1024 has no overflow and the submit action is reachable",
+      "evidence": [
+        "browser-018/portrait-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-023",
+      "procedure": "P8-EVAL-023",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "tablet stack"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "responsive",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "390x844 has no overflow and the submit action is reachable",
+      "evidence": [
+        "browser-018/mobile-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-024",
+      "procedure": "P8-EVAL-024",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "mobile priority"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "responsive",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "translated-length heading wraps at 1024px without horizontal or internal clipping",
+      "evidence": [
+        "browser-018/long-heading-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-025",
+      "procedure": "P8-EVAL-025",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "long heading"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "responsive",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "mobile rows retain full patient, species, urgency, wait and action values",
+      "evidence": [
+        "browser-018/mobile-table-semantics-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-026",
+      "procedure": "P8-EVAL-026",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "table semantics mobile"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "responsive",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "195x844 has no overflow and the submit action is reachable",
+      "evidence": [
+        "browser-018/reflow-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-027",
+      "procedure": "P8-EVAL-027",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "200 percent reflow"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "accessibility",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "rendered route has one banner, named navigation, main and contentinfo",
+      "evidence": [
+        "browser-018/accessibility-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-029",
+      "procedure": "P8-EVAL-029",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "landmarks"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "accessibility",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "rendered headings form one H1 followed by logical H2 sections",
+      "evidence": [
+        "browser-018/accessibility-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-030",
+      "procedure": "P8-EVAL-030",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "heading order"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "accessibility",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "every intake/filter control has visible or programmatically associated label text",
+      "evidence": [
+        "browser-018/accessibility-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-031",
+      "procedure": "P8-EVAL-031",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "form labels"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "accessibility",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "real Tab traversal reaches form controls in order with a visible outline",
+      "evidence": [
+        "browser-018/focus-keyboard-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-032",
+      "procedure": "P8-EVAL-032",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "focus visible"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "accessibility",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "keyboard-only path validates, enters every required value and submits with Enter",
+      "evidence": [
+        "browser-018/keyboard-submit-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-033",
+      "procedure": "P8-EVAL-033",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "keyboard submit"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "accessibility",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "polite status regions carry actual loading, error and intake-success text",
+      "evidence": [
+        "browser-018/live-region-states-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-034",
+      "procedure": "P8-EVAL-034",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "status live region"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "accessibility",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "urgency is conveyed by explicit text plus a persistent circular marker",
+      "evidence": [
+        "browser-018/accessibility-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-035",
+      "procedure": "P8-EVAL-035",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "non color status"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "accessibility",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "Chromium reduce emulation yields <=0.01ms computed motion durations",
+      "evidence": [
+        "browser-018/reduced-motion-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-036",
+      "procedure": "P8-EVAL-036",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "reduced motion"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "accessibility",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "measured primary mobile links and actions meet the declared 44px floor",
+      "evidence": [
+        "browser-018/mobile-targets-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-037",
+      "procedure": "P8-EVAL-037",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "touch targets"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "performance",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "current-artifact Chromium LCP 160.00ms is within the 2500ms pilot budget",
+      "evidence": [
+        "browser-018/performance-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-039",
+      "procedure": "P8-EVAL-039",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "load budget"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "performance",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "buffered layout-shift observer records CLS 0.001902",
+      "evidence": [
+        "browser-018/performance-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-040",
+      "procedure": "P8-EVAL-040",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "layout stability"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "performance",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "network inventory contains no remote fonts, images, scripts or analytics",
+      "evidence": [
+        "browser-018/resource-network-media-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-041",
+      "procedure": "P8-EVAL-041",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "resource audit"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "performance",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "forced system Arial fallback preserves form/action layout at 1440px and 390px",
+      "evidence": [
+        "browser-018/font-fallback-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-042",
+      "procedure": "P8-EVAL-042",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "font fallback"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "performance",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "explicit DOM, source-file and transfer inventory contains no oversized media",
+      "evidence": [
+        "browser-018/resource-network-media-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-043",
+      "procedure": "P8-EVAL-043",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "oversized media"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "security",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "client blocks blank create; fixture rejects invalid patient/species/urgency with 422",
+      "evidence": [
+        "browser-018/input-boundary-validation-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-050",
+      "procedure": "P8-EVAL-050",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "input validation"
+    },
+    {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capture_id": "P81-BROWSER-018",
+      "category": "security",
+      "classification": "RUNTIME_REQUIRED",
+      "detail": "all observed HTTP requests target the same 127.0.0.1 fixture origin",
+      "evidence": [
+        "browser-018/resource-network-media-runtime.json",
+        "browser-evidence.json"
+      ],
+      "execution_kind": "BROWSER_RUNTIME",
+      "id": "P8-EVAL-053",
+      "procedure": "P8-EVAL-053",
+      "promotion_relevant": true,
+      "status": "PASS",
+      "title": "local network"
     }
   ],
+  "runtime_blocked": 0,
+  "runtime_executed": 33,
+  "runtime_failed": 0,
+  "runtime_passed": 33,
+  "runtime_required": 33,
+  "schema_version": "P8.1-RUNTIME-EVAL-REPORT-2",
+  "status": "PASS",
+  "structural_sufficient": 22,
   "summary": {
-    "checks_total": 20,
-    "checks_passed": 20,
-    "checks_failed": 0,
-    "runtime_evals_passed": 33,
-    "runtime_evals_required": 33,
-    "promotion_relevant_unresolved": 0
+    "promotion_relevant_unresolved": 0,
+    "runtime_evals_failed": 0,
+    "runtime_evals_passed": 33
   },
-  "limitations": [
-    "HOST_LOAD_UNOBSERVABLE",
-    "Alternative harness-observed composition is not full host skill-load causality.",
-    "Browser evidence is Chromium-only and not a full assistive-technology certification.",
-    "The local synthetic fixture does not establish production, release or security approval."
-  ],
-  "verification_digest": "sha256:7b23098ae4914eeb15a192ede7a2d25cb2e8442cb0164cd8c386ce7db2608324"
+  "task_id": "PHASE8.1-001",
+  "total_structural_catalog": 60
 }

@@ -1,0 +1,290 @@
+{
+  "artifact": {
+    "build_kind": "dependency-free exact copy after host mutation",
+    "copied_exactly": true,
+    "digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+    "files": {
+      "app.js": {
+        "bytes": 15659,
+        "sha256": "sha256:b193cacef6bd7cb91e8732e94b5d96c9598abcce1594e883a12bdef9f5b0ea16"
+      },
+      "fixture_server.py": {
+        "bytes": 11349,
+        "sha256": "sha256:2e432d66b6f71956e229a1eddc950a400e37072b5067225986e9b3e37d41a6d7"
+      },
+      "index.html": {
+        "bytes": 11452,
+        "sha256": "sha256:8e45646ed368a51a608005c244a0e82f756511dd1b333d9ab45ad7dcc9d101c4"
+      },
+      "styles.css": {
+        "bytes": 21664,
+        "sha256": "sha256:42841a0b0615fa34b58cb7af3bc067c1b072850a985828ec55bde48528cd5dd9"
+      }
+    },
+    "root": "artifact/frontend-run-004"
+  },
+  "authorization": {
+    "allowed_side_effects": [],
+    "allowed_tools": [],
+    "artifact_policy": {
+      "max_bytes": 131072,
+      "max_count": 16,
+      "types": [
+        "HOST_RESPONSE",
+        "FILE"
+      ]
+    },
+    "authorization_id": "AUTH-3b2a88acbde95f10b5ba5807",
+    "capability_id": "frontend-engineering-vnext",
+    "capability_version": "0.1.0",
+    "constraints": [
+      "no arbitrary shell",
+      "no scripts",
+      "no network",
+      "no MCP",
+      "no providers",
+      "no credentials",
+      "no subagents"
+    ],
+    "context_budget": {
+      "max_bytes": 64000
+    },
+    "credential_policy": "DENY",
+    "evidence_policy": {
+      "max_count": 64,
+      "max_events": 2048
+    },
+    "expires_at": 1788404719,
+    "filesystem_policy": {
+      "allowed_roots": [
+        "$WORKSPACE/app"
+      ],
+      "artifact_root": "$WORKSPACE/.harness/phase4/artifacts",
+      "credentials": "DENY",
+      "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+      "host_interpreter_digest": "sha256:89af8424dd53e560b1933f87ba650d8bf57c83ca5a04600eefb31f416aabbae7",
+      "max_bytes": 16777216,
+      "max_files": 256,
+      "mcp": "DENY",
+      "mode": "WORKSPACE_WRITE",
+      "network": "DENY",
+      "package_path": "$PROJECT/.harness/capabilities/frontend-engineering-vnext",
+      "package_write_allowed": false,
+      "providers": "DENY",
+      "shell": "DENY",
+      "workspace": "$WORKSPACE"
+    },
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_interpreter_digest": "sha256:89af8424dd53e560b1933f87ba650d8bf57c83ca5a04600eefb31f416aabbae7",
+    "issued_at": 1788404539,
+    "issued_by": "phase4-preflight",
+    "iteration_budget": {
+      "host_calls": 1,
+      "repair_iterations": 0,
+      "tool_calls": 0,
+      "verification_iterations": 1
+    },
+    "mcp_policy": "DENY",
+    "network_policy": "DENY",
+    "package_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+    "provider_policy": "DENY",
+    "reason": "Exact frontend Skill may apply only finding-linked runtime, reflow, idempotency, bounded-copy and provenance repairs inside the disposable app root",
+    "requested_execution_mode": "CONTROLLED_REAL",
+    "requested_loading_level": "L2_INSTRUCTION_KERNEL",
+    "run_id": "P81-COMPOSE-013",
+    "scope": "PROJECT",
+    "shell_policy": "DENY",
+    "task_id": "PHASE8.1-001",
+    "timeout_seconds": 180
+  },
+  "authorization_id": "AUTH-3b2a88acbde95f10b5ba5807",
+  "capability": "frontend-engineering-vnext",
+  "composition_marker": {
+    "count": 1,
+    "name": "data-phase81-composition",
+    "source_file": "app/index.html",
+    "value": "P81-COMPOSE-013"
+  },
+  "finding_ids": [
+    "P8.1-FINDING-H-HOST-COMPOSITION-001",
+    "P8.1-FINDING-H-RUNTIME-FALSE-PASS-001",
+    "P8.1-FINDING-M-REFLOW-001",
+    "P8.1-FINDING-M-IDEMPOTENCY-PAYLOAD-001",
+    "P8.1-FINDING-L-BOUNDED-ERROR-COPY-001"
+  ],
+  "host": {
+    "approval_request_count": 0,
+    "error_code": null,
+    "executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "execution_observed": true,
+    "final_message": "Completed the five specified findings. Updated exactly:\n\n- `app/index.html`\n- `app/styles.css`\n- `app/app.js`\n- `app/fixture_server.py`\n\nBounded source verification passed for composition marker, narrow reflow, navigation badge, payload-bound idempotency, safe error copy, 409 conflicts, and `/api/receipts` observability.",
+    "interpreter_digest": "sha256:89af8424dd53e560b1933f87ba650d8bf57c83ca5a04600eefb31f416aabbae7",
+    "invocation_observed": true,
+    "load_observation": "HOST_LOAD_UNOBSERVABLE",
+    "mcp_event_count": 0,
+    "protocol_message_count": 354,
+    "session_id": "01a06537-a4df-7262-978c-50a2a7e9520e",
+    "status": "SUCCESS",
+    "thread_id": "01a06537-a4df-7262-978c-50a2a7e9520e",
+    "turn_id": "01a06537-a4ec-75c3-9096-9e758b0ad708",
+    "version": "codex-state-of-art-harness/0.152.1 (Linux Mint 22.3.0; x86_64) dumb (codex-state-of-art-harness; 0.1.0)"
+  },
+  "invocation_id": "INV-33bdb675aa0b5612b85eac20",
+  "limitations": [
+    "The public App Server emits no separate skill-loaded event.",
+    "The typed Skill input, bounded write event and exact workspace delta establish alternative observable causality, not FULL_HOST_CAUSALITY."
+  ],
+  "package_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+  "preflight": {
+    "allowed": true,
+    "blockers": [],
+    "digest": "sha256:dba217af023f6b4b743aa6c02c888621f7c57f5ae7306c3ae7242c073a60196f",
+    "harness_load_observation": "UNAVAILABLE",
+    "instruction_loaded": true,
+    "warnings": [
+      "NETWORK_DENIED",
+      "SHELL_DENIED",
+      "MCP_DENIED",
+      "CREDENTIALS_DENIED"
+    ]
+  },
+  "protected_state": {
+    "after": [
+      {
+        "digest": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "files": 0,
+        "kind": "directory",
+        "path": "/home/ricardo/.codex/skills"
+      },
+      {
+        "digest": null,
+        "files": 0,
+        "kind": "missing",
+        "path": "/home/ricardo/.agents/skills"
+      },
+      {
+        "digest": "sha256:0fde26f0c0dd31108c492d8a57353bfda99ccb566271e0476b7ccb1f94cfe58b",
+        "files": 1,
+        "kind": "file",
+        "path": "/home/ricardo/.codex/config.toml"
+      },
+      {
+        "digest": "sha256:11150e3d68dc2efe8afcc10d6111a06ecd71d2e87245a1b5a3660dfdb8799921",
+        "files": 15,
+        "kind": "directory",
+        "path": "/home/ricardo/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/frontend-engineering-vnext"
+      },
+      {
+        "digest": "sha256:80835f4d264f9cd5e04507c2aba464f7b869f4f0b69025dfe82c3975c580b72e",
+        "files": 13,
+        "kind": "directory",
+        "path": "/home/ricardo/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/verification-loop-vnext"
+      }
+    ],
+    "before": [
+      {
+        "digest": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "files": 0,
+        "kind": "directory",
+        "path": "/home/ricardo/.codex/skills"
+      },
+      {
+        "digest": null,
+        "files": 0,
+        "kind": "missing",
+        "path": "/home/ricardo/.agents/skills"
+      },
+      {
+        "digest": "sha256:0fde26f0c0dd31108c492d8a57353bfda99ccb566271e0476b7ccb1f94cfe58b",
+        "files": 1,
+        "kind": "file",
+        "path": "/home/ricardo/.codex/config.toml"
+      },
+      {
+        "digest": "sha256:11150e3d68dc2efe8afcc10d6111a06ecd71d2e87245a1b5a3660dfdb8799921",
+        "files": 15,
+        "kind": "directory",
+        "path": "/home/ricardo/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/frontend-engineering-vnext"
+      },
+      {
+        "digest": "sha256:80835f4d264f9cd5e04507c2aba464f7b869f4f0b69025dfe82c3975c580b72e",
+        "files": 13,
+        "kind": "directory",
+        "path": "/home/ricardo/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/verification-loop-vnext"
+      }
+    ],
+    "global_mutations": 0,
+    "installed_frontend_patterns_mutations": 0,
+    "unchanged": true
+  },
+  "run_id": "P81-COMPOSE-013",
+  "schema_version": "P8.1-REAL-FRONTEND-HOST-1",
+  "source": {
+    "digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+    "files": {
+      "app.js": {
+        "bytes": 15659,
+        "sha256": "sha256:b193cacef6bd7cb91e8732e94b5d96c9598abcce1594e883a12bdef9f5b0ea16"
+      },
+      "fixture_server.py": {
+        "bytes": 11349,
+        "sha256": "sha256:2e432d66b6f71956e229a1eddc950a400e37072b5067225986e9b3e37d41a6d7"
+      },
+      "index.html": {
+        "bytes": 11452,
+        "sha256": "sha256:8e45646ed368a51a608005c244a0e82f756511dd1b333d9ab45ad7dcc9d101c4"
+      },
+      "styles.css": {
+        "bytes": 21664,
+        "sha256": "sha256:42841a0b0615fa34b58cb7af3bc067c1b072850a985828ec55bde48528cd5dd9"
+      }
+    },
+    "root": "frontend-real-005/workspace-post/app"
+  },
+  "status": "PASS",
+  "task_id": "PHASE8.1-001",
+  "timeline": {
+    "completed_monotonic_ns": 6563133109946,
+    "completed_wall_ns": 1788404663955699812,
+    "started_monotonic_ns": 6439077444493,
+    "started_wall_ns": 1788404539900031976
+  },
+  "typed_skill_input": {
+    "name": "frontend-engineering-vnext",
+    "path": "$PROJECT/.harness/capabilities/frontend-engineering-vnext/SKILL.md",
+    "type": "skill"
+  },
+  "workspace": {
+    "alternate_producer_detected": false,
+    "changed_files": [
+      "app/app.js",
+      "app/fixture_server.py",
+      "app/index.html",
+      "app/styles.css"
+    ],
+    "delta": {
+      "added_paths": [],
+      "changed_paths": [
+        "app/app.js",
+        "app/fixture_server.py",
+        "app/index.html",
+        "app/styles.css"
+      ],
+      "digest": "sha256:50d6a18d92df52791a50e8946ac495f3d5420f53983e46580c77f87f5f5fb07a",
+      "errors": [],
+      "ok": true,
+      "removed_paths": [],
+      "unauthorized_paths": []
+    },
+    "host_event_paths": [
+      "app/app.js",
+      "app/fixture_server.py",
+      "app/index.html",
+      "app/styles.css"
+    ],
+    "manual_mutation_detected": false,
+    "post_digest": "sha256:c2994b42bbde2d7a468b831701b081033915f332153b3a802f6603e58317934e",
+    "pre_digest": "sha256:e302487c54e967bee3b7ae8f823da378a87cf16a65e5482fea91a74cc04f8e78",
+    "ref": "$WORKSPACE"
+  }
+}

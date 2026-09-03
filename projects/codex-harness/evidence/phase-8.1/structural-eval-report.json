@@ -444,11 +444,13 @@
   ],
   "status": "PASS",
   "failures": [],
-  "critical_false_pass": [
+  "false_pass_guard_ids": [
     "P8-EVAL-016",
     "P8-EVAL-017",
     "P8-EVAL-020",
     "P8-EVAL-027",
     "P8-EVAL-034"
-  ]
+  ],
+  "critical_false_pass": [],
+  "critical_false_pass_count": 0
 }

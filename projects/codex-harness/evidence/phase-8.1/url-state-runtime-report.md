@@ -1,7 +1,3 @@
-# URL-state runtime
+# URL State Runtime Report
 
-Status: `PASS_WITH_LIMITATIONS`
-
-Valid filter initialization, filter history, back restoration and invalid fallback are recorded.
-
-Primary packet references: `browser-evidence.json`, `runtime-eval-traceability.json`, `composition-proof.json`.
+Status: `PASS`. `urgency=critical` initialized and survived reload, changing to urgent pushed history, Back restored critical, and an invalid value canonicalized to all without retaining the invalid parameter.

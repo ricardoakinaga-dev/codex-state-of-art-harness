@@ -1,0 +1,20 @@
+{
+  "artifact_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+  "capture_id": "P81-BROWSER-013",
+  "captured_at_ns": 1788402692667962576,
+  "card": "The desk is clear.\nThere are no active cases in this view right now.\nRefresh queue",
+  "console": [],
+  "queueState": "No active cases",
+  "run_id": "P81-COMPOSE-012",
+  "state": {
+    "error": "",
+    "feedback": "",
+    "feedbackTone": "",
+    "items": [],
+    "phase": "success",
+    "requestNumber": 0,
+    "selectedUrgency": "all",
+    "submitting": false
+  },
+  "url": "http://127.0.0.1:4192/?scenario=empty"
+}

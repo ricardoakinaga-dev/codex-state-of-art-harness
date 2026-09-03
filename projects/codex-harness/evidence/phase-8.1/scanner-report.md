@@ -1,10 +1,11 @@
 # Scanner Report
 
-- `ruff check src tests scripts`: PASS.
-- `mypy src`: PASS (`65` source files).
-- `uv pip check --python .venv/bin/python`: PASS (`13` packages compatible).
-- `pip-audit`: unavailable in the environment; no substitute vulnerability database was asserted.
-- `npm audit`: not applicable; no `package.json` exists in the project.
-- `ruff format --check`: remains non-zero on pre-existing files outside the Phase 8.1 additions; those unrelated files were not reformatted.
+Status: `PASS_WITH_LIMITATIONS`.
 
-The unavailable audit tool and pre-existing formatting drift are explicit limitations, not silent passes.
+- Fresh inventory: 0 available / 12 unavailable third-party scanners.
+- `uv pip check`: PASS, 15 packages compatible.
+- npm audit: not applicable; the artifact has no package manifest or dependencies.
+- Phase 7.3 scanner waiver: accepted with limitations, expires 2026-09-30.
+- Current-code Ruff format/lint and strict mypy: PASS.
+
+Unavailable scanners are not relabeled PASS and no security approval is granted.

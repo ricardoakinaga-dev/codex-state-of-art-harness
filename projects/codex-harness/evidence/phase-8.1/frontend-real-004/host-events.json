@@ -1,0 +1,3176 @@
+{
+  "events": [
+    {
+      "detail": null,
+      "event_class": "HOST_INVOCATION_ACKNOWLEDGED",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "01a06513-d180-79b3-a3aa-cfafe107de2c",
+      "item_type": null,
+      "method": "turn/start",
+      "sequence": 0,
+      "status": "started",
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "thread/status/changed",
+      "sequence": 1,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "turn/started",
+      "sequence": 2,
+      "status": "inProgress",
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "01a06513-d8f5-7520-bf86-4bae8b0de6e7",
+      "item_type": "userMessage",
+      "method": "item/started",
+      "sequence": 3,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "01a06513-d8f5-7520-bf86-4bae8b0de6e7",
+      "item_type": "userMessage",
+      "method": "item/completed",
+      "sequence": 4,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "rs_0d3361322d8f85e7016a98da146e9487d2bb06227a07db6511",
+      "item_type": "reasoning",
+      "method": "item/started",
+      "sequence": 5,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "rs_0d3361322d8f85e7016a98da146e9487d2bb06227a07db6511",
+      "item_type": "reasoning",
+      "method": "item/completed",
+      "sequence": 6,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "msg_0d3361322d8f85e7016a98da14e43887d2bab0980352d1c1f3",
+      "item_type": "agentMessage",
+      "method": "item/started",
+      "sequence": 7,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 8,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 9,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 10,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 11,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 12,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 13,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 14,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 15,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 16,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 17,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 18,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 19,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 20,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 21,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 22,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 23,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 24,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 25,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 26,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 27,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 28,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 29,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 30,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 31,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 32,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 33,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 34,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 35,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 36,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 37,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 38,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 39,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 40,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 41,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 42,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 43,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 44,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "msg_0d3361322d8f85e7016a98da14e43887d2bab0980352d1c1f3",
+      "item_type": "agentMessage",
+      "method": "item/completed",
+      "sequence": 45,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "dynamic host tool completion",
+      "event_class": "BOUNDED_HOST_TOOL_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "exec-3a994e63-70e4-4705-be1a-6826545bbea1",
+      "item_type": "dynamicToolCall",
+      "method": "item/started",
+      "sequence": 46,
+      "status": "inProgress",
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "tool=harness_list_files",
+      "event_class": "BOUNDED_HOST_TOOL_CALL",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/tool/call",
+      "sequence": 47,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "dynamic host tool completion",
+      "event_class": "BOUNDED_HOST_TOOL_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "exec-3a994e63-70e4-4705-be1a-6826545bbea1",
+      "item_type": "dynamicToolCall",
+      "method": "item/completed",
+      "sequence": 48,
+      "status": "completed",
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "thread/tokenUsage/updated",
+      "sequence": 49,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "account/rateLimits/updated",
+      "sequence": 50,
+      "status": null,
+      "thread_id": null,
+      "turn_id": null
+    },
+    {
+      "detail": "dynamic host tool completion",
+      "event_class": "BOUNDED_HOST_TOOL_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "exec-a734626c-ab9a-48c2-a606-fa852381e363",
+      "item_type": "dynamicToolCall",
+      "method": "item/started",
+      "sequence": 51,
+      "status": "inProgress",
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "tool=harness_read_file",
+      "event_class": "BOUNDED_HOST_TOOL_CALL",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/tool/call",
+      "sequence": 52,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "dynamic host tool completion",
+      "event_class": "BOUNDED_HOST_TOOL_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "exec-a734626c-ab9a-48c2-a606-fa852381e363",
+      "item_type": "dynamicToolCall",
+      "method": "item/completed",
+      "sequence": 53,
+      "status": "completed",
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "thread/tokenUsage/updated",
+      "sequence": 54,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "account/rateLimits/updated",
+      "sequence": 55,
+      "status": null,
+      "thread_id": null,
+      "turn_id": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "rs_0d3361322d8f85e7016a98da1ea73487d2b267c004acf8457e",
+      "item_type": "reasoning",
+      "method": "item/started",
+      "sequence": 56,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "rs_0d3361322d8f85e7016a98da1ea73487d2b267c004acf8457e",
+      "item_type": "reasoning",
+      "method": "item/completed",
+      "sequence": 57,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "dynamic host tool completion",
+      "event_class": "BOUNDED_HOST_TOOL_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "exec-99c7e334-40c2-4646-870c-37945ff7ed66",
+      "item_type": "dynamicToolCall",
+      "method": "item/started",
+      "sequence": 58,
+      "status": "inProgress",
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "tool=harness_read_file",
+      "event_class": "BOUNDED_HOST_TOOL_CALL",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/tool/call",
+      "sequence": 59,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "dynamic host tool completion",
+      "event_class": "BOUNDED_HOST_TOOL_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "exec-99c7e334-40c2-4646-870c-37945ff7ed66",
+      "item_type": "dynamicToolCall",
+      "method": "item/completed",
+      "sequence": 60,
+      "status": "completed",
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "thread/tokenUsage/updated",
+      "sequence": 61,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "account/rateLimits/updated",
+      "sequence": 62,
+      "status": null,
+      "thread_id": null,
+      "turn_id": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "rs_0d3361322d8f85e7016a98da27165487d292e3b69641d1115d",
+      "item_type": "reasoning",
+      "method": "item/started",
+      "sequence": 63,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "rs_0d3361322d8f85e7016a98da27165487d292e3b69641d1115d",
+      "item_type": "reasoning",
+      "method": "item/completed",
+      "sequence": 64,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "msg_0d3361322d8f85e7016a98da27877087d2b2d35ed5bcfcea6c",
+      "item_type": "agentMessage",
+      "method": "item/started",
+      "sequence": 65,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 66,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 67,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 68,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 69,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 70,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 71,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 72,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 73,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 74,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 75,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 76,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 77,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 78,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 79,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 80,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 81,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 82,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 83,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 84,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 85,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 86,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 87,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 88,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 89,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 90,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 91,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 92,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 93,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 94,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 95,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 96,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 97,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 98,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 99,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 100,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 101,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "msg_0d3361322d8f85e7016a98da27877087d2b2d35ed5bcfcea6c",
+      "item_type": "agentMessage",
+      "method": "item/completed",
+      "sequence": 102,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "dynamic host tool completion",
+      "event_class": "BOUNDED_HOST_TOOL_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "exec-d6c91a08-3629-41c4-b3c6-677b334f3955",
+      "item_type": "dynamicToolCall",
+      "method": "item/started",
+      "sequence": 103,
+      "status": "inProgress",
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "tool=harness_read_file",
+      "event_class": "BOUNDED_HOST_TOOL_CALL",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/tool/call",
+      "sequence": 104,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "dynamic host tool completion",
+      "event_class": "BOUNDED_HOST_TOOL_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "exec-d6c91a08-3629-41c4-b3c6-677b334f3955",
+      "item_type": "dynamicToolCall",
+      "method": "item/completed",
+      "sequence": 105,
+      "status": "completed",
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "dynamic host tool completion",
+      "event_class": "BOUNDED_HOST_TOOL_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "exec-e25a99c2-5664-4c0b-b20a-700993307785",
+      "item_type": "dynamicToolCall",
+      "method": "item/started",
+      "sequence": 106,
+      "status": "inProgress",
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "tool=harness_write_file",
+      "event_class": "BOUNDED_HOST_TOOL_CALL",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/tool/call",
+      "sequence": 107,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "dynamic host tool completion",
+      "event_class": "BOUNDED_HOST_TOOL_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "exec-e25a99c2-5664-4c0b-b20a-700993307785",
+      "item_type": "dynamicToolCall",
+      "method": "item/completed",
+      "sequence": 108,
+      "status": "completed",
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "thread/tokenUsage/updated",
+      "sequence": 109,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "account/rateLimits/updated",
+      "sequence": 110,
+      "status": null,
+      "thread_id": null,
+      "turn_id": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "rs_0d3361322d8f85e7016a98da2eda0c87d2b632c4531a19ba75",
+      "item_type": "reasoning",
+      "method": "item/started",
+      "sequence": 111,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "rs_0d3361322d8f85e7016a98da2eda0c87d2b632c4531a19ba75",
+      "item_type": "reasoning",
+      "method": "item/completed",
+      "sequence": 112,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "dynamic host tool completion",
+      "event_class": "BOUNDED_HOST_TOOL_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "exec-0e436bd0-ab51-42f5-8ce0-5b508234f8bc",
+      "item_type": "dynamicToolCall",
+      "method": "item/started",
+      "sequence": 113,
+      "status": "inProgress",
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "tool=harness_read_file",
+      "event_class": "BOUNDED_HOST_TOOL_CALL",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/tool/call",
+      "sequence": 114,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": "dynamic host tool completion",
+      "event_class": "BOUNDED_HOST_TOOL_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "exec-0e436bd0-ab51-42f5-8ce0-5b508234f8bc",
+      "item_type": "dynamicToolCall",
+      "method": "item/completed",
+      "sequence": 115,
+      "status": "completed",
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "thread/tokenUsage/updated",
+      "sequence": 116,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "account/rateLimits/updated",
+      "sequence": 117,
+      "status": null,
+      "thread_id": null,
+      "turn_id": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "msg_0d3361322d8f85e7016a98da357e6087d2924e86b92e4e0dd7",
+      "item_type": "agentMessage",
+      "method": "item/started",
+      "sequence": 118,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 119,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 120,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 121,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 122,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 123,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 124,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 125,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 126,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 127,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 128,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 129,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 130,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 131,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 132,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 133,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 134,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 135,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 136,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 137,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 138,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 139,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 140,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 141,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 142,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 143,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 144,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 145,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 146,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 147,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 148,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 149,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 150,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 151,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 152,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 153,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 154,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 155,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 156,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 157,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 158,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "item/agentMessage/delta",
+      "sequence": 159,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": "msg_0d3361322d8f85e7016a98da357e6087d2924e86b92e4e0dd7",
+      "item_type": "agentMessage",
+      "method": "item/completed",
+      "sequence": 160,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "thread/tokenUsage/updated",
+      "sequence": 161,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "account/rateLimits/updated",
+      "sequence": 162,
+      "status": null,
+      "thread_id": null,
+      "turn_id": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "thread/status/changed",
+      "sequence": 163,
+      "status": null,
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": null
+    },
+    {
+      "detail": null,
+      "event_class": "HOST_EVENT",
+      "fact_status": "HOST_OBSERVED",
+      "item_id": null,
+      "item_type": null,
+      "method": "turn/completed",
+      "sequence": 164,
+      "status": "completed",
+      "thread_id": "01a06513-d16a-7d70-8790-ac870fb15c37",
+      "turn_id": "01a06513-d180-79b3-a3aa-cfafe107de2c"
+    }
+  ],
+  "protocol": [
+    {
+      "has_error": false,
+      "has_id": true,
+      "message_kind": "response",
+      "method": null,
+      "sequence": 0
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "remoteControl/status/changed",
+      "sequence": 1
+    },
+    {
+      "has_error": false,
+      "has_id": true,
+      "message_kind": "response",
+      "method": null,
+      "sequence": 2
+    },
+    {
+      "has_error": false,
+      "has_id": true,
+      "message_kind": "response",
+      "method": null,
+      "sequence": 3
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "thread/started",
+      "sequence": 4
+    },
+    {
+      "has_error": false,
+      "has_id": true,
+      "message_kind": "response",
+      "method": null,
+      "sequence": 5
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "thread/status/changed",
+      "sequence": 6
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "turn/started",
+      "sequence": 7
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/started",
+      "sequence": 8
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/completed",
+      "sequence": 9
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/started",
+      "sequence": 10
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/completed",
+      "sequence": 11
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/started",
+      "sequence": 12
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 13
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 14
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 15
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 16
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 17
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 18
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 19
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 20
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 21
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 22
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 23
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 24
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 25
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 26
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 27
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 28
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 29
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 30
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 31
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 32
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 33
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 34
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 35
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 36
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 37
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 38
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 39
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 40
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 41
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 42
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 43
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 44
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 45
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 46
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 47
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 48
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 49
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/completed",
+      "sequence": 50
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/started",
+      "sequence": 51
+    },
+    {
+      "has_error": false,
+      "has_id": true,
+      "message_kind": "request",
+      "method": "item/tool/call",
+      "sequence": 52
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/completed",
+      "sequence": 53
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "thread/tokenUsage/updated",
+      "sequence": 54
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "account/rateLimits/updated",
+      "sequence": 55
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/started",
+      "sequence": 56
+    },
+    {
+      "has_error": false,
+      "has_id": true,
+      "message_kind": "request",
+      "method": "item/tool/call",
+      "sequence": 57
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/completed",
+      "sequence": 58
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "thread/tokenUsage/updated",
+      "sequence": 59
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "account/rateLimits/updated",
+      "sequence": 60
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/started",
+      "sequence": 61
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/completed",
+      "sequence": 62
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/started",
+      "sequence": 63
+    },
+    {
+      "has_error": false,
+      "has_id": true,
+      "message_kind": "request",
+      "method": "item/tool/call",
+      "sequence": 64
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/completed",
+      "sequence": 65
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "thread/tokenUsage/updated",
+      "sequence": 66
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "account/rateLimits/updated",
+      "sequence": 67
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/started",
+      "sequence": 68
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/completed",
+      "sequence": 69
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/started",
+      "sequence": 70
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 71
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 72
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 73
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 74
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 75
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 76
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 77
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 78
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 79
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 80
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 81
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 82
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 83
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 84
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 85
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 86
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 87
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 88
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 89
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 90
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 91
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 92
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 93
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 94
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 95
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 96
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 97
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 98
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 99
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 100
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 101
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 102
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 103
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 104
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 105
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 106
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/completed",
+      "sequence": 107
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/started",
+      "sequence": 108
+    },
+    {
+      "has_error": false,
+      "has_id": true,
+      "message_kind": "request",
+      "method": "item/tool/call",
+      "sequence": 109
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/completed",
+      "sequence": 110
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/started",
+      "sequence": 111
+    },
+    {
+      "has_error": false,
+      "has_id": true,
+      "message_kind": "request",
+      "method": "item/tool/call",
+      "sequence": 112
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/completed",
+      "sequence": 113
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "thread/tokenUsage/updated",
+      "sequence": 114
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "account/rateLimits/updated",
+      "sequence": 115
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/started",
+      "sequence": 116
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/completed",
+      "sequence": 117
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/started",
+      "sequence": 118
+    },
+    {
+      "has_error": false,
+      "has_id": true,
+      "message_kind": "request",
+      "method": "item/tool/call",
+      "sequence": 119
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/completed",
+      "sequence": 120
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "thread/tokenUsage/updated",
+      "sequence": 121
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "account/rateLimits/updated",
+      "sequence": 122
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/started",
+      "sequence": 123
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 124
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 125
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 126
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 127
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 128
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 129
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 130
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 131
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 132
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 133
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 134
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 135
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 136
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 137
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 138
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 139
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 140
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 141
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 142
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 143
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 144
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 145
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 146
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 147
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 148
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 149
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 150
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 151
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 152
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 153
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 154
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 155
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 156
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 157
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 158
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 159
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 160
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 161
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 162
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 163
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/agentMessage/delta",
+      "sequence": 164
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "item/completed",
+      "sequence": 165
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "thread/tokenUsage/updated",
+      "sequence": 166
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "account/rateLimits/updated",
+      "sequence": 167
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "thread/status/changed",
+      "sequence": 168
+    },
+    {
+      "has_error": false,
+      "has_id": false,
+      "message_kind": "notification",
+      "method": "turn/completed",
+      "sequence": 169
+    }
+  ]
+}

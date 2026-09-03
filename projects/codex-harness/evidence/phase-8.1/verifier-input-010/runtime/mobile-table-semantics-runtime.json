@@ -1,0 +1,118 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "capture_id": "P81-BROWSER-018",
+  "captured_at_ns": 1788405412324987933,
+  "console": [],
+  "rows": [
+    [
+      {
+        "clipped": false,
+        "label": "Patient",
+        "text": "M\nMiso\nBreathing concern"
+      },
+      {
+        "clipped": false,
+        "label": "Species",
+        "text": "Cat"
+      },
+      {
+        "clipped": false,
+        "label": "Triage",
+        "text": "Critical"
+      },
+      {
+        "clipped": false,
+        "label": "Waiting",
+        "text": "08 min"
+      },
+      {
+        "clipped": false,
+        "label": "Action",
+        "text": "Review"
+      }
+    ],
+    [
+      {
+        "clipped": false,
+        "label": "Patient",
+        "text": "J\nJuniper\nAcute pain"
+      },
+      {
+        "clipped": false,
+        "label": "Species",
+        "text": "Dog"
+      },
+      {
+        "clipped": false,
+        "label": "Triage",
+        "text": "Urgent"
+      },
+      {
+        "clipped": false,
+        "label": "Waiting",
+        "text": "14 min"
+      },
+      {
+        "clipped": false,
+        "label": "Action",
+        "text": "Review"
+      }
+    ],
+    [
+      {
+        "clipped": false,
+        "label": "Patient",
+        "text": "O\nOtis\nNot eating"
+      },
+      {
+        "clipped": false,
+        "label": "Species",
+        "text": "Rabbit"
+      },
+      {
+        "clipped": false,
+        "label": "Triage",
+        "text": "Soon"
+      },
+      {
+        "clipped": false,
+        "label": "Waiting",
+        "text": "21 min"
+      },
+      {
+        "clipped": false,
+        "label": "Action",
+        "text": "Review"
+      }
+    ],
+    [
+      {
+        "clipped": false,
+        "label": "Patient",
+        "text": "P\nPip\nWing check"
+      },
+      {
+        "clipped": false,
+        "label": "Species",
+        "text": "Bird"
+      },
+      {
+        "clipped": false,
+        "label": "Triage",
+        "text": "Routine"
+      },
+      {
+        "clipped": false,
+        "label": "Waiting",
+        "text": "29 min"
+      },
+      {
+        "clipped": false,
+        "label": "Action",
+        "text": "Review"
+      }
+    ]
+  ],
+  "run_id": "P81-COMPOSE-013",
+  "url": "http://127.0.0.1:4196/"
+}

@@ -1,81 +1,60 @@
 {
-  "schema_version": "P8.1-COMPOSITION-TIMELINE-1",
-  "task_id": "PHASE8.1-001",
-  "composition_run": "P81-COMPOSE-009",
-  "ordering_basis": "receipt timestamps, server binding observation time and packet file mtimes",
+  "composition_run": "P81-COMPOSE-013",
   "events": [
     {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capability": "frontend-engineering-vnext",
+      "event": "FRONTEND_HOST_MUTATION_COMPLETED",
+      "invocation_id": "INV-33bdb675aa0b5612b85eac20",
+      "observation_type": "HOST_AND_WORKSPACE_OBSERVED",
+      "run_id": "P81-COMPOSE-013",
       "sequence": 1,
-      "event": "FRONTEND_HOST_RESPONSE_OBSERVED",
-      "observed_at_ns": 1788190970000000000,
-      "source": "frontend-real-invocation-short/invocation-receipts/INV-cf9d460266785f78b43e15ac.json",
-      "observation": "host_result SUCCESS / READY / execution_observed=true"
+      "source": "frontend-real-005/invocation-receipt.json",
+      "source_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "timestamp_ns": 1788404663955699812
     },
     {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capability": "frontend-engineering-vnext",
+      "event": "ARTIFACT_BUILD_COMPLETED",
+      "invocation_id": "INV-33bdb675aa0b5612b85eac20",
+      "observation_type": "EXACT_COPY_DIGEST_OBSERVED",
+      "run_id": "P81-COMPOSE-013",
       "sequence": 2,
-      "event": "EXACT_ARTIFACT_IDENTITY_CHECKED",
-      "observed_at_ns": 1788197478364428445,
-      "source": "artifact/frontend-run-001/build-receipt.json",
-      "observation": "source_tree_digest=sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044"
+      "source": "frontend-real-005/build-receipt.json",
+      "source_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "timestamp_ns": 1788404663967711741
     },
     {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capability": "chromium-runtime-observer",
+      "event": "BROWSER_RUNTIME_COMPLETED",
+      "invocation_id": "P81-BROWSER-018",
+      "observation_type": "BROWSER_RUNTIME_OBSERVED",
+      "run_id": "P81-COMPOSE-013",
       "sequence": 3,
-      "event": "COMPOSITION_COPY_CREATED_AND_RECHECKED",
-      "observed_at_ns": 1788197488406148536,
-      "source": "composition-run-009/composition-receipt.json",
-      "observation": "run=P81-COMPOSE-009; artifact_tree_digest=sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044; global_mutations=0"
-    },
-    {
-      "sequence": 4,
-      "event": "EXACT_ARTIFACT_SERVER_STARTED",
-      "observed_at_ns": 1788198143804560231,
-      "source": "browser/server-process.json",
-      "observation": "base_url=http://127.0.0.1:4187/; artifact_digest=sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044; process_started=true"
-    },
-    {
-      "sequence": 5,
-      "event": "BROWSER_ARTIFACT_BINDING_OBSERVED",
-      "observed_at_ns": 1788198192748000000,
-      "source": "browser/server-binding.json",
-      "observation": "HTTP 200 X-Phase81-Artifact-Digest=sha256:bfd899129937a6c615389796e6d85972ebe7f4572392b362e9e37b256bc3e044"
-    },
-    {
-      "sequence": 6,
-      "event": "BROWSER_RUNTIME_CAPTURE_COMPLETED",
-      "observed_at_ns": 1788198551007227034,
-      "source": "browser/",
-      "observation": "Current browser captures were written after the exact server binding."
-    },
-    {
-      "sequence": 7,
-      "event": "VERIFIER_HOST_RESPONSE_OBSERVED",
-      "observed_at_ns": 1788198590000000000,
-      "source": "verifier-real-invocation-final-after-browser/invocation-receipts/INV-6d639157532552ebaf59b0fd.json",
-      "observation": "host_result SUCCESS / VERIFIER_READY / execution_observed=true"
-    },
-    {
-      "sequence": 8,
-      "event": "BROWSER_EVIDENCE_PACKETIZED",
-      "observed_at_ns": 1788199684382278913,
       "source": "browser-evidence.json",
-      "observation": "browser_evidence_digest=sha256:ddc0ce0feb1c987f8adcb2d7e255bda461b6c498121630f0246d5fd8dd7c72a9"
+      "source_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "timestamp_ns": 1788405418125797297
     },
     {
-      "sequence": 9,
-      "event": "LOCAL_VERIFICATION_COMPLETED",
-      "observed_at_ns": 1788199684382569118,
-      "source": "verifier-report.json",
-      "observation": "verification_digest=sha256:7b23098ae4914eeb15a192ede7a2d25cb2e8442cb0164cd8c386ce7db2608324"
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "capability": "verification-loop-vnext",
+      "event": "VERIFIER_HOST_COMPLETED",
+      "invocation_id": "INV-a5d5f1c817335f03892a0fd1",
+      "observation_type": "READ_ONLY_HOST_VERIFICATION_OBSERVED",
+      "run_id": "P81-COMPOSE-013",
+      "sequence": 4,
+      "source": "verifier-real-010/invocation-receipt.json",
+      "source_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "timestamp_ns": 1788406844583808339
     }
   ],
-  "unknowns": [
-    "The public host protocol did not emit a skill-load event."
-  ],
   "limitations": [
-    "HOST_LOAD_UNOBSERVABLE",
-    "Alternative harness-observed composition is not full host skill-load causality.",
-    "Browser evidence is Chromium-only and not a full assistive-technology certification.",
-    "The local synthetic fixture does not establish production, release or security approval."
+    "HOST_LOAD_UNOBSERVABLE"
   ],
-  "timeline_digest": "sha256:a23e4c0cf12a36d53890e2165e97b6076e5ad912202b30055b31fbda6fabf37d"
+  "ordering_basis": "recorded wall-clock nanoseconds with strict identity checks",
+  "schema_version": "P8.1-COMPOSITION-TIMELINE-2",
+  "task_id": "PHASE8.1-001",
+  "timeline_digest": "sha256:07de4c5a411f80ad1a1dfd35a91af8f3b76f5893f9936c85f7b606bce2e9d98e"
 }

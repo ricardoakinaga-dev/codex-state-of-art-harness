@@ -1,0 +1,206 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "bodyWidth": 195,
+  "capture_id": "P81-BROWSER-016",
+  "captured_at_ns": 1788405284616067073,
+  "console": [],
+  "critical": [
+    {
+      "clipped": false,
+      "height": 44,
+      "id": "refresh-queue",
+      "width": 44
+    },
+    {
+      "clipped": false,
+      "height": 42,
+      "id": "patient",
+      "width": 129
+    },
+    {
+      "clipped": false,
+      "height": 42,
+      "id": "species",
+      "width": 129
+    },
+    {
+      "clipped": false,
+      "height": 42,
+      "id": "urgency",
+      "width": 129
+    },
+    {
+      "clipped": false,
+      "height": 80,
+      "id": "notes",
+      "width": 129
+    },
+    {
+      "clipped": false,
+      "height": 44,
+      "id": "submit-intake",
+      "width": 129
+    }
+  ],
+  "ctaBox": {
+    "bottom": -2012.203125,
+    "height": 50,
+    "left": 16,
+    "right": 179,
+    "top": -2062.203125,
+    "width": 163,
+    "x": 16,
+    "y": -2062.203125
+  },
+  "ctaPresent": true,
+  "documentWidth": 195,
+  "focusOutline": "rgb(29, 111, 117) solid 3px",
+  "focused": "submit-intake",
+  "labels": [
+    {
+      "height": 16.5,
+      "text": "Patient name *",
+      "width": 129
+    },
+    {
+      "height": 16.5,
+      "text": "Species *",
+      "width": 129
+    },
+    {
+      "height": 16.5,
+      "text": "Urgency *",
+      "width": 129
+    },
+    {
+      "height": 16.5,
+      "text": "What changed?",
+      "width": 129
+    }
+  ],
+  "marker": "P81-COMPOSE-013",
+  "navigationUsable": true,
+  "overflowX": false,
+  "pageScaleFactor": 2,
+  "panelOverlap": false,
+  "queueValues": [
+    {
+      "clipped": false,
+      "label": "Patient",
+      "text": "M\nMiso\nBreathing concern"
+    },
+    {
+      "clipped": false,
+      "label": "Species",
+      "text": "Cat"
+    },
+    {
+      "clipped": false,
+      "label": "Triage",
+      "text": "Critical"
+    },
+    {
+      "clipped": false,
+      "label": "Waiting",
+      "text": "08 min"
+    },
+    {
+      "clipped": false,
+      "label": "Action",
+      "text": "Review"
+    },
+    {
+      "clipped": false,
+      "label": "Patient",
+      "text": "J\nJuniper\nAcute pain"
+    },
+    {
+      "clipped": false,
+      "label": "Species",
+      "text": "Dog"
+    },
+    {
+      "clipped": false,
+      "label": "Triage",
+      "text": "Urgent"
+    },
+    {
+      "clipped": false,
+      "label": "Waiting",
+      "text": "14 min"
+    },
+    {
+      "clipped": false,
+      "label": "Action",
+      "text": "Review"
+    },
+    {
+      "clipped": false,
+      "label": "Patient",
+      "text": "O\nOtis\nNot eating"
+    },
+    {
+      "clipped": false,
+      "label": "Species",
+      "text": "Rabbit"
+    },
+    {
+      "clipped": false,
+      "label": "Triage",
+      "text": "Soon"
+    },
+    {
+      "clipped": false,
+      "label": "Waiting",
+      "text": "21 min"
+    },
+    {
+      "clipped": false,
+      "label": "Action",
+      "text": "Review"
+    },
+    {
+      "clipped": false,
+      "label": "Patient",
+      "text": "P\nPip\nWing check"
+    },
+    {
+      "clipped": false,
+      "label": "Species",
+      "text": "Bird"
+    },
+    {
+      "clipped": false,
+      "label": "Triage",
+      "text": "Routine"
+    },
+    {
+      "clipped": false,
+      "label": "Waiting",
+      "text": "29 min"
+    },
+    {
+      "clipped": false,
+      "label": "Action",
+      "text": "Review"
+    }
+  ],
+  "run_id": "P81-COMPOSE-013",
+  "stateVisible": true,
+  "submitBox": {
+    "bottom": 655.359375,
+    "height": 44,
+    "left": 33,
+    "right": 162,
+    "top": 611.359375,
+    "width": 129,
+    "x": 33,
+    "y": 611.359375
+  },
+  "submitPresent": true,
+  "url": "http://127.0.0.1:4194/?scenario=default",
+  "viewport": {
+    "height": 844,
+    "width": 195
+  }
+}

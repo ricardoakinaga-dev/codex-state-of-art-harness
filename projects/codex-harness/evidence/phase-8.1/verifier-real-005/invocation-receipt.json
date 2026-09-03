@@ -1,0 +1,355 @@
+{
+  "authorization": {
+    "allowed_side_effects": [],
+    "allowed_tools": [],
+    "artifact_policy": {
+      "max_bytes": 16384,
+      "max_count": 16,
+      "types": [
+        "HOST_RESPONSE"
+      ]
+    },
+    "authorization_id": "AUTH-7964a25f2191502091213935",
+    "capability_id": "verification-loop-vnext",
+    "capability_version": "0.1.0",
+    "constraints": [
+      "no arbitrary shell",
+      "no scripts",
+      "no network",
+      "no MCP",
+      "no providers",
+      "no credentials",
+      "no subagents"
+    ],
+    "context_budget": {
+      "max_bytes": 16384
+    },
+    "credential_policy": "DENY",
+    "evidence_policy": {
+      "max_count": 64,
+      "max_events": 4096
+    },
+    "expires_at": 1788403170,
+    "filesystem_policy": {
+      "allowed_roots": [],
+      "artifact_root": "/home/ricardo/codex-state-of-art-harness/projects/codex-harness/evidence/phase-8.1/composition-run-012/frontend-artifact/.harness/phase4/artifacts",
+      "credentials": "DENY",
+      "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+      "host_interpreter_digest": "sha256:89af8424dd53e560b1933f87ba650d8bf57c83ca5a04600eefb31f416aabbae7",
+      "max_bytes": 16777216,
+      "max_files": 256,
+      "mcp": "DENY",
+      "mode": "READ_ONLY",
+      "network": "DENY",
+      "package_path": "/home/ricardo/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/verification-loop-vnext",
+      "package_write_allowed": false,
+      "providers": "DENY",
+      "shell": "DENY",
+      "workspace": "/home/ricardo/codex-state-of-art-harness/projects/codex-harness/evidence/phase-8.1/composition-run-012/frontend-artifact"
+    },
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_interpreter_digest": "sha256:89af8424dd53e560b1933f87ba650d8bf57c83ca5a04600eefb31f416aabbae7",
+    "issued_at": 1788403050,
+    "issued_by": "phase4-preflight",
+    "iteration_budget": {
+      "host_calls": 1,
+      "repair_iterations": 0,
+      "tool_calls": 0,
+      "verification_iterations": 1
+    },
+    "mcp_policy": "DENY",
+    "network_policy": "DENY",
+    "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "provider_policy": "DENY",
+    "reason": "exact current read-only verifier; structured evidence handoff only",
+    "requested_execution_mode": "CONTROLLED_REAL",
+    "requested_loading_level": "L2_INSTRUCTION_KERNEL",
+    "run_id": "P81-VERIFY-005",
+    "scope": "PROJECT",
+    "shell_policy": "DENY",
+    "task_id": "PHASE8.1-001",
+    "timeout_seconds": 120
+  },
+  "composition_run": "P81-COMPOSE-012",
+  "errors": [],
+  "host": {
+    "approval_request_count": 0,
+    "error_code": null,
+    "executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "execution_observed": true,
+    "final_message": "{\"marker\":\"P81_VERIFIER_REPORT\",\"schema_version\":\"P8.1-VERIFICATION-INPUT-1\",\"task_id\":\"PHASE8.1-001\",\"composition_run\":\"P81-COMPOSE-012\",\"run_id\":\"P81-VERIFY-005\",\"role\":\"VERIFIER_ONLY\",\"authorization_id\":\"AUTH-fcac2b2562f651bf918e95e8\",\"frontend_invocation_id\":\"INV-2e7f31a26d1f5b9898c2ea28\",\"artifact_root\":\"composition-run-012/frontend-artifact\",\"artifact_digest\":\"sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c\",\"browser_evidence_digest\":\"sha256:2feb6beeb4056b60f68be46f2c1b9703640caa355c08a92fbef5328904776f5a\",\"criterion_set_digest\":\"sha256:cb1a170c72ab7d8baf533ef6aeb285b00a31ba963f45df20c7f163d5011668e0\",\"frontend_fingerprint\":\"sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342\",\"input_digest\":\"sha256:36824f1b3fab8ce24b054f1b9f09bbf12b3d4be9f5556b66382166095307f6db\",\"verifier_fingerprint\":\"sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b\",\"report_status\":\"PASS_WITH_LIMITATIONS\",\"stop_decision\":\"ALL_REQUIRED_CRITERIA_RESOLVED\",\"limitations\":[\"HOST_LOAD_UNOBSERVABLE\"],\"criteria\":[{\"id\":\"P81-V-CAPABILITY-IDENTITY\",\"status\":\"PASS\",\"procedure\":\"Compare discovery fingerprints with the preflight authorization and handoff.\",\"evidence\":[\"frontend-real-004/invocation-receipt.json\",\"phase8.1-execution-policy.json\"],\"confidence\":\"HIGH\"},{\"id\":\"P81-V-HOST-MUTATION\",\"status\":\"PASS\",\"procedure\":\"Compare typed Skill identity, host write event, delta, mutation counters and producer flags.\",\"evidence\":[\"frontend-real-004/invocation-receipt.json\",\"frontend-real-004/host-events.json\"],\"confidence\":\"HIGH\"},{\"id\":\"P81-V-ARTIFACT-LINEAGE\",\"status\":\"PASS\",\"procedure\":\"Compare canonical source, build and artifact digests and exact-copy receipt.\",\"evidence\":[\"frontend-real-004/build-receipt.json\",\"frontend-real-004/digest-reconciliation.json\"],\"confidence\":\"HIGH\"},{\"id\":\"P81-V-BROWSER-RUNTIME\",\"status\":\"PASS\",\"procedure\":\"Compare artifact identity, capture timing, check totals and server-header observation.\",\"evidence\":[\"browser-evidence-014.json\",\"browser-014/accessibility-runtime.json\",\"browser-014/default-runtime.json\",\"browser-014/empty-runtime.json\",\"browser-014/idempotent-retry-runtime.json\",\"browser-014/intermediate-runtime.json\",\"browser-014/loading-runtime.json\",\"browser-014/mobile-runtime.json\",\"browser-014/portrait-runtime.json\",\"browser-014/queue-error-runtime.json\",\"browser-014/queue-recovery-runtime.json\",\"browser-014/reflow-runtime.json\",\"browser-014/server-binding.json\",\"browser-014/stale-response-runtime.json\",\"browser-014/submission-loading-runtime.json\",\"browser-014/submission-success-runtime.json\",\"browser-014/url-invalid-runtime.json\",\"browser-014/url-state-runtime.json\",\"browser-014/validation-runtime.json\"],\"confidence\":\"HIGH\"}]}",
+    "interpreter_digest": "sha256:89af8424dd53e560b1933f87ba650d8bf57c83ca5a04600eefb31f416aabbae7",
+    "invocation_observed": true,
+    "mcp_event_count": 0,
+    "protocol_message_count": 815,
+    "response_digest": "sha256:b8e68cbfa0a015a2979f75b241267002101c18201c11bc145b9080935ae6e67d",
+    "session_id": "01a06520-eb81-7f22-9648-9b667d0b8545",
+    "status": "SUCCESS",
+    "thread_id": "01a06520-eb81-7f22-9648-9b667d0b8545",
+    "turn_id": "01a06520-eb8b-7f30-b343-ea77dcaf8c9d"
+  },
+  "input": {
+    "artifact_identity": {
+      "digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+      "root": "composition-run-012/frontend-artifact"
+    },
+    "composition_run": "P81-COMPOSE-012",
+    "criteria": [
+      {
+        "claim": "Exact frontend and verifier package identities are policy-bound.",
+        "evidence": [
+          "frontend-real-004/invocation-receipt.json",
+          "phase8.1-execution-policy.json"
+        ],
+        "id": "P81-V-CAPABILITY-IDENTITY",
+        "observed": {
+          "frontend_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+          "frontend_preflight_allowed": true,
+          "verifier_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b"
+        },
+        "procedure": "Compare discovery fingerprints with the preflight authorization and handoff."
+      },
+      {
+        "claim": "The bounded frontend host turn produced the only source mutation.",
+        "evidence": [
+          "frontend-real-004/invocation-receipt.json",
+          "frontend-real-004/host-events.json"
+        ],
+        "id": "P81-V-HOST-MUTATION",
+        "observed": {
+          "alternate_producer_detected": false,
+          "changed_files": [
+            "app/index.html"
+          ],
+          "global_mutations": 0,
+          "host_status": "SUCCESS",
+          "host_write_event_sequence": 107,
+          "manual_mutation_detected": false,
+          "typed_skill_input": {
+            "name": "frontend-engineering-vnext",
+            "path": "$PROJECT/.harness/capabilities/frontend-engineering-vnext/SKILL.md",
+            "type": "skill"
+          }
+        },
+        "procedure": "Compare typed Skill identity, host write event, delta, mutation counters and producer flags."
+      },
+      {
+        "claim": "The host-mutated source is byte-bound through build and served artifact.",
+        "evidence": [
+          "frontend-real-004/build-receipt.json",
+          "frontend-real-004/digest-reconciliation.json"
+        ],
+        "id": "P81-V-ARTIFACT-LINEAGE",
+        "observed": {
+          "artifact_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+          "build_exit_code": 0,
+          "build_status": "PASS",
+          "source_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c"
+        },
+        "procedure": "Compare canonical source, build and artifact digests and exact-copy receipt."
+      },
+      {
+        "claim": "Fresh browser evidence exercises the exact composed artifact.",
+        "evidence": [
+          "browser-evidence-014.json",
+          "browser-014/accessibility-runtime.json",
+          "browser-014/default-runtime.json",
+          "browser-014/empty-runtime.json",
+          "browser-014/idempotent-retry-runtime.json",
+          "browser-014/intermediate-runtime.json",
+          "browser-014/loading-runtime.json",
+          "browser-014/mobile-runtime.json",
+          "browser-014/portrait-runtime.json",
+          "browser-014/queue-error-runtime.json",
+          "browser-014/queue-recovery-runtime.json",
+          "browser-014/reflow-runtime.json",
+          "browser-014/server-binding.json",
+          "browser-014/stale-response-runtime.json",
+          "browser-014/submission-loading-runtime.json",
+          "browser-014/submission-success-runtime.json",
+          "browser-014/url-invalid-runtime.json",
+          "browser-014/url-state-runtime.json",
+          "browser-014/validation-runtime.json"
+        ],
+        "id": "P81-V-BROWSER-RUNTIME",
+        "observed": {
+          "artifact_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+          "browser": {
+            "engine": "Chromium",
+            "executable": "/usr/bin/google-chrome",
+            "executable_digest": "sha256:aea09d69ce7f24d5901f6bfb15dd44d0c856e793e0a498f8d8393ec7d2c308ec",
+            "version": "152.0.7977.75"
+          },
+          "capture_started_after_build": true,
+          "checks": {
+            "failed": 0,
+            "passed": 33,
+            "total": 33
+          },
+          "status": "PASS"
+        },
+        "procedure": "Compare artifact identity, capture timing, check totals and server-header observation."
+      }
+    ],
+    "criterion_set_digest": "sha256:cb1a170c72ab7d8baf533ef6aeb285b00a31ba963f45df20c7f163d5011668e0",
+    "evidence": {
+      "browser_manifest_digest": "sha256:2feb6beeb4056b60f68be46f2c1b9703640caa355c08a92fbef5328904776f5a",
+      "build_receipt_digest": "sha256:8f6f8abb38947b92b1eb4fea136b043c9625663132d339b66d04908aed920b4b",
+      "frontend_receipt_digest": "sha256:e67d189fa34b95441f1527eb769ab5d1a11483578409a54fdf07499d81d4522e"
+    },
+    "freshness": {
+      "browser_completed_at_ns": 1788402811162782012,
+      "browser_started_at_ns": 1788402800014425083,
+      "build_completed_at_ns": 1788402230403902691,
+      "host_completed_at_ns": 1788402230397224567
+    },
+    "identities": {
+      "authorization_id": "AUTH-fcac2b2562f651bf918e95e8",
+      "frontend_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+      "frontend_invocation_id": "INV-2e7f31a26d1f5b9898c2ea28",
+      "verifier_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b"
+    },
+    "input_digest": "sha256:36824f1b3fab8ce24b054f1b9f09bbf12b3d4be9f5556b66382166095307f6db",
+    "known_limitation": "HOST_LOAD_UNOBSERVABLE",
+    "role": "VERIFIER_ONLY",
+    "run_id": "P81-VERIFY-005",
+    "schema_version": "P8.1-VERIFICATION-INPUT-1",
+    "task_id": "PHASE8.1-001",
+    "tool_policy": {
+      "credentials": "DENY",
+      "filesystem": "READ_ONLY",
+      "mcp": "DENY",
+      "network": "DENY",
+      "providers": "DENY",
+      "shell": "DENY",
+      "tools": [],
+      "workspace_write": "DENY"
+    }
+  },
+  "input_bytes": 5806,
+  "invocation_id": "INV-88011e2293d0588ba04296d5",
+  "limitations": [
+    "HOST_LOAD_UNOBSERVABLE",
+    "The verifier reports bounded facts and is not a reviewer, assurance or release authority."
+  ],
+  "package": {
+    "capability_id": "verification-loop-vnext",
+    "host_load_observation": "UNAVAILABLE",
+    "instruction_loaded": true,
+    "load_level": "L2_INSTRUCTION_KERNEL",
+    "manifest_digest": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c",
+    "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "typed_skill_input": {
+      "name": "verification-loop-vnext",
+      "path": "$PROJECT/.harness/capabilities/verification-loop-vnext/SKILL.md",
+      "type": "skill"
+    }
+  },
+  "preflight": {
+    "allowed": true,
+    "blockers": [],
+    "digest": "sha256:5ad1f501f22673a6c6ffaeebe068b772521d2af13d65ed252d21d8f293f5c31a",
+    "warnings": [
+      "NETWORK_DENIED",
+      "SHELL_DENIED",
+      "MCP_DENIED",
+      "CREDENTIALS_DENIED"
+    ]
+  },
+  "report": {
+    "artifact_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+    "artifact_root": "composition-run-012/frontend-artifact",
+    "authorization_id": "AUTH-fcac2b2562f651bf918e95e8",
+    "browser_evidence_digest": "sha256:2feb6beeb4056b60f68be46f2c1b9703640caa355c08a92fbef5328904776f5a",
+    "composition_run": "P81-COMPOSE-012",
+    "criteria": [
+      {
+        "confidence": "HIGH",
+        "evidence": [
+          "frontend-real-004/invocation-receipt.json",
+          "phase8.1-execution-policy.json"
+        ],
+        "id": "P81-V-CAPABILITY-IDENTITY",
+        "procedure": "Compare discovery fingerprints with the preflight authorization and handoff.",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "evidence": [
+          "frontend-real-004/invocation-receipt.json",
+          "frontend-real-004/host-events.json"
+        ],
+        "id": "P81-V-HOST-MUTATION",
+        "procedure": "Compare typed Skill identity, host write event, delta, mutation counters and producer flags.",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "evidence": [
+          "frontend-real-004/build-receipt.json",
+          "frontend-real-004/digest-reconciliation.json"
+        ],
+        "id": "P81-V-ARTIFACT-LINEAGE",
+        "procedure": "Compare canonical source, build and artifact digests and exact-copy receipt.",
+        "status": "PASS"
+      },
+      {
+        "confidence": "HIGH",
+        "evidence": [
+          "browser-evidence-014.json",
+          "browser-014/accessibility-runtime.json",
+          "browser-014/default-runtime.json",
+          "browser-014/empty-runtime.json",
+          "browser-014/idempotent-retry-runtime.json",
+          "browser-014/intermediate-runtime.json",
+          "browser-014/loading-runtime.json",
+          "browser-014/mobile-runtime.json",
+          "browser-014/portrait-runtime.json",
+          "browser-014/queue-error-runtime.json",
+          "browser-014/queue-recovery-runtime.json",
+          "browser-014/reflow-runtime.json",
+          "browser-014/server-binding.json",
+          "browser-014/stale-response-runtime.json",
+          "browser-014/submission-loading-runtime.json",
+          "browser-014/submission-success-runtime.json",
+          "browser-014/url-invalid-runtime.json",
+          "browser-014/url-state-runtime.json",
+          "browser-014/validation-runtime.json"
+        ],
+        "id": "P81-V-BROWSER-RUNTIME",
+        "procedure": "Compare artifact identity, capture timing, check totals and server-header observation.",
+        "status": "PASS"
+      }
+    ],
+    "criterion_set_digest": "sha256:cb1a170c72ab7d8baf533ef6aeb285b00a31ba963f45df20c7f163d5011668e0",
+    "frontend_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+    "frontend_invocation_id": "INV-2e7f31a26d1f5b9898c2ea28",
+    "input_digest": "sha256:36824f1b3fab8ce24b054f1b9f09bbf12b3d4be9f5556b66382166095307f6db",
+    "limitations": [
+      "HOST_LOAD_UNOBSERVABLE"
+    ],
+    "marker": "P81_VERIFIER_REPORT",
+    "report_status": "PASS_WITH_LIMITATIONS",
+    "role": "VERIFIER_ONLY",
+    "run_id": "P81-VERIFY-005",
+    "schema_version": "P8.1-VERIFICATION-INPUT-1",
+    "stop_decision": "ALL_REQUIRED_CRITERIA_RESOLVED",
+    "task_id": "PHASE8.1-001",
+    "verifier_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b"
+  },
+  "report_valid": true,
+  "run_id": "P81-VERIFY-005",
+  "schema_version": "P8.1-REAL-VERIFIER-RECEIPT-1",
+  "status": "PASS_WITH_LIMITATIONS",
+  "task_id": "PHASE8.1-001",
+  "timeline": {
+    "completed_at_ns": 1788403070506432327,
+    "started_at_ns": 1788403050668620876
+  },
+  "workspace": {
+    "delta_ok": true,
+    "mode": "READ_ONLY",
+    "root": "composition-run-012/frontend-artifact",
+    "unchanged": true
+  }
+}

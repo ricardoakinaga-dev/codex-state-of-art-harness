@@ -1,0 +1,96 @@
+{
+  "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "capture_id": "P81-BROWSER-017",
+  "captured_at_ns": 1788405340818390988,
+  "colors": {
+    "border": "rgb(111, 124, 117)",
+    "surface": "rgb(255, 255, 255)",
+    "text": "rgb(31, 42, 43)"
+  },
+  "console": [],
+  "contrast": {
+    "border": 4.360616327500559,
+    "text": 14.743767763225499
+  },
+  "headings": [
+    {
+      "level": "H1",
+      "text": "Make room for the next\nurgent arrival."
+    },
+    {
+      "level": "H2",
+      "text": "Emergency queue"
+    },
+    {
+      "level": "H2",
+      "text": "Start an intake"
+    },
+    {
+      "level": "H2",
+      "text": "A good handoff is a clinical tool."
+    }
+  ],
+  "labels": [
+    {
+      "associated": true,
+      "id": "patient",
+      "label": "Patient name *"
+    },
+    {
+      "associated": true,
+      "id": "species",
+      "label": "Species *"
+    },
+    {
+      "associated": true,
+      "id": "urgency",
+      "label": "Urgency *"
+    },
+    {
+      "associated": true,
+      "id": "notes",
+      "label": "What changed?"
+    },
+    {
+      "associated": true,
+      "id": "urgency-filter",
+      "label": "Filter by urgency\nAll urgencies\nCritical\nUrgent\nSoon\nRoutine"
+    }
+  ],
+  "landmarks": {
+    "banner": 1,
+    "contentinfo": 1,
+    "main": 1,
+    "navigation": [
+      "Clinic workspace"
+    ]
+  },
+  "run_id": "P81-COMPOSE-013",
+  "urgencyCues": [
+    {
+      "level": "critical",
+      "markerWidth": "6px",
+      "shape": "50%",
+      "text": "Critical"
+    },
+    {
+      "level": "urgent",
+      "markerWidth": "6px",
+      "shape": "50%",
+      "text": "Urgent"
+    },
+    {
+      "level": "soon",
+      "markerWidth": "6px",
+      "shape": "50%",
+      "text": "Soon"
+    },
+    {
+      "level": "routine",
+      "markerWidth": "6px",
+      "shape": "50%",
+      "text": "Routine"
+    }
+  ],
+  "url": "http://127.0.0.1:4195/"
+}

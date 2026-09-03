@@ -8,6 +8,7 @@ package, shell, provider, MCP server or network request itself.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -87,12 +88,19 @@ _EXPLICIT_HOST_ACTION_MARKERS = ("command", "execute", "shell", "terminal")
 
 HOST_LIST_FILES_TOOL = "harness_list_files"
 HOST_READ_FILE_TOOL = "harness_read_file"
+HOST_HASH_FILE_TOOL = "harness_hash_file"
 HOST_WRITE_FILE_TOOL = "harness_write_file"
 HOST_RUN_TESTS_TOOL = "harness_run_tests"
 _HOST_TOOL_NAMES = frozenset(
-    {HOST_LIST_FILES_TOOL, HOST_READ_FILE_TOOL, HOST_WRITE_FILE_TOOL, HOST_RUN_TESTS_TOOL}
+    {
+        HOST_LIST_FILES_TOOL,
+        HOST_READ_FILE_TOOL,
+        HOST_HASH_FILE_TOOL,
+        HOST_WRITE_FILE_TOOL,
+        HOST_RUN_TESTS_TOOL,
+    }
 )
-_MAX_HOST_TOOL_CALLS = 64
+_MAX_HOST_TOOL_CALLS = 128
 _MAX_HOST_TOOL_PATH_BYTES = 4_096
 _MAX_HOST_FILE_BYTES = 512 * 1024
 _MAX_HOST_TOOL_OUTPUT_BYTES = 384 * 1024
@@ -388,20 +396,34 @@ class BoundedBuilderHostTools:
             },
             {
                 "type": "function",
-                "name": HOST_WRITE_FILE_TOOL,
+                "name": HOST_HASH_FILE_TOOL,
                 "description": (
-                    "Atomically write one UTF-8 source file under a declared project root. "
-                    "The package and control plane are never writable."
+                    "Hash one regular file under a declared project root without returning "
+                    "its contents. This host operation is read-only and bounded."
                 ),
                 "inputSchema": self._schema(
-                    {
-                        "path": {"type": "string", "maxLength": 1_024},
-                        "content": {"type": "string", "maxLength": _MAX_HOST_FILE_BYTES},
-                    },
-                    ("path", "content"),
+                    {"path": {"type": "string", "maxLength": 1_024}}, ("path",)
                 ),
             },
         ]
+        if self.policy.write_enabled:
+            specs.append(
+                {
+                    "type": "function",
+                    "name": HOST_WRITE_FILE_TOOL,
+                    "description": (
+                        "Atomically write one UTF-8 source file under a declared project root. "
+                        "The package and control plane are never writable."
+                    ),
+                    "inputSchema": self._schema(
+                        {
+                            "path": {"type": "string", "maxLength": 1_024},
+                            "content": {"type": "string", "maxLength": _MAX_HOST_FILE_BYTES},
+                        },
+                        ("path", "content"),
+                    ),
+                }
+            )
         if self.test_runner is not None and self.test_root is not None:
             specs.append(
                 {
@@ -516,7 +538,14 @@ class BoundedBuilderHostTools:
             if parent_fd is not None:
                 with suppress(OSError):
                     os.close(parent_fd)
-        return _tool_ok({"path": relative, "content": text, "bytes": len(content)})
+        return _tool_ok(
+            {
+                "path": relative,
+                "content": text,
+                "bytes": len(content),
+                "sha256": f"sha256:{hashlib.sha256(content).hexdigest()}",
+            }
+        )
 
     def _write(self, arguments: Mapping[str, object]) -> _BoundedHostToolResult:
         content = arguments.get("content")
@@ -584,6 +613,42 @@ class BoundedBuilderHostTools:
                     os.close(parent_fd)
         return _tool_ok({"path": relative, "bytes": len(encoded)})
 
+    def _hash(self, arguments: Mapping[str, object]) -> _BoundedHostToolResult:
+        candidate = self._candidate(arguments.get("path"), require_existing=True)
+        if candidate is None:
+            return _tool_error("PATH_NOT_ALLOWED")
+        root, resolved, relative = candidate
+        relative_to_root = resolved.relative_to(root)
+        parent_fd: int | None = None
+        file_fd: int | None = None
+        try:
+            parent_fd = self._directory_fd(root, relative_to_root.parts[:-1])
+            file_fd = os.open(
+                relative_to_root.parts[-1],
+                os.O_RDONLY | os.O_CLOEXEC | os.O_NOFOLLOW,
+                dir_fd=parent_fd,
+            )
+            metadata = os.fstat(file_fd)
+            if not stat.S_ISREG(metadata.st_mode):
+                return _tool_error("FILE_NOT_REGULAR")
+            content = self._read_descriptor(file_fd)
+        except (OSError, ValueError):
+            return _tool_error("FILE_HASH_REJECTED")
+        finally:
+            if file_fd is not None:
+                with suppress(OSError):
+                    os.close(file_fd)
+            if parent_fd is not None:
+                with suppress(OSError):
+                    os.close(parent_fd)
+        return _tool_ok(
+            {
+                "path": relative,
+                "bytes": len(content),
+                "sha256": f"sha256:{hashlib.sha256(content).hexdigest()}",
+            }
+        )
+
     def write_event_path(self, arguments: Mapping[str, object]) -> str | None:
         """Resolve a permitted write without touching the filesystem."""
 
@@ -647,6 +712,7 @@ class BoundedBuilderHostTools:
         expected = {
             HOST_LIST_FILES_TOOL: (),
             HOST_READ_FILE_TOOL: ("path",),
+            HOST_HASH_FILE_TOOL: ("path",),
             HOST_WRITE_FILE_TOOL: ("path", "content"),
             HOST_RUN_TESTS_TOOL: (),
         }[name]
@@ -657,6 +723,8 @@ class BoundedBuilderHostTools:
             return self._list()
         if name == HOST_READ_FILE_TOOL:
             return self._read(parsed)
+        if name == HOST_HASH_FILE_TOOL:
+            return self._hash(parsed)
         if name == HOST_WRITE_FILE_TOOL:
             return self._write(parsed)
         return self._tests()
@@ -1630,6 +1698,16 @@ class BackendBuilderAppServerAdapter(CodexAppServerAdapter):
         elif not result.success and reserved_new_path and planned_path is not None:
             self._release_write_event_path(planned_path, reserved_new_path)
         client.respond(request_id, self._dynamic_tool_response(result))
+        observation_detail = f"tool={tool}"
+        observed_path = result.payload.get("path")
+        observed_bytes = result.payload.get("bytes")
+        observed_sha256 = result.payload.get("sha256")
+        if isinstance(observed_path, str):
+            observation_detail += f" path={observed_path}"
+        if isinstance(observed_bytes, int) and not isinstance(observed_bytes, bool):
+            observation_detail += f" bytes={observed_bytes}"
+        if isinstance(observed_sha256, str):
+            observation_detail += f" sha256={observed_sha256}"
         self._append_event(
             events,
             self._event_from_message(
@@ -1638,7 +1716,7 @@ class BackendBuilderAppServerAdapter(CodexAppServerAdapter):
                 event_class=(
                     "BOUNDED_HOST_TOOL_CALL" if result.success else "BOUNDED_HOST_TOOL_REJECTED"
                 ),
-                detail=f"tool={tool}",
+                detail=observation_detail,
             ),
             budget,
         )

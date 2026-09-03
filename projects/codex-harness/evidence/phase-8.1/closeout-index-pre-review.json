@@ -1,0 +1,125 @@
+{
+  "attempts": [
+    {
+      "attempt_id": "P81-BROWSER-012",
+      "authoritative": false,
+      "manifest_digest": "sha256:679ec44c117c3826775bd9d303cf550302c04803d52f41e65c00ffbdaf047396",
+      "reason": "provisional target threshold was stricter than the stated standard",
+      "status": "FAIL",
+      "supersedes": null
+    },
+    {
+      "attempt_id": "P81-BROWSER-013",
+      "authoritative": false,
+      "manifest_digest": "sha256:8dffe11acdfdb461ed0550708cf4dc1cc1959beb6278cc616a0f98a649ecbeee",
+      "reason": "runtime green; full-page screenshots contained a focus/stitch overlay",
+      "status": "PASS_NONAUTHORITATIVE",
+      "supersedes": "P81-BROWSER-012"
+    },
+    {
+      "attempt_id": "P81-BROWSER-014",
+      "authoritative": false,
+      "manifest_digest": "sha256:2feb6beeb4056b60f68be46f2c1b9703640caa355c08a92fbef5328904776f5a",
+      "reason": "later independent review invalidated semantically aliased runtime mappings",
+      "status": "PASS_NONAUTHORITATIVE",
+      "supersedes": "P81-BROWSER-013"
+    },
+    {
+      "attempt_id": "P81-BROWSER-015",
+      "authoritative": false,
+      "manifest_digest": null,
+      "reason": "performance initializer failed before a manifest was emitted",
+      "status": "FAIL",
+      "supersedes": "P81-BROWSER-014"
+    },
+    {
+      "attempt_id": "P81-BROWSER-016",
+      "authoritative": false,
+      "manifest_digest": "sha256:0dbe529ae59f355a2ab03b8b1c008efa51382b7685953002ee0c287b37edeeb5",
+      "reason": "40/44 passed; four harness assertions were incorrect",
+      "status": "FAIL",
+      "supersedes": "P81-BROWSER-015"
+    },
+    {
+      "attempt_id": "P81-BROWSER-017",
+      "authoritative": false,
+      "manifest_digest": "sha256:329bbe342f12a5d9a627fdb60c3fd0252f06b4040529a51a172e56426d4a49ec",
+      "reason": "runtime passed but the reflow screenshot retained a visible skip link",
+      "status": "PASS_NONAUTHORITATIVE",
+      "supersedes": "P81-BROWSER-016"
+    },
+    {
+      "attempt_id": "P81-BROWSER-018",
+      "authoritative": true,
+      "manifest_digest": "sha256:becf97cb77e4c9d13d1dd9735a0f5974451117496230cb120d6f5cc006e277e3",
+      "reason": "33/33 direct catalog checks plus 11 supplemental checks and six clean bound screenshots",
+      "status": "PASS",
+      "supersedes": "P81-BROWSER-017"
+    },
+    {
+      "attempt_id": "P81-VERIFY-004",
+      "authoritative": false,
+      "manifest_digest": "sha256:0aa01dba0cf921d2297b1794174d0c34edd90c03905e8ddbcf22110483d5bc07",
+      "reason": "host event ceiling interrupted the streamed report",
+      "status": "FAIL",
+      "supersedes": null
+    },
+    {
+      "attempt_id": "P81-VERIFY-005",
+      "authoritative": false,
+      "manifest_digest": "sha256:5deac01d1e324eb0aa32a58d35580e89fe47a5634ba286f7c06f8c4dd32c4e72",
+      "reason": "later independent review rejected the precomputed, PASS-prescribed input",
+      "status": "PASS_WITH_LIMITATIONS",
+      "supersedes": "P81-VERIFY-004"
+    },
+    {
+      "attempt_id": "P81-VERIFY-006",
+      "authoritative": false,
+      "manifest_digest": "sha256:8682c62ba5ed0ecb531f05c46616e077e8e7c5cb9a071d8cb5b2b6b7da29472c",
+      "reason": "the initial 64-call host ceiling interrupted the report",
+      "status": "FAIL",
+      "supersedes": "P81-VERIFY-005"
+    },
+    {
+      "attempt_id": "P81-VERIFY-007",
+      "authoritative": false,
+      "manifest_digest": "sha256:9800dbe5432626de28eb964d21f05a9694c5494c3fcaa61499794af67123f4ec",
+      "reason": "substantive five-criterion review used a noncanonical report schema",
+      "status": "FAIL_SCHEMA",
+      "supersedes": "P81-VERIFY-006"
+    },
+    {
+      "attempt_id": "P81-VERIFY-008",
+      "authoritative": false,
+      "manifest_digest": "sha256:6e409634f491eddf47da340c476917eb6526a9fa659eea2060d6b4a1f512cd72",
+      "reason": "verifier correctly caught that screenshot and supplemental bytes were not staged",
+      "status": "BLOCKED",
+      "supersedes": "P81-VERIFY-007"
+    },
+    {
+      "attempt_id": "P81-VERIFY-009",
+      "authoritative": false,
+      "manifest_digest": "sha256:e57da9574e429bb49b86c3f3a2680629c120fb09ea31f385245a2752f1682ba0",
+      "reason": "50-file inspection timed out before a verdict",
+      "status": "FAIL_TIMEOUT",
+      "supersedes": "P81-VERIFY-008"
+    },
+    {
+      "attempt_id": "P81-VERIFY-010",
+      "authoritative": true,
+      "manifest_digest": "sha256:5a837184aaddbf512d49be8df6670b30e057d4b0b578521fc3c516c36f1466a8",
+      "reason": "neutral read-only verifier inspected or host-hashed every staged file and passed all five criteria",
+      "status": "PASS_WITH_LIMITATIONS",
+      "supersedes": "P81-VERIFY-009"
+    }
+  ],
+  "authoritative_browser_capture": "P81-BROWSER-018",
+  "authoritative_composition_run": "P81-COMPOSE-013",
+  "authoritative_verifier_run": "P81-VERIFY-010",
+  "current_artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+  "repository_head": "01fe5446e23455b9566717d2b7ecfae7d3e00534",
+  "review_status": "PENDING",
+  "schema_version": "P8.1-CLOSEOUT-INDEX-2",
+  "status": "PRE_REVIEW",
+  "task_id": "PHASE8.1-001"
+}

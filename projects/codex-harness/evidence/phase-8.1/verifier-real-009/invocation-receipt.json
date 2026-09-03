@@ -1,0 +1,770 @@
+{
+  "authorization": {
+    "allowed_side_effects": [],
+    "allowed_tools": [],
+    "artifact_policy": {
+      "max_bytes": 64000,
+      "max_count": 16,
+      "types": [
+        "HOST_RESPONSE"
+      ]
+    },
+    "authorization_id": "AUTH-1e1157791d49583084b93bcf",
+    "capability_id": "verification-loop-vnext",
+    "capability_version": "0.1.0",
+    "constraints": [
+      "no arbitrary shell",
+      "no scripts",
+      "no network",
+      "no MCP",
+      "no providers",
+      "no credentials",
+      "no subagents"
+    ],
+    "context_budget": {
+      "max_bytes": 64000
+    },
+    "credential_policy": "DENY",
+    "evidence_policy": {
+      "max_count": 64,
+      "max_events": 4096
+    },
+    "expires_at": 1788406664,
+    "filesystem_policy": {
+      "allowed_roots": [],
+      "artifact_root": "/home/ricardo/codex-state-of-art-harness/projects/codex-harness/evidence/phase-8.1/verifier-input-009/.harness/phase4/artifacts",
+      "credentials": "DENY",
+      "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+      "host_interpreter_digest": "sha256:89af8424dd53e560b1933f87ba650d8bf57c83ca5a04600eefb31f416aabbae7",
+      "max_bytes": 16777216,
+      "max_files": 256,
+      "mcp": "DENY",
+      "mode": "READ_ONLY",
+      "network": "DENY",
+      "package_path": "/home/ricardo/codex-state-of-art-harness/projects/codex-harness/.harness/capabilities/verification-loop-vnext",
+      "package_write_allowed": false,
+      "providers": "DENY",
+      "shell": "DENY",
+      "workspace": "/home/ricardo/codex-state-of-art-harness/projects/codex-harness/evidence/phase-8.1/verifier-input-009"
+    },
+    "host_executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "host_interpreter_digest": "sha256:89af8424dd53e560b1933f87ba650d8bf57c83ca5a04600eefb31f416aabbae7",
+    "issued_at": 1788406484,
+    "issued_by": "phase4-preflight",
+    "iteration_budget": {
+      "host_calls": 1,
+      "repair_iterations": 0,
+      "tool_calls": 0,
+      "verification_iterations": 1
+    },
+    "mcp_policy": "DENY",
+    "network_policy": "DENY",
+    "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "provider_policy": "DENY",
+    "reason": "exact current read-only verifier; structured evidence handoff only",
+    "requested_execution_mode": "CONTROLLED_REAL",
+    "requested_loading_level": "L2_INSTRUCTION_KERNEL",
+    "run_id": "P81-VERIFY-009",
+    "scope": "PROJECT",
+    "shell_policy": "DENY",
+    "task_id": "PHASE8.1-001",
+    "timeout_seconds": 180
+  },
+  "composition_run": "P81-COMPOSE-013",
+  "errors": [
+    "HOST_REPORT_NOT_JSON",
+    "HOST_STATUS_TIMED_OUT",
+    "HOST_EXECUTION_NOT_OBSERVED"
+  ],
+  "host": {
+    "approval_request_count": 0,
+    "error_code": "HOST_INVOCATION_TIMEOUT",
+    "executable_digest": "sha256:134063e133f0b4244fa3b251acf973d4fe4b4aeeacbdc135211bf480f59f1477",
+    "execution_observed": false,
+    "file_observation_count": 50,
+    "file_observations": {
+      "artifact/app.js": "sha256:b193cacef6bd7cb91e8732e94b5d96c9598abcce1594e883a12bdef9f5b0ea16",
+      "artifact/fixture_server.py": "sha256:2e432d66b6f71956e229a1eddc950a400e37072b5067225986e9b3e37d41a6d7",
+      "artifact/index.html": "sha256:8e45646ed368a51a608005c244a0e82f756511dd1b333d9ab45ad7dcc9d101c4",
+      "artifact/styles.css": "sha256:42841a0b0615fa34b58cb7af3bc067c1b072850a985828ec55bde48528cd5dd9",
+      "core/browser-manifest.json": "sha256:becf97cb77e4c9d13d1dd9735a0f5974451117496230cb120d6f5cc006e277e3",
+      "core/build-receipt.json": "sha256:80cc357c4fb6e089b052b034990269c1e351391de072c434e035820b9d88825c",
+      "core/execution-policy.json": "sha256:541fb0b9dc28b0e3a8eb6a169af7e729f4c065ae50a994cfc059a1428aaa8bf6",
+      "core/frontend-host-events.json": "sha256:6bc37d4d72de346a6548f03b24ebab845693d5f8315c8622c511f631949dd741",
+      "core/frontend-invocation.json": "sha256:7de739a073f9705cbf61afdf9712cf8717a71714a13f9bac32939c49049a7bd2",
+      "input-index.json": "sha256:2d78ab8d7cc8b4506fb124f47beb289017eec92f36c7be04f575af76b053db32",
+      "runtime/accessibility-runtime.json": "sha256:9ddcf964920720fcda6bb4f025c1e26cacf3f4d8f0351aad88af6996448b7536",
+      "runtime/default-runtime.json": "sha256:b114a068201b35ee2b4aabcabf11893bad27a321d7cfe909b84de44608d37bf8",
+      "runtime/double-submit-runtime.json": "sha256:23398e20fd2b92ebedb27d990d401f8d69c6d3c887bdfba5580e54b1a12890ee",
+      "runtime/empty-runtime.json": "sha256:e4bca3d12c1b76807f041d53fecb12614442841dec98ec0625d66b4ecaec442f",
+      "runtime/focus-keyboard-runtime.json": "sha256:85f50e12c046c6b7073f13ffd1a745f6e2b18426d82ebf6b1a9112f163592a9a",
+      "runtime/font-fallback-runtime.json": "sha256:79eba04ee1ba5d32142aae72d1058f872977fc202eb97e57858629326a296f0d",
+      "runtime/idempotency-payload-binding-runtime.json": "sha256:9649071ee46d1fd9bece1479d7ce811e7cb7fff6e89c310849d2e951ee794589",
+      "runtime/idempotent-retry-runtime.json": "sha256:4eb4750ee117bc0aedb618f558f970131bab07b7f23beae2823c40e62b9b8c69",
+      "runtime/input-boundary-validation-runtime.json": "sha256:b710d52fc16aece587b94d07896a06e141aa4c9164a6e15cc3a8884ede4dcec5",
+      "runtime/intermediate-runtime.json": "sha256:cab3a23a502b0deb26d3c43a44e0e009e01186f97c21a395b238dfd215a26781",
+      "runtime/keyboard-submit-runtime.json": "sha256:4b5f46052f124b6dbaec90ad229fe6c192cf196e49ddc5675acad60fff55a291",
+      "runtime/live-region-states-runtime.json": "sha256:e8bbe4938240dd7ac0adf7bb23069d2e27b984a3ed4ad2fd76a5bc2201326f99",
+      "runtime/loading-runtime.json": "sha256:7fc7f28a430ea6888b0b039b918f25c8ec542dc65bb09d81f01452a2ca7d6f74",
+      "runtime/local-filter-runtime.json": "sha256:1b6509136cf9108088d3adc613387663b943ddd824c8be8d9ae9009b7e81900a",
+      "runtime/long-heading-runtime.json": "sha256:71704424e356615119c9ee6871d004846c0984219fba43ae6735595fac59b326",
+      "runtime/mobile-runtime.json": "sha256:319c92c1accdb38a757ecf05c83e9c870f3dba22ce7878ccd7eeefd7e1dfd5ed",
+      "runtime/mobile-table-semantics-runtime.json": "sha256:c767ff456866f9f081246954aeca99e4d0cbbdf972e8e26b6ac21e360e04efef",
+      "runtime/mobile-targets-runtime.json": "sha256:9e663a63244808d435ee2f2e75ab7f413f7e7ef04abef83f84f6817182b2adb3",
+      "runtime/performance-runtime.json": "sha256:e3a34151ef2a14f2789270e702153756fbac591077dbd70446d324048df8f868",
+      "runtime/portrait-runtime.json": "sha256:5ee1f580f0658c7a20bb49c1fee9fb4e52b2703a917570e08a9d4e52c01a8753",
+      "runtime/queue-error-runtime.json": "sha256:88170c33f19a58679a99a48ac0e6254f09c7cf9f9158908a8a29d2730015c562",
+      "runtime/queue-recovery-runtime.json": "sha256:630befefbca0950e6afc32deaf385c58af0500339c92d6a9bd6e5048982f26a9",
+      "runtime/reduced-motion-runtime.json": "sha256:a5446be080c7d5cfabb056f74201a41c7c4161f58f437f65f734cbd59d0acd64",
+      "runtime/reflow-runtime.json": "sha256:d23ca711f3b027eb172a284d8907245469f103416ad6cc4bfbe101dae3752b3e",
+      "runtime/resource-network-media-runtime.json": "sha256:96e4f1dc298285c163b96c0b771afcb0e34acdcd5db59cc69ca301d454dbcad6",
+      "runtime/server-binding.json": "sha256:a63d370f3c489af83992fe74889695032cd5278f342676bb38d760e332ec36b8",
+      "runtime/server-validation-runtime.json": "sha256:75e2383b31f60fc4614a732b1bf42cc11813040c606a3adebad115466284589d",
+      "runtime/stale-response-runtime.json": "sha256:40bb899539f64f20ee67dd69a16eb83a1f3ef1e7c688bbc4ee99341a0ecbbf68",
+      "runtime/submission-loading-runtime.json": "sha256:2d1a6297e86ff8fc0ca0ada067f8b6e99471a88b9dbcd936a3fba9f8e9b7d5ec",
+      "runtime/submission-success-runtime.json": "sha256:39e385c23c8fc29bf670c71b7b74cf68589d43b7ac1928f2ddf5d6af0c00db16",
+      "runtime/url-complete-runtime.json": "sha256:cddb30ff75d54ad936c4e776efb2c114e17a8cd07e1a8af72514548013cd3213",
+      "runtime/url-invalid-runtime.json": "sha256:894400a4234e7e400d9da5fee1a98e18ed3d3774710d2c123041375e59038a1b",
+      "runtime/url-state-runtime.json": "sha256:57d09fbb839a9c588b223f37b38bedebc70ef6f613968894374c0f4abc73a11e",
+      "runtime/validation-runtime.json": "sha256:3ac719e8e963b6a5f7a9ffe3ceb1f163a734fe1a54ac4320f2a9416a36d9b096",
+      "screenshots/desktop-success-1440x900.png": "sha256:db50554bbed03962938a91c68dc69e9537f0d1ab9e31362d7365361f09b03988",
+      "screenshots/intermediate-long-heading-1024x768.png": "sha256:c6da538072b508f10dcaacd16f1fb436cb533403edf1ca5a40cc2b3624a345d4",
+      "screenshots/intermediate-urgent-1024x768.png": "sha256:9d9a3b9f80e8ed534cfed553cca6d89af933312d3267fdf10f608f9b4e624cc7",
+      "screenshots/mobile-critical-390x844.png": "sha256:5c1922516da2917f28173d9c3ca0c272e470a0c8e2137ca8e57cbeb9e60bde99",
+      "screenshots/portrait-empty-768x1024.png": "sha256:b7159c81b64de4a6293d677c9cd132c1842a6fa48fcee42f27ad463d792b5ed9",
+      "screenshots/reflow-200-percent-195x844.png": "sha256:579aca0b0fec5181606d25445fdcb6c30031b3f291ca3e15a542e31abdaca00c"
+    },
+    "final_message": "The index and core receipts are internally aligned so far. One noteworthy factual detail is that raw host evidence shows five write calls across exactly four changed paths (styles.css was written twice); this still matches the criterion’s path-level wording, and I’ll preserve that distinction in the finding.",
+    "interpreter_digest": "sha256:89af8424dd53e560b1933f87ba650d8bf57c83ca5a04600eefb31f416aabbae7",
+    "invocation_observed": true,
+    "mcp_event_count": 0,
+    "protocol_message_count": 1050,
+    "read_event_count": 44,
+    "read_observations": {
+      "artifact/app.js": "sha256:b193cacef6bd7cb91e8732e94b5d96c9598abcce1594e883a12bdef9f5b0ea16",
+      "artifact/fixture_server.py": "sha256:2e432d66b6f71956e229a1eddc950a400e37072b5067225986e9b3e37d41a6d7",
+      "artifact/index.html": "sha256:8e45646ed368a51a608005c244a0e82f756511dd1b333d9ab45ad7dcc9d101c4",
+      "artifact/styles.css": "sha256:42841a0b0615fa34b58cb7af3bc067c1b072850a985828ec55bde48528cd5dd9",
+      "core/browser-manifest.json": "sha256:becf97cb77e4c9d13d1dd9735a0f5974451117496230cb120d6f5cc006e277e3",
+      "core/build-receipt.json": "sha256:80cc357c4fb6e089b052b034990269c1e351391de072c434e035820b9d88825c",
+      "core/execution-policy.json": "sha256:541fb0b9dc28b0e3a8eb6a169af7e729f4c065ae50a994cfc059a1428aaa8bf6",
+      "core/frontend-host-events.json": "sha256:6bc37d4d72de346a6548f03b24ebab845693d5f8315c8622c511f631949dd741",
+      "core/frontend-invocation.json": "sha256:7de739a073f9705cbf61afdf9712cf8717a71714a13f9bac32939c49049a7bd2",
+      "input-index.json": "sha256:2d78ab8d7cc8b4506fb124f47beb289017eec92f36c7be04f575af76b053db32",
+      "runtime/accessibility-runtime.json": "sha256:9ddcf964920720fcda6bb4f025c1e26cacf3f4d8f0351aad88af6996448b7536",
+      "runtime/default-runtime.json": "sha256:b114a068201b35ee2b4aabcabf11893bad27a321d7cfe909b84de44608d37bf8",
+      "runtime/double-submit-runtime.json": "sha256:23398e20fd2b92ebedb27d990d401f8d69c6d3c887bdfba5580e54b1a12890ee",
+      "runtime/empty-runtime.json": "sha256:e4bca3d12c1b76807f041d53fecb12614442841dec98ec0625d66b4ecaec442f",
+      "runtime/focus-keyboard-runtime.json": "sha256:85f50e12c046c6b7073f13ffd1a745f6e2b18426d82ebf6b1a9112f163592a9a",
+      "runtime/font-fallback-runtime.json": "sha256:79eba04ee1ba5d32142aae72d1058f872977fc202eb97e57858629326a296f0d",
+      "runtime/idempotency-payload-binding-runtime.json": "sha256:9649071ee46d1fd9bece1479d7ce811e7cb7fff6e89c310849d2e951ee794589",
+      "runtime/idempotent-retry-runtime.json": "sha256:4eb4750ee117bc0aedb618f558f970131bab07b7f23beae2823c40e62b9b8c69",
+      "runtime/input-boundary-validation-runtime.json": "sha256:b710d52fc16aece587b94d07896a06e141aa4c9164a6e15cc3a8884ede4dcec5",
+      "runtime/intermediate-runtime.json": "sha256:cab3a23a502b0deb26d3c43a44e0e009e01186f97c21a395b238dfd215a26781",
+      "runtime/keyboard-submit-runtime.json": "sha256:4b5f46052f124b6dbaec90ad229fe6c192cf196e49ddc5675acad60fff55a291",
+      "runtime/live-region-states-runtime.json": "sha256:e8bbe4938240dd7ac0adf7bb23069d2e27b984a3ed4ad2fd76a5bc2201326f99",
+      "runtime/loading-runtime.json": "sha256:7fc7f28a430ea6888b0b039b918f25c8ec542dc65bb09d81f01452a2ca7d6f74",
+      "runtime/local-filter-runtime.json": "sha256:1b6509136cf9108088d3adc613387663b943ddd824c8be8d9ae9009b7e81900a",
+      "runtime/long-heading-runtime.json": "sha256:71704424e356615119c9ee6871d004846c0984219fba43ae6735595fac59b326",
+      "runtime/mobile-runtime.json": "sha256:319c92c1accdb38a757ecf05c83e9c870f3dba22ce7878ccd7eeefd7e1dfd5ed",
+      "runtime/mobile-table-semantics-runtime.json": "sha256:c767ff456866f9f081246954aeca99e4d0cbbdf972e8e26b6ac21e360e04efef",
+      "runtime/mobile-targets-runtime.json": "sha256:9e663a63244808d435ee2f2e75ab7f413f7e7ef04abef83f84f6817182b2adb3",
+      "runtime/performance-runtime.json": "sha256:e3a34151ef2a14f2789270e702153756fbac591077dbd70446d324048df8f868",
+      "runtime/portrait-runtime.json": "sha256:5ee1f580f0658c7a20bb49c1fee9fb4e52b2703a917570e08a9d4e52c01a8753",
+      "runtime/queue-error-runtime.json": "sha256:88170c33f19a58679a99a48ac0e6254f09c7cf9f9158908a8a29d2730015c562",
+      "runtime/queue-recovery-runtime.json": "sha256:630befefbca0950e6afc32deaf385c58af0500339c92d6a9bd6e5048982f26a9",
+      "runtime/reduced-motion-runtime.json": "sha256:a5446be080c7d5cfabb056f74201a41c7c4161f58f437f65f734cbd59d0acd64",
+      "runtime/reflow-runtime.json": "sha256:d23ca711f3b027eb172a284d8907245469f103416ad6cc4bfbe101dae3752b3e",
+      "runtime/resource-network-media-runtime.json": "sha256:96e4f1dc298285c163b96c0b771afcb0e34acdcd5db59cc69ca301d454dbcad6",
+      "runtime/server-binding.json": "sha256:a63d370f3c489af83992fe74889695032cd5278f342676bb38d760e332ec36b8",
+      "runtime/server-validation-runtime.json": "sha256:75e2383b31f60fc4614a732b1bf42cc11813040c606a3adebad115466284589d",
+      "runtime/stale-response-runtime.json": "sha256:40bb899539f64f20ee67dd69a16eb83a1f3ef1e7c688bbc4ee99341a0ecbbf68",
+      "runtime/submission-loading-runtime.json": "sha256:2d1a6297e86ff8fc0ca0ada067f8b6e99471a88b9dbcd936a3fba9f8e9b7d5ec",
+      "runtime/submission-success-runtime.json": "sha256:39e385c23c8fc29bf670c71b7b74cf68589d43b7ac1928f2ddf5d6af0c00db16",
+      "runtime/url-complete-runtime.json": "sha256:cddb30ff75d54ad936c4e776efb2c114e17a8cd07e1a8af72514548013cd3213",
+      "runtime/url-invalid-runtime.json": "sha256:894400a4234e7e400d9da5fee1a98e18ed3d3774710d2c123041375e59038a1b",
+      "runtime/url-state-runtime.json": "sha256:57d09fbb839a9c588b223f37b38bedebc70ef6f613968894374c0f4abc73a11e",
+      "runtime/validation-runtime.json": "sha256:3ac719e8e963b6a5f7a9ffe3ceb1f163a734fe1a54ac4320f2a9416a36d9b096"
+    },
+    "response_digest": "sha256:b92e07dc87da160df52e12ffd87e641bfa8026d868cce6313eaf522a579f8775",
+    "session_id": "01a06555-5174-7343-87c0-19ee584231d8",
+    "status": "TIMED_OUT",
+    "thread_id": "01a06555-5174-7343-87c0-19ee584231d8",
+    "turn_id": "01a06555-517d-7311-a7cc-b8b7c4ceada7"
+  },
+  "input": {
+    "composition_run": "P81-COMPOSE-013",
+    "criteria": [
+      {
+        "id": "P81-V-INPUT-INTEGRITY",
+        "procedure": "List workspace; read index and every required path; compare host SHA-256.",
+        "question": "Do staged file bytes match the immutable input index and exact identities?"
+      },
+      {
+        "id": "P81-V-HOST-MUTATION",
+        "procedure": "Compare invocation delta/event paths with raw host tool events and counters.",
+        "question": "Do raw frontend events expose writes for exactly the changed files?"
+      },
+      {
+        "id": "P81-V-ARTIFACT-LINEAGE",
+        "procedure": "Compare frontend, build and browser receipts for equal digests and run IDs.",
+        "question": "Are source, build and artifact identities tied to P81-COMPOSE-013?"
+      },
+      {
+        "id": "P81-V-RUNTIME-CATALOG",
+        "procedure": "Read manifest and catalog evidence; reject unrelated/missing/failed mappings.",
+        "question": "Are exactly 33 unique catalog IDs backed by matching passed runtime evidence?"
+      },
+      {
+        "id": "P81-V-BROWSER-FRESHNESS",
+        "procedure": "Compare timestamps, identities, failures, captures and console observations.",
+        "question": "Is browser evidence fresh, complete and bound to the exact artifact?"
+      }
+    ],
+    "criterion_set_digest": "sha256:66ce8c667b7e0c0d87d569a95c28bba376bc9aedcedea4ab5a69d95f47d36b15",
+    "decision_rules": {
+      "all_criteria_pass": "PASS_WITH_LIMITATIONS",
+      "any_criterion_fail": "FAIL",
+      "nonpass_stop": "UNRESOLVED_CRITERIA",
+      "otherwise": "PARTIAL",
+      "pass_stop": "ALL_REQUIRED_CRITERIA_RESOLVED"
+    },
+    "expected": {
+      "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+      "authorization_id": "AUTH-3b2a88acbde95f10b5ba5807",
+      "browser_manifest_digest": "sha256:becf97cb77e4c9d13d1dd9735a0f5974451117496230cb120d6f5cc006e277e3",
+      "catalog_count": 33,
+      "catalog_ids": [
+        "P8-EVAL-011",
+        "P8-EVAL-012",
+        "P8-EVAL-013",
+        "P8-EVAL-014",
+        "P8-EVAL-015",
+        "P8-EVAL-016",
+        "P8-EVAL-017",
+        "P8-EVAL-018",
+        "P8-EVAL-019",
+        "P8-EVAL-020",
+        "P8-EVAL-021",
+        "P8-EVAL-022",
+        "P8-EVAL-023",
+        "P8-EVAL-024",
+        "P8-EVAL-025",
+        "P8-EVAL-026",
+        "P8-EVAL-027",
+        "P8-EVAL-029",
+        "P8-EVAL-030",
+        "P8-EVAL-031",
+        "P8-EVAL-032",
+        "P8-EVAL-033",
+        "P8-EVAL-034",
+        "P8-EVAL-035",
+        "P8-EVAL-036",
+        "P8-EVAL-037",
+        "P8-EVAL-039",
+        "P8-EVAL-040",
+        "P8-EVAL-041",
+        "P8-EVAL-042",
+        "P8-EVAL-043",
+        "P8-EVAL-050",
+        "P8-EVAL-053"
+      ],
+      "frontend_fingerprint": "sha256:c0cd7c9611a89bdb730b2ba73a06212f4b3d432e06ed4f9792550ff7dacd9342",
+      "frontend_invocation_id": "INV-33bdb675aa0b5612b85eac20",
+      "input_index_digest": "sha256:2d78ab8d7cc8b4506fb124f47beb289017eec92f36c7be04f575af76b053db32",
+      "verifier_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b"
+    },
+    "input_digest": "sha256:03394e41d35759a994b886fa67e606598f31a9390b94f2a88a3450060b2de6b4",
+    "known_limitations": [
+      "HOST_LOAD_UNOBSERVABLE",
+      "Chromium-only; no cross-browser or assistive-technology certification."
+    ],
+    "required_hashes": [
+      "input-index.json",
+      "artifact/app.js",
+      "artifact/fixture_server.py",
+      "artifact/index.html",
+      "artifact/styles.css",
+      "core/browser-manifest.json",
+      "core/build-receipt.json",
+      "core/execution-policy.json",
+      "core/frontend-host-events.json",
+      "core/frontend-invocation.json",
+      "runtime/accessibility-runtime.json",
+      "runtime/default-runtime.json",
+      "runtime/double-submit-runtime.json",
+      "runtime/empty-runtime.json",
+      "runtime/focus-keyboard-runtime.json",
+      "runtime/font-fallback-runtime.json",
+      "runtime/idempotency-payload-binding-runtime.json",
+      "runtime/idempotent-retry-runtime.json",
+      "runtime/input-boundary-validation-runtime.json",
+      "runtime/intermediate-runtime.json",
+      "runtime/keyboard-submit-runtime.json",
+      "runtime/live-region-states-runtime.json",
+      "runtime/loading-runtime.json",
+      "runtime/local-filter-runtime.json",
+      "runtime/long-heading-runtime.json",
+      "runtime/mobile-runtime.json",
+      "runtime/mobile-table-semantics-runtime.json",
+      "runtime/mobile-targets-runtime.json",
+      "runtime/performance-runtime.json",
+      "runtime/portrait-runtime.json",
+      "runtime/queue-error-runtime.json",
+      "runtime/queue-recovery-runtime.json",
+      "runtime/reduced-motion-runtime.json",
+      "runtime/reflow-runtime.json",
+      "runtime/resource-network-media-runtime.json",
+      "runtime/server-binding.json",
+      "runtime/server-validation-runtime.json",
+      "runtime/stale-response-runtime.json",
+      "runtime/submission-loading-runtime.json",
+      "runtime/submission-success-runtime.json",
+      "runtime/url-complete-runtime.json",
+      "runtime/url-invalid-runtime.json",
+      "runtime/url-state-runtime.json",
+      "runtime/validation-runtime.json",
+      "screenshots/desktop-success-1440x900.png",
+      "screenshots/intermediate-long-heading-1024x768.png",
+      "screenshots/intermediate-urgent-1024x768.png",
+      "screenshots/mobile-critical-390x844.png",
+      "screenshots/portrait-empty-768x1024.png",
+      "screenshots/reflow-200-percent-195x844.png"
+    ],
+    "required_inspections": [
+      "input-index.json",
+      "artifact/app.js",
+      "artifact/fixture_server.py",
+      "artifact/index.html",
+      "artifact/styles.css",
+      "core/browser-manifest.json",
+      "core/build-receipt.json",
+      "core/execution-policy.json",
+      "core/frontend-host-events.json",
+      "core/frontend-invocation.json",
+      "runtime/accessibility-runtime.json",
+      "runtime/default-runtime.json",
+      "runtime/double-submit-runtime.json",
+      "runtime/empty-runtime.json",
+      "runtime/focus-keyboard-runtime.json",
+      "runtime/font-fallback-runtime.json",
+      "runtime/idempotency-payload-binding-runtime.json",
+      "runtime/idempotent-retry-runtime.json",
+      "runtime/input-boundary-validation-runtime.json",
+      "runtime/intermediate-runtime.json",
+      "runtime/keyboard-submit-runtime.json",
+      "runtime/live-region-states-runtime.json",
+      "runtime/loading-runtime.json",
+      "runtime/local-filter-runtime.json",
+      "runtime/long-heading-runtime.json",
+      "runtime/mobile-runtime.json",
+      "runtime/mobile-table-semantics-runtime.json",
+      "runtime/mobile-targets-runtime.json",
+      "runtime/performance-runtime.json",
+      "runtime/portrait-runtime.json",
+      "runtime/queue-error-runtime.json",
+      "runtime/queue-recovery-runtime.json",
+      "runtime/reduced-motion-runtime.json",
+      "runtime/reflow-runtime.json",
+      "runtime/resource-network-media-runtime.json",
+      "runtime/server-binding.json",
+      "runtime/server-validation-runtime.json",
+      "runtime/stale-response-runtime.json",
+      "runtime/submission-loading-runtime.json",
+      "runtime/submission-success-runtime.json",
+      "runtime/url-complete-runtime.json",
+      "runtime/url-invalid-runtime.json",
+      "runtime/url-state-runtime.json",
+      "runtime/validation-runtime.json"
+    ],
+    "role": "VERIFIER_ONLY",
+    "run_id": "P81-VERIFY-009",
+    "schema_version": "P8.1-VERIFICATION-INPUT-2",
+    "task_id": "PHASE8.1-001"
+  },
+  "input_bytes": 6977,
+  "input_index": {
+    "artifact_digest": "sha256:e3306ed2bdf13317f7486af6e61b0e4182abbc25d3d9e0fdfdb3dd8c4519643a",
+    "catalog_evidence": {
+      "P8-EVAL-011": "runtime/loading-runtime.json",
+      "P8-EVAL-012": "runtime/default-runtime.json",
+      "P8-EVAL-013": "runtime/empty-runtime.json",
+      "P8-EVAL-014": "runtime/queue-error-runtime.json",
+      "P8-EVAL-015": "runtime/queue-recovery-runtime.json",
+      "P8-EVAL-016": "runtime/stale-response-runtime.json",
+      "P8-EVAL-017": "runtime/double-submit-runtime.json",
+      "P8-EVAL-018": "runtime/local-filter-runtime.json",
+      "P8-EVAL-019": "runtime/url-complete-runtime.json",
+      "P8-EVAL-020": "runtime/server-validation-runtime.json",
+      "P8-EVAL-021": "runtime/default-runtime.json",
+      "P8-EVAL-022": "runtime/intermediate-runtime.json",
+      "P8-EVAL-023": "runtime/portrait-runtime.json",
+      "P8-EVAL-024": "runtime/mobile-runtime.json",
+      "P8-EVAL-025": "runtime/long-heading-runtime.json",
+      "P8-EVAL-026": "runtime/mobile-table-semantics-runtime.json",
+      "P8-EVAL-027": "runtime/reflow-runtime.json",
+      "P8-EVAL-029": "runtime/accessibility-runtime.json",
+      "P8-EVAL-030": "runtime/accessibility-runtime.json",
+      "P8-EVAL-031": "runtime/accessibility-runtime.json",
+      "P8-EVAL-032": "runtime/focus-keyboard-runtime.json",
+      "P8-EVAL-033": "runtime/keyboard-submit-runtime.json",
+      "P8-EVAL-034": "runtime/live-region-states-runtime.json",
+      "P8-EVAL-035": "runtime/accessibility-runtime.json",
+      "P8-EVAL-036": "runtime/reduced-motion-runtime.json",
+      "P8-EVAL-037": "runtime/mobile-targets-runtime.json",
+      "P8-EVAL-039": "runtime/performance-runtime.json",
+      "P8-EVAL-040": "runtime/performance-runtime.json",
+      "P8-EVAL-041": "runtime/resource-network-media-runtime.json",
+      "P8-EVAL-042": "runtime/font-fallback-runtime.json",
+      "P8-EVAL-043": "runtime/resource-network-media-runtime.json",
+      "P8-EVAL-050": "runtime/input-boundary-validation-runtime.json",
+      "P8-EVAL-053": "runtime/resource-network-media-runtime.json"
+    },
+    "composition_run": "P81-COMPOSE-013",
+    "files": [
+      {
+        "bytes": 15659,
+        "origin": "evidence/phase-8.1/composition-run-013/frontend-artifact/app.js",
+        "path": "artifact/app.js",
+        "sha256": "sha256:b193cacef6bd7cb91e8732e94b5d96c9598abcce1594e883a12bdef9f5b0ea16"
+      },
+      {
+        "bytes": 11349,
+        "origin": "evidence/phase-8.1/composition-run-013/frontend-artifact/fixture_server.py",
+        "path": "artifact/fixture_server.py",
+        "sha256": "sha256:2e432d66b6f71956e229a1eddc950a400e37072b5067225986e9b3e37d41a6d7"
+      },
+      {
+        "bytes": 11452,
+        "origin": "evidence/phase-8.1/composition-run-013/frontend-artifact/index.html",
+        "path": "artifact/index.html",
+        "sha256": "sha256:8e45646ed368a51a608005c244a0e82f756511dd1b333d9ab45ad7dcc9d101c4"
+      },
+      {
+        "bytes": 21664,
+        "origin": "evidence/phase-8.1/composition-run-013/frontend-artifact/styles.css",
+        "path": "artifact/styles.css",
+        "sha256": "sha256:42841a0b0615fa34b58cb7af3bc067c1b072850a985828ec55bde48528cd5dd9"
+      },
+      {
+        "bytes": 19836,
+        "origin": "evidence/phase-8.1/browser-evidence-018.json",
+        "path": "core/browser-manifest.json",
+        "sha256": "sha256:becf97cb77e4c9d13d1dd9735a0f5974451117496230cb120d6f5cc006e277e3"
+      },
+      {
+        "bytes": 1199,
+        "origin": "evidence/phase-8.1/frontend-real-005/build-receipt.json",
+        "path": "core/build-receipt.json",
+        "sha256": "sha256:80cc357c4fb6e089b052b034990269c1e351391de072c434e035820b9d88825c"
+      },
+      {
+        "bytes": 2030,
+        "origin": "config/phase8.1-execution-policy.json",
+        "path": "core/execution-policy.json",
+        "sha256": "sha256:541fb0b9dc28b0e3a8eb6a169af7e729f4c065ae50a994cfc059a1428aaa8bf6"
+      },
+      {
+        "bytes": 188175,
+        "origin": "evidence/phase-8.1/frontend-real-005/host-events.json",
+        "path": "core/frontend-host-events.json",
+        "sha256": "sha256:6bc37d4d72de346a6548f03b24ebab845693d5f8315c8622c511f631949dd741"
+      },
+      {
+        "bytes": 10353,
+        "origin": "evidence/phase-8.1/frontend-real-005/invocation-receipt.json",
+        "path": "core/frontend-invocation.json",
+        "sha256": "sha256:7de739a073f9705cbf61afdf9712cf8717a71714a13f9bac32939c49049a7bd2"
+      },
+      {
+        "bytes": 1921,
+        "origin": "evidence/phase-8.1/browser-018/accessibility-runtime.json",
+        "path": "runtime/accessibility-runtime.json",
+        "sha256": "sha256:9ddcf964920720fcda6bb4f025c1e26cacf3f4d8f0351aad88af6996448b7536"
+      },
+      {
+        "bytes": 3573,
+        "origin": "evidence/phase-8.1/browser-018/default-runtime.json",
+        "path": "runtime/default-runtime.json",
+        "sha256": "sha256:b114a068201b35ee2b4aabcabf11893bad27a321d7cfe909b84de44608d37bf8"
+      },
+      {
+        "bytes": 4289,
+        "origin": "evidence/phase-8.1/browser-018/double-submit-runtime.json",
+        "path": "runtime/double-submit-runtime.json",
+        "sha256": "sha256:23398e20fd2b92ebedb27d990d401f8d69c6d3c887bdfba5580e54b1a12890ee"
+      },
+      {
+        "bytes": 604,
+        "origin": "evidence/phase-8.1/browser-018/empty-runtime.json",
+        "path": "runtime/empty-runtime.json",
+        "sha256": "sha256:e4bca3d12c1b76807f041d53fecb12614442841dec98ec0625d66b4ecaec442f"
+      },
+      {
+        "bytes": 2270,
+        "origin": "evidence/phase-8.1/browser-018/focus-keyboard-runtime.json",
+        "path": "runtime/focus-keyboard-runtime.json",
+        "sha256": "sha256:85f50e12c046c6b7073f13ffd1a745f6e2b18426d82ebf6b1a9112f163592a9a"
+      },
+      {
+        "bytes": 1447,
+        "origin": "evidence/phase-8.1/browser-018/font-fallback-runtime.json",
+        "path": "runtime/font-fallback-runtime.json",
+        "sha256": "sha256:79eba04ee1ba5d32142aae72d1058f872977fc202eb97e57858629326a296f0d"
+      },
+      {
+        "bytes": 3537,
+        "origin": "evidence/phase-8.1/browser-018/idempotency-payload-binding-runtime.json",
+        "path": "runtime/idempotency-payload-binding-runtime.json",
+        "sha256": "sha256:9649071ee46d1fd9bece1479d7ce811e7cb7fff6e89c310849d2e951ee794589"
+      },
+      {
+        "bytes": 2910,
+        "origin": "evidence/phase-8.1/browser-018/idempotent-retry-runtime.json",
+        "path": "runtime/idempotent-retry-runtime.json",
+        "sha256": "sha256:4eb4750ee117bc0aedb618f558f970131bab07b7f23beae2823c40e62b9b8c69"
+      },
+      {
+        "bytes": 952,
+        "origin": "evidence/phase-8.1/browser-018/input-boundary-validation-runtime.json",
+        "path": "runtime/input-boundary-validation-runtime.json",
+        "sha256": "sha256:b710d52fc16aece587b94d07896a06e141aa4c9164a6e15cc3a8884ede4dcec5"
+      },
+      {
+        "bytes": 2114,
+        "origin": "evidence/phase-8.1/browser-018/intermediate-runtime.json",
+        "path": "runtime/intermediate-runtime.json",
+        "sha256": "sha256:cab3a23a502b0deb26d3c43a44e0e009e01186f97c21a395b238dfd215a26781"
+      },
+      {
+        "bytes": 1521,
+        "origin": "evidence/phase-8.1/browser-018/keyboard-submit-runtime.json",
+        "path": "runtime/keyboard-submit-runtime.json",
+        "sha256": "sha256:4b5f46052f124b6dbaec90ad229fe6c192cf196e49ddc5675acad60fff55a291"
+      },
+      {
+        "bytes": 754,
+        "origin": "evidence/phase-8.1/browser-018/live-region-states-runtime.json",
+        "path": "runtime/live-region-states-runtime.json",
+        "sha256": "sha256:e8bbe4938240dd7ac0adf7bb23069d2e27b984a3ed4ad2fd76a5bc2201326f99"
+      },
+      {
+        "bytes": 1701,
+        "origin": "evidence/phase-8.1/browser-018/loading-runtime.json",
+        "path": "runtime/loading-runtime.json",
+        "sha256": "sha256:7fc7f28a430ea6888b0b039b918f25c8ec542dc65bb09d81f01452a2ca7d6f74"
+      },
+      {
+        "bytes": 1766,
+        "origin": "evidence/phase-8.1/browser-018/local-filter-runtime.json",
+        "path": "runtime/local-filter-runtime.json",
+        "sha256": "sha256:1b6509136cf9108088d3adc613387663b943ddd824c8be8d9ae9009b7e81900a"
+      },
+      {
+        "bytes": 699,
+        "origin": "evidence/phase-8.1/browser-018/long-heading-runtime.json",
+        "path": "runtime/long-heading-runtime.json",
+        "sha256": "sha256:71704424e356615119c9ee6871d004846c0984219fba43ae6735595fac59b326"
+      },
+      {
+        "bytes": 2001,
+        "origin": "evidence/phase-8.1/browser-018/mobile-runtime.json",
+        "path": "runtime/mobile-runtime.json",
+        "sha256": "sha256:319c92c1accdb38a757ecf05c83e9c870f3dba22ce7878ccd7eeefd7e1dfd5ed"
+      },
+      {
+        "bytes": 2288,
+        "origin": "evidence/phase-8.1/browser-018/mobile-table-semantics-runtime.json",
+        "path": "runtime/mobile-table-semantics-runtime.json",
+        "sha256": "sha256:c767ff456866f9f081246954aeca99e4d0cbbdf972e8e26b6ac21e360e04efef"
+      },
+      {
+        "bytes": 751,
+        "origin": "evidence/phase-8.1/browser-018/mobile-targets-runtime.json",
+        "path": "runtime/mobile-targets-runtime.json",
+        "sha256": "sha256:9e663a63244808d435ee2f2e75ab7f413f7e7ef04abef83f84f6817182b2adb3"
+      },
+      {
+        "bytes": 872,
+        "origin": "evidence/phase-8.1/browser-018/performance-runtime.json",
+        "path": "runtime/performance-runtime.json",
+        "sha256": "sha256:e3a34151ef2a14f2789270e702153756fbac591077dbd70446d324048df8f868"
+      },
+      {
+        "bytes": 2059,
+        "origin": "evidence/phase-8.1/browser-018/portrait-runtime.json",
+        "path": "runtime/portrait-runtime.json",
+        "sha256": "sha256:5ee1f580f0658c7a20bb49c1fee9fb4e52b2703a917570e08a9d4e52c01a8753"
+      },
+      {
+        "bytes": 784,
+        "origin": "evidence/phase-8.1/browser-018/queue-error-runtime.json",
+        "path": "runtime/queue-error-runtime.json",
+        "sha256": "sha256:88170c33f19a58679a99a48ac0e6254f09c7cf9f9158908a8a29d2730015c562"
+      },
+      {
+        "bytes": 1353,
+        "origin": "evidence/phase-8.1/browser-018/queue-recovery-runtime.json",
+        "path": "runtime/queue-recovery-runtime.json",
+        "sha256": "sha256:630befefbca0950e6afc32deaf385c58af0500339c92d6a9bd6e5048982f26a9"
+      },
+      {
+        "bytes": 695,
+        "origin": "evidence/phase-8.1/browser-018/reduced-motion-runtime.json",
+        "path": "runtime/reduced-motion-runtime.json",
+        "sha256": "sha256:a5446be080c7d5cfabb056f74201a41c7c4161f58f437f65f734cbd59d0acd64"
+      },
+      {
+        "bytes": 3770,
+        "origin": "evidence/phase-8.1/browser-018/reflow-runtime.json",
+        "path": "runtime/reflow-runtime.json",
+        "sha256": "sha256:d23ca711f3b027eb172a284d8907245469f103416ad6cc4bfbe101dae3752b3e"
+      },
+      {
+        "bytes": 2050,
+        "origin": "evidence/phase-8.1/browser-018/resource-network-media-runtime.json",
+        "path": "runtime/resource-network-media-runtime.json",
+        "sha256": "sha256:96e4f1dc298285c163b96c0b771afcb0e34acdcd5db59cc69ca301d454dbcad6"
+      },
+      {
+        "bytes": 494,
+        "origin": "evidence/phase-8.1/browser-018/server-binding.json",
+        "path": "runtime/server-binding.json",
+        "sha256": "sha256:a63d370f3c489af83992fe74889695032cd5278f342676bb38d760e332ec36b8"
+      },
+      {
+        "bytes": 737,
+        "origin": "evidence/phase-8.1/browser-018/server-validation-runtime.json",
+        "path": "runtime/server-validation-runtime.json",
+        "sha256": "sha256:75e2383b31f60fc4614a732b1bf42cc11813040c606a3adebad115466284589d"
+      },
+      {
+        "bytes": 854,
+        "origin": "evidence/phase-8.1/browser-018/stale-response-runtime.json",
+        "path": "runtime/stale-response-runtime.json",
+        "sha256": "sha256:40bb899539f64f20ee67dd69a16eb83a1f3ef1e7c688bbc4ee99341a0ecbbf68"
+      },
+      {
+        "bytes": 1277,
+        "origin": "evidence/phase-8.1/browser-018/submission-loading-runtime.json",
+        "path": "runtime/submission-loading-runtime.json",
+        "sha256": "sha256:2d1a6297e86ff8fc0ca0ada067f8b6e99471a88b9dbcd936a3fba9f8e9b7d5ec"
+      },
+      {
+        "bytes": 1310,
+        "origin": "evidence/phase-8.1/browser-018/submission-success-runtime.json",
+        "path": "runtime/submission-success-runtime.json",
+        "sha256": "sha256:39e385c23c8fc29bf670c71b7b74cf68589d43b7ac1928f2ddf5d6af0c00db16"
+      },
+      {
+        "bytes": 799,
+        "origin": "evidence/phase-8.1/browser-018/url-complete-runtime.json",
+        "path": "runtime/url-complete-runtime.json",
+        "sha256": "sha256:cddb30ff75d54ad936c4e776efb2c114e17a8cd07e1a8af72514548013cd3213"
+      },
+      {
+        "bytes": 295,
+        "origin": "evidence/phase-8.1/browser-018/url-invalid-runtime.json",
+        "path": "runtime/url-invalid-runtime.json",
+        "sha256": "sha256:894400a4234e7e400d9da5fee1a98e18ed3d3774710d2c123041375e59038a1b"
+      },
+      {
+        "bytes": 641,
+        "origin": "evidence/phase-8.1/browser-018/url-state-runtime.json",
+        "path": "runtime/url-state-runtime.json",
+        "sha256": "sha256:57d09fbb839a9c588b223f37b38bedebc70ef6f613968894374c0f4abc73a11e"
+      },
+      {
+        "bytes": 411,
+        "origin": "evidence/phase-8.1/browser-018/validation-runtime.json",
+        "path": "runtime/validation-runtime.json",
+        "sha256": "sha256:3ac719e8e963b6a5f7a9ffe3ceb1f163a734fe1a54ac4320f2a9416a36d9b096"
+      },
+      {
+        "bytes": 168707,
+        "origin": "evidence/phase-8.1/browser-018/desktop-success-1440x900.png",
+        "path": "screenshots/desktop-success-1440x900.png",
+        "sha256": "sha256:db50554bbed03962938a91c68dc69e9537f0d1ab9e31362d7365361f09b03988"
+      },
+      {
+        "bytes": 177773,
+        "origin": "evidence/phase-8.1/browser-018/intermediate-long-heading-1024x768.png",
+        "path": "screenshots/intermediate-long-heading-1024x768.png",
+        "sha256": "sha256:c6da538072b508f10dcaacd16f1fb436cb533403edf1ca5a40cc2b3624a345d4"
+      },
+      {
+        "bytes": 146197,
+        "origin": "evidence/phase-8.1/browser-018/intermediate-urgent-1024x768.png",
+        "path": "screenshots/intermediate-urgent-1024x768.png",
+        "sha256": "sha256:9d9a3b9f80e8ed534cfed553cca6d89af933312d3267fdf10f608f9b4e624cc7"
+      },
+      {
+        "bytes": 128650,
+        "origin": "evidence/phase-8.1/browser-018/mobile-critical-390x844.png",
+        "path": "screenshots/mobile-critical-390x844.png",
+        "sha256": "sha256:5c1922516da2917f28173d9c3ca0c272e470a0c8e2137ca8e57cbeb9e60bde99"
+      },
+      {
+        "bytes": 137710,
+        "origin": "evidence/phase-8.1/browser-018/portrait-empty-768x1024.png",
+        "path": "screenshots/portrait-empty-768x1024.png",
+        "sha256": "sha256:b7159c81b64de4a6293d677c9cd132c1842a6fa48fcee42f27ad463d792b5ed9"
+      },
+      {
+        "bytes": 150466,
+        "origin": "evidence/phase-8.1/browser-018/reflow-200-percent-195x844.png",
+        "path": "screenshots/reflow-200-percent-195x844.png",
+        "sha256": "sha256:579aca0b0fec5181606d25445fdcb6c30031b3f291ca3e15a542e31abdaca00c"
+      }
+    ],
+    "run_id": "P81-VERIFY-009",
+    "schema_version": "P8.1-VERIFIER-INPUT-INDEX-1",
+    "task_id": "PHASE8.1-001"
+  },
+  "input_index_digest": "sha256:2d78ab8d7cc8b4506fb124f47beb289017eec92f36c7be04f575af76b053db32",
+  "invocation_id": "INV-b025169b2408561d81d4a997",
+  "limitations": [
+    "HOST_LOAD_UNOBSERVABLE",
+    "Verifier is factual evidence authority, not promotion/release/visual authority."
+  ],
+  "package": {
+    "capability_id": "verification-loop-vnext",
+    "host_load_observation": "UNAVAILABLE",
+    "instruction_loaded": true,
+    "load_level": "L2_INSTRUCTION_KERNEL",
+    "manifest_digest": "sha256:df5129d5d0f0537d4df61abdbe4d612e0eec967966d0dd3e524016ad8b86231c",
+    "package_fingerprint": "sha256:dc380396cdc489976b5d120a964321032907f0101431786cda060dae15c11a4b",
+    "typed_skill_input": {
+      "name": "verification-loop-vnext",
+      "path": "$PROJECT/.harness/capabilities/verification-loop-vnext/SKILL.md",
+      "type": "skill"
+    }
+  },
+  "preflight": {
+    "allowed": true,
+    "blockers": [],
+    "digest": "sha256:703bd908d9322f3bc2dc7fbec57db93cacaa6622389cfe08c75e654198d5487f",
+    "warnings": [
+      "NETWORK_DENIED",
+      "SHELL_DENIED",
+      "MCP_DENIED",
+      "CREDENTIALS_DENIED"
+    ]
+  },
+  "report": null,
+  "report_valid": false,
+  "run_id": "P81-VERIFY-009",
+  "schema_version": "P8.1-REAL-VERIFIER-RECEIPT-2",
+  "status": "FAIL",
+  "task_id": "PHASE8.1-001",
+  "timeline": {
+    "completed_at_ns": 1788406664773032982,
+    "started_at_ns": 1788406484603211504
+  },
+  "workspace": {
+    "delta_ok": true,
+    "mode": "READ_ONLY",
+    "root": "verifier-input-009",
+    "unchanged": true
+  }
+}

@@ -4,6 +4,8 @@ import json
 import shutil
 from pathlib import Path
 
+import pytest
+
 from harness_kernel.phase5_cli import main
 from harness_kernel.phase5_pilot import load_task
 
@@ -51,6 +53,11 @@ def test_cli_dry_preflight_writes_blocked_handoffs_without_host_invocation(
 def test_cli_requires_the_exact_package_fingerprint_before_real_mode(
     tmp_path: Path, capsys
 ) -> None:
+    policy = json.loads(
+        (Path(__file__).parents[2] / "config/phase5-composition-policy.json").read_text()
+    )
+    if not Path(policy["builder"]["canonical_path"]).is_dir():
+        pytest.skip("the optional global design-director integration fixture is not installed")
     project = _copy_fixture_project(tmp_path)
     result = main(
         [

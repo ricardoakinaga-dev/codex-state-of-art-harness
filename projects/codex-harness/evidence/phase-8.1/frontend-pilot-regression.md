@@ -1,5 +1,3 @@
-# frontend-pilot Regression
+# Frontend Pilot Regression
 
-Status: `PASS_WITH_LIMITATIONS`
-
-Full current suite passed with 1781 tests. Tracked changes under frozen Phase 2–8 evidence: `none`. This is a regression-preservation check; it does not re-run every historical external host or browser claim.
+Status: `PASS`. Fresh focused selection: 25 passed. JavaScript syntax, Python fixture syntax, 33/33 direct catalog browser checks plus 11 supplemental checks, source/artifact header identity, and five required viewport/reflow renders passed.

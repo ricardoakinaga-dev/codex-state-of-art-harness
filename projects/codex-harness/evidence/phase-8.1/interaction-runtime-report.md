@@ -1,7 +1,3 @@
-# Interaction runtime
+# Interaction Runtime Report
 
-Status: `PASS_WITH_LIMITATIONS`
-
-Validation, submit loading, submit success, retry recovery and server-side 422 validation are recorded.
-
-Primary packet references: `browser-evidence.json`, `runtime-eval-traceability.json`, `composition-proof.json`.
+Status: `PASS`. Default, loading, empty, server error, keyboard retry, blank validation, valid submitting/success, lost-response failure, and safe retry states were exercised against the live fixture.

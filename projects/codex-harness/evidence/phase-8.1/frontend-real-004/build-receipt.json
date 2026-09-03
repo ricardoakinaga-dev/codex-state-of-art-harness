@@ -1,0 +1,33 @@
+{
+  "artifact_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+  "artifact_root": "artifact/frontend-run-003",
+  "command": "dependency-free exact source copy",
+  "completed_at_ns": 1788402230403902691,
+  "exit_code": 0,
+  "files": {
+    "app.js": {
+      "bytes": 15492,
+      "sha256": "sha256:93f1e912b52d371d778f52a0b178716f56705d933ab5b35589d45c7bce6587ef"
+    },
+    "fixture_server.py": {
+      "bytes": 9653,
+      "sha256": "sha256:10861d8f4de5524474b36292106efbe6c131d086c41ecff58e480404e9d8b6d2"
+    },
+    "index.html": {
+      "bytes": 11452,
+      "sha256": "sha256:b155552164302727f006d22d743dce4cd170686f6119ccf7581085e5973ad6a9"
+    },
+    "styles.css": {
+      "bytes": 20964,
+      "sha256": "sha256:8f2c15dfb1fcfc97a707c40a926cf27e1d095162379aa39d189e9c8d10e5bd44"
+    }
+  },
+  "invocation_id": "INV-2e7f31a26d1f5b9898c2ea28",
+  "run_id": "P81-COMPOSE-012",
+  "schema_version": "P8.1-BUILD-RECEIPT-2",
+  "source_digest": "sha256:2f6de39af2e1a69b2bf79fc081c91a95b935385ae38ef6d676e064968433b00c",
+  "source_root": "frontend-real-004/workspace-post/app",
+  "started_at_ns": 1788402230397224567,
+  "status": "PASS",
+  "task_id": "PHASE8.1-001"
+}

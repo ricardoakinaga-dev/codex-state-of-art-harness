@@ -1,9 +1,7 @@
 # Coverage Report
 
-- Test command: `.venv/bin/coverage run --branch -m pytest -q`
-- Result: `1781 passed`
-- Statements: `18260/19547` (92.58%)
-- Branches: `6703/7418` (90.36%)
-- Threshold: `>=80%` lines and branches — PASS.
+Status: `PASS`. Full branch-coverage run: 1,818 passed, 2 explicit environment skips, 0 failed.
 
-Source: `coverage-summary.json`.
+- Line coverage: `93.28255902513328`%
+- Branch coverage: `90.11254019292605`%
+- Required threshold: 80% / 80%
